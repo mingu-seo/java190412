@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,23 +7,23 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/jquery-ui.css">
-        <link rel="stylesheet" href="css/slick.css">
-        <link rel="stylesheet" href="css/slick-theme.css">
-        <link rel="stylesheet" href="css/aos.css">
-        <link rel="stylesheet" href="css/default.css">
-        <link rel="stylesheet" href="css/header.css">
-        <link rel="stylesheet" href="css/main-layout.css">
-        <link rel="stylesheet" href="css/footer.css">
-        <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
-        <script type="text/javascript" src="js/jquery-ui.js"></script>
-        <script type="text/javascript" src="js/gnb.js"></script>
-        <script type="text/javascript" src="js/logined-sub.js"></script>
-        <script type="text/javascript" src="js/banner_slider.js"></script>
-        <script type="text/javascript" src="js/slick.js"></script>
-        <script type="text/javascript" src="js/slick-slide.js"></script>
-        <script type="text/javascript" src="js/aos.js"></script>
-        <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+        <link rel="stylesheet" href="/css/jquery-ui.css">
+        <link rel="stylesheet" href="/css/slick.css">
+        <link rel="stylesheet" href="/css/slick-theme.css">
+        <link rel="stylesheet" href="/css/aos.css">
+        <link rel="stylesheet" href="/css/default.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/main-layout.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+        <script type="text/javascript" src="/js/jquery-ui.js"></script>
+        <script type="text/javascript" src="/js/gnb.js"></script>
+        <script type="text/javascript" src="/js/logined-sub.js"></script>
+        <script type="text/javascript" src="/js/banner_slider.js"></script>
+        <script type="text/javascript" src="/js/slick.js"></script>
+        <script type="text/javascript" src="/js/slick-slide.js"></script>
+        <script type="text/javascript" src="/js/aos.js"></script>
+        <script type="text/javascript" src="/js/jquery.mousewheel.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
             
@@ -101,11 +102,11 @@
                             <div class="pc-sub">
                                     <div class="pc-sub-center">
                                         <div class="pc-sub-box">
-                                            <h2><a href="special_promotion.html">Promotion</a></h2>
+                                            <h2><a href="/pkg/special_promotion.do">Promotion</a></h2>
                                             <ul class="offer">
-                                                <li><a href="pkg/room_offer.html">Room Package</a></li>
-                                                <li><a href="pkg/dining_offer.html">Dining Package</a></li>
-                                                <li><a href="pkg/etc_offer.html">Events & Gift</a></li>
+                                                <li><a href="/pkg/room_offer.html">Room Package</a></li>
+                                                <li><a href="/pkg/dining_offer.html">Dining Package</a></li>
+                                                <li><a href="/pkg/etc_offer.html">Events & Gift</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -144,7 +145,7 @@
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Facilities</h2>
                                                 <ul>
-                                                    <li><a href="../facilites.html#f1">The Oasis</a></li>
+                                                    <li><a href="/facilities.do#f1">The Oasis</a></li>
                                                     <li><a href="../facilites.html#f2">Indoor Swimming Pool</a></li>
                                                     <li><a href="../facilites.html#f3">Fitness Centre</a></li>
                                                     <li><a href="../facilites.html#f4">Sauna</a></li>

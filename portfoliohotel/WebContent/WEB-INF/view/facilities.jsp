@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -95,7 +96,7 @@
                             </div>
                     </li>
                     <li>
-                        <a href="#">Facilites</a>
+                        <a href="#">Facilities</a>
                             <div class="pc-sub">
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
@@ -185,10 +186,10 @@
         <div class="contents">
             <div class="contents-center">
                 <h3>FACILITES</h3>
-                <div class="facilites-box">
-                    <div  id="f1" class="facilites1 clear">
-                        <div class="facilites-bg"></div>
-                        <div class="facilites-text">
+                <div class="facilities-box">
+                    <div  id="f1" class="facilities1 clear">
+                        <div class="facilities-bg"></div>
+                        <div class="facilities-text">
                             <h4>오아시스<span>The Oasis</span></h4>
                             <p>남산의 아름다운 전경 속에 자리한 오아시스는<br/>
                                  도심 속 한가로운 휴양을 위한 최적의 장소입니다.
@@ -211,8 +212,8 @@
                             </table>
                         </div>
                     </div>
-                    <div id="f2" class="facilites2 clear">
-                        <div class="facilites-text">
+                    <div id="f2" class="facilities2 clear">
+                        <div class="facilities-text">
                                 <h4>실내 수영장<span>Indoor Swimming Pool</span></h4>
                                 <p>반얀트리 브랜드 고유의 자연친화적인 컨셉으로 디자인된 실내 수영장은 성인은 물론<br/>
                                      영유아까지 안전한 수영을 즐길 수 있습니다. 안전을 고려하여 설계된 연령대에 맞는
@@ -233,11 +234,11 @@
                                     </tr>
                                 </table>
                         </div>
-                        <div class="facilites-bg"></div>
+                        <div class="facilities-bg"></div>
                     </div>
-                    <div id="f3" class="facilites3 clear">
-                        <div class="facilites-bg"></div>
-                        <div class="facilites-text">
+                    <div id="f3" class="facilities3 clear">
+                        <div class="facilities-bg"></div>
+                        <div class="facilities-text">
                             <h4>피트니스 센터<span>Fitness Centre</span></h4>
                             <p>세계 최고 수준의 운동 기구와 인공 암벽, 다양한 프로그램이<br/>
                                 운영된 스튜디오가 마련되어 있습니다.
@@ -260,8 +261,8 @@
                             </table>
                         </div>
                     </div>
-                    <div id="f4" class="facilites4 clear">
-                        <div class="facilites-text">
+                    <div id="f4" class="facilities4 clear">
+                        <div class="facilities-text">
                                 <h4>사우나<span>Sauna</span></h4>
                                 <p>특별 제작된 독립 샤워 부스에서 수업, 색체, 음악을 이용한 테라피 샤워를<br/>
                                      즐길 수 있는 'Experiece Shower'와 건식, 습식 사우나가 마련된 사우나 시설에서
@@ -282,7 +283,7 @@
                                     </tr>
                                 </table>
                         </div>
-                        <div class="facilites-bg"></div>
+                        <div class="facilities-bg"></div>
                     </div>
                 </div>
             </div>
