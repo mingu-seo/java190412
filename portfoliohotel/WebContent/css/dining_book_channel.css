@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+body {color:#1d1d1d; }
+
+.banner {background-image:url("../img/book/dining_book.jpg"); background-repeat:no-repeat; background-size:cover; background-position:center center;
+        height:490px;}
+
+/* 객실 예약 제목 */
+.option_channel {width:1200px; margin:0 auto;}
+.head-title {width:600px; height:120px; padding-top:190px; margin:0 auto; color:#f3f3f3;
+            font-size:40px; text-align:center; margin-bottom:60px;}
+.head-title > p {font-size:28px; margin-top:15px; font-weight:300; }
+
+/* 진행 순서 */
+.cha_index {width:100%; margin-bottom:28px;}
+.cha_index:after {content:''; display:block; width:100%; height:1px; position: relative; bottom:-20px;
+                background-color:#d2d2d2; }
+.cha_index li {float:left;}
+.cha_index li a {color:#898989; font-size:14px;}
+.cha_index li a span {margin:0 10px;}
+.cha_index li:nth-child(3) a {color:#1d1d1d; font-weight:600;}
+
+
+/* 추가 옵션 박스 (왼쪽부분) */
+.section-wrap {padding:100px 0;}
+.section-wrap > div {float:left;}
+.left-section {width:65%; height:100%; border:1px solid #d2d2d2; }
+
+/* 추가옵션 타이틀 */
+.sec01-title {width:370px; height:60px; background-color:rgba(25,25,25,0.9); color:#fff; position: absolute;
+            top:-30px; left:0; line-height:60px; text-align:center;}
+.sec01-title > p {width:340px; height:40px; margin:0 auto; margin-top:10px; line-height:40px; border:1px solid rgba(230,220,220,0.5);}
+
+/* 예약 고객 정보 입력란 */
+.add01 {width:100%; padding:80px; padding-top:100px; padding-bottom:50px; position: relative;}
+.left-section > div:nth-child(2), .left-section > div:nth-child(3) {border-top:1px solid #d2d2d2;}
+.add01 > div {margin-bottom:20px;}
+.add01 label {margin-right:20px; font-size:14px;}
+.add01 label span {display:inline-block; font-size:8px; margin-top:-15px;}
+.add01 .phoneNumber label {margin-right:46px;}
+.add01 .phoneNumber input[type="text"] {width:322px;}
+.add01 input[type="text"] {width:160px; height:45px; padding-left:10px; border:1px solid #898989; color:#898989; font-size:14px;}
+.add01 select {width:120px; height:45px; border:1px solid #898989; font-size:14px;}
+
+.name_en > div {float:left;}
+.name_en_area {margin-left:3px;}
+.name_en_area > p {font-size:14px; font-weight:300; margin-top:10px;}
+.name_ko input[type="text"] {width:222px;}
+
+.email-title {margin-right:30px;}
+.email_adress li {float:left;}
+.email_adress .at {width:12px; margin:10px;}
+.adress select {border-left:none; width:93px;}
+
+/* 상세가격정보 */
+.add01 table {border:1px solid #e8e8e8; font-weight:300;}
+.add01 table tr th {width:350px;padding:18px; border-right:1px solid #e8e8e8; border-top:1px solid #e8e8e8; font-weight:400; 
+                    font-size:15px; background-color:rgba(230,220,220,0.2);}
+.add01 table tr td {height:50px; border-top:1px solid #e8e8e8; text-align:center; vertical-align: middle; font-size:15px;}
+.add01 table tr td p {color:#0e693f; font-weight:400; font-size:16px;}
+
+/* 카드정보입력 */
+.card input[type="text"] {width:432px;}
+.cardType select {width:432px; padding-left:5px;}
+.cardNumber label {margin-right:16px;}
+.expiredDate select {width:213px; color:#666;}
+.expiredDate label {margin-right:44px;}
+.expiredDate input[type="text"] {width:213px;}
+
+
+/* 인원 */
+.person label {float:left; margin-right:52px; line-height:45px;}
+.person ul {float:left; border:1px solid #898989; width:210px; margin-right:11px; line-height:45px;}
+.person li {float:left; padding-left:30px;}
+.person li select {border:none; width:68px;}
+.person ul .per:after {content:""; display:inline-block; width:1px; height:12px; background-color:#898989; position: relative; top:1px;
+                    left:20px; margin-right:7px; }
+.person .child {position: relative;}
+.person .child p {position: absolute; right:0; bottom:-40px; color:#1d1d1d; font-size:13px; } 
+
+/* 오른쪽 예약신청 버튼 구역 */
+.right-section { position: relative; width:35%;}
+
+.confirmation-box {position:relative;  right:0; width:416px; background-color:#f7f7f7;
+                border:1px solid #d2d2d2; border-top:none; border-left:none;}
+           
+/* 첫번째 구역1 (버튼/예약안내) */
+.content-area01 {padding:40px 36px; font-size:14px; color:#1d1d1d; line-height:1.6; }
+.area {padding:30px 36px; border-top:1px solid #d2d2d2; font-size:14px;line-height:1.6; }
+
+.content-area01 .point01 {color:#1a7149;} 
+.content-area01 > h2 {font-size:18px;}
+.content-area01 > p {font-size:13px; color:#666; margin:32px 0;}
+.content-area01 > h3 {font-weight:400;}
+
+/* 두번째 구역2 (예약문의) */
+.content-area02 ul {float:left;}
+.content-area02 ul li h3 {font-size:14px; font-weight:400;}
+
+/* 오른쪽 구역 공통 css */
+.title01 {width:250px;}
+.price01 {float:right; color:#1a7149; text-align:right;  }
+
+.title02 {margin-bottom:16px;}
+.title02 li {float:left; font-size:16px;}
+.total-price {width:240px; }
+.content-area03 > p {font-size:13px; color:#666; }
+.next-but {width:340px; height:50px; background-color:#000; margin:35px 0;}
+.next-but input {display:block; text-align:center; line-height:50px; color:#fff; background: none; color: #fff; width: 100%; height: 100%;}
+
+.content-area03 {padding-bottom:22px;}
+
+.area > h4 {color:#1d1d1d; font-size:14px;  }
+.area > h4:before {content:""; display:inline-block; width:23px; height:23px; border-radius:50%;
+                    background-color:#1d1d1d; background-repeat:no-repeat; 
+                    background-position:center center; background-size:10px 10px; 
+                    position:relative; top:6px; margin-right:10px;}
+.content-area03 > h4:before {background-image:url("../img/option-img/ico_info01.png");  background-size:3px 10px; }
+.content-area04 > h4:before {background-image:url("../img/option-img/ico_call01.png");  background-size:10px 10px; }
+.content-area04 {padding-top:16px;}

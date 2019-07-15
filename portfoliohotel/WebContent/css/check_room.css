@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+/*  객실로 보기  */
+.chk-section {width:1200px; margin:0 auto; padding-top:120px;}
+.chk-section > h2 {text-align: center; font-size:40px; margin-bottom:34px;}
+
+.cha_index {width:100%; margin-bottom:28px;}
+.cha_index li {float:left;}
+.cha_index li a {color:#898989; font-size:14px;}
+.cha_index li a span {margin:0 10px;}
+.cha_index li:nth-child(1) a {color:#1d1d1d; font-weight:600;}
+
+.select-info-box {width:100%; height:56px; position:relative;}
+.room-search {width:100%; height:100%; border:1px solid #898989;}
+.room-search > div {display:inline-block; height:100%; line-height:56px;}
+
+.after {padding:0 18px;}
+.after:after {content:""; display:inline-block; width:1px; height:18px; background-color:#898989; position:relative; left:18px; top:3px;}
+
+.checkInOut input[type="text"] {width:155px; padding:0 35px;}
+
+.days {width:70px; padding-left:18px;}
+.days:before {content:""; display:inline-block; width:1px; height:18px; background-color:#898989; position:relative; left:-18px; top:3px;}
+
+.room{border-left:1px solid #898989;}
+
+.select-option {border-right:1px solid #898989; padding:0 12px}
+.select-option select {border:none;}
+
+.re-try {width:260px; height:56px; background-color:#1a7149; position: absolute; top:0; right:0; }
+.re-check-btn {width:100%; height:100%; border:none; background-color:transparent; color:#fff; font-weight:600;}
+
+
+.room-info {width:1200px; margin:0 auto;}
+.tabMenu {width:100%; height:56px; line-height:56px; border:1px solid #898989; margin:35px 0;  border-right:none; }
+.tabMenu li {float:left;  width:50%; height:100%; text-align: center; border-right:1px solid #898989; }
+.tabMenu li a {color:#676767;}
+.tabMenu li.on a {display:block; height:100%; background-color:#1c2c25; color:#fff; font-weight:400;}
+
+.roomResult-area {width:1200px; padding:40px; border:1px solid #898989; margin-bottom:60px;}
+.roomResult-area > ul > li {float:left; padding-left:40px;}
+.roomResult-area .photo {width:610px; height:416px; background-repeat:no-repeat; background-position:center ceter;
+                            background-size:cover; position:relative;}
+.roomResult-area .roomtype01 { background-image:url("../img/room1.jpg"); }
+.roomResult-area .roomtype02 { background-image:url("../img/room2.jpg"); }
+
+.roomResult-area > ul > li .camera{position: absolute; top:0; left:0; width:35px; height:33px; background-color:rgba(25,25,25,0.7);
+                            line-height:33px; text-align:center;}
+.camera img {width:18px; margin-top:8px;}
+.roomResult-info > li:after {content:""; display:block; width:450px; height:1px; background-color:#898989; margin:28px 0;} 
+.roomResult-info > li:last-child:after {display:none;}
+.roomResult-info > li > h2 {font-size:28px; }
+.specific-notice > ul {float:left; width:220px; margin-bottom:28px;}
+.specific-notice > ul > li {margin-bottom:10px; font-size:15px;}
+.roomResult-info > li > p {line-height:1.2; font-size:15px; font-weight:300;}
+
+.priceResult {position: relative; }
+.priceResult > ul > li h1 {font-size:28px; color:#0e693f;}
+.priceResult > ul > li h3 {font-size:14px; margin:5px 0; margin-left:10px; font-weight:400;}
+.priceResult > ul > li p {font-size:12px; margin-left:10px; font-weight:300;}
+.priceResult > ul > li {float:left;}
+
+.reservation-btn {position: absolute; top:0; right:0px; width:140px; height:45px; border:none; background-color:#0e693f;
+                 font-weight:600;}
+.reservation-btn a {color:#fff; display:block; width:100%;}
+
+/* .priceResult-area {width:1200px; padding:40px; padding-bottom:56px; border:1px solid #898989; margin-bottom:60px; position: relative; display:none;}
+.thePrice {float:left;}
+.priceResult {float:right; margin-bottom:35px;}
+.more-btn {display:none; position: absolute;left:0; bottom:0; width:1200px; height:56px; border:none; 
+            background-color:#0e693f; color:#fff;}
+
+
+.rate-info {width:100%; margin-top:58px; padding-bottom:30px; position:relative;}
+.rate-info > li {float:left;}
+.rate-info .camera {width:35px; height:33px; background-color:rgba(25,25,25,0.7); line-height:33px; text-align:center;}
+.photo01 {width:490px; height:293px; background-image:url("../img/room1.jpg"); background-repeat:no-repeat; background-position:center ceter;
+    background-size:cover; position:relative; margin-right:58px;}
+
+.close-btn {position: absolute; left:0; bottom:0; width:100%; height:56px; border:none; 
+    background-color:#0e693f; color:#fff;} */

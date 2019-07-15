@@ -1,0 +1,59 @@
+@charset "UTF-8";
+body {color:#1d1d1d;}
+
+#container {padding-top:80px;}
+.container {width:1200px; margin:0 auto;}
+.container > h1 {height:120px; line-height:120px; margin-bottom:50px; font-size:40px; text-align:center; } 
+.container > h1:before {content:""; display:block; width:100%; height:1px; background-color:#1d1d1d; position: relative; top:0;}
+.container > h1:after {content:""; display:block; width:100%; height:1px; background-color:#1d1d1d; position: relative;bottom:0; }
+
+
+.slide {width:100%; position: relative;}
+.sub_page_panel .slick-slide {margin:0 100px;  width:1200px; }
+
+.sub_page_panel { position: relative;}
+.rooms { height:520px; background-repeat:no-repeat; background-position:center center; background-size:cover;position: relative;}
+.room-pic1 { background-image:url("../img/meeting/meeting-1.jpg"); }
+.room-pic2 { background-image:url("../img/meeting/meeting-2.jpg"); }
+.room-pic3 { background-image:url("../img/meeting/meeting-3.jpg"); }
+.room-pic4 { background-image:url("../img/meeting/meeting-4.jpg"); }
+.room-pic5 { background-image:url("../img/meeting/meeting-5.jpg"); }
+
+.room-btn {position:absolute; right:352px; bottom:221px; width:94px;}
+.room-btn > button {float:left; width:47px; height:44px; border:none; background-color:rgba(0,0,0,0.9); transition:all 0.5s;
+                    background-repeat:no-repeat; background-position:center center; background-size:26px 32px; }
+
+.room-btn .slick-prev {background-image:url("../img/pro_left.png");}
+.room-btn .slick-next {background-image:url("../img/pro_right.png");}
+
+.room-btn .slick-prev:hover {background-color:#0e693f; }
+.room-btn .slick-next:hover {background-color:#0e693f;}
+
+.brief {width:100%; height:180px; padding-top:50px; padding-left:25px; margin-bottom:85px;}
+.brief > h5 { font-size:15px; font-weight:400; line-height:1.5; margin-bottom:60px;}
+.book {width:370px; height:46px; background-color:#0e693f; line-height:46px; float:right;  color:#fff; text-align:center;}
+
+/* 미팅 룸들 */
+.meeting-rooms {width:100%; background-color:#eee; padding-top:100px; height:1000px;}
+.meeting-rooms-center {width:1200px; height:1000px; margin:0 auto;}
+.meeting-rooms-center > div {float:left; width:49%; margin-bottom:20px; position: relative;}
+.meeting-rooms-center > div:nth-child(odd) {margin-right:2%;}
+
+.meeting-rooms-center > div .room-bg {background-size:cover; background-repeat: no-repeat;}
+.meeting-room1 .room-bg {width:100%; height:370px; background-image: url("../img/meeting/meetingroom1.jpg");}
+.meeting-room2 .room-bg {width:100%; height:370px; background-image: url("../img/meeting/meetingroom2.jpg");}
+.meeting-room3 .room-bg {width:100%; height:370px; background-image: url("../img/meeting/meetingroom3.jpg");}
+.meeting-room4 .room-bg {width:100%; height:370px; background-image: url("../img/meeting/meetingroom4.jpg");}
+
+.room-text {width:100%; position:absolute; bottom:0;
+            line-height:60px; text-indent: 15px; ;
+            transition:all 0.5s;
+            height:60px; 
+            overflow:hidden;
+            background-color:rgba(0,0,0,0.3); }
+.room-text h3 { font-size:17px; font-weight:400; color:#fff}
+
+/* 미팅 룸들 제목 hover했을때 */
+.room-text-hover {color:#fff; line-height:24px; font-size:14px; font-weight:200;}
+.room-text-hover h4 {margin-top:40px; font-weight:400; font-size:15px;}
+.room-text:hover {height:200px; background-color:rgba(0,0,0,0.9);}
