@@ -1,20 +1,56 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../ss/jquery-ui.css">
     <link rel="stylesheet" href="../css/slick.css">
     <link rel="stylesheet" href="../css/slick-theme.css">
     <link rel="stylesheet" href="../css/default.css">
     <link rel="stylesheet" href="../css/header-fixed.css">
-    <link rel="stylesheet" href="../css/room-detail-subpage2.css">
+    <link rel="stylesheet" href="../css/room-detail-subpage.css">
     <link rel="stylesheet" href="../css/footer.css">
     <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
     <script type="text/javascript" src="../js/gnb.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.js"></script>
     <script type="text/javascript" src="../js/slick.js"></script>
     <script type="text/javascript" src="../js/slick-slide.js"></script>
-    <title>호텔객실2</title>
+    <script type="text/javascript">
+        $(function(){
+            
+                $(".book").click(function(event){
+                    event.preventDefault();
+                    $(".book-wrap").show();
+
+                });
+
+                $(".book-close > a").click(function(){
+
+                    $(".book-wrap").hide();
+                });
+
+                $("#book-start").datepicker({
+                    monthNames:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                    dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
+                    dateFormat: "yy-mm-dd",
+                    yearRange: "2019:2019",
+                    minDate: "0D"
+                    
+                });
+                $("#book-end").datepicker({
+                    monthNames:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+                    dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
+                    dateFormat: "yy-mm-dd",
+                    yearRange: "2019:2019",
+                    minDate: "1D"
+                });
+
+             
+        });
+    </script>
+    <title>호텔객실</title>
 </head>
 <body>
     <div id="header">
@@ -37,10 +73,10 @@
                                         <div class="pc-sub-box">
                                             <h2>Rooms</h2>
                                             <ul class="Rooms">
-                                                <li><a href="../room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
-                                                <li><a href="../room-detail-subpage.html">Namsan Pool Premier Suite</a></li>
-                                                <li><a href="../room-detail-subpage.html">Namsan Presidential Suite</a></li>
-                                                <li><a href="../room-detail-subpage.html">Spa Sanctuary Suite</a></li>
+                                                <li><a href="room-detail-subpage.do">Namsan Pool Deluxe Room</a></li>
+                                                <li><a href="room-detail-subpage2.do">Namsan Pool Premier Suite</a></li>
+                                                <li><a href="room-detail-subpage3.html">Namsan Presidential Suite</a></li>
+                                                <li><a href="room-detail-subpage4.html">Spa Sanctuary Suite</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -99,7 +135,7 @@
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Support</h2>
-                                                <a href="../notice.html" class="notice-a">
+                                                <a href="../membership/mypage.html" class="notice-a">
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
@@ -111,7 +147,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../faq.html">
+                                                <a href="../membership/faq.html">
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">
@@ -123,7 +159,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../qna.html">
+                                                <a href="../membership/qna.html">
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">
@@ -147,7 +183,7 @@
     <div id="container">
         <div class="container">
             <!-- 서브페이지 상단 타이틀 -->
-            <h1>NAMSAN POOL PREMIER ROOM</h1>
+            <h1>NAMSAN POOL DELUX ROOM</h1>
 
             <!-- 객실 사진 슬라이드 영역 -->
             <div class="slide">
@@ -175,10 +211,53 @@
             </div>
 
             <div class="brief">
-                <h5>남산 풀 프리미어 룸은 59㎡부터 70㎡의 면적의 객실로 한 층에 4개의 객실이 자리하고 있어 조용한 분위기에서 프라이빗한 휴식을 즐길 수 있습니다. 반얀트리 특유의 자연친화적인 여유로움을 느끼실 수 있으며 모든 객실에 설비된 릴랙세이션 풀은 도심 속 휴식을 더욱 완벽하게 만들어드립니다. 아름다운 서울의 야경과 웅장하게 펼쳐진 남산의 전경을 바라보며 몸과 마음을 채우는 특별한 휴식을 즐겨보시기 바랍니다.
+                <h5>더 호텔에 위치한 남산 풀 디럭스 룸은 50㎡부터 56㎡의 면적으로 안락한 공간에서 편안한 휴식을 즐기실 수 있습니다. 한 층에 4개의 객실이 자리하고 있으며<br/>
+                    객실에 설비된 릴랙세이션 풀은 반얀트리에서의 휴식을 더욱 특별하게 만들어 드립니다. 릴랙세이션 풀에서 스파를 즐기며 아름다운 서울의 전경을 바라보는 <br/>
+                    시간은 몸과 마음을 채우는 특별한 휴식을 선사합니다.
                 </h5>
 
                 <div class="book"><a href="#">객실 예약하기</a></div>
+
+                <div class="book-wrap">
+                    <div class="direct-reservation">
+                        <h2>RESERVATION</h2>
+                        <div class="d-r-input clear">
+                            <form>
+                                <div class="d-r-input1">
+                                    <input type="text" id="book-start">
+                                    <p>~</p>
+                                    <input type="text" id="book-end"> 
+                                    <select name="adult">
+                                        <option>성인</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                    </select> 
+                                    <select name="child">
+                                        <option>어린이</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                    </select>     
+                                </div>
+                                <div class="d-r-input2">
+                                    <!-- <input type="submit" value="예약 조회"> -->
+                                    <a href="../book/check_room.html">예약조회</a>
+                                </div>
+                            </form>
+                        </div>
+                        <p class="book-close"><a href="#">X</a></p>
+                    </div>    
+                </div>       
+                
             </div>
             
             <div class="info-box">
@@ -196,7 +275,7 @@
                         <ul class="second">
                             <li>15:00</li>
                             <li>12:00</li>
-                            <li>더호텔 14F~17</li>
+                            <li>더호텔 14F~16F</li>
                             <li>남산 & 시티뷰</li>
                             <li>원룸</li>
                         </ul>
@@ -277,5 +356,7 @@
             </div>
         </div>
     </div>
+
+    
 </body>
 </html>
