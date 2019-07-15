@@ -1,0 +1,42 @@
+/* container */
+.notice-section {width:700px; margin:0 auto; padding-top:130px;}
+.notice-section h2 {text-align:center; color:#fff; font-size:34px; font-weight:500; position: relative; margin-bottom:5px;}
+.notice-section h3 {text-align:center; color:#fff; font-size:22px; font-weight:300; margin-bottom:55px; position: relative; margin-top:10px;}
+.notice-section h4 {text-align:center; color:#fff; font-size:14px; font-weight:200; margin-bottom:55px; position: relative; line-height:20px;}
+
+/* 백그라운드 */
+#container {}
+.banner {
+        width:100%;
+        height:520px;
+         background-image: url("../img/support/notice-bg.png");
+         background-size:cover;
+         background-repeat: no-repeat;}
+
+/* notice */
+.notice {position: relative; top:-60px;}
+
+/* notice list */
+.support-list {height:60px; background-color:rgba(0, 0, 0, 0.6);}
+.support-list-center {width:900px; margin:0 auto;}
+.support-list-center li {width:33.333333%; float:left; text-align:center; line-height:60px; background-color:#000;}
+.support-list-center li.on {background-color:#fff;}
+.support-list-center li a {display:block; color:#fff;}
+.support-list-center li.on a {color:#454545;}
+
+/* notice 게시판 */
+.notice-table {width:1140px; margin:0 auto; padding-top:80px; padding-bottom:100px;}
+
+.table-box {width:100%;}
+.table-box table {width:100%;}
+.table-box table tr {width:100%; height:60px; border-bottom:1px solid #eee; line-height:60px; text-indent:30px; color:#454545;}
+.table-box table tr th {text-align:left; width:86%; font-weight:500;}
+.table-box table tr td a {color:#454545; display:block;}
+.table-date {font-weight:200; font-size:14px;}
+
+/* 테이블 페이지 넘버*/
+.table-page {margin-top:200px;}
+.page-number { width:15%; margin:0 auto;}
+.page-number li {float:left;}
+.page-number li a {color:#454545; padding:0 8px;}
+.page-number li.on a {color:#0e693f;}

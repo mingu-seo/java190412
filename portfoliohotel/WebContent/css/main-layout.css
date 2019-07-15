@@ -1,0 +1,260 @@
+@charset "UTF-8";
+
+/* container 시작 */
+/* 배너 영역 시작 (예약바 포함) */
+.banner {height:990px; background-size:cover; background-repeat: no-repeat; position: relative; }
+.slider {height:100%;}
+.slider > div {width:100%; height:100%; display:none; position: absolute;}
+.slider > div.selected {display:block;}
+
+.slider > div h4 {font-size:80px; color:#fff; text-align:center; margin-top:300px; line-height:90px; letter-spacing:-1px;}
+.slider > div h4 span {font-size:60px;}
+
+.banner-bg1 { background-image: url("../img/bg1.jpg"); }
+.banner-bg2 {background-image: url("../img/bg2.jpg"); }
+.banner-bg3 {background-image: url("../img/bg3.jpg"); }
+.slider-btn {position: absolute; top:690px;  left:50%; transform:translateX(-50%);}
+.slider-btn li {float:left; margin:5px; text-indent:-9999px;}
+.slider-btn li a {width:55px; height:12px; border:1.5px solid #fff; display:block; border-radius: 12px;}
+.slider-btn li.on a {background-color:#fff; border-radius: 12px;}
+/* 배너 영역 끝 */
+
+/* 배너부분에 예약영역 */
+.direct-reservation {width:1140px; height:150px; margin:0 auto; background-color:rgba(255, 255, 255, 0.9); 
+                position: absolute; left:50%; transform: translateX(-50%);
+                bottom:110px; padding-top:25px; padding-left:50px; padding-right:50px; border-radius: 15px;}
+.direct-reservation h2 {color:#0e693f; font-size:16px; font-weight: 500;
+         margin-bottom:10px;}       
+.d-r-input > div {float:left;}
+.d-r-input1 input[type="text"] {width:160px; height:30px; border:none; background:none; 
+                                border-bottom:1px solid #888;}
+.d-r-input1 p {display:inline-block; margin:0 25px; color:#454545;}
+
+.d-r-input1 select {width:90px; height:30px; text-align:center; 
+        margin-left:60px; background:inherit; border:none; 
+        font-size:16px; color:#454545; font-weight:500;
+         font-family: 'Noto Sans KR', sans-serif;
+        position: relative; top:7px;}
+
+.d-r-input2 {width:100%; text-align:right;}
+.d-r-input2 input[type="submit"] {width:260px; height:70px;
+                                        background-color:#0e693f;
+                                        border:none; border-radius:10px;
+                                        color:#fff; 
+                                        position: relative;
+                                        top:-38px;
+                                        font-family: 'Noto Sans KR', sans-serif;
+                                        font-size:22px;
+                                        font-weight:400;
+                                        }
+/* 임시버튼 */
+.d-r-input1 {position:relative;}
+.d-r-input2 a {display:block;width:260px; height:70px;
+        background-color:#0e693f;
+        border:none; border-radius:10px;
+        color:#fff; 
+        position: absolute;
+        top:40px;
+        right:50px;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size:22px;
+        font-weight:300;
+        line-height:70px; text-align:center;}
+
+/* 호텔 introduce 영역 시작 */
+.introduce {width:100%;  padding:0 30px; padding-top:124px; padding-bottom:124px;
+        background-color:black; }
+.intro-list {width:95%; margin:0 auto;}
+.intro-list li {float:left; height:374px; background-repeat:no-repeat; background-size:cover; position:relative;  }
+.intro-list li > p {position: absolute; bottom:20px; left:22px; color:#fff; font-size:24px;}
+.intro-title {width:41%;; line-height:374px; margin-right:1%;margin-bottom:20px;}
+.intro-title h2 {font-size:60px; text-align:center; color:#fff; font-weight:bold; }
+.intro-title:hover h2:before {display:none;}
+.intro-title:hover h2:after {display:none;}
+
+.special_offer {width:58%; background-image:url("../img/intro1.jpg"); background-position:center center; margin-bottom:20px; position: relative;}
+
+/* intro-list 호버 기능 시작 */
+.bg { width:100%; height:100%; background-color:rgba(0,0,0,0); transition:all 0.7s; position: absolute; overflow: hidden; }
+.bg > a {display:block; width:100%; height:100%;}
+
+.hover-box {width:200px; height:80px;text-align:center; line-height:60px; background-color:rgba(0,122,78,0.7); position: absolute;;
+        left:50%;  top:120%; transform:translate(-50%,-50%); transition:all 0.7s; }
+.hover-box > p {color:#fff; font-size:18px; }
+.hover-box > img {width:65px; height:7px; position:relative; bottom:40px;}
+
+.intro-list li:hover .bg { background-color:rgba(0,0,0,0.65);}
+.intro-list li:hover .hover-box {top:50%; }
+.intro-list li:hover > p {display:none;}
+
+.intro-list li:not(:first-child):before {content:"";  width:0%; height:1px; background-color:#fff; position: relative;
+                    top:20px; z-index:10; transition:all 0.7s; }
+.intro-list li:not(:first-child):after {content:"";  width:1px; height:0%; background-color:#fff; position: relative;
+                    left:20px; transition:all 0.7s; }
+
+.intro-list li:not(:first-child):hover:before {display:block; width:100%;}
+.intro-list li:not(:first-child):hover:after {display:block; height:100%;}
+
+/* intro-list 호버 기능 끝 */
+
+.fitness,.spa_relax,.event_gift {width:20%;}
+.fitness {background-image:url("../img/intro2.jpg"); background-position:center center; }
+.spa_relax {background-image:url("../img/intro3.jpg"); margin-left:1%; background-position:center center;}
+.dining {width:37%; background-image:url("../img/intro4.jpg"); margin:0 1%; background-position:center center;}
+.event_gift {background-image:url("../img/intro5.jpg"); background-position:center left;}
+
+/* 호텔 introduce 영역 끝 */
+/* special promotion 영역 시작 */
+
+#special_promotion {width:100%; height:1000px; padding-top:170px; position:relative; background-image:url("../img/promotion-bg.jpg"); background-size:cover; background-position:center center; 
+                    background-attachment: fixed;}
+.special_promotion {width:1000px; margin:0 auto; position: relative;}
+.special_promotion > h2 {font-size:60px; font-weight: bold; color:#fff; text-align: center; margin-bottom:95px;}
+/* 사진 배경위에 투명도 0.5도 올려주는 배경 깔아줌(sp-pro-bg) */
+.sp-pro-bg {width:100%; height:100%; background-color:rgba(0,0,0,0.5); position: absolute; top:0; left:0; }
+
+/* 프로모션 슬라이드 리스트 작업영역 시작 */
+
+.promotion_list .pro_list {float:left; width:250px; height:460px; position: relative;}
+.promotion_list .pro_list img {width:100%; height:315px;}
+.promotion_text {width:100%; height:170px; padding:15px 12px;  background-color:rgba(0,0,0,0.9); position: absolute; bottom:0;}
+.promotion_text > p {font-size:17px; font-weight:bold; color:#0e693f; line-height:19px; margin-bottom:10px;}
+.promotion_text > h6 {font-size:13px; font-weight:lighter; line-height:20px; color:#fff; margin-bottom:10px;}
+.promotion_text > h6 br {display:none;}
+.promotion_text > h6 span {margin-left:5px;}
+.promotion_text .pro_price {font-size:15px;}
+
+.pro_list { margin-top:30px;}
+.pro_list1 { margin-top:80px;}
+
+.pro-top-box {width:125px; height:60px; background-color:black;
+        position: absolute; top:-30px; left:0;}
+.pro-top-box > p {line-height:60px; font-weight:bold; color:#fff; font-size:15px; text-align:center; font-weight:300;}
+
+/* 좌우 버튼 */
+.promotion_list .slick-prev {width:36px; height:50px; background-image:url("../img/pro_left.png"); background-repeat:no-repeat;
+    background-size:cover; background-position:center center; position: absolute; left:-70px; top:50%;
+    transform:translateY(-50%);}
+.promotion_list .slick-next {width:36px; height:50px; background-image:url("../img/pro_right.png"); background-repeat:no-repeat;
+    background-size:cover; background-position:center center; position: absolute; right:-70px; top:50%;
+    transform:translateY(-50%);}
+
+/* 하단 슬라이드 단추 */
+.promotion_list .slick-dots {position: absolute; bottom:-100px; left:50%; transform:translateX(-50%); width:auto; }
+.promotion_list .slick-dots li {width:12px; height:12px; float:left; border-radius:50%; background-color:#fff; margin:0 6px; }
+.promotion_list .slick-dots li.slick-active {background-color:transparent; border:3px solid #fff; }
+/* special promotion 영역 끝 */
+
+#room_suits {height:970px; padding-top:140px; padding-bottom:110px; background-color:black;}
+#room_suits > h2 {width:1000px; margin:0 auto; font-size:46px; color:#fff; margin-bottom:40px; font-weight:bolder;}
+
+.room_suits {width:100%; position: relative;}
+.room_suits h2 { text-align:center;}
+.panel .slick-slide {margin:0 100px;  width:1000px; }
+
+
+.panel .slick-slide:not(.slick-center) {opacity:0.5;}
+
+.panel { position: relative;}
+.rooms { height:520px; background-repeat:no-repeat; background-position:center center; background-size:cover;position: relative;}
+.room-pic1 { background-image:url("../img/room1.jpg"); }
+.room-pic2 { background-image:url("../img/room2.jpg"); }
+.room-pic3 { background-image:url("../img/room3.jpg"); }
+.room-pic4 { background-image:url("../img/room4.jpg"); }
+.room-pic5 { background-image:url("../img/room5.jpg"); }
+
+
+.top-title {width:150px; height:80px; background-color:rgba(0,122,78,1); position: absolute; right:500px; top:-34px;}
+.top-title > h3 {font-size:26px; text-align:center; font-weight: bold; color:#fff; margin-top:13px;}
+
+.room-intro-wrap {  position: absolute; right: 650px; top: 66px;}
+.room_intro {width:350px; height:380px; padding-top:25px; padding-left:30px; background-color:rgba(237,237,237,0.9); position: absolute; display:none;}
+.room_intro:nth-child(1) { display:block;}
+
+
+.room_intro > h3 {font-size:36px; font-weight:bold; line-height:38px; font-weight: 900; margin-bottom:20px;}
+.room_intro:nth-child(1) > h3 {margin-bottom:30px;}
+.room_intro:nth-child(3) > h3, .room_intro:nth-child(4) > h3 {margin-bottom:10px;}
+
+.room_intro > p {font-size:14px; line-height:19px; font-weight:300; margin-bottom:20px;}
+.room_intro > h6 {font-size:14px; font-weight:500; line-height:22px;}
+.room_intro > h6 > span {font-weight:400; margin-left:10px;}
+
+.green-box {margin-left:18px; margin-top:20px;}
+.green-box li {float:left;}
+.green-box a {display:block; text-align:center; line-height:34px; font-size:14px; font-weight: bold; }
+.room_more {width:120px; height:34px; border:1px solid #0e693f;}
+.room_book {width:120px; height:34px; background-color: #0e693f; margin-left:5px;}
+
+.room_more a {color:#0e693f;}
+.room_book a {color:#fff;}
+
+.room-btn {position:absolute; right:300px; bottom:155px; width:94px;}
+.room-btn > button {float:left; width:47px; height:44px; border:none; background-color:rgba(0,0,0,0.9); transition:all 0.5s;
+            background-repeat:no-repeat; background-position:center center; background-size:26px 32px;}
+
+.room_suits .slick-prev {background-image:url("../img/pro_left.png");  border:1px solid #808080; left:-5px;}
+.room_suits .slick-next {background-image:url("../img/pro_right.png"); border:1px solid #808080;}
+
+.room_suits .slick-prev:hover {background-color:#696767; }
+.room_suits .slick-next:hover {background-color:#696767;}
+
+.room-bot-info { width:1000px; margin:0 auto;}
+.room-bot-info li {float:left;}
+
+.room-left-info {width:510px;margin-right:76px; padding-left:5px;}
+.room-right-info {width:410px;}
+
+.room-left-info .table1, .room-left-info .table1-1 {margin-right:30px; display:inline; line-height:2; color:#808080;} 
+.room-left-info > ul {float:left;}
+.room-left-info > ul .th {width:83px; display:inline-block; font-weight:bolder; color:#d0d0d0;}
+
+.room-bot-info li > h3 {width:100%; height:50px; margin-bottom:20px; line-height:50px; font-size:20px; font-weight:bold; color:#fff;}
+.room-bot-info li > h3:before {content:""; display:block; width:100%; height:1px; background-color:#fff; position: relative; top:50px;}
+
+.table1 th {width:80px; }
+
+.table2 li {float:left; padding-top:5px; margin-bottom:5px; color:#808080;}
+.table2 li p {display:inline-block;}
+.table2 .wid-1 {width:115px;}
+.table2 .wid-2 {width:130px;}
+
+/* Things you can enjoy section*/
+
+#tyc { 
+    background-image: url("../img/tyc_bg.jpg"); padding-top:120px; padding-bottom:80px;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-size:cover;
+    position:relative;    
+        
+}
+.tyc-bg-opacity {position: absolute; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6);}
+.tyc-center {width:1200px; margin:0 auto;}
+.tyc-title {width:100%; padding:0 20px; position: relative; margin-bottom:100px;}
+.tyc-title h2 {color:#fff; font-size:60px; font-weight:bold; }
+.tyc-title h2:last-child {text-align: right;}
+.tyc-content {color:#fff; position: relative;}
+.tyc-list {height:390px; width:100%; margin-bottom:80px; }
+.tyc-list > div {width:50%; height:390px; float:left; padding:40px;}
+.tyc-list-bg {}
+.tyc-list-text {background-color:rgba(25,25,25,0.9); padding:15px 25px; font-size:15px;}
+.tyc-list-text h4 {line-height:24px; font-weight:200;}
+
+.tyc-content > div {background-repeat:no-repeat; }
+.tyc-content > div:nth-child(1) .tyc-list-bg {background-image: url("../img/things_to_do_01.jpg");}
+.tyc-content > div:nth-child(2) .tyc-list-bg {background-image: url("../img/things_to_do_02.jpg");}
+.tyc-content > div:nth-child(3) .tyc-list-bg {background-image: url("../img/things_to_do_03.jpg");}
+.tyc-content > div:nth-child(4) .tyc-list-bg {background-image: url("../img/things_to_do_04.jpg");}
+
+/* tyc font */
+.tyc-list-text h3 {font-size:42px; font-weight:900; margin-bottom:30px;}
+.tyc-list-text h3 .tyc-text-title {margin-left:20px; font-family: 'Noto Serif', serif; font-size:26px;}
+.tyc-text-title {font-weight:200;}
+
+.tyc-list-text table {margin-top:30px;}
+.tyc-list-text table tr {height:25px;}
+.tyc-list-text table th {width:80px; text-align: left; font-weight:500;}
+.tyc-list-text table td {text-align: left; font-weight:200;}
+.view-details {color:#fff;}
+

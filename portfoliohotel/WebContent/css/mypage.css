@@ -1,0 +1,80 @@
+/* container */
+.mypage-section {width:700px; margin:0 auto; padding-top:130px;}
+.mypage-section h2 {text-align:center; color:#fff; font-size:34px; font-weight:500; position: relative; z-index:30; margin-bottom:5px;}
+.mypage-section h3 {text-align:center; color:#fff; font-size:22px; font-weight:300; margin-bottom:55px; position: relative;  z-index:30; margin-top:10px;}
+.mypage-section h4 {text-align:center; color:#fff; font-size:14px; font-weight:200; margin-bottom:55px; position: relative;  z-index:30; line-height:20px;}
+
+/* 배너 */
+#container {}
+.banner {
+        width:100%;
+        height:490px;
+         background-image: url("../img/mypage/mypage.jpeg");
+         background-size:cover;
+         background-repeat: no-repeat;
+         background-position-y: -50px;}
+/* mypage section */
+.reservation {width:1200px; margin:0 auto; font-weight:100; padding-top:50px; padding-bottom:80px;}
+.reservation > div {float:left;}
+.reservation h3 {  font-weight:300; color:#454545; font-size:36px; margin-bottom:20px;}
+.reservation h3 span {font-weight:300; color:#0e693f; font-size:16px; margin-left:10px;}
+.reservation-status-left {width:955px;}
+.reservation-status-left table {width:100%; border:1px solid #bcbcbc; text-align:left;}
+.reservation-status-left table td {font-weight:200; padding:20px; color:#454545;}
+.reservation-status-left table tr {border-bottom:1px solid #bcbcbc;}
+.reservation-status-left table tr.table-head th {height:45px; background-color:#454545; 
+                                            color:#fff; font-weight:200; line-height:45px; text-indent:20px;}
+.reservation-status-left table tr td.participants {line-height:50px;}
+.reservation-status-left table tr td.option span {display:block; padding-top:10px; padding-bottom:40px;}
+.reservation-status-left table tr.reserved td { border-right:1px solid #bcbcbc;}
+.reservation-status-left table .price {text-align:right; font-weight:400; color:#0e693f;}
+
+/* 내정보칸 */
+.reservation-status-right {width:225px; border:1px solid #bcbcbc; margin-left:20px; border-bottom:none;}
+.reservation-status-right .my-info {height:180px; padding:20px; background-color:#454545; color:#fff; }
+.reservation-status-right .my-info h4 {color:#fff; margin-bottom:30px; font-size:24px; line-height:35px;}
+.reservation-status-right .my-info table tr td {width:100px; height:20px; font-size:15px; font-weight:300;}
+
+.my-info-list li a {padding-left:15px; display:block; border-bottom:1px solid #bcbcbc; line-height:50px; color:#454545;}
+.my-info-list li a:hover {color:#fff; background-color:#888;}
+
+/* 포인트 section */
+.point {width:1200px; margin:0 auto; padding-bottom:80px;}
+.point h3 {  font-weight:300; color:#454545; font-size:36px; margin-bottom:20px;}
+.point span {font-weight:300; color:#0e693f; font-size:16px; margin-left:10px;}
+
+.point-box {width:100%; height:400px;  border:1px solid #bcbcbc;}
+.point-box table {width:100%;}
+.point-box tr {width:100%; height:40px; border-bottom:1px solid #eee;}
+.point-box tr td:first-child {text-indent:20px; width:89%; line-height:40px; font-weight:200;}
+.point-box tr td:last-child {width:20%; font-weight:200; font-size:13px;}
+.point-box tr .plus {margin:0px 10px;}
+
+.point-box {overflow-y: auto;}
+
+/* 나의질문 section */
+.my-question  {width:1200px; margin:0 auto; padding-bottom:80px;}
+.my-question h3 {  font-weight:300; color:#454545; font-size:36px; margin-bottom:20px;}
+.my-question span {font-weight:300; color:#0e693f; font-size:16px; margin-left:10px;}
+
+.my-question-box {width:100%; height:400px;  border:1px solid #bcbcbc;}
+.my-question-box table {width:100%;}
+.my-question-box tr {width:100%; height:40px; border-bottom:1px solid #eee;}
+.my-question-box tr td:first-child {text-indent:20px; width:89%; line-height:40px; font-weight:200;}
+.my-question-box tr td:last-child {width:20%; font-weight:200; font-size:13px;}
+.my-question-box tr .plus {margin:0px 10px;}
+.my-question-box tr td a {color:#454545;}
+
+
+/* 멤버십 등급별 특전 */
+.membership-benefit  {width:1200px; margin:0 auto; padding-bottom:80px;}
+.membership-benefit h3 {  font-weight:300; color:#454545; font-size:36px; margin-bottom:20px;}
+.membership-benefit span {font-weight:300; color:#0e693f; font-size:16px; margin-left:10px;}
+
+.membership-benefit-box-center {width:930px; margin:0 auto;}
+.membership-benefit-box {width:1200px; margin:0 auto; text-align:center; margin-top:50px;}
+.membership-benefit-box > div > div {float:left; margin-right:110px;}
+.membership-benefit-box .benefit-img { width:150px; height:150px; border:5px solid #454545; border-radius: 50%; text-align:center; line-height:150px; font-size:32px; color:#454545; margin:0 auto;}
+.membership-benefit-box .vip.on .benefit-img {border:none; background-color:#0e693f; color:#fff;}
+.membership-benefit-box .benefit-text {line-height:30px; margin-top:20px;}
+

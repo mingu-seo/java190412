@@ -1,0 +1,55 @@
+/* container */
+.qna-section {width:700px; margin:0 auto; padding-top:130px;}
+.qna-section h2 {text-align:center; color:#fff; font-size:34px; font-weight:500; position: relative; margin-bottom:5px;}
+.qna-section h3 {text-align:center; color:#fff; font-size:22px; font-weight:300; margin-bottom:55px; position: relative; margin-top:10px;}
+.qna-section h4 {text-align:center; color:#fff; font-size:14px; font-weight:200; margin-bottom:55px; position: relative; line-height:20px;}
+
+/* 백그라운드 */
+#container {}
+.banner {
+        width:100%;
+        height:520px;
+         background-image: url("../img/support/qna-bg.jpg");
+         background-size:cover;
+         background-repeat: no-repeat;}
+
+/* Q&A */
+.qna {position: relative; top:-60px;}
+
+/* Q&A list */
+.support-list {height:60px; background-color:rgba(0, 0, 0, 0.6);}
+.support-list-center {width:900px; margin:0 auto;}
+.support-list-center li {width:33.333333%; float:left; text-align:center; line-height:60px; background-color:#000;}
+.support-list-center li.on {background-color:#fff;}
+.support-list-center li a {display:block; color:#fff;}
+.support-list-center li.on a {color:#454545;}
+
+/* Q&A 게시판 */
+.qna-table {width:1140px; margin:0 auto; padding-top:80px; padding-bottom:100px; position: relative;}
+
+.table-box {width:100%;}
+.table-box table {width:100%;}
+.table-box table tr {width:100%; height:60px; border-bottom:1px solid #eee; line-height:60px; text-indent:30px; color:#454545;}
+.table-box table tr th {text-align:left; width:86%; font-weight:500;}
+.table-box table tr td a {color:#454545; display:block;}
+.table-date {font-weight:200; font-size:14px;}
+
+/* 검색창 & 검색버튼 */
+.search {width:500px; height:30px; line-height: 30px; margin-top:30px; position: absolute; bottom:200px; left:50%; transform:translateX(-50%);}
+.search select {width:100px; height:100%; border:1px solid #898989; padding-left:30px;}
+.search input[type="text"] {width:290px; height:100%; border:1px solid #898989; padding-left:10px;}
+.search button {width:100px; height:100%; border:none; background-color:#0e693f; color:#fff;}
+
+/* Q&A 글쓰기 버튼 */
+
+.qna-q-btn {width:105px; height:30px;}
+.qna-q-btn p {width:105px; text-align:center; line-height:30px; position: absolute; right:38px; bottom:200px;}
+.qna-q-btn p a {display:block; color:#fff; background-color:#0e693f;}
+
+
+/* 테이블 페이지 넘버*/
+.table-page {margin-top:200px;}
+.page-number { width:15%; margin:0 auto;}
+.page-number li {float:left;}
+.page-number li a {color:#454545; padding:0 8px;}
+.page-number li.on a {color:#0e693f;}

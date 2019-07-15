@@ -1,0 +1,39 @@
+/* promotion 배너들 */
+.banner {height:600px; background-size:cover; background-repeat: no-repeat; }
+.banner.propose { background-image:url("../img/promotion/propose-bg.jpg");}
+.banner.senseof {background-image: url("../img/promotion/senseof.jpg");}
+.banner.oasis {background-image: url("../img/promotion/oasis-bg.jpg");}
+.banner.bbq {background-image: url("../img/promotion/bbq-bg.jpg");}
+.banner.reasonable {background-image: url("../img/promotion/reasonable.jpg");}
+.banner.petit {background-image: url("../img/promotion/petit.jpg");}
+.banner.granum {background-image: url("../img/promotion/granum.jpg");}
+.banner.bridal {background-image: url("../img/promotion/bridal.jpg");}
+
+.banner-center {width:1200px; height:100%; margin:0 auto; position: relative;}
+.banner-text {width:350px; height:350px; position:absolute; bottom:0; right:0; color:#fff; background-color:rgba(0, 0, 0, 0.7); padding:60px 20px 20px 20px; text-align:center;}
+.banner-text h2 {font-size:20px; font-weight:300; margin-bottom:30px;}
+.banner-text h2 span {display:block; margin-top:5px; font-size:14px;}
+.banner-text h3 {font-size:15px; font-weight:200; margin-bottom:30px; line-height:18px; letter-spacing:0.2px;}
+.banner-text p {font-size:13px; font-weight:200; line-height:20px;}
+
+/* 프로모션 상세 내용 */
+.contents-center {width:1200px; margin:0 auto; position: relative; padding-top:110px; padding-bottom:110px;}
+.logo-post {position: absolute; top:-35px; left:-20px;}
+.contents-info {}
+.contents-info > div {float:left; width:50%;}
+.contents-center .contents-left {padding-left:40px; border-right:1px solid #eee;}
+.contents-info table .table-list {color:#0e693f; width:80px; line-height:30px; font-weight:400;}
+.contents-info table .table-list.price { line-height:80px;}
+.contents-info table .table-list.time { line-height:80px;}
+.contents-info table .table-list.event { line-height:80px;}
+.contents-info table .table-list.info {line-height:100px;}
+.contents-info table .table-list.place {line-height:100px;}
+.contents-info table td {font-weight:200; font-size:15px;}
+/* td-lh = table에 td line-heihgt 임*/
+.contents-info .td-lh {line-height:26px;}
+
+/* 예약및 이용문의 */
+.contents-right {padding-left:70px; }
+.contents-right h3 {font-weight:400; color:#0e693f; font-size:15px; margin-bottom:15px;}
+.contents-right h4 {font-weight:300; margin-bottom:5px; color:#454545; font-size:15px;}
+.contents-right a {width:250px; height:50px; display:block; color:#fff; background-color:#0e693f; text-align:center; line-height:50px; margin-top:30px;}
