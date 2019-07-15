@@ -73,8 +73,8 @@
                                         <div class="pc-sub-box">
                                             <h2>Rooms</h2>
                                             <ul class="Rooms">
-                                                <li><a href="room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
-                                                <li><a href="room-detail-subpage2.html">Namsan Pool Premier Suite</a></li>
+                                                <li><a href="room-detail-subpage.do">Namsan Pool Deluxe Room</a></li>
+                                                <li><a href="room-detail-subpage2.do">Namsan Pool Premier Suite</a></li>
                                                 <li><a href="room-detail-subpage3.html">Namsan Presidential Suite</a></li>
                                                 <li><a href="room-detail-subpage4.html">Spa Sanctuary Suite</a></li>
                                             </ul>
