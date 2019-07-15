@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../ss/jquery-ui.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
     <link rel="stylesheet" href="../css/slick.css">
     <link rel="stylesheet" href="../css/slick-theme.css">
     <link rel="stylesheet" href="../css/default.css">
@@ -139,7 +139,7 @@
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
-                                                        반얀트리 공지사항과<br/>
+                                                        호텔 공지사항과<br/>
                                                         놓칠 수 없는 이벤트 정보를 알려드립니다.
                                                     </li>
                                                     <li class="support-icon"><img src="../img/notice-icon.png"></li>
@@ -151,7 +151,7 @@
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">
-                                                        반얀트리에 대한<br/>
+                                                        호텔에 대한<br/>
                                                         자주 묻는 질문입니다.
                                                     </li>
                                                     <li class="support-icon"><img src="../img/faq-icon.png"></li>
@@ -163,7 +163,7 @@
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">
-                                                        반얀트리에 관한질문 사항이나 궁금한 점을<br/> 
+                                                        호텔에 관한질문 사항이나 궁금한 점을<br/> 
                                                         남겨 주시면 신속하게 답변을 드리겠습니다.
                                                     </li>
                                                     <li class="support-icon"><img src="../img/qna-icon.png"></li>
@@ -250,7 +250,7 @@
                                 </div>
                                 <div class="d-r-input2">
                                     <!-- <input type="submit" value="예약 조회"> -->
-                                    <a href="../book/check_room.html">예약조회</a>
+                                    <a href="/book/add_option.do">객실 예약</a>
                                 </div>
                             </form>
                         </div>

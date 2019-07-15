@@ -32,4 +32,10 @@ public class RoomController {
 		
 		return "room/room-detail-subpage4";
 	}
+	
+	@RequestMapping("/book/add_option.do")
+	public String add_option(Model model, AdminVO param) throws Exception {
+		
+		return "book/add_option";
+	}
 }
