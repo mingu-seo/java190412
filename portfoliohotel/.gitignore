@@ -1,0 +1,7 @@
+/.classpath
+/.settings
+.projuct
+/bin
+**/META-INF
+/.project
+/build
