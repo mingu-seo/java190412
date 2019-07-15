@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+/* con2 부분 exhibition */
+.con2 { margin-top:-100px;}
+.con2-bg { height:980px; padding-top:190px; background-image:url("../img/con2-bg.jpg"); background-attachment:fixed; background-size:cover; background-position:center center; background-repeat:no-repeat;}
+.con2-bg > h2 {font-size:100px; text-align:center; color:#fff; margin-bottom: 118px;}
+.con2-box { width:1200px; margin:0 auto;}
+.con2-box a { color:#fff;}
+
+.slider-list-text{text-align: center; margin-top: 20px;}
+
+.slick-slide {width:290px; margin:0 10px;}
+.slick-slide img { width:100%; height: 290px;}
+
+/* con2 부분 */
+
+/* con3 부분 event&programs*/
+.con3 h2 {font-size:100px; text-align:center; margin-top: 80px;}
+.con3-box {width:1200px; margin:170px auto;}
+.con3-box img {width:100%; height:100%;}
+.con3-img {float:left; box-shadow:3px 3px 10px black; width:500px; height:450px;}
+.con3-text {float:left; margin-left:100px;}
+.con3 h3 {font-size:30px; color:#c2ad6f; font-weight:Regular; margin-top:50px; font-weight:normal;}
+.con3 h3:after {content:""; width:150px; height:2px; background-color:#c2ad6f; display:inline-block; margin-bottom:7px; margin-left:30px;}
+.con3 h4 {font-size:70px; margin-top:50px; font-weight:normal; text-align:center;}
+.con3 p {font-size:28px; margin-top:70px; text-align:center; font-weight:normal;}
+.con3-img2 {float:right; box-shadow:3px 3px 10px black; width:500px; height:450px;}
+.con3-text2 {float:right; margin-right:100px;}
+.con3-text2 h3 {text-align:right; margin-right:50px;}
+.con3-box2 {margin-top:150px;}
+.con3-img3 {float:left; box-shadow:3px 3px 15px black; width:500px; height:450px;}
+.con3-text3 {float:left; margin-left:100px;}
+.con3-box3 {margin-top:150px;}
+.con3-more {width:400px; margin:0 auto; margin-top:200px; height:60px; text-align:center; border:2px solid #c2ad6f; color:#c2ad6f; font-size:40px; line-height:60px;}
+.con3-more a {display:block; color:#c2ad6f; transition:all 0.5s;}
+.con3-more:hover a {color:white; background-color:#c2ad6f;}
+/* con3 부분 */
+
+/* con4 부분 collection*/
+.con4 {background-image:url("../img/con4-bg.jpg"); background-repeat:no-repeat;}
+.con4 h2 {font-size:100px; text-align:center; color:white; padding-top:50px;}
+.con4-box {width:1200px; margin:0 auto; padding-top:100px; padding-bottom:200px;}
+.con4-box img {width:100%; height:100%;}
+.con4-box-bg {background-color:rgba(0,0,0,0.7);  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); text-align:center; opacity:0; z-index:10; transition:all 0.5s;}
+.con4-box-left {float:left; width:390px; margin-right:15px;}
+.con4-box-text {position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100%;}
+
+.con4-box-left1:hover .con4-box-left1-bg {opacity:1;}
+.con4-box-left1:hover .con4-box-left1-img {transform:scale(1.1);}
+.con4-box-left1-img {transition:all 0.5s;}
+.con4-box-left1 {position:relative; height:575px; margin-bottom:15px; overflow:hidden;}
+.con4-box-left1-bg {width:370px; height:555px;}
+.con4-box-left1-bg h4 {font-size:24px; color:white;}
+.con4-box-left1-bg p {font-size:14px; color:white; margin-top:30px;}
+
+
+.con4-box-left2 {position:relative; height:270px; overflow:hidden;}
+.con4-box-left2:hover .con4-box-left2-bg {opacity:1;}
+.con4-box-left2:hover .con4-box-left2-img {transform:scale(1.1);}
+.con4-box-left2-img {transition:all 0.5s;}
+.con4-box-left2-bg {width:370px; height:250px;}
+.con4-box-left2-bg h4 {font-size:24px; color:white;}
+.con4-box-left2-bg p {font-size:14px; color:white; margin-top:30px;}
+
+.con4-box-center {float:left; width:390px; margin-right:15px;}
+
+.con4-box-center1:hover .con4-box-center1-bg {opacity:1;}
+.con4-box-center1:hover .con4-box-center1-img {transform:scale(1.1);}
+.con4-box-center1-img {transition:all 0.5s;}
+.con4-box-center1 {height:270px; margin-bottom:15px; position:relative; overflow:hidden;}
+.con4-box-center1-bg {width:370px; height:250px;}
+.con4-box-center1-bg h4 {font-size:24px; color:white;}
+.con4-box-center1-bg p {font-size:14px; color:white; margin-top:30px;}
+
+.con4-box-center2 {height:575px; position:relative; overflow:hidden;}
+.con4-box-center2:hover .con4-box-center2-bg {opacity:1;}
+.con4-box-center2:hover .con4-box-center2-img {transform:scale(1.1);}
+.con4-box-center2-img {transition:all 0.5s;}
+.con4-box-center2-bg {width:370px; height:555px; }
+.con4-box-center2-bg h4 {font-size:24px; color:white;}
+.con4-box-center2-bg p {font-size:14px; color:white; margin-top:30px;}
+
+.con4-box-right {width:390px; float:left;}
+
+.con4-box-right1 {height:276.666px; margin-bottom:15px; position:relative; overflow:hidden;}
+.con4-box-right1:hover .con4-box-right1-bg {opacity:1;}
+.con4-box-right1:hover .con4-box-right1-img {transform:scale(1.1);}
+.con4-box-right1-img {transition:all 0.5s;}
+.con4-box-right1-bg {width:370px; height:250px;}
+.con4-box-right1-bg h4 {font-size:24px; color:white;}
+.con4-box-right1-bg p {font-size:14px; color:white; margin-top:30px;}
+
+.con4-box-right2 {height:276.666px; margin-bottom:15px; position:relative; overflow:hidden;} 
+.con4-box-right2:hover .con4-box-right2-bg {opacity:1;}
+.con4-box-right2:hover .con4-box-right2-img {transform:scale(1.1);}
+.con4-box-right2-img {transition:all 0.5s;}
+.con4-box-right2-bg {width:370px; height:250px;}
+.con4-box-right2-bg h4 {font-size:24px; color:white;}
+.con4-box-right2-bg p {font-size:14px; color:white; margin-top:30px;}
+
+.con4-box-right3 {height:276.666px; position:relative; overflow:hidden;}
+.con4-box-right3:hover .con4-box-right3-bg {opacity:1;}
+.con4-box-right3:hover .con4-box-right3-img {transform:scale(1.1);}
+.con4-box-right3-img {transition:all 0.5s;}
+.con4-box-right3-bg {width:370px; height:250px;}
+.con4-box-right3-bg h4 {font-size:24px; color:white;}
+.con4-box-right3-bg p {font-size:14px; color:white; margin-top:30px;}
+
+.con4-box-text-cont { display:none;}
+
+/* collection 작품 클릭시 레이어팝업 등장 */
+
+.collection-popup { position:fixed; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.9);
+    display:none;}
+.coll-pop-cont { position: absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:1200px; height:450px;
+ border:3px solid #c2ad6f; box-sizing: content-box;}
+.coll-left { float:left; width:400px; height:100%;}
+.coll-right { float:left; padding:50px; width:800px; height:100%; background-color:#fff;}
+.coll-right h5 {font-size:22px; margin-bottom:60px;}
+.coll-right h6 {font-size:40px; margin-bottom:70px;}
+.coll-right p {font-size:18px; line-height:30px;}
+.coll-close { position:absolute; right:30px; top:30px; width:30px; height:30px;}
+/* con4 부분 */
+
+/* top 아이콘 클릭 */
+.fixed-top {width:60px; height:60px; background-color:black; border-radius:50%; box-shadow:1px 2px 8px #434343;position:fixed;
+            bottom:50px; right:50px; text-align:center;  line-height:60px; font-size:18px; display:none;
+            animation:move 1s 1s infinite ease-in alternate;}
+.fixed-top a {display:block; color:#e4e4e4;}
+
+@keyframes move {
+    from{bottom:50px;}
+
+    to {bottom:60px;}
+}
