@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+#container {background-image: url("../img/sign_in_img/sign_in-bg.jpg");
+            background-repeat: no-repeat; background-size:cover; width:100%; height:1080px;
+            background-attachment: fixed;
+            background-position-y: -85px;}
+
+.account-section {width:700px; margin:0 auto; padding-top:130px;}
+.account-section h2 {text-align:center; color:#fff; font-size:34px; font-weight:500; position: relative; z-index:30; margin-bottom:5px;}
+.account-section h3 {text-align:center; color:#fff; font-size:22px; font-weight:300; margin-bottom:55px; position: relative;  z-index:30;}
+
+/* 로그인박스 */
+.account-box {width:700px; height:770px; background-color: rgba(0, 0, 0, 0.8);
+            padding-top:30px; position: relative; border-radius:10px;}
+.account-box-logo {position: absolute; top:-12px; left:15px;}
+
+/* 회원가입 입력창 영역 */
+
+.account-form {width:320px; margin:0 auto;}
+.account-form input {height:35px; padding-left:10px; background:inherit; border:1px solid #d1d4d6; color:#fff; margin-bottom:18px; font-size:14px; border-radius:5px;}
+.account-form input::placeholder {color:#d1d4d6; font-size:12px;}
+.account-form label {color:#d1d4d6; display:block; margin-bottom:7px; font-weight: 400;}
+
+/* 새아이디 */
+.account-form1 input[type="text"] {width:71%;}
+/* 새아이디 중복확인 */
+.account-form1 input[type="submit"] {width:26%; position: relative; top:1px; right:-7px; text-align:center; padding:0;
+                                     color:#d1d4d6; background-color:rgba(14, 105, 63, 0.8);
+                                     font-family: 'Noto Sans KR', sans-serif; font-weight:500;
+                                     font-size:14px;
+                                     border:1px solid #0e693f;
+                                     }
+.account-form1 input[type="submit"]:hover {color:#fff;}
+/* 비밀번호 */
+.account-form1 input[type="password"] {width:100%;}
+
+/* 이름 */
+.account-name input[type="text"] {width:155px;}
+.account-name > div {width:155px; float:left; margin-right:10px;}
+.account-name > div:last-child {margin:0;}
+
+/* 성별 */
+.account-sex label {display:inline-block;}
+.account-sex input {position: relative; top:12px;}
+.account-sex label.female {margin-left:30px;}
+
+/* 생년월일 */
+.birth-form input[type="text"] {width:100px; float:left; margin-right:10px;}
+.account-birthday > div:last-child input[type="text"] {margin-right:0;}
+
+/* 회원가입 폼 영역 세번째 */
+
+.account-form3 input {width:100%;}
+
+.adress input[type="text"] {margin-bottom:5px;}
+.adress input[id="adress1"] {width:78%;}
+.adress button {height:35px; border:none; border-radius: 5px; background-color:#0e693f; color:#fff; } 
+
+/* 가입하기버튼 */
+.account-form3 input[type="submit"] {background-color:#0e693f; border:none; font-size:16px; color:#d1d4d6; margin-top:20px; font-weight:600; font-family: 'Noto Sans KR', sans-serif;}
+.account-form3 input[type="submit"]:hover {color:#fff; }

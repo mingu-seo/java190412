@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+
+
+#banner {height:690px; background-image:url("../img/visual_room.jpg"); background-repeat:no-repeat; background-size:cover; background-position:center center;}
+#banner_dining {height:690px; background-image:url("../img/visual_dining.jpg"); background-repeat:no-repeat; background-size:cover; background-position:center center;}
+#banner_etc {height:690px; background-image:url("../img/visual_event.jpg"); background-repeat:no-repeat; background-size:cover; background-position:center center;}
+.banner {width:280px; padding-top:270px; margin:0 auto; color:#fff;font-size:62px;}
+.banner > h3 {font-size:62px; color:#fff; text-indent:50px;}
+
+#room_offer {width:1200px; margin:0 auto;  padding-top:150px; padding-bottom:100px;}
+.room_offer {width:100%; margin:0 auto; margin-bottom:100px;}
+.room_offer > h2 {color:#1d1d1d; font-size:62px; text-align:center;}
+.room_offer > h2:before {content:""; display:block; width:100%; height:1px; background-color:#1d1d1d; position:relative; bottom:45px; }
+.room_offer > h2:after {content:""; display:block; width:100%; height:1px; background-color:gray; position:relative; top:45px; }
+
+.promotion_list {width:1200px; padding:30px 0; margin: 0 auto; margin-top:25px; position: relative;}
+
+.promotion_list > div {width:360px; float:left;  height:410px; background-color:#f1f1f1; position: relative;    margin:20px;}
+
+.promotion_list .promo-bg {width:100%; height:250px; overflow:hidden; position:absolute; background-color:rgba(0,0,0,0);transition:all 0.5s;}
+
+.promotion_list .promo-bg:hover {background-color:rgba(0,0,0,0.6);}
+.promotion_list .promo-bg:hover .promo-text {display:block; }
+.promo-text {width:170px; height:60px;text-align:center; line-height:50px; background-color:rgba(0,0,0,1); position: absolute;
+    left:50%;  top:50%; transform:translate(-50%,-50%); transition:all 0.7s; display:none;}
+.promo-text > p {color:#fff; font-size:18px;  }
+
+.promotion_list img {width:100%; height:250px; }
+.promotion_list .promo-text .img {width:65px; height:7px; position:relative; bottom:35px;}
+
+.promotion_list a {color:#0e693f; font-size:18px;}
+
+.list-text {padding:26px;}
+.list-text > h3 {font-size:20px; margin-bottom:22px;}
+.list-text > p {color:#1d1d1d; margin-bottom:10px;}
+
+.promotion_list > button {width:58px; height:58px; background-color:#000; border:none;background-repeat:no-repeat; background-size:36px 36px; 
+                    background-position:center center; position: absolute; top:50%; transform:translateY(-50%);}
+.promotion_list > button:hover {background-color:#0e693f;}
+
+.main_title {width:1200px; margin:0 auto; margin-top:100px; }
+.main_title > h2 {font-weight:lighter; color:#0e693f; font-size:48px;}
+
+
+#footer {width:100%; height:230px;
+    background-color:black; position: relative;}
+.footer-logo {width:80px; position: absolute; top:60px; left:140px;}
+.footer-logo img {width:100%;}
+.support-logo {position: absolute; bottom:10px; right:0px; }
+.support-logo li {float:left; margin-left:5px; width:40px;}
+.support-logo li img {width:100%;}
+
+.footer-center {width:1200px; margin:0 auto;}
+.footer-top {height:100px; position: relative; border-bottom:1px solid #eee;}
+.footer-top .company-info li {float:left; line-height:100px;} 
+.footer-top .company-info li a {color:#fff; font-size:14px; font-weight:300; }
+.footer-top .company-info li a:after {display:inline-block; width:1px; height:10px; content:""; background-color:#fff; margin:0 10px;}
+.footer-top .company-info li:last-child a:after {display:none;}
+
+.sns {position: absolute; top:50%; transform: translateY(-50%); right:0; }
+.sns li {float:left; margin-left:5px;}
+
+.footer-bottom {color:#fff; font-size:14px; font-weight:300; position: relative;}
+.footer-bottom h5 { font-size:14px; font-weight:300; margin-top:25px; margin-bottom:15px; line-height:20px;}
+.footer-bottom h6 {font-weight:400;}

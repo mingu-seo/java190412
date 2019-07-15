@@ -1,0 +1,50 @@
+/* container */
+.banner {width:700px; margin:0 auto; padding-top:130px; background-color:#333;}
+.banner h2 {text-align:center; color:#fff; font-size:34px; font-weight:500; position: relative; z-index:30; margin-bottom:5px;}
+.banner h3 {text-align:center; color:#fff; font-size:22px; font-weight:300; margin-bottom:55px; position: relative;  z-index:30; margin-top:10px;}
+
+/* 배너 */
+#container {}
+.banner {background-image: url("../img/mypage/edit-bg.jpg"); background-size:cover; background-repeat: no-repeat;
+        width:100%;
+         background-position-y: -50px; padding-bottom:200px; background-attachment: fixed;}
+         
+#container {}/* 임시싸이즈 */
+
+.edit-section-bg {}
+.edit-section {width:1200px; margin:0 auto;
+                }
+.edit-section-center {width:800px; margin:0 auto; position: relative; background-color:rgba(0,0,0,0.8); border-radius:15px;}
+.table-logo {position: absolute; top:-35px; left:20px;}
+.edit-table {padding-top:100px; padding-left:50px; padding-right:30px; padding-bottom:100px; }
+
+.edit-table > div {width:50%; float:left;  padding-right:30px;     margin-bottom: 50px;}
+.edit-table > div:last-child {border-right:none; padding-left:30px;}
+.edit-table input {width:100%; display:block; border:1px solid #fff; line-height:30px; margin:10px 0; text-indent:10px; background:none;  border-radius:5px; color:#fff;}
+.edit-table input::placeholder {font-size:12px;}
+.edit-table label {color:#fff; font-weight:500;}
+
+#id {margin-bottom:30px;}
+#id h6 {font-size:16px; font-weight:500; color:#fff;}
+#id p {color:#0e693f; line-height:40px;}
+
+.name input {width:85%;}
+.name > div {width:50%; float:left;}
+
+/* 성별 */
+.gender label {display:block; margin-top:20px;}
+.gender input[type="radio"] {display:inline-block; width:20%; color:#fff;}
+.gender p {color:#fff; display:inline-block;}
+
+/* 생년월일 */
+.birth {margin-top:20px;}
+.birth label {display:block;}
+.birth input[type="text"] {width:31%; margin-right:2%; display:inline-block;}
+.birth input[type="text"]:last-child {margin-right:0;}
+
+/* 이메일 */
+.email {margin-top:20px;}
+
+/* 수정하기버튼 */
+.edit-table .submit-button {width:60%; margin:0 auto; height:50px; background-color:#0e693f; color:#fff; border:none; }
+.edit-table .submit-button:hover {background-color:rgba(14,105,63,0.8);}
