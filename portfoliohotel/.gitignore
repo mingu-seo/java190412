@@ -1,5 +1,7 @@
 /.classpath
 /.settings
-.project
+/bin
+/.project
+/build
 /bin
 **/META-INF
