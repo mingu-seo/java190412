@@ -1,0 +1,117 @@
+@charset 'utf-8';
+
+/* con1 css */
+.con1 {height:500px; background-image: url("../img/sub-banner04.jpg"); background-repeat:no-repeat; background-size:cover; background-position:top -470px center;}
+
+/* fixed sub */
+.con2 {position: relative; height:auto;}
+.fixed-sub {width:300px; background-color: #fff;
+            position: absolute; left:0; top:0;}
+.title-area {width:100%; text-align: center; margin-bottom:86px;}
+.title-area h2 {margin-top:80px; font-size:30px; color:#666;}
+.title-area p {font-size:14px; color:#4d6877; margin-top:10px;}
+
+.sub-bar {width:100%;}
+.sub-bar li {width:100%; height:72px; line-height:72px; text-align:center; background-color: #fff;
+             border-top:1px solid #f3f3f3; border-bottom:1px solid #f3f3f3;}
+.sub-bar li a {display:block; color:#378367;}
+.sub-bar li.on {background-color: #378367;}
+.sub-bar li.on a {color:#fff;}
+
+/* main : 여기다가 하면 됨 */
+/* .main {margin-left:300px;} */
+.main {width:1200px; margin-left:400px; height:2000px;}
+.main > h3 {font-size:30px; color:#666; text-align:center; padding-top:80px;}
+.main > p {font-size:14px; color:#4d6877; text-align: center; padding-top:10px;}
+
+/* 위로가기 */
+.main .top-arrow {z-index: 50; text-align: center; width:100px; position: fixed; right:120px; bottom:10%; animation: move 1s infinite ease-in alternate;}
+@keyframes move {from {transform:translate(0px, 0px);} 
+                    to {transform:translate(0px, 10px);} }
+.main .top-arrow:hover {animation-play-state: paused;}   
+.main .top-arrow p {font-size:14px; color:#4d6877;  padding-top:10px;}
+/* 끝 */
+
+/* 강아지 고양이 특수동물 버튼 리스트 */
+.tab-list {width:570px; border-bottom:2px solid #4d6877; margin:0 auto; margin-top:86px;}
+.tab-list li {float:left; width:190px; height:40px; text-align:center; line-height:40px;}
+.tab-list li a {color:#4d6877; display:block; height:40px; font-weight: 400;}
+.tab-list li.on {background-color: #4d6877;}
+.tab-list li.on a {color:#fff;}
+
+/* 프로필 부분 */
+.tab-group {position: relative; width:100%;}
+.tab-group > div {display:none; position: absolute; left:0; }
+.tab-box:nth-child(1) {display:block;}
+.tab-box {position: relative;}
+
+/* 강아지 부분 */
+.box1 {margin-top:60px;}
+.box {float:left;}
+.box-img1 {float:left; width:320px; height:320px; background-image: url("../img/dog1-1.jpg"); background-size:cover; background-position:bottom -40px center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box {position:relative; width:700px; height:320px; padding-top:60px; border-top:1px solid #d7d7d7; margin-left:80px;}
+.box > p {margin-left:20px; font-size:14px; color:#4d6877; margin-bottom:26px;}
+.info-text {color:#666; width:80px; display:inline-block;}
+.box > img {width:64px; position: absolute; right:0; top:24px;}
+
+.box2 {margin-top:80px;}
+.box-img2 {float:left; width:320px; height:320px; background-image: url("../img/dog1-2.jpg"); background-size:cover; background-position:bottom -100px center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box2 > .box {margin-left:0; margin-right:80px;}
+
+.box3 {margin-top:80px;}
+.box-img3 {float:left; width:320px; height:320px; background-image: url("../img/bel.jpg"); background-size:cover; background-position:center right; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+
+.box4 {margin-top:80px;}
+.box-img4 {float:left; width:320px; height:320px; background-image: url("../img/dog1-4.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box4 > .box {margin-left:0; margin-right:80px;}
+
+/* 고양이 부분 */
+.box5 {margin-top:60px;}
+.box {float:left;}
+.box-img5 {float:left; width:320px; height:320px; background-image: url("../img/cat1-1.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box {position:relative; width:700px; height:320px; padding-top:60px; border-top:1px solid #d7d7d7; margin-left:80px;}
+.box > p {margin-left:20px; font-size:14px; color:#4d6877; margin-bottom:26px;}
+.info-text {color:#666; width:80px; display:inline-block;}
+.box > img {width:64px; position: absolute; right:0; top:24px;}
+
+.box6 {margin-top:80px;}
+.box-img6 {float:left; width:320px; height:320px; background-image: url("../img/cat1-2.jpg"); background-size:cover; background-position:bottom -100px center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box6 > .box {margin-left:0; margin-right:80px;}
+
+.box7 {margin-top:80px;}
+.box-img7 {float:left; width:320px; height:320px; background-image: url("../img/cat1-3.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+
+.box8 {margin-top:80px;}
+.box-img8 {float:left; width:320px; height:320px; background-image: url("../img/cat1-4.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box8 > .box {margin-left:0; margin-right:80px;}
+
+/* 특수동물 부분 */
+.box9 {margin-top:60px;}
+.box {float:left;}
+.box-img9 {float:left; width:320px; height:320px; background-image: url("../img/special1-1.jpg"); background-size:cover; background-position:left -110px center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box {position:relative; width:700px; height:320px; padding-top:60px; border-top:1px solid #d7d7d7; margin-left:80px;}
+.box > p {margin-left:20px; font-size:14px; color:#4d6877; margin-bottom:26px;}
+.info-text {color:#666; width:80px; display:inline-block;}
+.box > img {width:50px; position: absolute; right:0; top:24px;}
+
+.box10 {margin-top:80px;}
+.box-img10 {float:left; width:320px; height:320px; background-image: url("../img/special1-2.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box10 > .box {margin-left:0; margin-right:80px;}
+
+.box11 {margin-top:80px;}
+.box-img11 {float:left; width:320px; height:320px; background-image: url("../img/special1-3.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+
+.box12 {margin-top:80px;}
+.box-img12 {float:left; width:320px; height:320px; background-image: url("../img/special1-4.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box12 > .box {margin-left:0; margin-right:80px;}
+
+/* 상담신청 버튼 부분 */
+.sub4-1-more {width:80px; height:40px; position: absolute; right:0; bottom:25px;}
+.sub4-1-more a {display:block; height:100%;  border-radius: 35px;  color:#98a2aa; border:1px #e8eaec solid; text-align: center; line-height:40px; font-size:12px; transition: all 0.3s;}
+.sub4-1-more:hover a { color: #83c1aa; border:1px solid #83c1aa;}
+
+/* 더보기 버튼 */
+.tab-more {margin:0 auto; width:180px; height:50px; margin-top:30px; border:2px solid #4d6877; 
+    text-align:center; line-height:50px; margin-bottom:100px; transition: all 0.5s;}
+.tab-more a {display:block; height:100%; color:#4d6877; transition: all 0.5s;}
+.tab-more:hover a { background-color: #4d6877; color:#fff;}

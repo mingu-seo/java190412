@@ -1,0 +1,92 @@
+@charset 'utf-8';
+
+/* con1 css */
+.con1 {height:500px; background-image: url("../img/sub-banner05.jpg"); background-repeat:no-repeat; background-size:cover; background-position:top 20px center;}
+
+/* fixed sub */
+.con2 {position: relative; height:auto; margin-bottom:100px;}
+.fixed-sub {width:300px; background-color: #fff;
+            position: absolute; left:0; top:0;}
+.title-area {width:100%; text-align: center; margin-bottom:86px;}
+.title-area h2 {margin-top:80px; font-size:30px; color:#666;}
+.title-area p {font-size:14px; color:#4d6877; margin-top:10px;}
+
+.sub-bar {width:100%;}
+.sub-bar li {width:100%; height:72px; line-height:72px; text-align:center; background-color: #fff;
+             border-top:1px solid #f3f3f3; border-bottom:1px solid #f3f3f3;}
+.sub-bar li:nth-child(2) {border-bottom:none;}     
+.sub-bar li a {display:block; color:#378367;}
+.sub-bar li.on {background-color: #378367;}
+.sub-bar li.on a {color:#fff;}
+
+/* main : 여기다가 하면 됨 */
+.main {width:1200px; margin:0 auto;}
+.main > h3 {font-size:30px; color:#666; text-align:center; padding-top:80px;}
+.main > p {font-size:14px; color:#4d6877; text-align: center; padding-top:10px;}
+
+/* 프로필 */
+
+.sub6-my { width:800px; margin:0 auto; margin-top:50px; position: relative; }
+
+.sub6-my > div {float:left; width:300px; text-align: center; height:200px; padding-top:60px;}
+.sub6-my > div h5 {color:#666; font-size:30px;}
+.sub6-my .myinfo-btn {color:#98a2aa; letter-spacing: 0.5px; transition: all 0.3s; border:1.5px #e8eaec solid; text-align: center; display: block; line-height: 38px; border-radius: 35px; font-size:12px; position: absolute; right:40px; top:40%; transform: translateY(-50%); width:80px; height:40px; }
+.sub6-my .myinfo-btn:hover {color:#83c1aa; border:1.5px solid #83c1aa;}
+.sub6-my > div:nth-child(1) {margin-right:50px; margin-left:30px; border:2px solid #ebebeb; border-radius: 50%; width:150px; height:150px; background-image: url(../icon/man.jpg); background-size:150px; background-repeat: no-repeat; background-position: left -2px top -20px;}
+.sub6-contact::before {content: ''; display: block; background-color:#e8eaec; width:70px; height:2px; margin-bottom:20px; margin-left:40px;}
+.sub6-contact {width:800px; margin:0 auto;}
+.sub6-contact h3 {text-indent: 40px; font-size:20px; color:#666; margin-top:20px;}
+.sub6-contact > div {width:49%; float:left; text-indent: 50px; margin-bottom:40px; margin-top:25px;}
+.sub6-contact > div h5{color:#9aa2a9; margin-bottom:15px; font-size:16px;}
+.sub6-contact > div p{color:#666; font-size:14px;  letter-spacing: 0.3px;}
+
+.sub6-botbox p{font-size:14px; text-align: center; line-height: 60px;}
+
+
+/* 다음 접종 & 진료 예정일 박스 */
+.sub6-botbox {width:750px; height:60px; margin:100px auto; background-color: #f2f2f2; line-height:40px; border-radius: 10px;}
+.sub6-botbox p {color:#666;}
+.sub6-botbox p span {color:#378367;}
+
+/* 나의 정보수정 (사람)  */
+#myinfo-area {display:none;  position: fixed; z-index: 5;top:50%; left:50%; transform: translate(-50%, -50%); width:900px; background-color:#fff; height:800px; margin:0 auto;  box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.myinfo-box {position: relative;}
+.myinfo-head {width:100%; height:50px; background-color: #83c1aa; color:#fff;}
+.myinfo-head p {float:left; margin-left:28px; line-height:50px;}
+.myinfo-head img {float:right; margin-right:28px; width:35px; margin-top:8px; animation:mover 1s infinite ease-out alternate; cursor: pointer;}
+
+.myinfo-back-arrow {position: absolute; top:50%; transform:translateY(-50%); left:50px;}
+.myinfo-back-arrow a {display:block; width:100%; transition: all 0.3s;}
+.myinfo-back-arrow a img {width:60px;}
+.myinfo-back-arrow p {font-size:14px; color:#4d6877; margin-top:20px;}
+.myinfo-back-arrow:hover a {transform: scale(1.1);}
+
+.myinfo-logo {width:200px; margin:0 auto; margin-top:50px;}
+.myinfo-logo a {display:block;}
+
+.myinfo-form span {display:inline-block; color:#666; width:100px; font-size:14px;}
+.myinfo-form { width:575px; margin:0 auto; margin-top:34px;}
+
+/* 인풋 타입 텍스트 */
+.cover-size {width:440px; height:50px; background-color: #ededed; border:none; padding-left:25px; margin-bottom:14px; border-radius: 10px;}
+.half-size {width:125px; height:50px; background-color: #ededed; border:none; padding-left:25px; border-radius: 10px; margin-bottom:14px;}
+.phone_box > select {width:125px; height:50px; background-color: #ededed; border:none; padding-left:25px; 
+                     border-radius: 10px; margin-right:17px; color:#4d6877; font-size:14px; background-image: url("../icon/select_arrow.png"); background-repeat: no-repeat; background-position:right 10px center; background-size:14px;
+                    }
+.email_box > select {width:295px; height:50px; background-color: #ededed; border:none; padding-left:25px; 
+                     border-radius: 10px; margin-left:17px; color:#4d6877; font-size:14px; background-image: url("../icon/select_arrow.png"); background-repeat: no-repeat; background-position:right 10px center; background-size:14px;}
+
+input[type='text']::placeholder {color:#4d6877; font-size:14px;} 
+input[type='password']::placeholder {color:#4d6877; font-size:14px;}
+
+#btn_reset1 {box-shadow: 0 3px 5px rgba(0,0,0,0.2); float:left;transition: all 0.3s; width:247px; height:50px; background-color: #83c1aa; color:#fff; margin-right:20px; border:none;  border-radius: 10px;}
+#btn_reset1:hover {transform: scale(1.03); color:#378367;}
+#btn_submit {box-shadow: 0 3px 5px rgba(0,0,0,0.2); float:left;transition: all 0.3s; width:306px; height:50px; background-color: #83c1aa; color:#fff; border:none; border-radius: 10px;}
+#btn_submit:hover {transform: scale(1.03); color:#378367;}
+.half {margin-left:17px;}
+
+.myinfo-bot {width:376px; margin:0 auto;}
+.myinfo-bot li {float:left; width:188px; height:30px; text-align: center; line-height:30px;}
+.myinfo-bot li:first-child a {color:#4d6877;} 
+.myinfo-bot li a {display:block; height:100%; color:#a2a1a1; font-size:14px;}
+/* 끝 */

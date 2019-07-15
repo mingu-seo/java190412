@@ -1,0 +1,51 @@
+@charset 'utf-8';
+
+/* con1 css */
+.con1 {height:500px; background-image: url("../img/sub-banner09.jpg"); background-repeat:no-repeat; background-size:cover; background-position:top 60px center;}
+/* fixed sub */
+.con2 {position: relative; height:auto;}
+.fixed-sub {width:300px; background-color: #fff;
+            position: absolute; left:0; top:0;}
+.title-area {width:100%; text-align: center; margin-bottom:86px;}
+.title-area h2 {margin-top:80px; font-size:30px; color:#666;}
+.title-area p {font-size:14px; color:#4d6877; margin-top:10px;}
+
+.sub-bar {width:100%;}
+.sub-bar li {width:100%; height:72px; line-height:72px; text-align:center; background-color: #fff;
+             border-top:1px solid #ebebeb; border-bottom:1px solid #ebebeb;}
+.sub-bar li:nth-child(2) {border-bottom: none;}
+.sub-bar li a {display:block; color:#378367;}
+.sub-bar li.on {background-color: #378367;}
+.sub-bar li.on a {color:#fff;}
+
+/* 끝 */
+
+/* main : 여기다가 하면 됨 */
+.main {width:1200px; margin:0 auto; text-align: center; height:1200px; position: relative;}
+.main h3 {font-size:30px; color:#666; padding-top:80px;}
+.main p {font-size:14px; color:#4d6877;  padding-top:10px;}
+
+/* 인사말 텍스트 부분 */
+.main h4 {color:#7d909d; font-size:14px; line-height: 30px; font-weight: 400; }
+.main .h4-1 {margin:50px 0;}
+.main .h4-3 {margin-top:50px; margin-bottom:30px;}
+
+.main .img-left {position: absolute; left:0; bottom:320px;}
+.main .img-right {position: absolute; right:0; bottom:320px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
