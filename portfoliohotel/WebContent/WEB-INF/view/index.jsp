@@ -139,16 +139,16 @@
                             </div>
                     </li>
                     <li>
-                        <a href="#">Facilites</a>
+                        <a href="#">Facilities</a>
                             <div class="pc-sub">
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Facilities</h2>
                                                 <ul>
                                                     <li><a href="/facilities.do#f1">The Oasis</a></li>
-                                                    <li><a href="../facilites.html#f2">Indoor Swimming Pool</a></li>
-                                                    <li><a href="../facilites.html#f3">Fitness Centre</a></li>
-                                                    <li><a href="../facilites.html#f4">Sauna</a></li>
+                                                    <li><a href="/facilities.do#f2">Indoor Swimming Pool</a></li>
+                                                    <li><a href="/facilities.do#f3">Fitness Centre</a></li>
+                                                    <li><a href="/facilities.do#f4">Sauna</a></li>
                                                 </ul>
                                             </div>
                                             <div class="pc-sub-box mtop">

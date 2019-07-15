@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="css/aos.css">
         <link rel="stylesheet" href="css/default.css">
         <link rel="stylesheet" href="css/header.css">
-        <link rel="stylesheet" href="css/facilites.css">
+        <link rel="stylesheet" href="css/facilities.css">
         <link rel="stylesheet" href="css/footer.css">
         <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
         <script type="text/javascript" src="js/gnb.js"></script>
@@ -185,7 +185,7 @@
         </div>
         <div class="contents">
             <div class="contents-center">
-                <h3>FACILITES</h3>
+                <h3>FACILITIES</h3>
                 <div class="facilities-box">
                     <div  id="f1" class="facilities1 clear">
                         <div class="facilities-bg"></div>
