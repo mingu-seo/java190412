@@ -1,0 +1,364 @@
+@charset 'utf-8';
+
+/* Window fix menu 우측 화면 이동 버튼 */
+.fix-menu-box {opacity: 0; width:20px; height:200px; position: fixed; top:50%; transform: translateY(-50%); right:30px; }
+
+.fix-menu-box ul li a {text-indent: -9999px; display: block; width:12px; height:12px;  transition: all 0.5s;  border:3px solid transparent; background-color:#7d909b; margin-bottom:25px; border-radius: 50%;}
+.fix-menu-box ul li.os a {background-color:#fff; border:3px solid #7d909b;}
+/* 끝 */
+
+/* 전체 슬라이드 화면 css */
+#container {height:500%;}
+#container > div {height:20%; position: relative;}
+/* 끝 */
+
+/* 첫번째  화면 시작 */
+.con1-box {position: relative; height:100%;}
+/* banner */
+.banner { width:100%; height:100%; position:relative; overflow: hidden;}
+.banner .panel {width:100%; height:100%;  }
+.banner .panel > div {width:100%; position: absolute; left: 0; display: none; height:100%; background-size:cover;}
+.banner .panel > div:nth-child(1) {display: block; }
+.banner .panel > div:nth-child(2) {background-image: url(../img/banner02-cristal.jpg); background-position: top -71px center;}
+.banner .panel > div:nth-child(3) {position:relative;}
+
+/* banner 1 화면 */
+.panel .view1 {position: absolute; top:40%; left:300px;}
+.panel .view1 .view1-text h4 {color:#fff; font-family: 'Poppins'; font-weight: 700; font-size:40px;}
+.panel .view1 .view1-text p {color:#fff; font-size:25px; margin-top:30px; margin-bottom:60px;}
+
+.view1 > div {float:left;} 
+.view1 .view1-video {margin-left:100px; position: relative;}
+.view1 .view1-video .view1-video-dummy {position: absolute;left:0; height:100%; width:100%; }
+.view1 .view1-video .video1 {box-shadow: 0 60px 135px rgba(0,0,0,0.24), 0 15px 65px rgba(0,0,0,0.24); border-radius: 10px;}
+
+/* banner 1  유튜브 버튼 플레이  */
+.circle { display:block; float:none; width:52px; height:52px;  border-radius:50%; animation-name:circle; animation-duration:5s; 
+           animation-iteration-count:infinite; position: relative; background-color: #378367; 
+        background-image: url("../icon/icon-bannerplay.png"); background-size:20px; background-repeat: no-repeat; background-position:center center;}
+.circle-play > div {float:left;}
+.circle-play .circle-text {padding-top:14px; font-weight: 400; color:#378367; font-size: 20px; margin-left:30px; }
+.circle > a {display:block; height:100%; text-indent:-9999px; position: relative; z-index:10;}
+.circle:before {content:""; display:block; width:50px; height:50px; border:1px solid #f2f2f2; border-radius:50%;  
+                animation-name:circlebefore; animation-duration:1.5s; animation-iteration-count:infinite; 
+                position:absolute; left:0; top:0;}
+.circle:after {content:""; display:block;  width:50px; height:50px; border:1px solid #f2f2f2; border-radius:50%;  
+               position:absolute; left:0; top:0; animation-delay: 1s; animation-name:circleafter; opacity: 0.5;
+               animation-duration:1.5s; animation-iteration-count:infinite;}
+
+@keyframes circle {
+      0% { transform:scale(1);}
+      20% {transform:scale(1.1);}
+      40% {transform:scale(1);}
+      60% {transform:scale(1.1);}
+      80% {transform:scale(1);}
+} 
+
+@keyframes circlebefore { 
+      0% { transform:scale(1);}
+      100% { transform:scale(2); opacity:0;}
+}
+
+@keyframes circleafter {
+      0% { transform:scale(1);}
+      100% { transform:scale(1.5); opacity:0;}
+}
+
+/* banner 1  줌 인 애니메이션 */
+@keyframes zoomin {
+   0%{transform: scale(1.4, 1.4);}
+   100%{transform: scale(1, 1);} 
+}
+
+/* banner1 화면 */
+.banner .panel .view .view-img {width:100%; height:100%; position: absolute;  left:0; background-image: url(../img/banner-main-test08.jpg);  background-size:100%; background-repeat: repeat; background-position:center center; animation: zoomin 8s alternate; transition: transform 8s; }           
+.banner .panel .view .view-bg {width:100%; height:100%; position: absolute;  left:0; opacity: 0.5;  background-color: rgba(99, 133, 107, 0.486); }
+.banner .view .view2-text {  text-align: center;   font-size:60px; color:#fff; line-height: 50px; position: absolute; top:290px; left:50%; transform: translateX(-50%);}
+.banner .view .view2-text h5 {text-align: center; color:#666; letter-spacing: 1px; font-size:12px; }
+.banner .view .view2-bot {width:200px; position: relative; top: 91%; left: 1630px; cursor: pointer;}
+.banner .view .view2-bot .view2-bot-img {float:left; margin-right:15px; margin-top: 4px; animation: move 1s infinite ease-in alternate; width:23px; height:11px;transition: all 0.3s; background-image: url(../icon/arrow666_03.png); background-repeat: no-repeat; background-position: center;}
+.banner .view .view2-bot h6 a {float:left; color:#666; display:block; font-size: 16px; transition: all 0.3s; }
+.banner .view .view2-bot:hover h6 a  {color:#83c1aa;}
+.banner .view .view2-bot:hover .view2-bot-img {background-image: url(../icon/arrow666hover_03.png);}
+
+@keyframes move {from {transform:translate(0px, 0px);} 
+                  to {transform:translate(5px, 0px);} }
+/* banner2 텍스트 효과 */
+.banner .view .view2-text .text-js-1 {opacity: 0; font-size:60px; color:#f2f2f2;  font-family: 'Poppins'}
+.banner .view .view2-text .text-js-1 span {position: relative; top:10px; left:10px; opacity: 0;}
+.banner .view .view2-text .text-js-2 {opacity: 0; margin-bottom:10px; }
+.banner .view .view2-text .text-js-2 span{
+   font-size:18px; color:#fff; font-weight: 500; 
+   position: relative;
+   left: -10px;
+   opacity: 0;
+   -webkit-backface-visibility: hidden;
+   backface-visibility: hidden;
+ }
+.banner .view .view3-text .text-js-3 {opacity: 0; font-weight: 400;  font-size:16px; color:#fff; line-height:30px; transition: 1s 1.5s;}
+/* banner2 텍스트 효과 끝 */
+
+/* banner3  화면 */
+.banner .panel > div:nth-child(3) ul {position:relative; top:80px; width:100%; height:100%;}
+.banner .panel > div:nth-child(3) ul li { position: absolute; height:100%;}
+.banner .panel > div:nth-child(3) ul li:nth-child(1) {left:-420px; top:0; transform: skewX(-30deg); z-index: 50; overflow: hidden; width:900px;}
+.banner .panel > div:nth-child(3) ul li:nth-child(2) {left:50px; z-index: 49; overflow: hidden; width:1800px;}
+.banner .panel > div:nth-child(3) ul li:nth-child(3) {right:-470px; z-index: 50; transform: skewX(-30deg); width:1000px; overflow: hidden;}
+
+.banner .panel > div:nth-child(3) ul li .section-img {position: relative; height:100%;}
+.banner .panel > div:nth-child(3) ul li:nth-child(1) .section-img {width:900px; }
+.banner .panel > div:nth-child(3) ul li:nth-child(2) .section-img {width:100%;}
+.banner .panel > div:nth-child(3) ul li:nth-child(3) .section-img {width:900px;}
+
+.banner .panel > div:nth-child(3) ul li:nth-child(1)  .section-img img {position: absolute; left:-256px; height:100%;    transform: skewX(30deg);}
+.banner .panel > div:nth-child(3) ul li:nth-child(2)  .section-img img {position: absolute; width:100%; height:100%;  }
+.banner .panel > div:nth-child(3) ul li:nth-child(3)  .section-img img {position: absolute; left:-400px;height:100%; transform: skewX(30deg);}
+
+.banner .panel > div:nth-child(3) ul li:nth-child(1) .section-text { display:none; position: relative; right:0; width:1000px; height:100%; background-color:rgba(0,0,0,0.3);}
+.banner .panel > div:nth-child(3) ul li:nth-child(1) .section-text .hours {position: absolute; top:280px; left:488px;}
+.banner .panel > div:nth-child(3) ul li:nth-child(1) .section-text h3 {font-size:48px; color:#fff; transform: skewX(30deg); }
+.banner .panel > div:nth-child(3) ul li:nth-child(1) .section-text a {font-size:16px;font-weight: 500;  color:#fff; transition: all 0.3s; transform: skewX(30deg); display:block; margin-top:20px; margin-left:190px;}
+.banner .panel > div:nth-child(3) ul li:nth-child(1) .section-text a:hover {color:#83c1aa;}
+
+.banner .panel > div:nth-child(3) ul li:nth-child(2) .section-text2 {position: relative; top:214px; left:705px;}
+.banner .panel > div:nth-child(3) ul li:nth-child(2) .section-text2 h4 {color:#666; font-size:45px;}
+.banner .panel > div:nth-child(3) ul li:nth-child(2) .section-text2 h5 {color:#918f8f; font-size:18px; margin-left:5px; margin-top:15px;}
+
+.banner .panel > div:nth-child(3) ul li:nth-child(3) .section-text {display:none; position: relative; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.3);}
+.banner .panel > div:nth-child(3) ul li:nth-child(3) .section-text img {width:364px; height:37px; position: absolute; top:562px; left:170px;}
+.banner .panel > div:nth-child(3) ul li:nth-child(3) .section-text .medical-text {display:block; width: 300px; position: absolute; top:626px; right:399px;}
+.banner .panel > div:nth-child(3) ul li:nth-child(3) .section-text p a {display:inline-block; color:#fff; transform: skewX(30deg); font-size:16px; font-weight: 500; transition: all 0.3s;}
+.banner .panel > div:nth-child(3) ul li:nth-child(3) .section-text p a:hover {color:#83c1aa;} 
+/*banner3  화면 끝*/
+
+/*배너 좌 우, 하단 이동 버튼 */
+.banner-btn {position: absolute; left:50%; transform:translateX(-50%); bottom:50px; z-index: 51;}
+.banner-btn li {float:left;  width:15px; height:15px; border-radius: 10px; background-color: transparent; margin:0 15px; border:2px solid #fff;}
+.banner-btn li.on {background-color: #fff;}
+.banner-btn li a {display:block; height:100%; text-indent: -9999px;}
+
+.banner .next {position: absolute; z-index: 51; right:50px; top:50%; transform: translateY(-50%); cursor: pointer; }
+.banner .prev {position: absolute; z-index: 51; left:50px; top:50%; transform: translateY(-50%);  cursor: pointer;}
+.banner .next img, .prev img {width:50px;}
+/*배너 좌 우, 하단 이동 버튼 끝 */
+
+
+/* 두번째 화면 */
+.con2 {padding-top:130px; background-image: url(../img/con4-bg-pt.jpg);}
+
+/* 두번 째 화면 박스 틀 부분 */
+.con2-box {width:1540px; margin:0 auto; border:1px solid #d4d9dd; }
+.con2-box > div {float:left; height:390px;background-color:#fff; background-repeat:no-repeat; background-position: top 50px center; text-align:center;}
+.con2-box > div a > h3 {font-size:22px; color:#666666; margin-top:124px;}
+.con2-box > div a > h4 {font-size:14px; color:#7d909b; margin:10px 0;}
+.con2-box > div a > p {font-size:14px; color:#d3d9dd; line-height:33px;}
+.con2-info3 > h3 {font-size:22px; color:#666666; margin-top:124px;}
+.con2-info3 > h4 {font-size:14px; color:#7d909b; margin:10px 0;}
+.con2-info3 > p  {font-size:14px; color:#d3d9dd; line-height:33px;}
+.con2-info1 {width:384px; border-right:1px solid #d4d9dd; border-bottom:1px solid #d4d9dd; background-image: url("../img/con2-1.png");}
+.con2-info2 {width:384px; border-right:1px solid #d4d9dd; border-bottom:1px solid #d4d9dd; background-image: url("../img/con2-2.png"); position: relative;}
+.con2-info3 {width:384px; border-right:1px solid #d4d9dd; border-bottom:1px solid #d4d9dd; background-image: url("../img/con2-3.png");}
+.con2-info4 {width:385px; border-bottom:1px solid #d4d9dd; background-image: url("../img/con2-4.png");}
+.con2-box > .con2-info5 {width:576px; border-right:1px solid #d4d9dd; background-image: url("../img/con2-5.png"); background-position: left 70px top 27px;}
+.con2-box > .con2-info1 h4 { margin-bottom:47px;}
+.con2-box > .con2-info1 p {line-height:25px; }
+.con2-info2 a img {position: absolute; right:0; bottom:0; width:100%;}
+.view {width:100px; margin:0 auto;}
+.view li {float:left; margin:0 5px;}
+.view a {display:block; color:#666; font-size:14px; font-weight: 700;}
+
+/* 진료 시간 박스 부분 */
+.con2-time {letter-spacing: 0.01em; font-size:18px; color:#666; font-weight:400; margin-top:40px; text-align: left; margin-left:84px;}
+.con2-time p {margin:23px 0;}
+.con2-time p span {margin-right:5px;}
+.con2-time p b {color:#f14c5a; font-weight: 400;}
+/* 진료 시간 박스 부분 끝 */
+
+.con2-box .con2-info4 >  h3 {color:#378367; margin-bottom:43px; display:block; margin-top:134px;}
+/* 예약 박스 버튼 부분 */
+.reser-btn {width:290px; height:52px; margin:0 auto; border-bottom:1px solid #d3d9dd;
+            background-image: url("../img/arrow.png"); background-repeat:no-repeat; background-position:center right 20px; margin-bottom:25px;}
+.reser-btn a {display:block;  transition: all 0.3s; line-height:52px; color:#378367; text-align:left; text-indent: 20px; font-weight: 500; font-size:18px;}
+.reser-btn:hover a {font-size:19px;}
+/* 예약 박스 버튼 부분 끝 */
+
+/* 공지사항 박스 부분 */
+.con2-box .con2-info5 h3 {margin-top:35px; text-align:left; text-indent: 155px; font-size:22px; color:#666;}
+.con2-box .con2-info5 h4 {text-align:left; text-indent: 155px; margin-bottom:50px; color:#7d909b; margin-top:10px; font-size:14px;}
+.notice-btn {width:480px; height:70px; border-bottom:1px solid #d4d9dd; margin:0 auto; padding-top:5px;
+             background-image:url("../img/arrow.png"); background-repeat:no-repeat; background-position:center right 20px; text-align: left; text-indent:20px;}
+.notice-btn a h6 {font-size:14px; color:#4d6877; margin-top:10px;}
+.notice-btn a p {color:#d3d9dd; font-size:14px; margin:5px 0;}
+/* 공지사항 박스 부분 끝 */
+
+/* 의료진 박스 부분 */
+.con2-box .con2-info6 {width:962px; background-image: url("../img/con2-6.png"); background-position: left 70px top 27px; position: relative;}
+.con2-box .con2-info6 > h3 {margin-top:35px; color:#666; font-size:22px; text-align:left; text-indent: 155px;}
+.con2-box .con2-info6 > h6 {font-size:14px; color:#7d909b; margin-top:10px; text-align:left; text-indent: 155px;}
+
+/* 의료진 박스 부분 탭 메뉴 */
+.con2-tab-list {width:472px; border-bottom:2px solid #4d6877; position: absolute; right:120px; top:60px;}
+.con2-tab-list > li {float:left; width:118px; height:35px;}
+.con2-tab-list > li.on a {color:#fff; background-color: #4d6877;}
+.con2-tab-list > li > a {display:block; height:100%; line-height:35px; color:#4d6877; font-weight: 700;}
+.con2-tab-box {width:100%; height:240px; margin-top:10px;  position: relative; }
+.con2-tab-box > div:nth-child(1) {display: block;}
+.con2-tab-box-area {width:100%; padding:30px 30px; position: absolute; left:0; display: none; }
+.con2-tab-img {float:left; text-align: left;}
+.con2-tab-img h4 {font-size:22px; color:#666666; margin-top:50px;}
+.con2-tab-img h5 {font-size:14px; color:#7d909b; margin:14px 0;}
+.con2-tab-img h6 {font-size:14px; color:#d3d9dd; margin-top:40px; margin-bottom:10px;}
+
+.con2-tab-img:nth-child(2) {margin-right:60px; margin-left:20px;}
+.con2-tab-img:nth-child(2) a p {font-size:14px; color:#666; font-weight: 700; background-image: url("../img/plus.png"); background-repeat: no-repeat; background-position:right 58px center;}
+.con2-tab-img:nth-child(4) {margin-left:20px;}
+.con2-tab-img:nth-child(4) a p {font-size:14px; color:#666; font-weight: 700; background-image: url("../img/plus.png"); background-repeat: no-repeat; background-position:right 58px center;}
+/* 탭 2~4번째 메뉴 */
+.con2-tab-img2 {float:left;  text-align: left; margin-right:30px;} 
+.con2-tab-img2 img {width: 170px; float:left; padding-top:30px;}
+.con2-tab-img2 .con2-tab-img-text {float:left; margin-left:10px;}
+.con2-tab-img2 h4 {font-size:22px; color:#666666; margin-top:50px;}
+.con2-tab-img2 h5 {font-size:14px; color:#7d909b; margin:14px 0;}
+.con2-tab-img2 h6 {font-size:14px; color:#d3d9dd; margin-top:20px; margin-bottom:10px;}
+.con2-tab-img2 .con2-tab-img-text > a  p {width:82px; font-size:14px; color:#666; font-weight: 700; background-image: url("../img/plus.png"); background-repeat: no-repeat; background-position:right 5px center;}
+/* 의료진 박스 부분 탭 메뉴 끝 */
+/* 두번째 화면 끝 */
+
+/* 세번째  화면 */
+.con3 {background-image: url(../img/con4-bg-pt.jpg);}
+.con3-box {width:100%; height:auto;  padding-top:125px;}
+.con3-info > div {float:left; width:25%; height:320px; text-align: center;}
+/* 진료과목 이미지와 정렬 부분 */
+.con3-info .con3-view {position: relative; overflow: hidden;}
+.con3-info .con3-view .con3-view-img img{width:100%; height:325px; transition: all 0.5s;}
+.con3-info .con3-view .con3-view-bg {transition: all 0.3s; position: absolute; left:0; top:0;  width:100%; height:320px; background-color:#282b30; opacity: 0.35;}
+.con3-info .con3-view .con3-view-text {position: absolute; left:50%; top:50%; transform: translate(-50%, -50%); }
+.con3-info .con3-view .con3-view-text h3 {font-size:20px;  margin-bottom:2px; letter-spacing: 2px; font-weight: 700;color:#fff;}
+.con3-info .con3-view .con3-view-text p {font-size:12px;  font-weight: 400; line-height: 20px; letter-spacing: 0.5px; color: rgba(255,255,255,0.8);}
+.con3-info .con3-view:hover .con3-view-bg {opacity: 0.1;}
+.con3-info .con3-view:hover .con3-view-img img{transform: scale(1.1,1.1);}
+.con3-info .con3-view:hover .con3-view-text img {opacity: 1;}
+.con3-info .con3-view .con3-view-text img:hover {transform: scale(1.08);}
+.con3-info .con3-view .con3-view-text img {margin-top:20px; opacity: 0; transition: all 1s;}
+/* 진료과목 하단 텍스트 부분 */
+.con3-bot {width:100%; height:160px; background-color:#fff; border-top:2px solid #ebebeb; border-bottom:2px solid #ebebeb;}
+.con3-bot > div {float:left; width:100%; height:100%; }
+.con3-bot .con3-bot-left { color:#fff;  padding-top:60px; }
+.con3-bot .con3-bot-left .con3-bot-text {width:1000px; margin:0 auto;}
+.con3-bot .con3-bot-left h5 {float:left; background: linear-gradient(to bottom right,rgba(129,203,191,1) 40%, rgba(149,197,215,1) 83%, rgba(125,193,219,1) 100%); -webkit-background-clip: text;-ms-expand-text-fill-color:transparent;  -webkit-text-fill-color: transparent;
+    font-size:40px; font-weight: 700; margin-right:50px; padding-top:4px;}
+.con3-bot .con3-bot-left h6 {float:left; color:rgba(125,193,219,0.7);
+    font-size:17px; line-height: 28px; font-weight: 400;}
+.con3-bot .con3-bot-left a {display: block;  width:80px; height:40px; border:2px rgba(125,193,219,0.3) solid;border-radius: 35px;font-weight: 400; line-height: 36px; text-align: center; color:rgba(125,193,219,0.7); float:right; margin-top:20px; margin-right:30px; background-color:#fff;}
+.con3-bot .con3-bot-left a:hover {font-weight: 700; border:2px rgba(88, 136, 155, 0.3) solid;}
+/* 세번째  화면 끝 */
+
+/* con5 실제 네번째 화면 */
+.con5 {background-image: url(../img/con4-bg-pt.jpg);}
+/* 타이틀 */
+.con5-text h3 {font-size:20px; color:#7d909b; font-weight: 500;padding-top:106px; padding-bottom:30px; text-align: center;}
+.con5-text h3:after{content: ''; display:block; width:50px; height:2px;opacity: 0.7; background-color:#7d909b; margin:0 auto; margin-top:10px;}
+/* 타이틀 끝 */
+/* 상단 정렬 부분 */
+.con5-box {width:1300px; margin:0 auto; }
+.con5-box > div {float:left; width:410px; height:auto;}
+.con5-box > div:nth-child(2) {margin:0 35px;}
+.con5-box-info .con5-box-info-img {width:100%; height:250px; border-radius: 5px;  transition: all 0.5s;}
+.con5-box-info .con5-box-info-img:hover {transform: translateY(5px);box-shadow: 0 10px 60px rgba(0,0,0,0.24);}
+.con5-box-info .con5-box-info-img img {width:100%; height:250px; border-radius: 5px; }
+.con5-box-info .con5-box-info-text {width:100%; padding-left:10px; cursor: pointer;}
+.con5-box-info .con5-box-info-text h5 {color:#d3d9dd; font-size:12px; margin-top:20px;}
+.con5-box-info .con5-box-info-text h4 {color:#333; font-size:16px; font-weight: 500; margin:15px 0;}
+.con5-box-info .con5-box-info-text p {color:#666; font-size:14px; line-height: 25px;}
+/* 상단 정렬 부분 끝 */
+/* 사용자 이미지, 이름 날짜 부분 */
+.review-writer {margin-top:40px; cursor: pointer;}
+.review-writer .writer-1 {cursor: pointer; float:left; width:40px; height:40px; border:1px solid #ebebeb; border-radius: 50%;  background-position: center center; background-size:30px; background-repeat: no-repeat;}
+.review-writer .con5-img-1 {background-image: url(../icon/woman.png);}
+.review-writer .con5-img-2 {background-image: url(../icon/man.jpg);}
+.review-writer .con5-img-3 {background-image: url(../icon/woman2.jpg); background-position: top  center; background-size:40px;}
+.review-writer .writer-1 {float:left;  margin-right:10px; font-size:14px;}
+.review-writer .writer-2 h6 {font-size:14px; color:#666;}
+.review-writer .writer-2 p {color:#666; margin-top:5px; font-size:14px;}
+/* 사용자 이미지, 이름 날짜 부분 끝 */
+/* 하단 정렬 부분 */
+.con5-bot {width:1300px; margin:0 auto; padding-top:60px;}
+.con5-bot > div {float:left; margin-bottom:40px; cursor: pointer;}
+.con5-bot > div:nth-child(2) {margin:0 100px;}
+.con5-bot > div:nth-child(5) {margin:0 100px;}
+.con5-bot-info > div:nth-child(1) {transition: all 0.5s; float:left; width:80px; height:80px; border-radius: 5px; }
+.con5-bot-info > div:nth-child(1):hover {transform: translateY(5px);box-shadow: 0 10px 60px rgba(0,0,0,0.24);}
+.con5-bot-info > div:nth-child(1) img {width:100%; height:100%; border-radius: 5px; }
+.con5-bot-info > div:nth-child(2) {float:left; padding-top:20px; margin-left:20px;}
+.con5-bot-info h5 {color:#d3d9dd; font-size:12px; }
+.con5-bot-info h6 {color:#666; font-size:16px; font-weight: 500; margin-top:10px;}
+/* 하단 정렬 부분 끝 */
+/* con5 실제 네번째 화면 끝 */
+
+/* 다섯번 째  화면 */
+.con4 {padding-top:100px; background-image: url(../img/con4-bg-pt.jpg);}
+.con4-center {width:1230px; margin-left:200px; position: relative; padding-top:90px;}
+
+/* 다섯번 째 화면 우측 텍스트 부분 */
+.con4-title {position: absolute; top:110px; right:-370px;  padding-top:20px; padding-bottom:50px; }
+.con4-title h4 {font-size:20px; font-weight: 500; color:#7d909b; margin-bottom:10px;}
+.con4-title h3 {font-size:25px;line-height: 40px;background: linear-gradient(to bottom right,rgba(129,203,191,1) 20%, rgba(149,197,215,1) 61%, rgba(125,193,219,1) 100%);    -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent; color:rgb(143,223,210); margin-bottom:30px; opacity: 0.8; font-family: 'roboto'; letter-spacing: 0.5px;}
+.con4-title h4:nth-child(1)::after {content: ''; display: block; width:100px; height:2px;background: rgb(129,203,191);
+   background: linear-gradient(90deg, rgba(129,203,191,1) 20%, rgba(149,197,215,1) 61%, rgba(125,193,219,1) 100%); opacity: 0.5; margin-top:60px;}
+/* 다섯번 째 화면 우측 텍스트 부분 끝 */
+
+/* 다섯번 째 화면 우측 텍스트 부분 more 버튼 */
+.con4-more-btn {width:140px; height:50px; position:relative; margin-top:70px;}
+.more-btn-a {display:block; height:100%; font-size: 14px; letter-spacing: 0.5px; color:#7d909b; transition: all 0.4s; font-family: 'roboto'; font-weight: 500;}
+.con4-more-bg {width:40%; border-radius: 20px; height:100%; background: rgb(143,223,210);
+   background: linear-gradient(90deg, rgba(143,223,210,1) 6%, rgba(182,217,201,1) 51%, rgba(172,224,244,1) 93%, rgba(181,220,235,1) 100%); 
+   display:inline-block; position:absolute; left:0; top:0; transition: all 0.3s; box-shadow: 0 10px 15px rgba(0,0,0,.07);}
+.con4-more-text {position:absolute; left:0; top:0; text-align: center; width:100%; height:100%; text-align: center; line-height:50px;}
+.con4-more-btn:hover .con4-more-bg {width:100%;}
+.con4-more-btn:hover .more-btn-a {color:#fff;}
+/* 다섯번 째 화면 우측 텍스트 부분 more 버튼 끝 */
+
+/* 다섯번 째 화면 좌측 이미지 박스 부분 */
+.con4-box-group {width:100%; }
+.con4-box {float:left; border-radius: 5px; width:300px; height:340px; background-size:100% 300px; background-repeat: no-repeat; margin-bottom:7px;  margin-right:7px; overflow: hidden; position: relative;}
+.con4-box > a {display:block; height:300px; color:#fff; position: absolute; left:0; top:0; transition: all 0.8s;}
+.con4-box:hover .con4-hover  {opacity: 1; color:#fff;}
+.con4-box:nth-child(1) {background-image: url("../img/con4-1.jpg"); }
+.con4-box:nth-child(2) {background-image: url("../img/con4-2/con4-2-21.jpg");  }
+.con4-box:nth-child(3) {background-image: url("../img/con4-3.png"); }
+.con4-box:nth-child(4) {background-image: url("../img/con4-4.jpg"); }
+.con4-box:nth-child(5) {background-image: url("../img/special1-2.jpg"); }
+.con4-box:nth-child(6) {background-image: url("../img/cat1-1.jpg");  }
+.con4-box:nth-child(7) {background-image: url("../img/cat1-4.jpg"); width:605px;}
+/* 다섯번 째 화면 좌측 이미지 박스 부분 끝 */
+
+/* 다섯번 째 좌측 박스 hover 부분 */
+.con4-box a {width:100%; padding:15px;}
+.con4-box:hover > .hover-color1 {background-color:rgba(55,131,103,0.7); color:#fff; }
+.con4-box:hover > .hover-color2 {background-color:rgba(124, 111, 27, 0.7); color:#fff;}
+.con4-box:hover > .hover-color3 {background-color:rgba(179, 147, 169, 0.7); color:#fff;}
+.con4-box:hover > .hover-color4 {background-color:rgba(144, 179, 235, 0.7); color:#fff;}
+.con4-box:hover > .hover-color5 {background-color:rgba(129, 158, 147, 0.7); color:#fff;}
+.con4-box:hover > .hover-color6 {background-color:rgba(112, 91, 91, 0.7); color:#fff; }
+.con4-box:hover > .hover-color7 {background-color:rgba(86, 112, 95, 0.7); color:#fff; }
+.con4-hover {opacity: 0; width:100%; border-radius: 10px; height:270px; border:3px solid #fff; color:#fff; text-align: center; transition: all 0.8s; position: relative;}
+.con4-hover img {width:15px; margin-bottom:7px;}
+.con4-hover h4 {font-size:20px; margin-bottom:20px; margin-top:50px; font-weight: 400;}
+.con4-hover > p {line-height:30px;}
+/* 다섯번 째 좌측 박스 hover 부분 끝 */
+
+/* 다섯번 째 좌측 박스 hover 부분 more 버튼 */
+.con4-more { position: absolute; bottom:40px; left:50%; transform:translateX(-50%); color:#fff; text-align:center; font-size:13px;}
+.con4-more:hover { transition: all 0.3s; color:#83c1aa;}
+/* 다섯번 째 좌측 박스 hover 부분 more 버튼 끝 */
+
+/* 다섯번 째 좌측 박스 hover 부분 텍스트 */
+.con4-box-text {background-color:#ebebeb; width:100%; height:40px; margin-top:300px;}
+.con4-box-text > div p { line-height:40px; color:#444; font-size:15px; font-weight: 500; }
+.con4-box-text > div {float:left;}
+.con4-box-text > div:nth-child(1) {width:10%;}
+.con4-box-text > div:nth-child(2) {width:90%; text-align: center; text-indent: -10%;}
+.text-left img {float:left; width:20px; margin:0 5px 0 20px; padding-top:12px; cursor: pointer; }
+/* 다섯번 째 좌측 박스 hover 부분 텍스트 끝 */
+/* 다섯번 째  화면 끝 */

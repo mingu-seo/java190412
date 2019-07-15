@@ -1,0 +1,30 @@
+@charset 'utf-8';
+
+/* footer-top */
+.footer-direction-area {position: relative; width:100%; height:518px; background-color: #000; 
+    background-image: url("../img/doctor.png"); background-repeat:no-repeat; background-position:top 30px center; color:#fff;}
+.footer-direction-center {width:1200px; margin:0 auto; padding-top:50px; } 
+.footer-direction-center h3 {font-size:50px; padding:45px 0;}
+.footer-direction-center p {font-size:22px;}
+.footer-direction-center #map {padding-top:50px; padding-left:50px;}
+/* footer-bottom */
+.footer-basic {width:100%; height:200px; background-color: #000; color:#fff; font-size:14px;}
+.footer-center {width:1860px; margin:0 auto; border-top:1px solid #fff; position: relative;}
+
+.fot-left {float:left;}
+.fot-logo {margin-top:70px; text-align:center;}
+.fot-left > p {margin-top:20px; text-align:center; font-size:12px; color:#666;}
+
+.fot-right {float:right;}
+.right-1 {float:left; width:440px; margin-top:24px;}
+.right-1 p {line-height:25px;}
+.right-2 {float:left; width:340px; margin-top:24px;}
+.right-2 p {line-height:25px;}
+.fot-info {margin-top:77px;}
+.fot-info li {float:left; margin-right:5px;}
+.fot-info li:nth-child(2) {margin-right:0;}
+.fot-info li a {display:block; color:#fff;}
+.fot-info li:hover a {color:#378367;}
+.fot-icon {animation:mover 1s infinite ease-out alternate; position: absolute; right:0; top:50%; transform:translateY(-50%); width:56px; transition: all 0.3s; cursor: pointer;}
+.fot-icon:hover {width:60px; }
+/* 끝 */

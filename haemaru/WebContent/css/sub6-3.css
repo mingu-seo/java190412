@@ -1,0 +1,92 @@
+@charset 'utf-8';
+
+/* con1 css */
+.con1 {height:500px; background-image: url("../img/sub-banner05.jpg"); background-repeat:no-repeat; background-size:cover; background-position:top 20px center;}
+
+/* fixed sub */
+.con2 {position: relative; height:1300px;}
+.fixed-sub {width:300px; background-color: #fff;
+            position: absolute; left:0; top:0;}
+.title-area {width:100%; text-align: center; margin-bottom:86px;}
+.title-area h2 {margin-top:80px; font-size:30px; color:#666;}
+.title-area p {font-size:14px; color:#4d6877; margin-top:10px;}
+
+.sub-bar {width:100%;}
+.sub-bar li {width:100%; height:72px; line-height:72px; text-align:center; background-color: #fff;
+             border-top:1px solid #f3f3f3; border-bottom:1px solid #f3f3f3;}
+.sub-bar li a {display:block; color:#378367;}
+.sub-bar li.on {background-color: #378367;}
+.sub-bar li.on a {color:#fff;}
+
+/* main : 여기다가 하면 됨 */
+.main {width:1200px; margin:0 auto;}
+.main > h3 {font-size:30px; color:#666; text-align:center; padding-top:80px;}
+.main p {font-size:14px; color:#4d6877; text-align: center; padding-top:10px;}
+
+/* 예약 확인 창 */
+.sub6-3-main {margin-top:38px; width:780px; margin:0 auto; position: relative;}
+
+/* 예약 정보 (사람) */
+.sub6-3-head {width:240px; position: absolute; right:0; top:-50px;}
+.sub6-3-head > img {float:left;}
+.sub6-3-head > h3 {float:left; color:#666; font-size:16px; margin-top:5px; margin-left:15px;}
+.sub6-3-head > h3 span {color:#4d6877;}
+
+/* 예약확인 박스 */
+.sub6-3-boxgroup {margin-top:130px;}
+.sub6-3-box {width:100%; height:250px; border-top:2px solid #d7d7d7; border-bottom:2px solid #d7d7d7; position: relative;}
+.sub6-3-box:nth-child(2) {border-top:none;}
+.sub6-3-box > h2 {text-align: center;font-weight: 500; color:#666; letter-spacing: 0.5px; font-size:16px; margin-top:15px; margin-bottom:20px;}
+.sub6-3-box > p {text-align: left; font-size:14px; color:#666; line-height:25px; }
+.sub6-3-box > p > span {color:#4d6877; display:inline-block; width:100px;}
+.sub6-3-box p:nth-child(6)  {color:#378367; font-weight: 700;}
+
+/* 예약변경 예약취소 버튼 */
+.sub6-3-btn {position: absolute; right:0; bottom:20px;}
+.sub6-3-btn > div {float:left; width:80px; height:40px; border:1px #e8eaec solid; border-radius: 35px;}
+.sub6-3-btn > div:nth-child(2) { margin-left:12px;}
+.sub6-3-btn > div a {display:block; height:100%;border:1px #e8eaec solid; line-height:38px; text-align: center; border-radius: 35px; font-size:12px; color:#98a2aa; transition: all 0.3s;}
+.sub6-3-btn > div:nth-child(1):hover a { color:#83c1aa; border:1px solid #83c1aa;}
+.sub6-3-btn > div:nth-child(2):hover a {color:#4d6877; border:1px solid #4d6877;}
+
+/* 예약하러가기 버튼 */
+.sub6-3-more {width:140px; height:50px; margin:0 auto; margin-top:50px; text-align: center; line-height:50px;}
+.sub6-3-more a {display:block; height:100%; color:#fff; background-color: #83c1aa; font-size:14px; border-radius: 20px;  transition: all 0.3s;}
+.sub6-3-more:hover a {transform: scale(1.1);}
+
+/* 예약 취소 마지막 창 */
+.reservation-cancel-page {display:none; z-index: 10; width:600px; background-color:#fff; height:500px; margin:0 auto;  box-shadow: 0 3px 5px rgba(0,0,0,0.2); position: fixed; top:50%; left:50%; transform: translate(-50%, -50%);}
+.headline {width:100%; height:50px; background-color: #83c1aa; color:#fff;}
+.headline p {float:left; margin-left:28px; line-height:50px;}
+.headline img {float:right; margin-right:28px; width:35px; margin-top:8px; animation:mover 1s infinite ease-out alternate; cursor: pointer; }
+@keyframes mover {from {transform:rotate(-5deg);} 
+                    to {transform:rotate(10deg);} }
+.re-cancel-page-text {text-align: center; padding-top:40px;}
+.re-cancel-page-text img {width:46px;}
+.re-cancel-page-text h2 {font-size:32px; color:#378367; margin-top:10px;}
+.re-cancel-page-text h2:after {display:block; content:''; width:400px; height:2px; background-color: #83c1aa; margin:0 auto; margin-top:30px; margin-bottom:40px;}
+.re-cancel-page-text p {font-size:18px; line-height:40px; color:#666;}
+.re-cancel-page-text p span {color:#4d6877;}
+.cancel-checkbox-page {width:200px; height:40px; border:3px solid #4d6877; margin:0 auto; text-align: center; line-height:34px; margin-top:60px;}
+.cancel-checkbox-page a {display:block; color:#666; font-size:16px; transition: all 0.3s;}
+.cancel-checkbox-page:hover a {background-color: #4d6877; color:#fff;}
+
+/* 예약 취소 창 */
+.reservation-cancel2-page {display:none; z-index: 10; width:600px; background-color:#fff; height:500px; margin:0 auto;  box-shadow: 0 3px 5px rgba(0,0,0,0.2); position: fixed; top:50%; left:50%; transform: translate(-50%, -50%);}
+.headline {width:100%; height:50px; background-color: #83c1aa; color:#fff;}
+.headline p {float:left; margin-left:28px; line-height:50px;}
+.headline img {float:right; margin-right:28px; width:35px; margin-top:8px; animation:mover 1s infinite ease-out alternate; cursor: pointer; }
+@keyframes mover {from {transform:rotate(-5deg);} 
+                    to {transform:rotate(10deg);} }
+.re-cancel2-page-text {text-align: center; padding-top:40px;}
+.re-cancel2-page-text img {width:46px;}
+.re-cancel2-page-text h2 {font-size:32px; color:#378367; margin-top:10px;}
+.re-cancel2-page-text h2:after {display:block; content:''; width:400px; height:2px; background-color: #83c1aa; margin:0 auto; margin-top:30px; margin-bottom:40px;}
+.re-cancel2-page-text p {font-size:18px; line-height:40px; color:#666;}
+.re-cancel2-page-text p span {color:#4d6877;}
+.cancel2-checkbox-page {width:420px; margin:0 auto; text-align: center; line-height:34px; margin-top:60px;}
+.cancel2-checkbox-page a {float:left;}
+.cancel2-checkbox-page .re-cancel2-check-in {display:block; width:200px;  height:40px; border:3px solid #4d6877;color:#666; font-size:16px; transition: all 0.3s; margin-right:10px;}
+.cancel2-checkbox-page .re-cancel2-check-out {display:block; width:200px;  height:40px; border:3px solid #4d6877;color:#666; font-size:16px; transition: all 0.3s;}
+.re-cancel2-check-in:hover {background-color: #4d6877; color:#fff;}
+.re-cancel2-check-out:hover {background-color: #4d6877; color:#fff;}

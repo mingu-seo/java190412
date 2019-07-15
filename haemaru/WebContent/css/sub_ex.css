@@ -1,0 +1,46 @@
+@charset 'utf-8';
+
+/* con1 css */
+.con1 {height:500px; background-image: url("../img/hospital.png"); background-repeat:no-repeat; background-size:cover; background-position:top -100px center;}
+
+
+
+
+/* fixed sub */
+.con2 {position: relative; height:2000px;}
+.fixed-sub {width:300px; background-color: #fff;
+            position: absolute; left:0; top:0;}
+.title-area {width:100%; text-align: center; margin-bottom:86px;}
+.title-area h2 {margin-top:80px; font-size:30px; color:#666;}
+.title-area p {font-size:14px; color:#4d6877; margin-top:10px;}
+
+.sub-bar {width:100%;}
+.sub-bar li {width:100%; height:72px; line-height:72px; text-align:center; background-color: #fff;
+             border-top:1px solid #f3f3f3; border-bottom:1px solid #f3f3f3;}
+.sub-bar li a {display:block; color:#378367;}
+.sub-bar li.on {background-color: #378367;}
+.sub-bar li.on a {color:#fff;}
+
+/* main : 여기다가 하면 됨 */
+.main {width:1200px; margin:0 auto;}
+.main h3 {font-size:30px; color:#666; text-align:center; padding-top:80px;}
+.main p {font-size:40px; color:#4d6877; text-align: center; padding-top:10px; line-height:40px; font-weight: 700;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
