@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+/* 풋터 부분 */
+#footer {background-color:#333333; font-family:"나눔고딕"; padding:30px 0;}
+.foot-in {width:1200px; margin:0 auto;}
+.foot-top {border-bottom:1px solid white; height:60px;}
+.foot-logo {float:left; margin-top:15px; width: 250px; height: 27px; position: relative; right: 34px;}
+.foot-logo img{width: 100%; height: 100%;}
+.foot-menu {float:right;}
+.foot-menu li {float:left; line-height:60px;}
+.foot-menu li:after {content:"|"; margin:0 10px; color:white;}
+.foot-menu li:hover a {color:#c2ad6f;}
+.foot-menu li:last-child:after {display:none;}
+.foot-menu li a {color:white; font-size:14px;}
+
+.foot-bot {margin-top:20px; color:white;}
+.foot-bot-left {float:left;}
+.foot-bot-left h5 {font-size:18px; margin-bottom:10px;}
+.foot-bot-left li {line-height:25px; font-size:14px;}
+.foot-bot-right {float:right;}
+.foot-bot-right li {font-size:14px; line-height:30px;}
+.foot-bot-right h6 {font-size:26px;}
+/* 풋터 부분 */
+

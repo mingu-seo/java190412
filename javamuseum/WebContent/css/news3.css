@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+/* 메인배너 시작 */
+.con1 {height:600px; width:100%; background-image:url("../img/news1-banner.jpg"); background-repeat:no-repeat; background-attachment:fixed;}
+.con1-box{text-align: center; color: #fff; font-weight: bold; padding-top: 250px;}
+.con1-box h3{font-size: 70px; margin-bottom: 10px;}
+.con1-box p{font-size: 20px;}
+/* 메인배너 끝 */
+
+/*왼쪽 서브페이지 시작*/
+.con2 {width:1200px; margin:100px auto;}
+.con2-left {float:left; margin-top:50px;}
+.con2-left h4 {font-size:40px;}
+.con2-left h4:after {content:""; display:block;  margin:10px 0; width:100px; height:3px; background-color:black;}
+.con2-left-text {width:200px;}
+.con2-left-text p {line-height:50px;}
+.con2-left-text p > a:after {content:""; width:0; opacity:0; display:block; height:2px; background-color:black;transition:all 0.5s;}
+.con2-left-text p:hover > a:after {width:150px; opacity:1;}
+.con2-left-text p:hover > a {color:gray;}
+.con2-left-text p {transition:all 0.5s;}
+.con2-left-text p > a {display:block; color:black;}
+.con2-left p {font-size:20px;}
+/* 왼쪽 서브페이지 끝 */
+/* faq 시작*/
+.con2-right {float:left; width:864px;}
+.con7-center{width: 864px;  background-color: #fff; }
+.con7-text h2{font-size: 48px; margin-bottom: 16px;}
+.con7-text h4{font-size: 20px; font-weight: normal;}
+.con7-qabox{width: 998px; margin: 0 auto; margin-top: 54px; border-top: 3px solid #191919; border-bottom: 3px solid #191919;}
+.con7-qa{ padding: 15px 0; border-bottom: 1px solid #191919; position: relative}
+.con7-qa:nth-child(7){border: none;}
+.con7-left img{width: 36px;}
+.con7-left li{float: left;}
+.con7-left li p{font-size: 18px; line-height: 38px; margin-left: 16px;}
+.con7-leftbg{width: 38px; height: 38px;background-size:38px 38px; background-image: url("../img/mypage-con2-1.png");background-repeat: no-repeat; position: absolute; top: 14px; right: 10px;}
+.con7-leftbg.on{background-image: url("../img/mypage-con2-9.png");}
+.con7-right img{width: 38px; height: 38px;}
+.con7-cont { display:none; background-color:#ccc;height: 100px; padding: 16px 16px; margin-top: 10px;}
+.con7-sub li{float: left;}
+.con7-sub li img{width: 38px; height: 38px;}
+.con7-sub li:nth-child(2){margin-left: 20px;}
+/* faq 끝 */

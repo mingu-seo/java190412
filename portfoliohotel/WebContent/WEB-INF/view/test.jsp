@@ -3,6 +3,8 @@
 <%@ page import="java.util.*" %>
 <%
 ArrayList<TestVO> list = (ArrayList)request.getAttribute("testList");
+
+
 %>
 <!DOCTYPE html>
 <html>
