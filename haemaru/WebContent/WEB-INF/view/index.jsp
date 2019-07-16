@@ -8,10 +8,10 @@
     <title>해마루(2조)</title>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700|Roboto:400,500,700&display=swap&subset=korean" rel="stylesheet">
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/main-layout.css">
-    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/main-layout.css">
+    <link rel="stylesheet" href="css/footer.css">
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <!-- 전체 마우스 휠 슬라이드 플러그인 -->
     <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
@@ -30,6 +30,7 @@
     <script type="text/javascript" src="js/custom.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
     <!-- header html -->
     <div id="header">
         <!-- 로그인 -->
@@ -144,6 +145,9 @@
             </div>
         </div>
     </div> 
+=======
+<%@ include file="/WEB-INF/view/include/headHtml.jsp" %>
+>>>>>>> branch 'master' of https://github.com/mingu-seo/java190412.git
     <div id="container">
         <!-- 첫번째  화면 베너 -->
         <div class="con1">
@@ -268,7 +272,7 @@
                         <a href="sub3-1.html">진료예약</a>
                     </div>
                     <div class="reser-btn">
-                        <a href="my-res.jsp">예약확인</a>
+                        <a href="sub6-3.html">예약확인</a>
                     </div>
                    
                 </div>
@@ -313,7 +317,7 @@
                                         <h5>Director of Hospital</h5>
                                         <h5>원장/대표이사</h5>
                                         <h6>Profile</h6>
-                                        <a href="intro-staff.jsp"><p>View All</p></a>
+                                        <a href="sub1-2.html"><p>View All</p></a>
                                     </div>
                                     <div class="con2-tab-img"><img src="img/kimjinone.png"></div>
                                     <div class="con2-tab-img">
@@ -321,7 +325,7 @@
                                         <h5>Director of Hospital</h5>
                                         <h5>원장/내과부장</h5>
                                         <h6>Profile</h6>
-                                        <a href="intro-staff.jsp"><p>View All</p></a>
+                                        <a href="sub1-2.html"><p>View All</p></a>
                                     </div>
                                 </div>
                                 <div class="con2-tab-box-area clear">
@@ -332,7 +336,7 @@
                                                 <h5>Veterinarian</h5>
                                                 <h5>내과/팀장</h5>
                                                 <h6>Profile</h6>
-                                                <a href="intro-staff.jsp"><p>View All</p></a>
+                                                <a href="sub1-2.html"><p>View All</p></a>
                                             </div>
                                         </div>
                                         <div class="con2-tab-img2 clear">
@@ -342,7 +346,7 @@
                                                 <h5>Veterinarian</h5>
                                                 <h5>내과/팀장</h5>
                                                 <h6>Profile</h6>
-                                                <a href="intro-staff.jsp"><p>View All</p></a>
+                                                <a href="sub1-2.html"><p>View All</p></a>
                                             </div>
                                         </div>
                                         <div class="con2-tab-img2 clear">
@@ -352,7 +356,7 @@
                                                 <h5>Veterinarian</h5>
                                                 <h5>내과/진료수의사</h5>
                                                 <h6>Profile</h6>
-                                                <a href="intro-staff.jsp"><p>View All</p></a>
+                                                <a href="sub1-2.html"><p>View All</p></a>
                                             </div>
                                         </div>
                                 </div>
@@ -364,7 +368,7 @@
                                                 <h5>Technician</h5>
                                                 <h5>내과/파트장</h5>
                                                 <h6>Profile</h6>
-                                                <a href="intro-staff.jsp"><p>View All</p></a>
+                                                <a href="sub1-2.html"><p>View All</p></a>
                                             </div>
                                         </div>
                                         <div class="con2-tab-img2 clear">
@@ -374,7 +378,7 @@
                                                 <h5>Technician</h5>
                                                 <h5>내과/테크니션</h5>
                                                 <h6>Profile</h6>
-                                                <a href="intro-staff.jsp"><p>View All</p></a>
+                                                <a href="sub1-2.html"><p>View All</p></a>
                                             </div>
                                         </div>
                                         <div class="con2-tab-img2 clear">
@@ -384,7 +388,7 @@
                                                 <h5>Technician</h5>
                                                 <h5>내과/테크니션</h5>
                                                 <h6>Profile</h6>
-                                                <a href="intro-staff.jsp"><p>View All</p></a>
+                                                <a href="sub1-2.html"><p>View All</p></a>
                                             </div>
                                         </div>
                                 </div>
@@ -396,7 +400,7 @@
                                                 <h5>Receptionist</h5>
                                                 <h5>원무과/과장</h5>
                                                 <h6>Profile</h6>
-                                                <a href="intro-staff.jsp"><p>View All</p></a>
+                                                <a href="sub1-2.html"><p>View All</p></a>
                                             </div>
                                         </div>
                                         <div class="con2-tab-img2 clear">
@@ -406,7 +410,7 @@
                                                 <h5>Receptionist</h5>
                                                 <h5>원무과/매니저</h5>
                                                 <h6>Profile</h6>
-                                                <a href="intro-staff.jsp"><p>View All</p></a>
+                                                <a href="sub1-2.html"><p>View All</p></a>
                                             </div>
                                         </div>
                                         <div class="con2-tab-img2 clear">
@@ -416,7 +420,7 @@
                                                 <h5>Receptionist</h5>
                                                 <h5>원무과/매니저</h5>
                                                 <h6>Profile</h6>
-                                                <a href="intro-staff.jsp"><p>View All</p></a>
+                                                <a href="sub1-2.html"><p>View All</p></a>
                                             </div>
                                         </div>
                                 </div>
@@ -437,7 +441,7 @@
                             <div class="con3-view-text">
                                 <h3>정형외과</h3>
                                 <p>Orthopedics</p>
-                                <img src="/icon/medicine-class.png">
+                                <img src="icon/medicine-class.png">
                             </div>
                         </a>
                     </div>
@@ -448,7 +452,7 @@
                             <div class="con3-view-text">
                                 <h3>흉부외과</h3>
                                 <p>Thoracic surgery</p>
-                                <img src="/icon/medicine-class.png">
+                                <img src="icon/medicine-class.png">
                             </div>
                         </a>
                     </div>
@@ -459,7 +463,7 @@
                             <div class="con3-view-text">
                                 <h3>내분비내과</h3>
                                 <p>Endocrinology Internal Medicine</p>
-                                <img src="/icon/medicine-class.png">
+                                <img src="icon/medicine-class.png">
                             </div>
                         </a>
                     </div>
@@ -470,7 +474,7 @@
                             <div class="con3-view-text">
                                 <h3>소화기내과</h3>
                                 <p>Digestive Internal Medicine</p>
-                                <img src="/icon/medicine-class.png">
+                                <img src="icon/medicine-class.png">
                             </div>
                         </a>
                     </div>
@@ -481,7 +485,7 @@
                             <div class="con3-view-text">
                                 <h3>신경내과</h3>
                                 <p>Neurology</p>
-                                <img src="/icon/medicine-class.png">
+                                <img src="icon/medicine-class.png">
                             </div>
                         </a>
                     </div>
@@ -492,7 +496,7 @@
                             <div class="con3-view-text">
                                 <h3>방사선검사</h3>
                                 <p>Radiation examination</p>
-                                <img src="/icon/medicine-class.png">
+                                <img src="icon/medicine-class.png">
                             </div>
                         </a>
                     </div>
@@ -503,7 +507,7 @@
                             <div class="con3-view-text">
                                 <h3>초음파검사</h3>
                                 <p>Ultrasound examination</p>
-                                <img src="/icon/medicine-class.png">
+                                <img src="icon/medicine-class.png">
                             </div>
                         </a>
                     </div>
@@ -514,7 +518,7 @@
                             <div class="con3-view-text">
                                 <h3>응급중환자의료센터</h3>
                                 <p>Emergency and Critical Care Medicine</p>
-                                <img src="/icon/medicine-class.png">
+                                <img src="icon/medicine-class.png">
                             </div>
                         </a>
                     </div>
@@ -669,7 +673,7 @@
                         <a href="sub4-1.html" class="hover-color1">   
                             <div class="con4-hover"> 
                                 <h4>뭉치</h4>
-                                <img src="/icon/icon_man.png">
+                                <img src="icon/icon_man.png">
                                 <p>나이 : 2개월</p>
                                 <p>푸들</p>
                                 <p class="con4-more">MORE</p>
@@ -677,7 +681,7 @@
                         </a>
                             <div class="con4-box-text clear">
                                 <div class="text-left clear">
-                                    <img src="/icon/heart.png">
+                                    <img src="icon/heart.png">
                                 </div>
                                 <div>
                                     <p>뭉치</p>
@@ -688,7 +692,7 @@
                         <a href="sub4-1.html" class="hover-color2">
                         <div class="con4-hover">
                             <h4>똘이</h4>
-                            <img src="/icon/icon_women.png">
+                            <img src="icon/icon_women.png">
                             <p>나이 : 4개월</p>
                             <p>고양이</p>
                             <p class="con4-more">MORE</p>
@@ -696,7 +700,7 @@
                         </a>  
                         <div class="con4-box-text clear">
                             <div class="text-left clear">
-                                <img src="/icon/heart.png">
+                                <img src="icon/heart.png">
                             </div>
                             <div>
                             <p>토르</p>
@@ -707,7 +711,7 @@
                         <a href="sub4-1.html" class="hover-color3">
                         <div class="con4-hover">
                             <h4>깜이</h4>
-                            <img src="/icon/icon_man.png">
+                            <img src="icon/icon_man.png">
                             <p>나이 : 3개월</p>
                             <p>닥스훈트</p>
                             <p class="con4-more">MORE</p>
@@ -715,7 +719,7 @@
                         </a>
                         <div class="con4-box-text clear">
                             <div class="text-left clear">
-                                <img src="/icon/heart.png">
+                                <img src="icon/heart.png">
                             </div>
                             <div>
                             <p>깜이</p>
@@ -726,7 +730,7 @@
                         <a href="sub4-1.html" class="hover-color4">
                         <div class="con4-hover">
                             <h4>아부</h4>
-                            <img src="/icon/icon_man.png">
+                            <img src="icon/icon_man.png">
                             <p>나이 : 2개월</p>
                             <p>고슴도치</p>
                             <p class="con4-more">MORE</p>
@@ -734,7 +738,7 @@
                           </a>
                         <div class="con4-box-text clear">
                             <div class="text-left clear">
-                                <img src="/icon/heart.png">
+                                <img src="icon/heart.png">
                             </div>
                             <div>
                             <p>아부</p>
@@ -745,7 +749,7 @@
                         <a href="sub4-1.html" class="hover-color5">
                         <div class="con4-hover">
                             <h4>이아고</h4>
-                            <img src="/icon/icon_man.png">
+                            <img src="icon/icon_man.png">
                             <p>나이 : 1살</p>
                             <p>앵무새</p>
                             <p class="con4-more">MORE</p> 
@@ -753,7 +757,7 @@
                         </a>
                         <div class="con4-box-text clear">
                             <div class="text-left clear">
-                                <img src="/icon/heart.png">
+                                <img src="icon/heart.png">
                             </div>
                             <div>
                             <p>이아고</p>
@@ -764,7 +768,7 @@
                         <a href="sub4-1.html" class="hover-color6">
                         <div class="con4-hover bg6">
                             <h4>냥냥이</h4>
-                            <img src="/icon/icon_women.png">
+                            <img src="icon/icon_women.png">
                             <p>나이 : 1살</p>
                             <p>고양이</p>
                             <p class="con4-more">MORE</p>
@@ -772,7 +776,7 @@
                         </a>
                         <div class="con4-box-text clear">
                             <div class="text-left clear">
-                                <img src="/icon/heart.png">
+                                <img src="icon/heart.png">
                             </div>
                             <div>
                                 <p>냥냥이</p>
@@ -783,7 +787,7 @@
                         <a href="sub4-1.html" class="hover-color7">
                         <div class="con4-hover bg6">
                             <h4>점박이</h4>
-                            <img src="/icon/icon_women.png">
+                            <img src="icon/icon_women.png">
                             <p>나이 : 2살</p>
                             <p>레오파드</p>
                             <p class="con4-more">MORE</p>
@@ -791,7 +795,7 @@
                         </a>
                         <div class="con4-box-text clear">
                             <div class="text-left clear">
-                                <img src="/icon/heart.png">
+                                <img src="icon/heart.png">
                             </div>
                             <div>
                             <p>점박이</p>
@@ -801,66 +805,14 @@
                 </div>
                 <!-- <div class="con4-arrow">
                     <a href="sub4-1.html">
-                    <img src="/icon/right-arrow.png">
+                    <img src="icon/right-arrow.png">
                     <p>More</p>
                     </a>
                 </div> -->
             </div>
         </div>
     </div>
-    <!-- 하단 지도 -->
-    <div id="footer">
-        <div class="footer-direction-area">
-        <div class="footer-direction-center clear">
-            <div  style="float:left;">
-                <h3>Direction</h3>
-                <p>오시는 길</p>
-            </div>
-            <!-- 맵 연동은 맨 마지막 -->
-            <!-- <div id="map" style="width:837px;height:428px; float:left; margin-left:50px;"></div>
-            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b39455382198dd3c3860a5e9a81fdcc3"></script>
-            <script>
-                var container = document.getElementById('map');
-                var options = {
-                    center: new kakao.maps.LatLng(37.38563310000001,127.12113090000003),
-                    level: 3
-                };
-        
-                var map = new kakao.maps.Map(container, options);
-            </script> -->
-        </div>
-    </div>
-    <div class="footer-basic">
-        <div class="footer-center clear">
-            <div class="fot-left">
-                <h1 class="fot-logo"><a href="#"><img src="/icon/logo_lightgreen.png"></a></h1>
-                <p>© 2016 HAEMARU Referral Animal Hospital All rights Reserved.</p>
-            </div>
-            <div class="fot-right clear">
-                <div class="right-1">
-                    <p>Address</p>
-                    <p>경기도 성남시 분당구 황새울로 319번길 수의과학회관 1~4층</p>
-                    <div class="fot-phone">
-                        <p>Tel.</p>
-                        <p> 031 ) 781 - 2992</p>
-                    </div>
-                    <div class="fot-fax">
-                        <p>Fax.</p>
-                        <p>031 ) 781 - 2993</p>
-                    </div>
-                </div>
-                <div class="right-2">
-                    <p>E-mail</p>
-                    <p>help@haemaru.co.kr</p>
-                    <ul class="fot-info clear">
-                        <li><a href="#">개인정보취급방침</a></li>
-                        <li><a href="#">이메일무단수집거부</a></li>
-                    </ul>
-                </div>
-            </div>
-            <img class="fot-icon" src="/icon/footer-icon.png">
-        </div>
-    </div>
+   <%@ include file="/WEB-INF/view/include/footer.jsp" %>
 </div>
 </body>
 </html>
