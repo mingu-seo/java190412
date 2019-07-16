@@ -20,40 +20,41 @@ public class NoticeController {
 
 	@Autowired
 	NoticeService noticeService;
-	
+
 	@RequestMapping("/manage/board/notice/index")
 	public String index(Model model, NoticeVO param) throws Exception {
 		param.setTablename("notice");
 		int[] rowPageCount = noticeService.count(param);
 		ArrayList<AdminVO> list = noticeService.list(param);
-		
+
 		model.addAttribute("totCount", rowPageCount[0]);
 		model.addAttribute("totPage", rowPageCount[1]);
 		model.addAttribute("list", list);
 		model.addAttribute("vo", param);
-		
+
 		return "manage/board/notice/index";
 	}
-	
+
 	@RequestMapping("/manage/board/notice/write")
 	public String write(Model model, NoticeVO param) throws Exception {
 		model.addAttribute("vo", param);
-		
+
 		return "manage/board/notice/write";
 	}
-	
+
 	@RequestMapping("/manage/board/notice/edit")
 	public String edit(Model model, NoticeVO param) throws Exception {
 		param.setTablename("notice");
 		NoticeVO data = noticeService.read(param, false);
 		model.addAttribute("data", data);
 		model.addAttribute("param", param);
-		
+
 		return "manage/board/notice/edit";
 	}
-	
+
 	/**
 	 * 등록, 수정, 삭제 cmd값으로 구분해서 처리
+	 * 
 	 * @param model
 	 * @param param
 	 * @param request
@@ -66,7 +67,6 @@ public class NoticeController {
 		param.setTablename("notice");
 		System.out.println(param.getCmd());
 		if ("write".equals(param.getCmd())) {
-			
 			int r = noticeService.insert(param, request);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
@@ -79,7 +79,7 @@ public class NoticeController {
 		} else if ("groupDelete".equals(param.getCmd())) {
 			int r = noticeService.groupDelete(param, request);
 			model.addAttribute("code", "alertMessageUrl");
-			model.addAttribute("message", Function.message(r, "총 "+r+"건이 삭제되었습니다.", "삭제실패"));
+			model.addAttribute("message", Function.message(r, "총 " + r + "건이 삭제되었습니다.", "삭제실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		} else if ("delete".equals(param.getCmd())) {
 			int r = noticeService.delete(param);
@@ -87,13 +87,13 @@ public class NoticeController {
 			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		}
-		
+
 		return "include/alert";
 	}
-	
+
 	@RequestMapping("/membership/notice.do")
 	public String notice(Model model, AdminVO param) throws Exception {
-		
+
 		return "membership/notice";
 	}
 }

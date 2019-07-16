@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,59 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/default.css">
-    <link rel="stylesheet" href="/css/jquery-ui.css">
-    <link rel="stylesheet" href="/css/header-fixed.css">
-    <link rel="stylesheet" href="/css/pkg_book_channel.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="/js/jquery-ui.js"></script>
-    <script type="text/javascript" src="/js/gnb.js"></script>
-    <script type="text/javascript" src="/js/datepicker.js"></script>
-    <script>
-        $(function(){
-
-
-
-            //left-section 높이값 알아내서 right-section 높이값을 동일하게
-            var leftHei = $(".left-section").height();
-            $(".right-section").height(leftHei+2);
-
-            var secHei = $(".section-wrap").height();
-
-            //스크롤 했을때 
-            $(window).scroll(function(){
-                //스크롤바 위치값 알아내기
-                var scTop = $(this).scrollTop();
-
-                //section-wrap 시작하는 위치값 알아내기
-                var secWrap = $(".section-wrap").offset().top;
-
-                //footer 시작하는 위치값 알아내기
-                var ftStart = $("#footer").offset().top-800;
-                
-                if(scTop >= secWrap && scTop < secHei-390) {
-
-                    $(".confirmation-box").addClass("fix");
-                }
-
-                else if(scTop >= secHei-390) {
-
-                    $(".confirmation-box").removeClass("fix");
-                    $(".confirmation-box").addClass("fix2");
-                }
-
-                else {
-                    $(".confirmation-box").removeClass("fix2");
-                    $(".confirmation-box").removeClass("fix");
-
-                }
-            });
-        });
-    </script>
-    <title>패키지 객실예약</title>
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <link rel="stylesheet" href="../css/header-fixed.css">
+    <link rel="stylesheet" href="../css/dining_book_channel.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="../js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../js/gnb.js"></script>
+    <script type="text/javascript" src="../js/datepicker.js"></script>
+    <title>정보입력</title>
 </head>
 <body>
+    
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
@@ -69,20 +30,20 @@
                             <div class="pc-sub">
                                     <div class="pc-sub-center">
                                         <div class="pc-sub-box">
-                                            <h2><a href="../pkg/special_promotion.html">Promotion</a></h2>
+                                            <h2><a href="../special_promotion.html">Promotion</a></h2>
                                             <ul class="offer">
-                                                <li><a href="../pkg/room_offer.html">Room Package</a></li>
-                                                <li><a href="../pkg/dining_offer.html">Dining Package</a></li>
-                                                <li><a href="../pkg/etc_offer.html">Events & Gift</a></li>
+                                                <li><a href="../room_offer.html">Room Package</a></li>
+                                                <li><a href="../room_offer.html">Dining Package</a></li>
+                                                <li><a href="../room_offer.html">Events & Gift</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
                                             <h2>Rooms</h2>
                                             <ul class="Rooms">
-                                                <li><a href="../room/room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
-                                                <li><a href="../room/room-detail-subpage2.html">Namsan Pool Premier Suite</a></li>
-                                                <li><a href="../room/room-detail-subpage3.html">Namsan Presidential Suite</a></li>
-                                                <li><a href="../room/room-detail-subpage4.html">Spa Sanctuary Suite</a></li>
+                                                <li><a href="../room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
+                                                <li><a href="../room-detail-subpage.html">Namsan Pool Premier Suite</a></li>
+                                                <li><a href="../room-detail-subpage.html">Namsan Presidential Suite</a></li>
+                                                <li><a href="../room-detail-subpage.html">Spa Sanctuary Suite</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -106,22 +67,22 @@
                             </div>
                     </li>
                     <li class="facilities">
-                        <a href="#">Facilites</a>
+                        <a href="#">Facilities</a>
                             <div class="pc-sub">
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box facil-left">
                                                 <h2 class="no-line">Facilities</h2>
                                                 <ul>
-                                                    <li><a href="../facilites.html#f1">The Oasis</a></li>
-                                                    <li><a href="../facilites.html#f2">Indoor Swimming Pool</a></li>
+                                                    <li><a href="../facilities.html#f1">The Oasis</a></li>
+                                                    <li><a href="../facilities.html#f2">Indoor Swimming Pool</a></li>
                                                     
                                                 </ul>
                                             </div>
                                             <div class="pc-sub-box mtop">
                 
                                                 <ul class="Rooms">
-                                                        <li><a href="../facilites.html#f3">Fitness Centre</a></li>
-                                                        <li><a href="../facilites.html#f4">Sauna</a></li>
+                                                        <li><a href="../facilities.html#f3">Fitness Centre</a></li>
+                                                        <li><a href="../facilities.html#f4">Sauna</a></li>
                                                 </ul>
                                             </div>
                                             <div class="pc-sub-box mtop facil-right">
@@ -141,7 +102,7 @@
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Support</h2>
-                                                <a href="../membership/notice.html" class="notice-a">
+                                                <a href="../notice.html" class="notice-a">
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
@@ -153,7 +114,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../membership/faq.html">
+                                                <a href="../faq.html">
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">
@@ -165,7 +126,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../membership/qna.html">
+                                                <a href="../qna.html">
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">
@@ -180,117 +141,92 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="../membership/sign_in.html">Sign in</a>
+                <a href="sign_in.html">Sign In</a>
             </div>
         </div>
     </div>
 
-
     <div id="container">
+        <!-- 베너 영역 -->
+        <div class="banner">
+                <h1 class="head-title">다이닝 예약 신청<br/>
+                    <p>RESERVATION FOR DINING</p></h1>
+        </div>
+
+        <!-- 내용입력 구역 -->
         <div class="option_channel clear">
-            <h1 class="head-title">패키지 객실예약</h1>
-            <ul class="cha_index clear">
-                <li><a href="check_room.html">객실검색 <span>></span> </a></li>
-                <li class="current-page"><a href="#">객실예약</a></li>
-                <li><a href="personal_info.html"><span>></span>정보입력</a></li>
-                <li><a href="#"><span>></span> 예약완료</a></li>
-            </ul>
+            
             <!-- 폼태그 / summit 입력버튼 311번 -->
             <form action="#" method="GET">
                 <div class="section-wrap clear">
+
+                    <!-- 왼쪽 정보 입력 박스 구역 -->
                     <div class="left-section">
-                        <div class="sec01-title">
-                            <p>추가 옵션 선택</p>
-                        </div>
-
+                        
                         <div class="add01">
-                            <div class="add-detail">
-                                <h3>스파 세션 추가</h3>
-                                <p>마음과 여행으로 피곤해진 내 몸을 위한 특별한<br/>
-                                    시간, 오직 반얀트리에서 누릴 수 있는 럭셔리한<br/>
-                                    반얀트리만의 특화된 스파를 즐겨보세요.</p>
-                                <div class="detail-pic"><img src="../img/option-img/option-spa.gif"></div>
-                            </div>
-                            <div class="option-box">
-                                <ul class="option-detail">
-                                    <li>· 60분의 힐링타임을 위한 바디마사지</li>
-                                    <li>· 마사지 전과 후에 30분동안 바디 릴렉스와 바디 탄력 셋업</li>
-                                </ul>
-
-                                <div class="chk-box">
-                                    <p>2019. 06. 05 ~ 2019. 06. 08(투숙 기간중 1회)</p>
-                                    <p>SPA SESSION 객실 요금 KRW 210,000 [1인/1객실]</p>
-                                        <div class="number-chk">
-                                            <select>
-                                                <option>0</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select>
-                                        </div>
-                                </div>   
+                            <div class="sec01-title">
+                                <p>예약고객 정보 입력</p>
                             </div>
 
-                        </div>
+                            <div class="name_ko">
+                                    <label for="name_ko">성명 (한글)＊</label>
+                                    <input type="text" id="name_ko" placeholder="성">
+                                    <input type="text" id="name_ko" placeholder="이름">
+                            </div>
 
-                        <div class="add02">
-                                <div class="add-detail">
-                                    <h3>침대 추가</h3>
-                                    <p>객실 내 이동식 침대를 추가해 드립니다. 단, <br/>
-                                        한정된 수량으로 인해 수급이 불가 할 수 있습니다. <br/>
-                                        체그인 시 가능 여부를 확인해드립니다.</p>
-                                    <div class="detail-pic"><img src="../img/option-img/option-bed.gif"></div>
-                                </div>
-                                <div class="option-box">
-                                    <div class="chk-box">
-                                        <p>이동식 침대 KRW 50,000 [1대/1박]</p>
-                                            <div class="number-chk">
-                                                <select>
-                                                    <option>0</option>
-                                                    <option>1</option>
-                                                </select>
-                                            </div>
+                            <div class="name_en clear">
+                                    <div class="name_en_title">
+                                        <label for="name_en">성명 (영문)＊</label>
                                     </div>
-                                </div>
-                                <div class="breifNotice">
-                                    <p>* 침대 추가는 객실당 하루 1개까지 가능합니다.</p>
-                                    <p>* 침대 추가 금액은 일정 기간에 적용됩니다.</p>
-                                </div>
-
-                        </div>
-<!-- <input name="pass" type="text">
-<select>
-    <option value="포토샵">포토샵</option>
-
-</select> -->
-                        <div class="add02">
-                                <div class="add-detail">
-                                    <h3>Welcome Wine & Chocolate</h3>
-                                    <p> 반얀트리 소믈리에와 셰프가 준비한 이탈리안<br/>
-                                        빈티지 레드 와인과 치즈 플레이트를 객실에 <br/>
-                                        준비해 드립니다.</p>
-                                    <div class="detail-pic"><img src="../img/option-img/option-wine.gif"></div>
-                                </div>
-                                <div class="option-box">
-                                    <div class="chk-box">
-                                        <p>웰컴 와인과 치즈 KRW 66,000 [1set]</p>
-                                            <div class="number-chk">
-                                                <select>
-                                                    <option>0</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                </select>
-                                            </div>
+                                    <div class="name_en_area">
+                                        <select>
+                                            <option>선택안함</option>
+                                            <option>Ms.</option>
+                                            <option>Mr.</option>
+                                        </select>
+                                        <input type="text" id="name_en" placeholder="Family Name">
+                                        <input type="text" id="name_en" placeholder="First Name">
+                                        <p>* 여권에 기재된 영문 성명과 동일하게 기입해 주십시오.</p>
                                     </div>
-                                </div>
-                                            
-                        </div>
+                            </div>
 
+                            <div class="phoneNumber">
+                                    <label for="phoneNumber">연락처＊</label>
+                                    <select>
+                                        <option>선택</option>
+                                        <option>010</option>
+                                        <option>011</option>
+                                        <option>017</option>
+                                    </select>
+                                    <input type="text" id="number" placeholder="숫자만 입력가능">
+                            </div>
+
+                            <div class="email">
+                                    <ul class="email_adress clear">    
+                                        <li class="email-title">
+                                            <label for="email">이메일＊</label>
+                                        </li>
+                                    
+                                        <li>
+                                            <input type="text" id=emailID value title="이메일 아이디 입력" maxlength="40">
+                                        </li>
+
+                                        <li class="at">@</li>
+
+                                        <li>
+                                            <input type="text" id="emailAdress" value title="이메일 주소 입력" maxlength="40">
+                                        </li>
+                                        <li class="adress">
+                                                <select>
+                                                        <option>직접입력</option>
+                                                        <option>naver.com</option>
+                                                        <option>hanmail.net</option>
+                                                        <option>google.com</option>
+                                                </select>
+                                        </li>
+                                    </ul>
+                            </div>
+                        </div>
 
                         <div class="add01 card">
                             <div class="sec01-title">
@@ -300,12 +236,10 @@
                             <div class="cardType">
                                     <label for="name_ko">예약 상품<span>＊</span></label>
                                     <select>
-                                        <option>더 리즈너블</option>
-                                        <option>쁘디 이비자 위드 문라이트</option>
-                                        <option>그라넘 디너 테이블</option>
-                                        <option>웨딩 에프터 파티</option>
-                                        <option selected>그라넘 런치 테이블</option>
-                                        <option>브런치 스페셜</option>
+                                        <option>더 페스트</option>
+                                        <option>그라넘 다이닝 라운지</option>
+                                        <option>문바</option>
+                                        <option selected>더 오아시스 아웃도어 키친</option>
                                     </select>
                             </div>
                             
@@ -373,52 +307,29 @@
                                     </ul>
                                     
                             </div>
+
+                            
                         </div>
-                    
+                                                     
                     </div>
 
+                    <!-- 오른쪽 구역 예약신청 버튼 -->
                     <div class="right-section">
                         <div class="confirmation-box">
-                                <div class="content-area01">
-                                    <h2>온라인 확정 요금</h2>
-                                    <p>- 온라인 확정 요금 (최소 및 변경 불가 요금)</p>
-
-                                    <h3>NAMSAN POOL DELUXE ROOM[1객실]</h3>
-                                    <h3 class="point01">2019년 00월 00일(월) ~ 2019년 00월 00일 [0박]</h3>
-                                    <h3>어른0명 / 아이0명</h3>
-                                </div>
-
-                                <div class="content-area02 area clear">
-                                    <ul class="title01">
-                                        <li><h3>객실/패키지 총 금액</h3></li>
-                                        <li><h3>추가 옵션s 총 금액</h3></li>
-                                        <li><h3>세금 및 수수료</h3></li>
-                                    </ul>
-
-                                    <ul class="price01">
-                                        <li><h3>KRW 324,000</h3></li>
-                                        <li><h3>KRW 0</h3></li>
-                                        <li><h3>KRW 68,040</h3></li>
-                                    </ul>
-                                </div>
-
+                                
                                 <div class="content-area03 area clear">
-                                    <ul class="title02 clear">
-                                        <li class="total-price">총 예약 금액</li>
-                                        <li>KRW 392,040</li>
-                                    </ul>
-                                    <p>(투숙기간. 객실 수. 옵션 포함, 세금 및 수수료 각 10%포함)</p>
-
+                                    
                                     <div class="next-but">
-                                        <input id="countsubmit" type="submit" value="다음">
+                                        <input id="countsubmit" type="submit" value="예약 신청">
                                     </div>
 
                                     <h4><span></span>예약 안내</h4>
-                                    <p>· 당일 예약에 대해서는 취소 및 변경이 불가능합니다.</p>
+                                    <p>· 10인 이상 예약을 원하시는 경우 전화로<br/>
+                                        문의 부탁 드립니다.</p>
                                 </div>
 
                                 <div class="content-area04 area">
-                                    <h4><span></span>객실 예약문의 00-0000-0000</h4>
+                                    <h4><span></span>예약문의 00-0000-0000</h4>
                                 </div>
                                 
                         </div>
@@ -428,6 +339,7 @@
         </div>
     </div>
 
+    <!-- 푸터영역 시작 -->
     <div id="footer">
             <!-- <div class="footer-logo"><img src="img/footer_logo.png"></div> -->
             
@@ -461,6 +373,3 @@
                     </ul>
                 </div>
             </div>
-    </div>
-</body>
-</html>

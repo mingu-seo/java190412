@@ -8,7 +8,7 @@
 				http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<context:component-scan base-package="test" />
-	<context:component-scan base-package="manage" />
+	<context:component-scan base-package="manage.admin" />
 	<context:component-scan base-package="board" />
 	<context:component-scan base-package="main" />
 	<context:component-scan base-package="room" />
