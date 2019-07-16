@@ -14,11 +14,11 @@
     <link rel="stylesheet" href="/css/footer.css">
     <!-- 스크롤 내릴 시 사진 나타내는 플러그인 -->
     <link rel="stylesheet" href="/css/aos.css">
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
     <!-- 스크롤 내릴 시 사진 나타내는 플러그인 -->
-    <script type="text/javascript" src="js/aos.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script>
-    <script type="text/javascript" src="js/sub1-1.js"></script>
+    <script type="text/javascript" src="/js/aos.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
+    <script type="text/javascript" src="/js/sub1-1.js"></script>
 </head>
 <body>
     <!-- header html -->
@@ -124,17 +124,17 @@
                 </div>
             </div>
         </div>
-        <h1 class="header-logo"><a href="index.do"><img src="/icon/logo_lightgreen.png"></a></h1>
+        <h1 class="header-logo"><a href="/index.do"><img src="/icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">
             <!-- gnb & sub menu -->
             <ul class="gnb clear">
                 <li>
-                    <a href="intro/intro-hi.do">병원소개</a>
+                    <a href="/intro/intro-hi.do">병원소개</a>
                     <ul class="header-sub">
-                        <li><a href="intro/intro-hi.do">인사말</a></li>
-                        <li><a href="intro/intro-staff.do">의료진소개</a></li>
-                        <li><a href="intro/intro-map.do">오시는길</a></li>
+                        <li><a href="/intro/intro-hi.do">인사말</a></li>
+                        <li><a href="/intro/intro-staff.do">의료진소개</a></li>
+                        <li><a href="/intro/intro-map.do">오시는길</a></li>
                     </ul>
                 </li>
                 <li>

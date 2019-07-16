@@ -11,6 +11,7 @@
 	<context:component-scan base-package="manage" />
 	<context:component-scan base-package="board" />
 	<context:component-scan base-package="main" />
+	<context:component-scan base-package="reservation" />
 	
 	<mvc:annotation-driven/>
 <!-- 
@@ -26,12 +27,24 @@
 	<mvc:view-controller path="/validator.do"/>
  -->
  	
- 	<mvc:view-controller path="/intro/intro-hi.do"/>
+	<mvc:view-controller path="/intro/intro-hi.do"/>
+ 	<mvc:default-servlet-handler/>
+ 	<mvc:view-controller path="/intro/intro-staff.do"/>
+ 	<mvc:default-servlet-handler/>
+ 	<mvc:view-controller path="/intro/intro-map.do"/>
+ 	<mvc:default-servlet-handler/>
+ 	
+ 	<mvc:view-controller path="/my/my-infor.do"/>
+ 	<mvc:default-servlet-handler/>
+ 	<mvc:view-controller path="/my/my-pet.do"/>
+ 	<mvc:default-servlet-handler/>
+ 	<mvc:view-controller path="/my/my-res.do"/>
+ 	<mvc:default-servlet-handler/>
+ 	<mvc:view-controller path="/my/my-ask.do"/>
  	<mvc:default-servlet-handler/>
  	
  	<mvc:view-resolvers>
  	    <mvc:jsp prefix="/WEB-INF/view/"/>
- 	    <mvc:jsp prefix="/WEB-INF/view/intro-hi.jsp"/>
  	</mvc:view-resolvers>
 
  	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

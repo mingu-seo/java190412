@@ -24,8 +24,7 @@
                     <a href="sub3-1.html">예약</a>
                     <ul class="header-sub">
                         <li><a href="sub3-1.html">진료예약</a></li>
-                    </ul>
-                </li>
+                    </ul>                </li>
                 <li>
                     <a href="sub4-1.html">입양</a>
                     <ul class="header-sub">
