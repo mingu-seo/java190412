@@ -45,4 +45,10 @@ public class RoomController {
 		return "book/check_room";
 	}
 	
+	@RequestMapping("/book/price_room.do")
+	public String price_room(Model model, AdminVO param) throws Exception {
+		
+		return "book/price_room";
+	}
+	
 }
