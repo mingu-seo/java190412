@@ -18,6 +18,10 @@ public class NoticeVO extends Parameter {
 	private int readno; // 조회수
 	private int member; // 비밀글
 	
+	public NoticeVO() {
+		super.setPageRows(10);
+	}
+	
 	public int getNo() {
 		return no;
 	}

@@ -1,11 +1,17 @@
 package board.notice;
 
 import java.util.ArrayList;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import board.notice3.NoticeVO3;
+import property.SiteProperty;
+import util.FileUtil;
 import util.Page;
 
 @Service
@@ -27,5 +33,21 @@ public class NoticeService {
 		ArrayList list = noticeDao.list(vo);
 		return list;
 	}	
+	
+	public int insert(NoticeVO vo, HttpServletRequest request) throws Exception {
+		
+		FileUtil fu = new FileUtil();
+		Map fileMap = fu.getFileMap(request);
+		MultipartFile file= (MultipartFile)fileMap.get("filename_tmp");
+		if (!file.isEmpty()) {
+			fu.upload(file, SiteProperty.NOTICE_UPLOAD_PATH, SiteProperty.REAL_PATH, "notice");
+			vo.setFile(fu.getName());
+			vo.setFile_org(fu.getSrcName());
+		}
+		
+		int lastNo = (Integer)noticeDao.insert(vo);
+		
+		return lastNo;
+	}
 
 }

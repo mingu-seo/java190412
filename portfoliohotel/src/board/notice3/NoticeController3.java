@@ -21,7 +21,7 @@ public class NoticeController3 {
 	@Autowired
 	NoticeService3 noticeService;
 	
-	@RequestMapping("/manage/board/notice/index")
+	@RequestMapping("/manage/board/notice3/index")
 	public String index(Model model, NoticeVO3 param) throws Exception {
 		param.setTablename("notice");
 		int[] rowPageCount = noticeService.count(param);
@@ -32,17 +32,17 @@ public class NoticeController3 {
 		model.addAttribute("list", list);
 		model.addAttribute("vo", param);
 		
-		return "manage/board/notice/index";
+		return "manage/board/notice3/index";
 	}
 	
-	@RequestMapping("/manage/board/notice/write")
+	@RequestMapping("/manage/board/notice3/write")
 	public String write(Model model, NoticeVO3 param) throws Exception {
 		model.addAttribute("vo", param);
 		
 		return "manage/board/notice/write";
 	}
 	
-	@RequestMapping("/manage/board/notice/edit")
+	@RequestMapping("/manage/board/notice3/edit")
 	public String edit(Model model, NoticeVO3 param) throws Exception {
 		param.setTablename("notice");
 		NoticeVO3 data = noticeService.read(param, false);
@@ -60,7 +60,7 @@ public class NoticeController3 {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/manage/board/notice/process.do")
+	@RequestMapping("/manage/board/notice3/process.do")
 	public String process(Model model, NoticeVO3 param, HttpServletRequest request) throws Exception {
 		model.addAttribute("vo", param);
 		param.setTablename("notice");
@@ -91,7 +91,7 @@ public class NoticeController3 {
 		return "include/alert";
 	}
 	
-	@RequestMapping("/membership/notice.do")
+	@RequestMapping("/membership/notice3.do")
 	public String notice(Model model, AdminVO param) throws Exception {
 		
 		return "membership/notice";

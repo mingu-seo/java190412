@@ -16,7 +16,7 @@ public class NoticeController {
 	@Autowired
 	NoticeService noticeService;
 	
-	@RequestMapping("/manage/board/notice/index.do")
+	@RequestMapping("/manage/board/notice/index")
 	public String index(Model model, NoticeVO param) throws Exception {
 		param.setTablename("notice");
 		int[] rowPageCount = noticeService.count(param);

@@ -30,5 +30,15 @@ public class NoticeDAO extends SqlMapClientDAOSupport{
 	public ArrayList list(NoticeVO vo) throws SQLException {
 		return (ArrayList)getSqlMapClient().queryForList("notice.list", vo);
 	}
+	
+	/**
+	 * 게시글 저장 [게시글 저장 후 게시글의 번호를 가져옴]
+	 * @param vo NoticeVO
+	 * @return no Integer
+	 * @throws SQLException
+	 */
+	public int insert(NoticeVO vo) throws SQLException {
+		return (Integer)getSqlMapClient().insert("notice.insert",vo);
+	}
 
 }

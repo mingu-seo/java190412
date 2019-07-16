@@ -2,7 +2,7 @@
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="notice">
     
-    <typeAlias alias="notice_vo" type="board.notice2.NoticeVO"/>
+    <typeAlias alias="notice_vo" type="board.notice.NoticeVO"/>
     
 	<!-- 해당 테이블의 총 게시글 수 -->
 	<select id="count" parameterClass="notice_vo" resultClass="Integer">
@@ -12,7 +12,20 @@
 	<select id="list" parameterClass="notice_vo" resultClass="notice_vo">
         select *
         from notice
-		ORDER BY registdate DESC LIMIT $startPageNo$, $pageRows$
+		ORDER BY regdate DESC LIMIT $startPageNo$, $pageRows$
     </select>    
     
+	<!-- 해당 테이블에 게시글 작성 -->
+    <insert id="insert" parameterClass="notice_vo">
+        INSERT INTO notice (
+        	title, member, content, regdate, readno,
+        	file_org, file, display, filesize
+        ) VALUES (
+        	#title#, #member#, #content#, now(), #readno#,
+        	#file_org#, #file#, #display#, #filesize#
+        )
+        <selectKey keyProperty="no" resultClass="Integer">
+        	SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
 </sqlMap>
