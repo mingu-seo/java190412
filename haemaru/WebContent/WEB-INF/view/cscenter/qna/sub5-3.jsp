@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>영상의학과</title>
+    <title>문의하기</title>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700|Roboto:400,500,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/sub2-4.css">
-    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/sub5-3.css">
+    <link rel="stylesheet" href="css/footer.css">
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
 </head>
@@ -263,53 +263,112 @@
             <!-- sub bar 부분 (고정) -->
             <div class="fixed-sub">
                 <div class="title-area">
-                    <h2>병원소개</h2>
-                    <p>information</p>
+                    <h2>고객센터</h2>
+                    <p>Customer Center</p>
                 </div>
                 <ul class="sub-bar">
-                    <li ><a href="sub2-1.html">외과</a></li>
-                    <li><a href="sub2-2.html">내과</a></li>
-                    <li><a href="sub2-3.html">영상의학과</a></li>
-                    <li  class="on"><a href="sub2-4.html">응급중환자의료센터</a></li>
+                    <li ><a href="sub5-1.html">공지사항</a></li>
+                    <li><a href="sub5-2.html">FAQ</a></li>
+                    <li class="on"><a href="sub5-3.html">문의하기</a></li>
                 </ul>
             </div>
             <!-- main 부분 (여기다가 하면 됨) -->
             <div class="main">
-                <h3>응급중환자의료센터</h3>
-                <p>Emergency Medical Center</p>
-                <div class="medicine-box clear">
-                    <div class="medicine-info">
-                        <div class="medicine-img">
-                            <a href="#">
-                                <div class="medicine-hover">
-                                    <div class="medicine-opa">
-                                        <h4>중환자 집중치료</h4>
-                                        <h6>Intensive Care </h6>
-                                        <img src="icon/medicine-class.png">
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="Medicine-text">
-                            <h3>중환자 집중치료</h3>
-                            <h5>중환자는 급격히 상태 악화가 발생할 수 있는 위중한 상태에 있기 때문에, 일반 외래 환자나 일반 입원 환자와 달리, 지속적으로 전문적이고 세심한 치료와 관찰이 필요합니다. 해마루 이차진료 동물병원에는 중환자 집중 치료를 위한 현대화된 중환자실이 운영 되고 있고 숙련된 중환자 전담 진료진이 365일 24시간 중환자 집중 치료를 제공합니다.</h5>
-                        </div>
-                    </div>
-                    <div class="medicine-info">
-                        <div class="medicine-img">
-                            <a href="#">
-                            <div class="medicine-hover">
-                                <div class="medicine-opa">
-                                    <h4>응급의료센터</h4>
-                                    <h6>Emergency Medical Center</h6>
-                                    <img src="icon/medicine-class.png">
-                                </div>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="Medicine-text">
-                            <h3>응급의료센터</h3>
-                            <h5>응급의학은 급성질환이나 손상에 따른 신체의 이상에 대한 응급 진료를 전문적으로 담당하여 환자의 생명을 구하고 환자 상태를 최단시간 내에 안정시켜 계속되는 원인 규명을 위한 감별 검사, 원인에 대한 치료/수술 등이 가능하도록 하는 특수한 의학 분야입니다. 수의학에서는 비교적 최근에 정립된 분야이며, 국내에서는 아직 응급의학을 전담하는 숙련된 진료진이 상주하는 동물병원이 극히 드문 실정입니다. 해마루 이차진료 동물병원의 응급의료센터는 이러한 국내 현실에서 독보적인 시스템과 전담 진료진을 갖추고 운영되고 있으며, 기대와 명성을 넘어서는 최상의 응급 진료를 제공하기 위해 끊임없이 노력하고 있습니다.</h5>
+                <h3>문의하기</h3>
+                <p>Ask for infomation</p>
+                <div class="reply-area">
+                    <form class="search-btn" method="GET" action="text.php">
+                        <select>
+                            <option>전체</option>
+                            <option>외과</option>
+                            <option>내과</option>
+                            <option>영상의학과</option>
+                            <option>응급의료센터</option>
+                            <option>예약</option>
+                        </select>
+                        <input type="text" id="search_input" placeholder="검색어를 입력하세요.">
+                        <input type="submit" value="검색"  id="btn_submit_search">
+                    </form>
+                    <div class="reply-table">
+                        <table>
+                            <tr>
+                                <th>No.</th>
+                                <th>Category</th>
+                                <th>Title</th>
+                                <th>Data</th>
+                                <th>Writer</th>
+                            </tr>
+                            <tr>
+                                <td>102</td>
+                                <td>외과</td>
+                                <td><a href="sub5-5.html">재활치료 문의 드립니다.</a></td>
+                                <td>2019-06-04</td>
+                                <td>한서하</td>
+                            </tr>
+                            <tr>
+                                <td>101</td>
+                                <td></td>
+                                <td><a href="sub5-5.html"><span><img src="icon/icon-reply.png"></span>[re] 한서하 님의 질문 답변입니다.</a></td>
+                                <td>2019-06-01</td>
+                                <td>해마루동물병원</td>
+                            </tr>
+                            <tr>
+                                <td>100</td>
+                                <td>내과</td>
+                                <td><a href="sub5-5.html">고양이 중성화수술 문의 드립니다.</a></td>
+                                <td>2019-05-28</td>
+                                <td>이윤</td>
+                            </tr>
+                            <tr>
+                                <td>99</td>
+                                <td></td>
+                                <td><a href="sub5-5.html"><span><img src="icon/icon-reply.png"></span>[re] 이윤 님의 질문 답변입니다.</a></td>
+                                <td>2019-05-13</td>
+                                <td>해마루동물병원</td>
+                            </tr>
+                            <tr>
+                                <td>98</td>
+                                <td>예약</td>
+                                <td><a href="sub5-5.html">진료 예약 문의 드립니다.</a></td>
+                                <td>2019-05-04</td>
+                                <td>윤미연</td>
+                            </tr>
+                            <tr>
+                                <td>97</td>
+                                <td></td>
+                                <td><a href="sub5-5.html"><span><img src="icon/icon-reply.png"></span>[re] 윤미연 님의 질문 답변입니다.</a></td>
+                                <td>2019-04-22</td>
+                                <td>해마루동물병원</td>
+                            </tr>
+                            <tr>
+                                <td>96</td>
+                                <td>외과</td>
+                                <td><a href="sub5-5.html">강아지 디스크 문의 드립니다.</a></td>
+                                <td>2019-03-02</td>
+                                <td>맹다영</td>
+                            </tr>
+                            <tr>
+                                <td>95</td>
+                                <td></td>
+                                <td><a href="sub5-5.html"><span><img src="icon/icon-reply.png"></span>[re] 맹다영 님의 질문 답변입니다.</a></td>
+                                <td>2019-02-25</td>
+                                <td>해마루동물병원</td>
+                            </tr>
+                        </table>
+                        <ul class="reply-btn clear">
+                            <li><a href="sub5-4.html">문의하기</a></li>
+                            <li><a href="sub5-5.html">내 질문 보기</a></li>
+                        </ul>
+                        <div class="reply-number-all clear">
+                            <p class="reply-number-arrow"><a href="#"></a></p>
+                            <ul class="reply-number clear">
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                            </ul>
+                            <p class="reply-number-arrow2"><a href="#"></a></p>
                         </div>
                     </div>
                 </div>
