@@ -151,7 +151,7 @@
             <div class="chk-section">
                 <h2>객실검색</h2>
                 <ul class="cha_index clear">
-                    <li><a href="check_room.html">객실검색 <span>></span> </a></li>
+                    <li><a href="check_room.do">객실검색 <span>></span> </a></li>
                     <li class="current-page"><a href="#">객실예약</a></li>
                     <li><a href="#"><span>></span>정보입력</a></li>
                     <li><a href="#"><span>></span> 예약완료</a></li>
@@ -219,7 +219,7 @@
             <div class="room-info">
                 <ul class="tabMenu clear">
                     <li class="on"><a href="#">객실로 보기</a></li>
-                    <li><a href="price_room.html">요금으로 보기</a></li>
+                    <li><a href="price_room.do">요금으로 보기</a></li>
                 </ul>
 
             <!--예약 가능한 객실 조회 결과 나오는 영역 -->
