@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/jquery-ui.css">
-    <link rel="stylesheet" href="../css/slick.css">
-    <link rel="stylesheet" href="../css/slick-theme.css">
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../css/header-fixed.css">
-    <link rel="stylesheet" href="../css/room-detail-subpage.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="../js/gnb.js"></script>
-    <script type="text/javascript" src="../js/jquery-ui.js"></script>
-    <script type="text/javascript" src="../js/slick.js"></script>
-    <script type="text/javascript" src="../js/slick-slide.js"></script>
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/slick.css">
+    <link rel="stylesheet" href="/css/slick-theme.css">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/header-fixed.css">
+    <link rel="stylesheet" href="/css/room-detail-subpage.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="/js/gnb.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/js/slick.js"></script>
+    <script type="text/javascript" src="/js/slick-slide.js"></script>
     <script type="text/javascript">
         $(function(){
             
