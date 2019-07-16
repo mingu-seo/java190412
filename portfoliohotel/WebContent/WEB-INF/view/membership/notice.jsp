@@ -35,10 +35,10 @@
                                         <div class="pc-sub-box">
                                             <h2>Rooms</h2>
                                             <ul class="Rooms">
-                                                <li><a href="../room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
-                                                <li><a href="../room-detail-subpage.html">Namsan Pool Premier Suite</a></li>
-                                                <li><a href="../room-detail-subpage.html">Namsan Presidential Suite</a></li>
-                                                <li><a href="../room-detail-subpage.html">Spa Sanctuary Suite</a></li>
+                                                <li><a href="../room-detail-subpage.do">Namsan Pool Deluxe Room</a></li>
+                                                <li><a href="../room-detail-subpage.do">Namsan Pool Premier Suite</a></li>
+                                                <li><a href="../room-detail-subpage.do">Namsan Presidential Suite</a></li>
+                                                <li><a href="../room-detail-subpage.do">Spa Sanctuary Suite</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
