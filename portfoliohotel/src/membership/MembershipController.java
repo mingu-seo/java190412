@@ -1,13 +1,19 @@
 package membership;
 
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import board.member.MemberService;
+import board.member.MemberVO;
 import manage.admin.AdminVO;
 
 @Controller
 public class MembershipController {
+	
 
 	@RequestMapping("/membership/sign_in.do")
 	public String sign_in(Model model, AdminVO param) throws Exception {
@@ -55,4 +61,5 @@ public class MembershipController {
 		return "membership/delete_account";
 
 	}
+	
 }
