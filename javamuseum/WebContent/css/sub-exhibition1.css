@@ -1,0 +1,100 @@
+@charset "utf-8";
+
+/* 상단배경 */
+.con1 {height:600px; width:100%; background-image:url("../img/sub-exhibition.jpg"); background-repeat:no-repeat; background-attachment:fixed;}
+.con1-box{text-align: center; color: #fff; font-weight: bold; padding-top: 250px;}
+.con1-box h3{font-size: 60px; margin-bottom: 10px;}
+.con1-box p{font-size: 20px;}
+/* 현재전시 */
+.con2-center{width: 1200px; margin: 0 auto; position: relative;}
+.con2-text h3{font-size: 40px; font-weight: normal; margin-top :136px; margin-bottom: 80px;}
+.con2-bggroup{position: relative;}
+.con2-bggroup li{float: left; width: 400px; height: 400px;}
+.con2-bggroup li > a > img{width: 100%; height: 100%;}
+/* 서브페이지 */
+.con2-sub01{width: 1200px;height: 400px; background-color: #fff; position: absolute; top:0; right: 0; display: none;}
+.con2-sub01 img{float: left;width: 400px;}
+.sub01-text{float: left; margin-left: 30px;margin-top: 30px; width: 700px;}
+.sub01-text h4{ font-size: 18px; line-height: 30px; font-weight: bold;}
+.sub01-text h3{font-size: 28px; margin-top: 20px; margin-bottom: 20px;}
+.sub01-text p{font-size: 16px; line-height: 30px;}
+/* 예매 버튼 */
+.sub01-btn{  margin-top: 20px; width:320px;}
+.sub01-btn li {background-color:black;float:left; width: 150px; height: 50px; margin-right:10px;}
+.sub01-btn li a {color: #fff; text-align: center; line-height: 50px;display: block; font-size: 16px; font-weight: bold;}
+/* 닫기 버튼 */
+.sub01-close {width: 70px; position: absolute; top: 10px; right: 10px;}
+.sub01-close img { width:100%;}
+/* 예매하기 버튼 클릭시 */
+.con3-bg{ display:none; background-color: #000; background-color: rgba(0,0,0,0.8); z-index:30; position: fixed; top: 0; left: 0; width:100%; height:100%;}
+.con3-gr{width: 980px; margin: 50px auto; height: 850px;background-color: #fff;}
+/* 전시예매 위에 부분 */
+.con3-header{width: 100%; height: 40px; background-color: #191919; padding-top: 7px;}
+.con3-header h3{color: #fff; font-size: 18px; margin-left: 24px;}
+/* 상단-작품설명 */
+.con3-center{width: 820px; margin: 0 auto; margin-top: 20px;}
+.con3-top{border: 2px solid #000; width: 100%; height: 270px; padding: 10px 10px;}
+.con3-top li{float: left;}
+/* 상단-이미지 */
+.con3-top-img{width: 250px; height: 250px;}
+.con3-top-img > img{ width: 100%; height: 100%;}
+/* 상단-텍스트 */
+.con3-top-text{margin-top: 40px; margin-left: 36px;}
+.con3-top-text h4{font-size: 14px;}
+.con3-top-text h3{font-size: 22px; margin-top: 18px; margin-bottom: 12px;}
+.con3-top-text p{font-size: 12px;}
+/* 하단-내용 */
+.con3-tb{margin-top: 16px; width: 100%;border: 2px solid #191919;}
+.con3-tb tr{width: 820px; border-bottom: 1px solid #fff;}
+.con3-tb th{width: 200px; height: 60px; background-color: #191919; color: #fff;}
+.con3-tb td{padding-left: 20px; border-bottom: 1px solid #191919;}
+.con3-tb input[type="text"]{width: 154px; height: 30px; border: 1px solid #191919; padding-left: 10px;}
+.con3-tb select{width: 164px; height: 30px; border: 1px solid #191919; padding-left: 10px;}
+.point-span{position: relative; right: 120px;}
+.chk-radio{width: 20px;}
+.chk-text{width: 250px;}
+#con3-glod{font-size: 24px; font-weight: bold;}
+/* 하단-버튼 */
+.btn-group li{float: left; width: 400px; height: 60px;margin-right: 20px;}
+.btn-group li:nth-child(2){margin-right: 0px;}
+.con3-btn{margin-top:16px;}
+.con3-btn input[type="submit"]{width: 100%; height: 50px;background-color: #191919; border: none;color: #fff; font-size: 16px;}
+.con3-btn #submit-btn2{width: 100%; height: 50px;background-color: #191919;color: #fff; font-size: 16px; border: none;}
+/*작품 후기*/
+/* 작품 소개 시작 */
+.con4-bot {border:2px solid black; margin-top:16px;}
+.con4-bg{ display:none; background-color: #000; background-color: rgba(0,0,0,0.8); z-index:30; position: fixed; top: 0; left: 0; width:100%; height:100%;}
+.con4-gr{width: 980px; margin: 50px auto; padding-bottom:30px; background-color: #fff;}
+.con4-header{width: 100%; height: 40px; background-color: #191919; padding-top: 7px;}
+.con4-header h3{color: #fff; font-size: 18px; margin-left: 24px;}
+.con4-center{width: 820px; margin: 0 auto; margin-top: 20px;}
+.con4-top{border: 2px solid #000; width: 100%; height: 270px; padding: 10px 10px;}
+.con4-top li{float: left;}
+.con4-top-img{width: 250px; height: 250px;}
+.con4-top-img > img{ width: 100%; height: 100%;}
+/* 작품 소개 끝 */
+/* BEST 한줄평/후기 시작 */
+.con4-top-text{margin-top: 40px; margin-left: 36px;}
+.con4-bot-title {width:100%; background-color:#191919; height:50px; line-height:50px; text-align:center; color:white; font-size:18px;}
+.con4-top-text h4{font-size: 14px;}
+.con4-top-text h3{font-size: 22px; margin-top: 18px; margin-bottom: 12px;}
+.con4-top-text p{font-size: 12px;}
+.con4-bot-text-list {border-bottom:1px solid #191919;}
+.con4-epilogue { background-image:url(../img/ep-on.png); padding:5px 0px; background-repeat:no-repeat; background-position:right 20px top 17px; background-size:25px;}
+.con4-epilogue.on { background-image:url(../img/ep-off.png);}
+.con4-epilogue .rating { float:left; padding-left:20px;}
+.con4-epilogue .notice { float:left; padding-left:80px;}
+.con4-epilogue .auther span {margin:5px 0; display:inline-block;}
+.con4-epilogue .auther span:after {content:"|"; margin:0 5px;}
+.con4-epilogue .auther span:last-child:after {display:none;}
+.con4-ep-cont { display:none; background-color:#f4f4f4; padding-left:205px; line-height:30px;}
+.con4-btn{margin-top:16px;}
+.con4-btn .btn-group li {width:398px;}
+.con4-btn input[type="submit"]{width:398px; height: 50px;background-color: #191919; border: none;color: #fff; font-size: 16px;}
+.con4-btn #submit-btn2{width:398px; height: 50px;background-color: #191919;color: #fff; font-size: 16px; border: none;}
+.write li {float:left; margin-top:20px;}
+.con4 input[type="text"] {width:696px; margin-right:20px; border:2px solid black; height:35px;}
+#write-submit {width:100px; height:40px; border:none; border:2px solid black; background-color:transparent;}
+/* BEST 한줄평/후기 끝 */
+/* 풋터 */
+#footer{margin-top: 120px;}

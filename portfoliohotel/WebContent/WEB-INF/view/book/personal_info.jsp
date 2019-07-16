@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,41 +15,29 @@
     <script type="text/javascript" src="../js/gnb.js"></script>
     <script>
         $(function(){
-
-
-
             //left-section 높이값 알아내서 right-section 높이값을 동일하게
             var leftHei = $(".left-section").height();
             $(".right-section").height(leftHei+2);
-
             var secHei = $(".section-wrap").height();
-
             //스크롤 했을때 
             $(window).scroll(function(){
                 //스크롤바 위치값 알아내기
                 var scTop = $(this).scrollTop();
-
                 //section-wrap 시작하는 위치값 알아내기
                 var secWrap = $(".section-wrap").offset().top;
-
                 //footer 시작하는 위치값 알아내기
                 var ftStart = $("#footer").offset().top-800;
                 
                 if(scTop >= secWrap && scTop < secHei-390) {
-
                     $(".confirmation-box").addClass("fix");
                 }
-
                 else if(scTop >= secHei-390) {
-
                     $(".confirmation-box").removeClass("fix");
                     $(".confirmation-box").addClass("fix2");
                 }
-
                 else {
                     $(".confirmation-box").removeClass("fix2");
                     $(".confirmation-box").removeClass("fix");
-
                 }
             });
         });

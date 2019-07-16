@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,41 +15,29 @@
     <script type="text/javascript" src="../js/gnb.js"></script>
     <script>
         $(function(){
-
-
-
             //left-section 높이값 알아내서 right-section 높이값을 동일하게
             var leftHei = $(".left-section").height();
             $(".right-section").height(leftHei+2);
-
             var secHei = $(".section-wrap").height();
-
             //스크롤 했을때 
             $(window).scroll(function(){
                 //스크롤바 위치값 알아내기
                 var scTop = $(this).scrollTop();
-
                 //section-wrap 시작하는 위치값 알아내기
                 var secWrap = $(".section-wrap").offset().top;
-
                 //footer 시작하는 위치값 알아내기
                 var ftStart = $("#footer").offset().top-800;
                 
                 if(scTop >= secWrap && scTop < secHei-390) {
-
                     $(".confirmation-box").addClass("fix");
                 }
-
                 else if(scTop >= secHei-390) {
-
                     $(".confirmation-box").removeClass("fix");
                     $(".confirmation-box").addClass("fix2");
                 }
-
                 else {
                     $(".confirmation-box").removeClass("fix2");
                     $(".confirmation-box").removeClass("fix");
-
                 }
             });
         });
@@ -188,7 +177,7 @@
             <ul class="cha_index clear">
                 <li><a href="check_room.html">객실검색 <span>></span> </a></li>
                 <li class="current-page"><a href="#">객실예약</a></li>
-                <li><a href="personal_info.html"><span>></span>정보입력</a></li>
+                <li><a href="/book/personal_info.do"><span>></span>정보입력</a></li>
                 <li><a href="#"><span>></span> 예약완료</a></li>
             </ul>
             <!-- 폼태그 / summit 입력버튼 311번 -->
@@ -258,7 +247,6 @@
 <!-- <input name="pass" type="text">
 <select>
     <option value="포토샵">포토샵</option>
-
 </select> -->
                         <div class="add02">
                                 <div class="add-detail">

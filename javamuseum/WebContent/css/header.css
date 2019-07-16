@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+#header {position:absolute; width:100%; z-index: 10; }
+.con1 {height:1089px; width:100%; background-image:url("../img/con1-banner.jpg"); background-repeat:no-repeat; background-attachment:fixed;}
+/* login 메뉴 부분 */
+.h-top {width:1200px; margin:0 auto;}
+.login {float:right; height:40px; margin-right:37px;}
+.login li {float:left; line-height:40px;}
+.login li:hover a {color:#c2ad6f;}
+.login li:after {content:"|"; margin:0 10px; color:white;}
+.login li:last-child:after {display:none;}
+.login li a {color:white; font-size:14px;}
+/* login 메뉴 부분 */
+
+/* 헤더 메뉴 부분 */
+.h-bot { transition:all 0.5s; height:200px;}
+.h-bot.on { background-color:rgba(255,255,255,1);}
+.h-bot-in {width:1200px; margin:0 auto;}
+.h-bot-line { position: absolute;top: 94px; width: 100%;background-color: #d7d7d7; height: 1px; display:none;}
+.logo {float:left; margin-top:15px; background-image:url("../img/logo.png"); width:281px; height:29px; background-size: cover;text-indent:-9999px;}
+.logo a {display:block;}
+.logo.on {background-image:url("../img/logo2.png");}
+.h-menu {float:right; height:60px; position:relative;}
+.h-menu > li {float:left; line-height:60px; width:150px; text-align:center;}
+.h-menu > li.on a {color:black;}
+.h-menu > li > a:after {content:""; display:block; width:0; height:2px; background-color:#c2ad6f; position:relative; left:50%; transform:translateX(-50%); bottom:8px; opacity:0; transition:all 0.5s;}
+.h-menu > li:hover > a:after { opacity:1; width:100px;} 
+.h-menu > li:hover > a {color:#c2ad6f!important;}
+.h-menu > li > a {display:block; color:white; font-size:20px;}
+.sub-menu { display:none;}
+.sub-menu > li {line-height:30px; text-align:center;}
+.sub-menu > li a { color:#000; font-size:16px;}
+.sub-menu > li:hover a {color:#c2ad6f;}
+
+/* 헤더 메뉴 부분 */
