@@ -25,7 +25,7 @@
 	<mvc:view-controller path="/login.do"/>
 	<mvc:view-controller path="/validator.do"/>
  -->
- 	<mvc:view-controller path="/sub1-1.do"/>
+ 	<mvc:view-controller path="/intro-hi.do"/>
  	<mvc:default-servlet-handler/>
  	
  	<mvc:view-resolvers>

@@ -1,4 +1,4 @@
-
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/qna.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="../js/gnb.js"></script>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/qna.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="/js/gnb.js"></script>
     <title>Tree_로그인페이지</title>
 </head>
 <body>
@@ -35,10 +35,10 @@
                                         <div class="pc-sub-box">
                                             <h2>Rooms</h2>
                                             <ul class="Rooms">
-                                                <li><a href="../room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
-                                                <li><a href="../room-detail-subpage.html">Namsan Pool Premier Suite</a></li>
-                                                <li><a href="../room-detail-subpage.html">Namsan Presidential Suite</a></li>
-                                                <li><a href="../room-detail-subpage.html">Spa Sanctuary Suite</a></li>
+                                                <li><a href="room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
+                                                <li><a href="room-detail-subpage.html">Namsan Pool Premier Suite</a></li>
+                                                <li><a href="room-detail-subpage.html">Namsan Presidential Suite</a></li>
+                                                <li><a href="room-detail-subpage.html">Spa Sanctuary Suite</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -157,7 +157,7 @@
                 <ul class="support-list-center">
                     <li><a href="notice.html">공지사항</a></li>
                     <li><a href="faq.html">FAQ</a></li>
-                    <li class="on"><a href="qna.html">Q&A</a></li>
+                    <li class="on"><a href="qna.do">Q&A</a></li>
                 </ul>
             </div>
             <div class="qna-table">
@@ -193,7 +193,7 @@
 
                 <!-- 글쓰기 버튼 구역 -->
                 <div class="qna-q-btn">
-                    <p><a href="qna_q.html">글 쓰기</a></p>
+                    <p><a href="qna_q.do">글 쓰기</a></p>
                 </div>
                 <div class="table-page">
                     <ul class="page-number clear">

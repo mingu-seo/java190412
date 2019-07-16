@@ -1,19 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>나의 정보</title>
+    <title>의료진소개</title>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700|Roboto:400,500,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/sub6-1.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/sub1-2.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
-    <script type="text/javascript" src='js/sub6-1.js'></script>
+    <!-- 정렬 플러그 인 -->
+    <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="js/sub1-2.js"></script>
 </head>
 <body>
     <!-- header html -->
@@ -24,15 +27,15 @@
                 <div class="login-center">
                     <div class="head-box clear">
                         <p>Login</p>
-                        <img src="icon/footer-icon.png">
+                        <img src="/icon/footer-icon.png">
                     </div>
                     <div class="login-page">
                         <div class="back-arrow">
-                            <a href="#"><img src="icon/backarrow.png">
+                            <a href="#"><img src="/icon/backarrow.png">
                             <P>뒤로가기</P></a>
                         </div>
                         <h1 class="login-logo">
-                            <a href="#"><img src="icon/logo_lightgreen.png"></a>
+                            <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                         </h1>
                         <form class="login-form" method="GET" action="test.php">
                             <div class="login-email">
@@ -61,15 +64,15 @@
             <div class="join-box">
                 <div class="join-head">
                     <p>Join</p>
-                    <img src="icon/footer-icon.png">
+                    <img src="/icon/footer-icon.png">
                 </div>
                 <div class="join-page">
                     <div class="join-back-arrow">
-                        <a href="#"><img src="icon/backarrow.png">
+                        <a href="#"><img src="/icon/backarrow.png">
                         <P>뒤로가기</P></a>
                     </div>
                     <h1 class="join-logo">
-                        <a href="#"><img src="icon/logo_lightgreen.png"></a>
+                        <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                     </h1>
                     <form class="join-form" method="GET" action="text.php">
                         <div class="email_box">
@@ -119,17 +122,17 @@
                 </div>
             </div>
         </div>
-        <h1 class="header-logo"><a href="index.html"><img src="icon/logo_lightgreen.png"></a></h1>
+        <h1 class="header-logo"><a href="index.html"><img src="/icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">
             <!-- gnb & sub menu -->
             <ul class="gnb clear">
                 <li>
-                    <a href="sub1-1.html">병원소개</a>
+                    <a href="intro-hi.jsp">병원소개</a>
                     <ul class="header-sub">
-                        <li><a href="sub1-1.html">인사말</a></li>
-                        <li><a href="sub1-2.html">의료진소개</a></li>
-                        <li><a href="sub1-3.html">오시는길</a></li>
+                        <li><a href="intro-hi.jsp">인사말</a></li>
+                        <li><a href="intro-staff.jsp">의료진소개</a></li>
+                        <li><a href="intro-map.jsp">오시는길</a></li>
                     </ul>
                 </li>
                 <li>
@@ -163,12 +166,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="sub6-1.html">마이페이지</a>
+                    <a href="my-infor.jsp">마이페이지</a>
                     <ul class="header-sub">
-                        <li><a href="sub6-1.html">나의정보</a></li>
-                        <li><a href="sub6-2.html">나의반려동물</a></li>
-                        <li><a href="sub6-3.html">예약확인</a></li>
-                        <li><a href="sub6-4.html">문의내역</a></li>
+                        <li><a href="my-infor.jsp">나의정보</a></li>
+                        <li><a href="my-pet.jsp">나의반려동물</a></li>
+                        <li><a href="my-res.jsp">예약확인</a></li>
+                        <li><a href="my-ask.jsp">문의내역</a></li>
                     </ul>
                 </li>
             </ul>
@@ -187,15 +190,15 @@
         <div id="pass-lost">
             <div class="pass-head">
                 <p>Find</p>
-                <img src="icon/footer-icon.png">
+                <img src="/icon/footer-icon.png">
             </div>
             <div class="pass-page">
                 <div class="pass-back-arrow">
-                    <a href="#"><img src="icon/backarrow.png">
+                    <a href="#"><img src="/icon/backarrow.png">
                     <P>뒤로가기</P></a>
                 </div>
                 <h1 class="pass-logo">
-                    <a href="#"><img src="icon/logo_lightgreen.png"></a>
+                    <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                 </h1>
                 <form class="pass-form" method="GET" action="text.php">
                     <div class="email-pass-box">
@@ -228,15 +231,15 @@
         <div id="pass-chk">
             <div class="pass-chk-head">
                 <p>Find</p>
-                <img src="icon/footer-icon.png">
+                <img src="/icon/footer-icon.png">
             </div>
             <div class="pass-chk-page">
                 <div class="pass-chk-back-arrow">
-                    <a href="#"><img src="icon/backarrow.png">
+                    <a href="#"><img src="/icon/backarrow.png">
                     <P>뒤로가기</P></a>
                 </div>
                 <h1 class="pass-chk-logo">
-                    <a href="#"><img src="icon/logo_lightgreen.png"></a>
+                    <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                 </h1>
                 <form class="pass-chk-form" method="GET" action="text.php">
                     <div class="email-pass-chk-box">
@@ -261,115 +264,241 @@
         <div class="con1"></div>
         <!-- con2 : 메인 부분 -->
         <div class="con2">
-            <!-- 정보수정 (사람) 부분 -->
-            <!-- <div id="myinfo-area">
-                <div class="myinfo-box">
-                    <div class="myinfo-head">
-                        <p>나의 정보 수정</p>
-                        <img src="icon/footer-icon.png">
-                    </div>
-                    <div class="myinfo-page">
-                        <div class="myinfo-back-arrow">
-                            <a href="#"><img src="icon/backarrow.png">
-                            <P>뒤로가기</P></a>
-                        </div>
-                        <h1 class="myinfo-logo">
-                            <a href="#"><img src="icon/logo_lightgreen.png"></a>
-                        </h1>
-                        <form class="myinfo-form" method="GET" name="user" action="text.php">
-                            <div class="email_box">
-                                <span><label for="user_id" class="label">이메일</label></span>
-                                <input type="text" maxlength="20" id="user_id" name="user_id" class="half-size">
-                                <select class="emial-select">
-                                    <option>@ naver.com</option>
-                                    <option>@ daum.net</option>
-                                    <option>@ gmail.com</option>
-                                </select>
-                            </div>
-                            <div class="pass_box">
-                                <span><label for="user_password"  class="label">비밀번호</label></span>
-                                <input type="password" maxlength="12" id="user_password" name="user_password" placeholder="비밀번호를 입력하세요." class="cover-size">
-                            </div>
-                            <div class="pass_box_check">
-                                <span><label for="user_password_chk"  class="label">비밀번호확인</label></span>
-                                <input type="password" maxlength="12" id="user_password_chk" name="user_password_chk" placeholder="비밀번호를 다시 입력하세요." class="cover-size">
-                            </div>
-                            <div class="name_box">
-                                <span><label for="user_name"  class="label">이름</label></span>
-                                <input type="text" maxlength="5" id="user_name" name="user_name" placeholder="이름을 입력하세요." class="cover-size">
-                            </div>
-                            <div class="birth_box">
-                                <span><label for="user_birth"  class="label">생년월일</label></span>
-                                <input type="text" maxlength="8" id="user_birth" name="user_birth" placeholder="ex ) 19890107" class="cover-size">
-                            </div>
-                            <div class="phone_box">
-                                <span><label for="user_phone"  class="label">전화번호</label></span>
-                                <select class="phone-select"  name="user_phone">
-                                    <option>010</option>
-                                    <option>011</option>
-                                    <option>018</option>
-                                </select>
-                                <input type="text" maxlength="4" id="user_phone" name="user_phone"  class="half-size">
-                                <input type="text" maxlength="4"  name="user_phone"  class="half-size half">
-                            </div>
-                            <div class="myinfo-btn clear">
-                                <input type="reset" value="취소" id="btn_reset1" name="user_reset">
-                                <input type="submit" value="수정" id="btn_submit" name="user_submit">
-                            </div>
-                        </form>
-                        <ul class="myinfo-bot clear">
-                            <li><a href="#">개인정보처리방침</a></li>
-                            <li><a href="#">이메일무단수집거부</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div> -->
             <!-- sub bar 부분 (고정) -->
             <div class="fixed-sub">
                 <div class="title-area">
-                    <h2>마이페이지</h2>
-                    <p>my page</p>
+                    <h2>병원소개</h2>
+                    <p>Information</p>
                 </div>
                 <ul class="sub-bar">
-                    <li class="on"><a href="sub6-1.html">나의 정보</a></li>
-                    <li><a href="sub6-2.html">반려동물 정보</a></li>
-                    <li><a href="sub6-3.html">예약확인</a></li>
-                    <li><a href="sub6-4.html">문의내역</a></li>
+                    <li ><a href="intro-hi.jsp">인사말</a></li>
+                    <li class="on"><a href="intro-staff.jsp">의료진소개</a></li>
+                    <li><a href="intro-map.jsp">오시는길</a></li>
                 </ul>
             </div>
             <!-- main 부분 (여기다가 하면 됨) -->
             <div class="main">
-                <h3>나의 정보</h3>
-                <p>My information</p>
-                <div class="sub6-my clear">
-                    <div class="my-img">
-                    </div>
-                    <div>
-                        <h5>남 정 우</h5>
-                    </div>
-                   <a class="myinfo-btn" href="#">EDIT</a>
+                <div class="top-arrow">
+                    <a href="#">
+                        <img src="/icon/top-arrow.png">
+                        <p>위로가기</p>
+                    </a>
                 </div>
-                <div class="sub6-contact clear">
-                    <h3>Contact info</h3>
-                    <div>
-                        <h5>Email</h5>
-                        <p>yoon@naver.com</p>
+                <h3>의료진소개</h3>
+                <p>Staff</p>
+                <!-- 탭 메뉴 리스트 부분 -->
+                <ul class="tab-list clear">
+                    <li data-staff='*' class="on"><a href="#">원장</a></li>
+                    <li data-staff='.staff2'><a href="#">수의사</a></li>
+                    <li data-staff='.staff3'><a href="#">테크니션</a></li>
+                    <li data-staff='.staff4'><a href="#">리셉션리스트</a></li>
+                </ul>
+                <!-- 의사 부분 -->
+                <div class="tab-info clear">
+                    <div class="staff1">
+                        <img src="img/staff/sub1.png">
+                        <h4>원장 / 대표이사</h4>
+                        <h5>김 현 욱</h5>
+                        <a href="#">MORE</a>
                     </div>
-                    <div>
-                        <h5>Phone</h5>
-                        <p>010 2450 5028</p>
+                     <div class="staff1">
+                        <img src="img/staff/sub2.png">
+                        <h4>원장 / 대표이사</h4>
+                        <h5>김 진 경</h5>
+                        <a href="#">MORE</a>
                     </div>
-                    <div>
-                        <h5>Birth</h5>
-                        <p>1989. 04. 08.</p>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub3.png">
+                        <h4>내과 / 팀장</h4>
+                        <h5>남 예 림</h5>
+                        <a href="#">MORE</a>
                     </div>
-                    <div>
-                        <h5>Address</h5>
-                        <p>경기도 고양시</p>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub4.png">
+                        <h4>내과 / 팀장</h4>
+                        <h5>최 새 롬</h5>
+                        <a href="#">MORE</a>
                     </div>
-                </div>
-                <div class="sub6-botbox">
-                    <p><span>남 정 우</span> 님의 다음 진료 / 접종 예정일은 2019 년 06 월 20 일 입니다.</p>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub5.png">
+                        <h4>내과 / 진료수의사</h4>
+                        <h5>이 승 현</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub6.png">
+                        <h4>외과 / 부장</h4>
+                        <h5>김 세 은</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub7.png">
+                        <h4>외과 / 진료수의사</h4>
+                        <h5>최 경 욱</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub8.png">
+                        <h4>영상의학과 / 부장</h4>
+                        <h5>이 가 현</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub9.png">
+                        <h4>영상의학과 / 팀장</h4>
+                        <h5>김 보 은</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub10.png">
+                        <h4>응급중환자센터 / 부장</h4>
+                        <h5>김 성 훈</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub11.png">
+                        <h4>응급중환자센터 / 팀장</h4>
+                        <h5>김 하 나</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub12.png">
+                        <h4>응급중환자센터 / 진료수의사</h4>
+                        <h5>김 은 실</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub13.png">
+                        <h4>응급중환자센터 / 진료수의사</h4>
+                        <h5>소 하 연</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub14.png">
+                        <h4>응급중환자센터 / 진료수의사</h4>
+                        <h5>송 주 현</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub15.png">
+                        <h4>응급중환자센터 / 진료수의사</h4>
+                        <h5>남 우 진</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub16.png">
+                        <h4>응급중환자센터 / 진료수의사</h4>
+                        <h5>양 재 원</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub17.png">
+                        <h4>응급중환자센터 / 진료수의사</h4>
+                        <h5>조 유 재</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                     <div class="staff1 staff2">
+                        <img src="img/staff/sub18.png">
+                        <h4>응급중환자센터 / 부장</h4>
+                        <h5>임 재 학</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                     <div class="staff1 staff3">
+                        <img src="img/staff/sub19.png">
+                        <h4>내과 / 테크니션</h4>
+                        <h5>박 혜 린</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                    <div class="staff1 staff3">
+                        <img src="img/staff/sub20.png">
+                        <h4>내과 / 테크니션</h4>
+                        <h5>정 유 진</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                    <div class="staff1 staff3">
+                        <img src="img/staff/sub21.png">
+                        <h4>내과 / 테크니션</h4>
+                        <h5>안 미 희</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                    <div class="staff1 staff3">
+                        <img src="img/staff/sub22.png">
+                        <h4>내과 / 테크니션</h4>
+                        <h5>김 은 박</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                    <div class="staff1 staff3">
+                        <img src="img/staff/sub23.png">
+                        <h4>내과 / 테크니션</h4>
+                        <h5>정 소 영</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                    <div class="staff1 staff3">
+                        <img src="img/staff/sub24.png">
+                        <h4>내과 / 테크니션</h4>
+                        <h5>백 현 영</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                    <div class="staff1 staff3">
+                        <img src="img/staff/sub25.png">
+                        <h4>내과 / 테크니션</h4>
+                        <h5>박 다 정</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                    <div class="staff1 staff3">
+                        <img src="img/staff/sub26.png">
+                        <h4>내과 / 테크니션</h4>
+                        <h5>김 민 지</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                    <div class="staff1 staff3">
+                        <img src="img/staff/sub27.png">
+                        <h4>내과 / 테크니션</h4>
+                        <h5>손 세 미</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                    <div class="staff1 staff3">
+                        <img src="img/staff/sub28.png">
+                        <h4>내과 / 테크니션</h4>
+                        <h5>김 슬 기</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                    <div class="staff1 staff4">
+                        <img src="img/staff/sub30.png">
+                        <h4>원무과 / 매니저</h4>
+                        <h5>김 현 정</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                    <div class="staff1 staff4">
+                        <img src="img/staff/sub29.png">
+                        <h4>원무과 / 과장</h4>
+                        <h5>국 선 영</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                    <div class="staff1 staff4">
+                        <img src="img/staff/sub32.png">
+                        <h4>원무과 / 매니저</h4>
+                        <h5>김 미 현</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                    <div class="staff1 staff4">
+                        <img src="img/staff/sub31.png">
+                        <h4>원무과 / 매니저</h4>
+                        <h5>김 종 민</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                    <div class="staff1 staff4">
+                        <img src="img/staff/sub34.png">
+                        <h4>원무과 / 매니저</h4>
+                        <h5>최 양 윤</h5>
+                        <a href="#">MORE</a>
+                    </div>
+                    <div class="staff1 staff4">
+                        <img src="img/staff/sub33.jpg">
+                        <h4>원무과 / 매니저</h4>
+                        <h5>오 혜 진</h5>
+                        <a href="#">MORE</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -399,7 +528,7 @@
     <div class="footer-basic">
         <div class="footer-center clear">
             <div class="fot-left">
-                <h1 class="fot-logo"><a href="#"><img src="icon/logo_lightgreen.png"></a></h1>
+                <h1 class="fot-logo"><a href="#"><img src="/icon/logo_lightgreen.png"></a></h1>
                 <p>© 2016 HAEMARU Referral Animal Hospital All rights Reserved.</p>
             </div>
             <div class="fot-right clear">
@@ -424,7 +553,7 @@
                     </ul>
                 </div>
             </div>
-            <img class="fot-icon" src="icon/footer-icon.png">
+            <img class="fot-icon" src="/icon/footer-icon.png">
         </div>
     </div>
     </div>
