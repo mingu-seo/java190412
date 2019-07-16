@@ -1,18 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>공지사항</title>
+    <title>나의 정보</title>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700|Roboto:400,500,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/sub5-1.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/sub6-1.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src='js/sub6-1.js'></script>
 </head>
 <body>
     <!-- header html -->
@@ -23,15 +25,15 @@
                 <div class="login-center">
                     <div class="head-box clear">
                         <p>Login</p>
-                        <img src="icon/footer-icon.png">
+                        <img src="/icon/footer-icon.png">
                     </div>
                     <div class="login-page">
                         <div class="back-arrow">
-                            <a href="#"><img src="icon/backarrow.png">
+                            <a href="#"><img src="/icon/backarrow.png">
                             <P>뒤로가기</P></a>
                         </div>
                         <h1 class="login-logo">
-                            <a href="#"><img src="icon/logo_lightgreen.png"></a>
+                            <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                         </h1>
                         <form class="login-form" method="GET" action="test.php">
                             <div class="login-email">
@@ -60,15 +62,15 @@
             <div class="join-box">
                 <div class="join-head">
                     <p>Join</p>
-                    <img src="icon/footer-icon.png">
+                    <img src="/icon/footer-icon.png">
                 </div>
                 <div class="join-page">
                     <div class="join-back-arrow">
-                        <a href="#"><img src="icon/backarrow.png">
+                        <a href="#"><img src="/icon/backarrow.png">
                         <P>뒤로가기</P></a>
                     </div>
                     <h1 class="join-logo">
-                        <a href="#"><img src="icon/logo_lightgreen.png"></a>
+                        <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                     </h1>
                     <form class="join-form" method="GET" action="text.php">
                         <div class="email_box">
@@ -118,17 +120,17 @@
                 </div>
             </div>
         </div>
-        <h1 class="header-logo"><a href="index.html"><img src="icon/logo_lightgreen.png"></a></h1>
+        <h1 class="header-logo"><a href="index.jsp"><img src="/icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">
             <!-- gnb & sub menu -->
             <ul class="gnb clear">
                 <li>
-                    <a href="sub1-1.html">병원소개</a>
+                    <a href="intro-hi.jsp">병원소개</a>
                     <ul class="header-sub">
-                        <li><a href="sub1-1.html">인사말</a></li>
-                        <li><a href="sub1-2.html">의료진소개</a></li>
-                        <li><a href="sub1-3.html">오시는길</a></li>
+                        <li><a href="intro-hi.jsp">인사말</a></li>
+                        <li><a href="intro-staff.jsp">의료진소개</a></li>
+                        <li><a href="intro-map.jsp">오시는길</a></li>
                     </ul>
                 </li>
                 <li>
@@ -162,12 +164,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="sub6-1.html">마이페이지</a>
+                    <a href="my-infor.jsp">마이페이지</a>
                     <ul class="header-sub">
-                        <li><a href="sub6-1.html">나의정보</a></li>
-                        <li><a href="sub6-2.html">나의반려동물</a></li>
-                        <li><a href="sub6-3.html">예약확인</a></li>
-                        <li><a href="sub6-4.html">문의내역</a></li>
+                        <li><a href="my-infor.jsp">나의정보</a></li>
+                        <li><a href="my-pet.jsp">나의반려동물</a></li>
+                        <li><a href="my-res.jsp">예약확인</a></li>
+                        <li><a href="my-ask.jsp">문의내역</a></li>
                     </ul>
                 </li>
             </ul>
@@ -186,15 +188,15 @@
         <div id="pass-lost">
             <div class="pass-head">
                 <p>Find</p>
-                <img src="icon/footer-icon.png">
+                <img src="/icon/footer-icon.png">
             </div>
             <div class="pass-page">
                 <div class="pass-back-arrow">
-                    <a href="#"><img src="icon/backarrow.png">
+                    <a href="#"><img src="/icon/backarrow.png">
                     <P>뒤로가기</P></a>
                 </div>
                 <h1 class="pass-logo">
-                    <a href="#"><img src="icon/logo_lightgreen.png"></a>
+                    <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                 </h1>
                 <form class="pass-form" method="GET" action="text.php">
                     <div class="email-pass-box">
@@ -227,15 +229,15 @@
         <div id="pass-chk">
             <div class="pass-chk-head">
                 <p>Find</p>
-                <img src="icon/footer-icon.png">
+                <img src="/icon/footer-icon.png">
             </div>
             <div class="pass-chk-page">
                 <div class="pass-chk-back-arrow">
-                    <a href="#"><img src="icon/backarrow.png">
+                    <a href="#"><img src="/icon/backarrow.png">
                     <P>뒤로가기</P></a>
                 </div>
                 <h1 class="pass-chk-logo">
-                    <a href="#"><img src="icon/logo_lightgreen.png"></a>
+                    <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                 </h1>
                 <form class="pass-chk-form" method="GET" action="text.php">
                     <div class="email-pass-chk-box">
@@ -260,120 +262,115 @@
         <div class="con1"></div>
         <!-- con2 : 메인 부분 -->
         <div class="con2">
+            <!-- 정보수정 (사람) 부분 -->
+            <!-- <div id="myinfo-area">
+                <div class="myinfo-box">
+                    <div class="myinfo-head">
+                        <p>나의 정보 수정</p>
+                        <img src="/icon/footer-icon.png">
+                    </div>
+                    <div class="myinfo-page">
+                        <div class="myinfo-back-arrow">
+                            <a href="#"><img src="/icon/backarrow.png">
+                            <P>뒤로가기</P></a>
+                        </div>
+                        <h1 class="myinfo-logo">
+                            <a href="#"><img src="/icon/logo_lightgreen.png"></a>
+                        </h1>
+                        <form class="myinfo-form" method="GET" name="user" action="text.php">
+                            <div class="email_box">
+                                <span><label for="user_id" class="label">이메일</label></span>
+                                <input type="text" maxlength="20" id="user_id" name="user_id" class="half-size">
+                                <select class="emial-select">
+                                    <option>@ naver.com</option>
+                                    <option>@ daum.net</option>
+                                    <option>@ gmail.com</option>
+                                </select>
+                            </div>
+                            <div class="pass_box">
+                                <span><label for="user_password"  class="label">비밀번호</label></span>
+                                <input type="password" maxlength="12" id="user_password" name="user_password" placeholder="비밀번호를 입력하세요." class="cover-size">
+                            </div>
+                            <div class="pass_box_check">
+                                <span><label for="user_password_chk"  class="label">비밀번호확인</label></span>
+                                <input type="password" maxlength="12" id="user_password_chk" name="user_password_chk" placeholder="비밀번호를 다시 입력하세요." class="cover-size">
+                            </div>
+                            <div class="name_box">
+                                <span><label for="user_name"  class="label">이름</label></span>
+                                <input type="text" maxlength="5" id="user_name" name="user_name" placeholder="이름을 입력하세요." class="cover-size">
+                            </div>
+                            <div class="birth_box">
+                                <span><label for="user_birth"  class="label">생년월일</label></span>
+                                <input type="text" maxlength="8" id="user_birth" name="user_birth" placeholder="ex ) 19890107" class="cover-size">
+                            </div>
+                            <div class="phone_box">
+                                <span><label for="user_phone"  class="label">전화번호</label></span>
+                                <select class="phone-select"  name="user_phone">
+                                    <option>010</option>
+                                    <option>011</option>
+                                    <option>018</option>
+                                </select>
+                                <input type="text" maxlength="4" id="user_phone" name="user_phone"  class="half-size">
+                                <input type="text" maxlength="4"  name="user_phone"  class="half-size half">
+                            </div>
+                            <div class="myinfo-btn clear">
+                                <input type="reset" value="취소" id="btn_reset1" name="user_reset">
+                                <input type="submit" value="수정" id="btn_submit" name="user_submit">
+                            </div>
+                        </form>
+                        <ul class="myinfo-bot clear">
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">이메일무단수집거부</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div> -->
             <!-- sub bar 부분 (고정) -->
             <div class="fixed-sub">
                 <div class="title-area">
-                    <h2>고객센터</h2>
-                    <p>Customer Center</p>
+                    <h2>마이페이지</h2>
+                    <p>my page</p>
                 </div>
                 <ul class="sub-bar">
-                    <li class="on"><a href="sub5-1.html">공지사항</a></li>
-                    <li><a href="sub5-2.html">FAQ</a></li>
-                    <li><a href="sub5-3.html">문의하기</a></li>
+                    <li class="on"><a href="my-infor.jsp">나의 정보</a></li>
+                    <li><a href="my-pet.jsp">나의반려동물</a></li>
+                        <li><a href="my-res.jsp">예약확인</a></li>
+                        <li><a href="my-ask.jsp">문의내역</a></li>
                 </ul>
             </div>
             <!-- main 부분 (여기다가 하면 됨) -->
             <div class="main">
-                <h3>공지사항</h3>
-                <p>Notice</p>
-                <div class="notice-area">
-                    <form class="search-btn" method="GET" action="text.php">
-                        <select>
-                            <option>전체</option>
-                            <option>소식</option>
-                            <option>칼럼</option>
-                            <option>보도자료</option>
-                            <option>카드뉴스</option>
-                            <option>증례소개</option>
-                        </select>
-                        <input type="text" id="search_input" placeholder="검색어를 입력하세요.">
-                        <input type="submit" value="검색"  id="btn_submit_search">
-                    </form>
-                    <div class="notice-table">
-                        <table>
-                            <tr>
-                                <th>No.</th>
-                                <th>Category</th>
-                                <th>Title</th>
-                                <th>Data</th>
-                                <th>View</th>
-                            </tr>
-                            <tr>
-                                <td>13</td>
-                                <td>소식</td>
-                                <td><a href="sub5-6.html">[소식] 해마루이차진료동물병원 김진경 원장 취임 인터뷰</a></td>
-                                <td>2019-06-04</td>
-                                <td>246</td>
-                            </tr>
-                            <tr>
-                                <td>12</td>
-                                <td>칼럼</td>
-                                <td><a href="sub5-6.html">[칼럼] 반려동물 건강이야기 - 오줌을 못 눠 안절부절못하는 강아지, 원인은 이것!</a></td>
-                                <td>2019-06-01</td>
-                                <td>215</td>
-                            </tr>
-                            <tr>
-                                <td>11</td>
-                                <td>칼럼</td>
-                                <td><a href="sub5-6.html">[칼럼] 반려동물 건강이야기 - 심장사상충이 강아지의 경계 대상 0순위인 이유</a></td>
-                                <td>2019-05-28</td>
-                                <td>156</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>소식</td>
-                                <td><a href="sub5-6.html">[소식] 해마루동물병원 전문 영상의학팀 방사선 촬영</a></td>
-                                <td>2019-05-13</td>
-                                <td>103</td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>보도자료</td>
-                                <td><a href="sub5-6.html">[보도자료] 네이버 동그람이 - 가습기 살균제 참사 관련 김현욱원장님 인터뷰</a></td>
-                                <td>2019-05-04</td>
-                                <td>145</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>카드뉴스</td>
-                                <td><a href="sub5-6.html">[카드뉴스] 마이크로바이옴이란?</a></td>
-                                <td>2019-04-22</td>
-                                <td>123</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>칼럼</td>
-                                <td><a href="sub5-6.html">[칼럼] 반려동물 건강이야기 - 전염성 강한 ‘강아지 인플루엔자’ 주의보</a></td>
-                                <td>2019-03-02</td>
-                                <td>105</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>증례소개</td>
-                                <td><a href="sub5-6.html">[증례소개] 고양이에서의 간 외성 동정맥 기형 발병 증례</a></td>
-                                <td>2019-02-25</td>
-                                <td>210</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>소식</td>
-                                <td><a href="sub5-6.html">[소식] 해마루소동물임상의학 연구소 황선영 소장, 2018 아시아생물공학연합체 포럼 참여</a></td>
-                                <td>2019-01-07</td>
-                                <td>156</td>
-                            </tr>
-                        </table>
-                        <div class="notice-number-all clear">
-                            <p class="notice-number-arrow"><a href="#"></a></p>
-                            <ul class="notice-number clear">
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                            </ul>
-                            <p class="notice-number-arrow2"><a href="#"></a></p>
-                        </div>
+                <h3>나의 정보</h3>
+                <p>My information</p>
+                <div class="sub6-my clear">
+                    <div class="my-img">
                     </div>
+                    <div>
+                        <h5>남 정 우</h5>
+                    </div>
+                   <a class="myinfo-btn" href="#">EDIT</a>
+                </div>
+                <div class="sub6-contact clear">
+                    <h3>Contact info</h3>
+                    <div>
+                        <h5>Email</h5>
+                        <p>yoon@naver.com</p>
+                    </div>
+                    <div>
+                        <h5>Phone</h5>
+                        <p>010 2450 5028</p>
+                    </div>
+                    <div>
+                        <h5>Birth</h5>
+                        <p>1989. 04. 08.</p>
+                    </div>
+                    <div>
+                        <h5>Address</h5>
+                        <p>경기도 고양시</p>
+                    </div>
+                </div>
+                <div class="sub6-botbox">
+                    <p><span>남 정 우</span> 님의 다음 진료 / 접종 예정일은 2019 년 06 월 20 일 입니다.</p>
                 </div>
             </div>
         </div>
@@ -403,7 +400,7 @@
     <div class="footer-basic">
         <div class="footer-center clear">
             <div class="fot-left">
-                <h1 class="fot-logo"><a href="#"><img src="icon/logo_lightgreen.png"></a></h1>
+                <h1 class="fot-logo"><a href="#"><img src="/icon/logo_lightgreen.png"></a></h1>
                 <p>© 2016 HAEMARU Referral Animal Hospital All rights Reserved.</p>
             </div>
             <div class="fot-right clear">
@@ -428,7 +425,7 @@
                     </ul>
                 </div>
             </div>
-            <img class="fot-icon" src="icon/footer-icon.png">
+            <img class="fot-icon" src="/icon/footer-icon.png">
         </div>
     </div>
     </div>

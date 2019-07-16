@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700|Roboto:400,500,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/sub2-3.css">
+    <link rel="stylesheet" href="css/sub2-4.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/reset.css">
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
@@ -268,31 +269,31 @@
                 </div>
                 <ul class="sub-bar">
                     <li ><a href="sub2-1.html">외과</a></li>
-                    <li ><a href="sub2-2.html">내과</a></li>
-                    <li class="on"><a href="sub2-3.html">영상의학과</a></li>
-                    <li><a href="sub2-4.html">응급중환자의료센터</a></li>
+                    <li><a href="sub2-2.html">내과</a></li>
+                    <li><a href="sub2-3.html">영상의학과</a></li>
+                    <li  class="on"><a href="sub2-4.html">응급중환자의료센터</a></li>
                 </ul>
             </div>
             <!-- main 부분 (여기다가 하면 됨) -->
             <div class="main">
-                <h3>영상의학과</h3>
-                <p>Department of Radiology</p>
+                <h3>응급중환자의료센터</h3>
+                <p>Emergency Medical Center</p>
                 <div class="medicine-box clear">
                     <div class="medicine-info">
                         <div class="medicine-img">
                             <a href="#">
                                 <div class="medicine-hover">
                                     <div class="medicine-opa">
-                                        <h4>방사선 검사</h4>
-                                        <h6>Radiation examination</h6>
+                                        <h4>중환자 집중치료</h4>
+                                        <h6>Intensive Care </h6>
                                         <img src="icon/medicine-class.png">
                                     </div>
                                 </div>
                             </a>
                         </div>
                         <div class="Medicine-text">
-                            <h3>방사선 검사</h3>
-                            <h5>방사선 검사에서는 보다 신속하고 세밀한 x-ray 사진을 바탕으로 정확한 진단을 하기 위해 디지털 x-ray 장비(Digital Radiography, DR)을 사용하고 있습니다. 호흡기, 심장 등 흉강 평가, 소화기 및 복강 장기 등 복강 평가 및 골격 및 관절 부위 평가 등 환자 전반에 걸친 기본적인 질병 정보를 얻을 수 있습니다.</h5>
+                            <h3>중환자 집중치료</h3>
+                            <h5>중환자는 급격히 상태 악화가 발생할 수 있는 위중한 상태에 있기 때문에, 일반 외래 환자나 일반 입원 환자와 달리, 지속적으로 전문적이고 세심한 치료와 관찰이 필요합니다. 해마루 이차진료 동물병원에는 중환자 집중 치료를 위한 현대화된 중환자실이 운영 되고 있고 숙련된 중환자 전담 진료진이 365일 24시간 중환자 집중 치료를 제공합니다.</h5>
                         </div>
                     </div>
                     <div class="medicine-info">
@@ -300,53 +301,18 @@
                             <a href="#">
                             <div class="medicine-hover">
                                 <div class="medicine-opa">
-                                    <h4>초음파 검사</h4>
-                                    <h6>Ultrasound examination</h6>
+                                    <h4>응급의료센터</h4>
+                                    <h6>Emergency Medical Center</h6>
                                     <img src="icon/medicine-class.png">
                                 </div>
                             </div>
                             </a>
                         </div>
                         <div class="Medicine-text">
-                            <h3>초음파 검사</h3>
-                            <h5>복강 내 간, 비장, 신장, 부신, 췌장, 난소, 자궁 전립선, 위장관 등 장기의 이상을 평가하는 초음파 검사는 혈액 검사와 방사선 검사만으로는 정확한 평가가 어려운 여러 가지 질병에 매우 유용한 검사 방법입니다.</h5>
+                            <h3>응급의료센터</h3>
+                            <h5>응급의학은 급성질환이나 손상에 따른 신체의 이상에 대한 응급 진료를 전문적으로 담당하여 환자의 생명을 구하고 환자 상태를 최단시간 내에 안정시켜 계속되는 원인 규명을 위한 감별 검사, 원인에 대한 치료/수술 등이 가능하도록 하는 특수한 의학 분야입니다. 수의학에서는 비교적 최근에 정립된 분야이며, 국내에서는 아직 응급의학을 전담하는 숙련된 진료진이 상주하는 동물병원이 극히 드문 실정입니다. 해마루 이차진료 동물병원의 응급의료센터는 이러한 국내 현실에서 독보적인 시스템과 전담 진료진을 갖추고 운영되고 있으며, 기대와 명성을 넘어서는 최상의 응급 진료를 제공하기 위해 끊임없이 노력하고 있습니다.</h5>
                         </div>
                     </div>
-                    <div class="medicine-info">
-                        <div class="medicine-img">
-                            <a href="#">
-                            <div class="medicine-hover">
-                                <div class="medicine-opa">
-                                    <h4>컴퓨터 단층 촬영 검사</h4>
-                                    <h6>Computed tomography</h6>
-                                    <img src="icon/medicine-class.png">
-                                </div>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="Medicine-text">
-                            <h3>컴퓨터 단층 촬영 검사</h3>
-                            <h5>CT 검사를 통해서는 일반 방사선 검사에서는 보이지 않는 폐 미세 결절이나, 주변 구조의 겹침으로 평가가 어려운 비강 내 병변, 초음파 검사로는 평가하기 어려운 복강 내 종괴의 기원 등 기존 영상 검사로는 어려운 진단이 가능하며, 특히 외과 수술 시 정확한 해부학적 정보를 제공합니다. 본원에서는 최신 16 channel MDCT를 이용하여 최소의 검사 시간 내에 많은 영상 정보를 얻을 수 있습니다.</h5>
-                        </div>
-                    </div>
-                    <div class="medicine-info">
-                        <div class="medicine-img">
-                            <a href="#">
-                            <div class="medicine-hover">
-                                <div class="medicine-opa">
-                                    <h4>최신 영상 기법</h4>
-                                    <h6>New imaging techniques</h6>
-                                    <img src="icon/medicine-class.png">
-                                </div>
-                            </div>
-                            </a>
-                        </div>
-                        <div class="Medicine-text">
-                            <h3>최신 영상 기법</h3>
-                            <h5>심장 초음파(Strain/strain rate imaging) Strain은 심근 조직의 변형된 정도를 말하며 strain rate란 심근 변형의 속도를 의미합니다. 본원에서는 최신 speckle tracking imaging 기법을 통해 심장 각 구역의 심근의 길이 변화를 측정하여 보다 정확한 심근 기능 평가를 실시하고 있습니다.</h5>
-                        </div>
-                    </div>
-                    
                 </div>
             </div>
         </div>
@@ -354,7 +320,7 @@
     <!-- footer -->
     <div id="footer">
         <div class="footer-direction-area">
-       <div class="footer-direction-center clear">
+        <div class="footer-direction-center clear">
             <div  style="float:left;">
                 <h3>Direction</h3>
                 <p>오시는 길</p>

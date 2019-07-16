@@ -1,22 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/jquery-ui.css">
-    <link rel="stylesheet" href="/css/slick.css">
-    <link rel="stylesheet" href="/css/slick-theme.css">
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/default.css">
-    <link rel="stylesheet" href="/css/header-fixed.css">
-    <link rel="stylesheet" href="/css/room-detail-subpage2.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/qna.css">
     <link rel="stylesheet" href="/css/footer.css">
     <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
     <script type="text/javascript" src="/js/gnb.js"></script>
-    <script type="text/javascript" src="/js/slick.js"></script>
-    <script type="text/javascript" src="/js/slick-slide.js"></script>
-    <title>호텔객실2</title>
+    <title>Tree_로그인페이지</title>
 </head>
 <body>
     <div id="header">
@@ -39,10 +35,10 @@
                                         <div class="pc-sub-box">
                                             <h2>Rooms</h2>
                                             <ul class="Rooms">
-                                                <li><a href="../room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
-                                                <li><a href="../room-detail-subpage.html">Namsan Pool Premier Suite</a></li>
-                                                <li><a href="../room-detail-subpage.html">Namsan Presidential Suite</a></li>
-                                                <li><a href="../room-detail-subpage.html">Spa Sanctuary Suite</a></li>
+                                                <li><a href="room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
+                                                <li><a href="room-detail-subpage.html">Namsan Pool Premier Suite</a></li>
+                                                <li><a href="room-detail-subpage.html">Namsan Presidential Suite</a></li>
+                                                <li><a href="room-detail-subpage.html">Spa Sanctuary Suite</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -105,7 +101,7 @@
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
-                                                        호텔 공지사항과<br/>
+                                                        반얀트리 공지사항과<br/>
                                                         놓칠 수 없는 이벤트 정보를 알려드립니다.
                                                     </li>
                                                     <li class="support-icon"><img src="../img/notice-icon.png"></li>
@@ -117,7 +113,7 @@
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">
-                                                        호텔에 대한<br/>
+                                                        반얀트리에 대한<br/>
                                                         자주 묻는 질문입니다.
                                                     </li>
                                                     <li class="support-icon"><img src="../img/faq-icon.png"></li>
@@ -129,7 +125,7 @@
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">
-                                                        호텔에 관한질문 사항이나 궁금한 점을<br/> 
+                                                        반얀트리에 관한질문 사항이나 궁금한 점을<br/> 
                                                         남겨 주시면 신속하게 답변을 드리겠습니다.
                                                     </li>
                                                     <li class="support-icon"><img src="../img/qna-icon.png"></li>
@@ -140,111 +136,76 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="../membership/sign_in.html">SIGN IN</a>
+                <a href="sign_in.html">SIGN IN</a>
             </div>
         </div>
     </div>
     
-    <!-- 컨테이너 영역 시작 -->
+    
     <div id="container">
-        <div class="container">
-            <!-- 서브페이지 상단 타이틀 -->
-            <h1>NAMSAN POOL PREMIER ROOM</h1>
+        
+        <div class="banner">
+            <div class="qna-section">
+                    <h2>Support</h2>
+                    <h3>Q&A</h3>
+                    <h4>반얀트리 공지사항과<br/>
+                            놓칠 수 없는 이벤트 정보를 알려드립니다.</h4>
+                </div>
+        </div>
+        <div class="qna">
+            <div class="support-list">
+                <ul class="support-list-center">
+                    <li><a href="notice.html">공지사항</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li class="on"><a href="qna.do">Q&A</a></li>
+                </ul>
+            </div>
+            <div class="qna-table">
+                <div class="table-box">
+                    <!-- qna 제목 table 구역 -->
+                    <table>
+                        <tr class="table-head">
+                            <th>내용</th>
+                            <th>등록일</th>
+                        </tr>
+                        <tr>
+                            <td><a href="#">┌ 회원탈퇴에 대한 답변입니다.</a></td>
+                            <td class="table-date">2019-06-20</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#">회원탈퇴를 하고싶어요.</a></td>
+                            <td class="table-date">2019-06-19</td>
+                        </tr>
+                    </table>
 
-            <!-- 객실 사진 슬라이드 영역 -->
-            <div class="slide">
-                <div class="sub_page_panel">
-                    <div class="room-wrap">
-                        <div class="room-pic1 rooms"></div>
-                    </div>
-                    <div class="room-wrap">
-                        <div class="room-pic2 rooms"></div>
-                    </div>
-                    <div class="room-wrap">
-                        <div class="room-pic3 rooms"></div>
-                    </div>
-                    <div class="room-wrap">
-                        <div class="room-pic4 rooms"></div>
-                    </div>
-                    <div class="room-wrap">
-                        <div class="room-pic5 rooms"></div>
+                    <!-- 검색창 구역 -->
+                    <div class="search">
+                            <select>
+                                <option>분류</option>
+                                <option selected>제목</option>
+                                <option>이름</option>
+                                <option>내용</option>
+                            </select>
+                            <input type="text" id="text" placeholder="text">
+                            <button>검색</button>
                     </div>
                 </div>
-            </div>
-            <div class="room-btn clear">
-                    <button class="slick-prev"></button>
-                    <button class="slick-next"></button>
-            </div>
 
-            <div class="brief">
-                <h5>남산 풀 프리미어 룸은 59㎡부터 70㎡의 면적의 객실로 한 층에 4개의 객실이 자리하고 있어 조용한 분위기에서 프라이빗한 휴식을 즐길 수 있습니다. 반얀트리 특유의 자연친화적인 여유로움을 느끼실 수 있으며 모든 객실에 설비된 릴랙세이션 풀은 도심 속 휴식을 더욱 완벽하게 만들어드립니다. 아름다운 서울의 야경과 웅장하게 펼쳐진 남산의 전경을 바라보며 몸과 마음을 채우는 특별한 휴식을 즐겨보시기 바랍니다.
-                </h5>
-
-                <div class="book"><a href="#">객실 예약하기</a></div>
-            </div>
-            
-            <div class="info-box">
-                <ul class="info-detail clear line">
-                    <li class="title">기본정보</li>
-                    <li clear>
-                        <ul class="themost">
-                            <li>체크인</li>
-                            <li>체크아웃</li>
-                            <li>위치</li>
-                            <li>전망</li>
-                            <li>객실타입</li>
-                        </ul>
-
-                        <ul class="second">
-                            <li>15:00</li>
-                            <li>12:00</li>
-                            <li>더호텔 14F~17</li>
-                            <li>남산 & 시티뷰</li>
-                            <li>원룸</li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <ul class="info-detail clear line">
-                        <li class="title">편의시설</li>
-                        <li clear>
-                            <ul class="themost1">
-    
-                                <li>·릴렉세이션 풀</li>
-                                <li>·킹사이즈 침대</li>
-                                <li>·49인치 TV(51개 채널)</li>
-                                <li>·보스 스피커</li>
-                                <li>·캡슐 커피 머신</li>
-                            </ul>
-    
-                            <ul class="themost2">
-                                <li>·전기 주전자</li>
-                                <li>·커피, 차 티백 무료제공</li>
-                                <li>·미니 바</li>
-                                <li>·금고</li>
-                            </ul>
-                        </li>
-                </ul>
-
-                <ul class="info-detail clear">
-                            <li class="title">투숙객 혜택</li>
-                            <li clear>
-                                <ul class="themost1">
-        
-                                    <li>·피트니스 클럽 무료 이용</li>
-                                    <li>·실내 수영장 무료 이용</li>
-                                    <li>·사우나 유료 이용 (27,500원)</li>
-                                    <li>·모앙클레르 10% 할인</li>
-                                    <li>·반얀트리 스파 & 갤러리 10% 할인</li>
-                                    <li><p>(매월 첫째주 화요일 휴관일로 이용이 제한됩니다.)</p></li>
-                                </ul>
-        
-                            </li>
-                </ul>
+                <!-- 글쓰기 버튼 구역 -->
+                <div class="qna-q-btn">
+                    <p><a href="qna_q.do">글 쓰기</a></p>
+                </div>
+                <div class="table-page">
+                    <ul class="page-number clear">
+                        <li class="on"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-
     <div id="footer">
         <!-- <div class="footer-logo"><img src="img/footer_logo.png"></div> -->
         

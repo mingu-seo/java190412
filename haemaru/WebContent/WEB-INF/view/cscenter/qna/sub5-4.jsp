@@ -4,18 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>의료진소개</title>
+    <title>문의하기</title>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700|Roboto:400,500,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/sub1-2.css">
+    <link rel="stylesheet" href="css/sub5-4.css">
     <link rel="stylesheet" href="css/footer.css">
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
-    <!-- 정렬 플러그 인 -->
-    <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
-    <script type="text/javascript" src="js/sub1-2.js"></script>
 </head>
 <body>
     <!-- header html -->
@@ -266,237 +263,51 @@
             <!-- sub bar 부분 (고정) -->
             <div class="fixed-sub">
                 <div class="title-area">
-                    <h2>병원소개</h2>
-                    <p>Information</p>
+                    <h2>고객센터</h2>
+                    <p>Customer Center</p>
                 </div>
                 <ul class="sub-bar">
-                    <li ><a href="sub1-1.html">인사말</a></li>
-                    <li class="on"><a href="sub1-2.html">의료진소개</a></li>
-                    <li><a href="sub1-3.html">오시는길</a></li>
+                    <li ><a href="sub5-1.html">공지사항</a></li>
+                    <li><a href="sub5-2.html">FAQ</a></li>
+                    <li class="on"><a href="sub5-3.html">문의하기</a></li>
                 </ul>
             </div>
             <!-- main 부분 (여기다가 하면 됨) -->
             <div class="main">
-                <div class="top-arrow">
-                    <a href="#">
-                        <img src="icon/top-arrow.png">
-                        <p>위로가기</p>
-                    </a>
-                </div>
-                <h3>의료진소개</h3>
-                <p>Staff</p>
-                <!-- 탭 메뉴 리스트 부분 -->
-                <ul class="tab-list clear">
-                    <li data-staff='*' class="on"><a href="#">원장</a></li>
-                    <li data-staff='.staff2'><a href="#">수의사</a></li>
-                    <li data-staff='.staff3'><a href="#">테크니션</a></li>
-                    <li data-staff='.staff4'><a href="#">리셉션리스트</a></li>
-                </ul>
-                <!-- 의사 부분 -->
-                <div class="tab-info clear">
-                    <div class="staff1">
-                        <img src="img/staff/sub1.png">
-                        <h4>원장 / 대표이사</h4>
-                        <h5>김 현 욱</h5>
-                        <a href="#">MORE</a>
+                <h3>문의하기</h3>
+                <p>Ask for infomation</p>
+                <div class="sub5-4-area">
+                    <div class="sub5-4-title clear">
+                        <img src="icon/sub_dog.png">
+                        <h2>해마루 이차진료 동물병원에서 여러분이 자주 궁금해 하시는 사항들을 문의해주세요.</h2>
                     </div>
-                     <div class="staff1">
-                        <img src="img/staff/sub2.png">
-                        <h4>원장 / 대표이사</h4>
-                        <h5>김 진 경</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub3.png">
-                        <h4>내과 / 팀장</h4>
-                        <h5>남 예 림</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub4.png">
-                        <h4>내과 / 팀장</h4>
-                        <h5>최 새 롬</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub5.png">
-                        <h4>내과 / 진료수의사</h4>
-                        <h5>이 승 현</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub6.png">
-                        <h4>외과 / 부장</h4>
-                        <h5>김 세 은</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub7.png">
-                        <h4>외과 / 진료수의사</h4>
-                        <h5>최 경 욱</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub8.png">
-                        <h4>영상의학과 / 부장</h4>
-                        <h5>이 가 현</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub9.png">
-                        <h4>영상의학과 / 팀장</h4>
-                        <h5>김 보 은</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub10.png">
-                        <h4>응급중환자센터 / 부장</h4>
-                        <h5>김 성 훈</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub11.png">
-                        <h4>응급중환자센터 / 팀장</h4>
-                        <h5>김 하 나</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub12.png">
-                        <h4>응급중환자센터 / 진료수의사</h4>
-                        <h5>김 은 실</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub13.png">
-                        <h4>응급중환자센터 / 진료수의사</h4>
-                        <h5>소 하 연</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub14.png">
-                        <h4>응급중환자센터 / 진료수의사</h4>
-                        <h5>송 주 현</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub15.png">
-                        <h4>응급중환자센터 / 진료수의사</h4>
-                        <h5>남 우 진</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub16.png">
-                        <h4>응급중환자센터 / 진료수의사</h4>
-                        <h5>양 재 원</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub17.png">
-                        <h4>응급중환자센터 / 진료수의사</h4>
-                        <h5>조 유 재</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff2">
-                        <img src="img/staff/sub18.png">
-                        <h4>응급중환자센터 / 부장</h4>
-                        <h5>임 재 학</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                     <div class="staff1 staff3">
-                        <img src="img/staff/sub19.png">
-                        <h4>내과 / 테크니션</h4>
-                        <h5>박 혜 린</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                    <div class="staff1 staff3">
-                        <img src="img/staff/sub20.png">
-                        <h4>내과 / 테크니션</h4>
-                        <h5>정 유 진</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                    <div class="staff1 staff3">
-                        <img src="img/staff/sub21.png">
-                        <h4>내과 / 테크니션</h4>
-                        <h5>안 미 희</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                    <div class="staff1 staff3">
-                        <img src="img/staff/sub22.png">
-                        <h4>내과 / 테크니션</h4>
-                        <h5>김 은 박</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                    <div class="staff1 staff3">
-                        <img src="img/staff/sub23.png">
-                        <h4>내과 / 테크니션</h4>
-                        <h5>정 소 영</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                    <div class="staff1 staff3">
-                        <img src="img/staff/sub24.png">
-                        <h4>내과 / 테크니션</h4>
-                        <h5>백 현 영</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                    <div class="staff1 staff3">
-                        <img src="img/staff/sub25.png">
-                        <h4>내과 / 테크니션</h4>
-                        <h5>박 다 정</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                    <div class="staff1 staff3">
-                        <img src="img/staff/sub26.png">
-                        <h4>내과 / 테크니션</h4>
-                        <h5>김 민 지</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                    <div class="staff1 staff3">
-                        <img src="img/staff/sub27.png">
-                        <h4>내과 / 테크니션</h4>
-                        <h5>손 세 미</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                    <div class="staff1 staff3">
-                        <img src="img/staff/sub28.png">
-                        <h4>내과 / 테크니션</h4>
-                        <h5>김 슬 기</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                    <div class="staff1 staff4">
-                        <img src="img/staff/sub30.png">
-                        <h4>원무과 / 매니저</h4>
-                        <h5>김 현 정</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                    <div class="staff1 staff4">
-                        <img src="img/staff/sub29.png">
-                        <h4>원무과 / 과장</h4>
-                        <h5>국 선 영</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                    <div class="staff1 staff4">
-                        <img src="img/staff/sub32.png">
-                        <h4>원무과 / 매니저</h4>
-                        <h5>김 미 현</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                    <div class="staff1 staff4">
-                        <img src="img/staff/sub31.png">
-                        <h4>원무과 / 매니저</h4>
-                        <h5>김 종 민</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                    <div class="staff1 staff4">
-                        <img src="img/staff/sub34.png">
-                        <h4>원무과 / 매니저</h4>
-                        <h5>최 양 윤</h5>
-                        <a href="#">MORE</a>
-                    </div>
-                    <div class="staff1 staff4">
-                        <img src="img/staff/sub33.jpg">
-                        <h4>원무과 / 매니저</h4>
-                        <h5>오 혜 진</h5>
-                        <a href="#">MORE</a>
+                    <div class="sub5-4-box">
+                        <form method="GET" action="text.php">
+                            <div class="sub5-4-email">
+                                <label for="sub_email">e-mail</label>
+                                <input type="text" maxlength="20" id="sub_email">
+                            </div>
+                            <div class="sub5-4-write">
+                                <label for="sub_select">카테고리</label>
+                                <select class="sub_select">
+                                    <option>외과</option>
+                                    <option>내과</option>
+                                    <option>영상의학과</option>
+                                    <option>응급의료센터</option>
+                                    <option>예약</option>
+                                    <option>입양</option>
+                                </select>
+                                <label for="sub_title">제목</label>
+                                <input type="text" id="sub_title">
+                            </div>
+                            <div class="sub5-4-text">
+                                <textarea id="sub5-4-textarea" placeholder="문의하실 내용을 적어주세요."></textarea>
+                            </div>
+                            <div class="sub5-4-btn">
+                            <input type="submit" value="등록하기" id="sub5_btn_submit">
+                            <input type="reset" value="취소하기" id="sub5_btn_reset">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -5,20 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>인사말</title>
+    <title>오시는길</title>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700|Roboto:400,500,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/sub1-1.css">
+    <link rel="stylesheet" href="css/sub1-3.css">
     <link rel="stylesheet" href="css/footer.css">
-    <!-- 스크롤 내릴 시 사진 나타내는 플러그인 -->
-    <link rel="stylesheet" href="css/aos.css">
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-    <!-- 스크롤 내릴 시 사진 나타내는 플러그인 -->
-    <script type="text/javascript" src="js/aos.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
-    <script type="text/javascript" src="js/sub1-1.js"></script>
 </head>
 <body>
     <!-- header html -->
@@ -273,58 +268,61 @@
                     <p>Information</p>
                 </div>
                 <ul class="sub-bar">
-                    <li class="on"><a href="sub1-1.html">인사말</a></li>
+                    <li ><a href="sub1-1.html">인사말</a></li>
                     <li><a href="sub1-2.html">의료진소개</a></li>
-                    <li><a href="sub1-3.html">오시는길</a></li>
+                    <li class="on"><a href="sub1-3.html">오시는길</a></li>
                 </ul>
             </div>
             <!-- main 부분 (여기다가 하면 됨) -->
             <div class="main">
-                <h3>인사말</h3>
-                <p>Greetings</p>
-                <h4 class="h4-1" data-aos="fade-up"
-                data-aos-duration="2000">해마루 동물병원은 2000년 3월 한국 최초의 개인 이차진료 기관으로 설립되어 15년 이상의 역사를 가지고 있습니다.<br/>
-                    '해마루'는 '해가 뜨는 언덕'이란 순 우리말로 해는 긍정과 열정을, 언덕은 누구나 함께 오를 수 있는 언덕을 상징하여 "동물과 함께하는 행복한 세상"을 만들겠다는 사명을 품고 있습니다.</h4>
-                <h4 class="h4-2" data-aos="fade-up"
-                data-aos-duration="2000">해마루는 중증 환자들의 진단과 치료를 위해 높은 의료 수준을 유지하기 위해 항상 노력하고 있으며<br/>
-                    축적된 임상 경험을 교육사업부(iHAEDU)를 통해 전파하여 한국 뿐만 아니라 아시아 수의학과 반려동물 문화 발전에 기여하고 있습니다.<br/>
-                    해마루 설립 초기부터 함께 운영한 소동물 임상의학 연구소는 반려동물 임상 연구를 넘어서 사람의 질병 진단과 치료에 도움이 되는 연구를 수행하고 있습니다.</h4>
-                <h4 class="h4-3" data-aos="fade-up"
-                data-aos-duration="2000">해마루는 모든 역량을 집중하여 2020년 아시아 최고의 이차진료 동물병원으로 도약하고자 합니다.<br/>
-                    이를 위해 2015년 해마루 Way Project를 통해 '최고지향', '상호존중', '행복기여'를 핵심 가치로 재정립하고 '전문성', '유연성', '창조성' 있는 인재들과 함께 나아가고 있습니다.</h4>
-                <h4 class="h4-4" data-aos="fade-up"
-                data-aos-duration="2000">앞으로도 끊임없는 연구를 통해 반려동물과 함께 하는 행복한 세상 구현을 위해 최선을 다하겠습니다.</h4>
-                <div class="img-left clear" data-aos="fade-right"  data-aos-duration="2000">
-                    <img src="img/kjg.jpg">
-                </div>
-                <div class="img-right clear" data-aos="fade-left"  data-aos-duration="2000">
-                    <img src="img/khw.png">
+                <h3>오시는 길</h3>
+                <p>Direction</p>
+                <img src="img/map.jpg">
+                <div class="text">
+                    <div class="text1 clear">
+                        <div>
+                            <h4>주소</h4>
+                            <h5>Address</h5>
+                        </div>
+                        <div>
+                            <p>경기도 성남시 분당구 황새울로 319번길 수의과학회관 1~4층</p>
+                        </div>
+                    </div>
+                    <div class="text1 clear">
+                        <div>
+                            <h4>자가용</h4>
+                            <h5>Own Car</h5>
+                        </div>
+                        <div>
+                            <p>*승용차를 이용하시는 경우 본원 주차 안내원의 안내를 받으시길 바랍니다.</p>
+                        </div>
+                    </div>
+                    <div class="text1 clear">
+                        <div>
+                            <h4>버스</h4>
+                            <h5>Bus</h5>
+                        </div>
+                        <div>
+                            <p>분당 <span>"서현역"</span> 혹은 <span>"삼성플라자(재생병원)"</span> 에서 하차 → 분당 소방서 방향으로 도보 →<br/> 
+                                    롯데 마트 후방 흰색 건물 해마루가 위치</p>
+                        </div>
+                    </div>
+                    <div class="text1 clear">
+                        <div>
+                            <h4>지하철</h4>
+                            <h5>Subway</h5>
+                        </div>
+                        <div>
+                            <p><span>분당선 서현역</span>에서 내려 4번출구 → 삼성플라자 2번 게이트로 나와 직진 →<br/>
+                                    횡단보도를 건너 50미터 직진하다 좌측 골목 → 10미터 거리의 좌측에 해마루 위치</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- footer -->
     <div id="footer">
-        <div class="footer-direction-area">
-        <div class="footer-direction-center clear">
-            <div  style="float:left;">
-                <h3>Direction</h3>
-                <p>오시는 길</p>
-            </div>
-            <!-- 맵 연동은 맨 마지막 -->
-            <!-- <div id="map" style="width:837px;height:428px; float:left; margin-left:50px;"></div>
-            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b39455382198dd3c3860a5e9a81fdcc3"></script>
-            <script>
-                var container = document.getElementById('map');
-                var options = {
-                    center: new kakao.maps.LatLng(37.38563310000001,127.12113090000003),
-                    level: 3
-                };
-        
-                var map = new kakao.maps.Map(container, options);
-            </script> -->
-        </div>
-    </div>
     <div class="footer-basic">
         <div class="footer-center clear">
             <div class="fot-left">

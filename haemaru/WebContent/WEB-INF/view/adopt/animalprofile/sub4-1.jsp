@@ -1,18 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>내과</title>
+    <title>프로필</title>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700|Roboto:400,500,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/sub2-2.css">
-    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/sub4-1.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <!-- 스크롤을 내릴 시 프로필 나타내는 효과 플러그인 CSS  -->
+    <link rel="stylesheet" href="css/aos.css">
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!-- 스크롤을 내릴 시 프로필 나타내는 효과 플러그인  -->
+    <script type="text/javascript" src="js/aos.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/sub4-1.js"></script>
 </head>
 <body>
     <!-- header html -->
@@ -263,154 +269,215 @@
             <!-- sub bar 부분 (고정) -->
             <div class="fixed-sub">
                 <div class="title-area">
-                    <h2>병원소개</h2>
-                    <p>information</p>
+                    <h2>입양</h2>
+                    <p>adopt an animal</p>
                 </div>
                 <ul class="sub-bar">
-                    <li ><a href="sub2-1.html">외과</a></li>
-                    <li class="on"><a href="sub2-2.html">내과</a></li>
-                    <li><a href="sub2-3.html">영상의학과</a></li>
-                    <li><a href="sub2-4.html">응급중환자의료센터</a></li>
+                    <li class="on"><a href="sub4-1.html">프로필</a></li>
+                    <li><a href="sub4-2.html">입양후기</a></li>
+                    <!-- <li><a href="#">오시는길</a></li> -->
                 </ul>
             </div>
             <!-- main 부분 (여기다가 하면 됨) -->
             <div class="main">
-                <h3>내과</h3>
-                <p>Medicine</p>
-                <div class="medicine-box clear">
-                    <div class="medicine-info">
-                        <div class="medicine-img">
-                            <a href="#">
-                                <div class="medicine-hover">
-                                    <div class="medicine-opa">
-                                        <h4>내분비 내과</h4>
-                                        <h6>Endocrinology Internal Medicine</h6>
-                                        <img src="icon/medicine-class.png">
-                                    </div>
-                                </div>
-                            </a>
+                
+                <div class="top-arrow">
+                    <a href="#">
+                        <img src="icon/top-arrow.png">
+                        <p>위로가기</p>
+                    </a>
+                </div>
+                <h3>프로필</h3>
+                <p>Propile</p>
+                <!-- 강아지 고양이 특수동믈 버튼 리스트 -->
+                <ul class="tab-list clear">
+                    <li class="on"><a href="#">강아지</a></li>
+                    <li><a href="#">고양이</a></li>
+                    <li><a href="#">특수동물</a></li>
+                </ul>
+                <!-- 프로필 부분 -->
+                <div class="tab-group">
+                    <!-- 프로필 강아지 부분 -->
+                    <div class="tab-box">
+                        <!-- 프로필 한 부분 -->
+                        <div class="box1 clear" data-aos="fade-up" data-aos-duration="1500">
+                            <!-- 프로필 동물 이미지부분 -->
+                            <div class="box-img1"></div>
+                            <!-- 프로필 동물 정보 부분 -->
+                            <div class="box">
+                                <p><span class="info-text">이름</span>크림이</p>
+                                <p><span class="info-text">품종</span>웰시코기</p>
+                                <p><span class="info-text">성별</span>남</p>
+                                <p><span class="info-text">나이</span>2살</p>
+                                <p><span class="info-text">접종</span>2차접종</p>
+                                <p><span class="info-text">성격</span>밝고 활발하며 사람을 좋아해요</p>
+                                <!-- 상담신청 버튼 부분 -->
+                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
+                                <!-- 아이콘 부분 -->
+                                <img src="icon/sub_dog.png">
+                            </div>
                         </div>
-                        <div class="Medicine-text">
-                            <h3>내분비 내과</h3>
-                            <h5>해마루 내분비 내과에서는 정확한 진단을 위해 수의분야에서 세계적으로 
-                                    가장 권위 있는 IDEXX Laboratories에 호르몬 검사를 의뢰하고 있습니다. 
-                                    또한 국내 최고의 환자 경험을 바탕으로 보호자와 환자에 맞는 
-                                    최적의 맞춤형 치료를 제시하고 있습니다.</h5>
+                        <div class="box2 clear" data-aos="fade-up" data-aos-duration="1500">
+                            <div class="box">
+                                <p><span class="info-text">이름</span>달이</p>
+                                <p><span class="info-text">품종</span>웰시코기</p>
+                                <p><span class="info-text">성별</span>남</p>
+                                <p><span class="info-text">나이</span>3개월</p>
+                                <p><span class="info-text">접종</span>2차접종</p>
+                                <p><span class="info-text">성격</span>호기심이 많아요</p>
+                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
+                                <img src="icon/sub_dog.png">
+                            </div>
+                            <div class="box-img2"></div>
+                        </div>
+                        <div class="box3 clear"  data-aos="fade-up" data-aos-duration="1500">
+                            <div class="box-img3"></div>
+                            <div class="box">
+                                <p><span class="info-text">이름</span>고스트</p>
+                                <p><span class="info-text">품종</span>스타크 가문 수호 늑대</p>
+                                <p><span class="info-text">성별</span>남</p>
+                                <p><span class="info-text">나이</span>2년</p>
+                                <p><span class="info-text">접종</span>2차접종</p>
+                                <p><span class="info-text">성격</span>변종 사냥꾼. 혼자 돌아다니며, 눈을 좋아함</p>
+                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
+                                <img src="icon/sub_dog.png">
+                            </div>
+                        </div>
+                        <div class="box4 clear"  data-aos="fade-up" data-aos-duration="1500">
+                            <div class="box">
+                                <p><span class="info-text">이름</span>코코</p>
+                                <p><span class="info-text">품종</span>진돗개</p>
+                                <p><span class="info-text">성별</span>여</p>
+                                <p><span class="info-text">나이</span>2개월</p>
+                                <p><span class="info-text">접종</span>1차접종</p>
+                                <p><span class="info-text">성격</span>잠이 많아요</p>
+                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
+                                <img src="icon/sub_dog.png">
+                            </div>
+                            <div class="box-img4"></div>
                         </div>
                     </div>
-                    <div class="medicine-info">
-                        <div class="medicine-img">
-                            <a href="#">
-                            <div class="medicine-hover">
-                                <div class="medicine-opa">
-                                    <h4>순환기 내과</h4>
-                                    <h6>Cardiology Internal Medicine</h6>
-                                    <img src="icon/medicine-class.png">
-                                </div>
+                    <!-- 프로필 고양이 부분 -->
+                    <div class="tab-box">
+                        <div class="box5 clear"  data-aos="fade-up" data-aos-duration="1500">
+                            <div class="box-img5"></div>
+                            <div class="box">
+                                <p><span class="info-text">이름</span>냥냥이</p>
+                                <p><span class="info-text">품종</span>웰시코기</p>
+                                <p><span class="info-text">성별</span>남</p>
+                                <p><span class="info-text">나이</span>2살</p>
+                                <p><span class="info-text">접종</span>2차접종</p>
+                                <p><span class="info-text">성격</span>밝고 활발하며 사람을 좋아해요</p>
+                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
+                                <img src="icon/sub_cat.jpg">
                             </div>
-                            </a>
                         </div>
-                        <div class="Medicine-text">
-                            <h3>순환기 내과</h3>
-                            <h5>동맥관개존증, 폐동맥·대동맥판막 협착증, 방실기형, 혈관기형과 같은 
-                                    선천적인심장질환과 만성 판막질환, 비대성·확장성 심근병증, 폐고혈압, 
-                                    심장사상충증, 부정맥 등의 후천성 심장질환에 대한 진단을 위해 흉부방사선, 
-                                    심장초음파 검사, 심장 바이오마커 검사, 심전도 검사, 기관지 내시경, 
-                                    투시검사, CT촬영, 혈관 조영술 등의 최신 신단 기법을 활용하고 있습니다.</h5>
+                        <div class="box6 clear"  data-aos="fade-up" data-aos-duration="1500">
+                            <div class="box">
+                                <p><span class="info-text">이름</span>가르송</p>
+                                <p><span class="info-text">품종</span>러시안블루</p>
+                                <p><span class="info-text">성별</span>남</p>
+                                <p><span class="info-text">나이</span>3개월</p>
+                                <p><span class="info-text">접종</span>2차접종</p>
+                                <p><span class="info-text">성격</span>호기심이 많아요</p>
+                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
+                                <img src="icon/sub_cat.jpg">
+                            </div>
+                            <div class="box-img6"></div>
+                        </div>
+                        <div class="box7 clear"  data-aos="fade-up" data-aos-duration="1500">
+                            <div class="box-img7"></div>
+                            <div class="box">
+                                <p><span class="info-text">이름</span>쉐도우블랙</p>
+                                <p><span class="info-text">품종</span>다크 캣</p>
+                                <p><span class="info-text">성별</span>여</p>
+                                <p><span class="info-text">나이</span>4개월</p>
+                                <p><span class="info-text">접종</span>2차접종 실패</p>
+                                <p><span class="info-text">성격</span>있는 듯 없는 듯 지내요, 어떨때는 안보여요</p>
+                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
+                                <img src="icon/sub_cat.jpg">
+                            </div>
+                        </div>
+                        <div class="box8 clear" data-aos="fade-up" data-aos-duration="1500">
+                            <div class="box">
+                                <p><span class="info-text">이름</span>점박이</p>
+                                <p><span class="info-text">품종</span>시베리아 레오파드</p>
+                                <p><span class="info-text">성별</span>여</p>
+                                <p><span class="info-text">나이</span>2년</p>
+                                <p><span class="info-text">접종</span>종합건강검진 실패</p>
+                                <p><span class="info-text">성격</span>밥을 안주면 물어요 조심해요^^  특기: 사지절단</p>
+                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
+                                <img src="icon/sub_cat.jpg">
+                            </div>
+                            <div class="box-img8"></div>    
                         </div>
                     </div>
-                    <div class="medicine-info">
-                        <div class="medicine-img">
-                            <a href="#">
-                            <div class="medicine-hover">
-                                <div class="medicine-opa">
-                                    <h4>종양 내과</h4>
-                                    <h6>Oncology</h6>
-                                    <img src="icon/medicine-class.png">
-                                </div>
+                    <!-- 프로필 특수동물 부분 -->
+                    <div class="tab-box">
+                        <div class="box9 clear" data-aos="fade-up" data-aos-duration="1500">
+                            <div class="box-img9"></div>
+                            <div class="box">
+                                <p><span class="info-text">이름</span>몰랑이</p>
+                                <p><span class="info-text">품종</span>토끼</p>
+                                <p><span class="info-text">성별</span>여</p>
+                                <p><span class="info-text">나이</span>5개월</p>
+                                <p><span class="info-text">접종</span>2차접종</p>
+                                <p><span class="info-text">성격</span>사람을 좋아하며 아주 활발해요</p>
+                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
+                                <img src="icon/sub_bird.jpg">
                             </div>
-                            </a>
                         </div>
-                        <div class="Medicine-text">
-                            <h3>종양 내과</h3>
-                            <h5>종양 제거 수술, 항암치료, 표적약물치료, 면역치료 뿐만 아니라 표준적인
-                                    치료가 불가능한 말기 암 환자를 위한 다양한 대체 요법과 전문적인 
-                                    통증관리를 포함한 호스피스 치료를 통해 종양으로 고통받는 환자와 
-                                    보호자가 보다 나은 삶의 질을 유지할 수 있도록 노력하고 있습니다.</h5>
-                        </div>
-                    </div>
-                    <div class="medicine-info">
-                        <div class="medicine-img">
-                            <a href="#">
-                            <div class="medicine-hover">
-                                <div class="medicine-opa">
-                                    <h4>신경 내과</h4>
-                                    <h6>Neurology</h6>
-                                    <img src="icon/medicine-class.png">
-                                </div>
+                        <div class="box10 clear" data-aos="fade-up" data-aos-duration="1500">
+                            <div class="box">
+                                <p><span class="info-text">이름</span>이아고</p>
+                                <p><span class="info-text">품종</span>앵무새</p>
+                                <p><span class="info-text">성별</span>남</p>
+                                <p><span class="info-text">나이</span>2년</p>
+                                <p><span class="info-text">접종</span>2차접종</p>
+                                <p><span class="info-text">성격</span>인사를 잘해요 *욕도 배움</p>
+                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
+                                <img src="icon/sub_bird.jpg">
                             </div>
-                            </a>
+                            <div class="box-img10"></div>
                         </div>
-                        <div class="Medicine-text">
-                            <h3>신경 내과</h3>
-                            <h5>경련, 발작, 마비, 선회, 운동실조 등의신경증상을 보이는 환자들에 대해서
-                                    전반적인 스크리닝 검사와 신경계 검사를 진행하여 문제가 있는 부위를 
-                                    찾은 후 의심부위에 대한 CT / MRI 촬영 및 뇌척수액(CSF)에 대한 
-                                    세포학 검사, 단백질 정량검사, 항체가 검사, 배양 검사 및 PCR검사를 
-                                    실시하여 정확한 원인을 찾아 치료하고 있습니다.</h5>
-                        </div>
-                    </div>
-                    <div class="medicine-info">
-                        <div class="medicine-img">
-                            <a href="#">
-                            <div class="medicine-hover">
-                                <div class="medicine-opa">
-                                    <h4>소화기 내과</h4>
-                                    <h6>Digestive Internal Medicine</h6>
-                                    <img src="icon/medicine-class.png">
-                                </div>
+                        <div class="box11 clear"  data-aos="fade-up" data-aos-duration="1500">
+                            <div class="box-img11"></div>
+                            <div class="box">
+                                <p><span class="info-text">이름</span>마징가S</p>
+                                <p><span class="info-text">품종</span>고슴도치</p>
+                                <p><span class="info-text">성별</span>남</p>
+                                <p><span class="info-text">나이</span>2개월</p>
+                                <p><span class="info-text">접종</span>2차접종</p>
+                                <p><span class="info-text">성격</span>가시 발사 가능, 항상 조심 할 것</p>
+                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
+                                <img src="icon/sub_bird.jpg">
                             </div>
-                            </a>
                         </div>
-                        <div class="Medicine-text">
-                            <h3>소화기 내과</h3>
-                            <h5>급·만성의 구토, 설사, 식욕부진, 복부팽만, 복통 등의 소화기 증상을 
-                                    보이는 환자들에게 분변검사, 혈액·혈청화학검사, X-ray / 초음파 검사 
-                                    등의 기본적인 검사를 실시하여 증상의 유발 원인을 정확하게 찾아서 
-                                    치료합니다. 환자에 따라서 췌장염 / 염증성 창자병 등에 대한 특수화학검사 
-                                    및 감염성 질환에 대한 면역화학 / real-time PCR 검사 등을 
-                                    추가적으로 실시하게 됩니다.</h5>
-                        </div>
-                    </div>
-                    <div class="medicine-info">
-                        <div class="medicine-img">
-                            <a href="#">
-                            <div class="medicine-hover">
-                                <div class="medicine-opa">
-                                    <h4>피부과</h4>
-                                    <h6>Dermatology</h6>
-                                    <img src="icon/medicine-class.png">
-                                </div>
+                        <div class="box12 clear"  data-aos="fade-up" data-aos-duration="1500">
+                            <div class="box">
+                                <p><span class="info-text">이름</span>아부</p>
+                                <p><span class="info-text">품종</span>토끼</p>
+                                <p><span class="info-text">성별</span>여</p>
+                                <p><span class="info-text">나이</span>2개월</p>
+                                <p><span class="info-text">접종</span>1차접종</p>
+                                <p><span class="info-text">성격</span>잠이 많아요</p>
+                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
+                                <img src="icon/sub_bird.jpg">
                             </div>
-                            </a>
+                            <div class="box-img12"></div>
                         </div>
-                        <div class="Medicine-text">
-                            <h3>피부과</h3>
-                            <h5>해마루 피부과에서는 기본적인 피부 스크리닝 검사 외에도 감염성 원인에
-                                    대한 배양검사 및 PCR 검사, 혈액·혈청화학검사, 호르몬 검사, 알러지 검사, 
-                                    피부생검 및 조직검사 등을 실시 하여 만성 난치성 피부질환의 근본적인 
-                                    원인을 정확히 진단한 후 보호자와 환자 특성에 맞는 다양한 치료옵션을 
-                                    제공해 드리고 있습니다.</h5>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
+            <!-- 더보기 버튼 -->
+            <div class="tab-more"><a href="#">more</a></div>
         </div>
     </div>
     <!-- footer -->
     <div id="footer">
         <div class="footer-direction-area">
-       <div class="footer-direction-center clear">
+        <div class="footer-direction-center clear">
             <div  style="float:left;">
                 <h3>Direction</h3>
                 <p>오시는 길</p>

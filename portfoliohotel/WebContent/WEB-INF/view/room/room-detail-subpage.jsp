@@ -23,14 +23,10 @@
                 $(".book").click(function(event){
                     event.preventDefault();
                     $(".book-wrap").show();
-
                 });
-
                 $(".book-close > a").click(function(){
-
                     $(".book-wrap").hide();
                 });
-
                 $("#book-start").datepicker({
                     monthNames:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
                     dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
@@ -46,7 +42,6 @@
                     yearRange: "2019:2019",
                     minDate: "1D"
                 });
-
              
         });
     </script>
