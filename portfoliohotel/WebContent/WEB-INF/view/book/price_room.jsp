@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,9 +23,7 @@
                  $(this).children("h3").toggle(); 
                  $(this).siblings(".rate-info").toggle();
             });
-
         });
-
     
     </script>
 </head>
