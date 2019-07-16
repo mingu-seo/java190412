@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,27 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../css/jquery-ui.css">
-    <link rel="stylesheet" href="../css/header-fixed.css">
-    <link rel="stylesheet" href="../css/price_room.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="../js/jquery-ui.js"></script>
-    <script type="text/javascript" src="../js/datepicker.js"></script>
-    <script type="text/javascript" src="../js/gnb.js"></script>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/header-fixed.css">
+    <link rel="stylesheet" href="/css/check_room.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/js/datepicker.js"></script>
+    <script type="text/javascript" src="/js/gnb.js"></script>
     <title>객실검색</title>
-    <script type="text/javascript">
-        $(function(){
-            $(".toggle-btn").click(function(event){
-                 $(this).children("h3").toggle(); 
-                 $(this).siblings(".rate-info").toggle();
-            });
-
-        });
-
-    
-    </script>
 </head>
 <body>
     <div id="header">
@@ -155,99 +145,159 @@
         </div>
     </div>
 
-
+    
+    
         <div id="container">
-                    <div class="chk-section">
-                        <h2>객실검색</h2>
+            <div class="chk-section">
+                <h2>객실검색</h2>
+                <ul class="cha_index clear">
+                    <li><a href="check_room.do">객실검색 <span>></span> </a></li>
+                    <li class="current-page"><a href="#">객실예약</a></li>
+                    <li><a href="#"><span>></span>정보입력</a></li>
+                    <li><a href="#"><span>></span> 예약완료</a></li>
+                </ul>
+                <!-- 객실 검색 박스 -->
+                <div class="select-info-box">
+                        <form class="room-search">
+                            <div class="period after">
+                                <label for="period">숙박기간</label>
+                            </div>
 
-                        <!-- 상단 예약진행 순서 -->
-                            <ul class="cha_index clear">
-                                <li><a href="check_room.html">객실검색 <span>></span> </a></li>
-                                <li class="current-page"><a href="#">객실예약</a></li>
-                                <li><a href="#"><span>></span>정보입력</a></li>
-                                <li><a href="#"><span>></span> 예약완료</a></li>
-                            </ul>
+                            <div class="checkInOut">
+                                <input type="text" name="start-date" id="start-date" class="InDate"
+                                maxlength="10" placeholder="체크인" value="" readonly>
+                                <input type="text" name="end-date" id="end-date" class="OutDate"
+                                maxlength="10" placeholder="체크아웃" value="" readonly>
+                            </div>
 
-                        <!-- 객실 검색 박스 -->
-                        <div class="select-info-box">
-                                <form class="room-search">
+                            <div class="days">0박</div>
 
-                                    <!-- 검색창 구역 -->
-                                    <div class="period after">
-                                        <label for="period">숙박기간</label>
-                                    </div>
-        
-                                    <!-- 체크인/체크아웃 구역 -->
-                                    <div class="checkInOut">
-                                        <input type="text" name="start-date" id="start-date" class="InDate"
-                                        maxlength="10" placeholder="체크인" value="" readonly>
-                                        <input type="text" name="end-date" id="end-date" class="OutDate"
-                                        maxlength="10" placeholder="체크아웃" value="" readonly>
-                                    </div>
-        
-                                    <!-- 기간 -->
-                                    <div class="days">0박</div>
-        
-                                    
-                                    <div class="room after">
-                                        <label for="roomCount">객실</label>
-                                    </div>
-                                    <!-- 객실 수 -->
-                                    <div class="roomCount select-option">
-                                        <select name="roomCount" id="roomCount" class="option01" aria-hidden="true">
-                                            <option value="1">1개</option>
-                                            <option value="2">2개</option>
-                                            <option value="3" selected>3개</option>
-                                            <option value="4">4개</option>
-                                            <option value="5">5개</option>
-                                        </select>
-                                    </div>
-        
-                                    <div class="adult after">
-                                        <label for="adult">어른</label>
-                                    </div>
-        
-                                    <div class="adultCount select-option">
-                                        <select name="adult" id="adult" class="option1" aria-hidden="true">
-                                            <option value="1">1명</option>
-                                            <option value="2" selected>2명</option>
-                                        </select>
-                                    </div>
-        
-                                    <div class="child after">
-                                            <label for="child">어린이</label>
-                                    </div>
-        
-                                    <div class="childCount select-option">
-                                        <select name="child" id="child" class="option1" aria-hidden="true">
-                                            <option value="0" selected>0명</option>
-                                            <option value="1">1명</option>
-                                            <option value="2">2명</option>
-                                        </select>
-                                    </div>
-                                </form>
+                            <div class="room after">
+                                <label for="roomCount">객실</label>
+                            </div>
 
-                                <!-- 재검색 버튼 -->
-                                <div class="re-try">
-                                        <button class="re-check-btn">재검색</button>
-                                </div>
+                            <div class="roomCount select-option">
+                                <select name="roomCount" id="roomCount" class="option01" aria-hidden="true">
+                                    <option value="1">1개</option>
+                                    <option value="2">2개</option>
+                                    <option value="3" selected>3개</option>
+                                    <option value="4">4개</option>
+                                    <option value="5">5개</option>
+                                </select>
+                            </div>
+
+                            <div class="adult after">
+                                <label for="adult">어른</label>
+                            </div>
+
+                            <div class="adultCount select-option">
+                                <select name="adult" id="adult" class="option1" aria-hidden="true">
+                                    <option value="1">1명</option>
+                                    <option value="2" selected>2명</option>
+                                </select>
+                            </div>
+
+                            <div class="child after">
+                                    <label for="child">어린이</label>
+                            </div>
+
+                            <div class="childCount select-option">
+                                <select name="child" id="child" class="option1" aria-hidden="true">
+                                    <option value="0" selected>0명</option>
+                                    <option value="1">1명</option>
+                                    <option value="2">2명</option>
+                                </select>
+                            </div>
+                        </form>
+                        <div class="re-try">
+                                <button class="re-check-btn">재검색</button>
                         </div>
-                    </div>    
-        
-                    <!-- 탭메뉴 객실/요금으로 보기 -->
-                    <div class="room-info">
-                        <ul class="tabMenu clear">
-                            <li><a href="check_room.html">객실로 보기</a></li>
-                            <li class="on"><a href="#">요금으로 보기</a></li>
-                        </ul>
+                </div>
+            </div>    
 
+            <!-- 탭메뉴 객실/요금으로 보기 -->
+            <div class="room-info">
+                <ul class="tabMenu clear">
+                    <li class="on"><a href="#">객실로 보기</a></li>
+                    <li><a href="price_room.do">요금으로 보기</a></li>
+                </ul>
 
-                        <div class="priceResult-area clear">
-                                <div class="resultSection">
-                                    <div class="thePrice">
-                                        <h3>객실요금</h3>
-                                    </div>
+            <!--예약 가능한 객실 조회 결과 나오는 영역 -->
+                <div class="roomResult-area clear">
+                    <ul>
+                        <li class="photo roomtype01">
+                            <h1 class="camera"><a href="../room/room-detail-subpage.html" target="_blank"><img src="../img/ico_photo.png"></a></h1>
+                        </li>
+                        <li>
+                            <ul class="roomResult-info clear">
+                                <li><h2>NAMSAN POOL DELUXE ROOM</h2></li>
+                                <li class="specific-notice clear">
+                                    <ul class="specific-notice01">
+                                        <li>객실크기 : 50~56㎡</li>
+                                        <li>객실위치 : 14~21층</li>
+                                        <li>수용인원 : 4명</li>
+                                    </ul>
+                                    <ul class="specific-notice02">
+                                        <li>객실타입 : 원룸</li>
+                                        <li>배드타입 : 킹 사이즈</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <p>포근한 킹사이즈 베드에서 몇 발자국 떼지 않고도 바로 널찍한<br/>
+                                        릴랙세이션 풀을 즐길 수 있습니다. 따스한 나무빛이 여기저기에서 <br/>
+                                        돋보이는 방 안에서는 안개가 자욱한 숲이 우거진 전경이 대형 유리창 <br/>
+                                        너머로 내려다 보이고, 드레스룸을 비롯한 특별한 시설이 다채롭게 <br/>
+                                        준비되어 있어 만족스러운 시간을 선사합니다. 
+                                    </p>
+                                </li>
+                                <li>
                                     <div class="priceResult clear">
+                                        <ul class="etc clear">
+                                            <li><h1>688,500원 <span>~</span></h1></li>
+                                            <li>
+                                                <h3>KRW/1박, 1객실</h3>
+                                                <p>(세금 및 수수료 별도)</p>
+                                            </li>
+                                        </ul>
+                                        <button class="reservation-btn"><a href="add_option.html">예약하기</a></button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                </div>
+                <!-- 예약 가능 검색 조회 결과 객실 한개 영역 끝 -->
+
+                <!-- 사용 가능한 다른 객실 순차적으로 나옴 -->
+                <div class="roomResult-area clear">
+                        <ul>
+                            <li class="photo roomtype02">
+                                <h1 class="camera"><img src="../img/ico_photo.png"></h1>
+                            </li>
+                            <li>
+                                <ul class="roomResult-info clear">
+                                    <li><h2>NAMSAN POOL PREMIER SUITE</h2></li>
+                                    <li class="specific-notice clear">
+                                        <ul class="specific-notice01">
+                                            <li>객실크기 : 95~105㎡</li>
+                                            <li>객실위치 : 11~12층</li>
+                                            <li>수용인원 : 6명</li>
+                                        </ul>
+                                        <ul class="specific-notice02">
+                                            <li>객실타입 : 투룸</li>
+                                            <li>배드타입 : 킹 사이즈</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <p>남산 풀 프리미어 스위트는 96㎡부터 105㎡의 면적으로 프라이빗하고<br/>
+                                        여유로운 휴식을 선사합니다. 한 층에 2개의 객실이 자리하고 있어 더욱 <br/>
+                                        프라이빗한 시간을 보내실 수 있으며 파노라믹 뷰로 펼쳐진 서울의 전경과<br/>
+                                        웅장한 남산의 모습을 객실 어디에서나 감상하실 수 있습니다. 
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <div class="priceResult clear">
                                             <ul class="etc clear">
                                                 <li><h1>1,150,000원 <span>~</span></h1></li>
                                                 <li>
@@ -255,45 +305,18 @@
                                                     <p>(세금 및 수수료 별도)</p>
                                                 </li>
                                             </ul>
-                                    </div>
-                                </div>
-                                <ul class="rate-info clear">
-                                                <li class="photo01">
-                                                    <h1 class="camera"><a href="../room/room-detail-subpage.html" target="_blank"><img src="../img/ico_photo.png"></a></h1>
-                                                </li>
-                                                <li>
-                                                    <ul class="roomResult-info clear">
-                                                        <li><h2>NAMSAN POOL PREMIER SUITE</h2></li>
-                                                        <li class="specific-notice clear">
-                                                            <ul class="specific-notice01">
-                                                                <li>객실크기 : 95~105㎡</li>
-                                                                <li>객실위치 : 11~12층</li>
-                                                                <li>수용인원 : 6명</li>
-                                                            </ul>
-                                                            <ul class="specific-notice02">
-                                                                <li>객실타입 : 투룸</li>
-                                                                <li>배드타입 : 킹 사이즈</li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <p>남산 풀 프리미어 스위트는 96㎡부터 105㎡의 면적으로 프라이빗하고<br/>
-                                                            여유로운 휴식을 선사합니다. 한 층에 2개의 객실이 자리하고 있어 더욱 <br/>
-                                                            프라이빗한 시간을 보내실 수 있으며 파노라믹 뷰로 펼쳐진 서울의 전경과<br/>
-                                                            웅장한 남산의 모습을 객실 어디에서나 감상하실 수 있습니다. 
-                                                            </p>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <div class="submit"><a href="add_option.html">예약하기</a></div>     
+                                            <button class="reservation-btn"><a href="#">예약하기</a></button>
+                                        </div>
+                                    </li>
                                 </ul>
-                                <button class="toggle-btn">
-                                    <h3 class="btn-show">예약 가능한 객실 보기</h3>
-                                    <h3 class="btn-close">예약 가능한 객실 닫기</h3>
-                                </button>
-                        </div>
+                            </li>
+                        </ul>
                         
-                    </div>
-    
+                </div>
+
+              
+
+            </div>
         </div>
 
         <div id="footer">
@@ -330,5 +353,6 @@
                     </div>
                 </div>
             </div>
+
 </body>
 </html>

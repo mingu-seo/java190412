@@ -75,7 +75,7 @@
         <div id="logined">
             <div class="logined-box">
                 <h2 class="close-btn"><a href="#">x</a></h2>
-                <h3>배경민<span>님 안녕하세요.</span></h3>
+                <h3>기멍솔<span>님 안녕하세요.</span></h3>
                 <p class="mypage"><a href="membership/mypage.html">마이페이지 <img src="img/white-arrow.png" class="white-arrow"></a></p>
                 <table>
                     <tr>
@@ -95,7 +95,7 @@
         </div>
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="index.html"><img src="img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="index.do"><img src="img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">Book</a>
@@ -176,7 +176,7 @@
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Support</h2>
-                                                <a href="membership/notice.do" class="notice-a">
+                                                <a href="/membership/notice.do" class="notice-a">
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
@@ -188,7 +188,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="membership/faq.html">
+                                                <a href="/membership/faq.do">
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">
@@ -277,7 +277,7 @@
                             </div>
                             <div class="d-r-input2">
                                 <!-- <input type="submit" value="예약 조회"> -->
-                                <a href="book/check_room.html">예약조회</a>
+                                <a href="/book/check_room.do">예약조회</a>
                             </div>
                         </form>
                 </div>

@@ -1,4 +1,4 @@
-
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,27 +19,27 @@
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="../index.html"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="index.do"><img src="../img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">BOOK</a>
                             <div class="pc-sub">
                                     <div class="pc-sub-center">
                                         <div class="pc-sub-box">
-                                            <h2><a href="../special_promotion.html">Promotion</a></h2>
+                                            <h2><a href="/pkg/special_promotion.do">Promotion</a></h2>
                                             <ul class="offer">
-                                                <li><a href="room_offer.html">Room Package</a></li>
-                                                <li><a href="dining_offer.html">Dining Package</a></li>
-                                                <li><a href="etc_offer.html">Events & Gift</a></li>
+                                                <li><a href="room_offer.do">Room Package</a></li>
+                                                <li><a href="dining_offer.do">Dining Package</a></li>
+                                                <li><a href="etc_offer.do">Events & Gift</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
                                             <h2>Rooms</h2>
                                             <ul class="Rooms">
-                                                <li><a href="../room/room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
-                                                <li><a href="../room/room-detail-subpage.html2">Namsan Pool Premier Suite</a></li>
-                                                <li><a href="../room/room-detail-subpage.html3">Namsan Presidential Suite</a></li>
-                                                <li><a href="../room/room-detail-subpage.html4">Spa Sanctuary Suite</a></li>
+                                                <li><a href="/room/room-detail-subpage.do">Namsan Pool Deluxe Room</a></li>
+                                                <li><a href="/room/room-detail-subpage2.do">Namsan Pool Premier Suite</a></li>
+                                                <li><a href="/room/room-detail-subpage3.do">Namsan Presidential Suite</a></li>
+                                                <li><a href="/room/room-detail-subpage4.do">Spa Sanctuary Suite</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -98,7 +98,7 @@
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Support</h2>
-                                                <a href="../membership/notice.html" class="notice-a">
+                                                <a href="/membership/notice.do" class="notice-a">
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
@@ -110,7 +110,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../membership/faq.html">
+                                                <a href="/membership/faq.do">
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">
@@ -122,7 +122,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../membership/qna.html">
+                                                <a href="/membership/qna.do">
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">
@@ -137,7 +137,7 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="../membership/sign_in.html">SIGN IN</a>
+                <a href="/membership/sign_in.do">SIGN IN</a>
             </div>
         </div>
     </div>
@@ -155,9 +155,9 @@
         <div class="faq">
             <div class="support-list">
                 <ul class="support-list-center">
-                    <li><a href="notice.html">공지사항</a></li>
-                    <li class="on"><a href="faq.html">FAQ</a></li>
-                    <li><a href="qna.html">Q&A</a></li>
+                    <li><a href="notice.do">공지사항</a></li>
+                    <li class="on"><a href="faq.do">FAQ</a></li>
+                    <li><a href="qna.do">Q&A</a></li>
                 </ul>
             </div>
             <div class="faq-table">
