@@ -1,0 +1,45 @@
+ @charset "utf-8";
+ /* 메인배너 시작 */
+ .con1 {height:600px; width:100%; background-image:url("../img/sub-banner.jpg"); background-repeat:no-repeat; background-attachment:fixed;}
+ .con1-box{text-align: center; color: #fff; font-weight: bold; padding-top: 250px;}
+ .con1-box h3{font-size: 70px; margin-bottom: 10px;}
+ .con1-box p{font-size: 20px;}
+ /* 메인배너 끝 */
+ /* 자바미술관 연혁 시작*/
+ .con2{margin-top: 80px;}
+ .con2-center{width: 1200px; margin: 0 auto;}
+  /* 자바미술관 연혁 끝*/
+ /* 일상이 예술이 되는 미술관 시작 */
+ .con3-center{width: 1200px; margin: 0 auto;}
+ .con3-gr{margin-top: 80px;}
+ .con3-gr img{width: 1200px; height: 600px;}
+ .con3-gr h4{margin-top: 80px; font-size: 44px; margin-bottom: 36px; font-weight:normal;}
+ .con3-gr p{margin-bottom: 6px;}
+ /* 일상이 예술이 되는 미술관 끝 */
+ /* 전통과 현대를 아우르는 새로운 건축 미학 시작 */
+ .con4{margin-top: 80px;}
+ .con4-center{width: 1200px; margin: 0 auto;}
+ .con4-bg{width: 590px; height: 365px; float: left;margin-right: 20px;margin-bottom: 80px;}
+ .con4-bg:nth-child(2){margin-right: 0px;}
+ .con4-bg img{width: 100%; height: 100%;}
+ /* 텍스트 정렬 */
+ .con4-center h4{font-size: 44px; margin-bottom: 36px; font-weight:normal;}
+ .con4-center p{margin-bottom: 6px;}
+ /* 이미지 정렬 */
+ .con5-center{width: 1200px; margin: 0 auto;}
+ .con5-gr{width: 590px; height: 980px; float: left; margin-right:20px; margin-top: 80px;}
+ .con5-gr:nth-child(2){margin-right: 0px;}
+ .con5-gr img{width: 100%; height: 778px;}
+ /* 텍스트 정렬 */
+ .con5-gr p{margin-top: 32px;}
+ /* 전통과 현대를 아우르는 새로운 건축 미학 끝 */
+
+ /* 건축가소개 시작*/
+ .con6{margin-top: 80px; margin-bottom: 80px;}
+ .con6-center{width: 1200px; margin: 0 auto;}
+ .con6-gr{border: 2px solid #000;}
+ .con6-gr img{float: left; height: 182px; width: 140px;}
+ .con6-text{float: left; margin-left: 30px; margin-top: 40px;}
+ .con6-text h4{font-size: 24px; font-weight: normal;}
+ .con6-text p{font-size: 16px; font-weight: normal;}
+ /* 건축가소개 끝 */

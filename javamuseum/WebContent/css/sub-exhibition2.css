@@ -1,0 +1,90 @@
+@charset "utf-8";
+
+/* 상단배경 */
+.con1 {height:600px; width:100%; background-image:url("../img/sub-exhibition.jpg"); background-repeat:no-repeat; background-attachment:fixed;}
+.con1-box{text-align: center; color: #fff; font-weight: bold; padding-top: 250px;}
+.con1-box h3{font-size: 60px; margin-bottom: 10px;}
+.con1-box p{font-size: 20px;}
+
+/* 지난전시 */
+.con2-center{width: 1200px; margin: 0 auto; position: relative;}
+.con2-text {margin-top:100px; margin-bottom:20px;}
+.con2-text h3{ float:left; font-size: 40px; font-weight: normal;}
+.con2-text .calender {float:right; margin-top:8px;}
+.con2-text .calender select {width:120px; height:30px; font-size:18px; padding:0 10px;}
+/* 서브페이지 */
+.con2-box {border:1px solid black;}
+.con2-box-list {border-bottom:1px solid lightgray; height:300px; overflow:hidden;}
+.con2-box-list a {transition:all 0.5s;}
+.con2-box-right {transition:all 0.5s;}
+/* 설명란 호버시 */
+.con2-box-list:hover > a {background-color:rgba(0,0,0,0.8);}
+.con2-box-list:hover .con2-box-right {transform:scale(1.05);}
+.con2-box-list:hover .con2-box-plus {display:block;}
+.con2-box-list:hover .con2-box-plus-img {right:50%; top:50%; opacity:1; transform:translate(-50%,-50%);}
+.con2-box-list:hover .con2-box-plus-text {right:50%; top:50%; opacity:1; transform:translate(-50%,-50%);}
+/* 설명란 호버시 */
+.con2-box-list a {display:block; width:100%; height:100%;}
+.con2-box-left {float:left; width:300px; height:300px;}
+.con2-box-left img {width:100%; height:100%;}
+.con2-box-right {float:left;  width:898px; height:300px; padding:40px; color:black; position:relative;}
+.con2-box-right h4 {font-size:30px;}
+.con2-box-right p {font-size:18px; margin-top:30px; line-height:40px;}
+.con2-box-right span {font-size:18px; margin-top:40px; display:inline-block;}
+
+/* 작품 설명 호버시 보이는 이미지 */
+.con2-box-plus-img {position:absolute; right:50%; top:80%; opacity:0; transform:translate(-50%,-50%); width:30px; height:30px; transition:all 0.5s;}
+.con2-box-plus img {width:100%; height:100%;}
+.con2-box-plus-text {position:absolute; right:50%; top:80%; opacity:0; transform:translate(-50%,-50%); color:white; font-size:20px; font-weight:bold; transition:all 0.5s;}
+/* 작품 설명 호버시 보이는 이미지 */
+/* 더보기 표시 */
+.con2-center .more { margin:100px auto; width:300px; height:70px; text-align:center; border:1px solid black; line-height:70px;}
+.con2-center .more a {display:block; color:black; font-size:40px;}
+/* 더보기 표시 */
+
+/* 작품 클릭시 레이어팝업 */
+.con4-bot {border:2px solid black; margin-top:16px;}
+.con4-bg{ display:none; background-color: #000; background-color: rgba(0,0,0,0.8); z-index:30; position: fixed; top: 0; left: 0; width:100%; height:100%;}
+.con4-gr{width: 980px; margin: 50px auto; padding-bottom:30px; background-color: #fff;}
+
+.con4-header{width: 100%; height: 40px; background-color: #191919; padding-top: 7px;}
+.con4-header h3{color: #fff; font-size: 18px; margin-left: 24px;}
+
+.con4-center{width: 820px; margin: 0 auto; margin-top: 20px;}
+.con4-top{border: 2px solid #000; width: 100%; height: 270px; padding: 10px 10px;}
+.con4-top li{float: left;}
+
+.con4-top-img{width: 250px; height: 250px;}
+.con4-top-img > img{ width: 100%; height: 100%;}
+
+.con4-top-text{margin-top: 40px; margin-left: 36px;}
+.con4-bot-title {width:100%; background-color:#191919; height:50px; line-height:50px; text-align:center; color:white; font-size:18px;}
+
+.con4-top-text h4{font-size: 14px;}
+.con4-top-text h3{font-size: 22px; margin-top: 18px; margin-bottom: 12px;}
+.con4-top-text p{font-size: 12px;}
+.con4-bot-text-list {border-bottom:1px solid #191919;}
+
+.con4-epilogue { background-image:url(../img/ep-on.png); padding:5px 0px; background-repeat:no-repeat; background-position:right 20px top 17px; background-size:25px;}
+.con4-epilogue.on { background-image:url(../img/ep-off.png);}
+
+.con4-epilogue .rating { float:left; padding-left:20px;}
+.con4-epilogue .notice { float:left; padding-left:80px;}
+.con4-epilogue .auther span {margin:5px 0; display:inline-block;}
+.con4-epilogue .auther span:after {content:"|"; margin:0 5px;}
+.con4-epilogue .auther span:last-child:after {display:none;}
+
+.con4-ep-cont { display:none; background-color:#f4f4f4; padding-left:205px; line-height:30px;}
+
+.con4-btn{margin-top:16px;}
+.con4-btn .btn-group li {width:398px; margin:0 auto;}
+.con4-btn input[type="submit"]{width:398px; height: 50px;background-color: #191919; border: none;color: #fff; font-size: 16px;}
+.con4-btn #submit-btn2{width:398px; height: 50px;background-color: #191919;color: #fff; font-size: 16px; border: none;}
+.write li {float:left; margin-top:20px;}
+.con4 input[type="text"] {width:696px; margin-right:20px; border:2px solid black; height:35px;}
+#write-submit {width:100px; height:40px; border:none; border:2px solid black; background-color:transparent;}
+/* 작품 클릭시 레이어팝업 */
+/*이전 전시 목록 작업*/
+.con2-box-wrap { position: relative; }
+.con2-box { position: absolute; display:none;}
+.con2-box-wrap > .con2-box:nth-child(1) {display:block;}

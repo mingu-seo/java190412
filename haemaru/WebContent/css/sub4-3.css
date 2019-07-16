@@ -1,0 +1,85 @@
+@charset 'utf-8';
+
+/* con1 css */
+.con1 {height:500px; background-image: url("../img/sub-banner03.jpg"); background-repeat:no-repeat; background-size:cover; background-position:top -200px center;}
+
+/* fixed sub */
+.con2 {position: relative; height:auto;}
+.fixed-sub {width:300px; background-color: #fff;
+            position: absolute; left:0; top:0;}
+.title-area {width:100%; text-align: center; margin-bottom:86px;}
+.title-area h2 {margin-top:80px; font-size:30px; color:#666;}
+.title-area p {font-size:14px; color:#4d6877; margin-top:10px;}
+
+.sub-bar {width:100%;}
+.sub-bar li {width:100%; height:72px; line-height:72px; text-align:center; background-color: #fff;
+             border-top:1px solid #f3f3f3; border-bottom:1px solid #f3f3f3;}
+.sub-bar li a {display:block; color:#378367;}
+.sub-bar li.on {background-color: #378367;}
+.sub-bar li.on a {color:#fff;}
+
+/* main : 여기다가 하면 됨 */
+.main {width:1200px; margin-left:400px; height:2000px;}
+.main > h3 {font-size:30px; color:#666; text-align:center; padding-top:80px;}
+.main > p {font-size:14px; color:#4d6877; text-align: center; padding-top:10px;}
+
+/* 위로가기 */
+.main .top-arrow {z-index: 50; text-align: center; width:100px; position: fixed; right:120px; bottom:10%; animation: move 1s infinite ease-in alternate;}
+@keyframes move {from {transform:translate(0px, 0px);} 
+                    to {transform:translate(0px, 10px);} }
+.main .top-arrow:hover {animation-play-state: paused;}   
+.main .top-arrow p {font-size:14px; color:#4d6877;  padding-top:10px;}
+/* 끝 */
+
+/* 반려동물 입양 후기 */
+.sub4-3-box-group {width:920px; margin:0 auto; margin-top:170px;}
+
+/* 이메일 부분 */
+.sub4-3-email p {float:left; color:#4d6877; margin-right:30px;}
+#email_text_input {width:180px; height:20px; border:2px solid #4d6877; padding-left:10px;}
+
+/* 입양후기 박스 */
+.sub4-3-box {margin-top:50px;}
+.sub4-3-list {float:left;}
+
+/* 반려동물 사진 추가 부분 */
+.sub4-petplus-img {float:left; width:222px; height:222px; border-radius: 20px; border:3px solid #83c1aa; 
+              position: relative; text-align: center;}
+.sub4-petplus-img img:nth-child(1) {position: absolute; right:10px; top:10px; width:26px;}
+.sub4-petplus-img img:nth-child(2) {width:66px; margin-top:60px;}
+.sub4-petplus-img h4 {font-size:20px; color:#4d6877; margin-top:28px;}
+.sub4-petplus-img p {color:#d7d7d7; font-size:12px; margin:12px 0;}
+
+/* 파일 찾기 부분 */
+.sub4-file {width:80px; height:20px; background-color: #4d6877; margin:0 auto; margin-top:250px;}
+.sub4-file a {display:block; line-height:20px; font-size:12px; color:#fff; text-align: center;}
+
+/* 후기 작성 텍스트박스 부분 */
+.sub4-3-list:nth-child(2) {width:654px; height:210px; background-color: #f6f6f6; margin-left:30px;}
+#text_input {border:none; background-color: #f6f6f6;  height:100%; padding:20px;}
+input[type='text']::placeholder {color:#4d6877; font-size:12px;} 
+
+/* 후기 등록 버튼 */
+.review-last-box {width:200px; height:50px; margin:0 auto; background-color: #83c1aa; border-radius: 20px; 
+                  margin-top:50px; transition: all 0.3s;}
+.review-last-box a {display:block; height:100%; color:#fff; text-align: center; line-height:50px; font-size:16px;}
+.review-last-box:hover {transform: scale(1.05);}
+
+
+/* 입양후기 확인창 */
+.abopt-page {display:none; z-index: 10; width:700px; background-color:#fff; height:514px; margin:0 auto;  box-shadow: 0 3px 5px rgba(0,0,0,0.2); position: fixed; top:50%; left:50%; transform: translate(-50%, -50%);}
+.headline {width:100%; height:50px; background-color: #83c1aa; color:#fff;}
+.headline p {float:left; margin-left:28px; line-height:50px;}
+.headline img {float:right; margin-right:28px; width:35px; margin-top:8px; animation:mover 1s infinite ease-out alternate; cursor: pointer; }
+@keyframes mover {from {transform:rotate(-5deg);} 
+                    to {transform:rotate(10deg);} }
+.abopt-page-text {text-align: center; padding-top:72px;}
+.abopt-page-text > img {width:46px;}
+.abopt-page-text h2 > img {width:210px; display:block; margin:0 auto;}
+.abopt-page-text h2:after {display:block; content:''; width:580px; height:2px; background-color: #83c1aa; margin:0 auto; margin-top:30px; margin-bottom:68px;}
+.abopt-page-text p {font-size:20px; color:#4d6877;}
+.abopt-checkbox-page {width:200px; height:40px; border:3px solid #4d6877; margin:0 auto; text-align: center; line-height:34px; margin-top:60px;}
+.abopt-checkbox-page a {display:block; color:#666; font-size:16px; transition: all 0.3s;}
+.abopt-checkbox-page:hover a {background-color: #4d6877; color:#fff;}
+
+

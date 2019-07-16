@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* 컨테이너2 */
+/* 메인배너 시작 */
+.con2-center{width: 100%; margin: 0 auto; background-color:rgba(255, 255,255, 0.8);height: 900px;position: absolute; top: 140px; left: 0;}
+/* 메인배너 끝 */
+/* 로그인창 시작 */
+.con2-loginbox{width: 620px; margin: 0 auto; margin-top: 100px; }
+.con2-loginbox h2{font-size: 36px;text-align: center;}
+.con2-loginbox p{font-size: 18px;margin-top: 24px;text-align: center;}
+.con2-loginbox p::after{content: ""; display: block; width: 100%; height: 2px;background-color: #000; margin-top: 40px; margin-bottom: 50px;}
+.con2-loginbox input{font-size: 18px; padding-left: 10px;background-color: transparent;}
+.con2-loginbox input::placeholder{color: #000;}
+#id{width: 100%; height: 60px;margin-bottom: 28px;border: 2px solid #000; background-color: #fff;}
+#pw{width: 100%; height: 60px; border: 2px solid #000; background-color: #fff;}
+.chk-box{margin-top: 22px; margin-bottom: 30px;}
+#chk01{position: relative; top: 2px;}
+.con2-loginbox input[type="submit"]{width: 100%;height: 60px; background-color: #191919; color: #fff;padding-left: 0px; border: transparent;}
+.login-sc{width: 420px; margin: 0 auto; margin-top: 26px;}
+.login-sc li{float: left; margin-right: 80px;}
+.login-sc li::after{content: ""; display: block;height: 1px; background-color: #191919; margin-top: 4px;}
+.login-sc li:nth-child(3){margin-right: 0;}
+.login-sc li a{color: #191919;}
+/* 로그인창 끝 */

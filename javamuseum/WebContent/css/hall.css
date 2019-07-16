@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+/* 상단배경 */
+.con1 {height:600px; width:100%; background-image:url("../img/hall-banner.jpg"); background-repeat:no-repeat; background-attachment:fixed;}
+.con1-box{text-align: center; color: #fff; font-weight: bold; padding-top: 250px;}
+.con1-box h3{font-size: 70px; margin-bottom: 10px;}
+.con1-box p{font-size: 20px;}
+
+/*con2 대관료,대관안내,대관규약 구역*/
+.con2 {width:1200px; margin:0 auto;}
+.con2 h2 {font-size:36px; margin:50px 0;}
+.con2 h2:after {content:""; margin-bottom:10px;  margin-left:20px;width:300px; height:5px; background-color:black; display:inline-block;}
+
+/* 오른쪽 하단 버튼 클릭 구역 */
+.con2-button {font-size:13px;margin:0 auto; position:fixed; right:100px; bottom:50px; }
+.con2-button li:hover a {background-color:#434343; color:white;}
+.con2-button li { border-radius:50%; background-color:#e5e5e5; width:60px; height:50px; margin:10px 0; box-shadow:1px 2px 7px black;}
+.con2-button li a {transition:all 0.5s; display:block; border-radius:50%; width:100%; height:100%;  color:black; text-align:center; line-height:50px; color:black;}
+
+/* 대관 순서 구역 */
+.con2-list {width:170px; margin-right:87.5px; float:left;height:170px; background-position:center top 30px; position:relative;}
+.con2-list p {position:absolute; left:50%; transform:translateX(-50%); top:60%; font-size:18px;}
+.arrow {position:absolute; top:50%; transform:translateY(-50%); right:-60px;}
+.list1 {background-image:url("../img/hall-03.png"); background-repeat:no-repeat;}
+.list2 {background-image:url("../img/hall-04.png"); background-repeat:no-repeat;}
+.list3 {background-image:url("../img/hall-05.png"); background-repeat:no-repeat;}
+.list4 {background-image:url("../img/hall-06.png"); background-repeat:no-repeat;}
+.list5 {background-image:url("../img/hall-07.png"); background-repeat:no-repeat; margin-right:0;}
+
+/* 표, 설명 구역 */
+.con2 h4 {font-size:18px; margin:30px 0; margin-top:60px;}
+.con2 p {font-size:16px; line-height:30px;}
+.con2 span {font-size:16px;}
+.con2 table {font-size:16px; line-height:50px; text-align:center; margin:30px 0; }
+.con2-tbl p {line-height:30px; margin:30px 0;}
+.con2-tbl p:last-child {margin-bottom:100px;}
+.con2-tbl th {background-color:#e5e5e5; border:1px solid black;}
+.con2-tbl td {border:1px solid black;}
+
+.tbl1-1 {width:300px;}
+.tbl1-2 {width:245px;}
+.tbl1-3 {width:175px;}
+.tbl1-4 {width:300px;}
+.tbl1-5 {width:160px;}
+
+.bottom-text p {margin:40px 0;}

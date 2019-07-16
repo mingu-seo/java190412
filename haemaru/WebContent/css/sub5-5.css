@@ -1,0 +1,58 @@
+@charset 'utf-8';
+
+/* con1 css */
+.con1 {height:500px; background-image: url(../img/home-new.jpg); background-repeat:no-repeat; background-size:cover; 
+        background-position:top -129px center;}
+
+/* fixed sub */
+.con2 {position: relative; height:1000px; margin-bottom:100px;}
+.fixed-sub {width:300px; background-color: #fff;
+            position: absolute; left:0; top:0;}
+.title-area {width:100%; text-align: center; margin-bottom:86px;}
+.title-area h2 {margin-top:80px; font-size:30px; color:#666;}
+.title-area p {font-size:14px; color:#4d6877; margin-top:10px;}
+
+.sub-bar {width:100%;}
+.sub-bar li {width:100%; height:72px; line-height:72px; text-align:center; background-color: #fff;
+             border-top:1px solid #f3f3f3; border-bottom:1px solid #f3f3f3;}
+.sub-bar li a {display:block; color:#378367;}
+.sub-bar li.on {background-color: #378367;}
+.sub-bar li.on a {color:#fff;}
+
+/* main : 여기다가 하면 됨 */
+.main {width:1200px; margin:0 auto;}
+.main h3 {font-size:30px; color:#666; text-align:center; padding-top:80px;}
+.main p {font-size:14px; color:#4d6877; text-align: center; padding-top:10px;}
+
+/* 해마루 문의글 내용 부분 */
+.sub5-5-area {width:780px; margin:0 auto;}
+.sub5-5-info {margin-top:30px; width:780px; position: relative;}
+.sub5-5-info h5 {float:left;  margin-left:18px; letter-spacing: 0.5px; font-size:15px; color:#666; margin-top:10px; padding-bottom:8px; font-weight: 400;}
+.sub5-5-info h5 span {margin-right:10px; color:#4d6877;}
+.sub5-5-writer {position: absolute; right:0; top:-10px; width:150px;}
+.sub5-5-img {float:left; width:37px; height:38px; border-radius: 50%; border:1px solid #666; background-image: url("../icon/woman2.jpg"); background-repeat: no-repeat;
+              background-size:cover; background-position:center center; position: relative; top:7px; margin-right:10px;}
+.sub5-5-day {float:left; color:#666;}
+.sub5-5-day p:nth-child(1) {font-size:14px;}
+.sub5-5-day p:nth-child(2) {font-size:12px; text-align: right;}
+
+.sub5-5-box {width:100%; height:310px; border:2px solid #ebebeb; margin-top:20px;  padding:30px;}
+.sub5-5-box p {text-align: left; letter-spacing: 0.5px; line-height:30px;}
+
+.sub5-5-btn {margin-left:570px; margin-top:20px;}
+.sub5-5-btn li {float:left; width:100px; height:30px;}
+.sub5-5-btn li a {display:block; height:100%; font-size:14px; color:#fff; text-align: center; line-height:28px; transition: all 0.3s;}
+.sub5-5-btn li:nth-child(1) {background-color:#82c1aa; margin-right:10px;}
+.sub5-5-btn li:nth-child(2) {background-color: #4d6877;}
+.sub5-5-btn li:hover a {background-color: #378367;}
+
+.sub5-5-page li {width:100%; height:40px; line-height:40px;}
+.sub5-5-page li:nth-child(1) {border-bottom:1px solid #f2f2f2;}
+.sub5-5-page li a {display:block; height:100%; color:#666; font-size:14px;}
+
+.sub5-5-page {margin-top:50px;}
+.sub5-5-page li {padding:0 10px;}
+.sub5-5-page li a {font-size:13px;}
+.sub5-5-page li a span:nth-child(1) {margin-right:100px; display:inline-block;}
+.sub5-5-page li a span:nth-child(2) {width:360px; display:inline-block;}
+.sub5-5-page li a span:nth-child(3) {width:190px; display:inline-block; text-align: center;}

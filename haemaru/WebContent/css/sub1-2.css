@@ -1,0 +1,72 @@
+@charset 'utf-8';
+
+/* con1 css */
+.con1 {height:500px; background-image: url("../img/sub-banner09.jpg"); background-repeat:no-repeat; background-size:cover; background-position:top 60px center;}
+
+/* fixed sub */
+.con2 {position: relative; height:auto;}
+.fixed-sub {width:300px; background-color: #fff;
+            position: absolute; left:0; top:0;}
+.title-area {width:100%; text-align: center; margin-bottom:86px;}
+.title-area h2 {margin-top:80px; font-size:30px; color:#666;}
+.title-area p {font-size:14px; color:#4d6877; margin-top:10px;}
+
+.sub-bar {width:100%;}
+.sub-bar li {width:100%; height:72px; line-height:72px; text-align:center; background-color: #fff;
+             border-top:1px solid #ebebeb; border-bottom:1px solid #ebebeb;}
+.sub-bar li:nth-child(2) {border-top: none;}
+.sub-bar li a {display:block; color:#378367;}
+.sub-bar li.on {background-color: #378367;}
+.sub-bar li.on a {color:#fff;}
+
+/* 끝 */
+/* main : 여기다가 하면 됨 */
+.main {width:1200px; margin:0 auto; height:auto;}
+.main h3 {font-size:30px; color:#666; text-align:center; padding-top:80px;}
+.main p {font-size:14px; color:#4d6877; text-align: center; padding-top:10px;}
+
+/* 위로가기 */
+.main .top-arrow {text-align: center; width:100px; z-index: 50; position: fixed; right:120px; bottom:10%; animation: move 1s infinite ease-in alternate;}
+@keyframes move {from {transform:translate(0px, 0px);} 
+                    to {transform:translate(0px, 10px);} }
+.main .top-arrow:hover {animation-play-state: paused;}   
+.main .top-arrow p {font-size:14px; color:#4d6877;  padding-top:10px;}
+/* 끝 */
+
+/* 탭 메뉴 부분 */
+.tab-list {width:600px; border-bottom:2px solid #4d6877; margin:50px auto;}
+.tab-list li {float:left; width:150px; height:30px; text-align:center; line-height:30px;}
+.tab-list li a {color:#4d6877; font-weight: 700; display:block; height:40px; font-size:16px;}
+.tab-list li.on {background-color: #4d6877;}
+.tab-list li.on a {color:#fff;}
+
+/* 의사 부분 */
+.main .tab-info {height:auto;}
+.main .tab-info > div {float:left; margin:0 39px; margin-bottom:20px; width:222px; text-align: center; height:auto;}
+.main .tab-info > div:nth-child(1) {margin:0 210px; margin-bottom:20px;}
+.main .tab-info > div:nth-child(2) {margin:0 105px; margin-bottom:20px;}
+.main .tab-info > div > img {cursor: pointer; transition: all 0.4s; width:100%; height:280px;}
+.main .tab-info > div > img:hover {transform:scale(1.02); }
+
+.main .tab-info > div h4 {font-size:16px; color:#7d909b; margin-top:10px; margin-bottom:5px;}
+.main .tab-info > div h5 {font-size:16px; color:#666;}
+.main .tab-info > div a {display: block; transition: all 0.3s; margin:15px auto; font-size:12px; width:70px; height:30px; line-height: 30px; background-color:#4d6877; color:#fff; border-radius: 10px;}
+.main .tab-info > div a:hover {color:#000;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

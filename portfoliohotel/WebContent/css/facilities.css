@@ -1,0 +1,26 @@
+.banner {height:690px; background-image: url("../img/facilities/The-Rooftop.jpg"); 
+         background-size:cover; background-repeat: no-repeat; background-position-y:-345px; margin-bottom:100px;}
+.banner h2 {text-align:center; padding-top:240px; color:#fff; font-size:62px;}
+
+.contents {}
+.contents-center {width:1200px; margin:0 auto;}
+.contents-center h3 {text-align:center; font-size:62px; }
+.contents-center h3:before {content:""; width:100%; height:1px; background-color:#888; display:block; margin-bottom:30px;}
+.contents-center h3:after {content:""; width:100%; height:1px; background-color:#888; display:block; margin-top:30px; margin-bottom:120px;}
+
+.facilities-box {}
+.facilities-box > div {width:100%; height:390px; margin-bottom:80px;}
+.facilities-box > div:last-child {margin-bottom:150px;}
+.facilities-box > div > div {width:50%; height:100%; float:left;}
+.facilities-box > div > .facilities-text {background-color:#eee; padding:35px;}
+.facilities-box > div > .facilities-text h4 { color:#0e693f; font-size:42px; margin-bottom:30px; margin-top:15px;}
+.facilities-box > div > .facilities-text h4 span {margin-left:10px; color:#454545; font-size:26px; font-weight:300;}
+.facilities-box > div > .facilities-text p {font-size:15px; font-weight:200; color:#454545; line-height:23px; margin-bottom:60px;}
+.facilities-box > div > .facilities-text table {color:#454545; font-weight:400;}
+.facilities-box > div > .facilities-text table tr {height:24px;}
+.facilities-box > div > .facilities-text table td.table-a {font-weight:300; text-indent:20px;}
+
+.facilities1 .facilities-bg {background-image: url("../img/facilities/the-oasis.jpg");}
+.facilities2 .facilities-bg {background-image: url("../img/facilities/indoor-pool.jpg");}
+.facilities3 .facilities-bg {background-image: url("../img/facilities/fitness-center.jpg");}
+.facilities4 .facilities-bg {background-image: url("../img/facilities/sauna.jpg");}

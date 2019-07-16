@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+/* 메인배너 시작 */
+.con1 {height:600px; width:100%; background-image:url("../img/hall-banner.jpg"); background-repeat:no-repeat; background-attachment:fixed;}
+.con1-box{text-align: center; color: #fff; font-weight: bold; padding-top: 250px;}
+.con1-box h3{font-size: 70px; margin-bottom: 10px;}
+.con1-box p{font-size: 20px;}
+/* 메인배너 끝 */
+
+/* 대관문의 텍스트 시작*/
+.con2 {width:1200px; margin:0 auto;}
+.con2 h2 {font-size:36px; margin:50px 0;}
+.con2 p{font-weight: bold;}
+.con2 h2:after {content:""; margin-bottom:10px;  margin-left:20px;width:300px; height:5px; background-color:black; display:inline-block;}
+/* 대관문의 텍스트 끝 */
+/* 대관신청 작성하기 시작 */
+.con3-table{width: 1200px; margin: 0 auto; border-top: 2px solid #191919; border-bottom: 2px solid #191919; margin-bottom: 30px; margin-top: 50px;}
+.con3-table th{height: 80px; background-color: #f0f0f0; border-bottom: 1px solid #191919;}
+.con3-table td{padding-left: 30px; border-bottom: 1px solid #191919;}
+.con3-table input[type="text"]{border: 1px solid #191919; height: 30px;}
+/* 시간선택 */
+.con3-table select{width: 100px; height: 34px; border: 1px solid #191919;}
+/* 문의내용작성 */
+#text-box{width: 684px; height: 280px; border: 1px solid #191919; resize:none; margin: 30px 0; padding: 10px 10px;}
+/* 첨부파일 */
+.con3-iconbox{width: 708px; border: 1px solid #191919; height: 60px; padding-top: 16px; padding-left: 10px; margin: 30px 0;}
+.con3-iconbox > div{border: 1px solid #191919; display: inline-block;padding: 10px 10px; margin-left: 20px; margin-top: 12px;}
+.con3-iconbox > a{width: 84px; height: 78px;display: block;}
+.con3-iconbox > div >  a > img{width: 40px; height: 50px; }
+/* 전송하기버튼 */
+.con3-center{width: 1200px; margin: 0 auto;}
+#con3-btn{width: 150px; height: 50px; float: right; border: none; background-color: #191919; color: #fff; margin-bottom: 50px;}
+/* 대관신청 작성하기 끝 */

@@ -1,0 +1,102 @@
+@charset 'utf-8';
+
+/* con1 css */
+.con1 {height:500px; background-image: url("../img/sub-banner09.jpg"); background-repeat:no-repeat; background-size:cover; background-position:top 60px center;}
+
+/* fixed sub */
+.con2 {position: relative; height:auto;}
+.fixed-sub {width:300px; background-color: #fff;
+            position: absolute; left:0; top:0;}
+.title-area {width:100%; text-align: center; margin-bottom:86px;}
+.title-area h2 {margin-top:80px; font-size:40px; color:#666;}
+.title-area p {font-size:14px; color:#4d6877; margin-top:10px;}
+
+.sub-bar {width:100%;}
+.sub-bar li {width:100%; height:72px; line-height:72px; text-align:center; background-color: #fff;
+             border-top:1px solid #f3f3f3; border-bottom:1px solid #f3f3f3;}
+.sub-bar li a {display:block; color:#378367;}
+.sub-bar li.on {background-color: #378367;}
+.sub-bar li.on a {color:#fff;}
+
+/* main : 여기다가 하면 됨 */
+.main {width:1200px; margin:0 auto; position: relative;}
+.main h3 {font-size:30px; color:#666; text-align:center; padding-top:80px;}
+.main p {font-size:14px; color:#4d6877; text-align: center; padding-top:10px;}
+
+/* 날짜, 진료과목 선택 바 */
+.reservation-check {width:600px; margin:0 auto; margin-top:50px; margin-bottom:20px;}
+.reservation-check > div {float:left; width:250px; margin:0 20px; height:45px; }
+
+.reservation-check > div > span {width:80px; background-color: #83c1aa; display:inline-block; height:100%; color:#fff; font-size:14px; text-align: center; line-height:44px;}
+.re-select {border:none; padding-left:44px; height:100%; width:150px; border-bottom:3px solid #83c1aa; position: relative; bottom:1px; left:-3px;
+           background-image: url("../icon/subarrow.jpg"); background-repeat:no-repeat;background-position:right 10px center; color:#666; font-weight: 500;}
+.major-select {border:none; padding-left:44px; height:100%; border-bottom:3px solid #83c1aa; position: relative; bottom:1px; left:-3px; width:150px;
+               background-image: url("../icon/subarrow.jpg"); background-repeat:no-repeat;background-position:right 10px center; color:#666; font-weight: 500;}
+.search-btn {width:80px; height:40px;  text-align: center; line-height:34px;
+             position: absolute; top:190px; right:210px;}
+.search-btn a {display:block; color:#fff; font-size:14px;   background-color: #378367;}
+
+/* 의료진 리스트 */
+
+.doctor {margin-bottom:20px;  width:1200px; margin-left:50px; margin-bottom:200px;}
+.doctor .doctor-box:nth-child(1) {margin-top:50px;}
+.doctor-box > div {float:left;}
+.doctor-box > div:nth-child(1) {width:175px; height:280px; margin-right:100px;}
+.doctor-box > div:nth-child(1) img {width:100%;}
+
+.doctor-box > div:nth-child(2) {width:680px; height:280px; border-top:1px solid #d7d7d7; position: relative;}
+.doctor-box > div:nth-child(2) img {position: absolute; right:10px; top:15px; width:35px;}
+.doctor-box > div:nth-child(2) p {font-size:14px; text-align: left; color:#4d6877; margin:30px 0;}
+.doctor-box > div:nth-child(2) p span {display:inline-block; width:100px; color:#666;}
+
+.doc-btn {width:80px; height:40px;  border-radius: 35px; text-align: center; line-height:40px; position: absolute; left:45%; bottom:35px;}
+.doc-btn a {display:block; font-size:12px; border:1px #e8eaec solid; height:100%; color: #98a2aa; transition: all 0.3s; border-radius: 35px;}
+.doc-btn:hover a {color:#83c1aa; border:1px solid #83c1aa;}
+
+input[type="radio"] {position: relative; top:2px; margin-right:10px;}
+input[type="radio"] + label {margin-right:15px;}
+
+
+/* 예약확인 마지막 창 */
+
+
+.reservation-page {display:none; z-index: 10; width:600px; background-color:#fff; height:500px; margin:0 auto;  box-shadow: 0 3px 5px rgba(0,0,0,0.2); position: fixed; top:50%; left:50%; transform: translate(-50%, -50%);}
+.headline {width:100%; height:50px; background-color: #83c1aa; color:#fff;}
+.headline p {float:left; margin-left:28px; line-height:50px;}
+.headline img {float:right; margin-right:28px; width:35px; margin-top:8px; animation:mover 1s infinite ease-out alternate; cursor: pointer; }
+@keyframes mover {from {transform:rotate(-5deg);} 
+                    to {transform:rotate(10deg);} }
+.re-page-text {text-align: center; padding-top:40px;}
+.re-page-text img {width:46px;}
+.re-page-text h2 {font-size:32px; color:#378367; margin-top:10px;}
+.re-page-text h2:after {display:block; content:''; width:400px; height:2px; background-color: #83c1aa; margin:0 auto; margin-top:30px; margin-bottom:40px;}
+.re-page-text p {font-size:18px; line-height:40px; color:#666;}
+.re-page-text p span {color:#4d6877;}
+.checkbox-page {width:200px; height:40px; border:3px solid #4d6877; margin:0 auto; text-align: center; line-height:34px; margin-top:60px;}
+.checkbox-page a {display:block; color:#666; font-size:16px; transition: all 0.3s;}
+.checkbox-page:hover a {background-color: #4d6877; color:#fff;}
+
+/* 예약 확인 창 */
+.reservation-ck-page {display:none; z-index: 10; width:600px; background-color:#fff; height:500px; margin:0 auto;  box-shadow: 0 3px 5px rgba(0,0,0,0.2); position: fixed; top:50%; left:50%; transform: translate(-50%, -50%);}
+.headline {width:100%; height:50px; background-color: #83c1aa; color:#fff;}
+.headline p {float:left; margin-left:28px; line-height:50px;}
+.headline img {float:right; margin-right:28px; width:35px; margin-top:8px; animation:mover 1s infinite ease-out alternate; cursor: pointer; }
+@keyframes mover {from {transform:rotate(-5deg);} 
+                    to {transform:rotate(10deg);} }
+.re-page-ck-text {text-align: center; padding-top:40px;}
+.re-page-ck-text img {width:46px;}
+.re-page-ck-text h2 {font-size:32px; color:#378367; margin-top:10px;}
+.re-page-ck-text h2:after {display:block; content:''; width:400px; height:2px; background-color: #83c1aa; margin:0 auto; margin-top:20px; margin-bottom:15px;}
+.re-page-ck-text p {font-size:18px; line-height:40px; color:#666;}
+.re-page-ck-text p span {color:#4d6877;}
+.checkbox-ck-page {width:420px; margin:0 auto; text-align: center; line-height:34px; margin-top:40px;}
+.checkbox-ck-page a {float:left;}
+.checkbox-ck-page .re-check-ck-in {display:block; width:200px;  height:40px; border:3px solid #4d6877;color:#666; font-size:16px; transition: all 0.3s; margin-right:10px;}
+.checkbox-ck-page .re-check-ck-out {display:block; width:200px;  height:40px; border:3px solid #4d6877;color:#666; font-size:16px; transition: all 0.3s;}
+.re-check-ck-in:hover {background-color: #4d6877; color:#fff;}
+.re-check-ck-out:hover {background-color: #4d6877; color:#fff;}
+
+#re-page-ck-input {width:400px; margin-left:100px; height:40px; background-color: #f2f2f2; border:none; border-radius: 10px; margin-top:20px; padding-left:20px; font-size:12px;}
+
+
+

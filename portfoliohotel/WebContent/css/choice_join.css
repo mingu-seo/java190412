@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+#container {background-image: url("../img/sign_in_img/sign_in-bg.jpg"); background-repeat: no-repeat; background-size:cover; 
+            width:100%; height:900px; background-attachment: fixed; background-position-y: -85px;}
+
+.join-section {width:850px; margin:0 auto; padding-top:120px;}
+.join-section h2 {text-align:center; color:#fff; font-size:34px; font-weight:500; position: relative; z-index:30; margin-bottom:5px;}
+.join-section h3 {text-align:center; color:#fff; font-size:22px; font-weight:300; margin-bottom:55px; position: relative;  z-index:30;}
+
+
+.join-section > div {float:left;}
+.join-box {width:420px; height:420px; background-color: rgba(0, 0, 0,0.9); padding:20px; padding-top:50px;
+             position: relative; border-radius:15px;}
+.join-box-logo {position: absolute; top:-34px; left:15px;}
+.join-box > h2 {text-align:center; font-size:20px; color:#fff; margin-bottom:10px;}
+.join-box > p {font-size:16px; color:#fff; font-weight:200; text-align:center; margin-bottom:40px;}
+
+.join-box1 {padding-top:100px; padding-bottom:58px; margin-right:10px;}
+
+.join-board > div {float:left;}
+.join-board input {width:380px; height:50px; background-color:transparent; margin-bottom:12px; border:1px solid rgba(255, 255, 255, 0.5); padding-left:12px; color:#fff; font-size:16px; border-radius:5px;}
+.join-board input::placeholder {color:#fff; font-size:14px; font-weight:200;}
+
+
+.join-btn { text-align: center;padding-bottom:50px;}
+.join-btn a {width:380px; height:50px; display:block; color:#fff; text-align:center; line-height:45px; background-color:#0e693f; border-radius:5px;}
+.join-btn a:hover {background-color:rgba(14,105,63,0.8);}
+
+
+/* 소셜로그인 버튼 영역 */
+.snsJoin {width:380px; margin:0 auto; padding-bottom:30px; margin-top:55px;}
+.snsJoin li {width:100%; margin-bottom:5px;}
+.snsJoin button {width:100%; height:50px; border:none; border-radius:5px;}
+.snsJoin li:nth-child(even) p {color:#333;}
+.snsJoin li p {text-align:left; text-indent:30px; font-size:14px; line-height:50px; position: relative; color:#fff;}
+
+.snsJoin p:before {content:""; display:inline-block; width:20px; height:20px; vertical-align:middle; margin-right:10px;
+                     background-repeat:no-repeat; background-position:center center; position:relative; top:-2px;}
+.snsJoin .facebook p:before {background-image:url("../img/sign_in_img/sns_facebook02.png");}
+.snsJoin .google p:before {background-image:url("../img/sign_in_img/sns_google02.png");}
+.snsJoin .naver p:before {background-image:url("../img/sign_in_img/sns_naver01.png");}
+.snsJoin .kakao p:before {background-image:url("../img/sign_in_img/sns_kakaoTalk02.png");}
+
+.snsJoin .facebook {background-color:#3a5691;}
+.snsJoin .facebook:hover {background-color:rgba(58, 86, 145,0.7);}
+.snsJoin .google {background-color:#ddd;}
+.snsJoin .google:hover {background-color:rgba(221, 221, 221,0.7);}
+.snsJoin .naver {background-color:#1ec800;}
+.snsJoin .naver:hover {background-color: rgba(3, 200, 0,0.7);}
+.snsJoin .kakao {background-color:#fae100;}
+.snsJoin .kakao:hover {background-color:rgba(250, 225, 0,0.7)}
+
+.snsJoin p:after {content:""; display:inline-block; width:6px; height:10px; 
+    background-repeat:no-repeat; background-position:center center; position: absolute;; right:10px; top:50%; margin-top:-5px;}
+.snsJoin li:nth-child(odd) p:after {background-image:url("../img/sign_in_img/ico_angle02.png");}
+.snsJoin li:nth-child(even) p:after {background-image:url("../img/sign_in_img/ico_angle03.png");}

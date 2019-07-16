@@ -1,0 +1,63 @@
+@charset 'utf-8';
+
+/* con1 css */
+.con1 {height:500px; background-image: url("../img/banner-img.jpg"); background-repeat:no-repeat; background-size:cover; background-position:top 80px center;}
+
+/* fixed sub */
+.con2 {position: relative; height:auto;}
+.fixed-sub {width:300px; background-color: #fff;
+            position: absolute; left:0; top:0;}
+.title-area {width:100%; text-align: center; margin-bottom:86px;}
+.title-area h2 {margin-top:80px; font-size:30px; color:#666;}
+.title-area p {font-size:14px; color:#4d6877; margin-top:10px;}
+
+.sub-bar {width:100%;}
+.sub-bar li {width:100%; height:72px; line-height:72px; text-align:center; background-color: #fff;
+             border-top:1px solid #f3f3f3; border-bottom:1px solid #f3f3f3;}
+.sub-bar li a {display:block; color:#378367;}
+.sub-bar li.on {background-color: #378367;}
+.sub-bar li.on a {color:#fff;}
+
+/* main : 여기다가 하면 됨 */
+.main {width:1200px; margin:0 auto;}
+.main > h3 {font-size:30px; color:#666; text-align:center; padding-top:80px;}
+.main > p {font-size:14px; color:#4d6877; text-align: center; padding-top:10px;}
+
+.medicine-box {margin:85px 0;}
+.medicine-box > div {float:left; width:500px; margin:0 50px; height:450px; margin-bottom:60px;}
+
+.medicine-box .medicine-info .medicine-img{ position: relative; width:100%; height:250px; background-position:center; background-size:100%; transition:all 0.25s;}
+.medicine-box .medicine-info .medicine-img:hover {background-size:110%; }
+.medicine-info .medicine-img a {display: block; height:100%;}
+.medicine-box .medicine-info:nth-child(1) .medicine-img { background-image:url("../img/radiology/radiology1.jpg");}
+.medicine-box .medicine-info:nth-child(2) .medicine-img { background-image:url("../img/radiology/radiology2.jpg");}
+.medicine-box .medicine-info:nth-child(3) .medicine-img { background-image:url("../img/radiology/radiology3.jpg");}
+.medicine-box .medicine-info:nth-child(4) .medicine-img { background-image:url("../img/radiology/radiology4.jpg");}
+
+.medicine-info .medicine-img .medicine-hover { position: absolute;left:0; width:100%; height:100%; transition:all 0.3s; text-align: center; background-color:rgba(0,0,0,0.1); color:#fff;  }
+.medicine-info .medicine-img .medicine-hover:hover {background-color:rgba(0,0,0,0.3);}
+.medicine-info .medicine-img .medicine-hover .medicine-opa {opacity: 0; height:100%; width:100%; transition:all 0.3s; padding-top:85px;}
+.medicine-info .medicine-img .medicine-hover .medicine-opa:hover {opacity: 1;}
+.medicine-info .medicine-img .medicine-hover h4 { font-size:18px; font-weight: 500;  font-weight: 500;  }
+.medicine-info .medicine-img .medicine-hover h6 { font-size:12px; font-weight: 400; margin-top:5px; margin-bottom:15px; color: rgba(255,255,255,0.8); font-family: 'roboto';}
+.medicine-info .medicine-img .medicine-hover .medicine-opa img {transition: all 0.3s;}
+.medicine-info .medicine-img .medicine-hover .medicine-opa img:hover {transform: scale(1.08);}
+
+.medicine-box .medicine-info .Medicine-text {padding:30px 20px 0 15px;}
+.medicine-box .medicine-info .Medicine-text h3 {color:#378367; font-size:18px;}
+.medicine-box .medicine-info .Medicine-text h5 {color:#a1a4aa; font-size:13px; margin-top:20px; font-weight: 400; line-height: 25px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

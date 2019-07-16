@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+#container {background-image: url("../img/sign_in_img/sign_in-bg.jpg");
+            background-repeat: no-repeat; background-size:cover; width:100%; height:1080px;
+            background-attachment: fixed;
+            background-position-y: -85px;}
+
+.login-section {width:700px; margin:0 auto; padding-top:100px;}
+.login-section h2 {text-align:center; color:#fff; font-size:34px; font-weight:500; position: relative; z-index:30; margin-bottom:5px;}
+.login-section h3 {text-align:center; color:#fff; font-size:22px; font-weight:300; margin-bottom:55px; position: relative;  z-index:30;}
+
+/* 로그인박스 */
+.login-box {width:700px;background-color: rgba(0, 0, 0,0.9);
+            padding-top:100px; padding-bottom:30px; position: relative; border-radius:15px;}
+.login-box-logo {position: absolute; top:-34px; left:15px;}
+
+.login form {padding-left:85px;}
+
+.login-board {width:560px; margin:0 auto;}
+.login-board > div {float:left;}
+.login-board .login-box-left {width:447px; margin-bottom:20px;}
+.login-board .login-box-left input {width:435px; height:40px; background-color:transparent; margin-bottom:10px; border:1px solid rgba(255, 255, 255, 0.5); padding-left:12px; color:#fff; font-size:16px; border-radius:5px;}
+.login-board .login-box-left input::placeholder {color:#fff; font-size:14px; font-weight:200;}
+.login-board .login-board-right {width:100px; margin-left:12px;}
+.login-board .login-board-right input {width:91px; height:91px; background-color:#0e693f; text-align:center; line-height:100px; border:none; color:#fff; font-size:18px; font-weight: 500; border-radius:5px;}
+.login-board .login-board-right input:hover {background-color:rgba(14,105,63,0.8);}
+
+.id-remember label {color:#fff; font-weight:200;}
+.find_id {display:inline-block; float:right;}
+.find_id a {color:#fff; font-size:16px; font-weight:200;}
+
+.login-info {color:#fff; font-size:12px; line-height:16px; text-align:center; margin-top:30px; border-bottom:1px solid #eee;}
+.login-info > p {padding-bottom:30px;}
+
+.login-box h5 {font-size:18px; color:#fff; font-weight:400; text-align:center; margin-top:50px; margin-bottom:12px;}
+.login-box p {font-size:12px; color:#fff; font-weight:200; text-align:center;}
+
+.join-box { text-align: center; margin-top:27px; padding-bottom:50px; border-bottom:1px solid #eee;}
+.join-box a {width:240px; height:45px; margin:0 auto; display:block; color:#fff; text-align:center; line-height:45px; background-color:#0e693f; border-radius:5px;}
+.join-box a:hover {background-color:rgba(14,105,63,0.8);}
+
+.error-text {width:85%; margin:0 auto; margin-top:15px;}
+.login-section h6 {display:inline-block; font-size:14px; color:#fff; font-weight: 200;}
+.login-section h6:last-child {float:right;}
+
+/* 소셜로그인 버튼 영역 */
+.snsLogin {width:556px; margin:0 auto; padding-bottom:30px;}
+.snsLogin li {width:50%; float:left;}
+.snsLogin button {width:100%; height:45px; border:none; border-radius:5px;}
+.snsLogin li:nth-child(odd) {padding:0 3px 6px 0;}
+.snsLogin li:nth-child(even) {padding:0 0 6px 3px;}
+.snsLogin li:nth-child(even) p {color:#333;}
+.snsLogin li p {text-align:left; text-indent:15px; font-size:14px; line-height:45px; position: relative;}
+
+.snsLogin p:before {content:""; display:inline-block; width:20px; height:20px; vertical-align:middle; margin-right:10px;
+                     background-repeat:no-repeat; background-position:center center; position:relative; top:-2px;}
+.snsLogin .facebook p:before {background-image:url("../img/sign_in_img/sns_facebook02.png");}
+.snsLogin .google p:before {background-image:url("../img/sign_in_img/sns_google02.png");}
+.snsLogin .naver p:before {background-image:url("../img/sign_in_img/sns_naver01.png");}
+.snsLogin .kakao p:before {background-image:url("../img/sign_in_img/sns_kakaoTalk02.png");}
+
+.snsLogin .facebook {background-color:#3a5691;}
+.snsLogin .facebook:hover {background-color:rgba(58, 86, 145,0.7);}
+.snsLogin .google {background-color:#ddd;}
+.snsLogin .google:hover {background-color:rgba(221, 221, 221,0.7);}
+.snsLogin .naver {background-color:#1ec800;}
+.snsLogin .naver:hover {background-color: rgba(3, 200, 0,0.7);}
+.snsLogin .kakao {background-color:#fae100;}
+.snsLogin .kakao:hover {background-color:rgba(250, 225, 0,0.7)}
+
+.snsLogin p:after {content:""; display:inline-block; width:6px; height:10px; 
+    background-repeat:no-repeat; background-position:center center; position: absolute;; right:10px; top:50%; margin-top:-5px;}
+.snsLogin li:nth-child(odd) p:after {background-image:url("../img/sign_in_img/ico_angle02.png");}
+.snsLogin li:nth-child(even) p:after {background-image:url("../img/sign_in_img/ico_angle03.png");}

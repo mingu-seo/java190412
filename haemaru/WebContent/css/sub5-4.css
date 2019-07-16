@@ -1,0 +1,50 @@
+@charset 'utf-8';
+
+/* con1 css */
+.con1 {height:500px; background-image: url(../img/home-new.jpg); background-repeat:no-repeat; background-size:cover; 
+        background-position:top -129px center;}
+
+/* fixed sub */
+.con2 {position: relative; height:1000px; margin-bottom:100px;}
+.fixed-sub {width:300px; background-color: #fff;
+            position: absolute; left:0; top:0;}
+.title-area {width:100%; text-align: center; margin-bottom:86px;}
+.title-area h2 {margin-top:80px; font-size:30px; color:#666;}
+.title-area p {font-size:14px; color:#4d6877; margin-top:10px;}
+
+.sub-bar {width:100%;}
+.sub-bar li {width:100%; height:72px; line-height:72px; text-align:center; background-color: #fff;
+             border-top:1px solid #f3f3f3; border-bottom:1px solid #f3f3f3;}
+.sub-bar li a {display:block; color:#378367;}
+.sub-bar li.on {background-color: #378367;}
+.sub-bar li.on a {color:#fff;}
+
+/* main : 여기다가 하면 됨 */
+.main {width:1200px; margin:0 auto;}
+.main h3 {font-size:30px; color:#666; text-align:center; padding-top:80px;}
+.main p {font-size:14px; color:#4d6877; text-align: center; padding-top:10px;}
+
+/* 해마루 문의창 */
+.sub5-4-area {width:780px; margin:0 auto;}
+.sub5-4-title {margin-top:50px;}
+.sub5-4-title img {float:left; width:34px; margin-right:10px;}
+.sub5-4-title h2 {float: left; font-size:16px; color:#378367; position: relative; top:5px;}
+
+/* form */
+.sub5-4-box {margin-top:30px;}
+.sub5-4-email label {color:#666; margin-right:20px; font-size:14px;}
+.sub5-4-write label {color:#666; margin-right:12px;  font-size:14px;}
+.sub5-4-email {margin-bottom:20px;}
+#sub_email {width:300px; height:36px; border:2px solid #dcdcdc;  padding-left:10px;}
+.sub5-4-write select {width:146px; height:36px; border:2px solid #dcdcdc; margin-right:30px; padding-left:10px;}
+#sub_title {width:470px; height:36px; border:2px solid #dcdcdc;  padding-left:10px;}
+.sub_select {color:#4d6877; font-size:12px; background-image: url("../icon/select_arrow.png"); background-size:14px;
+             background-repeat: no-repeat; background-position:right 10px center;}
+#sub5-4-textarea {width:100%; height:490px; border:2px solid #dcdcdc; margin-top:20px; color:#4d6877; font-size:12px; padding:10px; resize:none;}
+input [type="textarea"]::placeholder {color:#4d6877; font-size:12px; margin-left:10px;}
+
+#sub5_btn_submit {width:145px; height:30px; border:2px solid #83c1aa; color:#666; background-color: transparent;
+                  margin-right:10px;}
+#sub5_btn_reset {width:145px; height:30px; border:2px solid #83c1aa; color:#666; background-color: transparent;
+                 }
+.sub5-4-btn {margin:0 auto; width:304px; margin-top:40px;}

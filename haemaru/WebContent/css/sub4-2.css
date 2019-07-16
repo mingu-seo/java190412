@@ -1,0 +1,78 @@
+@charset 'utf-8';
+
+/* con1 css */
+.con1 {height:500px; background-image: url("../img/sub-banner04.jpg"); background-repeat:no-repeat; background-size:cover; background-position:top -470px center;}
+
+/* fixed sub */
+.con2 {position: relative; height:auto;}
+.fixed-sub {width:300px; background-color: #fff;
+            position: absolute; left:0; top:0;}
+.title-area {width:100%; text-align: center; margin-bottom:86px;}
+.title-area h2 {margin-top:80px; font-size:30px; color:#666;}
+.title-area p {font-size:14px; color:#4d6877; margin-top:10px;}
+
+.sub-bar {width:100%;}
+.sub-bar li {width:100%; height:72px; line-height:72px; text-align:center; background-color: #fff;
+             border-top:1px solid #f3f3f3; border-bottom:1px solid #f3f3f3;}
+.sub-bar li a {display:block; color:#378367;}
+.sub-bar li.on {background-color: #378367;}
+.sub-bar li.on a {color:#fff;}
+
+/* main : 여기다가 하면 됨 */
+/* .main {margin-left:300px;} */
+.main {width:1200px; margin-left:400px; height:1800px;}
+.main > h3 {font-size:30px; color:#666; text-align:center; padding-top:80px;}
+.main > p {font-size:14px; color:#4d6877; text-align: center; padding-top:10px;}
+
+/* 위로가기 */
+.main .top-arrow {z-index: 50; text-align: center; width:100px; position: fixed; right:120px; bottom:10%; animation: move 1s infinite ease-in alternate;}
+@keyframes move {from {transform:translate(0px, 0px);} 
+                    to {transform:translate(0px, 10px);} }
+.main .top-arrow:hover {animation-play-state: paused;}   
+.main .top-arrow p {font-size:14px; color:#4d6877;  padding-top:10px;}
+/* 끝 */
+
+
+.review-box-group {width:970px; margin:0 auto; margin-top:80px;}
+.review-box-area {height:350px; width:100%; margin-bottom:40px;}
+.review-img {float:left;  box-shadow: 0 3px 5px rgba(0,0,0,0.2); width:300px; background-position: center; height:100%; margin-right:50px; border-radius: 10px; background-size:100% 100%; transition: all 0.3s;}
+.review-img:hover {transform: translateY(5px); }
+.review-img a {display:block; height:100%;}
+.review-box-area:nth-child(1) .review-img {background-image: url("../img/con4-2/con4-2-1.jpg");}
+.review-box-area:nth-child(2) .review-img {background-image: url("../img/con4-2/con4-2-2.jpg");}
+.review-box-area:nth-child(3) .review-img {background-image: url("../img/con4-2/con4-2-3.jpg");}
+.review-info {float:left; width:600px; position: relative;}
+
+.review-icon {width:130; position: absolute; right:0; top:0;}
+.review-icon li {float:left; cursor: pointer; margin:0 5px; width: 20px; height:37px; font-size:14px; font-weight: 400; color:#333; background-repeat: no-repeat;}
+.review-icon li:nth-child(2) {position: relative; top:1px; margin-right:15px;}
+.review-icon li:nth-child(1) {background-image: url(../icon/heart.png); background-size:16px; position: relative; top:2px;}
+.review-icon li:nth-child(3) {background-image: url(../icon/icon-comment.png); background-size:18px;}
+.review-icon li:nth-child(4) {position: relative; top:2px;}
+
+/* 리뷰 텍스트 부분 */
+.review-text {margin-top:37px; padding-top:38px; border-top:1px solid #f2f2f2;}
+.review-text h2 a {color:#333; font-weight: 500; }
+.review-text p {margin-top:30px; line-height:30px; font-size:14px; color:#666;}
+
+/* 리뷰 작성자 부분 */
+.review-writer {margin-top:40px;}
+.review-writer .writer-1 {cursor: pointer; float:left; width:40px; height:40px; border:1px solid #ebebeb; border-radius: 50%; background-image: url(../icon/man.jpg); background-position: center center; background-size:30px;}
+.review-writer .writer-2 {float:left;  margin-left:10px; font-size:14px; margin-top:2px;}
+.review-writer .writer-2 h6 {font-size:14px; color:#666;}
+.review-writer .writer-2 p {color:#4d6877; margin-top:5px;}
+
+/* 리뷰 작성 박스 */
+.review-box {width:958px; margin:0 auto;}
+
+.review-more {width:200px; height:50px; margin:0 auto; background-color:#83c1aa; border-radius: 20px; margin-top:50px;}
+.review-more a {display:block; height:100%; text-align: center; line-height:49px; font-size:16px; color:#fff; font-weight: 500;}
+
+/* 하단 번호 */
+.notice-number {width:350px; margin:0 auto; margin-top:100px;}
+.notice-number li {float:left; width:50px; height:50px;}
+.notice-number li a {display:block; font-weight: 400;  height:100%; color:#666; text-align: center; line-height:50px; font-size:12px;}
+.notice-number li:nth-child(1) {background-image: url("../icon/sub-table-arrow2.png"); background-size: 12px; background-repeat: no-repeat; background-position:center center;}
+.notice-number li:nth-child(7) {background-image: url("../icon/sub-table-arrow.png"); background-size: 12px; background-repeat: no-repeat; background-position:center center;}
+
+.notice-number li:nth-child(2)  a{font-weight: bold;}

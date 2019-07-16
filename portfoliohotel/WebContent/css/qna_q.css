@@ -1,0 +1,47 @@
+/* container */
+.qna_q-section {width:700px; margin:0 auto; padding-top:130px;}
+.qna_q-section h2 {text-align:center; color:#fff; font-size:34px; font-weight:500; position: relative;  margin-bottom:5px;}
+.qna_q-section h3 {text-align:center; color:#fff; font-size:22px; font-weight:300; margin-bottom:55px; position: relative;  margin-top:10px;}
+.qna_q-section h4 {text-align:center; color:#fff; font-size:14px; font-weight:200; margin-bottom:55px; position: relative;  line-height:20px;}
+
+/* 백그라운드 */
+#container {}
+.banner {
+        width:100%;
+        height:520px;
+         background-image: url("../img/support/qna-bg.jpg");
+         background-size:cover;
+         background-repeat: no-repeat;}
+
+/* Q&A */
+.qna_q {position: relative; top:-60px;}
+
+/* Q&A list */
+.support-list {height:60px; background-color:rgba(0, 0, 0, 0.6);}
+.support-list-center {width:900px; margin:0 auto;}
+.support-list-center li {width:33.333333%; float:left; text-align:center; line-height:60px; background-color:#000;}
+.support-list-center li.on {background-color:#fff;}
+.support-list-center li a {display:block; color:#fff;}
+.support-list-center li.on a {color:#454545;}
+
+/* Q&A 질문박스 */
+.qna_q-table {width:1140px; margin:0 auto; padding-top:80px; padding-bottom:50px; position: relative;}
+
+.qna_q-box {width:870px; margin:0 auto;}
+.qna_q-box input[type="text"] {border:2px solid #eee; width:894px; height:45px; text-indent:10px;
+                                font-size:14px; color:#454545; 
+                                font-family: 'Noto Sans KR', sans-serif; font-weight:300; letter-spacing:0.5px;}
+.qna_q-box label {display:block; margin-bottom:15px; margin-top:20px;}
+
+/* .qna_q-box #qna-title {height:45px;} */
+.qna_q-box #qna-cont {resize:none; width:100%; height:400px; padding:10px 10px; 
+    border:2px solid #eee;
+    font-size:14px; color:#454545; 
+    font-family: 'Noto Sans KR', sans-serif; font-weight:300; letter-spacing:0.5px;
+    }
+
+input[type="submit"] {width:140px; height:50px; display:block; margin:0 auto; margin-top:70px; background-color:#0e693f; color:#fff;}
+.base_info {width:897px; }
+.base_info li {float:left; }
+.base_info li:nth-child(1) {margin-right:10px;}
+.base_info li input[type="text"] {width:442px;}

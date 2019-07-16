@@ -1,0 +1,175 @@
+@charset 'utf-8';
+
+/* header css */
+#header {width:100%;  height:80px; z-index: 99; position: fixed; background-color:#fff; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.header-center {width:1200px; margin:0 auto; height:100%;}
+.header-logo {position: absolute; left:40px; top:10px;}
+/* 끝 */
+
+/* Gng & Sub menu */
+.gnb {margin-left:120px; height:80px;}
+.gnb > li {float:left;  width:160px; height:100%; text-align: center; line-height:80px; }
+.gnb > li > a {color:#444; font-size:16px; display:block; height:100%;} 
+.gnb > li:after {content: ''; display: block; position: relative; left:50%; transform: translateX(-50%); top:-250px; width:0; height:4px; background-color:#378367;  transition: all 0.6s; } 
+.gnb > li:hover:after{width:160px;}
+.gnb > li:hover > a {color:#378367;}
+
+.header-sub { background-color: #fff; height:250px; border-bottom:4px solid #ebebeb; display:none; border-right:1px solid #ebebeb;border-left:1px solid #ebebeb;}
+.header-sub li {width:160px; height:45px; line-height:45px; text-align: center; }
+.header-sub li a {color:#666; display:block; font-size:14px; font-weight: 400; transition: all 0.3s;}
+.header-sub li a:hover {color:#378367; background-color:#ebebeb;}
+/* 끝 */
+
+/* 로그인 우측상단 */
+.login-box {position:absolute; right:10px; top:25px; font-family:'Poppins', sans-serif;}
+.login-box > li {float:left; background-repeat: no-repeat;}
+.login-box > li > a {font-size:14px; width:30px; height:30px;color:#666; font-weight: 700; text-align: center; line-height: 30px; display:block;  margin:0 5px;}
+.login-box > li:hover a {color:#378367;}
+.login-box li:nth-child(1){background-image: url(../img/grey1.png); }
+.login-box li:nth-child(1):hover {background-image: url(../img/color1.png); }
+.login-box li:nth-child(2){background-image: url(../img/grey2.png); }
+.login-box li:nth-child(2):hover {background-image: url(../img/color2.png); }
+.login-box li:nth-child(3){background-image: url(../img/grey3.png); }
+.login-box li:nth-child(3):hover {background-image: url(../img/color3.png); }
+.login-box li:nth-child(4) a{width: 60px; }
+.login-box li:nth-child(4):hover a {color:#378367;}
+.login-box li:nth-child(5) {width:60px; margin-right:20px;}
+.login-box li:nth-child(5) a {color:#378367; width:100%;}
+
+/* 끝 */
+
+/* 로그인 page*/
+#login-wrap {display:none; width:100%; height:100%; position: fixed; left:0; top:0; background-color:rgba(0,0,0,0.6); z-index:2; }
+#login {display:none; width:900px; background-color:#fff; height:800px;   box-shadow: 0 3px 5px rgba(0,0,0,0.2);z-index:3;  position: fixed; top:50%; left:50%; transform: translate(-50%, -50%);}
+.login-center {position: relative;}
+.head-box {width:100%; height:50px; background-color: #83c1aa; color:#fff;}
+.head-box p {float:left; margin-left:28px; line-height:50px;}
+.head-box img {float:right; margin-right:28px; width:35px; margin-top:8px; animation:mover 1s infinite ease-out alternate; cursor: pointer; }
+@keyframes mover {from {transform:rotate(-5deg);} 
+                    to {transform:rotate(10deg);} }
+.back-arrow {position: absolute; top:50%; transform:translateY(-50%); left:50px;}
+.back-arrow a {display:block; width:100%; transition: all 0.3s;}
+.back-arrow:hover a {transform: scale(1.1);}
+.back-arrow a img {width:60px;}
+.back-arrow p {font-size:14px; color:#4d6877; margin-top:20px; text-align: center;}
+
+.login-logo {width:200px; margin:0 auto; margin-top:150px;}
+.login-logo a {display:block;}
+
+.login-form {width:445px; margin:0 auto; margin-top:50px; margin-bottom:130px;}
+#email_input {width:100%; height:50px; background-color: #ededed; border:none; margin-bottom:22px; padding-left:34px; border-radius: 10px;}
+#id_pass {width:100%; height:50px; background-color: #ededed; border:none;  margin-bottom:22px; padding-left:34px;  border-radius: 10px;}
+#btn_submit1 {width:479px; height:50px; transition: all 0.3s; border:none; background-color: #83c1aa; color:#fff; font-weight: 700;  border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+#btn_submit1:hover {transform: scale(1.03); color:#378367;}
+.login-sub-btn {margin-top:35px;}
+.login-sub-btn li {width:222px; float:left; height:20px;}
+.login-sub-btn li a {display:block; height:100%; text-align:center; color:#666; line-height:20px; font-size:14px;}
+.login-sub-btn li:hover a {color:#012619;}
+.login-sub-btn li:nth-child(1) {border-right:1px solid #666;}
+.login-bot {width:376px; margin:0 auto;}
+.login-bot li {float:left; width:188px; height:30px; text-align: center; line-height:30px;}
+.login-bot li:nth-child(1) a {color:#4d6877;}
+.login-bot li a {display:block; height:100%; color:#a2a1a1; font-size:14px;}
+/* 끝 */
+
+/* 회원가입 */
+#join-area {display:none; position: fixed; z-index: 5;top:50%; left:50%; transform: translate(-50%, -50%);z-index:4;  width:900px; background-color:#fff; height:800px; margin:0 auto;  box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.join-box {position: relative;}
+.join-head {width:100%; height:50px; background-color: #83c1aa; color:#fff;}
+.join-head p {float:left; margin-left:28px; line-height:50px;}
+.join-head img {float:right; margin-right:28px; width:35px; margin-top:8px; animation:mover 1s infinite ease-out alternate; cursor: pointer;}
+
+.join-back-arrow {position: absolute; top:50%; transform:translateY(-50%); left:50px;}
+.join-back-arrow a {display:block; width:100%; transition: all 0.3s;}
+.join-back-arrow a img {width:60px;}
+.join-back-arrow p {font-size:14px; color:#4d6877; margin-top:20px;}
+.join-back-arrow:hover a {transform: scale(1.1);}
+
+.join-logo {width:200px; margin:0 auto; margin-top:50px;}
+.join-logo a {display:block;}
+
+.join-form span {display:inline-block; color:#666; width:100px; font-size:14px;}
+.join-form { width:575px; margin:0 auto; margin-top:34px;}
+/* 회원가입 인풋 타입 텍스트 */
+.cover-size {width:440px; height:50px; background-color: #ededed; border:none; padding-left:25px; margin-bottom:14px; border-radius: 10px;}
+.half-size {width:125px; height:50px; background-color: #ededed; border:none; padding-left:25px; border-radius: 10px; margin-bottom:14px;}
+.phone_box > select {width:125px; height:50px; background-color: #ededed; border:none; padding-left:25px; 
+                     border-radius: 10px; margin-right:17px; color:#4d6877; font-size:14px; background-image: url("../icon/select_arrow.png"); background-repeat: no-repeat; background-position:right 10px center; background-size:14px;
+                    }
+.email_box > select {width:295px; height:50px; background-color: #ededed; border:none; padding-left:25px; 
+                     border-radius: 10px; margin-left:17px; color:#4d6877; font-size:14px; background-image: url("../icon/select_arrow.png"); background-repeat: no-repeat; background-position:right 10px center; background-size:14px;}
+
+input[type='text']::placeholder {color:#4d6877; font-size:14px;} 
+input[type='password']::placeholder {color:#4d6877; font-size:14px;}
+
+.join-btn {width:574px; margin:0 auto; margin-top:25px; margin-bottom:44px;}
+#btn_reset {box-shadow: 0 3px 5px rgba(0,0,0,0.2); float:left;transition: all 0.3s; width:247px; height:50px; background-color: #83c1aa; color:#fff; margin-right:20px; border:none;  border-radius: 10px;}
+#btn_reset:hover {transform: scale(1.03); color:#378367;}
+#btn_submit {box-shadow: 0 3px 5px rgba(0,0,0,0.2); float:left;transition: all 0.3s; width:306px; height:50px; background-color: #83c1aa; color:#fff; border:none; border-radius: 10px;}
+#btn_submit:hover {transform: scale(1.03); color:#378367;}
+.half {margin-left:17px;}
+
+.join-bot {width:376px; margin:0 auto;}
+.join-bot li {float:left; width:188px; height:30px; text-align: center; line-height:30px;}
+.join-bot li:first-child a {color:#4d6877;} 
+.join-bot li a {display:block; height:100%; color:#a2a1a1; font-size:14px;}
+/* 끝 */
+
+/* 비밀번호 찿기 */
+#pass-lost {display:none; width:900px;z-index:6;  background-color:#fff; height:800px; margin:0 auto;  box-shadow: 0 3px 5px rgba(0,0,0,0.2); position: fixed; top:50%; left:50%; transform: translate(-50%, -50%);}
+.pass-head {width:100%; height:50px; background-color: #83c1aa; color:#fff;}
+.pass-head p {float:left; margin-left:28px; line-height:50px;}
+.pass-head img {float:right; margin-right:28px; width:35px; margin-top:8px; animation:mover 1s infinite ease-out alternate; cursor: pointer; }
+
+.pass-back-arrow {position: absolute; top:50%; transform:translateY(-50%); left:50px;}
+.pass-back-arrow a {display:block; width:100%; transition: all 0.3s;}
+.pass-back-arrow:hover a {transform: scale(1.1);}
+.pass-back-arrow a img {width:60px;}
+.pass-back-arrow p {font-size:14px; color:#4d6877; margin-top:20px; text-align: center;}
+
+.pass-logo {width:200px; margin:0 auto; margin-top:70px;}
+.pass-logo a {display:block;}
+
+.pass-form {width:445px; margin:0 auto; margin-top:40px; margin-bottom:70px;}
+#email_pass_input {width:100%; height:50px; background-color: #ededed; border:none; margin-bottom:22px; padding-left:34px; border-radius: 10px;}
+
+.email-pass-box {width:100%; height:50px; line-height:50px; font-size:14px; color:#4d6877; padding-left:5px; margin-bottom:5px;}
+#name_pass_input {width:100%; height:50px; background-color: #ededed; border:none; margin-bottom:22px; padding-left:34px; border-radius: 10px;}
+#birth_pass_input {width:100%; height:50px; background-color: #ededed; border:none; margin-bottom:22px; padding-left:34px; border-radius: 10px;}
+#number_pass_input {width:100%; height:50px; background-color: #ededed; border:none; margin-bottom:22px; padding-left:34px; border-radius: 10px;}
+
+#pass-lost-submit {width:479px; height:50px; transition: all 0.3s; border:none; background-color: #83c1aa; color:#fff; font-weight: 700;  border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+#pass-lost-submit:hover {transform: scale(1.03); color:#378367;}
+
+.pass-bot {width:376px; margin:0 auto;}
+.pass-bot li {float:left; width:188px; height:30px; text-align: center; line-height:30px;}
+.pass-bot li:nth-child(1) a {color:#4d6877;}
+.pass-bot li a {display:block; height:100%; color:#a2a1a1; font-size:14px;}
+
+/* 비밀번호 인증 확인창 */
+#pass-chk {display:none;z-index:7;  width:900px; background-color:#fff; height:800px; margin:0 auto;  box-shadow: 0 3px 5px rgba(0,0,0,0.2); position: fixed; top:50%; left:50%; transform: translate(-50%, -50%);}
+.pass-chk-head {width:100%; height:50px; background-color: #83c1aa; color:#fff;}
+.pass-chk-head p {float:left; margin-left:28px; line-height:50px;}
+.pass-chk-head img {float:right; margin-right:28px; width:35px; margin-top:8px; animation:mover 1s infinite ease-out alternate; cursor: pointer; }
+
+.pass-chk-back-arrow {position: absolute; top:50%; transform:translateY(-50%); left:50px;}
+.pass-chk-back-arrow a {display:block; width:100%; transition: all 0.3s;}
+.pass-chk-back-arrow:hover a {transform: scale(1.1);}
+.pass-chk-back-arrow a img {width:60px;}
+.pass-chk-back-arrow p {font-size:14px; color:#4d6877; margin-top:20px; text-align: center;}
+
+.pass-chk-logo {width:200px; margin:0 auto; margin-top:150px;}
+.pass-chk-logo a {display:block;}
+
+.pass-chk-form {width:445px; margin:0 auto; margin-top:40px; margin-bottom:130px;}
+#email_pass_chk_input {width:100%; height:50px; background-color: #ededed; border:none; margin-bottom:22px; padding-left:34px; border-radius: 10px;}
+
+.email-pass-chk-box {width:100%; height:50px; line-height:50px; font-size:14px; color:#4d6877; padding-left:5px; margin-bottom:5px;}
+
+#pass_chk-submit {width:479px; height:50px; transition: all 0.3s; border:none; background-color: #83c1aa; color:#fff; font-weight: 700;  border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+#pass_chk-submit:hover {transform: scale(1.03); color:#378367;}
+
+.pass-chk-bot {width:376px; margin:0 auto;}
+.pass-chk-bot li {float:left; width:188px; height:30px; text-align: center; line-height:30px;}
+.pass-chk-bot li:nth-child(1) a {color:#4d6877;}
+.pass-chk-bot li a {display:block; height:100%; color:#a2a1a1; font-size:14px;}
