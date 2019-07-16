@@ -194,7 +194,7 @@
                 <h5>아직 호텔 회원이 아니신가요?</h5>
                 <p>온라인 회원은 예약/결제 정보를 온라인에서 확인하실 수 있습니다.</p>
                 <div class="join-box">
-                    <a href="/choice_join.do">호텔 멤버십 가입 </a>
+                    <a href="choice_join.do">호텔 멤버십 가입 </a>
                 </div>
                 <div class="error-text clear">
                     <h6>멤버십 가입 및 온라인 인증에 문제가 생기셨나요?</h6>

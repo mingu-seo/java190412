@@ -1,4 +1,4 @@
-
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/edit_account.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="../js/gnb.js"></script>
-    <title>회원정보수정</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/mypage.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="/js/gnb.js"></script>
+    <title>마이페이지</title>
 </head>
 <body>
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="../index.html"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="/index.do"><img src="../img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">BOOK</a>
@@ -136,7 +136,7 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="sign_in.html">SIGN IN</a>
+                <a href="sign_in.do">SIGN IN</a>
             </div>
         </div>
     </div>
@@ -145,64 +145,127 @@
     <div id="container">
         
         <div class="banner">
-            <div class="notice-section">
-                    <h2>개인정보수정</h2>
-                    <h3>Edit Account</h3>
+            <div class="mypage-section">
+                    <h2>마이페이지</h2>
+                    <h3>MY PAGE</h3>
                 </div>
         </div>
-        <div class="notice">
-            <div class="support-list">
-                <ul class="support-list-center">
-                    <li class="on"><a href="edit_account.html">회원정보수정</a></li>
-                    <li><a href="edit_password.html">비밀번호변경</a></li>
-                    <li><a href="delete_account.html">회원탈퇴요청</a></li>
+        <div class="reservation clear">
+            <h3>예약현황<span class="title-sub">RESERVATION STATUS</span></h3>
+            <div class="reservation-status-left">
+                <table>
+                    <tr class="table-head">
+                        <th>예약 상품</th>
+                        <th>인원</th>
+                        <th>추가사항</th>
+                    </tr>
+                    <tr class="reserved">
+                        <td>NAMSAN POOL DELUX ROOM</td>
+                        <td class="participants">성인 x 2
+                            <br/>
+                            어린이 x 1
+                        </td>
+                        <td class="option">
+                            SPA
+                            <span class="option-select">- 추가사항 없음</span>
+                            침대 추가
+                            <span class="option-select">x 1</span>
+                            웰컴 와인 & 치즈
+                            <span class="option-select">x 1</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TOTAL</td>
+                        <td class="price" colspan="2">1,000,000 WON</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="reservation-status-right">
+                <div class="my-info">
+                    <h4>
+                        배경민 님<br/>
+                        환영합니다 !
+                    </h4>
+                    <table>
+                        <tr>
+                            <td>회원등급</td>
+                            <td>VIP</td>
+                        </tr>
+                        <tr>
+                            <td>포인트</td>
+                            <td>10,000P</td>
+                        </tr>
+                    </table>
+                </div>
+                <ul class="my-info-list">
+                    <li><a href="edit_account.do">개인정보 수정</a></li>
+                    <li><a href="delete_account.do">회원탈퇴</a></li>
+                    <li><a href="#">로그아웃</a></li>
                 </ul>
             </div>
-            <div class="section-edit">
-                <h2>회원정보</h2>
-                <div class="edit-table">
-                    <div class="edit-table-right">
-                        <form method="POST">
-                            <div class="name clear">
-                                <div class="name1">
-                                    <label for="first-name">성</label>
-                                    <input type="text" id="first-name" maxlength="2">
-                                </div>
-                                <div class="name2">
-                                    <label for="middle-name">이름</label>
-                                    <input type="text" id="middle-name" maxlenght="10">
-                                </div>
-                            </div>
-                        
-                            <div class="birth">
-                                <label for="birth-y">생년월일</label>
-                                <input type="text" id="birth-y" name="birth-y" placeholder="년(4자)" maxlength="4">
-                                <input type="text" id="birth-m" name="birth-m" placeholder="월" maxlength="2">
-                                <input type="text" id="birth-d" name="birth-d" placeholder="일" maxlength="2">
-                            </div>
-                            <div class="email">
-                                <label for="email">이메일</label>
-                                <input type="text" id="email" name="email" placeholder="이메일을 입력하세요" maxlength="40">
-                            </div>
-                            <div class="email">
-                                <label for="account-contact">연락처</label>
-                                <input type="text" id="account-contact" name="account-contact" placeholder="연락처를 입력하세요" maxlength="40">
-                            </div>
-
-                            <div class="adress clear">
-                                <label for="adress">주소</label>
-                                <input type="text" id="adress1" name="adress1" placeholder="우편번호">
-                                <button class="ad-button">우편번호</button>
-                                <input type="text" id="adress2" name="adress2" placeholder="기본주소">
-                                <input type="text" id="adress3" name="adress3" placeholder="상세주소">
-                            </div>
-
-                            <div class="submit">
-                                    <input type="submit" value="수정하기" class="submit-button">
-                            </div>
-                        </form>
-                    </div>
+        </div>
+        <div class="point">
+            <h3>포인트 내역<span class="title-sub">POINT</span></h3>
+            <div class="point-box">
+                <table>
+                    <tr>
+                        <td><span class="plus">+</span> 9,000P</td>
+                        <td>2019-06-29</td>
+                    </tr>
+                    <tr>
+                        <td><span class="plus">+</span> 10,000P</td>
+                        <td>2019-07-01</td>
+                    </tr>
                     
+                </table>
+            </div>
+        </div>
+        <div class="my-question">
+            <h3>나의 질문<span class="title-sub">MY QUESTION</span></h3>
+            <div class="my-question-box">
+                <table>
+                    <tr>
+                            <td><a href="#"><span class="plus">┌</span>회원탈퇴에 대한 답변입니다.</a></td>
+                            <td>2019-06-29</td>
+                    </tr>
+                    <tr>
+                        <td><a href="../qna.html">회원탈퇴를 하고싶어요.</a></td>
+                        <td>2019-07-01</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="membership-benefit">
+                <h3>멤버십 등급별 특전<span class="title-sub">MEMBERSHIP CLASS BENEFIT</span></h3>
+            <div class="membership-benefit-box clear">
+                <div class="membership-benefit-box-center clear">
+                    <div class="classic">
+                        <div class="benefit-img">
+                            <p>CLASSIC</p>
+                        </div>
+                        <div class="benefit-text">
+                            <p>3번 투숙 또는 6박 이상 이용</p>
+                            <p>객실이용 금액 5% 적립</p>
+                        </div>
+                    </div>
+                    <div class="vip on">
+                            <div class="benefit-img">
+                                <p>VIP</p>
+                            </div>
+                            <div class="benefit-text">
+                                <p>3번 투숙 또는 6박 이상 이용</p>
+                                <p>객실이용 금액 5% 적립</p>
+                            </div>
+                    </div>
+                    <div class="vvip">
+                            <div class="benefit-img">
+                                <p>VVIP</p>
+                            </div>
+                            <div class="benefit-text">
+                                <p>7번 투숙 또는 12박 이상 이용</p>
+                                <p>객실이용 금액 7% 적립</p>
+                            </div>
+                    </div>
                 </div>
             </div>
         </div>

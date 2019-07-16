@@ -159,7 +159,7 @@
                 </form>    
             
                 <div class="join-btn">
-                    <a href="join.html">호텔 멤버십 가입 </a>
+                    <a href="join.do">호텔 멤버십 가입 </a>
                 </div>
                 
             </div>    
