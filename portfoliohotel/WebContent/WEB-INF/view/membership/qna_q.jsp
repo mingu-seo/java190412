@@ -1,4 +1,4 @@
-
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -35,10 +35,10 @@
                                         <div class="pc-sub-box">
                                             <h2>Rooms</h2>
                                             <ul class="Rooms">
-                                                <li><a href="../room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
-                                                <li><a href="../room-detail-subpage.html">Namsan Pool Premier Suite</a></li>
-                                                <li><a href="../room-detail-subpage.html">Namsan Presidential Suite</a></li>
-                                                <li><a href="../room-detail-subpage.html">Spa Sanctuary Suite</a></li>
+                                                <li><a href="room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
+                                                <li><a href="room-detail-subpage.html">Namsan Pool Premier Suite</a></li>
+                                                <li><a href="room-detail-subpage.html">Namsan Presidential Suite</a></li>
+                                                <li><a href="room-detail-subpage.html">Spa Sanctuary Suite</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -121,7 +121,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../qna.html">
+                                                <a href="qna.do">
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">
@@ -157,7 +157,7 @@
                 <ul class="support-list-center">
                     <li><a href="notice.html">공지사항</a></li>
                     <li><a href="faq.html">FAQ</a></li>
-                    <li class="on"><a href="qna.html">Q&A</a></li>
+                    <li class="on"><a href="qna.do">Q&A</a></li>
                 </ul>
             </div>
             <div class="qna_q-table">

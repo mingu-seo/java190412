@@ -200,7 +200,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="membership/qna.html">
+                                                <a href="membership/qna.do">
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">
