@@ -176,7 +176,7 @@
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Support</h2>
-                                                <a href="membership/notice.do" class="notice-a">
+                                                <a href="/membership/notice.do" class="notice-a">
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
@@ -188,7 +188,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="membership/faq.html">
+                                                <a href="/membership/faq.do">
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">

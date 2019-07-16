@@ -1,4 +1,4 @@
-
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -35,10 +35,10 @@
                                         <div class="pc-sub-box">
                                             <h2>Rooms</h2>
                                             <ul class="Rooms">
-                                                <li><a href="../room-detail-subpage.do">Namsan Pool Deluxe Room</a></li>
-                                                <li><a href="../room-detail-subpage.do">Namsan Pool Premier Suite</a></li>
-                                                <li><a href="../room-detail-subpage.do">Namsan Presidential Suite</a></li>
-                                                <li><a href="../room-detail-subpage.do">Spa Sanctuary Suite</a></li>
+                                                <li><a href="/room/room-detail-subpage.do">Namsan Pool Deluxe Room</a></li>
+                                                <li><a href="/room/room-detail-subpage.do">Namsan Pool Premier Suite</a></li>
+                                                <li><a href="/room/room-detail-subpage.do">Namsan Presidential Suite</a></li>
+                                                <li><a href="/room/room-detail-subpage.do">Spa Sanctuary Suite</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -97,7 +97,7 @@
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Support</h2>
-                                                <a href="../notice.html" class="notice-a">
+                                                <a href="/membership/notice.do" class="notice-a">
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
@@ -109,7 +109,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../faq.html">
+                                                <a href="/membership/faq.do">
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">
