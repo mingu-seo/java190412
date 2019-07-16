@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import board.notice.NoticeVO;
+
 @Controller
 public class ProgramController {
 
@@ -16,24 +18,34 @@ public class ProgramController {
 	@RequestMapping("/manage/program/list")
 	public String index(Model model, ProgramVO param) throws Exception {
 		param.setTablename("program");
-//		int[] rowPageCount = ProgramService.count(param);
+		int[] rowPageCount = programService.count(param);
 		ArrayList<ProgramVO> list = programService.list(param);
 		
-//		model.addAttribute("totCount", rowPageCount[0]);
-//		model.addAttribute("totPage", rowPageCount[1]);
+		model.addAttribute("totCount", rowPageCount[0]);
+		model.addAttribute("totPage", rowPageCount[1]);
 		model.addAttribute("list", list);
 		model.addAttribute("vo", param);
 		
 		return "manage/program/list";
 	}
 	
-//	@RequestMapping("/manage/board/notice/write")
-//	public String write(Model model, NoticeVO param) throws Exception {
+	@RequestMapping("/manage/program/write")
+	public String write(Model model, ProgramVO param) throws Exception {
+		model.addAttribute("vo", param);
+		
+		return "manage/program/write";
+	}
+	
+//	@RequestMapping("/manage/program/view")
+//	public String read(Model model, ProgramVO param) throws Exception {
+//		ProgramVO data = programService.read(param.getNo());
+//		model.addAttribute("data", data);
 //		model.addAttribute("vo", param);
 //		
-//		return "manage/board/notice/write";
+//		
+//		return "manage/program/view";
 //	}
-//	
+	
 //	@RequestMapping("/manage/board/notice/edit")
 //	public String edit(Model model, NoticeVO param) throws Exception {
 //		param.setTablename("notice");
