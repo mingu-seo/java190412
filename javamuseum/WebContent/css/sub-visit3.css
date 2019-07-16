@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+/* 상단배경 */
+.con1 {height:600px; width:100%; background-image:url("../img/sub-banner.jpg"); background-repeat:no-repeat; background-attachment:fixed;}
+.con1-box{text-align: center; color: #fff; font-weight: bold; padding-top: 250px;}
+.con1-box h3{font-size: 70px; margin-bottom: 10px;}
+.con1-box p{font-size: 20px;}
+/* 오시는길 동선(지하철) */
+.con2-center{width: 1200px; margin: 0 auto; padding-top: 80px;}
+.con2-gr1{padding-bottom: 100px;}
+.con2-gr1 h3{font-size: 30px;  margin-bottom: 25px; font-weight: normal;}
+.con2-center img{width: 1200px;} 
+.con2-text{font-size: 18px;}
+.con2-text h5{font-weight: bold;}
+.con2-gr1 > .con2-text{float: left; margin-right: 100px; margin-top: 50px;}
+/* 오시는길 동선(버스) */
+.con2-gr2 h3{font-size: 30px; margin-bottom: 25px; font-weight: normal;}
+.con2-gr2 img{width: 1200px;}
+

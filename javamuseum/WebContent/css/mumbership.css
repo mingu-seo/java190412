@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* 컨테이너2 */
+/* 기본정보 입력구역 */
+.con2-center{width: 100%; margin: 0 auto; background-color:rgba(255, 255,255, 0.8);height:950px;position: absolute; top: 140px; left: 0;}
+.con2-loginbox{width: 690px; margin: 0 auto; margin-top: 30px; }
+.con2-loginbox h2{font-size: 36px;text-align: center;}
+.con2-loginbox h3 {margin:20px 0;}
+.con2-loginbox p {font-size:18px; margin-top:20px;}
+.con2-loginbox p::after{content: ""; display: block; width: 100%; height: 2px;background-color: #000; margin-top:20px;}
+.con2-box-top {border:2px solid black;}
+.con2-box-top input[type="submit"]{width:80px; height:30px; background-color: #191919; color: #fff; margin-left:10px; padding-left:0; border: transparent; font-size:14px; position:relative; top:2px;}
+.con2-box-top #id {width:220px; height:30px;}
+.con2-box-top span {font-size:14px;}
+.con2-box-top #pw {width:220px; height:30px;}
+.con2-box-top #gender2 {margin-left:90px;}
+.birth {width:100%;}
+.acception {width:100%;}
+.th-bg {background-color:#ccc; width:140px; text-align:center; height:60px;}
+.td-bg {background-color:white; padding-left:10px;}
+.tr-under {border-bottom:1px solid black;}
+.select {height:30px;}
+.select-in {width:120px; height:30px;}
+.day {width:130px; height:24px; background-color:white;}
+/* 본인인증 입력구역 */
+.con2-box-bot {border:2px solid rgb(155, 147, 147);}
+.con2-box-bot input[type="text"] {width:120px; height:24px;}
+.con2-box-bot .email {width:120px; height:30px;}
+.con2-box-bot input[type="submit"] {width:120px; height:30px; background-color:#191919; color:white; border:transparent; position:relative; top:2px;}
+/* 확인 취소 구역 */
+.submit-box {text-align:center; margin-top:30px;}
+.submit-box input[type="submit"] {width:180px; height:40px; background-color:#191919; color:white; border:transparent; font-size:18px;}
+.submit-box input[type="reset"] {width:180px; height:40px; color:black; border:1px solid black; font-size:18px;}
