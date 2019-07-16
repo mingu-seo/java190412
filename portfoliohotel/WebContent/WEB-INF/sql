@@ -36,7 +36,7 @@ CREATE TABLE `room` (
   `checkin_time` varchar(45) DEFAULT NULL,
   `checkout_time` varchar(45) DEFAULT NULL,
   `location` varchar(45) DEFAULT NULL,
-  `view` varchar(45) DEFAULT NULL,
+  `landscape` varchar(45) DEFAULT NULL,
   `type` varchar(45) DEFAULT NULL,
   `image1` varchar(255) DEFAULT NULL,
   `image_org1` varchar(255) DEFAULT NULL,
@@ -193,7 +193,7 @@ CREATE TABLE `qna` (
   `reply_title` varchar(45) DEFAULT NULL,
   `reply_contents` text,
   `reply_regdate` timestamp NULL DEFAULT NULL,
-  `semd_email` int(11) DEFAULT NULL,
+  `send_email` int(11) DEFAULT NULL,
   PRIMARY KEY (`no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
