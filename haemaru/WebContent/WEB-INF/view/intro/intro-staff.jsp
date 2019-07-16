@@ -168,10 +168,10 @@
                 <li>
                     <a href="my-infor.jsp">마이페이지</a>
                     <ul class="header-sub">
-                        <li><a href="intro-hi.jsp">나의정보</a></li>
-                        <li><a href="intro-pet.jsp">나의반려동물</a></li>
-                        <li><a href="intro-res.jsp">예약확인</a></li>
-                        <li><a href="intro-ask.jsp">문의내역</a></li>
+                        <li><a href="my-infor.jsp">나의정보</a></li>
+                        <li><a href="my-pet.jsp">나의반려동물</a></li>
+                        <li><a href="my-res.jsp">예약확인</a></li>
+                        <li><a href="my-ask.jsp">문의내역</a></li>
                     </ul>
                 </li>
             </ul>
