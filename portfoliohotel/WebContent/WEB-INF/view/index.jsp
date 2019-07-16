@@ -122,9 +122,9 @@
                                             <h2>Dining</h2>
                                             <ul class="Dining">
                                                 <li><a href="dining/thefesta.do">The Festa</a></li>
-                                                <li><a href="pkg/granum-dining.html">Granum Dining Lounge</a></li>
-                                                <li><a href="pkg/moon-bar.html">Moon Bar</a></li>
-                                                <li><a href="pkg/outdoor-kitchen.html">The Oasis Outdoor Kitchen</a></li>
+                                                <li><a href="dining/granum-dining.do">Granum Dining Lounge</a></li>
+                                                <li><a href="dining/moon-bar.do">Moon Bar</a></li>
+                                                <li><a href="dining/outdoor-kitchen.do">The Oasis Outdoor Kitchen</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
