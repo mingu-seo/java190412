@@ -44,15 +44,15 @@
             <div class="join-box">
                 <div class="join-head">
                     <p>Join</p>
-                    <img src="//icon/footer-icon.png">
+                    <img src="/icon/footer-icon.png">
                 </div>
                 <div class="join-page">
                     <div class="join-back-arrow">
-                        <a href="#"><img src="//icon/backarrow.png">
+                        <a href="#"><img src="/icon/backarrow.png">
                         <P>뒤로가기</P></a>
                     </div>
                     <h1 class="join-logo">
-                        <a href="#"><img src="//icon/logo_lightgreen.png"></a>
+                        <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                     </h1>
                     <form class="join-form" method="GET" action="text.php">
                         <div class="email_box">
@@ -103,7 +103,17 @@
             </div>
         </div>
         <!-- Right Fix -->
-
+        <div class="fix-menu-box">
+            <ul class="fix-menu">
+                <li class="os"><a href="#"></a></li>
+                <li><a href="#">병원소개</a></li>
+                <li><a href="#">진료과목</a></li>
+                <li><a href="#">입양후기</a></li>
+                <li><a href="#">입양프로필</a></li>
+                <!-- <li class="oq"><a href="#">오시는길</a></li> -->
+            </ul>
+            <!-- <div class="fix-menu-text">오시는 길</div> -->
+        </div>
         <h1 class="header-logo"><a href="/index.do"><img src="/icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">

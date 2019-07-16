@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="program">
+    
+    <typeAlias alias="program_vo" type="manage.program.ProgramVO"/>
+    
+    <!-- 공통조건 -->
+ <sql id="searchSql">		
+		<!-- WHERE 절 검색 -->
+		<dynamic prepend="where">
+			<isNotEqual property="category" compareValue="0" prepend="and">
+			    category = #category#
+			</isNotEqual>
+			<isNotEqual property="display" compareValue="0" prepend="and">
+			    display = #display#
+			</isNotEqual>
+			<!-- 검색어 검색 -->
+			<isNotEqual property="sval" compareValue="">
+				<!-- 검색 타입이 all일 때 -->
+				<isEqual property="stype" compareValue="all" prepend="and">
+					( (title like '%$sval$%') or (instructor like '%$sval$%' ) ) 					
+				</isEqual>
+				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
+				<isNotEqual property="stype" compareValue="all">
+					($stype$ like '%$sval$%' )
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql> 
+
+	 
+	<select id="count" parameterClass="program_vo" resultClass="Integer">
+        SELECT count(*) 
+        FROM program
+        <include refid="searchSql" />	
+    </select> 
+
+	<select id="list" parameterClass="program_vo" resultClass="program_vo">
+        SELECT *
+        FROM program
+         <include refid="searchSql" />	
+		ORDER BY registdate DESC LIMIT $startPageNo$, $pageRows$
+    </select>
+	
+	
+    <insert id="insert" parameterClass="program_vo">
+        INSERT INTO program (
+        category, title, contents, instructor, max_mem, imagename, state, target, price, p_time, location, display, registdate 
+        )
+        VALUES (
+        	#category#, #title#, #contents#, #instructor#, #max_mem#, #imagename#, #state#, #target#, #price#, #p_time#, #location#, #display#, now()
+        	)
+        <selectKey keyProperty="no" resultClass="Integer">
+        	SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    
+   <!--  <update id="update" parameterClass="program_vo">
+        UPDATE program SET
+        	name=#name#, title=#title#, display=#display#,
+        <isNotEqual property="registdate" compareValue="">
+       	    registdate = #registdate#,
+       	</isNotEqual>
+        <isNotEqual property="readno" compareValue="0">
+       	    readno = #readno#,
+       	</isNotEqual>        	
+        <isEqual property="filename_chk" compareValue="1">
+        	filename='', filename_org='', filesize=0,
+        </isEqual>
+        <isNotEqual property="filename" compareValue="">
+            <isNotNull property="filename">
+        		filename=#filename#, filename_org=#filename_org#, filesize=#filesize#,
+        	</isNotNull>
+        </isNotEqual>
+        	contents=#contents#
+        WHERE no = #no#
+    </update>
+     -->
+    <select id="read" parameterClass="program_vo" resultClass="program_vo">
+        SELECT *
+        FROM program
+        where no = #no#
+    </select>
+    
+<!--     <select id="filenames" parameterClass="notice_vo" resultClass="notice_vo">
+    	<![CDATA[
+        SELECT 
+        	file_name
+        FROM $tablename$
+        where no = #no#
+        ]]>
+    </select> 
+    
+    <select id="getRowNum" parameterClass="notice_vo" resultClass="Integer">
+        select rownum from (
+        	select @rownum:=@rownum+1 as rownum, no, title from $tablename$, (select @rownum:=0) as r
+        	<include refid="searchSql" />
+        	ORDER BY registdate DESC
+        ) as r2
+        where r2.no = #no#
+    </select>
+    
+    <select id="getNextRowNum" parameterClass="notice_vo" resultClass="notice_vo">
+        select ifnull(rownum,0), ifnull(no,0) as next_no, title as next_title
+        from (
+        	select @rownum:=@rownum+1 as rownum, no, title from $tablename$, (select @rownum:=0) as r
+        	<include refid="searchSql" />
+        	ORDER BY registdate DESC
+        ) as r2
+        <![CDATA[
+        where r2.rownum = $rownum$+1
+    	]]>
+    </select>
+    
+    <select id="getPrevRowNum" parameterClass="notice_vo" resultClass="notice_vo">
+    	select ifnull(rownum,0), ifnull(no,0) as prev_no, title as prev_title
+        from (
+        	select @rownum:=@rownum+1 as rownum, no, title from $tablename$, (select @rownum:=0) as r
+        	<include refid="searchSql" />
+        	ORDER BY registdate DESC
+        ) as r2
+        <![CDATA[
+        where r2.rownum = $rownum$-1
+    	]]>
+    </select>
+     -->
+    <delete id="delete" parameterClass="notice_vo">
+        DELETE FROM program WHERE no=#no#
+    </delete>
+<!--     
+    <update id="updateReadno" parameterClass="notice_vo">
+        UPDATE $tablename$ SET readno = readno+1 WHERE no = #no#
+    </update>
+    
+    <select id="mainList" parameterClass="notice_vo" resultClass="notice_vo">
+        select *
+        from $tablename$
+        <include refid="searchSql" />
+		ORDER BY registdate DESC LIMIT 0, $number$
+    </select>
+   -->
+</sqlMap>
