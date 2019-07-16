@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/sub1-2.css">
     <link rel="stylesheet" href="/css/footer.css">
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
     <!-- 정렬 플러그 인 -->
-    <script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
-    <script type="text/javascript" src="js/sub1-2.js"></script>
+    <script type="text/javascript" src="/js/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="/js/sub1-2.js"></script>
 </head>
 <body>
     <!-- header html -->
@@ -122,17 +122,17 @@
                 </div>
             </div>
         </div>
-        <h1 class="header-logo"><a href="index.html"><img src="/icon/logo_lightgreen.png"></a></h1>
+        <h1 class="header-logo"><a href="/index.do"><img src="/icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">
             <!-- gnb & sub menu -->
             <ul class="gnb clear">
                 <li>
-                    <a href="intro-hi.jsp">병원소개</a>
+                    <a href="/intro/intro-hi.do">병원소개</a>
                     <ul class="header-sub">
-                        <li><a href="intro-hi.jsp">인사말</a></li>
-                        <li><a href="intro-staff.jsp">의료진소개</a></li>
-                        <li><a href="intro-map.jsp">오시는길</a></li>
+                        <li><a href="/intro/intro-hi.do">인사말</a></li>
+                        <li><a href="/intro/intro-staff.do">의료진소개</a></li>
+                        <li><a href="/intro/intro-map.do">오시는길</a></li>
                     </ul>
                 </li>
                 <li>
@@ -166,12 +166,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="my-infor.jsp">마이페이지</a>
+                    <a href="/my/my-infor.do">마이페이지</a>
                     <ul class="header-sub">
-                        <li><a href="my-infor.jsp">나의정보</a></li>
-                        <li><a href="my-pet.jsp">나의반려동물</a></li>
-                        <li><a href="my-res.jsp">예약확인</a></li>
-                        <li><a href="my-ask.jsp">문의내역</a></li>
+                        <li><a href="/my/my-infor.do">나의정보</a></li>
+                        <li><a href="/my/my-pet.do">나의반려동물</a></li>
+                        <li><a href="/my/my-res.do">예약확인</a></li>
+                        <li><a href="/my/my-ask.do">문의내역</a></li>
                     </ul>
                 </li>
             </ul>
@@ -271,9 +271,9 @@
                     <p>Information</p>
                 </div>
                 <ul class="sub-bar">
-                    <li ><a href="intro-hi.jsp">인사말</a></li>
-                    <li class="on"><a href="intro-staff.jsp">의료진소개</a></li>
-                    <li><a href="intro-map.jsp">오시는길</a></li>
+                    <li ><a href="/intro/intro-hi.do">인사말</a></li>
+                    <li class="on"><a href="/intro/intro-staff.do">의료진소개</a></li>
+                    <li><a href="/intro/intro-map.do">오시는길</a></li>
                 </ul>
             </div>
             <!-- main 부분 (여기다가 하면 됨) -->
@@ -296,205 +296,205 @@
                 <!-- 의사 부분 -->
                 <div class="tab-info clear">
                     <div class="staff1">
-                        <img src="img/staff/sub1.png">
+                        <img src="/img/staff/sub1.png">
                         <h4>원장 / 대표이사</h4>
                         <h5>김 현 욱</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1">
-                        <img src="img/staff/sub2.png">
+                        <img src="/img/staff/sub2.png">
                         <h4>원장 / 대표이사</h4>
                         <h5>김 진 경</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub3.png">
+                        <img src="/img/staff/sub3.png">
                         <h4>내과 / 팀장</h4>
                         <h5>남 예 림</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub4.png">
+                        <img src="/img/staff/sub4.png">
                         <h4>내과 / 팀장</h4>
                         <h5>최 새 롬</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub5.png">
+                        <img src="/img/staff/sub5.png">
                         <h4>내과 / 진료수의사</h4>
                         <h5>이 승 현</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub6.png">
+                        <img src="/img/staff/sub6.png">
                         <h4>외과 / 부장</h4>
                         <h5>김 세 은</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub7.png">
+                        <img src="/img/staff/sub7.png">
                         <h4>외과 / 진료수의사</h4>
                         <h5>최 경 욱</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub8.png">
+                        <img src="/img/staff/sub8.png">
                         <h4>영상의학과 / 부장</h4>
                         <h5>이 가 현</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub9.png">
+                        <img src="/img/staff/sub9.png">
                         <h4>영상의학과 / 팀장</h4>
                         <h5>김 보 은</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub10.png">
+                        <img src="/img/staff/sub10.png">
                         <h4>응급중환자센터 / 부장</h4>
                         <h5>김 성 훈</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub11.png">
+                        <img src="/img/staff/sub11.png">
                         <h4>응급중환자센터 / 팀장</h4>
                         <h5>김 하 나</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub12.png">
+                        <img src="/img/staff/sub12.png">
                         <h4>응급중환자센터 / 진료수의사</h4>
                         <h5>김 은 실</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub13.png">
+                        <img src="/img/staff/sub13.png">
                         <h4>응급중환자센터 / 진료수의사</h4>
                         <h5>소 하 연</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub14.png">
+                        <img src="/img/staff/sub14.png">
                         <h4>응급중환자센터 / 진료수의사</h4>
                         <h5>송 주 현</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub15.png">
+                        <img src="/img/staff/sub15.png">
                         <h4>응급중환자센터 / 진료수의사</h4>
                         <h5>남 우 진</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub16.png">
+                        <img src="/img/staff/sub16.png">
                         <h4>응급중환자센터 / 진료수의사</h4>
                         <h5>양 재 원</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub17.png">
+                        <img src="/img/staff/sub17.png">
                         <h4>응급중환자센터 / 진료수의사</h4>
                         <h5>조 유 재</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff2">
-                        <img src="img/staff/sub18.png">
+                        <img src="/img/staff/sub18.png">
                         <h4>응급중환자센터 / 부장</h4>
                         <h5>임 재 학</h5>
                         <a href="#">MORE</a>
                     </div>
                      <div class="staff1 staff3">
-                        <img src="img/staff/sub19.png">
+                        <img src="/img/staff/sub19.png">
                         <h4>내과 / 테크니션</h4>
                         <h5>박 혜 린</h5>
                         <a href="#">MORE</a>
                     </div>
                     <div class="staff1 staff3">
-                        <img src="img/staff/sub20.png">
+                        <img src="/img/staff/sub20.png">
                         <h4>내과 / 테크니션</h4>
                         <h5>정 유 진</h5>
                         <a href="#">MORE</a>
                     </div>
                     <div class="staff1 staff3">
-                        <img src="img/staff/sub21.png">
+                        <img src="/img/staff/sub21.png">
                         <h4>내과 / 테크니션</h4>
                         <h5>안 미 희</h5>
                         <a href="#">MORE</a>
                     </div>
                     <div class="staff1 staff3">
-                        <img src="img/staff/sub22.png">
+                        <img src="/img/staff/sub22.png">
                         <h4>내과 / 테크니션</h4>
                         <h5>김 은 박</h5>
                         <a href="#">MORE</a>
                     </div>
                     <div class="staff1 staff3">
-                        <img src="img/staff/sub23.png">
+                        <img src="/img/staff/sub23.png">
                         <h4>내과 / 테크니션</h4>
                         <h5>정 소 영</h5>
                         <a href="#">MORE</a>
                     </div>
                     <div class="staff1 staff3">
-                        <img src="img/staff/sub24.png">
+                        <img src="/img/staff/sub24.png">
                         <h4>내과 / 테크니션</h4>
                         <h5>백 현 영</h5>
                         <a href="#">MORE</a>
                     </div>
                     <div class="staff1 staff3">
-                        <img src="img/staff/sub25.png">
+                        <img src="/img/staff/sub25.png">
                         <h4>내과 / 테크니션</h4>
                         <h5>박 다 정</h5>
                         <a href="#">MORE</a>
                     </div>
                     <div class="staff1 staff3">
-                        <img src="img/staff/sub26.png">
+                        <img src="/img/staff/sub26.png">
                         <h4>내과 / 테크니션</h4>
                         <h5>김 민 지</h5>
                         <a href="#">MORE</a>
                     </div>
                     <div class="staff1 staff3">
-                        <img src="img/staff/sub27.png">
+                        <img src="/img/staff/sub27.png">
                         <h4>내과 / 테크니션</h4>
                         <h5>손 세 미</h5>
                         <a href="#">MORE</a>
                     </div>
                     <div class="staff1 staff3">
-                        <img src="img/staff/sub28.png">
+                        <img src="/img/staff/sub28.png">
                         <h4>내과 / 테크니션</h4>
                         <h5>김 슬 기</h5>
                         <a href="#">MORE</a>
                     </div>
                     <div class="staff1 staff4">
-                        <img src="img/staff/sub30.png">
+                        <img src="/img/staff/sub30.png">
                         <h4>원무과 / 매니저</h4>
                         <h5>김 현 정</h5>
                         <a href="#">MORE</a>
                     </div>
                     <div class="staff1 staff4">
-                        <img src="img/staff/sub29.png">
+                        <img src="/img/staff/sub29.png">
                         <h4>원무과 / 과장</h4>
                         <h5>국 선 영</h5>
                         <a href="#">MORE</a>
                     </div>
                     <div class="staff1 staff4">
-                        <img src="img/staff/sub32.png">
+                        <img src="/img/staff/sub32.png">
                         <h4>원무과 / 매니저</h4>
                         <h5>김 미 현</h5>
                         <a href="#">MORE</a>
                     </div>
                     <div class="staff1 staff4">
-                        <img src="img/staff/sub31.png">
+                        <img src="/img/staff/sub31.png">
                         <h4>원무과 / 매니저</h4>
                         <h5>김 종 민</h5>
                         <a href="#">MORE</a>
                     </div>
                     <div class="staff1 staff4">
-                        <img src="img/staff/sub34.png">
+                        <img src="/img/staff/sub34.png">
                         <h4>원무과 / 매니저</h4>
                         <h5>최 양 윤</h5>
                         <a href="#">MORE</a>
                     </div>
                     <div class="staff1 staff4">
-                        <img src="img/staff/sub33.jpg">
+                        <img src="/img/staff/sub33.jpg">
                         <h4>원무과 / 매니저</h4>
                         <h5>오 혜 진</h5>
                         <a href="#">MORE</a>

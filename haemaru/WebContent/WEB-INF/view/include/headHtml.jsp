@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-<%@ page contentType="text/html; charset=utf-8" %>
-<title><%=property.SiteProperty.COMPANY_NAME %></title>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<meta name="description" content="페이지설명">
-<meta name="keywords" content="검색키워드등록">
-<meta name="classification" content="검색사이트 카테고리 등록">
-<link href="<%=request.getContextPath()%>/manage/css/basic.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/manage/css/layout.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/manage/css/board.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/manage/css/manage.css" rel="stylesheet" type="text/css" />
-<link href="<%=request.getContextPath()%>/css/colorPicker.css" rel="stylesheet" type="text/css" />
-
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/function.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/menu.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/calendar_beans_v2.0.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.8.0.min.js"></script>
-<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> -->
-<script type="text/javascript" src="<%=request.getContextPath()%>/js/function_jquery.js"></script>
-
-<script type="text/javascript" src="<%=request.getContextPath()%>/smarteditor/js/HuskyEZCreator.js"></script>
-=======
   <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
   <!-- header html -->
     <div id="header">
@@ -66,15 +44,15 @@
             <div class="join-box">
                 <div class="join-head">
                     <p>Join</p>
-                    <img src="icon/footer-icon.png">
+                    <img src="/icon/footer-icon.png">
                 </div>
                 <div class="join-page">
                     <div class="join-back-arrow">
-                        <a href="#"><img src="icon/backarrow.png">
+                        <a href="#"><img src="/icon/backarrow.png">
                         <P>뒤로가기</P></a>
                     </div>
                     <h1 class="join-logo">
-                        <a href="#"><img src="icon/logo_lightgreen.png"></a>
+                        <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                     </h1>
                     <form class="join-form" method="GET" action="text.php">
                         <div class="email_box">
@@ -142,11 +120,11 @@
             <!-- gnb & sub menu -->
             <ul class="gnb clear">
                 <li>
-                    <a href="sub1-1.html">병원소개</a>
+                    <a href="/intro/intro-hi.do">병원소개</a>
                     <ul class="header-sub">
-                        <li><a href="sub1-1.html">인사말</a></li>
-                        <li><a href="sub1-2.html">의료진소개</a></li>
-                        <li><a href="sub1-3.html">오시는길</a></li>
+                        <li><a href="/intro/intro-hi.do">인사말</a></li>
+                        <li><a href="/intro/intro-staff.do">의료진소개</a></li>
+                        <li><a href="/intro/intro-map.do">오시는길</a></li>
                     </ul>
                 </li>
                 <li>
@@ -159,9 +137,9 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="sub3-1.html">예약</a>
+                    <a href="/reservation/index.do">예약</a>
                     <ul class="header-sub">
-                        <li><a href="sub3-1.html">진료예약</a></li>
+                        <li><a href="/reservation/index.do">진료예약</a></li>
                     </ul>
                 </li>
                 <li>
@@ -180,12 +158,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="sub6-1.html">마이페이지</a>
+                    <a href="/my/my-infor.do">마이페이지</a>
                     <ul class="header-sub">
-                        <li><a href="sub6-1.html">나의정보</a></li>
-                        <li><a href="sub6-2.html">나의반려동물</a></li>
-                        <li><a href="sub6-3.html">예약확인</a></li>
-                        <li><a href="sub6-4.html">문의내역</a></li>
+                        <li><a href="/my/my-infor.do">나의정보</a></li>
+                        <li><a href="/my/my-pet.do">나의반려동물</a></li>
+                        <li><a href="/my/my-res.do">예약확인</a></li>
+                        <li><a href="/my/my-ask.do">문의내역</a></li>
                     </ul>
                 </li>
             </ul>
@@ -273,4 +251,3 @@
             </div>
         </div>
     </div> 
->>>>>>> branch 'master' of https://github.com/mingu-seo/java190412.git

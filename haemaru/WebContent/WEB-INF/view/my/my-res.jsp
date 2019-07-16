@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/sub6-3.css">
     <link rel="stylesheet" href="/css/footer.css">
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
 </head>
 <body>
     <!-- header html -->
@@ -119,17 +119,17 @@
                 </div>
             </div>
         </div>
-        <h1 class="header-logo"><a href="index.jsp"><img src="/icon/logo_lightgreen.png"></a></h1>
+        <h1 class="header-logo"><a href="/index.do"><img src="/icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">
             <!-- gnb & sub menu -->
             <ul class="gnb clear">
                 <li>
-                    <a href="intro-hi.jsp">병원소개</a>
+                    <a href="/intro/intro-hi.do">병원소개</a>
                     <ul class="header-sub">
-                        <li><a href="intro-hi.jsp">인사말</a></li>
-                        <li><a href="intro-staff.jsp">의료진소개</a></li>
-                        <li><a href="intro-map.jsp">오시는길</a></li>
+                        <li><a href="/intro/intro-hi.do">인사말</a></li>
+                        <li><a href="/intro/intro-staff.do">의료진소개</a></li>
+                        <li><a href="/intro/intro-map.do">오시는길</a></li>
                     </ul>
                 </li>
                 <li>
@@ -163,12 +163,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="my-infor.jsp">마이페이지</a>
+                    <a href="/my/my-infor.do">마이페이지</a>
                     <ul class="header-sub">
-                        <li><a href="my-infor.jsp">나의정보</a></li>
-                        <li><a href="my-pet.jsp">나의반려동물</a></li>
-                        <li><a href="my-res.jsp">예약확인</a></li>
-                        <li><a href="my-ask.jsp">문의내역</a></li>
+                        <li><a href="/my/my-infor.do">나의정보</a></li>
+                        <li><a href="/my/my-pet.do">나의반려동물</a></li>
+                        <li><a href="/my/my-res.do">예약확인</a></li>
+                        <li><a href="/my/my-ask.do">문의내역</a></li>
                     </ul>
                 </li>
             </ul>
@@ -268,7 +268,7 @@
                     <img src="/icon/footer-icon.png">
                 </div>
                 <div class="re-cancel2-page-text">
-                    <img src="img/con2-4.png">
+                    <img src="/img/con2-4.png">
                     <h2>Reservation</h2>
                     <p>2019년 06월 20일 오전 10:00분<br/><span>남정우 </span>님의 예약을 취소하시겠습니까?</p>
                 </div>
@@ -284,7 +284,7 @@
                     <img src="/icon/footer-icon.png">
                 </div>
                 <div class="re-cancel-page-text">
-                    <img src="img/con2-4.png">
+                    <img src="/img/con2-4.png">
                     <h2>Reservation</h2>
                     <p>2019년 06월 21일 13:18분<br/><span>남정우 </span>님의 예약이 취소 되었습니다.</p>
                 </div>
