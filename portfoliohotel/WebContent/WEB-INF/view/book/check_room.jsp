@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,15 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../css/jquery-ui.css">
-    <link rel="stylesheet" href="../css/header-fixed.css">
-    <link rel="stylesheet" href="../css/check_room.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="../js/jquery-ui.js"></script>
-    <script type="text/javascript" src="../js/datepicker.js"></script>
-    <script type="text/javascript" src="../js/gnb.js"></script>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/header-fixed.css">
+    <link rel="stylesheet" href="/css/check_room.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/js/datepicker.js"></script>
+    <script type="text/javascript" src="/js/gnb.js"></script>
     <title>객실검색</title>
 </head>
 <body>
