@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,18 +7,18 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../css/slick.css">
-        <link rel="stylesheet" href="../css/slick-theme.css">
-        <link rel="stylesheet" href="../css/aos.css">
-        <link rel="stylesheet" href="../css/default.css">
-        <link rel="stylesheet" href="../css/header.css">
-        <link rel="stylesheet" href="../css/granum-dining.css">
-        <link rel="stylesheet" href="../css/footer.css">
-        <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
-        <script type="text/javascript" src="../js/gnb.js"></script>
-        <script type="text/javascript" src="../js/slick.js"></script>
-        <script type="text/javascript" src="../js/slick-slide.js"></script>
-        <script type="text/javascript" src="../js/aos.js"></script>
+        <link rel="stylesheet" href="/css/slick.css">
+        <link rel="stylesheet" href="/css/slick-theme.css">
+        <link rel="stylesheet" href="/css/aos.css">
+        <link rel="stylesheet" href="/css/default.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/granum-dining.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+        <script type="text/javascript" src="/js/gnb.js"></script>
+        <script type="text/javascript" src="/js/slick.js"></script>
+        <script type="text/javascript" src="/js/slick-slide.js"></script>
+        <script type="text/javascript" src="/js/aos.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
             
@@ -27,10 +28,8 @@
                  //마우스 휠 플러그인 사용구문
  
                 //delta 라는 변수는 마우스 휠 올리고 내렸을때 휠 감도 알아내는 변수
-
                 $("#container > div").mousewheel(function(event,delta){    
                         event.preventDefault();    
-
                         //마우스 휠을 올렸을때	
                         if (delta > 0) {  
                             var prev = $(this).prev().offset().top; // 휠을 걸어준 대상 다음구역의 시작하는 위치값 변수
@@ -78,7 +77,7 @@
                                             <h2>Dining</h2>
                                             <ul class="Dining">
                                                 <li><a href="#">The Festa</a></li>
-                                                <li><a href="#">Granum Dining Lounge</a></li>
+                                                <li><a href="granum-dining.do">Granum Dining Lounge</a></li>
                                                 <li><a href="#">Moon Bar</a></li>
                                                 <li><a href="#">The Oasis Outdoor Kitchen</a></li>
                                             </ul>

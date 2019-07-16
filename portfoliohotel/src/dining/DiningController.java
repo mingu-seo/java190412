@@ -14,6 +14,22 @@ public class DiningController {
 		
 		return "dining/thefesta";
 	}
+	
+	@RequestMapping("/dining/granum-dining.do")
+	public String granum_dining(Model model, AdminVO param) throws Exception {
+		
+		return "dining/granum-dining";
+	}
+	@RequestMapping("/dining/moon-bar.do")
+	public String moon_bar(Model model, AdminVO param) throws Exception {
+		
+		return "dining/moon-bar";
+	}
+	@RequestMapping("/dining/outdoor-kitchen.do")
+	public String outdoor_kitchen(Model model, AdminVO param) throws Exception {
+		
+		return "dining/outdoor-kitchen";
+	}
 }
 	
 	
