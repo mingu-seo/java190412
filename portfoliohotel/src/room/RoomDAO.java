@@ -13,8 +13,8 @@ public class RoomDAO extends SqlMapClientDAOSupport {
 	
 	/**
 	 * 목록 조회
-	 * @author 현수
-	 * @param ArrayList
+	 * @param vo
+	 * @return ArrayList
 	 * @throws SQLException
 	 */
 	public ArrayList list(RoomVO vo) throws SQLException {

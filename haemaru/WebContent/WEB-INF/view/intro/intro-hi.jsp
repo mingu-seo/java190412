@@ -124,17 +124,17 @@
                 </div>
             </div>
         </div>
-        <h1 class="header-logo"><a href="index.html"><img src="/icon/logo_lightgreen.png"></a></h1>
+        <h1 class="header-logo"><a href="index.do"><img src="/icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">
             <!-- gnb & sub menu -->
             <ul class="gnb clear">
                 <li>
-                    <a href="intro-hi.jsp">병원소개</a>
+                    <a href="intro/intro-hi.do">병원소개</a>
                     <ul class="header-sub">
-                        <li><a href="intro-hi.jsp">인사말</a></li>
-                        <li><a href="intro-staff.jsp">의료진소개</a></li>
-                        <li><a href="intro-map.jsp">오시는길</a></li>
+                        <li><a href="intro/intro-hi.do">인사말</a></li>
+                        <li><a href="intro/intro-staff.do">의료진소개</a></li>
+                        <li><a href="intro/intro-map.do">오시는길</a></li>
                     </ul>
                 </li>
                 <li>
@@ -168,12 +168,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="my-infor.jsp">마이페이지</a>
+                    <a href="my/my-infor.do">마이페이지</a>
                     <ul class="header-sub">
-                        <li><a href="my-infor.jsp">나의정보</a></li>
-                        <li><a href="my-pet.jsp">나의반려동물</a></li>
-                        <li><a href="my-res.jsp">예약확인</a></li>
-                        <li><a href="my-ask.jsp">문의내역</a></li>
+                        <li><a href="my/my-infor.do">나의정보</a></li>
+                        <li><a href="my/my-pet.do">나의반려동물</a></li>
+                        <li><a href="my/my-res.do">예약확인</a></li>
+                        <li><a href="my/my-ask.do">문의내역</a></li>
                     </ul>
                 </li>
             </ul>
@@ -273,9 +273,9 @@
                     <p>Information</p>
                 </div>
                 <ul class="sub-bar">
-                    <li class="on"><a href="intro-hi.jsp">인사말</a></li>
-                    <li><a href="intro-staff.jsp">의료진소개</a></li>
-                    <li><a href="intro-map.jsp">오시는길</a></li>
+                    <li class="on"><a href="intro/intro-hi.do">인사말</a></li>
+                    <li><a href="intro/intro-staff.do">의료진소개</a></li>
+                    <li><a href="intro/intro-map.do">오시는길</a></li>
                 </ul>
             </div>
             <!-- main 부분 (여기다가 하면 됨) -->
