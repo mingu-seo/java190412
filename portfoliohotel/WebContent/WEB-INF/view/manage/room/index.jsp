@@ -1,13 +1,11 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-<%@ page import="board.notice.*" %>
+<%@ page import="room.*" %>
 <%@ page import="property.SiteProperty" %>
 <%@ page import="util.*" %>
 <%@ page import="java.util.*" %>
 <%
-NoticeVO param = (NoticeVO)request.getAttribute("vo");
-ArrayList<NoticeVO> list = (ArrayList)request.getAttribute("list");
-int totCount = (Integer)request.getAttribute("totCount");
-int totPage = (Integer)request.getAttribute("totPage");
+ArrayList<RoomVO> list = (ArrayList)request.getAttribute("list");
+RoomVO param = (RoomVO)request.getAttribute("vo");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -36,8 +34,9 @@ function goSearch() {
 }
 
 </script>
+<title>관리자 객실 목록</title>
 </head>
-<body> 
+<body>
 <%@ include file="/WEB-INF/view/manage/include/common.jsp" %>
 <div id="wrap">
 	<!-- canvas -->
@@ -50,66 +49,58 @@ function goSearch() {
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>공지사항 - [목록]</h2>
+					<h2>객실 관리 - [목록]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="blist">
-							<p><span><strong>총 <%=totCount%>개</strong>  |  <%=param.getReqPageNo()%>/<%=totPage%>페이지</span></p>
 							<form name="frm" id="frm" action="process.do" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
 								<colgroup>
-									<col class="w4"/>
-									<col class="w20" />
-									<col class="w10" />
+									<col class="w3" />
 									<col class="w4" />
+									<col class="" />
+									<col class="w6" />
+									<col class="w5" />
 								</colgroup>
 								<thead>
 									<tr>
 										<th scope="col" class="first"><input type="checkbox" name="allChk" id="allChk" onClick="check(this, document.frm.no)"/></th>
-										<th scope="col">내용</th>
-										<th scope="col">등록일</th> 
+										<th scope="col">번호</th>
+										<th scope="col">객실명</th> 
+										<th scope="col">가격</th>
+										<th scope="col">객실수량</th>										 
 										<th scope="col" class="last">삭제</th>
 									</tr>
 								</thead>
 								<tbody>
-								<%
-									if (totCount == 0) {
-								%>
+									<%
+									String targetUrl = "";
+									String topClass = "";
+									RoomVO data;
+									
+									for (int i=0; i<list.size(); i++) {
+										data = list.get(i);
+										targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("edit", param, data.getNo())+"'\"";	
+									%>
 									<tr>
-										<td class="first" colspan="8">등록된 글이 없습니다.</td>
-									</tr>
-								<%
-									} else {
-																String targetUrl = "";
-																String topClass = "";
-																NoticeVO data;
-																for (int i=0; i<list.size(); i++) {
-																	data = list.get(i);
-																	targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("edit", param, data.getNo())+"'\"";
-								%>
-									<tr <%=topClass%>>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
-										<td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td>
-										<td <%=targetUrl%> class="title">
-											<%=data.getTitle()%>
-										</td>
-										<td <%=targetUrl%>><%=CodeUtil.getDisplayName(data.getDisplay())%></td>
-										<%-- <td <%=targetUrl%>><%=DateUtil.getDateFormat(data.getRegdate())%></td> --%>
-										<td <%=targetUrl%>><%=data.getReadno()%></td>
+										<td><%=data.getNo()%></td>
+										<td><%=data.getName()%></td>
+										<td><%=data.getPrice()%></td>
+										<td><%=data.getCount()%></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
 								<%
 										}
-									 }
 								%>
 								</tbody>
 							</table>
 								<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
-								<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
-								<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
+								<%-- <input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
+								<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/> --%>
 							</form>
 							<div class="btn">
 								<div class="btnLeft">
@@ -120,10 +111,7 @@ function goSearch() {
 								</div>
 							</div>
 							<!--//btn-->
-							<!-- 페이징 처리 -->
-							<%--<%=Page.indexList(param.getReqPageNo(), totPage, request)%>
-							<!-- //페이징 처리 -->
-							<form name="searchForm" id="searchForm" action="index" method="post">
+							<%-- <form name="searchForm" id="searchForm" action="index" method="post">
 								<div class="search">
 									<select name="sdisplay" onchange="$('#searchForm').submit();">
 										<option value="-1" <%=Function.getSelected(param.getSdisplay(), -1)%>>전체</option>
@@ -139,8 +127,8 @@ function goSearch() {
 									<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />
 									<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />
 								</div>
-							</form> --%>
-							<!-- //search --> 
+							</form>
+							<!-- //search -->  --%>
 						</div>
 						<!-- //blist -->
 					</div>
