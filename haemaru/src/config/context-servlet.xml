@@ -11,6 +11,8 @@
 	<context:component-scan base-package="manage" />
 	<context:component-scan base-package="board" />
 	<context:component-scan base-package="main" />
+	<context:component-scan base-package="pet" />
+	<context:component-scan base-package="member" />
 	<context:component-scan base-package="reservation" />
 	
 	<mvc:annotation-driven/>
@@ -34,8 +36,6 @@
  	<mvc:view-controller path="/intro/intro-map.do"/>
  	<mvc:default-servlet-handler/>
  	
- 	<mvc:view-controller path="/my/my-infor.do"/>
- 	<mvc:default-servlet-handler/>
  	<mvc:view-controller path="/my/my-pet.do"/>
  	<mvc:default-servlet-handler/>
  	<mvc:view-controller path="/my/my-res.do"/>
