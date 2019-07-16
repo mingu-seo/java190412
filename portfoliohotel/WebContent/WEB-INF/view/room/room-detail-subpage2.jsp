@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/slick.css">
-    <link rel="stylesheet" href="../css/slick-theme.css">
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../css/header-fixed.css">
-    <link rel="stylesheet" href="../css/room-detail-subpage2.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="../js/gnb.js"></script>
-    <script type="text/javascript" src="../js/slick.js"></script>
-    <script type="text/javascript" src="../js/slick-slide.js"></script>
+    <link rel="stylesheet" href="/css/slick.css">
+    <link rel="stylesheet" href="/css/slick-theme.css">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/header-fixed.css">
+    <link rel="stylesheet" href="/css/room-detail-subpage2.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="/js/gnb.js"></script>
+    <script type="text/javascript" src="/js/slick.js"></script>
+    <script type="text/javascript" src="/js/slick-slide.js"></script>
     <title>호텔객실2</title>
 </head>
 <body>
@@ -104,7 +104,7 @@
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
-                                                        반얀트리 공지사항과<br/>
+                                                        호텔 공지사항과<br/>
                                                         놓칠 수 없는 이벤트 정보를 알려드립니다.
                                                     </li>
                                                     <li class="support-icon"><img src="../img/notice-icon.png"></li>
@@ -116,7 +116,7 @@
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">
-                                                        반얀트리에 대한<br/>
+                                                        호텔에 대한<br/>
                                                         자주 묻는 질문입니다.
                                                     </li>
                                                     <li class="support-icon"><img src="../img/faq-icon.png"></li>
@@ -128,7 +128,7 @@
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">
-                                                        반얀트리에 관한질문 사항이나 궁금한 점을<br/> 
+                                                        호텔에 관한질문 사항이나 궁금한 점을<br/> 
                                                         남겨 주시면 신속하게 답변을 드리겠습니다.
                                                     </li>
                                                     <li class="support-icon"><img src="../img/qna-icon.png"></li>
