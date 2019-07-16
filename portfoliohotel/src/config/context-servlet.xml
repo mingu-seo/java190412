@@ -12,6 +12,8 @@
 	<context:component-scan base-package="board" />
 	<context:component-scan base-package="main" />
 	<context:component-scan base-package="room" />
+	<context:component-scan base-package="dining" />
+	
 	
 	<mvc:annotation-driven/>
 <!-- 
