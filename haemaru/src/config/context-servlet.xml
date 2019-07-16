@@ -30,6 +30,7 @@
  	
  	<mvc:view-resolvers>
  	    <mvc:jsp prefix="/WEB-INF/view/"/>
+ 	    <mvc:jsp prefix="/WEB-INF/view/intro-hi.jsp"/>
  	</mvc:view-resolvers>
 
  	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
