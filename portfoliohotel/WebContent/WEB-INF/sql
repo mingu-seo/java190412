@@ -102,3 +102,93 @@ CREATE TABLE `room_service` (
   `room_pk` int(11) DEFAULT NULL,
   PRIMARY KEY (`no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `dining` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `startdate` char(10) DEFAULT NULL,
+  `enddate` char(10) DEFAULT NULL,
+  `book_period` int(11) DEFAULT NULL,
+  `inclusion` text,
+  `info` text,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `dining_res` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `member_pk` int(11) DEFAULT NULL,
+  `dining_pk` int(11) DEFAULT NULL,
+  `d_day` char(10) DEFAULT NULL,
+  `d_time` int(11) DEFAULT NULL,
+  `adult` int(11) DEFAULT NULL,
+  `kid` int(11) DEFAULT NULL,
+  `guest_kname` varchar(45) DEFAULT NULL,
+  `guest_ename` varchar(45) DEFAULT NULL,
+  `guest_tel` int(11) DEFAULT NULL,
+  `guest_email` varchar(45) DEFAULT NULL,
+  `regdate` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `faq` (
+  `no` int(11) NOT NULL,
+  `title` varchar(45) DEFAULT NULL,
+  `content` varchar(45) DEFAULT NULL,
+  `display` int(11) DEFAULT NULL,
+  `category` int(11) DEFAULT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `notice` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `title` varchar(45) DEFAULT NULL,
+  `content` text,
+  `regdate` timestamp NULL DEFAULT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `file_org` varchar(255) DEFAULT NULL,
+  `display` int(11) DEFAULT NULL,
+  `top` int(11) DEFAULT NULL,
+  `readno` int(11) DEFAULT NULL,
+  `member` int(11) DEFAULT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `qna` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `category` int(11) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `tel` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  `member_pk` int(11) DEFAULT NULL,
+  `title` varchar(45) DEFAULT NULL,
+  `contents` varchar(45) DEFAULT NULL,
+  `regdate` timestamp NULL DEFAULT NULL,
+  `file` varchar(45) DEFAULT NULL,
+  `file_org` varchar(45) DEFAULT NULL,
+  `open` int(11) DEFAULT NULL,
+  `reply` int(11) DEFAULT NULL,
+  `reply_title` varchar(45) DEFAULT NULL,
+  `reply_contents` text,
+  `reply_regdate` timestamp NULL DEFAULT NULL,
+  `semd_email` int(11) DEFAULT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `room_opt_res` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `room_res_pk` int(11) DEFAULT NULL,
+  `option_pk` int(11) DEFAULT NULL,
+  `count` int(11) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `total_price` int(11) DEFAULT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
