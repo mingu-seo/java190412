@@ -104,7 +104,7 @@
         </div>
         <!-- Right Fix -->
 
-        <h1 class="header-logo"><a href="index.html"><img src="icon/logo_lightgreen.png"></a></h1>
+        <h1 class="header-logo"><a href="/index.do"><img src="icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">
             <!-- gnb & sub menu -->
@@ -148,12 +148,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="sub6-1.html">마이페이지</a>
+                    <a href="/my/my-infor.do">마이페이지</a>
                     <ul class="header-sub">
-                        <li><a href="sub6-1.html">나의정보</a></li>
-                        <li><a href="sub6-2.html">나의반려동물</a></li>
-                        <li><a href="sub6-3.html">예약확인</a></li>
-                        <li><a href="sub6-4.html">문의내역</a></li>
+                        <li><a href="/my/my-infor.do">나의정보</a></li>
+                        <li><a href="/my/my-pet.do">나의반려동물</a></li>
+                        <li><a href="/my/my-res.do">예약확인</a></li>
+                        <li><a href="/my/my-ask.do">문의내역</a></li>
                     </ul>
                 </li>
             </ul>

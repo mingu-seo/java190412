@@ -7,15 +7,15 @@
                     <div class="login-center">
                         <div class="head-box clear">
                             <p>Login</p>
-                            <img src="icon/footer-icon.png">
+                            <img src="/icon/footer-icon.png">
                         </div>
                         <div class="login-page">
                             <div class="back-arrow">
-                                <a href="#"><img src="icon/backarrow.png">
+                                <a href="#"><img src="/icon/backarrow.png">
                                 <P>뒤로가기</P></a>
                             </div>
                             <h1 class="login-logo">
-                                <a href="#"><img src="icon/logo_lightgreen.png"></a>
+                                <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                             </h1>
                             <form class="login-form" method="GET" action="test.php">
                                 <div class="login-email">
@@ -44,15 +44,15 @@
             <div class="join-box">
                 <div class="join-head">
                     <p>Join</p>
-                    <img src="icon/footer-icon.png">
+                    <img src="/icon/footer-icon.png">
                 </div>
                 <div class="join-page">
                     <div class="join-back-arrow">
-                        <a href="#"><img src="icon/backarrow.png">
+                        <a href="#"><img src="/icon/backarrow.png">
                         <P>뒤로가기</P></a>
                     </div>
                     <h1 class="join-logo">
-                        <a href="#"><img src="icon/logo_lightgreen.png"></a>
+                        <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                     </h1>
                     <form class="join-form" method="GET" action="text.php">
                         <div class="email_box">
@@ -114,17 +114,17 @@
             </ul>
             <!-- <div class="fix-menu-text">오시는 길</div> -->
         </div>
-        <h1 class="header-logo"><a href="index.html"><img src="icon/logo_lightgreen.png"></a></h1>
+        <h1 class="header-logo"><a href="/index.do"><img src="/icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">
             <!-- gnb & sub menu -->
             <ul class="gnb clear">
                 <li>
-                    <a href="sub1-1.html">병원소개</a>
+                    <a href="/intro/intro-hi.do">병원소개</a>
                     <ul class="header-sub">
-                        <li><a href="sub1-1.html">인사말</a></li>
-                        <li><a href="sub1-2.html">의료진소개</a></li>
-                        <li><a href="sub1-3.html">오시는길</a></li>
+                        <li><a href="/intro/intro-hi.do">인사말</a></li>
+                        <li><a href="/intro/intro-staff.do">의료진소개</a></li>
+                        <li><a href="/intro/intro-map.do">오시는길</a></li>
                     </ul>
                 </li>
                 <li>
@@ -158,12 +158,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="sub6-1.html">마이페이지</a>
+                    <a href="/my/my-infor.do">마이페이지</a>
                     <ul class="header-sub">
-                        <li><a href="sub6-1.html">나의정보</a></li>
-                        <li><a href="sub6-2.html">나의반려동물</a></li>
-                        <li><a href="sub6-3.html">예약확인</a></li>
-                        <li><a href="sub6-4.html">문의내역</a></li>
+                        <li><a href="/my/my-infor.do">나의정보</a></li>
+                        <li><a href="/my/my-pet.do">나의반려동물</a></li>
+                        <li><a href="/my/my-res.do">예약확인</a></li>
+                        <li><a href="/my/my-ask.do">문의내역</a></li>
                     </ul>
                 </li>
             </ul>
@@ -182,15 +182,15 @@
         <div id="pass-lost">
             <div class="pass-head">
                 <p>Find</p>
-                <img src="icon/footer-icon.png">
+                <img src="/icon/footer-icon.png">
             </div>
             <div class="pass-page">
                 <div class="pass-back-arrow">
-                    <a href="#"><img src="icon/backarrow.png">
+                    <a href="#"><img src="/icon/backarrow.png">
                     <P>뒤로가기</P></a>
                 </div>
                 <h1 class="pass-logo">
-                    <a href="#"><img src="icon/logo_lightgreen.png"></a>
+                    <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                 </h1>
                 <form class="pass-form" method="GET" action="text.php">
                     <div class="email-pass-box">
@@ -223,15 +223,15 @@
         <div id="pass-chk">
             <div class="pass-chk-head">
                 <p>Find</p>
-                <img src="icon/footer-icon.png">
+                <img src="/icon/footer-icon.png">
             </div>
             <div class="pass-chk-page">
                 <div class="pass-chk-back-arrow">
-                    <a href="#"><img src="icon/backarrow.png">
+                    <a href="#"><img src="/icon/backarrow.png">
                     <P>뒤로가기</P></a>
                 </div>
                 <h1 class="pass-chk-logo">
-                    <a href="#"><img src="icon/logo_lightgreen.png"></a>
+                    <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                 </h1>
                 <form class="pass-chk-form" method="GET" action="text.php">
                     <div class="email-pass-chk-box">
