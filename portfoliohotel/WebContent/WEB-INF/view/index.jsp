@@ -215,7 +215,7 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="membership/sign_in.html">Sign in</a>
+                <a href="/membership/sign_in.do">Sign in</a>
             </div>
         </div>
     </div>

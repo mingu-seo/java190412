@@ -13,6 +13,8 @@
 	<context:component-scan base-package="main" />
 	<context:component-scan base-package="room" />
 	<context:component-scan base-package="dining" />
+	<context:component-scan base-package="membership" />
+
 	
 	
 	<mvc:annotation-driven/>

@@ -2,6 +2,7 @@ package board.notice;
 
 import java.sql.Timestamp;
 
+
 import util.Parameter;
 
 public class NoticeVO extends Parameter {
