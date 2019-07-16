@@ -158,12 +158,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="/my/my-infor.do">마이페이지</a>
+                    <a href="sub6-1.html">마이페이지</a>
                     <ul class="header-sub">
-                        <li><a href="/my/my-infor.do">나의정보</a></li>
-                        <li><a href="/my/my-pet.do">나의반려동물</a></li>
-                        <li><a href="/my/my-res.do">예약확인</a></li>
-                        <li><a href="/my/my-ask.do">문의내역</a></li>
+                        <li><a href="sub6-1.html">나의정보</a></li>
+                        <li><a href="sub6-2.html">나의반려동물</a></li>
+                        <li><a href="sub6-3.html">예약확인</a></li>
+                        <li><a href="sub6-4.html">문의내역</a></li>
                     </ul>
                 </li>
             </ul>
