@@ -1,3 +1,7 @@
+db : localhost:3306/portfoliohotel 
+id : hotel 
+pw : hotel1234
+
 CREATE TABLE `member` (
   `no` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(45) DEFAULT NULL,
@@ -104,6 +108,18 @@ CREATE TABLE `room_service` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+CREATE TABLE `room_opt_res` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `room_res_pk` int(11) DEFAULT NULL,
+  `option_pk` int(11) DEFAULT NULL,
+  `count` int(11) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `total_price` int(11) DEFAULT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 CREATE TABLE `dining` (
   `no` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
@@ -181,14 +197,3 @@ CREATE TABLE `qna` (
   PRIMARY KEY (`no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-CREATE TABLE `room_opt_res` (
-  `no` int(11) NOT NULL AUTO_INCREMENT,
-  `room_res_pk` int(11) DEFAULT NULL,
-  `option_pk` int(11) DEFAULT NULL,
-  `count` int(11) DEFAULT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
-  `total_price` int(11) DEFAULT NULL,
-  PRIMARY KEY (`no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
