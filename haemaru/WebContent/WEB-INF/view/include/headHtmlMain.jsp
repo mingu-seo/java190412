@@ -1,60 +1,43 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>오시는길</title>
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Poppins&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700|Roboto:400,500,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/sub1-3.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script>
-</head>
-<body>
-    <!-- header html -->
+  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+  <!-- header html -->
     <div id="header">
-        <div id="login-wrap"><!--화면 끄는 코드--></div>
         <!-- 로그인 -->
+        <div id="login-wrap"><!--화면 끄는 코드--></div>
         <div id="login">
-                <div class="login-center">
-                    <div class="head-box clear">
-                        <p>Login</p>
-                        <img src="icon/footer-icon.png">
-                    </div>
-                    <div class="login-page">
-                        <div class="back-arrow">
-                            <a href="#"><img src="icon/backarrow.png">
-                            <P>뒤로가기</P></a>
+                    <div class="login-center">
+                        <div class="head-box clear">
+                            <p>Login</p>
+                            <img src="icon/footer-icon.png">
                         </div>
-                        <h1 class="login-logo">
-                            <a href="#"><img src="icon/logo_lightgreen.png"></a>
-                        </h1>
-                        <form class="login-form" method="GET" action="test.php">
-                            <div class="login-email">
-                                <input type="text" maxlength="20" id="email_input" name="email_input" placeholder="E-Mail">
+                        <div class="login-page">
+                            <div class="back-arrow">
+                                <a href="#"><img src="icon/backarrow.png">
+                                <P>뒤로가기</P></a>
                             </div>
-                            <div class="login-password">
-                                <input type="password" maxlength="12" id="id_pass" name="id_pass" placeholder="Password">
-                            </div>
-                            <div class="login-btn">
-                                <input type="submit" value="LOGIN"  id="btn_submit1">
-                            </div>
-                            <ul class="login-sub-btn clear">
-                                <li><a href="#">비밀번호 찿기</a></li>
-                                <li><a href="#">회원가입</a></li>
+                            <h1 class="login-logo">
+                                <a href="#"><img src="icon/logo_lightgreen.png"></a>
+                            </h1>
+                            <form class="login-form" method="GET" action="test.php">
+                                <div class="login-email">
+                                    <input type="text" maxlength="20" id="email_input" name="email_input" placeholder="E-Mail">
+                                </div>
+                                <div class="login-password">
+                                    <input type="password" maxlength="12" id="id_pass" name="id_pass" placeholder="Password">
+                                </div>
+                                <div class="login-btn">
+                                    <input type="submit" value="LOGIN"  id="btn_submit1">
+                                </div>
+                                <ul class="login-sub-btn clear">
+                                    <li><a href="#">비밀번호 찿기</a></li>
+                                    <li><a href="#">회원가입</a></li>
+                                </ul>
+                            </form>
+                            <ul class="login-bot clear">
+                                <li><a href="#">개인정보처리방침</a></li>
+                                <li><a href="#">이메일무단수집거부</a></li>
                             </ul>
-                        </form>
-                        <ul class="login-bot clear">
-                            <li><a href="#">개인정보처리방침</a></li>
-                            <li><a href="#">이메일무단수집거부</a></li>
-                        </ul>
+                        </div>
                     </div>
-                </div>
         </div>
         <!-- 회원가입 -->
         <div id="join-area">
@@ -76,9 +59,9 @@
                             <span><label for="id_input" class="label">이메일</label></span>
                             <input type="text" maxlength="20" id="id_input" name="id_input" class="half-size">
                             <select class="emial-select">
-                                <option>naver.com</option>
-                                <option>daum.net</option>
-                                <option>gmail.com</option>
+                                <option>@ naver.com</option>
+                                <option>@ daum.net</option>
+                                <option>@ gmail.com</option>
                             </select>
                         </div>
                         <div class="pass_box">
@@ -119,6 +102,18 @@
                 </div>
             </div>
         </div>
+        <!-- Right Fix -->
+        <div class="fix-menu-box">
+            <ul class="fix-menu">
+                <li class="os"><a href="#"></a></li>
+                <li><a href="#">병원소개</a></li>
+                <li><a href="#">진료과목</a></li>
+                <li><a href="#">입양후기</a></li>
+                <li><a href="#">입양프로필</a></li>
+                <!-- <li class="oq"><a href="#">오시는길</a></li> -->
+            </ul>
+            <!-- <div class="fix-menu-text">오시는 길</div> -->
+        </div>
         <h1 class="header-logo"><a href="index.html"><img src="icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">
@@ -142,9 +137,9 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="sub3-1.html">예약</a>
+                    <a href="/reservation/index.do">예약</a>
                     <ul class="header-sub">
-                        <li><a href="sub3-1.html">진료예약</a></li>
+                        <li><a href="/reservation/index.do">진료예약</a></li>
                     </ul>
                 </li>
                 <li>
@@ -256,104 +251,3 @@
             </div>
         </div>
     </div> 
-    <div id="container">
-        <!-- con1 : 배너 사진 부분-->
-        <div class="con1"></div>
-        <!-- con2 : 메인 부분 -->
-        <div class="con2">
-            <!-- sub bar 부분 (고정) -->
-            <div class="fixed-sub">
-                <div class="title-area">
-                    <h2>병원소개</h2>
-                    <p>Information</p>
-                </div>
-                <ul class="sub-bar">
-                    <li ><a href="sub1-1.html">인사말</a></li>
-                    <li><a href="sub1-2.html">의료진소개</a></li>
-                    <li class="on"><a href="sub1-3.html">오시는길</a></li>
-                </ul>
-            </div>
-            <!-- main 부분 (여기다가 하면 됨) -->
-            <div class="main">
-                <h3>오시는 길</h3>
-                <p>Direction</p>
-                <img src="img/map.jpg">
-                <div class="text">
-                    <div class="text1 clear">
-                        <div>
-                            <h4>주소</h4>
-                            <h5>Address</h5>
-                        </div>
-                        <div>
-                            <p>경기도 성남시 분당구 황새울로 319번길 수의과학회관 1~4층</p>
-                        </div>
-                    </div>
-                    <div class="text1 clear">
-                        <div>
-                            <h4>자가용</h4>
-                            <h5>Own Car</h5>
-                        </div>
-                        <div>
-                            <p>*승용차를 이용하시는 경우 본원 주차 안내원의 안내를 받으시길 바랍니다.</p>
-                        </div>
-                    </div>
-                    <div class="text1 clear">
-                        <div>
-                            <h4>버스</h4>
-                            <h5>Bus</h5>
-                        </div>
-                        <div>
-                            <p>분당 <span>"서현역"</span> 혹은 <span>"삼성플라자(재생병원)"</span> 에서 하차 → 분당 소방서 방향으로 도보 →<br/> 
-                                    롯데 마트 후방 흰색 건물 해마루가 위치</p>
-                        </div>
-                    </div>
-                    <div class="text1 clear">
-                        <div>
-                            <h4>지하철</h4>
-                            <h5>Subway</h5>
-                        </div>
-                        <div>
-                            <p><span>분당선 서현역</span>에서 내려 4번출구 → 삼성플라자 2번 게이트로 나와 직진 →<br/>
-                                    횡단보도를 건너 50미터 직진하다 좌측 골목 → 10미터 거리의 좌측에 해마루 위치</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- footer -->
-    <div id="footer">
-    <div class="footer-basic">
-        <div class="footer-center clear">
-            <div class="fot-left">
-                <h1 class="fot-logo"><a href="#"><img src="icon/logo_lightgreen.png"></a></h1>
-                <p>© 2016 HAEMARU Referral Animal Hospital All rights Reserved.</p>
-            </div>
-            <div class="fot-right clear">
-                <div class="right-1">
-                    <p>Address</p>
-                    <p>경기도 성남시 분당구 황새울로 319번길 수의과학회관 1~4층</p>
-                    <div class="fot-phone">
-                        <p>Tel.</p>
-                        <p> 031 ) 781 - 2992</p>
-                    </div>
-                    <div class="fot-fax">
-                        <p>Fax.</p>
-                        <p>031 ) 781 - 2993</p>
-                    </div>
-                </div>
-                <div class="right-2">
-                    <p>E-mail</p>
-                    <p>help@haemaru.co.kr</p>
-                    <ul class="fot-info clear">
-                        <li><a href="#">개인정보취급방침</a></li>
-                        <li><a href="#">이메일무단수집거부</a></li>
-                    </ul>
-                </div>
-            </div>
-            <img class="fot-icon" src="icon/footer-icon.png">
-        </div>
-    </div>
-    </div>
-</body>
-</html>
