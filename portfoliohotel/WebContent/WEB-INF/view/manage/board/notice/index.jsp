@@ -1,11 +1,11 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-<%@ page import="board.notice.*" %>
+<%@ page import="board.notice3.*" %>
 <%@ page import="property.SiteProperty" %>
 <%@ page import="util.*" %>
 <%@ page import="java.util.*" %>
 <%
-NoticeVO param = (NoticeVO)request.getAttribute("vo");
-ArrayList<NoticeVO> list = (ArrayList)request.getAttribute("list");
+	NoticeVO3 param = (NoticeVO3)request.getAttribute("vo");
+ArrayList<NoticeVO3> list = (ArrayList)request.getAttribute("list");
 int totCount = (Integer)request.getAttribute("totCount");
 int totPage = (Integer)request.getAttribute("totPage");
 %>
@@ -81,18 +81,20 @@ function goSearch() {
 									</tr>
 								</thead>
 								<tbody>
-								<% if (totCount == 0) { %>
+								<%
+									if (totCount == 0) {
+								%>
 									<tr>
 										<td class="first" colspan="8">등록된 글이 없습니다.</td>
 									</tr>
 								<%
-									 } else {
-										String targetUrl = "";
-										String topClass = "";
-										NoticeVO data;
-										for (int i=0; i<list.size(); i++) {
-											data = list.get(i);
-											targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("edit", param, data.getNo())+"'\"";
+									} else {
+																String targetUrl = "";
+																String topClass = "";
+																NoticeVO3 data;
+																for (int i=0; i<list.size(); i++) {
+																	data = list.get(i);
+																	targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("edit", param, data.getNo())+"'\"";
 								%>
 									<tr <%=topClass%>>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
