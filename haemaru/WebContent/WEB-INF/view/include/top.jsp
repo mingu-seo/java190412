@@ -3,11 +3,11 @@
             <!-- gnb & sub menu -->
             <ul class="gnb clear">
                 <li>
-                    <a href="sub1-1.do">병원소개</a>
+                    <a href="intro-hi.jsp">병원소개</a>
                     <ul class="header-sub">
-                        <li><a href="sub1-1.do">인사말</a></li>
-                        <li><a href="sub1-2.html">의료진소개</a></li>
-                        <li><a href="sub1-3.html">오시는길</a></li>
+                        <li><a href="intro-hi.jsp">인사말</a></li>
+                        <li><a href="intro-staff.jsp">의료진소개</a></li>
+                        <li><a href="intro-map.jsp">오시는길</a></li>
                     </ul>
                 </li>
                 <li>
@@ -41,12 +41,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="sub6-1.html">마이페이지</a>
+                    <a href="my-infor.jsp">마이페이지</a>
                     <ul class="header-sub">
-                        <li><a href="sub6-1.html">나의정보</a></li>
-                        <li><a href="sub6-2.html">나의반려동물</a></li>
-                        <li><a href="sub6-3.html">예약확인</a></li>
-                        <li><a href="sub6-4.html">문의내역</a></li>
+                        <li><a href="my-infor.jsp">나의정보</a></li>
+                        <li><a href="my-pet.jsp">나의반려동물</a></li>
+                        <li><a href="my-res.jsp">예약확인</a></li>
+                        <li><a href="my-ask.jsp">문의내역</a></li>
                     </ul>
                 </li>
             </ul>
