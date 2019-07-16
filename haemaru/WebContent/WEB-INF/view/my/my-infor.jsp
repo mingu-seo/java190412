@@ -120,7 +120,7 @@
                 </div>
             </div>
         </div>
-        <h1 class="header-logo"><a href="index.html"><img src="/icon/logo_lightgreen.png"></a></h1>
+        <h1 class="header-logo"><a href="index.jsp"><img src="/icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">
             <!-- gnb & sub menu -->

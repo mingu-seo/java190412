@@ -35,6 +35,7 @@
         <!-- 로그인 -->
         <div id="login-wrap"><!--화면 끄는 코드--></div>
         <div id="login">
+<<<<<<< HEAD
                     <div class="login-center">
                         <div class="head-box clear">
                             <p>Login</p>
@@ -69,10 +70,14 @@
                             </ul>
                         </div>
                     </div>
+=======
+        <%@ include file="/WEB-INF/view/manage/include/login.jsp" %>
+>>>>>>> branch 'master' of https://github.com/mingu-seo/java190412.git
         </div>
         <!-- 회원가입 -->
         <div id="join-area">
-            <div class="join-box">
+         <%@ include file="/WEB-INF/view/manage/include/application.jsp" %>
+           <!--  <div class="join-box">
                 <div class="join-head">
                     <p>Join</p>
                     <img src="/icon/footer-icon.png">
@@ -131,7 +136,7 @@
                         <li><a href="#">이메일무단수집거부</a></li>
                      </ul>
                 </div>
-            </div>
+            </div> -->
         </div>
         <!-- Right Fix -->
         <div class="fix-menu-box">
@@ -148,6 +153,7 @@
         <h1 class="header-logo"><a href="index.html"><img src="/icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">
+<<<<<<< HEAD
             <!-- gnb & sub menu -->
             <ul class="gnb clear">
                 <li>
@@ -199,6 +205,9 @@
                 </li>
             </ul>
             <!-- 끝 -->
+=======
+        <%@ include file="/WEB-INF/view/manage/include/top.jsp" %>
+>>>>>>> branch 'master' of https://github.com/mingu-seo/java190412.git
         </div>
         <!-- 로그인 메뉴들-->
         <ul class="login-box clear">
