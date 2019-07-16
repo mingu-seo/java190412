@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>영상의학과</title>
+    <title>문의하기</title>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700|Roboto:400,500,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/sub2-4.css">
-    <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/sub5-4.css">
+    <link rel="stylesheet" href="css/footer.css">
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
 </head>
@@ -263,54 +263,51 @@
             <!-- sub bar 부분 (고정) -->
             <div class="fixed-sub">
                 <div class="title-area">
-                    <h2>병원소개</h2>
-                    <p>information</p>
+                    <h2>고객센터</h2>
+                    <p>Customer Center</p>
                 </div>
                 <ul class="sub-bar">
-                    <li ><a href="sub2-1.html">외과</a></li>
-                    <li><a href="sub2-2.html">내과</a></li>
-                    <li><a href="sub2-3.html">영상의학과</a></li>
-                    <li  class="on"><a href="sub2-4.html">응급중환자의료센터</a></li>
+                    <li ><a href="sub5-1.html">공지사항</a></li>
+                    <li><a href="sub5-2.html">FAQ</a></li>
+                    <li class="on"><a href="sub5-3.html">문의하기</a></li>
                 </ul>
             </div>
             <!-- main 부분 (여기다가 하면 됨) -->
             <div class="main">
-                <h3>응급중환자의료센터</h3>
-                <p>Emergency Medical Center</p>
-                <div class="medicine-box clear">
-                    <div class="medicine-info">
-                        <div class="medicine-img">
-                            <a href="#">
-                                <div class="medicine-hover">
-                                    <div class="medicine-opa">
-                                        <h4>중환자 집중치료</h4>
-                                        <h6>Intensive Care </h6>
-                                        <img src="icon/medicine-class.png">
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="Medicine-text">
-                            <h3>중환자 집중치료</h3>
-                            <h5>중환자는 급격히 상태 악화가 발생할 수 있는 위중한 상태에 있기 때문에, 일반 외래 환자나 일반 입원 환자와 달리, 지속적으로 전문적이고 세심한 치료와 관찰이 필요합니다. 해마루 이차진료 동물병원에는 중환자 집중 치료를 위한 현대화된 중환자실이 운영 되고 있고 숙련된 중환자 전담 진료진이 365일 24시간 중환자 집중 치료를 제공합니다.</h5>
-                        </div>
+                <h3>문의하기</h3>
+                <p>Ask for infomation</p>
+                <div class="sub5-4-area">
+                    <div class="sub5-4-title clear">
+                        <img src="icon/sub_dog.png">
+                        <h2>해마루 이차진료 동물병원에서 여러분이 자주 궁금해 하시는 사항들을 문의해주세요.</h2>
                     </div>
-                    <div class="medicine-info">
-                        <div class="medicine-img">
-                            <a href="#">
-                            <div class="medicine-hover">
-                                <div class="medicine-opa">
-                                    <h4>응급의료센터</h4>
-                                    <h6>Emergency Medical Center</h6>
-                                    <img src="icon/medicine-class.png">
-                                </div>
+                    <div class="sub5-4-box">
+                        <form method="GET" action="text.php">
+                            <div class="sub5-4-email">
+                                <label for="sub_email">e-mail</label>
+                                <input type="text" maxlength="20" id="sub_email">
                             </div>
-                            </a>
-                        </div>
-                        <div class="Medicine-text">
-                            <h3>응급의료센터</h3>
-                            <h5>응급의학은 급성질환이나 손상에 따른 신체의 이상에 대한 응급 진료를 전문적으로 담당하여 환자의 생명을 구하고 환자 상태를 최단시간 내에 안정시켜 계속되는 원인 규명을 위한 감별 검사, 원인에 대한 치료/수술 등이 가능하도록 하는 특수한 의학 분야입니다. 수의학에서는 비교적 최근에 정립된 분야이며, 국내에서는 아직 응급의학을 전담하는 숙련된 진료진이 상주하는 동물병원이 극히 드문 실정입니다. 해마루 이차진료 동물병원의 응급의료센터는 이러한 국내 현실에서 독보적인 시스템과 전담 진료진을 갖추고 운영되고 있으며, 기대와 명성을 넘어서는 최상의 응급 진료를 제공하기 위해 끊임없이 노력하고 있습니다.</h5>
-                        </div>
+                            <div class="sub5-4-write">
+                                <label for="sub_select">카테고리</label>
+                                <select class="sub_select">
+                                    <option>외과</option>
+                                    <option>내과</option>
+                                    <option>영상의학과</option>
+                                    <option>응급의료센터</option>
+                                    <option>예약</option>
+                                    <option>입양</option>
+                                </select>
+                                <label for="sub_title">제목</label>
+                                <input type="text" id="sub_title">
+                            </div>
+                            <div class="sub5-4-text">
+                                <textarea id="sub5-4-textarea" placeholder="문의하실 내용을 적어주세요."></textarea>
+                            </div>
+                            <div class="sub5-4-btn">
+                            <input type="submit" value="등록하기" id="sub5_btn_submit">
+                            <input type="reset" value="취소하기" id="sub5_btn_reset">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -1,24 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>인사말</title>
+    <title>문의하기</title>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700|Roboto:400,500,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/sub1-1.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <!-- 스크롤 내릴 시 사진 나타내는 플러그인 -->
-    <link rel="stylesheet" href="/css/aos.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/sub5-5.css">
+    <link rel="stylesheet" href="css/footer.css">
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-    <!-- 스크롤 내릴 시 사진 나타내는 플러그인 -->
-    <script type="text/javascript" src="js/aos.js"></script>
     <script type="text/javascript" src="js/custom.js"></script>
-    <script type="text/javascript" src="js/sub1-1.js"></script>
 </head>
 <body>
     <!-- header html -->
@@ -29,15 +23,15 @@
                 <div class="login-center">
                     <div class="head-box clear">
                         <p>Login</p>
-                        <img src="/icon/footer-icon.png">
+                        <img src="icon/footer-icon.png">
                     </div>
                     <div class="login-page">
                         <div class="back-arrow">
-                            <a href="#"><img src="/icon/backarrow.png">
+                            <a href="#"><img src="icon/backarrow.png">
                             <P>뒤로가기</P></a>
                         </div>
                         <h1 class="login-logo">
-                            <a href="#"><img src="/icon/logo_lightgreen.png"></a>
+                            <a href="#"><img src="icon/logo_lightgreen.png"></a>
                         </h1>
                         <form class="login-form" method="GET" action="test.php">
                             <div class="login-email">
@@ -66,15 +60,15 @@
             <div class="join-box">
                 <div class="join-head">
                     <p>Join</p>
-                    <img src="/icon/footer-icon.png">
+                    <img src="icon/footer-icon.png">
                 </div>
                 <div class="join-page">
                     <div class="join-back-arrow">
-                        <a href="#"><img src="/icon/backarrow.png">
+                        <a href="#"><img src="icon/backarrow.png">
                         <P>뒤로가기</P></a>
                     </div>
                     <h1 class="join-logo">
-                        <a href="#"><img src="/icon/logo_lightgreen.png"></a>
+                        <a href="#"><img src="icon/logo_lightgreen.png"></a>
                     </h1>
                     <form class="join-form" method="GET" action="text.php">
                         <div class="email_box">
@@ -124,17 +118,17 @@
                 </div>
             </div>
         </div>
-        <h1 class="header-logo"><a href="index.do"><img src="/icon/logo_lightgreen.png"></a></h1>
+        <h1 class="header-logo"><a href="index.html"><img src="icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">
             <!-- gnb & sub menu -->
             <ul class="gnb clear">
                 <li>
-                    <a href="intro/intro-hi.do">병원소개</a>
+                    <a href="sub1-1.html">병원소개</a>
                     <ul class="header-sub">
-                        <li><a href="intro/intro-hi.do">인사말</a></li>
-                        <li><a href="intro/intro-staff.do">의료진소개</a></li>
-                        <li><a href="intro/intro-map.do">오시는길</a></li>
+                        <li><a href="sub1-1.html">인사말</a></li>
+                        <li><a href="sub1-2.html">의료진소개</a></li>
+                        <li><a href="sub1-3.html">오시는길</a></li>
                     </ul>
                 </li>
                 <li>
@@ -168,12 +162,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="my/my-infor.do">마이페이지</a>
+                    <a href="sub6-1.html">마이페이지</a>
                     <ul class="header-sub">
-                        <li><a href="my/my-infor.do">나의정보</a></li>
-                        <li><a href="my/my-pet.do">나의반려동물</a></li>
-                        <li><a href="my/my-res.do">예약확인</a></li>
-                        <li><a href="my/my-ask.do">문의내역</a></li>
+                        <li><a href="sub6-1.html">나의정보</a></li>
+                        <li><a href="sub6-2.html">나의반려동물</a></li>
+                        <li><a href="sub6-3.html">예약확인</a></li>
+                        <li><a href="sub6-4.html">문의내역</a></li>
                     </ul>
                 </li>
             </ul>
@@ -192,15 +186,15 @@
         <div id="pass-lost">
             <div class="pass-head">
                 <p>Find</p>
-                <img src="/icon/footer-icon.png">
+                <img src="icon/footer-icon.png">
             </div>
             <div class="pass-page">
                 <div class="pass-back-arrow">
-                    <a href="#"><img src="/icon/backarrow.png">
+                    <a href="#"><img src="icon/backarrow.png">
                     <P>뒤로가기</P></a>
                 </div>
                 <h1 class="pass-logo">
-                    <a href="#"><img src="/icon/logo_lightgreen.png"></a>
+                    <a href="#"><img src="icon/logo_lightgreen.png"></a>
                 </h1>
                 <form class="pass-form" method="GET" action="text.php">
                     <div class="email-pass-box">
@@ -233,15 +227,15 @@
         <div id="pass-chk">
             <div class="pass-chk-head">
                 <p>Find</p>
-                <img src="/icon/footer-icon.png">
+                <img src="icon/footer-icon.png">
             </div>
             <div class="pass-chk-page">
                 <div class="pass-chk-back-arrow">
-                    <a href="#"><img src="/icon/backarrow.png">
+                    <a href="#"><img src="icon/backarrow.png">
                     <P>뒤로가기</P></a>
                 </div>
                 <h1 class="pass-chk-logo">
-                    <a href="#"><img src="/icon/logo_lightgreen.png"></a>
+                    <a href="#"><img src="icon/logo_lightgreen.png"></a>
                 </h1>
                 <form class="pass-chk-form" method="GET" action="text.php">
                     <div class="email-pass-chk-box">
@@ -269,36 +263,44 @@
             <!-- sub bar 부분 (고정) -->
             <div class="fixed-sub">
                 <div class="title-area">
-                    <h2>병원소개</h2>
-                    <p>Information</p>
+                    <h2>고객센터</h2>
+                    <p>Customer Center</p>
                 </div>
                 <ul class="sub-bar">
-                    <li class="on"><a href="intro/intro-hi.do">인사말</a></li>
-                    <li><a href="intro/intro-staff.do">의료진소개</a></li>
-                    <li><a href="intro/intro-map.do">오시는길</a></li>
+                    <li ><a href="sub5-1.html">공지사항</a></li>
+                    <li><a href="sub5-2.html">FAQ</a></li>
+                    <li class="on"><a href="sub5-3.html">문의하기</a></li>
                 </ul>
             </div>
             <!-- main 부분 (여기다가 하면 됨) -->
             <div class="main">
-                <h3>인사말</h3>
-                <p>Greetings</p>
-                <h4 class="h4-1" data-aos="fade-up"
-                data-aos-duration="2000">해마루 동물병원은 2000년 3월 한국 최초의 개인 이차진료 기관으로 설립되어 15년 이상의 역사를 가지고 있습니다.<br/>
-                    '해마루'는 '해가 뜨는 언덕'이란 순 우리말로 해는 긍정과 열정을, 언덕은 누구나 함께 오를 수 있는 언덕을 상징하여 "동물과 함께하는 행복한 세상"을 만들겠다는 사명을 품고 있습니다.</h4>
-                <h4 class="h4-2" data-aos="fade-up"
-                data-aos-duration="2000">해마루는 중증 환자들의 진단과 치료를 위해 높은 의료 수준을 유지하기 위해 항상 노력하고 있으며<br/>
-                    축적된 임상 경험을 교육사업부(iHAEDU)를 통해 전파하여 한국 뿐만 아니라 아시아 수의학과 반려동물 문화 발전에 기여하고 있습니다.<br/>
-                    해마루 설립 초기부터 함께 운영한 소동물 임상의학 연구소는 반려동물 임상 연구를 넘어서 사람의 질병 진단과 치료에 도움이 되는 연구를 수행하고 있습니다.</h4>
-                <h4 class="h4-3" data-aos="fade-up"
-                data-aos-duration="2000">해마루는 모든 역량을 집중하여 2020년 아시아 최고의 이차진료 동물병원으로 도약하고자 합니다.<br/>
-                    이를 위해 2015년 해마루 Way Project를 통해 '최고지향', '상호존중', '행복기여'를 핵심 가치로 재정립하고 '전문성', '유연성', '창조성' 있는 인재들과 함께 나아가고 있습니다.</h4>
-                <h4 class="h4-4" data-aos="fade-up"
-                data-aos-duration="2000">앞으로도 끊임없는 연구를 통해 반려동물과 함께 하는 행복한 세상 구현을 위해 최선을 다하겠습니다.</h4>
-                <div class="img-left clear" data-aos="fade-right"  data-aos-duration="2000">
-                    <img src="img/kjg.jpg">
-                </div>
-                <div class="img-right clear" data-aos="fade-left"  data-aos-duration="2000">
-                    <img src="img/khw.png">
+                <h3>문의하기</h3>
+                <p>Ask for infomation</p>
+                <!-- 문의글 내용 부분 -->
+                <div class="sub5-5-area">
+                    <div class="sub5-5-info clear">
+                        <h5><span>제목</span>재활치료 문의 드립니다.</h5>
+                        <div class="sub5-5-writer clear">
+                            <div class="sub5-5-img"></div>
+                            <div class="sub5-5-day">
+                                <p>한서하(mail***)</p>
+                                <p>2019-07-05</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sub5-5-box">
+                        <p>선생님!</p>
+                        <p>재활치료 문의 드려요!</p>
+                        <p>다음 예방 접종하러 언제 가면 좋을까요??</p>
+                    </div>
+                    <ul class="sub5-5-btn clear">
+                        <li><a href="sub5-3.html">목록으로</a></li>
+                        <li><a href="sub5-3.html">수정하기</a></li>
+                    </ul>
+                    <ul class="sub5-5-page">
+                        <li><a href="sub5-3.html"><span>이전글</span><span>진료예약 문의 드립니다.</span><span>윤미연(mail***)</span><span>2019-05-04</span></a></li>
+                        <li><a href="sub5-3.html"><span>다음글</span><span>고양이 중성화수술 문의드립니다.</span><span>이윤(mail***)</span><span>2019-05-01</span></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -328,7 +330,7 @@
     <div class="footer-basic">
         <div class="footer-center clear">
             <div class="fot-left">
-                <h1 class="fot-logo"><a href="#"><img src="/icon/logo_lightgreen.png"></a></h1>
+                <h1 class="fot-logo"><a href="#"><img src="icon/logo_lightgreen.png"></a></h1>
                 <p>© 2016 HAEMARU Referral Animal Hospital All rights Reserved.</p>
             </div>
             <div class="fot-right clear">
@@ -353,7 +355,7 @@
                     </ul>
                 </div>
             </div>
-            <img class="fot-icon" src="/icon/footer-icon.png">
+            <img class="fot-icon" src="icon/footer-icon.png">
         </div>
     </div>
     </div>
