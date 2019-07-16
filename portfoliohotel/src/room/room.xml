@@ -7,4 +7,31 @@
 		SELECT * FROM room
 	</select>
 	
+	<insert id="insert" parameterClass="roomVO">
+		INSERT INTO room (name, price, count, adult, kid, instruction, checkin_time,  
+							checkout_time, location, landscape, type)
+		VALUES (#name#, #price#, #count#, #adult#, #kid#, #instruction#, #checkin_time#,
+				#checkout_time#, #location#, #landscape#, #type#)
+				
+		<selectKey keyProperty="no" resultClass="Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	
+	<select id="read" parameterClass="roomVO" resultClass="roomVO">
+		SELECT * FROM room where no=#no#
+	</select>
+	
+	<update id="update" parameterClass="roomVO">
+		UPDATE room SET
+			name=#name#, price=#price#, count=#count#, adult=#adult#, kid=#kid#, 
+			instruction=#instruction#, checkin_time=#checkin_time#, checkout_time=#checkout_time#, 
+			location=#location#, landscape=#landscape#, type=#type#
+		WHERE no=#no#
+	</update>
+	
+	<delete id="delete" parameterClass="roomVO">
+		DELETE FROM room WHERE no=#no#
+	</delete>
+	
 </sqlMap>

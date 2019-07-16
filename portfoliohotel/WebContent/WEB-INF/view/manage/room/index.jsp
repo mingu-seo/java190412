@@ -23,9 +23,9 @@ function groupDelete() {
 	}
 }
 
-function goDelete(v) {	
+function goDelete(no) {	
 	if (confirm ('삭제하시겠습니까?')) {
-		document.location.href = "process?no="+v+"&cmd=delete";
+		document.location.href = "process?no="+no+"&cmd=delete";
 	}
 }
 
@@ -83,12 +83,12 @@ function goSearch() {
 									
 									for (int i=0; i<list.size(); i++) {
 										data = list.get(i);
-										targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("edit", param, data.getNo())+"'\"";	
+										targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, data.getNo())+"'\"";	
 									%>
 									<tr>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
 										<td><%=data.getNo()%></td>
-										<td><%=data.getName()%></td>
+										<td <%=targetUrl%>><%=CodeUtil.getRoomName(data.getName())%></td>
 										<td><%=data.getPrice()%></td>
 										<td><%=data.getCount()%></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>

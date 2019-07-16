@@ -19,10 +19,10 @@
     <insert id="insert" parameterClass="notice_vo">
         INSERT INTO notice (
         	title, member, content, regdate, readno,
-        	file_org, file, display, filesize
+        	file_org, file, display
         ) VALUES (
         	#title#, #member#, #content#, now(), #readno#,
-        	#file_org#, #file#, #display#, #filesize#
+        	#file_org#, #file#, #display#,
         )
         <selectKey keyProperty="no" resultClass="Integer">
         	SELECT LAST_INSERT_ID()
