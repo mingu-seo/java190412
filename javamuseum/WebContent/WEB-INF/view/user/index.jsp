@@ -80,7 +80,7 @@
         <div class="h-bot">
             <div class="h-bot-line"></div>
             <div class="h-bot-in clear">
-                <div class="logo"><a href="index.html">자바미술관</a></div>
+                <div class="logo"><a href="/user/index.jsp">자바미술관</a></div>
                 <ul class="h-menu">
                     <li>
                         <a href="#">VISIT</a>
@@ -140,7 +140,7 @@
                     <div class="slider">
                         <div class="slider-thum">
                             <a href="#">
-                                <img src="img/con2-1.jpg">
+                                <img src="/img/con2-1.jpg">
                                 <div class="slider-list-text">
                                         <h2>피에르 르탕</h2>
                                         <p>[pierre Le-Tan]</p>
@@ -150,7 +150,7 @@
                         </div>
                         <div class="slider-thum">
                             <a href="#">
-                                <img src="img/con2-2.jpg">
+                                <img src="/img/con2-2.jpg">
                                 <div class="slider-list-text">
                                         <h2>언스킬드 워커</h2>
                                         <p>[Unskiled Worker]</p>
@@ -160,7 +160,7 @@
                         </div>
                         <div class="slider-thum">
                             <a href="#">
-                                <img src="img/con2-3.jpg">
+                                <img src="/img/con2-3.jpg">
                                 <div class="slider-list-text">
                                         <h2>케이티 스콧</h2>
                                         <p>[Katie Scott]</p>
@@ -170,7 +170,7 @@
                         </div>
                         <div class="slider-thum">
                             <a href="#">
-                                <img src="img/con2-4.jpg">
+                                <img src="/img/con2-4.jpg">
                                 <div class="slider-list-text">
                                         <h2>오아물 루</h2>
                                         <p>[Oamul Lu]</p>
@@ -180,7 +180,7 @@
                         </div>
                         <div class="slider-thum">
                             <a href="#">
-                                <img src="img/con2-5.jpg">
+                                <img src="/img/con2-5.jpg">
                                 <div class="slider-list-text">
                                         <h2>페이 투굿</h2>
                                         <p>[Faye Toogood]</p>
@@ -199,7 +199,7 @@
             <div class="con3-box">
                 <div class="con3-box1 clear" data-aos="fade-right" data-aos-duration="1500">
                     <div class="con3-img">
-                        <img src="img/con3-1.jpg">
+                        <img src="/img/con3-1.jpg">
                     </div>
                     <div class="con3-text">
                         <h3>AUGUST 18</h3>
@@ -210,7 +210,7 @@
                 </div>
                 <div class="con3-box2 clear" data-aos="fade-left" data-aos-duration="2000">
                     <div class="con3-img2">
-                        <img src="img/con3-2.jpg">
+                        <img src="/img/con3-2.jpg">
                     </div>
                     <div class="con3-text2">
                         <h3>AUGUST 24</h3>
@@ -221,7 +221,7 @@
                 </div>
                 <div class="con3-box3 clear" data-aos="fade-right" data-aos-duration="2500">
                     <div class="con3-img3">
-                        <img src="img/con3-3.jpg">
+                        <img src="/img/con3-3.jpg">
                     </div>
                     <div class="con3-text3">
                         <h3>AUGUST 30</h3>
@@ -254,7 +254,7 @@
                                         이야기를 제공하는 것은 물론 이미지들 간의 관계와 서사를 유추하게 한다.1</p>        
                                 </div>  
                             </div>
-                            <div class="con4-box-left1-img con4-box-img"><img src="img/con4-1.jpg"></div>
+                            <div class="con4-box-left1-img con4-box-img"><img src="/img/con4-1.jpg"></div>
                             </a>    
                         </div>
                         <div class="con4-box-left2 con4-box-all">
@@ -267,7 +267,7 @@
                                     <p class="con4-box-text-cont">쥘리에트 비네는 주로 어린이와 성인 모두가 즐길 수 있는 짧은 이야기를 담은 그림책을 선보여왔다. 작가는 형태를 세밀한 결로 나눠 길고 짧은 선으로 채워나가거나 점묘, 그라데이션 기법을 사용해 표면의 텍스처를 정제해 보여주는 작품을 통해 서정적이고 환상적인 분위기가 특징인 작업을 선보인다.</p>         
                                 </div>
                             </div>
-                            <div class="con4-box-left2-img con4-box-img"><img src="img/con4-2.jpg"></div>
+                            <div class="con4-box-left2-img con4-box-img"><img src="/img/con4-2.jpg"></div>
                             </a>
                         </div>
                     </div>
@@ -282,7 +282,7 @@
                                     <p class="con4-box-text-cont">신모래는 분홍, 파랑, 보라와 같은 몽환적인 색채를 사용해 자신의 일상과 기억에 대한 소소한 이야기를 독특한 감성으로 표현한다. 화면 속에 담긴 창 밖을 통해 스며드는 햇빛이나 바다를 비추는 달빛, 네온 조명과 같은 여러 빛의 산란 효과는 그림에서 느껴지는 고독함과 공허함을 한층 더해 보는 사람의 공감을 자아낸다.</p>   
                                 </div>
                             </div>
-                            <div class="con4-box-center1-img con4-box-img"><img src="img/con4-3.jpg"></div>
+                            <div class="con4-box-center1-img con4-box-img"><img src="/img/con4-3.jpg"></div>
                             </a>
                         </div>
                         <div class="con4-box-center2 con4-box-all">
@@ -295,7 +295,7 @@
                                     <p class="con4-box-text-cont">오아물 루는 자연적인 요소와 인물이 한 화면에 조화롭게 어우러진 따뜻한 그림을 그린다. 자연의 미묘하고 다양한 색과 형상, 시시각각 변하는 계절을 디지털과 아날로그 페인팅을 혼합해 선보이는 그의 작품은 관람자들에게 휴식과 같은 기분을 전하며 큰 호응을 얻고 있다.</p>     
                                 </div>
                             </div>
-                            <div class="con4-box-center2-img con4-box-img"><img src="img/con4-4.jpg"></div>
+                            <div class="con4-box-center2-img con4-box-img"><img src="/img/con4-4.jpg"></div>
                             </a>
                         </div>
                     </div>
@@ -310,7 +310,7 @@
                                     <p class="con4-box-text-cont">청소년기에 스케이트보드 문화에 강한 영향을 받은 무나씨는 개성을 드러내는 방식으로서의 패션에 관심을 두고, 감정을 말보다 이미지로 표현하기 위해 티셔츠에 즉흥적으로 흑백 그림을 그리기 시작했다. 이를 시작으로 작가는 사람과 동물, 풍경에 대한 유머러스한 드로잉, 캔버스 회화, 조각, 세라믹, 음반 커버 작업등의 다양한 예술 활동을 이어오고 있다.</p>
                                 </div>
                             </div>
-                            <div class="con4-box-right1-img con4-box-img"><img src="img/con4-5.jpg"></div>
+                            <div class="con4-box-right1-img con4-box-img"><img src="/img/con4-5.jpg"></div>
                             </a>
                         </div>
                         <div class="con4-box-right2 con4-box-all">
@@ -323,7 +323,7 @@
                                     <p class="con4-box-text-cont">파리에서 활동하는 피에르 르탕은 사물과 공간에 대한 각별한 애정을 두고 자신 앞에 있는 오브제나 사진을 관찰하며 연필과 인디언 잉크, 오래된 과슈(gouache)를 이용한 십자 긋기(cross-stitch) 화법으로 대상의 형태와 음영을 섬세하게 표현한다.</p>  
                                 </div>
                             </div>
-                            <div class="con4-box-right2-img con4-box-img"><img src="img/con4-6.jpg"></div>
+                            <div class="con4-box-right2-img con4-box-img"><img src="/img/con4-6.jpg"></div>
                             </a>
                         </div>
                         <div class="con4-box-right3 con4-box-all">
@@ -336,14 +336,14 @@
                                     <p class="con4-box-text-cont">페이 투굿은 물질성에 대한 관심을 바탕으로 매체에 대한 실험을 통해 가구, 오브제, 패션, 벽지, 드로잉과 같은 다양한 분야에서 활동한다. 어린 시절 영국 러틀랜드(Rutland)에 위치한 작은 마을에서 자연과 가까이 자란 그는 천연 소재에서 영감을 찾고 재료의 본질적인 아름다움에 관심을 가지며 작품을 제작해왔으며, 2013년 유니섹스 의류 브랜드 투굿(Toogood)을 런칭해 패션 디자이너로서도 활동하고 있다.</p>
                                 </div>
                             </div>
-                            <div class="con4-box-right3-img con4-box-img"><img src="img/con4-7.jpg"></div>
+                            <div class="con4-box-right3-img con4-box-img"><img src="/img/con4-7.jpg"></div>
                             </a>
                         </div>
                     </div>
                     <div class="collection-popup">
                         <div class="coll-pop-cont">
                             <div class="coll-left">
-                                <img src="img/con4-1.jpg">
+                                <img src="/img/con4-1.jpg">
                             </div>
                             <div class="coll-right">
                                 <h5>정형화 된 문자를 그림의 형태로 재창조해
@@ -355,7 +355,7 @@
                                     매번 새로운 구성으로 나타나는 작가의 작품은 사용자에게 새로운
                                     이야기를 제공하는 것은 물론 이미지들 간의 관계와 서사를 유추하게 한다.</p>
                             </div>
-                            <p class="coll-close"><a href="#"><img src="img/sub-exhibition-close.png"></a></p>
+                            <p class="coll-close"><a href="#"><img src="/img/sub-exhibition-close.png"></a></p>
                         </div>
                     </div>
                 </div>
@@ -370,7 +370,7 @@
     <div id="footer">
         <div class="foot-in">
             <div class="foot-top clear">
-                <div class="foot-logo"><img src="img/logo.png"></div>
+                <div class="foot-logo"><img src="/img/logo.png"></div>
                 <ul class="foot-menu">
                     <li><a href="#">개인정보 처리방침</a></li>
                     <li><a href="#">이용약관</a></li>
