@@ -1,22 +1,50 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/jquery-ui.css">
-    <link rel="stylesheet" href="/css/slick.css">
-    <link rel="stylesheet" href="/css/slick-theme.css">
-    <link rel="stylesheet" href="/css/default.css">
-    <link rel="stylesheet" href="/css/header-fixed.css">
-    <link rel="stylesheet" href="/css/room-detail-subpage2.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="/js/gnb.js"></script>
-    <script type="text/javascript" src="/js/slick.js"></script>
-    <script type="text/javascript" src="/js/slick-slide.js"></script>
-    <title>호텔객실2</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/css/slick.css">
+        <link rel="stylesheet" href="/css/slick-theme.css">
+        <link rel="stylesheet" href="/css/aos.css">
+        <link rel="stylesheet" href="/css/default.css">
+        <link rel="stylesheet" href="/css/header.css">
+        <link rel="stylesheet" href="/css/moon-bar.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+        <script type="text/javascript" src="/js/gnb.js"></script>
+        <script type="text/javascript" src="/js/slick.js"></script>
+        <script type="text/javascript" src="/js/slick-slide.js"></script>
+        <script type="text/javascript" src="/js/aos.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+            
+                //AOS 플러그인 시작구문
+                AOS.init();            
+            
+                 //마우스 휠 플러그인 사용구문
+ 
+                //delta 라는 변수는 마우스 휠 올리고 내렸을때 휠 감도 알아내는 변수
+                $("#container > div").mousewheel(function(event,delta){    
+                        event.preventDefault();    
+                        //마우스 휠을 올렸을때	
+                        if (delta > 0) {  
+                            var prev = $(this).prev().offset().top; // 휠을 걸어준 대상 다음구역의 시작하는 위치값 변수
+                           $("html,body").stop().animate({"scrollTop":prev});
+                        }
+                    
+                        //마우스 휠을 내렸을때	
+                        else if (delta < 0) {  
+                           var next = $(this).next().offset().top; // 휠을 걸어준 대상 다음구역의 시작하는 위치값 변수
+                           $("html,body").stop().animate({"scrollTop":next});
+                        }
+                });
+            });
+        </script>
+    <title>Moon Bar</title>
 </head>
 <body>
     <div id="header">
@@ -31,18 +59,18 @@
                                         <div class="pc-sub-box">
                                             <h2><a href="../special_promotion.html">Promotion</a></h2>
                                             <ul class="offer">
-                                                <li><a href="../room_offer.html">Room Package</a></li>
-                                                <li><a href="../room_offer.html">Dining Package</a></li>
-                                                <li><a href="../room_offer.html">Events & Gift</a></li>
+                                                <li><a href="room_offer.html">Room Package</a></li>
+                                                <li><a href="dining_offer.html">Dining Package</a></li>
+                                                <li><a href="etc_offer.html">Events & Gift</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
                                             <h2>Rooms</h2>
                                             <ul class="Rooms">
-                                                <li><a href="../room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
-                                                <li><a href="../room-detail-subpage.html">Namsan Pool Premier Suite</a></li>
-                                                <li><a href="../room-detail-subpage.html">Namsan Presidential Suite</a></li>
-                                                <li><a href="../room-detail-subpage.html">Spa Sanctuary Suite</a></li>
+                                                <li><a href="../room/room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
+                                                <li><a href="../room/room-detail-subpage.html2">Namsan Pool Premier Suite</a></li>
+                                                <li><a href="../room/room-detail-subpage.html3">Namsan Presidential Suite</a></li>
+                                                <li><a href="../room/room-detail-subpage.html4">Spa Sanctuary Suite</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -50,7 +78,7 @@
                                             <ul class="Dining">
                                                 <li><a href="#">The Festa</a></li>
                                                 <li><a href="#">Granum Dining Lounge</a></li>
-                                                <li><a href="#">Moon Bar</a></li>
+                                                <li><a href="moon-bar.do">Moon Bar</a></li>
                                                 <li><a href="#">The Oasis Outdoor Kitchen</a></li>
                                             </ul>
                                         </div>
@@ -101,11 +129,11 @@
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Support</h2>
-                                                <a href="../notice.html" class="notice-a">
+                                                <a href="../membership/notice.html" class="notice-a">
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
-                                                        호텔 공지사항과<br/>
+                                                        반얀트리 공지사항과<br/>
                                                         놓칠 수 없는 이벤트 정보를 알려드립니다.
                                                     </li>
                                                     <li class="support-icon"><img src="../img/notice-icon.png"></li>
@@ -113,11 +141,11 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../faq.html">
+                                                <a href="../membership/faq.html">
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">
-                                                        호텔에 대한<br/>
+                                                        반얀트리에 대한<br/>
                                                         자주 묻는 질문입니다.
                                                     </li>
                                                     <li class="support-icon"><img src="../img/faq-icon.png"></li>
@@ -125,11 +153,11 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../qna.html">
+                                                <a href="../membership/qna.html">
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">
-                                                        호텔에 관한질문 사항이나 궁금한 점을<br/> 
+                                                        반얀트리에 관한질문 사항이나 궁금한 점을<br/> 
                                                         남겨 주시면 신속하게 답변을 드리겠습니다.
                                                     </li>
                                                     <li class="support-icon"><img src="../img/qna-icon.png"></li>
@@ -145,106 +173,55 @@
         </div>
     </div>
     
-    <!-- 컨테이너 영역 시작 -->
     <div id="container">
-        <div class="container">
-            <!-- 서브페이지 상단 타이틀 -->
-            <h1>NAMSAN POOL PREMIER ROOM</h1>
-
-            <!-- 객실 사진 슬라이드 영역 -->
-            <div class="slide">
-                <div class="sub_page_panel">
-                    <div class="room-wrap">
-                        <div class="room-pic1 rooms"></div>
-                    </div>
-                    <div class="room-wrap">
-                        <div class="room-pic2 rooms"></div>
-                    </div>
-                    <div class="room-wrap">
-                        <div class="room-pic3 rooms"></div>
-                    </div>
-                    <div class="room-wrap">
-                        <div class="room-pic4 rooms"></div>
-                    </div>
-                    <div class="room-wrap">
-                        <div class="room-pic5 rooms"></div>
-                    </div>
+        <div class="banner moon-bar">
+            <div class="banner-center">
+                <div class="banner-text">
+                    <h2>문 바
+                        <span>Moon Bar</span>
+                    </h2>
+                    <h3>호텔 최고층인 20층과 21층에 위치한 문 바(Moon Bar)에서는 남산의 전경과 서울의 아름다운 야경이 파노라마처럼 펼쳐집니다. 
+                        
+                    </h3>
+                    <p>
+                        20층에서는 와인과 샴페인, 바텐더가 선보이는 스타일리시한 칵테일을 만나볼 수 있으며, 21층에는 싱글 몰트 위스키 바가 마련되어 있어 방해 받지 않고 프라이빗한 시간을 보낼 수 있습니다.
+                    </p>
                 </div>
             </div>
-            <div class="room-btn clear">
-                    <button class="slick-prev"></button>
-                    <button class="slick-next"></button>
-            </div>
-
-            <div class="brief">
-                <h5>남산 풀 프리미어 룸은 59㎡부터 70㎡의 면적의 객실로 한 층에 4개의 객실이 자리하고 있어 조용한 분위기에서 프라이빗한 휴식을 즐길 수 있습니다. 반얀트리 특유의 자연친화적인 여유로움을 느끼실 수 있으며 모든 객실에 설비된 릴랙세이션 풀은 도심 속 휴식을 더욱 완벽하게 만들어드립니다. 아름다운 서울의 야경과 웅장하게 펼쳐진 남산의 전경을 바라보며 몸과 마음을 채우는 특별한 휴식을 즐겨보시기 바랍니다.
-                </h5>
-
-                <div class="book"><a href="#">객실 예약하기</a></div>
-            </div>
-            
-            <div class="info-box">
-                <ul class="info-detail clear line">
-                    <li class="title">기본정보</li>
-                    <li clear>
-                        <ul class="themost">
-                            <li>체크인</li>
-                            <li>체크아웃</li>
-                            <li>위치</li>
-                            <li>전망</li>
-                            <li>객실타입</li>
-                        </ul>
-
-                        <ul class="second">
-                            <li>15:00</li>
-                            <li>12:00</li>
-                            <li>더호텔 14F~17</li>
-                            <li>남산 & 시티뷰</li>
-                            <li>원룸</li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <ul class="info-detail clear line">
-                        <li class="title">편의시설</li>
-                        <li clear>
-                            <ul class="themost1">
-    
-                                <li>·릴렉세이션 풀</li>
-                                <li>·킹사이즈 침대</li>
-                                <li>·49인치 TV(51개 채널)</li>
-                                <li>·보스 스피커</li>
-                                <li>·캡슐 커피 머신</li>
-                            </ul>
-    
-                            <ul class="themost2">
-                                <li>·전기 주전자</li>
-                                <li>·커피, 차 티백 무료제공</li>
-                                <li>·미니 바</li>
-                                <li>·금고</li>
-                            </ul>
-                        </li>
-                </ul>
-
-                <ul class="info-detail clear">
-                            <li class="title">투숙객 혜택</li>
-                            <li clear>
-                                <ul class="themost1">
-        
-                                    <li>·피트니스 클럽 무료 이용</li>
-                                    <li>·실내 수영장 무료 이용</li>
-                                    <li>·사우나 유료 이용 (27,500원)</li>
-                                    <li>·모앙클레르 10% 할인</li>
-                                    <li>·반얀트리 스파 & 갤러리 10% 할인</li>
-                                    <li><p>(매월 첫째주 화요일 휴관일로 이용이 제한됩니다.)</p></li>
-                                </ul>
-        
-                            </li>
-                </ul>
+        </div>
+        <div class="contents-center">
+            <div class="logo-post"><img src="../img/promotion/promotion-logo.jpg"></div>
+            <div class="contents-info clear">
+                <div class="contents-left">
+                    <table>
+                        <tr>
+                            <td class="table-list">위치</td>
+                            <td>더 호텔 20F~21F</td>
+                        </tr>
+                        <tr>
+                            <td class="table-list time">좌석수</td>
+                            <td>35석 (야외22석)</td>
+                        </tr>
+                        <tr>
+                            <td class="table-list info">주요사항</td>
+                            <td class="td-lh">성인 전용 공간
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="table-list place">운영시간</td>
+                            <td>18:00~02:00</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="contents-right">
+                    <h3>예약 및 이용문의</h3>
+                    <h4>전화</h4>
+                    <h4>02 2250 8000</h4>
+                    <a href="#">온라인 예약</a>
+                </div>
             </div>
         </div>
     </div>
-
     <div id="footer">
         <!-- <div class="footer-logo"><img src="img/footer_logo.png"></div> -->
         
