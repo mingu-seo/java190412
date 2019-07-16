@@ -1,5 +1,8 @@
 package room;
 
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,6 +12,25 @@ import manage.admin.AdminVO;
 @Controller
 public class RoomController {
 	
+	@Autowired
+	RoomService roomService;
+	
+	/**
+	 * 관리자 페이지
+	 */
+	@RequestMapping("/manage/room/index.do")
+	public String index(Model model, RoomVO vo) throws Exception{
+		ArrayList<RoomVO> list = roomService.list(vo);
+		
+		model.addAttribute("list", list);
+		model.addAttribute("vo", vo);
+		
+		return "manage/room/index";
+	}
+	
+	/**
+	 * 사용자 페이지
+	 */
 	@RequestMapping("/room/room-detail-subpage.do")
 	public String room_detail_subpage(Model model, AdminVO param) throws Exception {
 		

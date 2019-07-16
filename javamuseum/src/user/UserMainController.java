@@ -10,6 +10,8 @@ public class UserMainController {
 	@RequestMapping("/user/index.do")
 	public String main(Model model) throws Exception {
 
+		
+		
 		return "/user/index";
 	}
 }
