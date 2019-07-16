@@ -30,7 +30,7 @@
     <script type="text/javascript" src="js/custom.js"></script>
 </head>
 <body>
-<%@ include file="/WEB-INF/view/include/headHtml.jsp" %>
+<%@ include file="/WEB-INF/view/include/headHtmlMain.jsp" %>
     <div id="container">
         <!-- 첫번째  화면 베너 -->
         <div class="con1">

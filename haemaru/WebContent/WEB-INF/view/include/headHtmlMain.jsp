@@ -44,15 +44,15 @@
             <div class="join-box">
                 <div class="join-head">
                     <p>Join</p>
-                    <img src="/icon/footer-icon.png">
+                    <img src="icon/footer-icon.png">
                 </div>
                 <div class="join-page">
                     <div class="join-back-arrow">
-                        <a href="#"><img src="/icon/backarrow.png">
+                        <a href="#"><img src="icon/backarrow.png">
                         <P>뒤로가기</P></a>
                     </div>
                     <h1 class="join-logo">
-                        <a href="#"><img src="/icon/logo_lightgreen.png"></a>
+                        <a href="#"><img src="icon/logo_lightgreen.png"></a>
                     </h1>
                     <form class="join-form" method="GET" action="text.php">
                         <div class="email_box">
@@ -103,18 +103,28 @@
             </div>
         </div>
         <!-- Right Fix -->
-
+        <div class="fix-menu-box">
+            <ul class="fix-menu">
+                <li class="os"><a href="#"></a></li>
+                <li><a href="#">병원소개</a></li>
+                <li><a href="#">진료과목</a></li>
+                <li><a href="#">입양후기</a></li>
+                <li><a href="#">입양프로필</a></li>
+                <!-- <li class="oq"><a href="#">오시는길</a></li> -->
+            </ul>
+            <!-- <div class="fix-menu-text">오시는 길</div> -->
+        </div>
         <h1 class="header-logo"><a href="index.html"><img src="icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">
             <!-- gnb & sub menu -->
             <ul class="gnb clear">
                 <li>
-                    <a href="/intro/intro-hi.do">병원소개</a>
+                    <a href="sub1-1.html">병원소개</a>
                     <ul class="header-sub">
-                        <li><a href="/intro/intro-hi.do">인사말</a></li>
-                        <li><a href="/intro/intro-staff.do">의료진소개</a></li>
-                        <li><a href="/intro/intro-map.do">오시는길</a></li>
+                        <li><a href="sub1-1.html">인사말</a></li>
+                        <li><a href="sub1-2.html">의료진소개</a></li>
+                        <li><a href="sub1-3.html">오시는길</a></li>
                     </ul>
                 </li>
                 <li>
