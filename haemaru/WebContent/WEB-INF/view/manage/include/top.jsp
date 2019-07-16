@@ -13,7 +13,7 @@
                 <li>
                     <a href="sub2-1.html">진료과목</a>
                     <ul class="header-sub">
-                        <li><a href="sub2-1.html">외과</a></li>z
+                        <li><a href="sub2-1.html">외과</a></li>
                         <li><a href="sub2-2.html">내과</a></li>
                         <li><a href="sub2-3.html">영상의학과</a></li>
                         <li><a href="sub2-4.html">응급의료센터</a></li>
