@@ -90,4 +90,10 @@ public class NoticeController {
 		
 		return "include/alert";
 	}
+	
+	@RequestMapping("/membership/notice.do")
+	public String notice(Model model, AdminVO param) throws Exception {
+		
+		return "membership/notice";
+	}
 }
