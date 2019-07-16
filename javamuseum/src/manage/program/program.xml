@@ -5,54 +5,58 @@
     <typeAlias alias="program_vo" type="manage.program.ProgramVO"/>
     
     <!-- 공통조건 -->
-	<!-- <sql id="searchSql">		
-		WHERE 절 검색
+ <sql id="searchSql">		
+		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where">
-			<isNotEqual property="sdisplay" compareValue="-1">
-			    display = #sdisplay#
+			<isNotEqual property="category" compareValue="0" prepend="and">
+			    category = #category#
 			</isNotEqual>
-			검색어 검색
+			<isNotEqual property="display" compareValue="0" prepend="and">
+			    display = #display#
+			</isNotEqual>
+			<!-- 검색어 검색 -->
 			<isNotEqual property="sval" compareValue="">
-				검색 타입이 all일 때
+				<!-- 검색 타입이 all일 때 -->
 				<isEqual property="stype" compareValue="all" prepend="and">
-					( (name like '%$sval$%' ) or (contents like '%$sval$%' ) or (title like '%$sval$%' ) ) 					
+					( (title like '%$sval$%') or (instructor like '%$sval$%' ) ) 					
 				</isEqual>
-				검색 타입이 all이 아닐때 해당 stype으로 검색
-				<isNotEqual property="stype" compareValue="all" prepend="and">
+				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
+				<isNotEqual property="stype" compareValue="all">
 					($stype$ like '%$sval$%' )
 				</isNotEqual>
 			</isNotEqual>
 		</dynamic>
 	</sql> 
-	
-	해당 테이블의 총 게시글 수 
-	<select id="count" parameterClass="notice_vo" resultClass="Integer">
-        select count(*) from $tablename$
+
+	 
+	<select id="count" parameterClass="program_vo" resultClass="Integer">
+        SELECT count(*) 
+        FROM program
         <include refid="searchSql" />	
-    </select>
-    -->
+    </select> 
+
 	<select id="list" parameterClass="program_vo" resultClass="program_vo">
         SELECT *
         FROM program
-		ORDER BY registdate DESC 
+         <include refid="searchSql" />	
+		ORDER BY registdate DESC LIMIT $startPageNo$, $pageRows$
     </select>
 	
-<!-- 	
-    <insert id="insert" parameterClass="notice_vo">
-        INSERT INTO $tablename$ (
-        	name, title, contents, registdate, readno,
-        	filename_org, filename, filesize, display
-        ) VALUES (
-        	#name#, #title#, #contents#, now(), #readno#,
-        	#filename_org#, #filename#, #filesize#, #display#
+	
+    <insert id="insert" parameterClass="program_vo">
+        INSERT INTO program (
+        category, title, contents, instructor, max_mem, imagename, state, target, price, p_time, location, display, registdate 
         )
+        VALUES (
+        	#category#, #title#, #contents#, #instructor#, #max_mem#, #imagename#, #state#, #target#, #price#, #p_time#, #location#, #display#, now()
+        	)
         <selectKey keyProperty="no" resultClass="Integer">
         	SELECT LAST_INSERT_ID()
         </selectKey>
     </insert>
     
-    <update id="update" parameterClass="notice_vo">
-        UPDATE $tablename$ SET
+   <!--  <update id="update" parameterClass="program_vo">
+        UPDATE program SET
         	name=#name#, title=#title#, display=#display#,
         <isNotEqual property="registdate" compareValue="">
        	    registdate = #registdate#,
@@ -71,15 +75,14 @@
         	contents=#contents#
         WHERE no = #no#
     </update>
-    
-    <select id="read" parameterClass="notice_vo" resultClass="notice_vo">
-        SELECT 
-        	*
-        FROM $tablename$
+     -->
+    <select id="read" parameterClass="program_vo" resultClass="program_vo">
+        SELECT *
+        FROM program
         where no = #no#
     </select>
     
-    <select id="filenames" parameterClass="notice_vo" resultClass="notice_vo">
+<!--     <select id="filenames" parameterClass="notice_vo" resultClass="notice_vo">
     	<![CDATA[
         SELECT 
         	file_name
@@ -87,7 +90,7 @@
         where no = #no#
         ]]>
     </select> 
-        
+    
     <select id="getRowNum" parameterClass="notice_vo" resultClass="Integer">
         select rownum from (
         	select @rownum:=@rownum+1 as rownum, no, title from $tablename$, (select @rownum:=0) as r
@@ -120,11 +123,11 @@
         where r2.rownum = $rownum$-1
     	]]>
     </select>
-    
+     -->
     <delete id="delete" parameterClass="notice_vo">
-        DELETE FROM $tablename$ WHERE no=#no#
+        DELETE FROM program WHERE no=#no#
     </delete>
-    
+<!--     
     <update id="updateReadno" parameterClass="notice_vo">
         UPDATE $tablename$ SET readno = readno+1 WHERE no = #no#
     </update>
@@ -135,5 +138,5 @@
         <include refid="searchSql" />
 		ORDER BY registdate DESC LIMIT 0, $number$
     </select>
-     -->
+   -->
 </sqlMap>
