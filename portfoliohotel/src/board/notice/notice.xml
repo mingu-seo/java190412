@@ -18,14 +18,23 @@
 	<!-- 해당 테이블에 게시글 작성 -->
     <insert id="insert" parameterClass="notice_vo">
         INSERT INTO notice (
-        	title, member, content, regdate, readno,
-        	file_org, file, display, filesize
+        	title, member, top, display, contents, 
+        	regdate, readno, file_org, file
         ) VALUES (
-        	#title#, #member#, #content#, now(), #readno#,
-        	#file_org#, #file#, #display#, #filesize#
+        	#title#, #member#, #top#, #display#, #contents#, 
+        	now(), 0, #file_org#, #file#
         )
         <selectKey keyProperty="no" resultClass="Integer">
         	SELECT LAST_INSERT_ID()
         </selectKey>
     </insert>
+    
+    <delete id="delete" parameterClass="Integer">
+        delete from notice where no=#no#
+    </delete>
+    
+    <select id="read" parameterClass="Integer" resultClass="notice_vo">
+        select * FROM notice where no=#no#
+    </select>
+    
 </sqlMap>

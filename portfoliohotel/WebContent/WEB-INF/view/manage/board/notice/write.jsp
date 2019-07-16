@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.util.*" %>
-<%@ page import="board.notice3.*" %>
+<%@ page import="board.notice.*" %>
 <%@ page import="util.*" %>
 <%
-	NoticeVO3 param = (NoticeVO3)request.getAttribute("vo");
+	NoticeVO param = (NoticeVO)request.getAttribute("vo");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -14,7 +14,7 @@
 	var oEditors; // 에디터 객체 담을 곳
 	jQuery(window).load(function(){
 		oEditors = setEditor("contents"); // 에디터 셋팅
-		initCal({id:"registdate",type:"day",today:"y",timeYN:"y"});
+		initCal({id:"regdate",type:"day",today:"y",timeYN:"y"});
 	});
 	
 	function goSave() {
@@ -31,7 +31,9 @@
 		} else {
 			oEditors.getById["contents"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
 		}
-		return true;
+		
+		$("#frm").submit();
+		
 	}
 	
 	
@@ -57,7 +59,8 @@
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="bread">
-							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" enctype="multipart/form-data" onsubmit="return goSave();">
+						<h3>공지사항 작성</h3>
+							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" enctype="multipart/form-data">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
 									<col width="15%" />
@@ -67,6 +70,36 @@
 								</colgroup>
 								<tbody>
 									<tr>
+										<th scope="row"><label for="">제목</label></th>
+										<td colspan="3">
+											<input type="text" id="title" name="title" class="w50" title="제목을 입력해주세요" />	
+										</td>
+									</tr>		
+									<tr>
+										<th scope="row"><label for="">비밀글</label></th>
+										<td>
+											<select name="member">
+											
+											<option value="1">미설정</option>
+											<option value="2">설정</option>
+											</select>
+										</td>
+										<th scope="row"><label for="">노출, 상단노출</label></th>
+										<td>
+											<select name="display">
+											
+											<option value="1">미노출</option>
+											<option value="2">노출</option>
+											</select>
+											
+											<select name="top">
+												
+												<option value="1">상단 미노출</option>
+												<option value="2">상단 노출</option>
+											</select>
+										</td>
+									</tr>						
+									<%-- <tr> 
 										<th scope="row"><label for="">상태</label></th>
 										<td>
 											<select name="display">
@@ -75,22 +108,16 @@
 										</td>
 										<th scope="row"><label for="">등록일</label></th>
 										<td>
-											<input type="text" id="registdate" name="registdate" class="inputTitle" value="<%=DateUtil.getFullToday()%>" title="등록일을 입력해주세요" />&nbsp;
+											<input type="text" id="regdate" name="regdate" class="inputTitle" value="<%=DateUtil.getFullToday()%>" title="등록일을 입력해주세요" />&nbsp;
 											<span id="CalregistdateIcon">
 												<img src="/manage/img/calendar_icon.png" id="CalregistdateIconImg" style="cursor:pointer;"/>
 											</span>
 										</td>
-									</tr>
+									</tr> --%>
 									<tr>
 										<th scope="row"><label for="">첨부파일</label></th>
 										<td colspan="3">
 											<input type="file" id="filename_tmp" name="filename_tmp" class="w50" title="첨부파일을 업로드 해주세요." />	
-										</td>
-									</tr>
-									<tr>
-										<th scope="row"><label for="">*제목</label></th>
-										<td colspan="3">
-											<input type="text" id="title" name="title" class="w50" title="제목을 입력해주세요" />	
 										</td>
 									</tr>
 									<tr>
@@ -108,7 +135,7 @@
 									<a class="btns" href="<%=param.getTargetURLParam("index", param, 0)%>"><strong>목록</strong></a>
 								</div>
 								<div class="btnRight">
-									<a class="btns" href="javascript:$('#frm').submit();"><strong>저장</strong></a>
+									<a class="btns" href="#" onclick="goSave();"><strong>저장</strong></a>
 								</div>
 							</div>
 							<!--//btn-->
