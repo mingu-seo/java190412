@@ -15,7 +15,10 @@ public class RoomController {
 	@Autowired
 	RoomService roomService;
 	
-	@RequestMapping("/manage/room/index")
+	/**
+	 * 관리자 페이지
+	 */
+	@RequestMapping("/manage/room/index.do")
 	public String index(Model model, RoomVO vo) throws Exception{
 		ArrayList<RoomVO> list = roomService.list(vo);
 		
@@ -25,6 +28,9 @@ public class RoomController {
 		return "manage/room/index";
 	}
 	
+	/**
+	 * 사용자 페이지
+	 */
 	@RequestMapping("/room/room-detail-subpage.do")
 	public String room_detail_subpage(Model model, AdminVO param) throws Exception {
 		
