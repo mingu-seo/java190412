@@ -97,5 +97,6 @@ public class SiteProperty {
 	 * 공지사항 첨부파일 경로
 	 */
 	public static final String NOTICE_UPLOAD_PATH		= "/upload/notice/";
+	public static final String DOCTOR_UPLOAD_PATH = "/upload/doctor/";
 
 }
