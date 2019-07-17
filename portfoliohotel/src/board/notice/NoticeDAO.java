@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Repository;
 
-import board.notice3.NoticeVO3;
+import board.notice.NoticeVO;
 import db.SqlMapClientDAOSupport;
 
 @Repository
@@ -39,6 +39,19 @@ public class NoticeDAO extends SqlMapClientDAOSupport{
 	 */
 	public int insert(NoticeVO vo) throws SQLException {
 		return (Integer)getSqlMapClient().insert("notice.insert",vo);
+	}
+	
+	/**
+	 * 관리자 삭제
+	 * @param no
+	 * @throws SQLException
+	 */
+	public int delete(int no) throws SQLException {
+		return getSqlMapClient().delete("notice.delete", no);
+	}
+	
+	public NoticeVO read(int no) throws SQLException {
+		return (NoticeVO)getSqlMapClient().queryForObject("notice.read", no);
 	}
 
 }
