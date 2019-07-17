@@ -69,9 +69,20 @@ $(window).load(function(){
 		
 		<div id="menu">
   			<ul class="menu">
-  				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>회원관리</span></a></li>
-				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>예약관리</span></a></li>
-				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>제품관리</span></a></li>
+  				<li><a href="<%=request.getContextPath()%>/manage/member/index" class="parent"><span>회원관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>반려동물관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/doctor/index" class="parent"><span>의료진관리</span></a>
+					<div class="standard_left">
+					<ul>
+						<li><a href="<%=request.getContextPath()%>/manage/doctor/index.do"><span>의료진관리</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/doctor/sched.do"><span>의료진일정관리</span></a></li>
+						
+					</ul>
+					</div>
+				</li>
+				<li><a href="<%=request.getContextPath()%>/manage/reservation/index" class="parent"><span>예약관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/product/index" class="parent"><span>입양관리</span></a></li>
+
 				<li><a href="<%=request.getContextPath()%>/manage/board/notice/index.do" class="parent"><span>고객지원</span></a>
 					<div class="standard_left">
 					<ul>

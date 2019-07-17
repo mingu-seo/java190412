@@ -114,7 +114,7 @@ public class AdminDAO extends SqlMapClientDAOSupport {
 	 * 로그인 시 히스토리 저장
 	 * @param param
 	 * @return int
-	 * @throws SQLException
+	 * @throws SQLException  
 	 */
 	public void insertLoginHistory(AdminVO param) throws SQLException {
 		getSqlMapClient().insert("admin.insertLoginHistory", param);
