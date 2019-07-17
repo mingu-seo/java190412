@@ -94,6 +94,7 @@ public class SiteProperty {
 	 */
 	public static final String REAL_PATH = "C:\\java\\git\\java190412\\portfoliohotel\\WebContent";
 	
+
 	/**
 	 * 객실 사진 경로
 	 */
@@ -105,5 +106,9 @@ public class SiteProperty {
 	public static final String ROOM_OPT_UPLOAD_PATH = "/upload/room_opt/";
 	
 	
+	public static final String NOTICE_UPLOAD_PATH		= "/upload/notice/";
+	
+	
+	public static final String QNA_UPLOAD_PATH		= "/upload/qna/";
 
 }
