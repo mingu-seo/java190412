@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="member">
+    
+    <typeAlias alias="membervo" type="board.member.MemberVO"/>
+    
+    
+    <!-- 공통조건 -->
+	 <sql id="searchSql">		
+		
+		<dynamic prepend="where">
+		1=1
+			<isNotEqual property="sval" compareValue="" prepend="and">
+				<isEqual property="stype" compareValue="all" prepend="and">
+					( (name like '%$sval$%' ) or (id like '%$sval$%' )) 					
+				</isEqual>
+				<isNotEqual property="stype" compareValue="all" prepend="and">
+					($stype$ like '%$sval$%' ) <!--  문자그대로 들어가야하기 떄문에 #사용x --> 
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql> 
+	
+	<select id="count" parameterClass="membervo" resultClass="Integer">
+        select count(*) from member
+        <include refid="searchSql"/>
+    </select>
+	
+    <select id="list" parameterClass="membervo" resultClass="membervo">
+        select * from member
+        <include refid="searchSql"/>
+		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$	
+    </select>
+    
+    <insert id="insert" parameterClass="membervo" >
+        insert into member
+        	(email, password, name, gender,tel,birthday,regdate,zipcode,addr,
+        	 addr_detail,logindate,point,grade,sns_type,sns_key,secession)
+        values
+        	(#email#, #password#, #name#, #gender#,#tel#, #birthday#,now(),#zipcode#,#addr#,
+        	 #addr_detail#,now(),#point#,#grade#,#sns_type#,#sns_key#,#secession#)
+        <selectKey keyProperty="no" resultClass="Integer">
+			SELECT  LAST_INSERT_ID()
+		</selectKey>
+    </insert>
+   
+    <update id="update" parameterClass="membervo">
+        update member set
+        	<isNotEqual property="password" compareValue="">
+        	    password = #password#,
+        	</isNotEqual>
+        	 name=#name#,
+        where no=#no#
+    </update>
+    
+    <delete id="delete" parameterClass="Integer">
+        delete from member where no=#no#
+    </delete>
+     
+    <select id="read" parameterClass="Integer" resultClass="membervo">
+    	select * from member where no=#no#
+    	<!-- <![CDATA[
+        select no, id, password, 
+        	name, regdate,
+        	ifnull((select max(no) from member where no>1 and no<#no#), 0) as prev_no,
+        	ifnull((select min(no) from member where no>1 and no>#no#), 0) as next_no
+         from member where no>1 and no=#no#
+         ]]> -->
+    </select>
+    
+     
+    <select id="idcheck" parameterClass="String" resultClass="Integer">
+        select count(*) as cnt from member where email=#email#
+    </select>
+    
+    <select id="loginCheck" parameterClass="membervo" resultClass="Integer">
+        select count(*) as cnt from member where email=#email# and password=#password#
+    </select>
+    
+    <select id="loginSessionInfo" parameterClass="param" resultClass="membervo">
+        select * from member where email=#email# and password=#password#
+    </select>
+    <!-- 
+        관리자 로그인 접속 기록
+    <sql id="historySearchSql">
+		WHERE 절 검색
+		<dynamic prepend="where">
+		    id != 'vizensoft'
+			<isNotEqual property="sval" compareValue="">
+				<isEqual property="stype" compareValue="all">
+					and ( (name like '%$sval$%' ) or (id like '%$sval$%' )) 					
+				</isEqual>
+				<isNotEqual property="stype" compareValue="all">
+					and ($stype$ like '%$sval$%' )
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql>
+	
+    <select id="countLoginHistory" parameterClass="param" resultClass="Integer">
+        select count(*) from admin_loginhistory
+        <include refid="historySearchSql"/>	
+    </select>
+    
+    <select id="listLoginHistory" parameterClass="param" resultClass="vo">
+        select * from admin_loginhistory
+        <include refid="historySearchSql"/>
+		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$	
+    </select>
+    
+    <insert id="insertLoginHistory" parameterClass="vo" >
+        insert into admin_loginhistory
+        	(id, name, logindate, ip)
+        values
+        	(#id#, #name#, now(), #ip#)
+    </insert> -->
+    
+</sqlMap>

@@ -25,6 +25,10 @@ public class MemberVO extends Parameter{
 	private int secession;			// 탈퇴여부
 	
 	
+	public MemberVO() {
+		super.setPageRows(10);
+	}
+	
 	public int getNo() {
 		return no;
 	}
