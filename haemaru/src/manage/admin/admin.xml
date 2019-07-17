@@ -37,7 +37,7 @@
         insert into admin
         	(id, password, email, name, memo, registdate)
         values
-        	(#id#, password(#password#), #email#, #name#, #memo#, now())
+        	(#id#, md5(#password#), #email#, #name#, #memo#, now())
         <selectKey keyProperty="no" resultClass="Integer">
 			SELECT  LAST_INSERT_ID()
 		</selectKey>
@@ -46,7 +46,7 @@
     <update id="update" parameterClass="vo">
         update admin set
         	<isNotEqual property="password" compareValue="">
-        	    password = password(#password#),
+        	    password = md5(#password#),
         	</isNotEqual>
         	email=#email#, name=#name#, memo=#memo#
         where no=#no#
@@ -71,11 +71,11 @@
     </select>
     
     <select id="loginCheck" parameterClass="param" resultClass="Integer">
-        select count(*) as cnt from admin where id=#id# and password=password(#password#)
+        select count(*) as cnt from admin where id=#id# and password=md5(#password#)
     </select>
     
     <select id="loginSessionInfo" parameterClass="param" resultClass="vo">
-        select * from admin where id=#id# and password=password(#password#)
+        select * from admin where id=#id# and password=md5(#password#)
     </select>
     
     <!-- 관리자 로그인 접속 기록 -->
