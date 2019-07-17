@@ -50,27 +50,39 @@ function groupDelete() {
 							<form name="frm" id="frm" action="process.do" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="입양동물 관리목록입니다.">
 								<colgroup>
+									<col class="w3" /> 
 									<col class="w3" />
 									<col class="w5" />
 									<col class="w10" />
 									<col class="w10" />
+									<col class="w3" />
+									<col class="w3" />
 									<col class="" />
-									<col class="w20" />
+									<col class="w10" />
+									<col class="w10" />
+									<col class="w10" />
+									<col class="w10" />
 								</colgroup>
 								<thead>
 									<tr>
 										<th scope="col" class="first"><input type="checkbox" name="allChk" id="allChk" onClick="check(this, document.frm.no)"/></th>
 										<th scope="col">번호</th>
-										<th scope="col">아이디</th>
+										<th scope="col">카테고리</th>
+										<th scope="col">이미지</th>
 										<th scope="col">이름</th>
-										<th scope="col">이메일</th>
+										<th scope="col">성별</th>
+										<th scope="col">나이</th>
+										<th scope="col">성격</th>
+										<th scope="col">품종</th>
+										<th scope="col">접종현황</th>
+										<th scope="col">상태</th>
 										<th scope="col" class="last">등록일</th>
 									</tr>
 								</thead>
 								<tbody>
 								<% if (list.size() == 0) { %>
 									<tr>
-										<td class="first" colspan="8">등록된 자료가 없습니다.</td>
+										<td class="first" colspan="12">등록된 자료가 없습니다.</td>
 									</tr>
 								<%
 									 } else {
@@ -82,8 +94,12 @@ function groupDelete() {
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=list.get(i).getNo()%>"/></td>
 										<td <%=targetUrl%>><%=list.get(i).getNo()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getAnimal_category()%></td>
+										<td <%=targetUrl%>><%=list.get(i).getAnimal_image()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getName()%></td>
+										<td <%=targetUrl%>><%=list.get(i).getGender()%></td>
+										<td <%=targetUrl%>><%=list.get(i).getAge()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getBreed()%></td>
+										<td <%=targetUrl%>><%=list.get(i).getVac()%></td>
 										<td <%=targetUrl%>><%=DateUtil.getDateTimeFormat(list.get(i).getRegistdate())%></td>
 									</tr>
 								<%
@@ -112,9 +128,8 @@ function groupDelete() {
 								<div class="search">
 									<select name="stype" title="검색을 선택해주세요">
 										<option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>
-										<option value="id" <%=Function.getSelected(param.getStype(), "id") %>>아이디</option>
 										<option value="name" <%=Function.getSelected(param.getStype(), "name") %>>이름</option>
-										<option value="memo" <%=Function.getSelected(param.getStype(), "memo") %>>메모</option>
+										<option value="charr" <%=Function.getSelected(param.getStype(), "charr") %>>성격</option>
 									</select>
 									<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />
 									<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />
