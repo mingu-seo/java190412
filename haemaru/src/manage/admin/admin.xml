@@ -9,7 +9,7 @@
 	<sql id="searchSql">		
 		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where">
-		    no > 1
+		    1=1
 			<isNotEqual property="sval" compareValue="" prepend="and">
 				<isEqual property="stype" compareValue="all" prepend="and">
 					( (name like '%$sval$%' ) or (id like '%$sval$%' ) or (memo like '%$sval$%') ) 					
