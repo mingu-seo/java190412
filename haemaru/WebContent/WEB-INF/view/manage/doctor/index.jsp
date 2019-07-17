@@ -94,11 +94,12 @@
 											<tr>
 												<td class="first"><input type="checkbox" name="no"
 													id="no" value="<%=list.get(i).getNo()%>" /></td>
+													<td <%=targetUrl%>><%=list.get(i).getNo()%></td>
 												<td <%=targetUrl%>><%=list.get(i).getName()%></td>
 												<td <%=targetUrl%>><%=list.get(i).getTel()%></td>
 												<td <%=targetUrl%>><%=list.get(i).getDepartment()%></td>
 												<td <%=targetUrl%>><%=list.get(i).getPosition()%></td>
-												<td><input type="button" value="삭제" onclick=""/></td>
+												<td><input type="button" value="일정관리" onclick=""/></td>
 											</tr>
 											<%
 												}
