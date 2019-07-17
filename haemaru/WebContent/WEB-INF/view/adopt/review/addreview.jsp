@@ -8,12 +8,12 @@
     <title>입양후기등록</title>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700|Roboto:400,500,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/sub4-3.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/sub4-3.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
 
 </head>
 <body>
@@ -27,11 +27,11 @@
             <div class="abopt-page">
                 <div class="headline">
                     <p>입양후기등록</p>
-                    <img src="icon/footer-icon.png">
+                    <img src="/icon/footer-icon.png">
                 </div>
                 <div class="abopt-page-text">
                     <img src="img/con2-4.png">
-                    <h2><a href="index.html"><img src="icon/logo_lightgreen.png"></a></h2>
+                    <h2><a href="/index.do"><img src="/icon/logo_lightgreen.png"></a></h2>
                     <p>남정우 님의 후기가 등록되었습니다.</p>
                 </div>
                 <div class="abopt-checkbox-page">
@@ -45,15 +45,15 @@
                     <p>adopt an animal</p>
                 </div>
                 <ul class="sub-bar">
-                    <li class="on"><a href="sub4-1.html">프로필</a></li>
-                    <li><a href="sub4-2.html">입양후기</a></li>
+                    <li class="on"><a href="/adopt/animalprofile">프로필</a></li>
+                    <li><a href="/adopt/review/review.do">입양후기</a></li>
                 </ul>
             </div>
             <!-- main 부분 (여기다가 하면 됨) -->
             <div class="main">
                 <div class="top-arrow">
                     <a href="#">
-                        <img src="icon/top-arrow.png">
+                        <img src="/icon/top-arrow.png">
                         <p>위로가기</p>
                     </a>
                 </div>
@@ -73,8 +73,8 @@
                         <!-- 반려동물 사진 추가 부분 -->
                         <div class="sub4-3-list">
                             <div class="sub4-petplus-img">
-                                <img src="icon/icon_plus.png">
-                                <img src="icon/sub_dog.png">
+                                <img src="/icon/icon_plus.png">
+                                <img src="/icon/sub_dog.png">
                                 <h4>반려동물 사진 추가</h4>
                                 <p>사진을 추가해주세요.</p>
                             </div>

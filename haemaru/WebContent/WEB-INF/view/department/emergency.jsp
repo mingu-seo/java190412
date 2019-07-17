@@ -16,7 +16,7 @@
     <script type="text/javascript" src="/js/custom.js"></script>
 </head>
 <body>
-<%@ include file="/WEB-INF/view/include/headHtml.jsp" %>
+ <%@ include file="/WEB-INF/view/include/headHtml.jsp" %>
     <div id="container">
         <!-- con1 : 배너 사진 부분-->
         <div class="con1"></div>
@@ -78,7 +78,6 @@
             </div>
         </div>
     </div>
-    <!-- footer -->
-   <%@ include file="/WEB-INF/view/include/footer.jsp" %>
+     <%@ include file="/WEB-INF/view/include/footer.jsp" %>
 </body>
 </html>
