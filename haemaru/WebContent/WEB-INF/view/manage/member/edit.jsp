@@ -65,18 +65,22 @@ function goSave() {
 									</tr>
 									<tr>
 										<th scope="row"><label for="">이름</label></th>
-										<td><%=data.getName()%></td>
+										<td >
+											<input type="text" id="name" name="name" value="<%=data.getName()%>" />
+										</td>
 										<th scope="row"><label for="">이메일</label></th>
-										<td><%=data.getEmail()%></td>
+										<td>
+											<input type="text" id="email" name="email" value="<%=data.getEmail()%>" />
+										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">생년월일</label></th>
 										<td>
-											<%=data.getBirth()%>
+											<input type="text" id="birth" name="birth" value="<%=data.getBirth()%>" />
 										</td>
 										<th scope="row"><label for="">연락처</label></th>
 										<td>
-											<input type="password" id="password" name="password" value="" title="회원 이메일을 입력해주세요." />
+											<input type="text" id="tel" name="tel" value="<%=data.getTel()%>" />
 										</td>
 									</tr>
 									<tr>

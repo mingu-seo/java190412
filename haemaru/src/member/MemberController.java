@@ -77,7 +77,7 @@ public class MemberController {
 	@RequestMapping("/manage/member/idcheck")
 	public String idcheck(Model model, MemberVO param, HttpServletRequest request) throws Exception {
 		model.addAttribute("vo", param);
-		int value = memberService.idcheck(request.getParameter("id"));
+		int value = memberService.idcheck(request.getParameter("email"));
 
 		model.addAttribute("value", value);
 		
