@@ -318,7 +318,7 @@
             <div class="con3-box">
                 <div class="con3-info clear">
                     <div class="con3-view">
-                        <a href="sub2-1.html">
+                        <a href="department/surgery.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-1.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -329,7 +329,7 @@
                         </a>
                     </div>
                     <div class="con3-view">
-                        <a href="sub2-1.html">
+                        <a href="department/surgery.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-2.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -340,7 +340,7 @@
                         </a>
                     </div>
                     <div class="con3-view">
-                        <a href="sub2-2.html">
+                        <a href="department/internal.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-3.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -351,7 +351,7 @@
                         </a>
                     </div>
                     <div class="con3-view">
-                        <a href="sub2-2.html">
+                        <a href="department/internal.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-4.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -362,7 +362,7 @@
                         </a>
                     </div>
                     <div class="con3-view">
-                        <a href="sub2-2.html">
+                        <a href="department/radiology.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-5.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -373,7 +373,7 @@
                         </a>
                     </div>
                     <div class="con3-view">
-                        <a href="sub2-3.html">
+                        <a href="department/radiology.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-6.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -384,7 +384,7 @@
                         </a>
                     </div>
                     <div class="con3-view">
-                        <a href="sub2-3.html">
+                        <a href="department/radiology.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-7.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -395,7 +395,7 @@
                         </a>
                     </div>
                     <div class="con3-view">
-                        <a href="sub2-4.html">
+                        <a href="department/emergency.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-8.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -412,7 +412,7 @@
                     <div class="con3-bot-text clear">
                         <h5>Hamaru Clinic</h5>
                         <h6>고객에게 행복을 직원에게 즐거움을 반려동물에게<br/>최상의 진료 서비스를 제공하려 노력하는 해마루 동물병원입니다.</h6>
-                        <a href="sub2-1.html">more</a>
+                        <a href="department/surgery.do">more</a>
                     </div>
                 </div>
                 <!-- <div class="con3-bot-right"></div> -->
@@ -426,7 +426,7 @@
             <div class="con5-box clear">
                 <div class="con5-box-info">
                     <div class="con5-box-info-img">
-                        <a href="sub4-2.html"><img src="img/con4-2/con4-2-20.jpg"></a>
+                        <a href="adopt/review"><img src="img/con4-2/con4-2-20.jpg"></a>
                     </div>
                     <div class="con5-box-info-text">
                         <h5>Haemaru adoption</h5>
@@ -444,7 +444,7 @@
                 </div>
                 <div class="con5-box-info">
                     <div class="con5-box-info-img">
-                        <a href="sub4-2.html"><img src="img/con4-2/con4-2-21.jpg"></a>
+                        <a href="adopt/review"><img src="img/con4-2/con4-2-21.jpg"></a>
                     </div>
                     <div class="con5-box-info-text">
                         <h5>Haemaru adoption</h5>
@@ -462,7 +462,7 @@
                 </div>
                 <div class="con5-box-info">
                     <div class="con5-box-info-img">
-                        <a href="sub4-2.html"><img src="img/con4-2/con4-2-22.jpg"></a>
+                        <a href="adopt/review"><img src="img/con4-2/con4-2-22.jpg"></a>
                     </div>
                     <div class="con5-box-info-text">
                         <h5>Haemaru adoption</h5>
@@ -482,7 +482,7 @@
             <div class="con5-bot clear">
                 <div class="con5-bot-info clear">
                     <div>
-                        <a href="sub4-2.html"><img src="img/con4-2/con4-2-9.jpg"></a>
+                        <a href="adopt/review"><img src="img/con4-2/con4-2-9.jpg"></a>
                     </div>
                     <div>
                         <h5>Haemaru adoption</h5>
