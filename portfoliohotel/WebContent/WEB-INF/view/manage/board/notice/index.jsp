@@ -65,12 +65,16 @@ function goSearch() {
 									<col class="w20" />
 									<col class="w10" />
 									<col class="w4" />
+									<col class="w4" />
+									<col class="w4" />
 								</colgroup>
 								<thead>
 									<tr>
 										<th scope="col" class="first"><input type="checkbox" name="allChk" id="allChk" onClick="check(this, document.frm.no)"/></th>
-										<th scope="col">내용</th>
+										<th scope="col">제목</th>
 										<th scope="col">등록일</th> 
+										<th scope="col">노출</th>
+										<th scope="col">조회수</th>
 										<th scope="col" class="last">삭제</th>
 									</tr>
 								</thead>
@@ -88,16 +92,14 @@ function goSearch() {
 																NoticeVO data;
 																for (int i=0; i<list.size(); i++) {
 																	data = list.get(i);
-																	targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("edit", param, data.getNo())+"'\"";
+																	targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, data.getNo())+"'\"";
 								%>
 									<tr <%=topClass%>>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
-										<td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td>
-										<td <%=targetUrl%> class="title">
-											<%=data.getTitle()%>
-										</td>
+										<%-- <td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td> --%>
+										<td <%=targetUrl%> class="contents"><%=data.getContents() %></td>
+										<td <%=targetUrl%>><%=DateUtil.getDateFormat(data.getRegdate())%></td>
 										<td <%=targetUrl%>><%=CodeUtil.getDisplayName(data.getDisplay())%></td>
-										<%-- <td <%=targetUrl%>><%=DateUtil.getDateFormat(data.getRegdate())%></td> --%>
 										<td <%=targetUrl%>><%=data.getReadno()%></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
@@ -110,6 +112,7 @@ function goSearch() {
 								<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
 								<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
 								<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
+								<input type="hidden" name="no" id="no" value="<%=param.getNo() %>"/>
 							</form>
 							<div class="btn">
 								<div class="btnLeft">
