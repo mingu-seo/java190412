@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Repository;
 
+import board.qna.QnaVO;
 import db.SqlMapClientDAOSupport;
 
 
@@ -80,7 +81,7 @@ public class QnaDAO extends SqlMapClientDAOSupport {
 		QnaDAO ad = new QnaDAO();
 		QnaVO av = new QnaVO(10);
 		/* av.setName("test"); */
-		ad.read(1);
+		//ad.read(1);
 	
 		
 	}

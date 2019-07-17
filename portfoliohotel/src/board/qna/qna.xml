@@ -8,8 +8,8 @@
 	<sql id="searchSql">		
 		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where">
-			<isNotEqual property="display" compareValue="-1">
-			    display = #display#
+			<isNotEqual property="open" compareValue="-1">
+			    open = #open#
 			</isNotEqual>
 			<!-- 검색어 검색 -->
 			<isNotEqual property="sval" compareValue="">
@@ -27,25 +27,27 @@
 	
 	<!-- 해당 테이블의 총 게시글 수 -->
 	<select id="count" parameterClass="qna_vo" resultClass="Integer">
-        select count(*) from $tablename$
+        select count(*) from qna
         <include refid="searchSql" />	
     </select>
     
 	<select id="list" parameterClass="qna_vo" resultClass="qna_vo">
-        select *
-        from $tablename$
+        select 
+   			category, email, name,  tel, password, title, contents,
+        	regdate, file_org, file, filesize, open 
+        from qna
         <include refid="searchSql" />
-		ORDER BY registdate DESC LIMIT $startPageNo$, $pageRows$
+		ORDER BY regdate DESC LIMIT $startPageNo$, $pageRows$
     </select>
 	
 	<!-- 해당 테이블에 게시글 작성 -->
     <insert id="insert" parameterClass="qna_vo">
-        INSERT INTO $tablename$ (
-        	name, category, email, tel, password, title, contents, regdate,
-        	file_org, file, filesize, open
+        INSERT INTO qna (
+        	category, email, name,  tel, password, title, contents,
+        	regdate, file_org, file, filesize, open 
         ) VALUES (
-        	#name#, #category#, #email#, #tel#, #password#, #title#, #contents#, now(),
-        	#file_org#, #file#, #filesize#, #open#
+        	#category#, #email#, #name#, #tel#, #password#, #title#, #contents#, 
+        	now(), #file_org#, #file#, #filesize#, #open#  
         )
         <selectKey keyProperty="no" resultClass="Integer">
         	SELECT LAST_INSERT_ID()

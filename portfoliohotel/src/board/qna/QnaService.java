@@ -1,5 +1,6 @@
 package board.qna;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import board.qna.QnaVO;
 import property.SiteProperty;
 import util.FileUtil;
 import util.Page;
@@ -38,7 +40,7 @@ public class QnaService {
 		
 		FileUtil fu = new FileUtil();
 		Map fileMap = fu.getFileMap(request);
-		MultipartFile file= (MultipartFile)fileMap.get("file_tmp");
+		MultipartFile file= (MultipartFile)fileMap.get("filename_tmp");
 		if (!file.isEmpty()) {
 			fu.upload(file, SiteProperty.QNA_UPLOAD_PATH, SiteProperty.REAL_PATH, "qna");
 			vo.setFile(fu.getName());
@@ -46,9 +48,9 @@ public class QnaService {
 			vo.setFilesize(fu.getSrcSize());
 		}
 		
-		int lastNo = (Integer)qnaDao.insert(vo);
+		int no = (Integer)qnaDao.insert(vo);
 		
-		return lastNo;
+		return no;
 	}
 	public int update(QnaVO vo) throws SQLException {
 		int cnt = qnaDao.update(vo);
@@ -64,6 +66,7 @@ public class QnaService {
 		QnaVO vo = qnaDao.read(no);
 		return vo;
 	}
+	
 
 
 

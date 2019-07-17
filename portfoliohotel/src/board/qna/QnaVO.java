@@ -9,6 +9,7 @@ public class QnaVO extends Parameter {
 	private int 		no;					// 글번호 (pk)
 	private int 		category;			// 문의 분류
 	private String 		email;				// 이메일
+	private String		name;				// 이름 
 	private String 		tel;				// 휴대폰
 	private String 		password;			// 비밀번호
 	private int			member_pk;			// 회원 pk
@@ -91,13 +92,11 @@ public class QnaVO extends Parameter {
 		this.password = password;
 	}
 
-	public int getMember_pk() {
-		return member_pk;
-	}
-
-	public void setMember_pk(int member_pk) {
-		this.member_pk = member_pk;
-	}
+	
+	public int getMember_pk() { return member_pk; }
+	 
+	public void setMember_pk(int member_pk) { this.member_pk = member_pk; }
+	
 
 	public String getTitle() {
 		return title;
@@ -202,5 +201,12 @@ public class QnaVO extends Parameter {
 	public void setFilesize(long filesize) {
 		this.filesize = filesize;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	
 }
