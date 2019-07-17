@@ -44,15 +44,15 @@
             <div class="join-box">
                 <div class="join-head">
                     <p>Join</p>
-                    <img src="//icon/footer-icon.png">
+                    <img src="/icon/footer-icon.png">
                 </div>
                 <div class="join-page">
                     <div class="join-back-arrow">
-                        <a href="#"><img src="//icon/backarrow.png">
+                        <a href="#"><img src="/icon/backarrow.png">
                         <P>뒤로가기</P></a>
                     </div>
                     <h1 class="join-logo">
-                        <a href="#"><img src="//icon/logo_lightgreen.png"></a>
+                        <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                     </h1>
                     <form class="join-form" method="GET" action="text.php">
                         <div class="email_box">
@@ -118,12 +118,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="sub2-1.html">진료과목</a>
+                    <a href="/department/surgery.do">진료과목</a>
                     <ul class="header-sub">
-                        <li><a href="sub2-1.html">외과</a></li>
-                        <li><a href="sub2-2.html">내과</a></li>
-                        <li><a href="sub2-3.html">영상의학과</a></li>
-                        <li><a href="sub2-4.html">응급의료센터</a></li>
+                        <li><a href="/department/surgery.do">외과</a></li>
+                        <li><a href="/department/internal.do">내과</a></li>
+                        <li><a href="/department/radiology.do">영상의학과</a></li>
+                        <li><a href="/department/emergency.do">응급의료센터</a></li>
                     </ul>
                 </li>
                 <li>
@@ -133,18 +133,18 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="sub4-1.html">입양</a>
+                    <a href="/adopt/animalprofile/animalprofile.do">입양</a>
                     <ul class="header-sub">
-                        <li><a href="sub4-1.html">프로필</a></li>
-                        <li><a href="sub4-2.html">입양후기</a></li>
+                        <li><a href="/adopt/animalprofile/animalprofile.do">프로필</a></li>
+                        <li><a href="/adopt/review/review.do">입양후기</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="sub5-1.html">고객센터</a>
+                    <a href="/cscenter/notice/notice.do">고객센터</a>
                     <ul class="header-sub">
-                        <li><a href="sub5-1.html">공지사항</a></li>
-                        <li><a href="sub5-2.html">FAQ</a></li>
-                        <li><a href="sub5-3.html">문의하기</a></li>
+                        <li><a href="/cscenter/notice/notice.do">공지사항</a></li>
+                        <li><a href="/cscenter/faq/faq.do">FAQ</a></li>
+                        <li><a href="/cscenter/qna/qna.do">문의하기</a></li>
                     </ul>
                 </li>
                 <li>

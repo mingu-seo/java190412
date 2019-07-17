@@ -5,7 +5,7 @@
 	
     <!-- Spring WEB context configuration -->
 	<servlet>
-		<servlet-name>spring</servlet-name>
+		<servlet-name>haemaru</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
@@ -17,7 +17,7 @@
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>spring</servlet-name>
+		<servlet-name>haemaru</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
