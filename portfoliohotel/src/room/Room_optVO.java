@@ -1,4 +1,4 @@
-package room.opt;
+package room;
 
 import util.Parameter;
 

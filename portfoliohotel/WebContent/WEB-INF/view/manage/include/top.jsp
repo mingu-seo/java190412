@@ -70,14 +70,20 @@ $(window).load(function(){
 		<div id="menu">
   			<ul class="menu">
   				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>회원관리</span></a></li>
-				<li><a href="<%=request.getContextPath()%>/manage/room/index" class="parent"><span>객실관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/room/index" class="parent"><span>객실관리</span></a>
+					<div class="standard_left">
+					<ul>
+						<li><a href="<%=request.getContextPath()%>/manage/room/index_opt"><span>객실옵션관리</span></a></li>
+					</ul>
+					</div>
+				</li>
 				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>예매관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/board/notice/index.do" class="parent"><span>고객지원</span></a>
 					<div class="standard_left">
 					<ul>
 						<li><a href="<%=request.getContextPath()%>/manage/board/notice/index.do"><span>공지사항</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>영화후기</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>자유게시판</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/board/qna/index.do"><span>QnA</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>자주하는질문</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>FAQ분류관리</span></a></li>
 						
