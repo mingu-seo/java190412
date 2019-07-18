@@ -3,7 +3,7 @@
 <%@ page import="property.SiteProperty" %>
 <%@ page import="util.*" %>
 <%
-RoomVO param = (RoomVO)request.getAttribute("vo");
+Room_optVO param = (Room_optVO)request.getAttribute("vo");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -28,7 +28,7 @@ function groupDelete() {
 
 function goDelete(v) {	
 	if (confirm ('삭제하시겠습니까?')) {
-		document.location.href = "process?no="+v+"&cmd=delete";
+		document.location.href = "process_opt?no="+v+"&cmd=delete_opt";
 	}
 }
 
@@ -49,7 +49,7 @@ function goSave() {
 }
 
 </script>
-<title>관리자 객실 등록</title>
+<title>관리자 객실 옵션 등록</title>
 </head>
 <body>
 <%@ include file="/WEB-INF/view/manage/include/common.jsp" %>
@@ -64,72 +64,43 @@ function goSave() {
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>객실 관리 - [등록]</h2>
+					<h2>객실 옵션 관리 - [등록]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="bread">
-							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" enctype="multipart/form-data" onsubmit="return goSave();">
+							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process_opt" enctype="multipart/form-data" onsubmit="return goSave();">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
-									<col width="15%" />
-									<col width="35%" />
 									<col width="15%" />
 									<col width="35%" />
 								</colgroup>
 								<tbody>
 									<tr>
-										<th>객실 종류</th>
-										<td colspan="3"><input type="text" id="name" name="name" class="w50" /></td>
+										<th>옵션 종류</th>
+										<td colspan="3"><input type="text" id="name" name="name" class="w100" /></td>
 									</tr>
 									<tr>
-										<th>객실 가격</th>
-										<td><input type="text" id="price" name="price" class="w25" /></td>
-										<th>객실 수량</th>
-										<td><input type="text" id="count" name="count" class="w25" /></td>
+										<th>옵션 소개</th>
+										<td colspan="3"><input type="text" id="instruction" name="instruction" class="w100" /></td>
 									</tr>
 									<tr>
-										<th>성인(기본정원)</th>
-										<td><input type="text" id="adult" name="adult" class="w25" /></td>
-										<th>어린이(기본정원)</th>
-										<td><input type="text" id="kid" name="kid" class="w25" /></td>
-									</tr>
-									<%
-									for(int i=0; i<10; i++){
-									%>
-									<tr>
-										<th scope="row"><label for="">객실 이미지<%=i %></label></th>
-										
-										<td colspan="3"><input type="file" id="image_tmp<%=i %>" name="image_tmp<%=i %>" class="w50" /></td>
+										<th>옵션 이미지</th>
+										<td colspan="3"><input type="file" id="imagename_tmp" name="imagename_tmp" class="w100" /></td>
 									</tr>
 									<tr>
-									<%
-									}
-									%>
-										<th>객실 소개</th>
-										<td colspan="3"><textarea id="instruction" name="instruction" style="width:100%;"></textarea></td>
+										<th>옵션 정보</th>
+										<td colspan="3"><input type="text" id="info" name="info" class="w100" /></td>
 									</tr>
 									<tr>
-										<th>체크인 시간</th>
-										<td><input type="text" id="checkin_time" name="checkin_time" class="w25" /></td>
-										<th>체크아웃 시간</th>
-										<td><input type="text" id="checkout_time" name="checkout_time" class="w25" /></td>
-									</tr>
-									<tr>
-										<th>객실 위치</th>
-										<td colspan="3"><input type="text" id="location" name="location" class="w50" /></td>
-									</tr>
-									<tr>
-										<th>객실 전망</th>
-										<td><input type="text" id="landscape" name="landscape" class="w25" /></td>
-										<th>객실 타입</th>
-										<td><input type="text" id="type" name="type" class="w25" /></td>
+										<th>옵션 가격</th>
+										<td colspan="3"><input type="text" id="price" name="price" class="w100" /></td>
 									</tr>
 								</tbody>
 							</table>
-							<input type="hidden" name="cmd" value="write" />
+							<input type="hidden" name="cmd" value="write_opt" />
 							</form>
 							<div class="btn">
 								<div class="btnLeft">

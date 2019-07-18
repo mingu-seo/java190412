@@ -61,6 +61,72 @@ public class RoomDAO extends SqlMapClientDAOSupport {
 		return getSqlMapClient().delete("room.delete", vo);
 	}
 	
+	
+	
+	
+	/**
+	 * 객실 옵션 목록 조회
+	 * @param vo
+	 * @return
+	 * @throws SQLException
+	 */
+	public ArrayList list_opt(Room_optVO vo) throws SQLException {
+		return (ArrayList)getSqlMapClient().queryForList("room.list_opt", vo);
+	}
+	
+	/**
+	 * 객실 옵션 등록
+	 * @param vo
+	 * @return
+	 * @throws SQLException
+	 */
+	public int insert_opt(Room_optVO vo) throws SQLException {
+		return (Integer)getSqlMapClient().insert("room.insert_opt", vo);
+	}
+	
+	/**
+	 * 객실 옵션 상세
+	 * @param vo
+	 * @return
+	 * @throws SQLException
+	 */
+	public Room_optVO read_opt(Room_optVO vo) throws SQLException {
+		return (Room_optVO)getSqlMapClient().queryForObject("room.read_opt", vo);
+	}
+	
+	/**
+	 * 객실 옵션 수정
+	 * @param vo
+	 * @return
+	 * @throws SQLException
+	 */
+	public int update_opt(Room_optVO vo) throws SQLException {
+		return getSqlMapClient().update("room.update_opt", vo);
+	}
+	
+	/**
+	 * 객실 옵션 삭제
+	 * @param vo
+	 * @return
+	 * @throws SQLException
+	 */
+	public int delete_opt(Room_optVO vo) throws SQLException {
+		return getSqlMapClient().delete("room.delete_opt", vo);
+	}
+	
+	
+	
+	/**
+	 * 객실 편의시설 목록 조회
+	 * @param vo
+	 * @return
+	 * @throws SQLException
+	 */
+	public ArrayList list_service(Room_serviceVO vo) throws SQLException {
+		return (ArrayList)getSqlMapClient().queryForList("room.list_service", vo);
+	} 
+	
+	
 	public static void main(String[]args )throws SQLException {
 		RoomVO vo = new RoomVO();
 		RoomDAO dao = new RoomDAO();
