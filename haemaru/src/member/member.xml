@@ -66,11 +66,11 @@
     </select>
     
     <select id="loginCheck" parameterClass="membervo" resultClass="Integer">
-        select count(*) as cnt from member where email=#email# and pw=md5(#pw#)
+        select count(*) as cnt from admin where id=#id# and password=md5(#password#)
     </select>
     
     <select id="loginSessionInfo" parameterClass="membervo" resultClass="membervo">
-        select * from member where email=#email# and pw=md5(#pw#)
+        select * from admin where id=#id# and password=md5(#password#)
     </select>
     
     

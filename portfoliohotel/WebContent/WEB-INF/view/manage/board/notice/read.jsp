@@ -11,14 +11,14 @@ NoticeVO data = (NoticeVO) request.getAttribute("data");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp"%>
 <script type="text/javascript">
-	<%-- function goDelete() {
+	function goDelete() {
 		var del = confirm ('삭제하시겠습니까?');
 		if (del){
 			document.location.href = "process?no=<%=data.getNo()%>&cmd=delete";
 		} else {
 			return false;
 		}
-	} --%>
+	}
 
 	/* function goSave() {
 		var save = confirm ('등록하시겠습니까?');
@@ -83,11 +83,11 @@ NoticeVO data = (NoticeVO) request.getAttribute("data");
 										</tr>
 										<tr>
 											<th scope="row"><label for="">비밀글</label></th>
-											<td><%=data.getMember()%></td>
-											<th scope="row"><label for="">노출</label></th>
-											<td><%=data.getDisplay() %></td>
+											<td><%=CodeUtil.getMemberName(data.getMember())%></td>
+											<th scope="row"><label for="">노출,상단노출</label></th>
+											<td><%=CodeUtil.getDisplayName(data.getDisplay())%></td>
 											<th scope="row"><label for="">상단노출</label></th>
-											<td><%=data.getTop() %></td>
+											<td><%=CodeUtil.getTopName(data.getTop()) %></td>
 										</tr>
 										<tr>
 											<th scope="row"><label for="">첨부파일</label></th>
@@ -116,14 +116,6 @@ NoticeVO data = (NoticeVO) request.getAttribute("data");
 										<a class="btns" href="#" onClick="goDelete();"><strong>삭제</strong></a>
 									</div>
 								</div>
-								<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
-									<colgroup>
-										<col width="15%" />
-										<col width="35%" />
-										<col width="15%" />
-										<col width="35%" />
-									</colgroup>
-									</table>
 								<!--//btn-->
 							</div>
 							<!-- //bread -->

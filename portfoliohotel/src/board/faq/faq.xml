@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="faq">
+    
+    <typeAlias alias="faq_vo" type="board.faq.FaqVO"/>
+    
+	<sql id="searchSql">		
+		<!-- WHERE 절 검색 -->
+		<dynamic prepend="where"> <!-- prepend:자동으로 ""안의 문자가 앞에 붙게끔 -->
+		    1= 1 <!-- 조회할때는(목록에) 1번이 안나오게 -->
+		    <isNotEqual property="category" compareValue="0">
+		    	and category = #category#
+		    </isNotEqual>
+		    <isNotEqual property="display" compareValue="0">
+		    	and display = #display#
+		    </isNotEqual>
+			<isNotEqual property="sval" compareValue="">
+				<isEqual property="stype" compareValue="all" prepend="and">
+					and ( (category like '%$sval$%' ) or (display like '%$sval$%' ) or (title like '%$sval$%') ) 					
+				</isEqual>
+				<isNotEqual property="stype" compareValue="all" prepend="and">
+					and ($stype$ like '%$sval$%' )
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql>
+    
+	<select id="count" parameterClass="faq_vo" resultClass="Integer">
+        select count(*) from faq
+		<include refid="searchSql"/>
+    </select>
+    
+	<select id="list" parameterClass="faq_vo" resultClass="faq_vo">
+        select * from faq
+        <include refid="searchSql"/>
+        ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
+    </select>
+    
+    <insert id="insert" parameterClass="faq_vo" >
+        insert into faq
+        	(category, display, title, contents, regdate)
+        values
+        	(#category#, #display#, #title#, #contents#, now())
+		<selectKey keyProperty="no" resultClass="Integer">
+			SELECT  LAST_INSERT_ID()
+		</selectKey>
+    </insert>
+    
+    <update id="update" parameterClass="faq_vo">
+        update faq set
+        	category=#category#, display=#display#, title=#title#,
+        	contents=#contents# 		
+        where no=#no#
+    </update>
+    
+    <delete id="delete" parameterClass="Integer">
+        delete from faq where no=#no#
+    </delete>
+    
+    <select id="read" parameterClass="Integer" resultClass="faq_vo">
+    	<![CDATA[
+        select no, title, contents, display, category, regdate,
+        	ifnull((select max(no) from faq where no>1 and no<#no#), 0) as prev_no,
+        	ifnull((select min(no) from faq where no>1 and no>#no#), 0) as next_no
+         from faq where no=#no#
+         ]]>
+    </select>
+</sqlMap>
