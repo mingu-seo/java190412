@@ -52,16 +52,11 @@
     </update>
     
     <delete id="delete" parameterClass="Integer">
-        delete from adopt where no=#no#
+        delete from animal_pro where no=#no#
     </delete>
     
     <select id="read" parameterClass="Integer" resultClass="adopt_vo">
-    	<![CDATA[
-        select *
-        	ifnull((select max(no) from adopt where no>1 and no<#no#), 0) as prev_no,
-        	ifnull((select min(no) from adopt where no>1 and no>#no#), 0) as next_no
-         from adopt where no=#no#
-         ]]>
+        select * from animal_pro where no=#no#
     </select>
     
 </sqlMap>

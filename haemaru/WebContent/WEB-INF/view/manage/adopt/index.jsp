@@ -82,7 +82,7 @@ function groupDelete() {
 								<tbody>
 								<% if (list.size() == 0) { %>
 									<tr>
-										<td class="first" colspan="12">등록된 자료가 없습니다.</td>
+										<td class="first" colspan="14">등록된 자료가 없습니다.</td>
 									</tr>
 								<%
 									 } else {
@@ -94,12 +94,14 @@ function groupDelete() {
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=list.get(i).getNo()%>"/></td>
 										<td <%=targetUrl%>><%=list.get(i).getNo()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getAnimal_category()%></td>
-										<td <%=targetUrl%>><%=list.get(i).getAnimal_image()%></td>
+										<td <%=targetUrl%>><img src="<%=list.get(i).getAnimal_image()%>"/></td>
 										<td <%=targetUrl%>><%=list.get(i).getName()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getGender()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getAge()%></td>
+										<td <%=targetUrl%>><%=list.get(i).getCharr()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getBreed()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getVac()%></td>
+										<td <%=targetUrl%>><%=list.get(i).getState()%></td>
 										<td <%=targetUrl%>><%=DateUtil.getDateTimeFormat(list.get(i).getRegistdate())%></td>
 									</tr>
 								<%
