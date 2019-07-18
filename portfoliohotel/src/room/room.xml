@@ -170,8 +170,19 @@
 	
 	<typeAlias alias="room_serviceVO" type="room.Room_serviceVO"/>
 	
-	<select id="list_service" parameterClass="room_serviceVO" resultClass="room_serviceVO">
-		SELECT * FROM room_service
+	<select id="list_service" parameterClass="Integer" resultClass="java.util.HashMap">
+		SELECT * FROM room_service where room_pk=#room_pk#
 	</select>
 	
+	<insert id="insert_service" parameterClass="java.util.HashMap">
+		INSERT INTO room_service (name, room_pk) VALUES (#name_s#, #room_pk#)
+	</insert>
+	
+	<update id="update_service" parameterClass="java.util.HashMap">
+		UPDATE room_service SET name=#name_s#, room_pk=#room_pk# where room_pk=#room_pk#
+	</update>
+	
+	<delete id="delete_service" parameterClass="Integer">
+		DELETE FROM room_service WHERE room_pk=#room_pk#
+	</delete>
 </sqlMap>

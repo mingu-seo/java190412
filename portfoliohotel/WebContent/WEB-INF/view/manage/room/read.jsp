@@ -2,9 +2,11 @@
 <%@ page import="room.*" %>
 <%@ page import="property.SiteProperty" %>
 <%@ page import="util.*" %>
+<%@ page import="java.util.*"%>
 <%
 RoomVO param = (RoomVO)request.getAttribute("vo");
 RoomVO read = (RoomVO)request.getAttribute("read");
+ArrayList<HashMap> list = (ArrayList<HashMap>)request.getAttribute("list");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -58,7 +60,6 @@ function goDelete() {
 									<col width="15%" />
 									<col width="15%" />
 									<col width="15%" />
-							
 								</colgroup>
 								<tbody>
 									<tr>
@@ -166,6 +167,42 @@ function goDelete() {
 							<!--//btn-->
 						</div>
 						<!-- //bread -->
+						
+						<div id="bbs">
+							<div id="blist">
+									<h3><%=CodeUtil.getRoomName(read.getName())%>의 편의시설 목록</h3>
+									<table style="width:300px;" border="0" cellspacing="0" cellpadding="0">
+										<colgroup>											
+											<col class="w10" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">편의시설</th>
+											</tr>
+										</thead>
+										<tbody>
+											<%
+												if (list.size() == 0) {
+											%>
+											<tr>
+												<td class="first" colspan="4">등록된 자료가 없습니다.</td>
+											</tr>
+											<%
+												} else {
+													for (int i = 0; i < list.size(); i++) {
+														HashMap data = list.get(i);
+											%>
+											<tr>
+												<td><%=data.get("name")%></td>
+											</tr>
+											<%
+													}
+												}
+											%>
+										</tbody>
+									</table>
+								</div>
+							</div>						
 					</div>
 					<!-- //bbs --> 
 					<!-- 내용 : e -->
