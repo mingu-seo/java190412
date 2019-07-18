@@ -96,11 +96,18 @@ function goSave() {
 										<th>어린이(기본정원)</th>
 										<td><input type="text" id="kid" name="kid" class="w25" /></td>
 									</tr>
+									<%
+									for(int i=0; i<10; i++){
+									%>
 									<tr>
-										<th scope="row"><label for="">객실 이미지</label></th>
-										<td colspan="3"><input type="file" id="filename_tmp" name="filename_tmp" class="w50" /></td>
+										<th scope="row"><label for="">객실 이미지<%=i %></label></th>
+										
+										<td colspan="3"><input type="file" id="image_tmp<%=i %>" name="image_tmp<%=i %>" class="w50" /></td>
 									</tr>
 									<tr>
+									<%
+									}
+									%>
 										<th>객실 소개</th>
 										<td colspan="3"><textarea id="instruction" name="instruction" style="width:100%;"></textarea></td>
 									</tr>

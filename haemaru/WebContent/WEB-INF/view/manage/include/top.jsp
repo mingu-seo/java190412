@@ -81,16 +81,16 @@ $(window).load(function(){
 					</div>
 				</li>
 				<li><a href="<%=request.getContextPath()%>/manage/reservation/index" class="parent"><span>예약관리</span></a></li>
-				<li><a href="<%=request.getContextPath()%>/manage/product/index" class="parent"><span>입양관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/adopt/index" class="parent"><span>입양관리</span></a></li>
 
-				<li><a href="<%=request.getContextPath()%>/manage/board/notice/index.do" class="parent"><span>고객지원</span></a>
+				<li><a href="<%=request.getContextPath()%>/manage/cscenter/index.do" class="parent"><span>고객지원</span></a>
 					<div class="standard_left">
 					<ul>
-						<li><a href="<%=request.getContextPath()%>/manage/board/notice/index.do"><span>공지사항</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>후기</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/notice/index.do"><span>공지사항</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/review/index.do"><span>후기</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>자유게시판</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>자주하는질문</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>FAQ분류관리</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/faq/"><span>자주하는질문</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/faq/"><span>FAQ분류관리</span></a></li>
 						
 					</ul>
 					</div>

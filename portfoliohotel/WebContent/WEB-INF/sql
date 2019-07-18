@@ -194,6 +194,7 @@ CREATE TABLE `qna` (
   `reply_contents` text,
   `reply_regdate` timestamp NULL DEFAULT NULL,
   `send_email` int(11) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `filesize` mediumtext,
   PRIMARY KEY (`no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
