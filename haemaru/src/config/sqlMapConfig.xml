@@ -39,5 +39,9 @@
 	<sqlMap resource="board/notice/notice.xml"/>
 	<sqlMap resource="manage/doctor/doctor.xml"/>
 	<sqlMap resource="member/member.xml"/>
+<<<<<<< HEAD
 	<sqlMap resource="manage/adopt/adopt.xml"/>
+=======
+	<sqlMap resource="mypet/mypet.xml"/>
+>>>>>>> branch 'master' of https://github.com/mingu-seo/java190412.git
 </sqlMapConfig>

@@ -2,7 +2,7 @@
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="mypet">
     
-    <typeAlias alias="mypetvo" type="pet.PetVO"/>
+    <typeAlias alias="mypetvo" type="mypet.MypetVO"/>
     
 	<!-- 공통조건 -->
 	<sql id="searchSql">		
@@ -32,20 +32,22 @@
     
     <insert id="insert" parameterClass="mypetvo" >
         insert into mypet
-        	(name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate)
+        	(name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, member_pk, registdate)
         values
-        	(#name#, #age#, #gender#, #breed#, #vac#, #mypet_image#, #mypet_image_org#, #memo#, now())
+        	(#name#, #age#, #gender#, #breed#, #vac#, #mypet_image#, #mypet_image_org#, #memo#, #member_pk#, now())
         <selectKey keyProperty="no" resultClass="Integer">
 			SELECT  LAST_INSERT_ID()
 		</selectKey>
     </insert>
     <update id="update" parameterClass="mypetvo">
-        update mypet set
-        	<isNotEqual property="password" compareValue="">
-        	    password = md5(#password#),
-        	</isNotEqual>
-        	name=#name#
-        where no=#no#
+        UPDATE mypet SET
+		name=#name#, age=#age#, vac=#vac#, gender=#gender#
+		<isNotEqual property="mypet_image" compareValue="">
+			<isNotNull property="mypet_image">
+				mypet_image=#mypet_image#, mypet_image_org=#mypet_image_org#
+			</isNotNull>
+		</isNotEqual>
+		WHERE no = #no#
     </update>
     
     <delete id="delete" parameterClass="Integer">
@@ -57,21 +59,10 @@
         select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate,
         	ifnull((select max(no) from mypet where no>1 and no<#no#), 0) as prev_no,
         	ifnull((select min(no) from mypet where no>1 and no>#no#), 0) as next_no
-         from mypet where no>1 and no=#no#
+         from mypet where no=#no#
          ]]>
     </select>
     
-    <select id="idcheck" parameterClass="String" resultClass="Integer">
-        select count(*) as cnt from mypet where id=#id#
-    </select>
-    
-    <select id="loginCheck" parameterClass="mypetvo" resultClass="Integer">
-        select count(*) as cnt from mypet where id=#id# and password=md5(#password#)
-    </select>
-    
-    <select id="loginSessionInfo" parameterClass="mypetvo" resultClass="mypetvo">
-        select * from mypet where id=#id# and password=md5(#password#)
-    </select>
     
     
     

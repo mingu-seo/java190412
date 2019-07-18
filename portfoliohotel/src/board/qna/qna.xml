@@ -8,7 +8,7 @@
 	<sql id="searchSql">		
 		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where">
-			<isNotEqual property="open" compareValue="-1">
+			<isNotEqual property="open" compareValue="0">
 			    open = #open#
 			</isNotEqual>
 			<!-- 검색어 검색 -->
@@ -33,7 +33,7 @@
     
 	<select id="list" parameterClass="qna_vo" resultClass="qna_vo">
         select 
-   			category, email, name,  tel, password, title, contents,
+   			no, category, email, name,  tel, password, title, contents,
         	regdate, file_org, file, filesize, open 
         from qna
         <include refid="searchSql" />
@@ -53,4 +53,9 @@
         	SELECT LAST_INSERT_ID()
         </selectKey>
     </insert>
+    
+     <select id="read" parameterClass="Integer" resultClass="qna_vo">
+        select no, category, email, name,  tel, password, title, contents,
+        	regdate, file_org, file, filesize, open FROM qna where no=#no#
+   	 </select>
  </sqlMap>
