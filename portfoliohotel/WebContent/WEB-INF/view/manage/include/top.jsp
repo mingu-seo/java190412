@@ -76,7 +76,7 @@ $(window).load(function(){
 					<div class="standard_left">
 					<ul>
 						<li><a href="<%=request.getContextPath()%>/manage/board/notice/index.do"><span>공지사항</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>영화후기</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/board/faq/index.do"><span>FAQ</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>자유게시판</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>자주하는질문</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>FAQ분류관리</span></a></li>

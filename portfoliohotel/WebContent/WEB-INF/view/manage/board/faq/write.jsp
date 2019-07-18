@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.util.*" %>
-<%@ page import="board.notice.*" %>
+<%@ page import="board.faq.*" %>
 <%@ page import="util.*" %>
 <%
-	NoticeVO param = (NoticeVO)request.getAttribute("vo");
+	FaqVO param = (FaqVO)request.getAttribute("vo");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -19,7 +19,7 @@
 	
 	function goSave() {
 		if ($("#title").val() == "") {
-			alert('제목을 입력하세요.');
+			alert('질문을 입력하세요.');
 			$("#title").focus();
 			return false;
 		}
@@ -52,7 +52,7 @@
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>공지사항 - [쓰기]</h2>
+					<h2>FAQ - [쓰기]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">
@@ -68,35 +68,29 @@
 									<col width="15%" />
 									<col width="35%" />
 								</colgroup>
-								<tbody>
+								<tbody>		
 									<tr>
-										<th scope="row"><label for="">제목</label></th>
-										<td colspan="3">
-											<input type="text" id="title" name="title" class="w50" title="제목을 입력해주세요" />	
-										</td>
-									</tr>		
-									<tr>
-										<th scope="row"><label for="">비밀글</label></th>
+										<th scope="row"><label for="">카테고리</label></th>
 										<td>
-											<select name="member">
+											<select name="category">
 											
-											<option value="1">공개</option>
-											<option value="2">비공개</option>
+											<option value="1">예약</option>
+											<option value="2">결제</option>
 											</select>
 										</td>
-										<th scope="row"><label for="">노출, 상단노출</label></th>
+										<th scope="row"><label for="">노출</label></th>
 										<td>
 											<select name="display">
 											
 											<option value="1">노출</option>
 											<option value="2">숨김</option>
 											</select>
-											
-											<select name="top">
-												
-												<option value="1">상단 노출</option>
-												<option value="2">상단 미노출</option>
-											</select>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">질문</label></th>
+										<td colspan="4">
+											<input type="text" id="title" name="title" class="w50" title="질문을 입력해주세요"/>
 										</td>
 									</tr>						
 									<%-- <tr> 
@@ -115,12 +109,7 @@
 										</td>
 									</tr> --%>
 									<tr>
-										<th scope="row"><label for="">첨부파일</label></th>
-										<td colspan="3">
-											<input type="file" id="filename_tmp" name="filename_tmp" class="w50" title="첨부파일을 업로드 해주세요." />	
-										</td>
-									</tr>
-									<tr>
+										<th scope="row"><label for="">답변</label></th>
 										<td colspan="4">
 											<textarea id="contents" name="contents" title="내용을 입력해주세요" style="width:100%;"></textarea>	
 										</td>
