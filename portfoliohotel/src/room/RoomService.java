@@ -155,7 +155,7 @@ public class RoomService {
 		int r = roomDAO.update(vo);
 		if(r > 0) {
 			if("1".equals(vo.getImage_chk1()) || !"".equals(Function.checkNull(vo.getImage1()))) {
-				Function.fileDelete(SiteProperty.ROOM_UPLOAD_PATH, read.getImage1());
+				Function.fileDelete(SiteProperty.REAL_PATH + SiteProperty.ROOM_UPLOAD_PATH, read.getImage1());
 			}
 			if("1".equals(vo.getImage_chk2()) || !"".equals(Function.checkNull(vo.getImage2()))) {
 				Function.fileDelete(SiteProperty.ROOM_UPLOAD_PATH, read.getImage2());
