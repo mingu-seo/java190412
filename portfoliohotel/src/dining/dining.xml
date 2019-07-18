@@ -2,50 +2,70 @@
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="dining">
 
-	<typeAlias alias="diningvo" type="dining.DiningVO"/>
-	
-	<sql id="searchSql">		
+	<typeAlias alias="diningvo" type="dining.DiningVO" />
+
+	<sql id="searchSql">
 		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where">
 			<isNotEqual property="display" compareValue="-1">
-			    display = #display#
+				display = #display#
 			</isNotEqual>
 			<!-- 검색어 검색 -->
 			<isNotEqual property="sval" compareValue="">
 				<!-- 검색 타입이 all일 때 -->
 				<isEqual property="stype" compareValue="all" prepend="and">
-					( (name like '%$sval$%' ) or (contents like '%$sval$%' ) or (title like '%$sval$%' ) ) 					
+					( (name like '%$sval$%' ) or (contents like '%$sval$%' ) or (title like '%$sval$%' ) )
 				</isEqual>
 				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
-				<isNotEqual property="stype" compareValue="all" prepend="and">
+				<isNotEqual property="stype" compareValue="all"
+					prepend="and">
 					($stype$ like '%$sval$%' )
 				</isNotEqual>
 			</isNotEqual>
 		</dynamic>
 	</sql>
-	
+
 	<select id="count" parameterClass="diningvo" resultClass="Integer">
-        select count(*) from dining
-        <include refid="searchSql" />
-    </select>
+		select count(*) from dining
+		<include refid="searchSql" />
+	</select>
+
+	<select id="list" parameterClass="diningvo" resultClass="diningvo">
+		select * from dining
+		<include refid="searchSql" />
+		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
+	</select>
+
+	<insert id="insert" parameterClass="diningvo">
+		insert into dining (
+		no, name, price, imagename, imagename_org, startdate, enddate, book_period, inclusion, info
+		) values (
+		#no#, #name#, #price#, #imagename#, #imagename_org#, #startdate#, #enddate#,
+		#book_period#, #inclusion#, #info#
+		)
+		<selectKey keyProperty="no" resultClass="Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	
+	<update id="update" parameterClass="diningvo">
+        update dining set
+        <isNotEqual property="imagename" compareValue="">
+        	<isNotNull property="imagename">
+        		imagename=#imagename#, imagename_org=#imagename_org#,	  	
+        	</isNotNull>
+        </isNotEqual>
+        name=#name#, price=#price#, imagename=#imagename#, startdate=#startdate#, enddate=#enddate#, book_period=#book_period#,
+        inclusion=#inclusion#, info=#info#
+        where no=#no#
+    </update>
     
-    <select id="list" parameterClass="diningvo" resultClass="diningvo">
-        select * from dining
-        <include refid="searchSql" />
-        ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
-    </select>
-    
-    <insert id="insert" parameterClass="diningvo">
-        insert into dining (
-        	no, name, price, startdate, enddate, book_period,
-        	inclusion, info
-        ) values (
-        	#no#, #name#, #price#, #startdate#, #enddate#,
-        	#book_period#, #inclusion#, #info#
-        )
-        <selectKey keyProperty="no" resultClass="Integer">
-        	SELECT LAST_INSERT_ID()
-        </selectKey>
-    </insert>
-    
+    <select id="read" parameterClass="Integer" resultClass="diningvo">
+		select * from dining where no=#no#
+	</select>
+
+	<delete id="delete" parameterClass="Integer">
+		delete from dining where no=#no#
+	</delete>
+
 </sqlMap>

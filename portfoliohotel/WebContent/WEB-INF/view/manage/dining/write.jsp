@@ -14,13 +14,14 @@ DiningVO param = (DiningVO)request.getAttribute("vo");
 	var oEditors; // 에디터 객체 담을 곳
 	jQuery(window).load(function(){
 		oEditors = setEditor("info"); // 에디터 셋팅
-		initCal({id:"registdate",type:"day",today:"y",timeYN:"y"});
+		initCal({id:"startdate",type:"day",today:"y"});
+		initCal({id:"enddate",type:"day",today:"y"});
 	});
 	
 	function goSave() {
-		if ($("#title").val() == "") {
-			alert('제목을 입력하세요.');
-			$("#title").focus();
+		if ($("#name").val() == "") {
+			alert('다이닝명을 입력하세요.');
+			$("#name").focus();
 			return false;
 		}
 		var sHTML = oEditors.getById["info"].getIR();
@@ -29,7 +30,7 @@ DiningVO param = (DiningVO)request.getAttribute("vo");
 			$("#info").focus();
 			return false;
 		} else {
-			oEditors.getById["info"].exec("UPDATE_INFO_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+			oEditors.getById["info"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
 		}
 		return true;
 	}
@@ -66,36 +67,59 @@ DiningVO param = (DiningVO)request.getAttribute("vo");
 									<col width="35%" />
 								</colgroup>
 								<tbody>
+									
 									<tr>
-										<th scope="row"><label for="">상태</label></th>
-										<td>
-											<select name="display">
-												<%=CodeUtil.getDisplayOption(0) %>
-											</select>
+										<th scope="row"><label for="">다이닝명</label></th>
+										<td colspan="3">
+											<input type="text" id="name" name="name" class="w50" title="다이닝명을 입력해주세요" />	
 										</td>
-										<th scope="row"><label for="">등록일</label></th>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">가격</label></th>
+										<td colspan="3">
+											<input type="text" id="price" name="price" class="w50" title="가격을 입력해주세요" />	
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">다이닝 이미지</label></th>
+										<td colspan="3">
+											<input type="file" name="imagename_tmp" id="imagename_tmp" class="w50" title="첨부파일을 업로드 해주세요." />
+										</td>	
+									</tr>
+									<tr>
+										<th scope="row"><label for="">운영기간 시작일</label></th>
 										<td>
-											<input type="text" id="registdate" name="registdate" class="inputTitle" value="<%=DateUtil.getFullToday()%>" title="등록일을 입력해주세요" />&nbsp;
-											<span id="CalregistdateIcon">
-												<img src="/manage/img/calendar_icon.png" id="CalregistdateIconImg" style="cursor:pointer;"/>
+											<input type="text" id="startdate" name="startdate" class="inputTitle" value="" title="운영기간 시작일을 입력해주세요" />&nbsp;
+											<span id="CalstartdateIcon">
+												<img src="/manage/img/calendar_icon.png" id="CalstartdateIconImg" style="cursor:pointer;"/>
 											</span>
 										</td>
 									</tr>
 									<tr>
-										<th scope="row"><label for="">첨부파일</label></th>
-										<td colspan="3">
-											<input type="file" id="filename_tmp" name="filename_tmp" class="w50" title="첨부파일을 업로드 해주세요." />	
+										<th scope="row"><label for="">운영기간 종료일</label></th>
+										<td>
+											<input type="text" id="enddate" name="enddate" class="inputTitle" value="" title="운영기간 시작일을 입력해주세요" />&nbsp;
+											<span id="CalenddateIcon">
+												<img src="/manage/img/calendar_icon.png" id="CalenddateIconImg" style="cursor:pointer;"/>
+											</span>
 										</td>
 									</tr>
 									<tr>
-										<th scope="row"><label for="">*제목</label></th>
+										<th scope="row"><label for="">예약기간</label></th>
 										<td colspan="3">
-											<input type="text" id="title" name="title" class="w50" title="제목을 입력해주세요" />	
+											<input type="text" id="book_period" name="book_period" class="w50" title="예약기간을 입력해주세요" />	
 										</td>
 									</tr>
 									<tr>
+										<th scope="row"><label for="">포함내역</label></th>
+										<td colspan="3">
+											<input type="text" id="inclusion" name="inclusion" class="w50" title="포함내역을 입력해주세요" />	
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">안내</label></th>
 										<td colspan="4">
-											<textarea id="contents" name="contents" title="내용을 입력해주세요" style="width:100%;"></textarea>	
+											<textarea id="info" name="info" title="내용을 입력해주세요" style="width:100%" ></textarea>
 										</td>
 									</tr>
 									

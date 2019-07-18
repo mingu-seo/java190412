@@ -63,13 +63,14 @@ function goSearch() {
 								<colgroup>
 									<col class="w3" />
 									<col class="w3" />
-									<col class="w8" />
+									<col class="w6" />
 									<col class="w8" />
 									<col class="w7" />
 									<col class="w7" />
-									<col class="w10" />
-									<col class="w10" />
-									<col class="w10" />
+									<col class="w7" />
+									<col class="w9" />
+									<col class="w9" />
+									<col class="w5" />
 									<col class="w5" />
 								</colgroup>
 								<thead>
@@ -78,8 +79,9 @@ function goSearch() {
 										<th scope="col">번호</th>
 										<th scope="col">다이닝명</th> 
 										<th scope="col">가격</th> 
-										<th scope="col">운영기간 시작</th> 
-										<th scope="col">운영기간 종료</th>
+										<th scope="col">이미지</th>
+										<th scope="col">운영기간 시작일</th> 
+										<th scope="col">운영기간 종료일</th>
 										<th scope="col">예약기간</th>
 										<th scope="col">포함내역</th>
 										<th scope="col">안내</th>
@@ -89,7 +91,7 @@ function goSearch() {
 								<tbody>
 								<% if (totCount == 0) { %>
 									<tr>
-										<td class="first" colspan="10">등록된 글이 없습니다.</td>
+										<td class="first" colspan="11">등록된 글이 없습니다.</td>
 									</tr>
 								<%
 									 } else {
@@ -98,19 +100,19 @@ function goSearch() {
 										DiningVO data;
 										for (int i=0; i<list.size(); i++) {
 											data = list.get(i);
-											targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("edit", param, data.getNo())+"'\"";
+											targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, data.getNo())+"'\"";
 								%>
 									<tr <%=topClass%>>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
 										<td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td>
 										<td <%=targetUrl%> class="name"><%=data.getName()%></td>
 										<td <%=targetUrl%> class="price"><%=data.getPrice()%></td>
+										<td <%=targetUrl%>><img src="/upload/dining/<%=list.get(i).getImagename()%>" width="100" height="100"></td>
 										<td <%=targetUrl%> class="startdate"><%=data.getStartdate()%></td>
 										<td <%=targetUrl%> class="enddate"><%=data.getEnddate()%></td>
 										<td <%=targetUrl%> class="book_period"><%=data.getBook_period()%></td>
 										<td <%=targetUrl%> class="inclusion"><%=data.getInclusion()%></td>
 										<td <%=targetUrl%> class="info"><%=data.getInfo()%></td>
-										
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
 								<%

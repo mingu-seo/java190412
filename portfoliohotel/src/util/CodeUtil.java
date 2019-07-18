@@ -701,5 +701,24 @@ public class CodeUtil {
 	    }
 	    return result;
 	}
+	 
+	 
+	// 룸 카테고리
+	 public static String getRoomName(int room) {
+			String result = "";
+			if (room == 1) {
+				result = "Namsan Pool Deluxe Room";
+			} else if (room == 2) {
+				result = "Namsan Pool Premier Suite";
+			} else if (room == 3) {
+				result = "Namsan Presidential Suite";
+			} else if (room == 4) {
+				result = "Spa Sanctuary Suite";
+			} else if (room == 5) {
+				result = "Banyan Pool Presidential Suite";
+			}
+			
+			return result;
+		}		
 	 	
 }

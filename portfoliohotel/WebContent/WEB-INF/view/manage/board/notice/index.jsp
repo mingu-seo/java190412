@@ -61,47 +61,45 @@ function goSearch() {
 							<form name="frm" id="frm" action="process.do" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
 								<colgroup>
-									<col class="w3" />
-									<col class="w4" />
-									<col class="" />
-									<col class="w6" />
+									<col class="w4"/>
+									<col class="w20" />
 									<col class="w10" />
-									<col class="w5" />
-									<col class="w5" />
+									<col class="w4" />
+									<col class="w4" />
+									<col class="w4" />
 								</colgroup>
 								<thead>
 									<tr>
 										<th scope="col" class="first"><input type="checkbox" name="allChk" id="allChk" onClick="check(this, document.frm.no)"/></th>
-										<th scope="col">번호</th>
-										<th scope="col">제목</th> 
-										<th scope="col">상태</th> 
-										<th scope="col">작성일</th> 
-										<th scope="col">조회</th>
+										<th scope="col">제목</th>
+										<th scope="col">등록일</th> 
+										<th scope="col">노출</th>
+										<th scope="col">조회수</th>
 										<th scope="col" class="last">삭제</th>
 									</tr>
 								</thead>
 								<tbody>
-								<% if (totCount == 0) { %>
+								<%
+									if (totCount == 0) {
+								%>
 									<tr>
 										<td class="first" colspan="8">등록된 글이 없습니다.</td>
 									</tr>
 								<%
-									 } else {
-										String targetUrl = "";
-										String topClass = "";
-										NoticeVO data;
-										for (int i=0; i<list.size(); i++) {
-											data = list.get(i);
-											targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("edit", param, data.getNo())+"'\"";
+									} else {
+																String targetUrl = "";
+																String topClass = "";
+																NoticeVO data;
+																for (int i=0; i<list.size(); i++) {
+																	data = list.get(i);
+																	targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, data.getNo())+"'\"";
 								%>
 									<tr <%=topClass%>>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
-										<td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td>
-										<td <%=targetUrl%> class="title">
-											<%=data.getTitle()%>
-										</td>
+										<%-- <td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td> --%>
+										<td <%=targetUrl%> class="contents"><%=data.getContents() %></td>
+										<td <%=targetUrl%>><%=DateUtil.getDateFormat(data.getRegdate())%></td>
 										<td <%=targetUrl%>><%=CodeUtil.getDisplayName(data.getDisplay())%></td>
-										<td <%=targetUrl%>><%=DateUtil.getDateFormat(data.getRegistdate())%></td>
 										<td <%=targetUrl%>><%=data.getReadno()%></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
@@ -114,6 +112,7 @@ function goSearch() {
 								<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
 								<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
 								<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
+								<input type="hidden" name="no" id="no" value="<%=param.getNo() %>"/>
 							</form>
 							<div class="btn">
 								<div class="btnLeft">
@@ -125,7 +124,7 @@ function goSearch() {
 							</div>
 							<!--//btn-->
 							<!-- 페이징 처리 -->
-							<%=Page.indexList(param.getReqPageNo(), totPage, request)%>
+							<%--<%=Page.indexList(param.getReqPageNo(), totPage, request)%>
 							<!-- //페이징 처리 -->
 							<form name="searchForm" id="searchForm" action="index" method="post">
 								<div class="search">
@@ -143,7 +142,7 @@ function goSearch() {
 									<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />
 									<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />
 								</div>
-							</form>
+							</form> --%>
 							<!-- //search --> 
 						</div>
 						<!-- //blist -->

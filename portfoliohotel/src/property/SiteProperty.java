@@ -2,18 +2,18 @@ package property;
 
 public class SiteProperty {
 	/*
-	 * ê¸°ë³¸ì •ë³´
+	 * ±âº»Á¤º¸
 	 */
 	/**
-	 * ì—…ì²´ëª…
+	 * ¾÷Ã¼¸í
 	 */
 	public static final String 	COMPANY_NAME			= "SPRING";
 	/**
-	 * ê´€ë¦¬ì ì‹œì‘í˜ì´ì§€
+	 * °ü¸®ÀÚ ½ÃÀÛÆäÀÌÁö
 	 */
 	public static final String	INDEX_PAGE				= "/manage/admin/index.do";
 	/**
-	 * ë³´ì•ˆì„œë²„ì¸ì¦ì„œ(SSL)ì‚¬ìš©ì—¬ë¶€
+	 * º¸¾È¼­¹öÀÎÁõ¼­(SSL)»ç¿ë¿©ºÎ
 	 */
 	public static final boolean	SSL_USE					= false;
 	/**
@@ -29,52 +29,52 @@ public class SiteProperty {
 	public static final String 	COMPANY_SSL_URL_MO		= "https://localhost:8080";
 	
 	/**
-	 * JSP íŒŒì¼ê²½ë¡œìœ„ì¹˜
+	 * JSP ÆÄÀÏ°æ·ÎÀ§Ä¡
 	 */
 	public static final String	JSP_HOME				= "/WEB-INF/view";
 
 	/**
-	 * mysql ë¹„ë°€ë²ˆí˜¸ ì•”í˜¸í™” ë°©ì‹
+	 * mysql ºñ¹Ğ¹øÈ£ ¾ÏÈ£È­ ¹æ½Ä
 	 * password, old_password, md5, sha
 	 */
 	public static final String	DB_ENCRYPTION			= "password";
 	/**
-	 * ëŒ€í‘œ ì´ë©”ì¼
+	 * ´ëÇ¥ ÀÌ¸ŞÀÏ
 	 */
 	public static final String 	COMPANY_EMAIL			= "withsky999@gmail.com";
 
 	/*
-	 * ë©”ì¼ê´€ë ¨
+	 * ¸ŞÀÏ°ü·Ã
 	 */
 	/**
-	 * ë©”ì¼ì„œë²„
+	 * ¸ŞÀÏ¼­¹ö
 	 */
 	public static final String 	SMTP_HOST				= "mail.";
 	/**
-	 * ë©”ì¼ê³„ì • ì•„ì´ë””
+	 * ¸ŞÀÏ°èÁ¤ ¾ÆÀÌµğ
 	 */
 	public static final String 	SMTP_USER				= "";
 	/**
-	 * ë©”ì¼ê³„ì • íŒ¨ìŠ¤ì›Œë“œ
+	 * ¸ŞÀÏ°èÁ¤ ÆĞ½º¿öµå
 	 */
 	public static final String 	SMTP_PASSWORD			= "";
 	/**
-	 * ì´ë©”ì¼ ê¸°ë³¸ í¼
+	 * ÀÌ¸ŞÀÏ ±âº» Æû
 	 */
 	public static final String 	EMAIL_FORM				= "/include/emailForm.jsp";
 
 	/**
-	 * ì—ë””í„° ì´ë¯¸ì§€ ì—…ë¡œë“œ ê²½ë¡œ
+	 * ¿¡µğÅÍ ÀÌ¹ÌÁö ¾÷·Îµå °æ·Î
 	 */
 	public static final String	EDITOR_UPLOAD_PATH		= "/upload/editor/";
 
 	/**
-	 * ì—ë””í„° ì´ë¯¸ì§€ ì—…ë¡œë“œ ìš©ëŸ‰ì œí•œ
+	 * ¿¡µğÅÍ ÀÌ¹ÌÁö ¾÷·Îµå ¿ë·®Á¦ÇÑ
 	 */
 	public static final int		EDITOR_MAXSIZE 			= 10*1024*1024;
 
 	/**
-	 * ì²˜ë¦¬í˜ì´ì§€ (process.jsp)ì—ì„œ ë ˆí¼ëŸ¬(ì´ì „í˜ì´ì§€ê°’) ë¹„êµì—¬ë¶€
+	 * Ã³¸®ÆäÀÌÁö (process.jsp)¿¡¼­ ·¹ÆÛ·¯(ÀÌÀüÆäÀÌÁö°ª) ºñ±³¿©ºÎ
 	 */
 	public static final boolean	CHECK_REFERER			= true;
 
@@ -88,14 +88,17 @@ public class SiteProperty {
 		return REFERER_URL;
 	}
 	
-	// íŒŒì¼ì—…ë¡œë“œ ê²½ë¡œ
+	// ÆÄÀÏ¾÷·Îµå °æ·Î
 	/**
-	 * ë¡œì»¬ í™ˆë””ë ‰í† ë¦¬ê²½ë¡œ (ì‹¤ì„œë²„ ë³€ê²½ í•„ìš”)
+	 * ·ÎÄÃ È¨µğ·ºÅä¸®°æ·Î (½Ç¼­¹ö º¯°æ ÇÊ¿ä)
 	 */
-	public static final String REAL_PATH				= "D:\\workspace\\java\\spring\\WebContent";
+	public static final String REAL_PATH				= "C:\\workspace\\java\\portfoliohotel\\WebContent";
 	/**
-	 * ê³µì§€ì‚¬í•­ ì²¨ë¶€íŒŒì¼ ê²½ë¡œ
+	 * °øÁö»çÇ× Ã·ºÎÆÄÀÏ °æ·Î
 	 */
 	public static final String NOTICE_UPLOAD_PATH		= "/upload/notice/";
+	
+	
+	public static final String DINING_UPLOAD_PATH		= "/upload/dining/";
 
 }

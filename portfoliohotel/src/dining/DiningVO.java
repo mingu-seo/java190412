@@ -7,6 +7,8 @@ public class DiningVO extends Parameter {
 	private int no;   // 글번호
 	private String name;  // 다이닝명 
 	private int price;  // 다이닝 가격
+	private String imagename; // 다이닝 이미지 파일명
+	private String imagename_org; // 다이닝 이미지 파일 원본명
 	private String startdate;  // 운영기간 시작
 	private String enddate;  // 운영기간 종료
 	private int book_period; // 예약기간
@@ -51,6 +53,23 @@ public class DiningVO extends Parameter {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	
+	public String getImagename() {
+		return imagename;
+	}
+
+	public void setImagename(String imagename) {
+		this.imagename = imagename;
+	}
+
+	public String getImagename_org() {
+		return imagename_org;
+	}
+
+	public void setImagename_org(String imagename_org) {
+		this.imagename_org = imagename_org;
 	}
 
 	public String getStartdate() {

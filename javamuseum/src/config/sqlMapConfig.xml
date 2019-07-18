@@ -18,7 +18,7 @@
 		<dataSource type="DBCP">
 			<property name="JDBC.Driver" value="com.mysql.jdbc.Driver"/>
 			 	
-			<property name="JDBC.ConnectionURL" value="jdbc:mysql://localhost:3306/museum?useUnicode=true&amp;characterEncoding=utf8"/>			
+			<property name="JDBC.ConnectionURL" value="jdbc:mysql://localhost:3306/museum?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=Asia/Seoul"/>			
 			<property name="JDBC.Username" value="root"/>
 			<property name="JDBC.Password" value="root1234"/>
 			 
@@ -36,5 +36,6 @@
     
 	<sqlMap resource="test/test.xml"/>	
 	<sqlMap resource="manage/admin/admin.xml"/>	
-	<sqlMap resource="board/notice/notice.xml"/>	
+	<sqlMap resource="board/notice/notice.xml"/>
+	<sqlMap resource="manage/program/program.xml"/>	
 </sqlMapConfig>
