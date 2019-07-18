@@ -56,13 +56,13 @@
 									<table width="100%" border="0" cellspacing="0" cellpadding="0"
 										summary="제품 관리목록입니다.">
 										<colgroup>
-											<col class="w3" />
 											<col class="w5" />
-											<col class="w10" />
-											<col class="w10" />
-											<col class="w10" />
-											<col class="" />
+											<col class="w5" />
 											<col class="w20" />
+											<col class="w20" />
+											<col class="w15" />
+											<col class="w15" />
+											<col class="" />
 										</colgroup>
 										<thead>
 											<tr>
@@ -97,8 +97,9 @@
 													<td <%=targetUrl%>><%=list.get(i).getNo()%></td>
 												<td <%=targetUrl%>><%=list.get(i).getName()%></td>
 												<td <%=targetUrl%>><%=list.get(i).getTel()%></td>
-												<td <%=targetUrl%>><%=list.get(i).getDepartment()%></td>
-												<td <%=targetUrl%>><%=list.get(i).getPosition()%></td>
+												<td <%=targetUrl%>><%=CodeUtil.getDoctorDepartmentName(list.get(i).getDepartment())%> </td>
+												<td <%=targetUrl%>><%=CodeUtil.getDoctorPositionName(list.get(i).getPosition())%> </td>
+												
 												<td><input type="button" value="일정관리" onclick=""/></td>
 											</tr>
 											<%
@@ -129,13 +130,13 @@
 								<div class="search">
 									<select name="category" onchange="$('#searchForm').submit();">
 										<option value="0" <%=Function.getSelected(param.getCategory(), 0)%>>전체</option>
-										<option value="1" <%=Function.getSelected(param.getCategory(), 1)%>>부서</option>
-										<option value="2" <%=Function.getSelected(param.getCategory(), 2)%>>직급</option>
+										<option value="1" <%=Function.getSelected(param.getCategory(), 1)%>>이름</option>
+										<option value="2" <%=Function.getSelected(param.getCategory(), 2)%>>연락처</option>
 									</select>
 									<select name="stype" title="검색을 선택해주세요">
 										<option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>
 										<option value="name" <%=Function.getSelected(param.getStype(), "name") %>>이름</option>
-										<option value="info" <%=Function.getSelected(param.getStype(), "name") %>>상세정보</option>
+										<option value="info" <%=Function.getSelected(param.getStype(), "tel") %>>연락처</option>
 									</select>
 									<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />
 									<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />
