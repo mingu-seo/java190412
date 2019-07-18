@@ -40,7 +40,7 @@ function goSearch() {
 }
 
 </script>
-<title>관리자 객실 목록</title>
+<title>관리자 객실 편의시설 목록</title>
 </head>
 <body>
 <%@ include file="/WEB-INF/view/manage/include/common.jsp" %>

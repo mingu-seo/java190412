@@ -63,7 +63,7 @@ function goDelete() {
 								<tbody>
 									<tr>
 										<th>객실 종류</th>
-										<td colspan="5"><%=CodeUtil.getRoomName(read.getName())%></td>
+										<td colspan="5"><%=CodeUtil.getRoomName(read.getName())%> [<%=read.getName() %>]</td>
 									</tr>
 									<tr>
 										<th>객실 가격</th>
