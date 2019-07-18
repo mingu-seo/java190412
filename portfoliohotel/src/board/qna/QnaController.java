@@ -77,7 +77,7 @@ public class QnaController {
 	}
 	
 	@RequestMapping("/manage/board/qna/read")
-	public String read(Model model, NoticeVO param) throws Exception {
+	public String read(Model model, QnaVO param) throws Exception {
 		QnaVO data = qnaService.read(param.getNo());
 		model.addAttribute("data", data);
 		model.addAttribute("param", param);

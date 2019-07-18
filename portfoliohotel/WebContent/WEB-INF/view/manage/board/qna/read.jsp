@@ -1,5 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="board.qna.*"%>
+<%@ page import="property.SiteProperty" %>
+<%@ page import="util.*" %>
 <%@ page import="java.util.*"%>
 <%
 QnaVO param = (QnaVO) request.getAttribute("param");
@@ -11,37 +13,19 @@ QnaVO data = (QnaVO) request.getAttribute("data");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp"%>
 <script type="text/javascript">
-	<%-- function goDelete() {
-		var del = confirm ('삭제하시겠습니까?');
-		if (del){
-			document.location.href = "process?no=<%=data.getNo()%>&cmd=delete";
+	$(function() {
+	$("#delBtn").click(function() {
+		goDelete();
+	});
+});
+	
+function goDelete() {
+	var del = confirm ('삭제하시겠습니까?');
+	if (del){
+		document.location.href = "/manage/board/qna/process?no=<%=data.getNo()%>&cmd=delete";
 		} else {
 			return false;
 		}
-	} --%>
-
-	/*  function goSave() {
-		var save = confirm ('등록하시겠습니까?');
-		if (save){
-			$("#frm").submit();
-			
-		} else {
-			return false;
-		}
-	}  */
-
-	function goSave() {
-		if ($("#title").val() == "") {
-			alert("제목을 입력해주세요.");
-			$("#title").focus();
-			return false;
-		}
-		if ($("#contents").val() == "") {
-			alert("내용을 입력해주세요.");
-			$("#contents").focus();
-			return false;
-		}
-		$("#frm").submit();
 	}
 </script>
 </head>
@@ -66,6 +50,7 @@ QnaVO data = (QnaVO) request.getAttribute("data");
 						<div id="bbs">
 							<div id="bread">
 								<h3>기본 정보</h3>
+								<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" enctype="multipart/form-data" onsubmit="return goSave();">
 								<table width="100%" border="0" cellspacing="0" cellpadding="0"
 									summary="관리자 관리 기본내용입니다.">
 									<colgroup>
@@ -80,9 +65,7 @@ QnaVO data = (QnaVO) request.getAttribute("data");
 									<tr>
 										<th scope="row"><label for="">공개여부</label></th>
 										<td>
-											
-												<%=CodeUtil.getOpenOption(data.getOpen()) %>
-											
+												<%=CodeUtil.getOpenName(data.getOpen()) %>
 										</td>
 										<th scope="row"><label for="">카테고리</label></th>
 										<td colspan="3">
@@ -117,8 +100,6 @@ QnaVO data = (QnaVO) request.getAttribute("data");
 										</td>
 									</tr>
 									
-									
-									
 									<tr>
 										<th scope="row"><label for="">제목</label></th>
 										<td colspan="3">
@@ -127,15 +108,21 @@ QnaVO data = (QnaVO) request.getAttribute("data");
 									</tr>
 									<tr>
 										<th scope="row"><label for="">내용</label></th>
-										<td colspan="4">
+										<td colspan="5">
 											<%=data.getCategory()%>
 										</td>
 									</tr>
-									<tr>		<!-- 서버에서 사용하는 파일이름 / 한글을 사용하지 않기위해 org에  / 파일기능 첨부는 post로  form 에는  enctype 사용해야함. -->
-										<th scope="row"><label for="">첨부파일</label></th>
-										<td colspan="3">
-											<input type="file" id="filename_tmp" name="filename_tmp" class="w50" title="첨부파일을 업로드 해주세요." />	
+									<tr>
+										<th scope="row"><label for="">파일</label></th>
+										<td>
+										<% if (data.getFile() != null && !"".equals(data.getFile())) { %>
+											<img src="/upload/qna/<%=data.getFile()%>" width="270px" height="auto"/>
+										<% } %>
 										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">원본 파일명</label></th>
+										<td colspan="5"><%=data.getFile_org()%></td>
 									</tr>
 									
 								</tbody>
