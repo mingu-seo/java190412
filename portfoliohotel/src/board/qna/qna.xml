@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="qna">
+
+	<typeAlias alias="qna_vo" type="board.qna.QnaVO"/>
+
+ 	<!-- 공통조건 -->
+	<sql id="searchSql">		
+		<!-- WHERE 절 검색 -->
+		<dynamic prepend="where">
+			<isNotEqual property="open" compareValue="-1">
+			    open = #open#
+			</isNotEqual>
+			<!-- 검색어 검색 -->
+			<isNotEqual property="sval" compareValue="">
+				<!-- 검색 타입이 all일 때 -->
+				<isEqual property="stype" compareValue="all" prepend="and">
+					( (name like '%$sval$%' ) or (title like '%$sval$%' ) or (email like '%$sval$%' ) ) 					
+				</isEqual>
+				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
+				<isNotEqual property="stype" compareValue="all" prepend="and">
+					($stype$ like '%$sval$%' )
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql>
+	
+	<!-- 해당 테이블의 총 게시글 수 -->
+	<select id="count" parameterClass="qna_vo" resultClass="Integer">
+        select count(*) from qna
+        <include refid="searchSql" />	
+    </select>
+    
+	<select id="list" parameterClass="qna_vo" resultClass="qna_vo">
+        select 
+   			category, email, name,  tel, password, title, contents,
+        	regdate, file_org, file, filesize, open 
+        from qna
+        <include refid="searchSql" />
+		ORDER BY regdate DESC LIMIT $startPageNo$, $pageRows$
+    </select>
+	
+	<!-- 해당 테이블에 게시글 작성 -->
+    <insert id="insert" parameterClass="qna_vo">
+        INSERT INTO qna (
+        	category, email, name,  tel, password, title, contents,
+        	regdate, file_org, file, filesize, open 
+        ) VALUES (
+        	#category#, #email#, #name#, #tel#, #password#, #title#, #contents#, 
+        	now(), #file_org#, #file#, #filesize#, #open#  
+        )
+        <selectKey keyProperty="no" resultClass="Integer">
+        	SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+ </sqlMap>

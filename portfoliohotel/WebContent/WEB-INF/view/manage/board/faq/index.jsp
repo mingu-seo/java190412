@@ -35,6 +35,7 @@ function goSearch() {
 	$("#searchForm").submit();
 }
 
+
 </script>
 </head>
 <body> 
@@ -132,14 +133,19 @@ function goSearch() {
 							<form name="searchForm" id="searchForm" action="index" method="post">
 								<div class="search">
 									<select name="display" onchange="$('#searchForm').submit();">
-										<option value="-1" <%=Function.getSelected(param.getDisplay(), -1)%>>전체</option>
-										<option value="0" <%=Function.getSelected(param.getDisplay(), 0)%>>노출</option>
-										<option value="1" <%=Function.getSelected(param.getDisplay(), 1)%>>숨김</option>
+										<option value="0" <%=Function.getSelected(param.getDisplay(), 0)%>>전체</option>
+										<option value="1" <%=Function.getSelected(param.getDisplay(), 1)%>>노출</option>
+										<option value="2" <%=Function.getSelected(param.getDisplay(), 2)%>>숨김</option>
+									</select>
+									<select name="category" onchange="$('#searchForm').submit();">
+										<option value="0" <%=Function.getSelected(param.getCategory(), 0)%>>전체</option>
+										<option value="1" <%=Function.getSelected(param.getCategory(), 1)%>>예약</option>
+										<option value="2" <%=Function.getSelected(param.getCategory(), 2)%>>결제</option>
 									</select>
 									<select name="stype" title="검색을 선택해주세요">
 										<option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>
-										<option value="category" <%=Function.getSelected(param.getStype(), "category") %>>카테고리</option>
 										<option value="title" <%=Function.getSelected(param.getStype(), "title") %>>질문</option>
+										<option value="contents" <%=Function.getSelected(param.getStype(), "contents") %>>답변</option>
 									</select>
 									<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />
 									<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />

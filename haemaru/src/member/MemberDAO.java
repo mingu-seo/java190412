@@ -83,8 +83,8 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 	 * @return
 	 * @throws SQLException
 	 */
-	public int idcheck(String id) throws SQLException {
-		return (Integer) getSqlMapClient().queryForObject("member.idcheck", id);
+	public int idcheck(String email) throws SQLException {
+		return (Integer) getSqlMapClient().queryForObject("member.idcheck", email);
 	}
 
 	public MemberVO getLoginSessionInfo(MemberVO vo) throws SQLException {

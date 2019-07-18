@@ -11,14 +11,14 @@ NoticeVO data = (NoticeVO) request.getAttribute("data");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp"%>
 <script type="text/javascript">
-	<%-- function goDelete() {
+	function goDelete() {
 		var del = confirm ('삭제하시겠습니까?');
 		if (del){
 			document.location.href = "process?no=<%=data.getNo()%>&cmd=delete";
 		} else {
 			return false;
 		}
-	} --%>
+	}
 
 	/* function goSave() {
 		var save = confirm ('등록하시겠습니까?');

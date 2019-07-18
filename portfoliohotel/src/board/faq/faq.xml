@@ -7,13 +7,19 @@
 	<sql id="searchSql">		
 		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where"> <!-- prepend:자동으로 ""안의 문자가 앞에 붙게끔 -->
-		    no > 1 <!-- 조회할때는(목록에) 1번이 안나오게 -->
-			<isNotEqual property="sval" compareValue="" prepend="and">
+		    1= 1 <!-- 조회할때는(목록에) 1번이 안나오게 -->
+		    <isNotEqual property="category" compareValue="0">
+		    	and category = #category#
+		    </isNotEqual>
+		    <isNotEqual property="display" compareValue="0">
+		    	and display = #display#
+		    </isNotEqual>
+			<isNotEqual property="sval" compareValue="">
 				<isEqual property="stype" compareValue="all" prepend="and">
-					( (category like '%$sval$%' ) or (display like '%$sval$%' ) or (title like '%$sval$%') ) 					
+					and ( (category like '%$sval$%' ) or (display like '%$sval$%' ) or (title like '%$sval$%') ) 					
 				</isEqual>
 				<isNotEqual property="stype" compareValue="all" prepend="and">
-					($stype$ like '%$sval$%' )
+					and ($stype$ like '%$sval$%' )
 				</isNotEqual>
 			</isNotEqual>
 		</dynamic>

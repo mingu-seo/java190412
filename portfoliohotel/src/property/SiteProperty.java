@@ -92,10 +92,23 @@ public class SiteProperty {
 	/**
 	 * 로컬 홈디렉토리경로 (실서버 변경 필요)
 	 */
-	public static final String REAL_PATH				= "C:\\\\java\\git\\java190412\\portfoliohotel\\WebContent";
+	public static final String REAL_PATH = "C:\\java\\git\\java190412\\portfoliohotel\\WebContent";
+	
+
 	/**
-	 * 공지사항 첨부파일 경로
+	 * 객실 사진 경로
 	 */
-	public static final String NOTICE_UPLOAD_PATH		= "/upload/notice/";
+	public static final String ROOM_UPLOAD_PATH = "/upload/room/";
+	
+	/**
+	 * 객실 옵션 사진 경로
+	 */
+	public static final String ROOM_OPT_UPLOAD_PATH = "/upload/room_opt/";
+	
+	
+	public static final String NOTICE_UPLOAD_PATH = "/upload/notice/";
+	
+	
+	public static final String QNA_UPLOAD_PATH = "/upload/qna/";
 
 }

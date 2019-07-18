@@ -31,6 +31,9 @@ public class NoticeVO extends Parameter {
 
 	public NoticeVO() {
 		super.setPageRows(10);
+		this.member = 0;
+		this.display=0;
+		this.top=0;
 	}
 	
 	public int getNo() {

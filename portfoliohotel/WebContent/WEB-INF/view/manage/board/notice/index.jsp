@@ -68,6 +68,8 @@ function goSearch() {
 									<col class="w4" />
 									<col class="w4" />
 									<col class="w4" />
+									<col class="w4" />
+									<col class="w4" />
 								</colgroup>
 								<thead>
 									<tr>
@@ -75,6 +77,8 @@ function goSearch() {
 										<th scope="col">번호</th>
 										<th scope="col">제목</th>
 										<th scope="col">등록일</th> 
+										<th scope="col">비밀글</th>
+										<th scope="col">상단노출</th>
 										<th scope="col">노출</th>
 										<th scope="col">조회수</th>
 										<th scope="col" class="last">삭제</th>
@@ -101,6 +105,8 @@ function goSearch() {
 										<td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td>
 										<td <%=targetUrl%> class="title"><%=data.getTitle() %></td>
 										<td <%=targetUrl%>><%=DateUtil.getDateFormat(data.getRegdate())%></td>
+										<td <%=targetUrl%>><%=CodeUtil.getMemberName(data.getMember())%></td>
+										<td <%=targetUrl%>><%=CodeUtil.getTopName(data.getTop())%></td>
 										<td <%=targetUrl%>><%=CodeUtil.getDisplayName(data.getDisplay())%></td>
 										<td <%=targetUrl%>><%=data.getReadno()%></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
@@ -131,16 +137,25 @@ function goSearch() {
 							<!-- //페이징 처리 -->
 							<form name="searchForm" id="searchForm" action="index" method="post">
 								<div class="search">
+									<select name="member" onchange="$('#searchForm').submit();">
+										<option value="0" <%=Function.getSelected(param.getMember(), 0)%>>전체</option>
+										<option value="1" <%=Function.getSelected(param.getMember(), 1)%>>공개</option>
+										<option value="2" <%=Function.getSelected(param.getMember(), 2)%>>비공개</option>
+									</select>									
 									<select name="display" onchange="$('#searchForm').submit();">
-										<option value="-1" <%=Function.getSelected(param.getDisplay(), -1)%>>전체</option>
-										<option value="0" <%=Function.getSelected(param.getDisplay(), 0)%>>노출</option>
-										<option value="1" <%=Function.getSelected(param.getDisplay(), 1)%>>미노출</option>
+										<option value="0" <%=Function.getSelected(param.getDisplay(), 0)%>>전체</option>
+										<option value="1" <%=Function.getSelected(param.getDisplay(), 1)%>>노출</option>
+										<option value="2" <%=Function.getSelected(param.getDisplay(), 2)%>>미노출</option>
+									</select>
+									<select name="top" onchange="$('#searchForm').submit();">
+										<option value="0" <%=Function.getSelected(param.getTop(), 0)%>>전체</option>
+										<option value="1" <%=Function.getSelected(param.getTop(), 1)%>>상단노출</option>
+										<option value="2" <%=Function.getSelected(param.getTop(), 2)%>>상단미노출</option>
 									</select>
 									<select name="stype" title="검색을 선택해주세요">
 										<option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>
 										<option value="title" <%=Function.getSelected(param.getStype(), "title") %>>제목</option>
-										<option value="member" <%=Function.getSelected(param.getStype(), "member") %>>비밀글</option>
-										<option value="display" <%=Function.getSelected(param.getStype(), "display") %>>노출</option>
+										<option value="contents" <%=Function.getSelected(param.getStype(), "contents") %>>상세정보</option>
 									</select>
 									<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />
 									<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />
