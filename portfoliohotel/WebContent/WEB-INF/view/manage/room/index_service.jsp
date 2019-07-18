@@ -4,8 +4,8 @@
 <%@ page import="util.*" %>
 <%@ page import="java.util.*" %>
 <%
-ArrayList<RoomVO> list = (ArrayList)request.getAttribute("list");
-RoomVO param = (RoomVO)request.getAttribute("vo");
+ArrayList<Room_serviceVO> list = (ArrayList)request.getAttribute("list");
+Room_serviceVO param = (Room_serviceVO)request.getAttribute("vo");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -25,7 +25,13 @@ function groupDelete() {
 
 function goDelete(no) {	
 	if (confirm ('삭제하시겠습니까?')) {
-		document.location.href = "process?no="+no+"&cmd=delete";
+		document.location.href = "process_opt?no="+no+"&cmd=delete_opt";
+	}
+}
+
+function goUpdate(x) {	
+	if (confirm ('수정하시겠습니까?')) {
+		$("#"+x).submit();
 	}
 }
 
@@ -49,30 +55,28 @@ function goSearch() {
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>객실 관리 - [목록]</h2>
+					<h2>객실 편의시설 관리 - [목록]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="blist">
-							<form name="frm" id="frm" action="process.do" method="post">
+	
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
 								<colgroup>
-									<col class="w2" />
 									<col class="w3" />
-									<col class="w20" />
-									<col class="w10" />
-									<col class="w5" />
-									<col class="w2" />
+									<col class="w30" />
+									<col class="w30" />
+									<col class="w3" />
+									<col class="w3" />
 								</colgroup>
 								<thead>
 									<tr>
-										<th scope="col" class="first"><input type="checkbox" name="allChk" id="allChk" onClick="check(this, document.frm.no)"/></th>
 										<th scope="col">번호</th>
-										<th scope="col">객실명</th> 
-										<th scope="col">가격</th>
-										<th scope="col">객실수량</th>										 
+										<th scope="col">편의시설명</th> 
+										<th scope="col">적용 객실</th> 
+										<th scope="col" class="last">수정</th>								 
 										<th scope="col" class="last">삭제</th>
 									</tr>
 								</thead>
@@ -80,35 +84,32 @@ function goSearch() {
 									<%
 									String targetUrl = "";
 									String topClass = "";
-									RoomVO data;
+									Room_serviceVO data;
 									
 									for (int i=0; i<list.size(); i++) {
 										data = list.get(i);
-										targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, data.getNo())+"'\"";	
+										//targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, data.getNo())+"'\"";	
 									%>
+									<form id="frm<%=i %>" action="process_opt" method="post">
 									<tr>
-										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
 										<td><%=data.getNo()%></td>
-										<td <%=targetUrl%>><%=CodeUtil.getRoomName(data.getName())%></td>
-										<td><%=data.getPrice()%></td>
-										<td><%=data.getCount()%></td>
+										<td><input type="text" name="name" id="name" value="<%=data.getName()%>" class="w90"/></td>
+										<td><input type="text" name="room_pk" id="room_pk" value="<%=CodeUtil.getRoomName(data.getRoom_pk())%>" class="w10"/></td>
+										<td><input type="button" value="수정" onclick="goUpdate('frm<%=i%>');" /></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
+									<input type="hidden" id="no" name="no" value="<%=data.getNo()%>"/>
+									<input type="hidden" id="cmd" name="cmd" value="edit_service"/>
+									</form>									
 								<%
 										}
 								%>
 								</tbody>
 							</table>
-								<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
-								<%-- <input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
-								<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/> --%>
-							</form>
+
 							<div class="btn">
-								<div class="btnLeft">
-									<a class="btns" href="#" onclick="groupDelete();"><strong>삭제</strong> </a>
-								</div>
 								<div class="btnRight">
-									<a class="wbtn" href="write"><strong>등록</strong> </a>
+									<a class="wbtn" href="write_service"><strong>등록</strong> </a>
 								</div>
 							</div>
 							<!--//btn-->
