@@ -32,9 +32,9 @@
     
     <insert id="insert" parameterClass="mypetvo" >
         insert into mypet
-        	(name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate)
+        	(name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, member_pk, registdate)
         values
-        	(#name#, #age#, #gender#, #breed#, #vac#, #mypet_image#, #mypet_image_org#, #memo#, now())
+        	(#name#, #age#, #gender#, #breed#, #vac#, #mypet_image#, #mypet_image_org#, #memo#, #member_pk#, now())
         <selectKey keyProperty="no" resultClass="Integer">
 			SELECT  LAST_INSERT_ID()
 		</selectKey>
@@ -57,20 +57,16 @@
         select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate,
         	ifnull((select max(no) from mypet where no>1 and no<#no#), 0) as prev_no,
         	ifnull((select min(no) from mypet where no>1 and no>#no#), 0) as next_no
-         from mypet where no>1 and no=#no#
+         from mypet where no=#no#
          ]]>
     </select>
     
-    <select id="idcheck" parameterClass="String" resultClass="Integer">
-        select count(*) as cnt from mypet where id=#id#
+    <select id="loginCheck" parameterClass="membervo" resultClass="Integer">
+        select count(*) as cnt from admin where id=#id# and password=md5(#password#)
     </select>
     
-    <select id="loginCheck" parameterClass="mypetvo" resultClass="Integer">
-        select count(*) as cnt from mypet where id=#id# and password=md5(#password#)
-    </select>
-    
-    <select id="loginSessionInfo" parameterClass="mypetvo" resultClass="mypetvo">
-        select * from mypet where id=#id# and password=md5(#password#)
+    <select id="loginSessionInfo" parameterClass="membervo" resultClass="membervo">
+        select * from admin where id=#id# and password=md5(#password#)
     </select>
     
     

@@ -63,6 +63,7 @@ function goSearch() {
 								<colgroup>
 									<col class="w4"/>
 									<col class="w4"/>
+									<col class="w4"/>
 									<col class="w10" />
 									<col class="w20" />
 									<col class="w20" />
@@ -73,6 +74,7 @@ function goSearch() {
 								<thead>
 									<tr>
 										<th scope="col" class="first"><input type="checkbox" name="allChk" id="allChk" onClick="check(this, document.frm.no)"/></th>
+										<th scope="col">번호</th>
 										<th scope="col">카테고리</th>
 										<th scope="col">이름</th>
 										<th scope="col">이메일</th>
@@ -101,6 +103,7 @@ function goSearch() {
 									<tr <%=topClass%>>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
 										<%-- <td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td>  --%>
+										<td <%=targetUrl%> class="no"><%=data.getNo() %></td>
 										<td <%=targetUrl%> class="category"><%=data.getCategory() %></td>
 										<td <%=targetUrl%> class="name"><%=data.getName() %></td>
 										<td <%=targetUrl%> class="email"><%=data.getEmail() %></td>

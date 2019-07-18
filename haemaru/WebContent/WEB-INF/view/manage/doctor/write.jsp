@@ -11,16 +11,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp"%>
 <script>
-	var oEditors; // 에디터 객체 담을 곳
-	jQuery(window).load(function() {
-		oEditors = setEditor("info"); // 에디터 셋팅
-		initCal({
-			id : "registdate",
-			type : "day",
-			today : "y",
-			timeYN : "y"
-		});
-	});
 
 	function goSave() {
 		if ($("#name").val() == "") {

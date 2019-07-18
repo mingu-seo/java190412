@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import board.notice.NoticeVO;
 import property.SiteProperty;
 import util.FileUtil;
+import util.Function;
 import util.Page;
 
 @Service
@@ -41,12 +42,31 @@ public class NoticeService {
 		Map fileMap = fu.getFileMap(request);
 		MultipartFile file= (MultipartFile)fileMap.get("filename_tmp");
 		if (!file.isEmpty()) {
-			fu.upload(file, SiteProperty.NOTICE_UPLOAD_PATH, SiteProperty.REAL_PATH, "product");
+			fu.upload(file, SiteProperty.NOTICE_UPLOAD_PATH, SiteProperty.REAL_PATH, "notice");
 			vo.setFile(fu.getName());
 			vo.setFile_org(fu.getSrcName());
 		}
 		int no = noticeDao.insert(vo);
 		return no;
+	}
+	
+	public int update(NoticeVO vo, HttpServletRequest request) throws SQLException, IOException {
+		FileUtil fu = new FileUtil();
+		Map fileMap = fu.getFileMap(request);
+		MultipartFile file= (MultipartFile)fileMap.get("imagename_tmp");
+		if (!file.isEmpty()) {
+			fu.upload(file, SiteProperty.NOTICE_UPLOAD_PATH, SiteProperty.REAL_PATH, "product");
+			vo.setFile(fu.getName());
+			vo.setFile_org(fu.getSrcName());
+		}
+		NoticeVO data = noticeDao.read(vo.getNo());
+		int cnt = noticeDao.update(vo);
+		if(cnt > 0){
+			if("1".equals(vo.getFile_chk()) || !"".equals(Function.checkNull(vo.getFile()))){
+				Function.fileDelete(vo.getUploadPath(), data.getFile());
+			}
+		}
+		return cnt;
 	}
 	
 	public int delete(int no) throws SQLException {
@@ -57,6 +77,16 @@ public class NoticeService {
 	public NoticeVO read(int no) throws SQLException {
 		NoticeVO vo = noticeDao.read(no);
 		return vo;
+	}
+	
+	public int groupDelete(HttpServletRequest request) throws SQLException {
+		String[] no = request.getParameterValues("no");
+		int r = 0;
+		for (int i=0; i<no.length; i++) {
+			int nos = Integer.parseInt(no[i]);
+			r += noticeDao.delete(nos);
+		}
+		return r;
 	}
 
 }
