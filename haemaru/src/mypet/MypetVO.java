@@ -74,7 +74,6 @@ public class MypetVO extends Parameter{
 		this.age = age;
 	}
 
-
 	public String getBreed() {
 		return breed;
 	}

@@ -2,7 +2,7 @@
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="mypet">
     
-    <typeAlias alias="mypetvo" type="pet.PetVO"/>
+    <typeAlias alias="mypetvo" type="mypet.MypetVO"/>
     
 	<!-- 공통조건 -->
 	<sql id="searchSql">		
@@ -40,12 +40,14 @@
 		</selectKey>
     </insert>
     <update id="update" parameterClass="mypetvo">
-        update mypet set
-        	<isNotEqual property="password" compareValue="">
-        	    password = md5(#password#),
-        	</isNotEqual>
-        	name=#name#
-        where no=#no#
+        UPDATE mypet SET
+		name=#name#, age=#age#, vac=#vac#, gender=#gender#
+		<isNotEqual property="mypet_image" compareValue="">
+			<isNotNull property="mypet_image">
+				mypet_image=#mypet_image#, mypet_image_org=#mypet_image_org#
+			</isNotNull>
+		</isNotEqual>
+		WHERE no = #no#
     </update>
     
     <delete id="delete" parameterClass="Integer">
@@ -61,13 +63,6 @@
          ]]>
     </select>
     
-    <select id="loginCheck" parameterClass="membervo" resultClass="Integer">
-        select count(*) as cnt from admin where id=#id# and password=md5(#password#)
-    </select>
-    
-    <select id="loginSessionInfo" parameterClass="membervo" resultClass="membervo">
-        select * from admin where id=#id# and password=md5(#password#)
-    </select>
     
     
     
