@@ -701,5 +701,71 @@ public class CodeUtil {
 	    }
 	    return result;
 	}
+	 
+	 public static String getDoctorDepartmentName(int department) {
+			String result = "";
+			if (department == 1) {
+				result = "외과";
+			} else if (department == 2) {
+				result = "내과";
+			}else if (department == 3) {
+				result = "영상의학과";
+			} else if (department == 4) {
+				result = "응급중환자센터";
+			} 
+			return result;
+		}
+		
+		public static String getDoctorDepartmentOption(int arg){
+	        StringBuffer result = new StringBuffer();
+	        
+	        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getDoctorDepartmentName(1)+"</option>");
+	        	result.append("<option value='2'"+Function.getSelected(2,arg)+">"+getDoctorDepartmentName(2)+"</option>");
+	        	result.append("<option value='3'"+Function.getSelected(3,arg)+">"+getDoctorDepartmentName(3)+"</option>");
+	        	result.append("<option value='4'"+Function.getSelected(4,arg)+">"+getDoctorDepartmentName(4)+"</option>");
+	        return result.toString();
+	    }
+	 
+		 public static String getDoctorPositionName(int department) {
+				String result = "";
+				if (department == 1) {
+					result = "원장";
+				} else if (department == 2) {
+					result = "수의사";
+				}else if (department == 3) {
+					result = "테크니션";
+				} else if (department == 4) {
+					result = "리셉션리스트";
+				} 
+				return result;
+			}
+			
+			public static String getDoctorPositionOption(int arg){
+		        StringBuffer result = new StringBuffer();
+		        
+		        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getDoctorPositionName(1)+"</option>");
+		        	result.append("<option value='2'"+Function.getSelected(2,arg)+">"+getDoctorPositionName(2)+"</option>");
+		        	result.append("<option value='3'"+Function.getSelected(3,arg)+">"+getDoctorPositionName(3)+"</option>");
+		        	result.append("<option value='4'"+Function.getSelected(4,arg)+">"+getDoctorPositionName(4)+"</option>");
+		        return result.toString();
+		    }
 	 	
+			
+			 public static String getDoctorGenderName(int gender) {
+					String result = "";
+					if (gender == 1) {
+						result = "여";
+					} else if (gender == 2) {
+						result = "남";
+					} 
+					return result;
+				}
+				
+				public static String getDoctorGenderOption(int arg){
+			        StringBuffer result = new StringBuffer();
+			        
+			        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getDoctorGenderName(1)+"</option>");
+			        	result.append("<option value='2'"+Function.getSelected(2,arg)+">"+getDoctorGenderName(2)+"</option>");
+			        return result.toString();
+			    }
 }
