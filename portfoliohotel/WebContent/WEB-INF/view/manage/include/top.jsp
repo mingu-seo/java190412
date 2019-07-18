@@ -73,7 +73,9 @@ $(window).load(function(){
 				<li><a href="<%=request.getContextPath()%>/manage/room/index" class="parent"><span>객실관리</span></a>
 					<div class="standard_left">
 					<ul>
+						<li><a href="<%=request.getContextPath()%>/manage/room/index"><span>객실관리</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/room/index_opt"><span>객실옵션관리</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/room/index_service"><span>객실편의시설관리</span></a></li>
 					</ul>
 					</div>
 				</li>
