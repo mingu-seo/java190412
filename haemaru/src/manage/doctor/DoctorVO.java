@@ -13,7 +13,7 @@ public class DoctorVO extends Parameter {
 	private int position; //원장, 수의사, 테크니션, 리셉션리스트
 	private String addr; //의료진 주소
 	private String tel; //의료진연락처
-	private int category; //의료진 검색 카테고리, 이름, 부서, 포지션
+	private int category; //의료진 검색 카테고리, 이름, 연락처
 	private String doc_image; //의료진 이미지 이름
 	private String doc_image_org; //의료진 이미지 원본이름
 	private String doc_imagename_chk; //의료진 이미지 이름 체크 : DB에 존재X : VO에만 존재
