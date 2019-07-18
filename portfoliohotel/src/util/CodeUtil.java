@@ -650,6 +650,22 @@ public class CodeUtil {
 		return result;
 	}
 	
+	public static String getOpenOption(int arg){
+        StringBuffer result = new StringBuffer();
+        	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getOpenName(0)+"</option>");
+        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getOpenName(1)+"</option>");
+        return result.toString();
+    }
+	public static String getOpenName(int open) {
+		String result = "";
+		if (open == 1) {
+			result = "공개";
+		} else if (open == 0) {
+			result = "비공개";
+		}
+		return result;
+	}
+	
 	public static String getDisplayOption(int arg){
         StringBuffer result = new StringBuffer();
         	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getDisplayName(0)+"</option>");

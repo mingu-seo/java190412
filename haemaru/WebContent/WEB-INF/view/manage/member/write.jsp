@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-<%@ page import="manage.admin.*" %>
+<%@ page import="member.*" %>
 <%@ page import="java.util.*" %>
 <%
-AdminVO param = (AdminVO)request.getAttribute("vo");
+MemberVO param = (MemberVO)request.getAttribute("vo");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -21,17 +21,17 @@ function goSave() {
 		$("#name").focus();
 		return false;
 	}
-	if ($("#id").val() == "") {
-		alert("아이디를 입력해주세요.");
-		$("#id").focus();
+	if ($("#tel").val() == "") {
+		alert("연락처를 입력해주세요.");
+		$("#tel").focus();
 		return false;
 	}
 	// 비밀번호 유효성체크
-	if(!validPassword($("#password"))) return false;
+	if(!validPassword($("#pw"))) return false;
 	
 	$.ajax ({
 		type:'POST',
-		url:"/manage/admin/idcheck",
+		url:"/manage/member/idcheck",
 		data:$("[name=frm]").serialize(),
 		async:false,
 		success:function(data) {
@@ -48,22 +48,6 @@ function goSave() {
 	if ($("#idcheck").val() == "0") {
 		return false;
 	}
-	/*
-	$.post("/manage/admin/idcheck",$("[name=frm]").serialize(), function (data, status) {
-		var val = data.trim();
-		if (val == "0") {
-			$("#idcheck").val("1");
-			r = true;
-		} else {
-			alert("존재하는 아이디입니다.");
-			r = false;
-		}
-		$("#idcheck").val(data.trim());
-	}).fail(function() {   
-		alert('아이디체크실패');
-		r = false;
-	});
-	*/
 	oEditors.getById["memo"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
 	$("#frm").submit();
 }
@@ -84,16 +68,16 @@ function goSave() {
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>관리자관리 - [쓰기]</h2>
+					<h2>회원관리 - [쓰기]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="bread">
-							<h3>관리자 기본 정보</h3>
+							<h3>회원 기본 정보</h3>
 							<form name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" method="post">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="회원 관리 기본내용입니다.">
 								<colgroup>
 									<col width="15%" />
 									<col width="35%" />
@@ -102,28 +86,34 @@ function goSave() {
 								</colgroup>
 								<tbody>
 									<tr>
-										<th scope="row"><label for="">*이름</label></th>
-										<td>
-											<input type="text" id="name" name="name" value="" title="관리자 이름을 입력해주세요." />
+										<th scope="row"><label for="">이름</label></th>
+										<td >
+											<input type="text" id="name" name="name" value="" />
 										</td>
 										<th scope="row"><label for="">이메일</label></th>
 										<td>
-											<input type="text" id="email" name="email" value="" title="관리자 이메일을 입력해주세요." />
+											<input type="text" id="email" name="email" value="" />
 										</td>
 									</tr>
 									<tr>
-										<th scope="row"><label for="">*아이디</label></th>
+										<th scope="row"><label for="">생년월일</label></th>
 										<td>
-											<input type="text" id="id" name="id" value="" title="관리자 이름을 입력해주세요." />
+											<input type="text" id="birth" name="birth" value="" />
 										</td>
-										<th scope="row"><label for="">*비밀번호</label></th>
+										<th scope="row"><label for="">연락처</label></th>
 										<td>
-											<input type="password" id="password" name="password" value="" title="관리자 이메일을 입력해주세요." />
+											<input type="text" id="tel" name="tel" value="" />
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">비밀번호</label></th>
+										<td>
+											<input type="pw" id="pw" name="pw" value="" />
 										</td>
 									</tr>
 									<tr>
 										<td colspan="4">
-											<textarea id="memo" name="memo" title="내용을 입력해주세요" style="width:100%" ></textarea>
+											<textarea id="memo" name="memo" value="" title="내용을 입력해주세요" style="width:100%" ></textarea>
 										</td>
 									</tr>
 								</tbody>

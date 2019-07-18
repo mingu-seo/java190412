@@ -1,10 +1,10 @@
-package pet;
+package mypet;
 
 import java.sql.Timestamp;
 
 import util.Parameter;
 
-public class PetVO extends Parameter{
+public class MypetVO extends Parameter{
 	
 	private int no;
 	private int member_pk;
@@ -18,8 +18,28 @@ public class PetVO extends Parameter{
 	private String memo;
 	private Timestamp registdate;
 	
-	public PetVO() {
+	public MypetVO() {
 		super.setPageRows(10);
+	}
+	
+	public MypetVO(int pageRows) {
+		super.setPageRows(pageRows);
+	}
+	
+	public String getTargetURLParam(String pageUrl, MypetVO param, int index) {
+
+		StringBuffer strList= new StringBuffer();
+
+		if (param != null) {
+			strList.append(pageUrl);
+			strList.append("?stype=" + param.getStype());
+			strList.append("&sval="+param.getSval());
+			strList.append("&reqPageNo="+param.getReqPageNo());
+			if (index > 0) {
+				strList.append("&no="+index);
+			}
+		}
+		return strList.toString();
 	}
 
 	public int getNo() {

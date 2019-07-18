@@ -135,7 +135,7 @@ function goSave() {
 									</tr>
 									<tr>
 										<td colspan="4">
-											<textarea id="charr" name="charr" title="성격을 입력해주세요" value="<%=data.getCharr()%>" style="width:100%" ></textarea>
+											<textarea id="charr" name="charr" title="성격을 입력해주세요" style="width:100%"><%=data.getCharr()%></textarea>
 										</td>
 									</tr>
 								</tbody>

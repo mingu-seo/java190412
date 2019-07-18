@@ -4,20 +4,20 @@ import util.Parameter;
 
 public class RoomVO extends Parameter{
 	
-	private int no;
-	private int name;
-	private int price;
-	private int count;
-	private int adult;
-	private int kid;
-	private String instruction;
-	private String checkin_time;
-	private String checkout_time;
-	private String location;
-	private String landscape;
-	private String type;
-	private String image1;
-	private String image_org1;
+	private int no; //객실 pk
+	private int name; //객실 종류
+	private int price; //객실 가격
+	private int count; //객실 수량
+	private int adult; //성인(기본정원)
+	private int kid; //어린이(기본정원)
+	private String instruction; //객실 소개
+	private String checkin_time; //체크인 시간
+	private String checkout_time; //체크아웃 시간
+	private String location; //객실 위치
+	private String landscape; //객실 뷰
+	private String type; //객실 타입_방 개수
+	private String image1; //객실 이미지 파일명
+	private String image_org1; //객실 이미지 원본 파일명
 	private String image2;
 	private String image_org2;
 	private String image3;
@@ -36,6 +36,17 @@ public class RoomVO extends Parameter{
 	private String image_org9;
 	private String image10;
 	private String image_org10;
+	
+	private String image_chk1;
+	private String image_chk2;
+	private String image_chk3;
+	private String image_chk4;
+	private String image_chk5;
+	private String image_chk6;
+	private String image_chk7;
+	private String image_chk8;
+	private String image_chk9;
+	private String image_chk10;
 	
 	public int getNo() {
 		return no;
@@ -228,6 +239,68 @@ public class RoomVO extends Parameter{
 	}
 	public void setImage_org10(String image_org10) {
 		this.image_org10 = image_org10;
+	}
+	
+	
+	public String getImage_chk1() {
+		return image_chk1;
+	}
+	public String getImage_chk2() {
+		return image_chk2;
+	}
+	public String getImage_chk3() {
+		return image_chk3;
+	}
+	public String getImage_chk4() {
+		return image_chk4;
+	}
+	public String getImage_chk5() {
+		return image_chk5;
+	}
+	public String getImage_chk6() {
+		return image_chk6;
+	}
+	public String getImage_chk7() {
+		return image_chk7;
+	}
+	public String getImage_chk8() {
+		return image_chk8;
+	}
+	public String getImage_chk9() {
+		return image_chk9;
+	}
+	public String getImage_chk10() {
+		return image_chk10;
+	}
+	public void setImage_chk1(String image_chk1) {
+		this.image_chk1 = image_chk1;
+	}
+	public void setImage_chk2(String image_chk2) {
+		this.image_chk2 = image_chk2;
+	}
+	public void setImage_chk3(String image_chk3) {
+		this.image_chk3 = image_chk3;
+	}
+	public void setImage_chk4(String image_chk4) {
+		this.image_chk4 = image_chk4;
+	}
+	public void setImage_chk5(String image_chk5) {
+		this.image_chk5 = image_chk5;
+	}
+	public void setImage_chk6(String image_chk6) {
+		this.image_chk6 = image_chk6;
+	}
+	public void setImage_chk7(String image_chk7) {
+		this.image_chk7 = image_chk7;
+	}
+	public void setImage_chk8(String image_chk8) {
+		this.image_chk8 = image_chk8;
+	}
+	public void setImage_chk9(String image_chk9) {
+		this.image_chk9 = image_chk9;
+	}
+	public void setImage_chk10(String image_chk10) {
+		this.image_chk10 = image_chk10;
 	}
 	
 	
