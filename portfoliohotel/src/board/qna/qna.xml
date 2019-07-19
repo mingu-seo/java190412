@@ -54,8 +54,13 @@
         </selectKey>
     </insert>
     
-     <select id="read" parameterClass="Integer" resultClass="qna_vo">
+     <select id="read" parameterClass="qna_vo" resultClass="qna_vo">
         select no, category, email, name,  tel, password, title, contents,
         	regdate, file_org, file, filesize, open FROM qna where no=#no#
    	 </select>
+   	 
+   	 <delete id="delete" parameterClass="qna_vo">
+        DELETE FROM qna WHERE no=#no#
+    </delete>
+    
  </sqlMap>
