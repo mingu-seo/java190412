@@ -1,6 +1,7 @@
 package room;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -30,8 +31,12 @@ public class RoomController {
 	}
 
 	@RequestMapping("/manage/room/write")
-	public String write(Model model, RoomVO vo) throws Exception {
+	public String write(Model model, RoomVO vo, Room_serviceVO vo_s, HttpServletRequest req) throws Exception {
+		int no = vo.getNo();
+		vo_s.setRoom_pk(no);
+		
 		model.addAttribute("vo", vo);
+		model.addAttribute("vo_s", vo_s);
 
 		return "manage/room/write";
 	}
@@ -39,9 +44,11 @@ public class RoomController {
 	@RequestMapping("/manage/room/read")
 	public String read(Model model, RoomVO vo) throws Exception {
 		RoomVO read = roomService.read(vo);
+		ArrayList<HashMap> list = roomService.list_service(read.getNo());
 
 		model.addAttribute("read", read);
 		model.addAttribute("vo", vo);
+		model.addAttribute("list", list);
 
 		return "manage/room/read";
 	}
@@ -49,9 +56,11 @@ public class RoomController {
 	@RequestMapping("/manage/room/edit")
 	public String edit(Model model, RoomVO vo) throws Exception {
 		RoomVO read = roomService.read(vo);
-
+		ArrayList<HashMap> list = roomService.list_service(read.getNo());
+		
 		model.addAttribute("read", read);
 		model.addAttribute("vo", vo);
+		model.addAttribute("list", list);
 
 		return "manage/room/edit";
 	}
@@ -76,16 +85,6 @@ public class RoomController {
 	}
 	
 	
-//	관리자_객실 편의시설
-	@RequestMapping("/manage/room/index_service")
-	public String index_service(Model model, Room_serviceVO vo) throws Exception {
-		ArrayList<RoomVO> list_service = roomService.list_service(vo);
-
-		model.addAttribute("list", list_service);
-		model.addAttribute("vo", vo);
-
-		return "manage/room/index_service";
-	}
 
 	/**
 	 * 사용자 페이지
@@ -148,6 +147,7 @@ public class RoomController {
 
 		if ("write".equals(vo.getCmd())) {
 			int r = roomService.insert(vo, request);
+			roomService.insert_service(request, r);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
 			model.addAttribute("url", "index");

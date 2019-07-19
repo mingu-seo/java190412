@@ -2,6 +2,7 @@ package room;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -267,8 +268,38 @@ public class RoomService {
 	
 	
 //	편의시설
-	public ArrayList list_service(Room_serviceVO vo) throws Exception{
-		ArrayList list_service = roomDAO.list_service(vo);
-		return list_service;
+	public ArrayList<HashMap> list_service(int room_pk) throws SQLException {
+		return roomDAO.list_service(room_pk);
+	}	
+	
+	public void insert_service(HttpServletRequest req, int room_pk) throws Exception {
+		String[] names = req.getParameterValues("name_s");
+		
+		int size = names.length;
+		
+		for(int i=0; i<size; i++) {
+			HashMap m = new HashMap();
+			m.put("name_s", names[i]);
+			m.put("room_pk", room_pk);
+			
+			roomDAO.insert_service(m);
+		}
 	}
+	
+	public void update_service(HttpServletRequest req, int room_pk) throws Exception {
+		String[] names = req.getParameterValues("name_s");
+		
+		int size = names.length;
+		
+		roomDAO.delete_service(room_pk);
+		
+		for(int i=0; i<size; i++) {
+			HashMap m = new HashMap();
+			m.put("name_s", names[i]);
+			m.put("room_pk", room_pk);
+			
+			roomDAO.update_service(m);
+		}
+	}
+	
 }

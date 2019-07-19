@@ -95,18 +95,5 @@ public class MypetService {
 		return delCount;
 	}
 	
-	public boolean loginCheck(MypetVO vo) throws Exception {
-		int cnt = mypetDAO.loginCheck(vo);
-		boolean result = false;
-		if (cnt == 1) {
-			result = true;
-		}
-		return result;
-	}
-
-	public MypetVO getLoginSessionInfo(MypetVO vo) throws Exception {
-		return vo;
-	}
-	
 	
 }
