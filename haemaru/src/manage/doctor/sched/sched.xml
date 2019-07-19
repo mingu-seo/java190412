@@ -42,11 +42,11 @@
 		INSERT INTO doc_schedule
 			(doctor_pk, name, mon_start, mon_end, tue_start, tue_end, wed_start, wed_end,
 			thu_start, thu_end, fri_start, fri_end, sat_start, sat_end,
-			sun_start, sun_end, hol_start, hol_end, registdate)
+			sun_start, sun_end, hol_start, hol_end)
 		VALUES
 			(#doctor_pk#, #name#, #mon_start#, #mon_end#, #tue_start#, #tue_end#, #wed_start#, #wed_end#,
 			#thu_start#, #thu_end#, #fri_start#, #fri_end#, #sat_start#, #sat_end#,
-			#sun_start#, #sun_end#, #hol_start#, #hol_end#, #registdate#)
+			#sun_start#, #sun_end#, #hol_start#, #hol_end#)
 		<selectKey keyProperty="no" resultClass="Integer">
 			SELECT
 			LAST_INSERT_ID()

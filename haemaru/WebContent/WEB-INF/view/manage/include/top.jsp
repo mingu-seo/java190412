@@ -75,7 +75,7 @@ $(window).load(function(){
 					<div class="standard_left">
 					<ul>
 						<li><a href="<%=request.getContextPath()%>/manage/doctor/index.do"><span>의료진관리</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/doctor/sched.do"><span>의료진일정관리</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/sched/index.do"><span>의료진일정관리</span></a></li>
 						
 					</ul>
 					</div>

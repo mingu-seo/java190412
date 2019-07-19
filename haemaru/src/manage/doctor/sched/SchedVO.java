@@ -24,6 +24,7 @@ public class SchedVO extends Parameter {
 	private int sun_end;
 	private int hol_start;
 	private int hol_end;
+	private int time; // 시간 선택
 	private Timestamp registdate;
 
 	public SchedVO() {
@@ -180,6 +181,14 @@ public class SchedVO extends Parameter {
 
 	public void setHol_end(int hol_end) {
 		this.hol_end = hol_end;
+	}	
+	
+	public int getTime() {
+		return time;
+	}
+
+	public void setTime(int time) {
+		this.time = time;
 	}
 
 	public Timestamp getRegistdate() {
