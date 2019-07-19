@@ -53,8 +53,8 @@ public class QnaDAO extends SqlMapClientDAOSupport {
 	 * @param no
 	 * @throws SQLException
 	 */
-	public int delete(int no) throws SQLException {
-		return getSqlMapClient().delete("qna.delete", no);
+	public int delete(QnaVO vo) throws SQLException {
+		return getSqlMapClient().delete("qna.delete", vo);
 	}
 
 	/**
@@ -63,8 +63,8 @@ public class QnaDAO extends SqlMapClientDAOSupport {
 	 * @return
 	 * @throws SQLException
 	 */
-	public QnaVO read(int no) throws SQLException {
-		return (QnaVO)getSqlMapClient().queryForObject("qna.read", no);
+	public QnaVO read(QnaVO vo) throws SQLException {
+		return (QnaVO)getSqlMapClient().queryForObject("qna.read", vo);
 	}
 
 	/**
