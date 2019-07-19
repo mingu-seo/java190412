@@ -75,37 +75,26 @@ DiningVO data = (DiningVO) request.getAttribute("data");
 										<col width="15%" />
 										<col width="15%" />
 										<col width="15%" />
+										<col width="10%" />
 									</colgroup>
 									<tbody>
 										<tr>
 											<th scope="row"><label for="">다이닝명</label></th>
-											<td colspan="5"><%=data.getName()%></td>
-										</tr>
-										<tr>
+											<td colspan="2"><%=data.getName()%></td>
 											<th scope="row"><label for="">가격</label></th>
-											<td colspan="5"><%=data.getPrice()%></td>
-										</tr>
-										<tr>
-											<th scope="row"><label for="">다이닝 이미지명</label></th>
-											<td colspan="3"><%=data.getImagename()%></td>
-										</tr>
-										<tr>
-											<th scope="row"><label for="">다이닝 원본 이미지명</label></th>
-											<td colspan="3"><%=data.getImagename_org()%></td>
+											<td colspan="2"><%=data.getPrice()%></td>
 										</tr>
 										<tr>
 											<th scope="row"><label for="">운영기간 시작일</label></th>
-											<td colspan="5"><%=data.getStartdate()%></td>
-										</tr>
-										<tr>
+											<td colspan="2"><%=data.getStartdate()%></td>
+										
 											<th scope="row"><label for="">운영기간 종료일</label></th>
 											<td colspan="5"><%=data.getEnddate()%></td>
 										</tr>
 										<tr>
 											<th scope="row"><label for="">예약기간</label></th>
-											<td colspan="5"><%=data.getBook_period()%></td>
-										</tr>
-										<tr>
+											<td colspan="2"><%=data.getBook_period()%></td>
+										
 											<th scope="row"><label for="">포함내역</label></th>
 											<td colspan="5"><%=data.getInclusion()%></td>
 										</tr>

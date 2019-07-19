@@ -61,37 +61,27 @@ function goSearch() {
 							<form name="frm" id="frm" action="process.do" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
 								<colgroup>
-									<col class="w3" />
-									<col class="w3" />
-									<col class="w6" />
-									<col class="w8" />
+									<col class="w1" />
+									<col class="w2" />
 									<col class="w7" />
-									<col class="w7" />
-									<col class="w7" />
-									<col class="w9" />
-									<col class="w9" />
 									<col class="w5" />
 									<col class="w5" />
+									<col class="w1" />
 								</colgroup>
 								<thead>
 									<tr>
 										<th scope="col" class="first"><input type="checkbox" name="allChk" id="allChk" onClick="check(this, document.frm.no)"/></th>
 										<th scope="col">번호</th>
+										<th scope="col">이미지</th>
 										<th scope="col">다이닝명</th> 
 										<th scope="col">가격</th> 
-										<th scope="col">이미지</th>
-										<th scope="col">운영기간 시작일</th> 
-										<th scope="col">운영기간 종료일</th>
-										<th scope="col">예약기간</th>
-										<th scope="col">포함내역</th>
-										<th scope="col">안내</th>
 										<th scope="col" class="last">삭제</th>
 									</tr>
 								</thead>
 								<tbody>
 								<% if (totCount == 0) { %>
 									<tr>
-										<td class="first" colspan="11">등록된 글이 없습니다.</td>
+										<td class="first" colspan="7">등록된 글이 없습니다.</td>
 									</tr>
 								<%
 									 } else {
@@ -105,14 +95,9 @@ function goSearch() {
 									<tr <%=topClass%>>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
 										<td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td>
+										<td <%=targetUrl%>><img src="/upload/dining/<%=data.getImagename()%>" width="100px" height="auto"/></td>
 										<td <%=targetUrl%> class="name"><%=data.getName()%></td>
 										<td <%=targetUrl%> class="price"><%=data.getPrice()%></td>
-										<td <%=targetUrl%>><img src="/upload/dining/<%=list.get(i).getImagename()%>" width="100" height="100"></td>
-										<td <%=targetUrl%> class="startdate"><%=data.getStartdate()%></td>
-										<td <%=targetUrl%> class="enddate"><%=data.getEnddate()%></td>
-										<td <%=targetUrl%> class="book_period"><%=data.getBook_period()%></td>
-										<td <%=targetUrl%> class="inclusion"><%=data.getInclusion()%></td>
-										<td <%=targetUrl%> class="info"><%=data.getInfo()%></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
 								<%

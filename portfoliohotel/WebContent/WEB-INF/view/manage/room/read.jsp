@@ -54,50 +54,103 @@ function goDelete() {
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
 									<col width="15%" />
-									<col width="35%" />
 									<col width="15%" />
-									<col width="35%" />
+									<col width="15%" />
+									<col width="15%" />
+									<col width="15%" />
+							
 								</colgroup>
 								<tbody>
 									<tr>
 										<th>객실 종류</th>
-										<td colspan="3"><%=CodeUtil.getRoomName(read.getName())%></td>
+										<td colspan="5"><%=CodeUtil.getRoomName(read.getName())%> [<%=read.getName() %>]</td>
 									</tr>
 									<tr>
 										<th>객실 가격</th>
-										<td><%=read.getPrice() %></td>
+										<td colspan="2"><%=read.getPrice() %></td>
 										<th>객실 수량</th>
-										<td><%=read.getCount() %></td>
+										<td colspan="2"><%=read.getCount() %></td>
 									</tr>
 									<tr>
 										<th>성인(기본정원)</th>
-										<td><%=read.getAdult() %></td>
+										<td colspan="2"><%=read.getAdult() %></td>
 										<th>어린이(기본정원)</th>
-										<td><%=read.getKid() %></td>
+										<td colspan="2"><%=read.getKid() %></td>
 									</tr>
 									<tr>
-										<th scope="row"><label for="">객실 이미지</label></th>
-										<td colspan="3"><%=read.getImage1() %></td>
+										<th scope="row" rowspan="2"><label for="">객실 이미지</label></th>
+										<td>
+											<% if (read.getImage1() != null && !"".equals(read.getImage1())) { %>
+											<img src="/upload/room/<%=read.getImage1()%>" width="270px" height="auto"/>
+											<% } %>
+										</td>
+										<td>
+											<% if (read.getImage2() != null && !"".equals(read.getImage2())) { %>
+											<img src="/upload/room/<%=read.getImage2()%>" width="270px" height="auto"/>
+											<% } %>
+										</td>
+										<td>
+											<% if (read.getImage3() != null && !"".equals(read.getImage3())) { %>
+											<img src="/upload/room/<%=read.getImage3()%>" width="270px" height="auto"/>
+											<% } %>
+										</td>
+										<td>
+											<% if (read.getImage4() != null && !"".equals(read.getImage4())) { %>
+											<img src="/upload/room/<%=read.getImage4()%>" width="270px" height="auto"/>
+											<% } %>
+										</td>
+										<td>
+											<% if (read.getImage5() != null && !"".equals(read.getImage5())) { %>
+											<img src="/upload/room/<%=read.getImage5()%>" width="270px" height="auto"/>
+											<% } %>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<% if (read.getImage6() != null && !"".equals(read.getImage6())) { %>
+											<img src="/upload/room/<%=read.getImage6()%>" width="270px" height="auto"/>
+											<% } %>
+										</td>
+										<td>
+											<% if (read.getImage7() != null && !"".equals(read.getImage7())) { %>
+											<img src="/upload/room/<%=read.getImage7()%>" width="270px" height="auto"/>
+											<% } %>
+										</td>
+										<td>
+											<% if (read.getImage8() != null && !"".equals(read.getImage8())) { %>
+											<img src="/upload/room/<%=read.getImage8()%>" width="270px" height="auto"/>
+											<% } %>
+										</td>
+										<td>
+											<% if (read.getImage9() != null && !"".equals(read.getImage9())) { %>
+											<img src="/upload/room/<%=read.getImage9()%>" width="270px" height="auto"/>
+											<% } %>
+										</td>
+										<td>
+											<% if (read.getImage10() != null && !"".equals(read.getImage10())) { %>
+											<img src="/upload/room/<%=read.getImage10()%>" width="270px" height="auto"/>
+											<% } %>
+										</td>
 									</tr>
 									<tr>
 										<th>객실 소개</th>
-										<td colspan="3"><%=read.getInstruction() %></td>
+										<td colspan="5"><%=read.getInstruction() %></td>
 									</tr>
 									<tr>
 										<th>체크인 시간</th>
-										<td><%=read.getCheckin_time() %></td>
+										<td colspan="2"><%=read.getCheckin_time() %></td>
 										<th>체크아웃 시간</th>
-										<td><%=read.getCheckout_time() %></td>
+										<td colspan="2"><%=read.getCheckout_time() %></td>
 									</tr>
 									<tr>
 										<th>객실 위치</th>
-										<td colspan="3"><%=read.getLocation() %></td>
+										<td colspan="5"><%=read.getLocation() %></td>
 									</tr>
 									<tr>
 										<th>객실 전망</th>
-										<td><%=read.getLandscape() %></td>
+										<td colspan="2"><%=read.getLandscape() %></td>
 										<th>객실 타입</th>
-										<td><%=read.getType() %></td>
+										<td colspan="2"><%=read.getType() %></td>
 									</tr>
 								</tbody>
 							</table>

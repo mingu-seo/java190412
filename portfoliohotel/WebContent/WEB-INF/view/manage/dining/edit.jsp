@@ -73,8 +73,8 @@ jQuery(window).load(function(){
 										<tbody>
 											<tr>
 												<th scope="row"><label for="">다이닝명</label></th>
-												<td><input type="text" id="name" name="name"
-													value="<%=data.getName()%>" title="상품명을 입력해주세요." /></td>
+												<td colspan="3"><input type="text" id="name" name="name"
+													value="<%=data.getName()%>" title="상품명을 입력해주세요."  /></td>
 											</tr>
 											<tr>
 												<th scope="row"><label for="">가격</label></th>
@@ -83,8 +83,8 @@ jQuery(window).load(function(){
 											</tr>
 											<tr>
 												<th scope="row"><label for="">이미지명</label></th>
-											<td colspan="3">
-												<input type="file" name="imagename_tmp" id="imagename_tmp" title="첨부파일" />
+												<td colspan="3">
+												<input type="file" name="image_tmp" id="image_tmp" title="첨부파일" />
 											<tr>
 												<th scope="row"><label for="">운영기간 시작일</label></th>
 												<td>
@@ -93,10 +93,9 @@ jQuery(window).load(function(){
 												<img src="/manage/img/calendar_icon.png" id="CalstartdateIconImg" style="cursor:pointer;"/>
 													</span>
 												</td>
-											</tr>
-											<tr>
-										<th scope="row"><label for="">운영기간 종료일</label></th>
-										<td>
+												
+												<th scope="row"><label for="">운영기간 종료일</label></th>
+												<td>
 											<input type="text" id="enddate" name="enddate" class="inputTitle" value="" title="운영기간 시작일을 입력해주세요" />&nbsp;
 													<span id="CalenddateIcon">
 											<img src="/manage/img/calendar_icon.png" id="CalenddateIconImg" style="cursor:pointer;"/>
@@ -108,14 +107,13 @@ jQuery(window).load(function(){
 												<td><input type="text" id="book_period"
 													name="book_period" value="<%=data.getBook_period()%>"
 													title="예약기간을 입력해주세요." /></td>
-											</tr>
-											<tr>
+											
 												<th scope="row"><label for="">포함내역</label></th>
 												<td><input type="text" id="inclusion" name="inclusion"
 													value="<%=data.getInclusion()%>" title="포함내역을 입력해주세요." /></td>
 											</tr>
 											<tr>
-												<th scope="row"><label for="">상세정보</label></th>
+												<th scope="row"><label for="">안내</label></th>
 												<td colspan="4">
 												<textarea id="info" name="info" title="정보를 입력해주세요" style="width: 100%">
 												<%=data.getInfo()%>

@@ -51,7 +51,7 @@ DiningVO param = (DiningVO)request.getAttribute("vo");
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>다이닝 - [쓰기]</h2>
+					<h2>다이닝 - [등록]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">
@@ -61,29 +61,29 @@ DiningVO param = (DiningVO)request.getAttribute("vo");
 							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" enctype="multipart/form-data" onsubmit="return goSave();">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
-									<col width="15%" />
-									<col width="35%" />
-									<col width="15%" />
-									<col width="35%" />
+									<col width="5%" />
+									<col width="25%" />
+									<col width="5%" />
+									<col width="25%" />
 								</colgroup>
 								<tbody>
 									
 									<tr>
 										<th scope="row"><label for="">다이닝명</label></th>
 										<td colspan="3">
-											<input type="text" id="name" name="name" class="w50" title="다이닝명을 입력해주세요" />	
+											<input type="text" id="name" name="name" class="w14" title="다이닝명을 입력해주세요" />	
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">가격</label></th>
 										<td colspan="3">
-											<input type="text" id="price" name="price" class="w50" title="가격을 입력해주세요" />	
+											<input type="text" id="price" name="price" class="w8" title="가격을 입력해주세요" />	
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">다이닝 이미지</label></th>
 										<td colspan="3">
-											<input type="file" name="imagename_tmp" id="imagename_tmp" class="w50" title="첨부파일을 업로드 해주세요." />
+											<input type="file" name="image_tmp" id="image_tmp" class="w50" title="첨부파일을 업로드 해주세요." />
 										</td>	
 									</tr>
 									<tr>
@@ -107,7 +107,7 @@ DiningVO param = (DiningVO)request.getAttribute("vo");
 									<tr>
 										<th scope="row"><label for="">예약기간</label></th>
 										<td colspan="3">
-											<input type="text" id="book_period" name="book_period" class="w50" title="예약기간을 입력해주세요" />	
+											<input type="text" id="book_period" name="book_period" class="w20" title="예약기간을 입력해주세요" />	
 										</td>
 									</tr>
 									<tr>

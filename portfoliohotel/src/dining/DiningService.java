@@ -1,5 +1,6 @@
 package dining;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
@@ -37,7 +38,7 @@ public class DiningService {
 	public int insert(DiningVO vo, HttpServletRequest request) throws Exception {
 		FileUtil fu = new FileUtil();
 		Map fileMap = fu.getFileMap(request);
-		MultipartFile file= (MultipartFile)fileMap.get("imagename_tmp");
+		MultipartFile file= (MultipartFile)fileMap.get("image_tmp");
 		if (!file.isEmpty()) {
 			fu.upload(file, SiteProperty.DINING_UPLOAD_PATH, SiteProperty.REAL_PATH, "dining");
 			vo.setImagename(fu.getName());
@@ -49,7 +50,15 @@ public class DiningService {
 		return lastNo;
 	}
 
-	public int update(DiningVO vo) throws SQLException {
+	public int update(DiningVO vo, HttpServletRequest request) throws SQLException, IOException {
+		FileUtil fu = new FileUtil();
+		Map fileMap = fu.getFileMap(request);
+		MultipartFile file= (MultipartFile)fileMap.get("image_tmp");
+		if (!file.isEmpty()) {
+			fu.upload(file, SiteProperty.DINING_UPLOAD_PATH, SiteProperty.REAL_PATH, "dining");
+			vo.setImagename(fu.getName());
+			vo.setImagename_org(fu.getSrcName());
+		}
 		int cnt = diningDao.update(vo);
 		return cnt;
 	}

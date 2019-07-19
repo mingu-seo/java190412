@@ -2,6 +2,7 @@ package member;
 
 import java.sql.Timestamp;
 
+import manage.admin.AdminVO;
 import util.Parameter;
 
 public class MemberVO extends Parameter{
@@ -17,6 +18,22 @@ public class MemberVO extends Parameter{
 	
 	public MemberVO() {
 		super.setPageRows(10);
+	}
+	
+	public String getTargetURLParam(String pageUrl, AdminVO param, int index) {
+
+		StringBuffer strList= new StringBuffer();
+
+		if (param != null) {
+			strList.append(pageUrl);
+			strList.append("?stype=" + param.getStype());
+			strList.append("&sval="+param.getSval());
+			strList.append("&reqPageNo="+param.getReqPageNo());
+			if (index > 0) {
+				strList.append("&no="+index);
+			}
+		}
+		return strList.toString();
 	}
 	
 	public int getNo() {

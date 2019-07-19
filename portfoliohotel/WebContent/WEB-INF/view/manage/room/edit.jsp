@@ -83,43 +83,194 @@ function goSave() {
 								<tbody>
 									<tr>
 										<th>객실 종류</th>
-										<td colspan="3"><input type="text" id="name" name="name" class="w50" value="<%=read.getName() %>"/></td>
+										<td colspan="5"><input type="text" id="name" name="name" class="w50" value="<%=read.getName() %>"/></td>
 									</tr>
 									<tr>
 										<th>객실 가격</th>
-										<td><input type="text" id="price" name="price" class="w25" value="<%=read.getPrice() %>"/></td>
+										<td colspan="2"><input type="text" id="price" name="price" class="w25" value="<%=read.getPrice() %>"/></td>
 										<th>객실 수량</th>
-										<td><input type="text" id="count" name="count" class="w25" value="<%=read.getCount() %>"/></td>
+										<td colspan="2"><input type="text" id="count" name="count" class="w25" value="<%=read.getCount() %>"/></td>
 									</tr>
 									<tr>
 										<th>성인(기본정원)</th>
-										<td><input type="text" id="adult" name="adult" class="w25" value="<%=read.getAdult() %>"/></td>
+										<td colspan="2"><input type="text" id="adult" name="adult" class="w25" value="<%=read.getAdult() %>"/></td>
 										<th>어린이(기본정원)</th>
-										<td><input type="text" id="kid" name="kid" class="w25" value="<%=read.getKid() %>"/></td>
+										<td colspan="2"><input type="text" id="kid" name="kid" class="w25" value="<%=read.getKid() %>"/></td>
 									</tr>
 									<tr>
-										<th scope="row"><label for="">객실 이미지</label></th>
-										<td colspan="3"><input type="file" id="filename_tmp" name="filename_tmp" class="w50" /></td>
+										<th scope="row" rowspan="2"><label for="">객실 이미지</label></th>
+										<td>
+											<% if (read.getImage1() == null || "".equals(read.getImage1())) { %>
+											<input type="file" name="image_tmp1" id="image_tmp1" title="첨부파일" />
+											<% } else { %>
+												<div class="weidtFile">
+													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.ROOM_UPLOAD_PATH, 
+															java.net.URLEncoder.encode(read.getImage_org1(), "UTF-8"), read.getImage1()) %>" target="_blank">
+															<%= Function.checkNull(read.getImage_org1()) %></a><br/>
+														<input type="checkbox" id="image_chk1" name="image_chk1" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
+														<label for="image_name_chk">기존파일삭제</label>
+													</p>
+													<input type="file" name="image_tmp1" id="image_tmp1" title="첨부파일을 업로드 해주세요." />
+												</div>
+											<% } %>	
+										</td>
+										<td>
+											<% if (read.getImage2() == null || "".equals(read.getImage2())) { %>
+											<input type="file" name="image_tmp2" id="image_tmp2" title="첨부파일" />
+											<% } else { %>
+												<div class="weidtFile">
+													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.ROOM_UPLOAD_PATH, 
+															java.net.URLEncoder.encode(read.getImage_org2(), "UTF-8"), read.getImage2()) %>" target="_blank">
+															<%= Function.checkNull(read.getImage_org2()) %></a><br/>
+														<input type="checkbox" id="image_chk2" name="image_chk2" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
+														<label for="image_name_chk">기존파일삭제</label>
+													</p>
+													<input type="file" name="image_tmp2" id="image_tmp2" title="첨부파일을 업로드 해주세요." />
+												</div>
+											<% } %>	
+										</td>
+										<td>
+											<% if (read.getImage3() == null || "".equals(read.getImage3())) { %>
+											<input type="file" name="image_tmp3" id="image_tmp3" title="첨부파일" />
+											<% } else { %>
+												<div class="weidtFile">
+													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.ROOM_UPLOAD_PATH, 
+															java.net.URLEncoder.encode(read.getImage_org3(), "UTF-8"), read.getImage3()) %>" target="_blank">
+															<%= Function.checkNull(read.getImage_org3()) %></a><br/>
+														<input type="checkbox" id="image_chk3" name="image_chk3" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
+														<label for="image_name_chk">기존파일삭제</label>
+													</p>
+													<input type="file" name="image_tmp3" id="image_tmp3" title="첨부파일을 업로드 해주세요." />
+												</div>
+											<% } %>	
+										</td>
+										<td>
+											<% if (read.getImage4() == null || "".equals(read.getImage4())) { %>
+											<input type="file" name="image_tmp4" id="image_tmp4" title="첨부파일" />
+											<% } else { %>
+												<div class="weidtFile">
+													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.ROOM_UPLOAD_PATH, 
+															java.net.URLEncoder.encode(read.getImage_org4(), "UTF-8"), read.getImage4()) %>" target="_blank">
+															<%= Function.checkNull(read.getImage_org4()) %></a><br/>
+														<input type="checkbox" id="image_chk4" name="image_chk4" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
+														<label for="image_name_chk">기존파일삭제</label>
+													</p>
+													<input type="file" name="image_tmp4" id="image_tmp4" title="첨부파일을 업로드 해주세요." />
+												</div>
+											<% } %>	
+										</td>
+										<td>
+											<% if (read.getImage5() == null || "".equals(read.getImage5())) { %>
+											<input type="file" name="image_tmp5" id="image_tmp5" title="첨부파일" />
+											<% } else { %>
+												<div class="weidtFile">
+													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.ROOM_UPLOAD_PATH, 
+															java.net.URLEncoder.encode(read.getImage_org5(), "UTF-8"), read.getImage5()) %>" target="_blank">
+															<%= Function.checkNull(read.getImage_org5()) %></a><br/>
+														<input type="checkbox" id="image_chk5" name="image_chk5" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
+														<label for="image_name_chk">기존파일삭제</label>
+													</p>
+													<input type="file" name="image_tmp5" id="image_tmp5" title="첨부파일을 업로드 해주세요." />
+												</div>
+											<% } %>	
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<% if (read.getImage6() == null || "".equals(read.getImage6())) { %>
+											<input type="file" name="image_tmp6" id="image_tmp6" title="첨부파일" />
+											<% } else { %>
+												<div class="weidtFile">
+													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.ROOM_UPLOAD_PATH, 
+															java.net.URLEncoder.encode(read.getImage_org6(), "UTF-8"), read.getImage6()) %>" target="_blank">
+															<%= Function.checkNull(read.getImage_org6()) %></a><br/>
+														<input type="checkbox" id="image_chk6" name="image_chk6" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
+														<label for="image_name_chk">기존파일삭제</label>
+													</p>
+													<input type="file" name="image_tmp6" id="image_tmp6" title="첨부파일을 업로드 해주세요." />
+												</div>
+											<% } %>	
+										</td>
+										<td>
+											<% if (read.getImage7() == null || "".equals(read.getImage7())) { %>
+											<input type="file" name="image_tmp7" id="image_tmp7" title="첨부파일" />
+											<% } else { %>
+												<div class="weidtFile">
+													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.ROOM_UPLOAD_PATH, 
+															java.net.URLEncoder.encode(read.getImage_org7(), "UTF-8"), read.getImage7()) %>" target="_blank">
+															<%= Function.checkNull(read.getImage_org7()) %></a><br/>
+														<input type="checkbox" id="image_chk7" name="image_chk7" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
+														<label for="image_name_chk">기존파일삭제</label>
+													</p>
+													<input type="file" name="image_tmp7" id="image_tmp7" title="첨부파일을 업로드 해주세요." />
+												</div>
+											<% } %>	
+										</td>
+										<td>
+											<% if (read.getImage8() == null || "".equals(read.getImage8())) { %>
+											<input type="file" name="image_tmp8" id="image_tmp8" title="첨부파일" />
+											<% } else { %>
+												<div class="weidtFile">
+													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.ROOM_UPLOAD_PATH, 
+															java.net.URLEncoder.encode(read.getImage_org8(), "UTF-8"), read.getImage8()) %>" target="_blank">
+															<%= Function.checkNull(read.getImage_org8()) %></a><br/>
+														<input type="checkbox" id="image_chk8" name="image_chk8" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
+														<label for="image_name_chk">기존파일삭제</label>
+													</p>
+													<input type="file" name="image_tmp8" id="image_tmp8" title="첨부파일을 업로드 해주세요." />
+												</div>
+											<% } %>	
+										</td>
+										<td>
+											<% if (read.getImage9() == null || "".equals(read.getImage9())) { %>
+											<input type="file" name="image_tmp9" id="image_tmp9" title="첨부파일" />
+											<% } else { %>
+												<div class="weidtFile">
+													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.ROOM_UPLOAD_PATH, 
+															java.net.URLEncoder.encode(read.getImage_org9(), "UTF-8"), read.getImage9()) %>" target="_blank">
+															<%= Function.checkNull(read.getImage_org9()) %></a><br/>
+														<input type="checkbox" id="image_chk9" name="image_chk9" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
+														<label for="image_name_chk">기존파일삭제</label>
+													</p>
+													<input type="file" name="image_tmp9" id="image_tmp9" title="첨부파일을 업로드 해주세요." />
+												</div>
+											<% } %>	
+										</td>
+										<td>
+											<% if (read.getImage10() == null || "".equals(read.getImage10())) { %>
+											<input type="file" name="image_tmp10" id="image_tmp10" title="첨부파일" />
+											<% } else { %>
+												<div class="weidtFile">
+													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.ROOM_UPLOAD_PATH, 
+															java.net.URLEncoder.encode(read.getImage_org10(), "UTF-8"), read.getImage10()) %>" target="_blank">
+															<%= Function.checkNull(read.getImage_org10()) %></a><br/>
+														<input type="checkbox" id="image_chk10" name="image_chk10" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
+														<label for="image_name_chk">기존파일삭제</label>
+													</p>
+													<input type="file" name="image_tmp10" id="image_tmp10" title="첨부파일을 업로드 해주세요." />
+												</div>
+											<% } %>	
+										</td>
 									</tr>
 									<tr>
 										<th>객실 소개</th>
-										<td colspan="3"><textarea id="instruction" name="instruction" style="width:100%;"><%=read.getInstruction() %></textarea></td>
+										<td colspan="5"><textarea id="instruction" name="instruction" style="width:100%;"><%=read.getInstruction() %></textarea></td>
 									</tr>
 									<tr>
 										<th>체크인 시간</th>
-										<td><input type="text" id="checkin_time" name="checkin_time" class="w25" value="<%=read.getCheckin_time() %>"/></td>
+										<td colspan="2"><input type="text" id="checkin_time" name="checkin_time" class="w25" value="<%=read.getCheckin_time() %>"/></td>
 										<th>체크아웃 시간</th>
-										<td><input type="text" id="checkout_time" name="checkout_time" class="w25" value="<%=read.getCheckout_time() %>"/></td>
+										<td colspan="2"><input type="text" id="checkout_time" name="checkout_time" class="w25" value="<%=read.getCheckout_time() %>"/></td>
 									</tr>
 									<tr>
 										<th>객실 위치</th>
-										<td colspan="3"><input type="text" id="location" name="location" class="w50" value="<%=read.getLocation() %>"/></td>
+										<td colspan="5"><input type="text" id="location" name="location" class="w50" value="<%=read.getLocation() %>"/></td>
 									</tr>
 									<tr>
 										<th>객실 전망</th>
-										<td><input type="text" id="landscape" name="landscape" class="w25" value="<%=read.getLandscape() %>"/></td>
+										<td colspan="2"><input type="text" id="landscape" name="landscape" class="w25" value="<%=read.getLandscape() %>"/></td>
 										<th>객실 타입</th>
-										<td><input type="text" id="type" name="type" class="w25" value="<%=read.getType() %>"/></td>
+										<td colspan="2"><input type="text" id="type" name="type" class="w25" value="<%=read.getType() %>"/></td>
 									</tr>
 								</tbody>
 							</table>

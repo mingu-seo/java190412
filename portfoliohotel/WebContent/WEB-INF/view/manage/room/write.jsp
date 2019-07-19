@@ -33,16 +33,66 @@ function goDelete(v) {
 }
 
 function goSave() {
-	
+	if($("#name").val() == ""){
+		alert('객실 종류를 입력하세요.');
+		$("#name").focus();
+		return false;
+	}
+	if($("#price").val() == ""){
+		alert('객실 가격을 입력하세요.');
+		$("#price").focus();
+		return false;
+	}
+	if($("#count").val() == ""){
+		alert('객실 수량을 입력하세요.');
+		$("#count").focus();
+		return false;
+	}
+	if($("#adult").val() == ""){
+		alert('성인(기본정원)을 입력하세요.');
+		$("#adult").focus();
+		return false;
+	}
+	if($("#kid").val() == ""){
+		alert('어린이(기본정원)을 입력하세요.');
+		$("#kid").focus();
+		return false;
+	}
 	
 	var sHTML = oEditors.getById["instruction"].getIR();
 	if (sHTML == "" || sHTML == "<p><br></p>") {
-		alert('제품 정보를 입력하세요.');
+		alert('객실 정보를 입력하세요.');
 		$("#instruction").focus();
 		return false;
 	} else {
 		oEditors.getById["instruction"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
 	}
+	
+	if($("#checkin_time").val() == ""){
+		alert('체크인 시간을 입력하세요.');
+		$("#checkin_time").focus();
+		return false;
+	}
+	if($("#checkout_time").val() == ""){
+		alert('체크아웃 시간을 입력하세요.');
+		$("#checkout_time").focus();
+		return false;
+	}
+	if($("#location").val() == ""){
+		alert('객실 위치를 입력하세요.');
+		$("#location").focus();
+		return false;
+	}
+	if($("#landscape").val() == ""){
+		alert('객실 전망을 입력하세요.');
+		$("#landscape").focus();
+		return false;
+	}
+	if($("#type").val() == ""){
+		alert('객실 타입을 입력하세요.');
+		$("#type").focus();
+		return false;
+	}	
 	
 	return true;
 	/* $("#frm").submit(); */
@@ -75,50 +125,68 @@ function goSave() {
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
 									<col width="15%" />
-									<col width="35%" />
 									<col width="15%" />
-									<col width="35%" />
+									<col width="15%" />
+									<col width="15%" />
+									<col width="15%" />
+									<col width="15%" />
 								</colgroup>
 								<tbody>
 									<tr>
 										<th>객실 종류</th>
-										<td colspan="3"><input type="text" id="name" name="name" class="w50" /></td>
+										<td colspan="5"><input type="text" id="name" name="name" class="w50" /></td>
 									</tr>
 									<tr>
 										<th>객실 가격</th>
-										<td><input type="text" id="price" name="price" class="w25" /></td>
+										<td colspan="2"><input type="text" id="price" name="price" class="w25" /></td>
 										<th>객실 수량</th>
-										<td><input type="text" id="count" name="count" class="w25" /></td>
+										<td colspan="2"><input type="text" id="count" name="count" class="w25" /></td>
 									</tr>
 									<tr>
 										<th>성인(기본정원)</th>
-										<td><input type="text" id="adult" name="adult" class="w25" /></td>
+										<td colspan="2"><input type="text" id="adult" name="adult" class="w25" /></td>
 										<th>어린이(기본정원)</th>
-										<td><input type="text" id="kid" name="kid" class="w25" /></td>
+										<td colspan="2"><input type="text" id="kid" name="kid" class="w25" /></td>
 									</tr>
+									
 									<tr>
-										<th scope="row"><label for="">객실 이미지</label></th>
-										<td colspan="3"><input type="file" id="filename_tmp" name="filename_tmp" class="w50" /></td>
+										<th scope="row" rowspan="2"><label for="">객실 이미지</label></th>
+									<%
+									for(int i=0; i<5; i++){
+									%>	
+										<td><input type="file" id="image_tmp<%=i %>" name="image_tmp<%=i %>" class="w100" /></td>
+									<%
+									}
+									%>
+									<tr>
+									<%
+									for(int i=5; i<10; i++){
+									%>	
+										<td><input type="file" id="image_tmp<%=i %>" name="image_tmp<%=i %>" class="w100" /></td>
+									<%
+									}
+									%>	
+									</tr>
 									</tr>
 									<tr>
 										<th>객실 소개</th>
-										<td colspan="3"><textarea id="instruction" name="instruction" style="width:100%;"></textarea></td>
+										<td colspan="5"><textarea id="instruction" name="instruction" style="width:100%;"></textarea></td>
 									</tr>
 									<tr>
 										<th>체크인 시간</th>
-										<td><input type="text" id="checkin_time" name="checkin_time" class="w25" /></td>
+										<td colspan="2"><input type="text" id="checkin_time" name="checkin_time" class="w25" /></td>
 										<th>체크아웃 시간</th>
-										<td><input type="text" id="checkout_time" name="checkout_time" class="w25" /></td>
+										<td colspan="2"><input type="text" id="checkout_time" name="checkout_time" class="w25" /></td>
 									</tr>
 									<tr>
 										<th>객실 위치</th>
-										<td colspan="3"><input type="text" id="location" name="location" class="w50" /></td>
+										<td colspan="5"><input type="text" id="location" name="location" class="w50" /></td>
 									</tr>
 									<tr>
 										<th>객실 전망</th>
-										<td><input type="text" id="landscape" name="landscape" class="w25" /></td>
+										<td colspan="2"><input type="text" id="landscape" name="landscape" class="w50" /></td>
 										<th>객실 타입</th>
-										<td><input type="text" id="type" name="type" class="w25" /></td>
+										<td colspan="2"><input type="text" id="type" name="type" class="w50" /></td>
 									</tr>
 								</tbody>
 							</table>

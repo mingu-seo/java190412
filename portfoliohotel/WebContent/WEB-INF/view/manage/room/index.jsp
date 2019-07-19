@@ -59,11 +59,12 @@ function goSearch() {
 							<form name="frm" id="frm" action="process.do" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
 								<colgroup>
+									<col class="w2" />
 									<col class="w3" />
-									<col class="w4" />
-									<col class="" />
-									<col class="w6" />
+									<col class="w20" />
+									<col class="w10" />
 									<col class="w5" />
+									<col class="w2" />
 								</colgroup>
 								<thead>
 									<tr>
