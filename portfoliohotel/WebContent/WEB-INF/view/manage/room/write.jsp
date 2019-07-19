@@ -98,6 +98,24 @@ function goSave() {
 	/* $("#frm").submit(); */
 }
 
+$(function(){		
+	var trIdx = 0;		
+	$(".addBtn").click(function(){
+		var trObj = "<tr class='addTr'>";
+		trObj += "	<td><input type=\"text\" name=\"name_s\"/></td>";
+		trObj += "	<td><input type=\"button\" value=\"삭제\" class=\"delBtn\"/></td>";
+		trObj += "</tr>";
+		$("#table_s").append(trObj);
+		trIdx++;
+		
+		$(".delBtn").off("click");
+		$(".delBtn").click(function(){
+			var idx = $(".delBtn").index(this);
+			$(".addTr").eq(idx).remove();
+		});
+	});		
+});
+
 </script>
 <title>관리자 객실 등록</title>
 </head>
@@ -188,6 +206,23 @@ function goSave() {
 										<th>객실 타입</th>
 										<td colspan="2"><input type="text" id="type" name="type" class="w50" /></td>
 									</tr>
+								</tbody>
+							</table>
+							
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<colgroup>
+									<col width="15%" />
+									<col width="35%" />
+								</colgroup>
+								<tbody>						
+									<input type="button" value="추가" class="w5 addBtn"></input>
+											
+									<table id="table_s">
+										<tr>
+											<th>*편의시설</th>
+											<th></th>
+										</tr>
+									</table>									
 								</tbody>
 							</table>
 							<input type="hidden" name="cmd" value="write" />
