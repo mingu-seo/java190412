@@ -60,15 +60,7 @@
  	<mvc:default-servlet-handler/>
  	<mvc:view-controller path="/adopt/review/addreview.do"/>
  	<mvc:default-servlet-handler/> 	
- 	
- 	<mvc:view-controller path="/cscenter/notice/notice.do"/>
- 	<mvc:default-servlet-handler/>
- 	<mvc:view-controller path="/cscenter/notice/viewnotice.do"/>
- 	<mvc:default-servlet-handler/>
- 	<mvc:view-controller path="/cscenter/faq/faq.do"/>
- 	<mvc:default-servlet-handler/>
- 	<mvc:view-controller path="/cscenter/qna/qna.do"/>
- 	<mvc:default-servlet-handler/>
+ 
  	
  	<mvc:view-resolvers>
  	    <mvc:jsp prefix="/WEB-INF/view/"/>
