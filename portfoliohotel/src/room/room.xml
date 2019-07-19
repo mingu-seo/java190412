@@ -9,34 +9,22 @@
 	
 	<insert id="insert" parameterClass="roomVO">
 		INSERT INTO room (name, price, count, adult, kid, instruction, checkin_time,  
-							checkout_time, location, landscape, type, 
-							image1, image_org1,
-							image2, image_org2,
-							image3, image_org3,
-							image4, image_org4,
-							image5, image_org5,
-							image6, image_org6,
-							image7, image_org7,
-							image8, image_org8,
-							image9, image_org9,
-							image10, image_org10)
+							checkout_time, location, landscape, type)
 		VALUES (#name#, #price#, #count#, #adult#, #kid#, #instruction#, #checkin_time#,
-				#checkout_time#, #location#, #landscape#, #type#,
-				#image1#, #image_org1#,
-				#image2#, #image_org2#,
-				#image3#, #image_org3#,
-				#image4#, #image_org4#,
-				#image5#, #image_org5#,
-				#image6#, #image_org6#,
-				#image7#, #image_org7#,
-				#image8#, #image_org8#,
-				#image9#, #image_org9#,
-				#image10#, #image_org10#)
+				#checkout_time#, #location#, #landscape#, #type#)
 				
 		<selectKey keyProperty="no" resultClass="Integer">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+	
+	<insert id="insert_image" parameterClass="java.util.HashMap">
+		INSERT INTO room_img (image, room_pk) VALUES (#image#, #room_pk#)
+	</insert>
+	
+	<select id="list_image" parameterClass="Integer" resultClass="java.util.HashMap">
+		SELECT * FROM room_img where room_pk=#room_pk#
+	</select>
 	
 	<select id="read" parameterClass="roomVO" resultClass="roomVO">
 		SELECT * FROM room where no=#no#
@@ -46,93 +34,16 @@
 		UPDATE room SET
 			name=#name#, price=#price#, count=#count#, adult=#adult#, kid=#kid#, 
 			instruction=#instruction#, checkin_time=#checkin_time#, checkout_time=#checkout_time#, 
-			location=#location#, landscape=#landscape#, 
-			<isEqual property="image_chk1" compareValue="1">
-        		image1='', image_org1='',
-        	</isEqual>	
-        	<isNotEqual property="image1" compareValue="">
-            	<isNotNull property="image1">
-        			image1=#image1#, image_org1=#image_org1#,
-        		</isNotNull>
-        	</isNotEqual>
-        	<isEqual property="image_chk2" compareValue="1">
-        		image2='', image_org2='',
-        	</isEqual>	
-        	<isNotEqual property="image2" compareValue="">
-            	<isNotNull property="image2">
-        			image2=#image2#, image_org2=#image_org2#,
-        		</isNotNull>
-        	</isNotEqual>
-			<isEqual property="image_chk3" compareValue="1">
-        		image3='', image_org3='',
-        	</isEqual>	
-        	<isNotEqual property="image3" compareValue="">
-            	<isNotNull property="image3">
-        			image3=#image3#, image_org3=#image_org3#,
-        		</isNotNull>
-        	</isNotEqual>
-			<isEqual property="image_chk4" compareValue="1">
-        		image4='', image_org4='',
-        	</isEqual>	
-        	<isNotEqual property="image4" compareValue="">
-            	<isNotNull property="image4">
-        			image4=#image4#, image_org4=#image_org4#,
-        		</isNotNull>
-        	</isNotEqual>
-			<isEqual property="image_chk5" compareValue="1">
-        		image5='', image_org5='',
-        	</isEqual>	
-        	<isNotEqual property="image5" compareValue="">
-            	<isNotNull property="image5">
-        			image5=#image5#, image_org5=#image_org5#,
-        		</isNotNull>
-        	</isNotEqual>
-			<isEqual property="image_chk6" compareValue="1">
-        		image6='', image_org6='',
-        	</isEqual>	
-        	<isNotEqual property="image6" compareValue="">
-            	<isNotNull property="image6">
-        			image6=#image6#, image_org6=#image_org6#,
-        		</isNotNull>
-        	</isNotEqual>
-			<isEqual property="image_chk7" compareValue="1">
-        		image7='', image_org7='',
-        	</isEqual>	
-        	<isNotEqual property="image7" compareValue="">
-            	<isNotNull property="image7">
-        			image7=#image7#, image_org7=#image_org7#,
-        		</isNotNull>
-        	</isNotEqual>
-        	<isEqual property="image_chk8" compareValue="1">
-        		image8='', image_org8='',
-        	</isEqual>	
-        	<isNotEqual property="image8" compareValue="">
-            	<isNotNull property="image8">
-        			image8=#image8#, image_org8=#image_org8#,
-        		</isNotNull>
-        	</isNotEqual>
-        	<isEqual property="image_chk9" compareValue="1">
-        		image9='', image_org9='',
-        	</isEqual>	
-        	<isNotEqual property="image9" compareValue="">
-            	<isNotNull property="image9">
-        			image9=#image9#, image_org9=#image_org9#,
-        		</isNotNull>
-        	</isNotEqual>
-        	<isEqual property="image_chk10" compareValue="1">
-        		image10='', image_org10='',
-        	</isEqual>	
-        	<isNotEqual property="image10" compareValue="">
-            	<isNotNull property="image10">
-        			image10=#image10#, image_org10=#image_org10#,
-        		</isNotNull>
-        	</isNotEqual>
-        type=#type#
+			location=#location#, landscape=#landscape#, type=#type#
 		WHERE no=#no#
 	</update>
 	
 	<delete id="delete" parameterClass="roomVO">
 		DELETE FROM room WHERE no=#no#
+	</delete>
+	
+	<delete id="delete_image" parameterClass="Integer">
+		DELETE FROM room_img WHERE no=#no#
 	</delete>
 	
 	
@@ -170,8 +81,19 @@
 	
 	<typeAlias alias="room_serviceVO" type="room.Room_serviceVO"/>
 	
-	<select id="list_service" parameterClass="room_serviceVO" resultClass="room_serviceVO">
-		SELECT * FROM room_service
+	<select id="list_service" parameterClass="Integer" resultClass="java.util.HashMap">
+		SELECT * FROM room_service where room_pk=#room_pk#
 	</select>
 	
+	<insert id="insert_service" parameterClass="java.util.HashMap">
+		INSERT INTO room_service (name, room_pk) VALUES (#name_s#, #room_pk#)
+	</insert>
+	
+	<update id="update_service" parameterClass="java.util.HashMap">
+		UPDATE room_service SET name=#name_s#, room_pk=#room_pk# where room_pk=#room_pk#
+	</update>
+	
+	<delete id="delete_service" parameterClass="Integer">
+		DELETE FROM room_service WHERE room_pk=#room_pk#
+	</delete>
 </sqlMap>

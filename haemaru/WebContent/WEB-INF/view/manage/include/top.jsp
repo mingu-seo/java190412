@@ -75,7 +75,7 @@ $(window).load(function(){
 					<div class="standard_left">
 					<ul>
 						<li><a href="<%=request.getContextPath()%>/manage/doctor/index.do"><span>의료진관리</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/doctor/sched.do"><span>의료진일정관리</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/sched/index.do"><span>의료진일정관리</span></a></li>
 						
 					</ul>
 					</div>
@@ -86,10 +86,10 @@ $(window).load(function(){
 				<li><a href="<%=request.getContextPath()%>/manage/cscenter/index.do" class="parent"><span>고객지원</span></a>
 					<div class="standard_left">
 					<ul>
-						<li><a href="<%=request.getContextPath()%>/manage/notice/index.do"><span>공지사항</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/board/notice/index.do"><span>공지사항</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/review/index.do"><span>후기</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>자유게시판</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/faq/"><span>자주하는질문</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/faq/index.do"><span>자주하는질문</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/faq/"><span>FAQ분류관리</span></a></li>
 						
 					</ul>

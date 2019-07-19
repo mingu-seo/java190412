@@ -7,7 +7,7 @@ public class SiteProperty {
 	/**
 	 * 업체명
 	 */
-	public static final String 	COMPANY_NAME			= "SPRING";
+	public static final String 	COMPANY_NAME			= "HAEMARU";
 	/**
 	 * 관리자 시작페이지
 	 */
@@ -96,8 +96,10 @@ public class SiteProperty {
 	/**
 	 * 공지사항 첨부파일 경로
 	 */
-	public static final String NOTICE_UPLOAD_PATH		= "/upload/notice/";
+	public static final String NOTICE_UPLOAD_PATH = "/upload/notice/";
 	public static final String DOCTOR_UPLOAD_PATH = "/upload/doctor/";
+	public static final String QNA_UPLOAD_PATH = "/upload/qna/";
+	public static final String ANIMAL_UPLOAD_PATH = "/upload/adopt/";
 	public static final String MYPET_UPLOAD_PATH = "/upload/mypet/";
 
 }

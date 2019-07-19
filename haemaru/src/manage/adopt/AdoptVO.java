@@ -13,7 +13,7 @@ public class AdoptVO extends Parameter  {
 	private String animal_image_org;
 	private String name;
 	private int gender;
-	private int age;
+	private String age;
 	private String charr;
 	private String breed;
 	private String vac;
@@ -96,10 +96,11 @@ public class AdoptVO extends Parameter  {
 	public void setGender(int gender) {
 		this.gender = gender;
 	}
-	public int getAge() {
+	
+	public String getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 	public String getCharr() {

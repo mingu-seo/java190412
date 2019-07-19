@@ -95,8 +95,41 @@ function goSave() {
 	}	
 	
 	return true;
-	/* $("#frm").submit(); */
 }
+
+$(function(){		
+	var trIdx = 0;		
+	$(".addBtn_s").click(function(){
+		var trObj = "<tr class='addTr'>";
+		trObj += "	<td><input type=\"text\" name=\"name_s\"/></td>";
+		trObj += "	<td><input type=\"button\" value=\"삭제\" class=\"delBtn\"/></td>";
+		trObj += "</tr>";
+		$("#table_s").append(trObj);
+		trIdx++;
+		
+		$(".delBtn").off("click");
+		$(".delBtn").click(function(){
+			var idx = $(".delBtn").index(this);
+			$(".addTr").eq(idx).remove();
+		});
+	});	
+	
+	var trIdx_i = 0;		
+	$(".addBtn_i").click(function(){
+		var trObj = "<tr class='addTr'>";
+		trObj += "	<td><input type=\"file\" name=\"image_tmp\" multiple/></td>";
+		trObj += "	<td><input type=\"button\" value=\"삭제\" class=\"delBtn\"/></td>";
+		trObj += "</tr>";
+		$("#table_i").append(trObj);
+		trIdx_i++;
+		
+		$(".delBtn").off("click");
+		$(".delBtn").click(function(){
+			var idx = $(".delBtn").index(this);
+			$(".addTr").eq(idx).remove();
+		});
+	});	
+});
 
 </script>
 <title>관리자 객실 등록</title>
@@ -148,26 +181,6 @@ function goSave() {
 										<th>어린이(기본정원)</th>
 										<td colspan="2"><input type="text" id="kid" name="kid" class="w25" /></td>
 									</tr>
-									
-									<tr>
-										<th scope="row" rowspan="2"><label for="">객실 이미지</label></th>
-									<%
-									for(int i=0; i<5; i++){
-									%>	
-										<td><input type="file" id="image_tmp<%=i %>" name="image_tmp<%=i %>" class="w100" /></td>
-									<%
-									}
-									%>
-									<tr>
-									<%
-									for(int i=5; i<10; i++){
-									%>	
-										<td><input type="file" id="image_tmp<%=i %>" name="image_tmp<%=i %>" class="w100" /></td>
-									<%
-									}
-									%>	
-									</tr>
-									</tr>
 									<tr>
 										<th>객실 소개</th>
 										<td colspan="5"><textarea id="instruction" name="instruction" style="width:100%;"></textarea></td>
@@ -190,6 +203,41 @@ function goSave() {
 									</tr>
 								</tbody>
 							</table>
+							
+							<table border="0" cellspacing="0" cellpadding="0">
+								<colgroup>
+									<col width="15%" />
+									<col width="35%" />
+								</colgroup>
+								<tbody>						
+									<input type="button" value="추가" class="w5 addBtn_s"></input>
+											
+									<table id="table_s" style="width:275px;">
+										<tr>
+											<th>편의시설</th>
+											<th></th>
+										</tr>
+									</table>									
+								</tbody>
+							</table>
+							
+							<table border="0" cellspacing="0" cellpadding="0">
+								<colgroup>
+									<col width="15%" />
+									<col width="35%" />
+								</colgroup>
+								<tbody>						
+									<input type="button" value="추가" class="w5 addBtn_i"></input>
+											
+									<table id="table_i" style="width:275px;">
+										<tr>
+											<th>객실 이미지</th>
+											<th></th>
+										</tr>
+									</table>									
+								</tbody>
+							</table>
+							
 							<input type="hidden" name="cmd" value="write" />
 							</form>
 							<div class="btn">

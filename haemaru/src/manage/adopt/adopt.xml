@@ -2,8 +2,7 @@
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="adopt">
     
-    <typeAlias alias="vo" type="manage.adopt.AdoptVO"/>
-    <typeAlias alias="param" type="manage.adopt.AdoptVO"/>
+    <typeAlias alias="adopt_vo" type="manage.adopt.AdoptVO"/>
     
     <!-- 공통조건 -->
 	<sql id="searchSql">		
@@ -21,18 +20,18 @@
 		</dynamic>
 	</sql>
 	
-	<select id="count" parameterClass="param" resultClass="Integer">
+	<select id="count" parameterClass="adopt_vo" resultClass="Integer">
         select count(*) from animal_pro
         <include refid="searchSql" />	
     </select>
 	
-    <select id="list" parameterClass="param" resultClass="vo">
+    <select id="list" parameterClass="adopt_vo" resultClass="adopt_vo">
         select * from animal_pro
         <include refid="searchSql" />
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$	
     </select>
     
-    <insert id="insert" parameterClass="vo" >
+    <insert id="insert" parameterClass="adopt_vo" >
         insert into animal_pro
         	(animal_category, animal_image, animal_image_org, name, gender, age, charr, breed, vac, state, registdate)
         values
@@ -42,7 +41,7 @@
 		</selectKey>
     </insert>
     
-    <update id="update" parameterClass="vo">
+    <update id="update" parameterClass="adopt_vo">
         update animal_pro set
         	<isNotEqual property="password" compareValue="">
         	    password = md5(#password#),
@@ -53,29 +52,11 @@
     </update>
     
     <delete id="delete" parameterClass="Integer">
-        delete from adopt where no=#no#
+        delete from animal_pro where no=#no#
     </delete>
     
-    <select id="read" parameterClass="Integer" resultClass="vo">
-    	<![CDATA[
-        select no, id, password, email,
-        	name, memo, registdate,
-        	ifnull((select max(no) from adopt where no>1 and no<#no#), 0) as prev_no,
-        	ifnull((select min(no) from adopt where no>1 and no>#no#), 0) as next_no
-         from adopt where no>1 and no=#no#
-         ]]>
-    </select>
-    
-    <select id="idcheck" parameterClass="param" resultClass="Integer">
-        select count(*) as cnt from adopt where id=#id#
-    </select>
-    
-    <select id="loginCheck" parameterClass="param" resultClass="Integer">
-        select count(*) as cnt from adopt where id=#id# and password=md5(#password#)
-    </select>
-    
-    <select id="loginSessionInfo" parameterClass="param" resultClass="vo">
-        select * from adopt where id=#id# and password=md5(#password#)
+    <select id="read" parameterClass="Integer" resultClass="adopt_vo">
+        select * from animal_pro where no=#no#
     </select>
     
 </sqlMap>

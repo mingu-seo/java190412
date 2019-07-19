@@ -11,9 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import board.notice.NoticeVO;
 import board.qna.QnaVO;
 import property.SiteProperty;
 import util.FileUtil;
+import util.Function;
 import util.Page;
 
 @Service
@@ -53,33 +55,39 @@ public class QnaService {
 		return no;
 	}
 	public int update(QnaVO vo) throws SQLException {
-		int cnt = qnaDao.update(vo);
-		return cnt;
-	}
-
-	public int delete(int no) throws SQLException {
-		int cnt = qnaDao.delete(no);
-		return cnt;
-	}
-
-	public QnaVO read(int no) throws SQLException {
-		QnaVO vo = qnaDao.read(no);
-		return vo;
-	}
-	
-
-
-
-	public int groupDelete(HttpServletRequest request) throws SQLException {
-		String[] no = request.getParameterValues("no");
-		int r = 0;
-		for (int i=0; i<no.length; i++) {
-			int nos = Integer.parseInt(no[i]);
-			r += qnaDao.delete(nos);
-		}
+		int r = qnaDao.update(vo);
 		return r;
 	}
-	
-	
-	//관리자
+
+
+	public QnaVO read(QnaVO vo) throws SQLException {
+		QnaVO r = qnaDao.read(vo);
+		return r;
+	}
+
+	public int delete(QnaVO vo) throws SQLException {
+		QnaVO read = qnaDao.read(vo);
+		int r = qnaDao.delete(vo);
+		
+		return r;
+	}
+
+
+	public int groupDelete(QnaVO vo, HttpServletRequest request) throws Exception {
+		String[] nos = request.getParameterValues("no");
+		int delCount = 0;
+		if (nos.length > 0) {
+			for (int i=0; i<nos.length; i++) {
+				QnaVO nvo = new QnaVO();
+				nvo.setNo(Function.getIntParameter(nos[i]));
+				QnaVO data = qnaDao.read(nvo);
+				int r = qnaDao.delete(nvo);
+				if (r > 0) {
+					delCount++;
+					Function.fileDelete(vo.getUploadPath(), data.getFile());
+				}
+			}
+		}
+		return delCount;
+	}
 }

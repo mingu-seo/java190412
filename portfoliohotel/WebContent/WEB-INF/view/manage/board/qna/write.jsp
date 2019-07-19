@@ -137,7 +137,7 @@ QnaVO param = (QnaVO)request.getAttribute("vo");
 								</tbody>
 							</table>
 							<input type="hidden" name="cmd" value="write" />
-							<input type="hidden" name="no" id="no" value="<%=param.getNo()%>"/>
+					
 							
 							
 							</form>

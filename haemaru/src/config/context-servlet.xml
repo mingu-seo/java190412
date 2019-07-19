@@ -11,11 +11,12 @@
 	<context:component-scan base-package="manage" />
 	<context:component-scan base-package="board" />
 	<context:component-scan base-package="main" />
-	<context:component-scan base-package="pet" />
+	<context:component-scan base-package="mypet" />
 	<context:component-scan base-package="member" />
 	<context:component-scan base-package="reservation" />
 	<context:component-scan base-package="doctor" />
 	<context:component-scan base-package="adopt" />
+	<context:component-scan base-package="sched" />
 	
 	<mvc:annotation-driven/>
 <!-- 
@@ -60,15 +61,7 @@
  	<mvc:default-servlet-handler/>
  	<mvc:view-controller path="/adopt/review/addreview.do"/>
  	<mvc:default-servlet-handler/> 	
- 	
- 	<mvc:view-controller path="/cscenter/notice/notice.do"/>
- 	<mvc:default-servlet-handler/>
- 	<mvc:view-controller path="/cscenter/notice/viewnotice.do"/>
- 	<mvc:default-servlet-handler/>
- 	<mvc:view-controller path="/cscenter/faq/faq.do"/>
- 	<mvc:default-servlet-handler/>
- 	<mvc:view-controller path="/cscenter/qna/qna.do"/>
- 	<mvc:default-servlet-handler/>
+ 
  	
  	<mvc:view-resolvers>
  	    <mvc:jsp prefix="/WEB-INF/view/"/>

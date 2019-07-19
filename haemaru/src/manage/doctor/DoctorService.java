@@ -2,7 +2,6 @@ package manage.doctor;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,19 +10,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import manage.doctor.sched.SchedDAO;
+import manage.doctor.sched.SchedVO;
 import property.SiteProperty;
 import util.FileUtil;
 import util.Function;
 import util.Page;
-
-import manage.doctor.DoctorVO;
-import manage.doctor.DoctorDAO;
 
 @Service
 public class DoctorService {
 
 	@Autowired
 	private DoctorDAO doctorDao;
+	@Autowired
+	private SchedDAO sDao;
 
 	public int[] count(DoctorVO param) throws SQLException {
 		int rowCount = doctorDao.count(param);
@@ -51,6 +51,10 @@ public class DoctorService {
 
 		}
 		int lastNo = (Integer) doctorDao.insert(vo);
+		SchedVO svo = new SchedVO();
+		svo.setDoctor_pk(lastNo);
+		svo.setName(vo.getName());
+		sDao.insert(svo);
 		return lastNo;
 	}
 
@@ -86,7 +90,11 @@ public class DoctorService {
 
 	public int delete(int no) throws SQLException {
 		int cnt = doctorDao.delete(no);
+		SchedVO svo = new SchedVO();
+		svo.setDoctor_pk(no);
+		sDao.delete(no);
 		return cnt;
+		
 	}
 
 	public int groupDelete(HttpServletRequest request) throws SQLException {

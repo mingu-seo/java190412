@@ -45,5 +45,5 @@
 	<sqlMap resource="board/qna/qna.xml"/>	
 
 	<sqlMap resource="room/room.xml"/>
-
+	<sqlMap resource="board/faq/faq.xml"/>
 </sqlMapConfig>

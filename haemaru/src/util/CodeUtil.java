@@ -768,4 +768,113 @@ public class CodeUtil {
 			        	result.append("<option value='2'"+Function.getSelected(2,arg)+">"+getDoctorGenderName(2)+"</option>");
 			        return result.toString();
 			    }
+				
+				
+				public static String getDoctorCategoryName(int category) {
+					String result = "";
+					if (category == 1) {
+						result = "이름";
+					} else if (category == 2) {
+						result = "연락처";
+					}
+					return result;
+				}
+				
+				public static String getDoctorCategoryOption(int arg){
+			        StringBuffer result = new StringBuffer();
+			        
+			        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getDoctorCategoryName(1)+"</option>");
+			        	result.append("<option value='2'"+Function.getSelected(2,arg)+">"+getDoctorCategoryName(2)+"</option>");
+			        return result.toString();
+			    }
+				
+				
+				
+				public static String getDoctorScheduleName(int time) {
+					String result = "";
+					if (time == 1) {
+						result = "9:00";
+					} else if (time == 2) {
+						result = "9:30";
+					} else if (time == 3) {
+						result = "10:00";
+					} else if (time == 4) {
+						result = "10:30";
+					} else if (time == 5) {
+						result = "11:00";
+					} else if (time == 6) {
+						result = "11:30";
+					} else if (time == 7) {
+						result = "12:00";
+					} else if (time == 8) {
+						result = "12:30";
+					} else if (time == 9) {
+						result = "13:00";
+					} else if (time == 10) {
+						result = "13:30";
+					} else if (time == 11) {
+						result = "14:00";
+					} else if (time == 12) {
+						result = "14:30";
+					} else if (time == 13) {
+						result = "15:00";
+					} else if (time == 14) {
+						result = "15:30";
+					} else if (time == 15) {
+						result = "16:00";
+					} else if (time == 16) {
+						result = "16:30";
+					} else if (time == 17) {
+						result = "17:00";
+					} else if (time == 18) {
+						result = "17:30";
+					} else if (time == 19) {
+						result = "18:00";
+					} else if (time == 20) {
+						result = "18:30";
+					} else if (time == 21) {
+						result = "19:00";
+					} else if (time == 22) {
+						result = "19:30";
+					} else if (time == 23) {
+						result = "20:00";
+					} else if (time == 24) {
+						result = "20:30";
+					} else if (time == 25) {
+						result = "21:00";
+					} 
+					return result;
+				}
+				
+				public static String getDoctorScheduleOption(int arg){
+			        StringBuffer result = new StringBuffer();
+			        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getDoctorScheduleName(1)+"</option>");
+			        	result.append("<option value='2'"+Function.getSelected(2,arg)+">"+getDoctorScheduleName(2)+"</option>");
+			        	result.append("<option value='3'"+Function.getSelected(3,arg)+">"+getDoctorScheduleName(3)+"</option>");
+			        	result.append("<option value='4'"+Function.getSelected(4,arg)+">"+getDoctorScheduleName(4)+"</option>");
+			        	result.append("<option value='5'"+Function.getSelected(5,arg)+">"+getDoctorScheduleName(5)+"</option>");
+			        	result.append("<option value='6'"+Function.getSelected(6,arg)+">"+getDoctorScheduleName(6)+"</option>");
+			        	result.append("<option value='7'"+Function.getSelected(7,arg)+">"+getDoctorScheduleName(7)+"</option>");
+			        	result.append("<option value='8'"+Function.getSelected(8,arg)+">"+getDoctorScheduleName(8)+"</option>");
+			        	result.append("<option value='9'"+Function.getSelected(9,arg)+">"+getDoctorScheduleName(9)+"</option>");
+			        	result.append("<option value='10'"+Function.getSelected(10,arg)+">"+getDoctorScheduleName(10)+"</option>");
+			        	result.append("<option value='11'"+Function.getSelected(11,arg)+">"+getDoctorScheduleName(11)+"</option>");
+			        	result.append("<option value='12'"+Function.getSelected(12,arg)+">"+getDoctorScheduleName(12)+"</option>");
+			        	result.append("<option value='13'"+Function.getSelected(13,arg)+">"+getDoctorScheduleName(13)+"</option>");
+			        	result.append("<option value='14'"+Function.getSelected(14,arg)+">"+getDoctorScheduleName(14)+"</option>");
+			        	result.append("<option value='15'"+Function.getSelected(15,arg)+">"+getDoctorScheduleName(15)+"</option>");
+			        	result.append("<option value='16'"+Function.getSelected(16,arg)+">"+getDoctorScheduleName(16)+"</option>");
+			        	result.append("<option value='17'"+Function.getSelected(17,arg)+">"+getDoctorScheduleName(17)+"</option>");
+			        	result.append("<option value='18'"+Function.getSelected(18,arg)+">"+getDoctorScheduleName(18)+"</option>");
+			        	result.append("<option value='19'"+Function.getSelected(19,arg)+">"+getDoctorScheduleName(19)+"</option>");
+			        	result.append("<option value='20'"+Function.getSelected(20,arg)+">"+getDoctorScheduleName(20)+"</option>");
+			        	result.append("<option value='21'"+Function.getSelected(21,arg)+">"+getDoctorScheduleName(21)+"</option>");
+			        	result.append("<option value='22'"+Function.getSelected(22,arg)+">"+getDoctorScheduleName(22)+"</option>");
+			        	result.append("<option value='23'"+Function.getSelected(23,arg)+">"+getDoctorScheduleName(23)+"</option>");
+			        	result.append("<option value='24'"+Function.getSelected(24,arg)+">"+getDoctorScheduleName(24)+"</option>");
+			        	result.append("<option value='25'"+Function.getSelected(25,arg)+">"+getDoctorScheduleName(25)+"</option>");
+			        return result.toString();
+			    }
+				
+
 }

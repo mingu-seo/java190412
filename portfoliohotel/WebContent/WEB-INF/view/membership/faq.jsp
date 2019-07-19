@@ -1,4 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="board.faq.*" %>
+<%@ page import="util.*" %>
+<%@ page import="property.SiteProperty" %>
+<%
+FaqVO param = (FaqVO)request.getAttribute("vo");
+ArrayList<FaqVO> list = (ArrayList)request.getAttribute("list");
+int totCount = (Integer)request.getAttribute("totCount");
+int totPage = (Integer)request.getAttribute("totPage");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -166,33 +176,53 @@
                         <tr class="table-head">
                             <th>내용</th>
                         </tr>
-                        <tr class="faq-q">
-                            <td><a href="#">Q. 회원탈퇴가 하고 싶으세요?</a></td>
-                        </tr>
-                        <tr class="faq-answer">
-                            <td>A. 아니요 </td>
-                        </tr>
-                        <tr class="faq-q">
-                            <td><a href="#">Q. 호텔 전화번호좀 알려주세요.</a></td>
-                        </tr>
-                        <tr class="faq-answer">
-                            <td>A. TEL 02.2250.8000 </td>
-                        </tr>
-                        <tr class="faq-q">
-                            <td><a href="#">Q. 호텔 위치가 어떻게 되나요 ?</a></td>
-                        </tr>
-                        <tr class="faq-answer">
-                            <td>A. 서울특별시 중구 장충동 장충단로 60 입니다. </td>
-                        </tr>
+			<form name="searchForm" id="searchForm" action="" method="post">
+				<div class="search">
+					<select name="category" onchange="$('#searchForm').submit();">
+						<option value="0" <%=Function.getSelected(param.getCategory(), 0)%>>카테고리 선택</option>
+						<option value="1" <%=Function.getSelected(param.getCategory(), 1)%>>예약</option>
+						<option value="2" <%=Function.getSelected(param.getCategory(), 2)%>>결제</option>
+					</select>   
+				</div>
+			</form>                     
+					<%
+						if (totCount == 0) {
+					%>
+						<tr>
+							<td class="first" colspan="8">등록된 글이 없습니다.</td>
+						</tr>
+					<%
+						} else {
+							String targetUrl = "";
+							String topClass = "";
+							FaqVO data;
+							for (int i=0; i<list.size(); i++) {
+								data = list.get(i);
+								/* targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, data.getNo())+"'\""; */
+					%>
+						<tr class="faq-q">
+							<td <%=targetUrl%>><a href="#"><%=data.getTitle() %></td>
+						</tr>
+						<tr class="faq-answer">
+							<td <%=targetUrl%>><a href="#"><%=data.getContents() %></td>
+						</tr>
+					<%
+							}
+						 }
+					%>
                     </table>
+                    	<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
+						<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
+						<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
+						<input type="hidden" name="no" id="no" value="<%=param.getNo() %>"/>
                 </div>
+                <!-- 페이징 처리 -->
                 <div class="table-page">
                     <ul class="page-number clear">
-                        <li class="on"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
+                        <li><%=Page.indexList(param.getReqPageNo(), totPage, request)%></li>
                     </ul>
+                </div>               
+                <!-- 페이징 처리 -->
                 </div>
             </div>
         </div>

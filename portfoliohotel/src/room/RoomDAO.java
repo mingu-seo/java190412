@@ -2,6 +2,7 @@ package room;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.stereotype.Repository;
 
@@ -29,6 +30,14 @@ public class RoomDAO extends SqlMapClientDAOSupport {
 	 */
 	public int insert(RoomVO vo) throws SQLException {
 		return (Integer)getSqlMapClient().insert("room.insert", vo);
+	}
+	
+	public void insert_image(HashMap map) throws SQLException {
+		getSqlMapClient().insert("room.insert_image", map);
+	}
+	
+	public ArrayList list_image(int room_pk) throws SQLException {
+		return (ArrayList)getSqlMapClient().queryForList("room.list_image", room_pk);
 	}
 	
 	/**
@@ -59,6 +68,10 @@ public class RoomDAO extends SqlMapClientDAOSupport {
 	 */
 	public int delete(RoomVO vo) throws SQLException {
 		return getSqlMapClient().delete("room.delete", vo);
+	}
+	
+	public void delete_image(int no) throws SQLException {
+		getSqlMapClient().delete("room.delete_image", no);
 	}
 	
 	
@@ -122,9 +135,36 @@ public class RoomDAO extends SqlMapClientDAOSupport {
 	 * @return
 	 * @throws SQLException
 	 */
-	public ArrayList list_service(Room_serviceVO vo) throws SQLException {
-		return (ArrayList)getSqlMapClient().queryForList("room.list_service", vo);
-	} 
+	public ArrayList<HashMap> list_service(int room_pk) throws SQLException{
+		return (ArrayList<HashMap>)getSqlMapClient().queryForList("room.list_service", room_pk);
+	}
+		
+	/**
+	 * 객실 편의시설 등록
+	 * @param map
+	 * @throws SQLException
+	 */
+	public void insert_service(HashMap map) throws SQLException {
+		getSqlMapClient().insert("room.insert_service", map);
+	}
+	
+	/**
+	 * 객실 편의시설 수정
+	 * @param map
+	 * @throws SQLException
+	 */
+	public void update_service(HashMap map) throws SQLException {
+		getSqlMapClient().update("room.insert_service", map);
+	}
+	
+	/**
+	 * 객실 편의시설 삭제
+	 * @param room_pk
+	 * @throws SQLException
+	 */
+	public void delete_service(int room_pk) throws SQLException {
+		getSqlMapClient().delete("room.delete_service", room_pk);
+	}
 	
 	
 	public static void main(String[]args )throws SQLException {
