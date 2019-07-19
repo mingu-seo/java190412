@@ -3,6 +3,8 @@ package room;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import property.SiteProperty;
 import util.FileUtil;
@@ -21,174 +24,118 @@ public class RoomService {
 	@Autowired
 	private RoomDAO roomDAO;
 	
-//	객실
+	/**
+	 * 객실 목록
+	 * @param vo
+	 * @return
+	 * @throws Exception
+	 */
 	public ArrayList list(RoomVO vo) throws Exception{
 		ArrayList list = roomDAO.list(vo);
 		return list;
 	}
 	
-	public int insert(RoomVO vo, HttpServletRequest req) throws Exception{	
+	/**
+	 * 객실 등록
+	 * @param vo
+	 * @param req
+	 * @param files
+	 * @return
+	 * @throws Exception
+	 */
+	public int insert(RoomVO vo, HttpServletRequest req, List<MultipartFile> files) throws Exception{	
 		String[] arr = new String[10];
 		String[] arr_org = new String[10];
 		
 		FileUtil fu = new FileUtil();
 		Map fileMap = fu.getFileMap(req);
 		
-		for(int i=0; i<10; i++) {
-		MultipartFile file= (MultipartFile)fileMap.get("image_tmp"+i);
-			if (!file.isEmpty()) {
-				fu.upload(file, SiteProperty.ROOM_UPLOAD_PATH, SiteProperty.REAL_PATH, "room");
-					arr[i] = fu.getName();
-					arr_org[i] = fu.getSrcName();					
+		int lastNo = (Integer)roomDAO.insert(vo);
+		
+		MultipartHttpServletRequest mreq = (MultipartHttpServletRequest) req;
+		Iterator images = mreq.getFileNames();
+		
+		HashMap m = new HashMap();
+		m.put("room_pk", lastNo);
+		FileUtil fu2 = new FileUtil();
+		System.out.println("files.size():"+files.size());
+		for (int i=0; i<files.size(); i++) {
+			if (!files.get(i).isEmpty()) {
+				fu2.upload(files.get(i), SiteProperty.ROOM_UPLOAD_PATH, SiteProperty.REAL_PATH, "room");
+				m.put("image", fu2.getName());
+				roomDAO.insert_image(m);
 			}
 		}
-	
-		if(arr[0] != null) {
-			vo.setImage1(arr[0]);
-			vo.setImage_org1(arr_org[0]);
-		}
-		if(arr[1] != null) {
-			vo.setImage2(arr[1]);
-			vo.setImage_org2(arr_org[1]);
-		}
-		if(arr[2] != null) {
-			vo.setImage3(arr[2]);
-			vo.setImage_org3(arr_org[2]);
-		}
-		if(arr[3] != null) {
-			vo.setImage4(arr[3]);
-			vo.setImage_org4(arr_org[3]);
-		}
-		if(arr[4] != null) {
-			vo.setImage5(arr[4]);
-			vo.setImage_org5(arr_org[4]);
-		}
-		if(arr[5] != null) {
-			vo.setImage6(arr[5]);
-			vo.setImage_org6(arr_org[5]);
-		}
-		if(arr[6] != null) {
-			vo.setImage7(arr[6]);
-			vo.setImage_org7(arr_org[6]);
-		}
-		if(arr[7] != null) {
-			vo.setImage8(arr[7]);
-			vo.setImage_org8(arr_org[7]);
-		}
-		if(arr[8] != null) {
-			vo.setImage9(arr[8]);
-			vo.setImage_org9(arr_org[8]);
-		}
-		if(arr[9] != null) {
-			vo.setImage10(arr[9]);
-			vo.setImage_org10(arr_org[9]);
-		}	
-			
-		int lastNo = (Integer)roomDAO.insert(vo);
+		
 		return lastNo;
 	}
 	
+	
+	/**
+	 * 객실 이미지 목록
+	 * @param room_pk
+	 * @return
+	 * @throws SQLException
+	 */
+	public ArrayList<HashMap> list_image(int room_pk) throws SQLException {
+		return roomDAO.list_image(room_pk);
+	}
+	
+	/**
+	 * 객실 상세
+	 * @param vo
+	 * @return
+	 * @throws SQLException
+	 */
 	public RoomVO read(RoomVO vo) throws SQLException {
 		RoomVO read = roomDAO.read(vo);
 		return read;
 	}
 	
-	public int update(RoomVO vo, HttpServletRequest req) throws Exception {
-		RoomVO read = roomDAO.read(vo);
-		String[] arr = new String[10];
-		String[] arr_org = new String[10];
+	/**
+	 * 객실 수정
+	 * @param vo
+	 * @param req
+	 * @param vo_i
+	 * @param files
+	 * @return
+	 * @throws Exception
+	 */
+	public int update(RoomVO vo, HttpServletRequest req, Room_imageVO vo_i, List<MultipartFile> files) throws Exception {
+		RoomVO read = roomDAO.read(vo);		
 		
+		MultipartHttpServletRequest mreq = (MultipartHttpServletRequest) req;
+		Iterator images = mreq.getFileNames();
+		
+		HashMap m = new HashMap();
+		m.put("room_pk", read.getNo());
 		FileUtil fu = new FileUtil();
-		Map fileMap = fu.getFileMap(req);
-		
-		for(int i=0; i<10; i++) {
-			int j = i+1;
-		MultipartFile file= (MultipartFile)fileMap.get("image_tmp"+j);
-			if (!file.isEmpty()) {
-				fu.upload(file, SiteProperty.ROOM_UPLOAD_PATH, SiteProperty.REAL_PATH, "room");
-					arr[i] = fu.getName();
-					arr_org[i] = fu.getSrcName();					
+		System.out.println("files.size():"+files.size());
+		for (int i=0; i<files.size(); i++) {
+			if (!files.get(i).isEmpty()) {
+				fu.upload(files.get(i), SiteProperty.ROOM_UPLOAD_PATH, SiteProperty.REAL_PATH, "room");
+				m.put("image", fu.getName());
+				roomDAO.insert_image(m);
 			}
 		}
-	
-		if(arr[0] != null) {
-			vo.setImage1(arr[0]);
-			vo.setImage_org1(arr_org[0]);
-		}
-		if(arr[1] != null) {
-			vo.setImage2(arr[1]);
-			vo.setImage_org2(arr_org[1]);
-		}
-		if(arr[2] != null) {
-			vo.setImage3(arr[2]);
-			vo.setImage_org3(arr_org[2]);
-		}
-		if(arr[3] != null) {
-			vo.setImage4(arr[3]);
-			vo.setImage_org4(arr_org[3]);
-		}
-		if(arr[4] != null) {
-			vo.setImage5(arr[4]);
-			vo.setImage_org5(arr_org[4]);
-		}
-		if(arr[5] != null) {
-			vo.setImage6(arr[5]);
-			vo.setImage_org6(arr_org[5]);
-		}
-		if(arr[6] != null) {
-			vo.setImage7(arr[6]);
-			vo.setImage_org7(arr_org[6]);
-		}
-		if(arr[7] != null) {
-			vo.setImage8(arr[7]);
-			vo.setImage_org8(arr_org[7]);
-		}
-		if(arr[8] != null) {
-			vo.setImage9(arr[8]);
-			vo.setImage_org9(arr_org[8]);
-		}
-		if(arr[9] != null) {
-			vo.setImage10(arr[9]);
-			vo.setImage_org10(arr_org[9]);
-		}
-		
 		
 		int r = roomDAO.update(vo);
+		
 		if(r > 0) {
-			if("1".equals(vo.getImage_chk1()) || !"".equals(Function.checkNull(vo.getImage1()))) {
-				Function.fileDelete(SiteProperty.REAL_PATH + SiteProperty.ROOM_UPLOAD_PATH, read.getImage1());
-			}
-			if("1".equals(vo.getImage_chk2()) || !"".equals(Function.checkNull(vo.getImage2()))) {
-				Function.fileDelete(SiteProperty.ROOM_UPLOAD_PATH, read.getImage2());
-			}
-			if("1".equals(vo.getImage_chk3()) || !"".equals(Function.checkNull(vo.getImage3()))) {
-				Function.fileDelete(SiteProperty.ROOM_UPLOAD_PATH, read.getImage3());
-			}
-			if("1".equals(vo.getImage_chk4()) || !"".equals(Function.checkNull(vo.getImage4()))) {
-				Function.fileDelete(SiteProperty.ROOM_UPLOAD_PATH, read.getImage4());
-			}
-			if("1".equals(vo.getImage_chk5()) || !"".equals(Function.checkNull(vo.getImage5()))) {
-				Function.fileDelete(SiteProperty.ROOM_UPLOAD_PATH, read.getImage5());
-			}
-			if("1".equals(vo.getImage_chk6()) || !"".equals(Function.checkNull(vo.getImage6()))) {
-				Function.fileDelete(SiteProperty.ROOM_UPLOAD_PATH, read.getImage6());
-			}
-			if("1".equals(vo.getImage_chk7()) || !"".equals(Function.checkNull(vo.getImage7()))) {
-				Function.fileDelete(SiteProperty.ROOM_UPLOAD_PATH, read.getImage7());
-			}
-			if("1".equals(vo.getImage_chk8()) || !"".equals(Function.checkNull(vo.getImage8()))) {
-				Function.fileDelete(SiteProperty.ROOM_UPLOAD_PATH, read.getImage8());
-			}
-			if("1".equals(vo.getImage_chk9()) || !"".equals(Function.checkNull(vo.getImage9()))) {
-				Function.fileDelete(SiteProperty.ROOM_UPLOAD_PATH, read.getImage9());
-			}
-			if("1".equals(vo.getImage_chk10()) || !"".equals(Function.checkNull(vo.getImage10()))) {
-				Function.fileDelete(SiteProperty.ROOM_UPLOAD_PATH, read.getImage10());
+			if("1".equals(vo_i.getImage_chk()) || !"".equals(Function.checkNull(vo_i.getImage()))) {
+				Function.fileDelete(SiteProperty.REAL_PATH+SiteProperty.ROOM_UPLOAD_PATH, vo_i.getImage());
 			}
 		}
+		
 		return r;
 	}
 	
+	/**
+	 * 객실 삭제
+	 * @param vo
+	 * @return
+	 * @throws SQLException
+	 */
 	public int delete(RoomVO vo) throws SQLException {
 		RoomVO read = roomDAO.read(vo);
 		int r = roomDAO.delete(vo);
@@ -196,6 +143,13 @@ public class RoomService {
 		return r;
 	}
 	
+	/**
+	 * 객실 단체 삭제
+	 * @param vo
+	 * @param req
+	 * @return
+	 * @throws Exception
+	 */
 	public int groupDelete(RoomVO vo, HttpServletRequest req) throws Exception {
 		String[] nos = req.getParameterValues("no");
 		int delCount = 0;
@@ -213,14 +167,37 @@ public class RoomService {
 		return delCount;
 	}
 	
+	/**
+	 * 객실 이미지 삭제
+	 * @param no
+	 * @param imagename
+	 * @throws Exception
+	 */
+	public void delete_image(int no, String imagename) throws Exception {
+		System.out.println(imagename);
+		Function.fileDelete(SiteProperty.REAL_PATH+SiteProperty.ROOM_UPLOAD_PATH, imagename);
+		roomDAO.delete_image(no);
+	}
 	
 	
-//	객실 옵션
+	/**
+	 * 객실 옵션 목록
+	 * @param vo
+	 * @return
+	 * @throws Exception
+	 */
 	public ArrayList list_opt(Room_optVO vo) throws Exception{
 		ArrayList list_opt = roomDAO.list_opt(vo);
 		return list_opt;
 	}
 	
+	/**
+	 * 객실 옵션 등록
+	 * @param vo
+	 * @param req
+	 * @return
+	 * @throws Exception
+	 */
 	public int insert_opt(Room_optVO vo, HttpServletRequest req) throws Exception{	
 		
 		FileUtil fu = new FileUtil();
@@ -236,11 +213,24 @@ public class RoomService {
 		return lastNo;
 	}
 	
+	/**
+	 * 객실 옵션 수정
+	 * @param vo
+	 * @param req
+	 * @return
+	 * @throws Exception
+	 */
 	public int update_opt(Room_optVO vo, HttpServletRequest req) throws Exception {
 		int r = roomDAO.update_opt(vo);
 		return r;
 	}
 	
+	/**
+	 * 객실 옵션 삭제
+	 * @param vo
+	 * @return
+	 * @throws SQLException
+	 */
 	public int delete_opt(Room_optVO vo) throws SQLException {
 		Room_optVO read = roomDAO.read_opt(vo);
 		int r = roomDAO.delete_opt(vo);
@@ -248,6 +238,13 @@ public class RoomService {
 		return r;
 	}
 	
+	/**
+	 * 객실 옵션 단체 삭제
+	 * @param vo
+	 * @param req
+	 * @return
+	 * @throws Exception
+	 */
 	public int groupDelete_opt(Room_optVO vo, HttpServletRequest req) throws Exception {
 		String[] nos = req.getParameterValues("no");
 		int delCount = 0;
@@ -266,16 +263,27 @@ public class RoomService {
 	}
 	
 	
-	
-//	편의시설
+	/**
+	 * 객실 편의시설 목록
+	 * @param room_pk
+	 * @return
+	 * @throws SQLException
+	 */
 	public ArrayList<HashMap> list_service(int room_pk) throws SQLException {
 		return roomDAO.list_service(room_pk);
 	}	
 	
+	/**
+	 * 객실 편의시설 등록
+	 * @param req
+	 * @param room_pk
+	 * @throws Exception
+	 */
 	public void insert_service(HttpServletRequest req, int room_pk) throws Exception {
 		String[] names = req.getParameterValues("name_s");
 		
-		int size = names.length;
+		int size = 0;
+		if (names != null) size = names.length;
 		
 		for(int i=0; i<size; i++) {
 			HashMap m = new HashMap();
@@ -286,6 +294,12 @@ public class RoomService {
 		}
 	}
 	
+	/**
+	 * 객실 편의시설 수정
+	 * @param req
+	 * @param room_pk
+	 * @throws Exception
+	 */
 	public void update_service(HttpServletRequest req, int room_pk) throws Exception {
 		String[] names = req.getParameterValues("name_s");
 		

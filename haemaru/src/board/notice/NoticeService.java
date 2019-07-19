@@ -43,7 +43,6 @@ public class NoticeService {
 			fu.upload(file, SiteProperty.NOTICE_UPLOAD_PATH, SiteProperty.REAL_PATH, "notice");
 			vo.setFilename(fu.getName());
 			vo.setFilename_org(fu.getSrcName());
-			vo.setFilesize(fu.getSrcSize());
 		}
 		
 		int lastNo = (Integer)noticeDao.insert(vo);

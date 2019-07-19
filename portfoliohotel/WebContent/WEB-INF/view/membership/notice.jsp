@@ -1,4 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="board.notice.*"%>
+<%@ page import="util.*"%>
+<%
+NoticeVO param = (NoticeVO)request.getAttribute("vo");
+ArrayList<NoticeVO> list = (ArrayList)request.getAttribute("list");
+int totCount = (Integer)request.getAttribute("totCount");
+int totPage = (Integer)request.getAttribute("totPage");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -13,6 +22,11 @@
     <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
     <script type="text/javascript" src="../js/gnb.js"></script>
     <title>Tree_로그인페이지</title>
+<script>
+function goSearch() {
+	$("#searchForm").submit();
+}
+</script>
 </head>
 <body>
     <div id="header">
@@ -152,6 +166,7 @@
                             놓칠 수 없는 이벤트 정보를 알려드립니다.</h4>
                 </div>
         </div>
+
         <div class="notice">
             <div class="support-list">
                 <ul class="support-list-center">
@@ -162,30 +177,50 @@
             </div>
             <div class="notice-table">
                 <div class="table-box">
-                    <table>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    	<colgroup>
+                    		<col class="w20">
+                    		<col class="w10">
+                    	</colgroup>
                         <tr class="table-head">
-                            <th>내용</th>
-                            <th>등록일</th>
+                            <th scope="col" class="firlst">내용</th>
+                            <th scope="col" class="last">등록일</th>
                         </tr>
-                        <tr>
-                            <td><a href="#">오늘 공지된 내용입니다.</a></td>
-                            <td class="table-date">2019-06-20</td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">반얀트리에 오신걸 환영합니다.</a></td>
-                            <td class="table-date">2019-06-19</td>
-                        </tr>
+                        <%
+                        	if (totCount == 0) {
+                        %>
+                        	<tr>
+                        		<td class="first" colspan="8">등록된 공지사항이 없습니다.</td>
+                        	</tr>
+                        <%
+                        	} else {
+								String targetUrl = "";
+								String topClass = "";
+								NoticeVO data;
+								for (int i=0; i<list.size(); i++) {
+									data = list.get(i);
+									targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("notice_read", param, data.getNo())+"'\"";
+                        %>
+                        	<tr <%=topClass%>>
+								<%-- <td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td> --%>
+								<td <%=targetUrl%> class="title"><%=data.getTitle() %></td>
+								<td <%=targetUrl%> class="regdate"><%=DateUtil.getDateFormat(data.getRegdate()) %></td>
+							</tr>
+						<%
+								}
+                        	}
+						%>
                     </table>
+                    	<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
+						<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
+						<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
+						<input type="hidden" name="no" id="no" value="<%=param.getNo() %>"/>
                 </div>
                 <div class="table-page">
                     <ul class="page-number clear">
-                        <li class="on"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
+                        <li><%=Page.indexList(param.getReqPageNo(), totPage, request)%></li>
                     </ul>
                 </div>
-            </div>
         </div>
     </div>
     <div id="footer">

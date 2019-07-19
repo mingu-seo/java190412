@@ -121,11 +121,10 @@ public class AdoptDAO extends SqlMapClientDAOSupport {
 	}
 
 	
-//	public static void main(String[] args) throws Exception {
-//		AdoptDAO ad = new AdoptDAO();
-//		AdoptVO av = new AdoptVO(10);
-//		av.setName("test");
-//		int a = ad.idcheck(av);
-//		System.out.println(a);
-//	}
+	public static void main(String[] args) throws Exception {
+		AdoptDAO ad = new AdoptDAO();
+		AdoptVO av = new AdoptVO(10);
+		int a = ad.count(av);
+		System.out.println(a);
+	}
 }

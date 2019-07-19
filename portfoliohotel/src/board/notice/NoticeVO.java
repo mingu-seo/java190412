@@ -3,6 +3,7 @@ package board.notice;
 import java.sql.Timestamp;
 import java.util.Date;
 
+
 import util.Parameter;
 
 public class NoticeVO extends Parameter {
@@ -27,6 +28,10 @@ public class NoticeVO extends Parameter {
 
 	public void setFile_chk(String file_chk) {
 		this.file_chk = file_chk;
+	}
+	
+	public NoticeVO(int pageRows) {
+		super.setPageRows(pageRows);
 	}
 
 	public NoticeVO() {

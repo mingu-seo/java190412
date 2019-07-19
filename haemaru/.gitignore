@@ -3,3 +3,4 @@
 /.settings
 .project
 **/META_INF
+/bin/
