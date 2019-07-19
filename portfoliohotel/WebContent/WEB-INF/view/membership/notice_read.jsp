@@ -4,9 +4,7 @@
 <%@ page import="util.*"%>
 <%
 NoticeVO param = (NoticeVO)request.getAttribute("vo");
-ArrayList<NoticeVO> list = (ArrayList)request.getAttribute("list");
-int totCount = (Integer)request.getAttribute("totCount");
-int totPage = (Integer)request.getAttribute("totPage");
+NoticeVO data = (NoticeVO)request.getAttribute("data");
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -22,11 +20,6 @@ int totPage = (Integer)request.getAttribute("totPage");
     <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
     <script type="text/javascript" src="../js/gnb.js"></script>
     <title>Tree_로그인페이지</title>
-<script>
-function goSearch() {
-	$("#searchForm").submit();
-}
-</script>
 </head>
 <body>
     <div id="header">
@@ -179,47 +172,34 @@ function goSearch() {
                 <div class="table-box">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                     	<colgroup>
-                    		<col class="w20">
-                    		<col class="w10">
+                    		<col width="15%" />
+							<col width="15%" />
+							<col width="15%" />
+							<col width="15%" />
+							<col width="15%" />
+							<col width="15%" />
                     	</colgroup>
-                        <tr class="table-head">
-                            <th scope="col" class="firlst">내용</th>
-                            <th scope="col" class="last">등록일</th>
-                        </tr>
-                        <%
-                        	if (totCount == 0) {
-                        %>
-                        	<tr>
-                        		<td class="first" colspan="8">등록된 공지사항이 없습니다.</td>
-                        	</tr>
-                        <%
-                        	} else {
-								String targetUrl = "";
-								String topClass = "";
-								NoticeVO data;
-								for (int i=0; i<list.size(); i++) {
-									data = list.get(i);
-									targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("notice_read", param, data.getNo())+"'\"";
-                        %>
-                        	<tr <%=topClass%>>
-								<%-- <td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td> --%>
-								<td <%=targetUrl%> class="title"><%=data.getTitle() %></td>
-								<td <%=targetUrl%> class="regdate"><%=DateUtil.getDateFormat(data.getRegdate()) %></td>
+                    	<tbody>
+                    		<tr>
+								<th scope="row"><label for="">제목</label></th>
+								<td><%=data.getTitle()%></td>
 							</tr>
-						<%
-								}
-                        	}
-						%>
+							<tr>
+								<th scope="row"><label for="">등록일</label></th>
+								<td colspan="1"><%=DateUtil.getDateFormat(data.getRegdate())%></td>
+								<th scope="row"><label for="">조회수</label></th>
+								<td colspan="1"><%=data.getReadno() %></td>
+							</tr>					
+							<tr>
+								<th scope="row"><label for="">첨부파일</label></th>
+								<td colspan="3"><img src="/upload/notice/<%=data.getFile()%>" /></td>
+							</tr>
+							<tr>
+								<td colspan="4"><%=data.getContents()%></td>
+							</tr>
+							<!-- value=서버로 넘길 값 -->
+                    	</tbody>
                     </table>
-                    	<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
-						<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
-						<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
-						<input type="hidden" name="no" id="no" value="<%=param.getNo() %>"/>
-                </div>
-                <div class="table-page">
-                    <ul class="page-number clear">
-                        <li><%=Page.indexList(param.getReqPageNo(), totPage, request)%></li>
-                    </ul>
                 </div>
         </div>
     </div>

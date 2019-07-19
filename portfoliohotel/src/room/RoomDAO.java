@@ -32,6 +32,14 @@ public class RoomDAO extends SqlMapClientDAOSupport {
 		return (Integer)getSqlMapClient().insert("room.insert", vo);
 	}
 	
+	public void insert_image(HashMap map) throws SQLException {
+		getSqlMapClient().insert("room.insert_image", map);
+	}
+	
+	public ArrayList list_image(int room_pk) throws SQLException {
+		return (ArrayList)getSqlMapClient().queryForList("room.list_image", room_pk);
+	}
+	
 	/**
 	 * 객실 상세
 	 * @param vo
@@ -60,6 +68,10 @@ public class RoomDAO extends SqlMapClientDAOSupport {
 	 */
 	public int delete(RoomVO vo) throws SQLException {
 		return getSqlMapClient().delete("room.delete", vo);
+	}
+	
+	public void delete_image(int no) throws SQLException {
+		getSqlMapClient().delete("room.delete_image", no);
 	}
 	
 	

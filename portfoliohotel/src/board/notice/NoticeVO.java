@@ -28,6 +28,10 @@ public class NoticeVO extends Parameter {
 	public void setFile_chk(String file_chk) {
 		this.file_chk = file_chk;
 	}
+	
+	public NoticeVO(int pageRows) {
+		super.setPageRows(pageRows);
+	}
 
 	public NoticeVO() {
 		super.setPageRows(10);

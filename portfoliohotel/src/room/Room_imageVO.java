@@ -8,6 +8,8 @@ public class Room_imageVO extends Parameter {
 		private String image;
 		private int room_pk;
 		
+		private String image_chk;
+		
 		public int getNo() {
 			return no;
 		}
@@ -25,6 +27,13 @@ public class Room_imageVO extends Parameter {
 		}
 		public void setRoom_pk(int room_pk) {
 			this.room_pk = room_pk;
+		}
+		
+		public String getImage_chk() {
+			return image_chk;
+		}
+		public void setImage_chk(String image_chk) {
+			this.image_chk = image_chk;
 		}
 				
 }
