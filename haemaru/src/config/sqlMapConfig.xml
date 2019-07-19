@@ -38,7 +38,8 @@
 	<sqlMap resource="manage/admin/admin.xml"/>	
 	<sqlMap resource="board/notice/notice.xml"/>
 	<sqlMap resource="manage/doctor/doctor.xml"/>
-	<sqlMap resource="manage/doctor/sched/sched.xml"/>
 	<sqlMap resource="member/member.xml"/>
+	<sqlMap resource="manage/adopt/adopt.xml"/>
 	<sqlMap resource="mypet/mypet.xml"/>
+	<sqlMap resource="manage/faq/faq.xml"/>
 </sqlMapConfig>

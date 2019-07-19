@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-<%@ page import="board.notice.*" %>
+<%@ page import="manage.adopt.*" %>
 <%@ page import="java.util.*" %>
 <%
-NoticeVO param = (NoticeVO)request.getAttribute("vo");
+AdoptVO param = (AdoptVO)request.getAttribute("vo");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -12,17 +12,17 @@ NoticeVO param = (NoticeVO)request.getAttribute("vo");
 <script>
 var oEditors; // 에디터 객체 담을 곳
 $(window).load(function() {
-	oEditors = setEditor("contents"); // 에디터 셋팅
+	oEditors = setEditor("charr"); // 에디터 셋팅
 });
 
 function goSave() {
-	if ($("#title").val() == "") {
-		alert("제목을 입력해주세요.");
-		$("#title").focus();
+	if ($("#name").val() == "") {
+		alert("동물이름을 입력해주세요.");
+		$("#name").focus();
 		return false;
 	}
 	
-	oEditors.getById["contents"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+	oEditors.getById["charr"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
 	$("#frm").submit();
 }
 
@@ -42,16 +42,16 @@ function goSave() {
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>공지사항관리 - [쓰기]</h2>
+					<h2>동물관리 - [쓰기]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="bread">
-							<h3>공지사항 기본 정보</h3>
-							<form name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" method="post" enctype="multipart/form-data">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="공지사항 관리 기본내용입니다.">
+							<h3>동물 기본 정보</h3>
+							<form name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" method="post">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="동물 관리 기본내용입니다.">
 								<colgroup>
 									<col width="15%" />
 									<col width="35%" />
@@ -64,37 +64,59 @@ function goSave() {
 								</colgroup>
 								<tbody>
 									<tr>
-										<th scope="row"><label for="">유형</label></th>
+										<th scope="row"><label for="">카테고리</label></th>
 										<td>
-											<select name="type">
-												<option value="1">병원소식</option>
-												<option value="2">일반공지</option>
-												<option value="3">기타공지</option>
+											<select name="animal_category">
+												<option value="1">강아지</option>
+												<option value="2">고양이</option>
+												<option value="3">기타동물</option>
 											</select>
 										</td>
-										<th scope="row"><label for="">노출여부</label></th>
+										<th scope="row"><label for="">*이름</label></th>
 										<td>
-											<select name="display">
-												<option value="0">미노출</option>
-												<option value="1">노출</option>
-											</select>
+											<input type="text" id="name" name="name" value="" title="동물 이름을 입력해주세요." />
 										</td>
 									</tr>
 									<tr>
-										<th scope="row"><label for="">첨부파일</label></th>
+										<th scope="row"><label for="">성별</label></th>
+										<td>
+											<select name="gender">
+												<option value="1" name="남">남</option>
+												<option value="2" name="여">여</option>
+											</select>
+										</td>
+										<th scope="row"><label for="">나이</label></th>
+										<td>
+											<input type="text" id="" name="age" value="" title="동물 나이를 입력해주세요." />
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">이미지</label></th>
 										<td>
 											<input type="file" id="filename_tmp" name="filename_tmp" class="w50" title="첨부파일을 업로드 해주세요." />	
 										</td>
+										<th scope="row"><label for="">품종</label></th>
+										<td>
+											<input type="text" id="breed" name="breed" value="" title="동물 품종을 입력해주세요." />
+										</td>
 									</tr>
 									<tr>
-										<th scope="row"><label for="">제목</label></th>
+										<th scope="row"><label for="">접종현황</label></th>
 										<td>
-											<input type="text" id="title" name="title" value="" title="공지사항 이름을 입력해주세요." />
+											<input type="text" id="vac" name="vac" value="" title="동물 이름을 입력해주세요." />
+										</td>
+										<th scope="row"><label for="">상태</label></th>
+										<td>
+											<select name="state">
+												<option value="1">입양중</option>
+												<option value="2">입양완료</option>
+												<option value="3">비공개</option>
+											</select>
 										</td>
 									</tr>
 									<tr>
 										<td colspan="4">
-											<textarea id="contents" name="contents" title="내용을 입력해주세요" style="width:100%" ></textarea>
+											<textarea id="charr" name="charr" title="성격을 입력해주세요" style="width:100%" ></textarea>
 										</td>
 									</tr>
 								</tbody>
@@ -108,7 +130,7 @@ function goSave() {
 									<a class="btns" href="<%=param.getTargetURLParam("index", param, 0)%>"><strong>목록</strong></a>
 								</div>
 								<div class="btnRight">
-									<a class="btns" onclick="return goSave();"><strong>저장</strong></a>
+									<a class="btns" href="#" onclick="goSave();"><strong>저장</strong></a>
 								</div>
 							</div>
 							<!--//btn-->
