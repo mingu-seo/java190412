@@ -10,8 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import manage.admin.AdminVO;
-import member.MemberVO;
+import manage.doctor.DoctorVO;
 import util.Function;
 
 @Controller
@@ -19,8 +18,7 @@ public class DoctorController {
 
 	@Autowired
 	private DoctorService doctorService;
-	
-	
+
 	@RequestMapping("/manage/doctor/index")
 	public String index(Model model, DoctorVO param) throws Exception {
 		int[] rowPageCount = doctorService.count(param);
@@ -34,6 +32,16 @@ public class DoctorController {
 		return "manage/doctor/index";
 	}
 
+	@RequestMapping("/manage/doctor/read")
+	public String read(Model model, DoctorVO param) throws Exception {
+		DoctorVO data = doctorService.read(param.getNo());
+
+		
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+		
+		return "manage/doctor/read";
+	}
 
 	@RequestMapping("/manage/doctor/write")
 	public String write(Model model, DoctorVO param) throws Exception {
@@ -41,10 +49,18 @@ public class DoctorController {
 
 		return "manage/doctor/write";
 	}
-
 	
+	@RequestMapping("/manage/doctor/edit")
+	public String edit(Model model, DoctorVO param) throws Exception {
+		DoctorVO data = doctorService.read(param.getNo());
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+		return "manage/doctor/edit";
+	}
+
+
 	@RequestMapping("/manage/doctor/process")
-	public String process(Model model, DoctorVO param,  HttpServletRequest request) throws Exception {
+	public String process(Model model, DoctorVO param, HttpServletRequest request) throws Exception {
 		model.addAttribute("doctorvo", param);
 		if ("write".equals(param.getCmd())) {
 			int r = doctorService.insert(param, request);
@@ -67,9 +83,8 @@ public class DoctorController {
 			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		}
-		
+
 		return "include/alert";
 	}
 
-	
 }

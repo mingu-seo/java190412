@@ -75,7 +75,6 @@ $(window).load(function(){
 					<ul>
 						<li><a href="<%=request.getContextPath()%>/manage/room/index"><span>객실관리</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/room/index_opt"><span>객실옵션관리</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/room/index_service"><span>객실편의시설관리</span></a></li>
 					</ul>
 					</div>
 				</li>
@@ -84,6 +83,9 @@ $(window).load(function(){
 					<div class="standard_left">
 					<ul>
 						<li><a href="<%=request.getContextPath()%>/manage/board/notice/index.do"><span>공지사항</span></a></li>
+
+						<li><a href="<%=request.getContextPath()%>/manage/board/faq/index.do"><span>FAQ</span></a></li>
+
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>영화후기</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/qna/index.do"><span>QnA</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>자주하는질문</span></a></li>

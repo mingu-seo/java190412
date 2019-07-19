@@ -20,8 +20,25 @@ public class NoticeVO extends Parameter {
 	private int readno; // 조회수
 	private int member; // 비밀글
 	
+	private String file_chk; // 첨부파일 체크
+	
+	public String getFile_chk() {
+		return file_chk;
+	}
+
+	public void setFile_chk(String file_chk) {
+		this.file_chk = file_chk;
+	}
+	
+	public NoticeVO(int pageRows) {
+		super.setPageRows(pageRows);
+	}
+
 	public NoticeVO() {
 		super.setPageRows(10);
+		this.member = 0;
+		this.display=0;
+		this.top=0;
 	}
 	
 	public int getNo() {

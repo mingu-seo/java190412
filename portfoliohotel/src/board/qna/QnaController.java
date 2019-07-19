@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import board.qna.QnaVO;
+import board.notice.NoticeVO;
 import board.qna.QnaService;
 import manage.admin.AdminVO;
 
@@ -36,7 +37,7 @@ public class QnaController {
 	
 	//관리자
 	
-	@RequestMapping("/manage/board/qna/index.do")
+	@RequestMapping("/manage/board/qna/index")
 	public String index(Model model, QnaVO param) throws Exception {
 		
 		param.setTablename("qna");
@@ -52,33 +53,41 @@ public class QnaController {
 	}
 	
 	
-	@RequestMapping("/manage/board/qna/write.do")
+	@RequestMapping("/manage/board/qna/write")
 	public String write(Model model, QnaVO param) throws Exception {
 		model.addAttribute("vo", param);
 		
 		return "manage/board/qna/write";
 	}
-//	
-//	@RequestMapping("/manage/board/qna/edit")
-//	public String edit(Model model, QnaVO param) throws Exception {
-//		
-//		param.setTablename("qna");
-//		int[] rowPageCount = qnaService.count(param);
-//		ArrayList<QnaVO> list = qnaService.list(param);
-//		
-//		model.addAttribute("totCount", rowPageCount[0]);
-//		model.addAttribute("totPage", rowPageCount[1]);
-//		model.addAttribute("list", list);
-//		model.addAttribute("vo", param);
-//		
-//		
-//		return "membership/qna";
-//	}
 	
-	
-	@RequestMapping("/manage/board/qna/process.do")
-	public String process(Model model, QnaVO param, HttpServletRequest request) throws Exception {
+	@RequestMapping("/manage/board/qna/edit")
+	public String edit(Model model, QnaVO param) throws Exception {
+		
+		param.setTablename("qna");
+		int[] rowPageCount = qnaService.count(param);
+		ArrayList<QnaVO> list = qnaService.list(param);
+		
+		model.addAttribute("totCount", rowPageCount[0]);
+		model.addAttribute("totPage", rowPageCount[1]);
+		model.addAttribute("list", list);
 		model.addAttribute("vo", param);
+		
+		
+		return "manage/board/qna/edit";
+	}
+	
+	@RequestMapping("/manage/board/qna/read")
+	public String read(Model model, QnaVO param) throws Exception {
+		QnaVO data = qnaService.read(param);
+		model.addAttribute("data", data);
+		model.addAttribute("param", param);
+		
+		return "manage/board/qna/read";
+	}
+	
+	@RequestMapping("/manage/board/qna/process")
+	public String process(Model model, QnaVO param, HttpServletRequest request) throws Exception {
+		model.addAttribute("param", param);
 		
 		if ("write".equals(param.getCmd())) {
 			int r = qnaService.insert(param, request);
@@ -89,17 +98,17 @@ public class QnaController {
 			int r = qnaService.update(param);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));
-			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
+			model.addAttribute("url", "/manage/board/qna/read?no="+param.getNo());
 		} else if ("groupDelete".equals(param.getCmd())) {
-			int r = qnaService.groupDelete(request);
+			int r = qnaService.groupDelete(param, request);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "총 "+r+"건이 삭제되었습니다.", "삭제실패"));
-			model.addAttribute("url", "/manage/qna/read?no="+param.getNo());
+			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		} else if ("delete".equals(param.getCmd())) {
-			int r = qnaService.delete(param.getNo());
+			int r = qnaService.delete(param);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패"));
-			model.addAttribute("url", "/manage/qna/read?no="+param.getNo());
+			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		}
 		
 		return "include/alert";

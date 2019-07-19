@@ -644,7 +644,7 @@ public class CodeUtil {
 		String result = "";
 		if (display == 1) {
 			result = "노출";
-		} else if (display == 0) {
+		} else if (display == 2) {
 			result = "숨김";
 		}
 		return result;
@@ -737,6 +737,7 @@ public class CodeUtil {
 			return result;
 		}	
 	 
+
 	 public static String getGender(int gender) {
 			String result = "";
 			if (gender == 1) {
@@ -788,5 +789,38 @@ public class CodeUtil {
 			
 			return result;
 		}
+
+	 public static String getTopName(int top) {
+		 String result = "";
+			if (top == 1) {
+				result = "상단노출";
+			} else if (top == 2) {
+				result = "상단미노출";
+			} 
+			
+			return result;
+	 }
+	 
+	 public static String getMemberName(int member) {
+		 String result = "";
+			if (member == 1) {
+				result = "공개";
+			} else if (member == 2) {
+				result = "비공개";
+			} 
+			
+			return result;
+	 }
+	 
+	 public static String getCategoryName(int category) {
+		 String result = "";
+		 if (category == 1) {
+			 result = "에약";
+		 } else if (category == 2) {
+			 result = "결제";
+		 }
+		return result;
+	 }
+
 	 	
 }

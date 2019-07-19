@@ -768,4 +768,23 @@ public class CodeUtil {
 			        	result.append("<option value='2'"+Function.getSelected(2,arg)+">"+getDoctorGenderName(2)+"</option>");
 			        return result.toString();
 			    }
+				
+				
+				public static String getDoctorCategoryName(int category) {
+					String result = "";
+					if (category == 1) {
+						result = "이름";
+					} else if (category == 2) {
+						result = "연락처";
+					}
+					return result;
+				}
+				
+				public static String getDoctorCategoryOption(int arg){
+			        StringBuffer result = new StringBuffer();
+			        
+			        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getDoctorCategoryName(1)+"</option>");
+			        	result.append("<option value='2'"+Function.getSelected(2,arg)+">"+getDoctorCategoryName(2)+"</option>");
+			        return result.toString();
+			    }
 }

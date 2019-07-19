@@ -9,22 +9,19 @@
 	<sql id="searchSql">
 		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where">
-			<isNotEqual property="category" compareValue="0"
+			<isNotEqual property="department" compareValue="0"
 				prepend="and">
-				category = #category#
+				department = #department#
 			</isNotEqual>
 			<!-- 검색어 검색 -->
 			<isNotEqual property="sval" compareValue="" prepend="and">
 				<!-- 검색 타입이 all일 때 -->
 				<isEqual property="stype" compareValue="all">
-					((name like
-					'%$sval$%' ) or (position like '%$sval$%' ) or (department like
-					'%$sval$%' ))
+					((name like '%$sval$%' ) or (tel like '%$sval$%' ))
 				</isEqual>
 				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
 				<isNotEqual property="stype" compareValue="all">
-					($stype$ like
-					'%$sval$%' )
+					($stype$ like '%$sval$%' )
 				</isNotEqual>
 			</isNotEqual>
 		</dynamic>
@@ -58,15 +55,17 @@
 
 	<update id="update" parameterClass="doctorvo">
 		UPDATE doctor SET
-		position=#position#, addr=#addr#, tel=#tel#, gender=#gender#
+		name=#name#,department=#department#,
+		position=#position#, addr=#addr#, gender=#gender#,
 		<isEqual property="doc_imagename_chk" compareValue="1">
 			doc_image='', doc_image_org='',
 		</isEqual>
 		<isNotEqual property="doc_image" compareValue="">
 			<isNotNull property="doc_image">
-				doc_image=#doc_image#, doc_image_org=#doc_image_org#
+				doc_image=#doc_image#, doc_image_org=#doc_image_org#,
 			</isNotNull>
 		</isNotEqual>
+		 tel=#tel#
 		WHERE no = #no#
 	</update>
 
