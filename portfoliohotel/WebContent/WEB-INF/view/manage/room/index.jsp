@@ -16,7 +16,7 @@ RoomVO param = (RoomVO)request.getAttribute("vo");
 function groupDelete() {	
 	if ( isSeleted(document.frm.no) ){
 		if (confirm ('삭제하시겠습니까?')) {
-			document.frm.submit();
+			$("#frm").submit();
 		}
 	} else {
 		alert("삭제할 항목을 하나 이상 선택해 주세요.");
@@ -25,7 +25,7 @@ function groupDelete() {
 
 function goDelete(no) {	
 	if (confirm ('삭제하시겠습니까?')) {
-		document.location.href = "process?no="+no+"&cmd=delete";
+		document.location.href = "/manage/room/process_del?no="+no+"&cmd=delete";
 	}
 }
 
@@ -56,7 +56,7 @@ function goSearch() {
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="blist">
-							<form name="frm" id="frm" action="process.do" method="post">
+							<form name="frm" id="frm" action="process_del" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
 								<colgroup>
 									<col class="w2" />
@@ -112,24 +112,6 @@ function goSearch() {
 								</div>
 							</div>
 							<!--//btn-->
-							<%-- <form name="searchForm" id="searchForm" action="index" method="post">
-								<div class="search">
-									<select name="sdisplay" onchange="$('#searchForm').submit();">
-										<option value="-1" <%=Function.getSelected(param.getSdisplay(), -1)%>>전체</option>
-										<option value="0" <%=Function.getSelected(param.getSdisplay(), 0)%>>숨김</option>
-										<option value="1" <%=Function.getSelected(param.getSdisplay(), 1)%>>노출</option>
-									</select>
-									<select name="stype" title="검색을 선택해주세요">
-										<option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>
-										<option value="name" <%=Function.getSelected(param.getStype(), "name") %>>작성자</option>
-										<option value="email" <%=Function.getSelected(param.getStype(), "email") %>>이메일</option>
-										<option value="memo" <%=Function.getSelected(param.getStype(), "memo") %>>내용</option>
-									</select>
-									<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />
-									<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />
-								</div>
-							</form>
-							<!-- //search -->  --%>
 						</div>
 						<!-- //blist -->
 					</div>
