@@ -3,6 +3,7 @@ package board.notice;
 import java.sql.Timestamp;
 import java.util.Date;
 
+
 import util.Parameter;
 
 public class NoticeVO extends Parameter {
