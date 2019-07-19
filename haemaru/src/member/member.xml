@@ -65,13 +65,6 @@
         select count(*) as cnt from member where email=#email#
     </select>
     
-    <select id="loginCheck" parameterClass="membervo" resultClass="Integer">
-        select count(*) as cnt from admin where id=#id# and password=md5(#password#)
-    </select>
-    
-    <select id="loginSessionInfo" parameterClass="membervo" resultClass="membervo">
-        select * from admin where id=#id# and password=md5(#password#)
-    </select>
     
     
     

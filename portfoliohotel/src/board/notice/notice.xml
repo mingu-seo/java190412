@@ -78,4 +78,8 @@
         select * FROM notice where no=#no#
     </select>
     
+    <update id="updateReadno" parameterClass="notice_vo">
+        UPDATE notice SET readno = readno+1 WHERE no = #no#
+    </update>
+    
 </sqlMap>

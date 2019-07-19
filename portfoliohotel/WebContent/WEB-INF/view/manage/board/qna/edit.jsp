@@ -3,6 +3,7 @@
 <%@ page import="board.qna.*" %>
 <%@ page import="util.*" %>
 <%@ page import="property.*" %>
+<%@ page import="property.SiteProperty" %>
 <%
 	QnaVO param = (QnaVO)request.getAttribute("param");
 	QnaVO data = (QnaVO)request.getAttribute("data");
@@ -24,9 +25,9 @@
 	function goSave() {
 		var regex=/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i; 
 			var regex2=/[0-9]{4}[\-][0-1][0-9][\-][0-3][0-9]\s[0-2][0-9]:[0-6][0-9]:[0-6][0-9]$/i; 
-			if(!regex2.test($("#registdate").val())){
+			if(!regex2.test($("#regdate").val())){
 				alert('잘못된 날짜 형식입니다.\\n올바로 입력해 주세요.\\n ex)2013-02-14 03:28:85.0');
-				$("#registdate").focus();
+				$("#regdate").focus();
 				return false;
 			} 
 		if ($("#title").val() == "") {
@@ -143,10 +144,9 @@
 									
 								</tbody>
 							</table>
-								<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
-								<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
+								
 								<input type="hidden" name="cmd" id="cmd" value="edit"/>
-								<input type="hidden" name="no" id="no" value="<%=data.getNo()%>"/>
+								
 							</form>
 							<div class="btn">
 								<div class="btnLeft">

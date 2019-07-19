@@ -17,6 +17,7 @@ public class FaqController {
 	@Autowired
 	private FaqService faqService;
 	
+	/* [관리자] FAQ 목록 */
 	@RequestMapping("/manage/board/faq/index")
 	public String index(Model model, FaqVO param) throws Exception {
 		int[] rowPageCount = faqService.count(param);
@@ -28,6 +29,19 @@ public class FaqController {
 		model.addAttribute("vo", param);
 		
 		return "manage/board/faq/index";
+	}	
+	
+	@RequestMapping("/membership/faq")
+	public String Findex(Model model, FaqVO param) throws Exception {
+		int[] rowPageCount = faqService.count(param);
+		ArrayList<FaqVO> list = faqService.list(param);
+		
+		model.addAttribute("totCount", rowPageCount[0]);
+		model.addAttribute("totPage", rowPageCount[1]);
+		model.addAttribute("list", list);
+		model.addAttribute("vo", param);
+		
+		return "membership/faq";
 	}	
 	
 	@RequestMapping("/manage/board/faq/read")
