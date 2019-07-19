@@ -74,8 +74,11 @@ public class NoticeService {
 		return cnt;
 	}
 	
-	public NoticeVO read(int no) throws SQLException {
+	public NoticeVO read(int no, boolean userCon) throws SQLException {
 		NoticeVO vo = noticeDao.read(no);
+		if (userCon) {
+			noticeDao.updateReadno(vo);
+		}
 		return vo;
 	}
 	
