@@ -31,6 +31,20 @@ public class NoticeController {
 		return "manage/board/notice/index";
 	}	
 	
+	@RequestMapping("/membership/notice")
+	public String Nindex(Model model, NoticeVO param) throws Exception {
+		param.setTablename("notice");
+		int[] rowPageCount = noticeService.count(param);
+		ArrayList<NoticeVO> list = noticeService.list(param);
+		
+		model.addAttribute("totCount", rowPageCount[0]);
+		model.addAttribute("totPage", rowPageCount[1]);
+		model.addAttribute("list", list);
+		model.addAttribute("vo", param);
+		
+		return "membership/notice";
+	}	
+	
 	@RequestMapping("/manage/board/notice/read")
 	public String read(Model model, NoticeVO param) throws Exception {
 		NoticeVO data = noticeService.read(param.getNo());
