@@ -18,7 +18,7 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 		})
 	})
 	function goDelete() {
-		var del = confirm ('삭제하시겠습니까?');
+		var del = confirm ('탈퇴하시겠습니까?');
 		if (del){
 			document.location.href = "process?no=<%=data.getNo()%>&cmd=delete";
 		} else {
@@ -56,9 +56,13 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 									<col width="35%" />
 								</colgroup>
 								<tbody>
+								<%
+								String[] nameArr = data.getName().split(",");
+								
+								%>
 									<tr>
 										<th scope="row"><label for="">이름</label></th>
-										<td colspan="3"><%=data.getName()%></td>
+										<td colspan="3"><%=nameArr[0]%> <%=nameArr[1] %></td>
 										
 									</tr>
 									<tr>
@@ -74,13 +78,18 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 										<td colspan="3"><%=data.getBirthday()%></td>
 									</tr>
 									<tr>
-										<th scope="row"><label for="">주소</label></th>
-										<td colspan="3"><%=data.getAddr()%></td>
+										<th scope="row"><label for="">연락처</label></th>
+										<td colspan="3"><%=data.getTel()%></td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">주소/우편번호</label></th>
+										<td colspan="3"><%=data.getAddr()%> [<%=data.getZipcode()%>]</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">상세주소</label></th>
 										<td colspan="3"><%=data.getAddr_detail()%></td>
 									</tr>
+									
 									
 									<tr>
 										<th scope="row"><label for="">등급</label></th>
@@ -95,7 +104,7 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 									<tr>
 										<th scope="row"><label for="">최근로그인 날짜</label></th>
 										<td colspan="3"><%=data.getLogindate()%></td>
-									</tr>
+									</tr> 
 									
 								
 								</tbody>
@@ -106,7 +115,7 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 								</div>
 								<div class="btnRight">
 									<a class="btns" href="<%=param.getTargetURLParam("edit", param, data.getNo())%>"><strong>수정</strong></a>
-									<a class="btns" href="#" id="delBtn"><!-- onClick="goDelete(); --><strong>삭제</strong></a>
+									<a class="btns" href="#" id="delBtn"><!-- onClick="goDelete(); --><strong>회원탈퇴</strong></a>
 								</div>
 							</div>
 							<!--//btn-->

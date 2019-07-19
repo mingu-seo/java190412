@@ -750,10 +750,12 @@ public class CodeUtil {
 	 
 	 public static String getMgrade(int grade) {
 			String result = "";
-			if (grade == 1) {
+			if (grade == 0) {
+				result = "없음";
+			} else if (grade == 1) {
 				result = "CLASSIC";
 			} else if (grade == 2) {
-				result = "VIP";
+				result = "VIP";				
 			}else if (grade == 3) {
 				result = "VVIP";
 			}

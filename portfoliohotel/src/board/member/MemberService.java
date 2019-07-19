@@ -83,8 +83,8 @@ public class MemberService {
 //		memberDao.insertLoginHistory(param);
 //	}
 //
-	public int idcheck(String id) throws SQLException {
-		return memberDao.idcheck(id);
+	public int emailcheck(String email) throws SQLException {
+		return memberDao.emailcheck(email);
 		
 	}
 

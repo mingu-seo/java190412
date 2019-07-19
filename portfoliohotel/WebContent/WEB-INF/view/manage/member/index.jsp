@@ -9,6 +9,8 @@ ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
 int totCount = (Integer)request.getAttribute("totCount");
 int totPage = (Integer)request.getAttribute("totPage");
 %>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
 <head>
@@ -39,7 +41,7 @@ function groupDelete() {
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>관리자관리 - [목록]</h2>
+					<h2>관리자관리 - [회원목록]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">
@@ -65,13 +67,14 @@ function groupDelete() {
 										<th scope="col">이메일</th>
 										<th scope="col">이름</th>
 										<th scope="col">성별</th>		
-										<th scope="col">등급</th>																		
-										<th scope="col">최근 로그인</th>
+										<th scope="col">등급</th>	 																
+										<th scope="col">최근 로그인</th> 
 										
 										<th scope="col" class="last">등록일</th>
 									</tr>
 								</thead>
 								<tbody>
+								
 							
 								<% if (list.size() == 0) { %>
 									<tr>
@@ -82,15 +85,20 @@ function groupDelete() {
 										String targetUrl = "";
 										for (int i=0; i<list.size(); i++) {
 											targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, list.get(i).getNo())+"'\"";
+											
 								%>
+								
 									<tr>
+									<%
+									String[] nameArr = list.get(i).getName().split(",");								
+									%>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=list.get(i).getNo()%>"/></td>
 										<td <%=targetUrl%>><%=list.get(i).getNo()%></td>
-										<td <%=targetUrl%>><%=list.get(i).getEmail()%></td>
-										<td <%=targetUrl%>><%=list.get(i).getName()%></td>
-										<td <%=targetUrl%>><%=CodeUtil.getGender(list.get(i).getGender())%></td>
-										<td <%=targetUrl%>><%=CodeUtil.getMgrade(list.get(i).getGrade())%></td>	
-										<td <%=targetUrl%>><%=list.get(i).getLogindate()%></td>																			
+										<td <%=targetUrl%>><%=list.get(i).getEmail()%></td>										
+										<td <%=targetUrl%>><%=nameArr[0]%> <%=nameArr[1] %></td>
+										<td <%=targetUrl%>><%=CodeUtil.getGender(list.get(i).getGender())%></td>										
+										<td <%=targetUrl%>><%=CodeUtil.getMgrade(list.get(i).getGrade())%></td>	 
+										<td <%=targetUrl%>><%=list.get(i).getLogindate()%></td>																		
 										<td <%=targetUrl%>><%=DateUtil.getDateTimeFormat(list.get(i).getRegdate())%></td>
 									</tr>
 								<%
@@ -108,7 +116,7 @@ function groupDelete() {
 									<a class="btns" href="#" onclick="groupDelete();"><strong>삭제</strong> </a>
 								</div>
 								<div class="btnRight">
-									<a class="wbtn" href="write"><strong>글쓰기</strong> </a>
+									<a class="wbtn" href="write"><strong>회원가입</strong> </a>
 								</div>
 							</div>
 							<!--//btn-->

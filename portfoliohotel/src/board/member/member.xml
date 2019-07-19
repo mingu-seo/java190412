@@ -5,6 +5,7 @@
     <typeAlias alias="membervo" type="board.member.MemberVO"/>
     
     
+    
     <!-- 공통조건 -->
 	 <sql id="searchSql">		
 		
@@ -35,21 +36,25 @@
     <insert id="insert" parameterClass="membervo" >
         insert into member
         	(email, password, name, gender,tel,birthday,regdate,zipcode,addr,
-        	 addr_detail,logindate,point,grade,sns_type,sns_key,secession)
+        	 addr_detail,logindate,point,grade,sns_type,sns_key,secession) 
+        	 
         values
         	(#email#, #password#, #name#, #gender#,#tel#, #birthday#,now(),#zipcode#,#addr#,
         	 #addr_detail#,now(),#point#,#grade#,#sns_type#,#sns_key#,#secession#)
+        	 
         <selectKey keyProperty="no" resultClass="Integer">
 			SELECT  LAST_INSERT_ID()
 		</selectKey>
     </insert>
+    
+
    
     <update id="update" parameterClass="membervo">
         update member set
         	<isNotEqual property="password" compareValue="">
         	    password = #password#,
         	</isNotEqual>
-        	 name=#name#,
+        	 name=#name#, tel=#tel#, addr=#addr#, zipcode=#zipcode#, addr_detail=#add_detail#
         where no=#no#
     </update>
     
@@ -68,8 +73,10 @@
          ]]> -->
     </select>
     
+
+    
      
-    <select id="idcheck" parameterClass="String" resultClass="Integer">
+    <select id="emailcheck" parameterClass="String" resultClass="Integer">
         select count(*) as cnt from member where email=#email#
     </select>
     

@@ -11,23 +11,24 @@ import db.SqlMapClientDAOSupport;
 public class MemberDAO extends SqlMapClientDAOSupport {
 
 	public int count(MemberVO param) throws SQLException {
-		return (Integer)getSqlMapClient().queryForObject("member.count", param);
+		return (Integer) getSqlMapClient().queryForObject("member.count", param);
 	}
-	
 
 	/**
 	 * 관리자 목록 조회
+	 * 
 	 * @param param
 	 * @return ArrayList<AdminVO>
 	 * @throws SQLException
 	 */
-	
+
 	public ArrayList list(MemberVO param) throws SQLException {
-		return (ArrayList)getSqlMapClient().queryForList("member.list", param);
+		return (ArrayList) getSqlMapClient().queryForList("member.list", param);
 	}
 
 	/**
 	 * 관리자 등록
+	 * 
 	 * @param vo
 	 * @return no 마지막 등록된 no
 	 * @throws SQLException
@@ -36,8 +37,17 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 		return (Integer) getSqlMapClient().insert("member.insert", vo);
 	}
 
+	/*
+	 * public int insert(Member_serviceVO vo) throws SQLException { return (Integer)
+	 * getSqlMapClient().insert("member_service.insert", vo); }
+	 * 
+	 * public int insert(Member_loginVO vo) throws SQLException { return (Integer)
+	 * getSqlMapClient().insert("member_login.insert", vo); }
+	 */
+
 	/**
 	 * 관리자 수정
+	 * 
 	 * @param vo
 	 * @throws SQLException
 	 */
@@ -47,6 +57,7 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 
 	/**
 	 * 관리자 삭제
+	 * 
 	 * @param no
 	 * @throws SQLException
 	 */
@@ -56,17 +67,18 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 
 	/**
 	 * 관리자 상세
+	 * 
 	 * @param no
 	 * @return
 	 * @throws SQLException
 	 */
 	public MemberVO read(int no) throws SQLException {
-		return (MemberVO)getSqlMapClient().queryForObject("member.read", no);
+		return (MemberVO) getSqlMapClient().queryForObject("member.read", no);
 	}
 
 	/**
-	 * 관리자 로그인체크
-	 * id, password로 조회 후 존재하면 true 리턴
+	 * 관리자 로그인체크 id, password로 조회 후 존재하면 true 리턴
+	 * 
 	 * @param id
 	 * @param password
 	 * @return boolean
@@ -75,52 +87,26 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 	public int loginCheck(MemberVO param) throws SQLException {
 		return (Integer) getSqlMapClient().queryForObject("member.loginCheck", param);
 	}
-	
+
 	/**
 	 * 관리자 아이디체크
+	 * 
 	 * @param param
 	 * @return
 	 * @throws SQLException
 	 */
-	public int idcheck(String id) throws SQLException {
-		return (Integer) getSqlMapClient().queryForObject("member.idcheck", id);
+	public int emailcheck(String email) throws SQLException {
+		return (Integer) getSqlMapClient().queryForObject("member.emailcheck", email);
 	}
 
 	public MemberVO getLoginSessionInfo(MemberVO param) throws SQLException {
 		return (MemberVO) getSqlMapClient().queryForObject("member.loginSessionInfo", param);
 	}
-//
-//	/**
-//	 * 관리자 접속 기록 rowPageCount
-//	 * @param param
-//	 * @return rowPageCount배열 (전체로우수, 페이지수)
-//	 * @throws SQLException
-//	 */
-//	public int countLoginHistory(MemberVO param) throws SQLException {
-//		return (Integer)getSqlMapClient().queryForObject("member.countLoginHistory", param);
-//	}
-//
-//	/**
-//	 * 관리자 접속기록 리스트
-//	 * @param param
-//	 * @return ArrayList
-//	 * @throws SQLException
-//	 */
-//	public ArrayList listLoginHistory(MemberVO param) throws SQLException {
-//		return (ArrayList)getSqlMapClient().queryForList("member.listLoginHistory", param);
-//	}
-//
-//	/**
-//	 * 로그인 시 히스토리 저장
-//	 * @param param
-//	 * @return int
-//	 * @throws SQLException
-//	 */
-//	public void insertLoginHistory(MemberVO param) throws SQLException {
-//		getSqlMapClient().insert("member.insertLoginHistory", param);
-//	}
+	
+	
 
 	
+
 	public static void main(String[] args) throws Exception {
 		MemberDAO ad = new MemberDAO();
 		MemberVO av = new MemberVO();
