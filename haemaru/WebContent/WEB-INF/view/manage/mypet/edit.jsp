@@ -17,12 +17,13 @@ $(window).load(function() {
 });
 
 function goSave() {
-	// 비밀번호 유효성체크
-	if(!validPassword($("#pw"))) return false;
+	
+	
 	
 	oEditors.getById["memo"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
 	$("#frm").submit();
 }
+
 
 
 </script>
@@ -76,24 +77,28 @@ function goSave() {
 									<tr>
 										<th scope="row"><label for="">성별</label></th>
 										<td>
-											<input type="text" id="birth" name="birth" value="<%=data.getGender()%>" />
+											<select id="gender">
+												<option value='1'>여아</option>
+												<option value='2'>남아</option>
+											</select>
+											
 										</td>
 										<th scope="row"><label for="">견종</label></th>
 										<td>
-											<input type="text" id="tel" name="tel" value="<%=data.getBreed()%>" />
+											<input type="text" id="breed" name="breed" value="<%=data.getBreed()%>" />
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">접종현황</label></th>
 										<td>
-											<input type="text" id="tel" name="tel" value="<%=data.getVac()%>" />
+											<input type="text" id="vac" name="vac" value="<%=data.getVac()%>" />
 										</td>
 										<th scope="row"><label for="">이미지파일</label></th>
-										<td><input type="file" id="imagename_tmp" name="imagename_tmp" class="w50" title="첨부파일을 업로드해주세요." /></td>
+										<td><input type="file" id="imagename_tmp" name="imagename_tmp" class="w50" value="<%=data.getMypet_image()%>" /></td>
 									</tr>
 									<tr>
 										<td colspan="4">
-											<textarea id="memo" name="memo" title="내용을 입력해주세요" style="width:100%" ><%=data.getMemo()%></textarea>
+											<textarea id="memo" name="memo" style="width:100%" ><%=data.getMemo()%></textarea>
 										</td>
 									</tr>
 								</tbody>

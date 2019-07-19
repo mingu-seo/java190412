@@ -2,7 +2,7 @@
 <%@ page import="member.*" %>
 <%
 MemberVO param = (MemberVO)request.getAttribute("vo");
-MemberVO data = (MemberVO)request.getAttribute("data");
+MemberVO data = (MemberVO)request.getAttribute("data");  
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -85,6 +85,11 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 								</div>
 							</div>
 							<!--//btn-->
+							<div class="btnC" style="width:100%;height:30px;" >
+							<div class="btnCenter" style="width:100%;">
+								<a class="pet-plus-more" href="<%=param.getTargetURLParam("/manage/mypet/write", param, data.getNo())%>" ><strong>반려동물추가</strong></a>
+								<img src="/icon/icon_plus.png" width="15px;" height="15px;" >
+							</div>
 						</div>
 						<!-- //bread -->
 					</div>
@@ -101,6 +106,55 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 	<!--//canvas -->
 </div>
 <!--//wrap -->
+<script>
+function getMypetList() {
+	$.ajax({
+		type : "GET",
+		url : "/manage/member/mypetList?no=<%=param.getNo()%>",
+		async:false,
+		success : function (data){
+			$(".mypetListArea").html(data);
+		}
+	});
+}
+$(function(){
+	$("#mypetListBtn").click(function(){
+		getReviewList();
+	});
+	$("#mypetInsertBtn").click(function() {
+		$.ajax({
+			type : "POST",
+			url : "/mypet/insert.do",
+			data : $("#mypetFrm").serialize(),
+			async : false,
+			success : function(data) {
+				alert("정상적으로 등록되었습니다.");
+				$("#name").val("");
+				$("#age").val(""); 
+				$("#gender").val(""); 
+				$("#breed").val(""); 
+				$("#vac").val(""); 
+				$("#memo").val(""); 
+				getMypetList();
+			}
+		});
+	});
+});
 
+function delMypet(no) {
+	if (confirm ('삭제하시겠습니까?')) {
+	}
+	$.ajax({
+		type : "POST",
+		url : "/mypet/delete.do?no="+no,
+		async : false,
+		success : function(data) {
+			alert("정상적으로 삭제되었습니다.");
+			getMypetList();
+		}
+	});
+};
+
+</script>
 </body>
 </html>

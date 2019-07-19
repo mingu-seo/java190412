@@ -1,4 +1,4 @@
-package mypet;
+package member;
 
 import java.sql.Timestamp;
 

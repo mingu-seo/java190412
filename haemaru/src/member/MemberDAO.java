@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Repository;
 
 import db.SqlMapClientDAOSupport;
+import member.MypetVO;
 
 @Repository
 public class MemberDAO extends SqlMapClientDAOSupport {
@@ -90,12 +91,13 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 	public MemberVO getLoginSessionInfo(MemberVO vo) throws SQLException {
 		return (MemberVO) getSqlMapClient().queryForObject("member.loginSessionInfo", vo);
 	}
-
+	
+	public ArrayList<MypetVO> mypetList(int member_pk) throws SQLException {
+		return (ArrayList<MypetVO>)getSqlMapClient().queryForList("member.mypetList", member_pk);
+	}
 	
 	public static void main(String[] args) throws Exception {
 		MemberDAO ad = new MemberDAO();
 		MemberVO av = new MemberVO();
-		int cnt= ad.idcheck("id2");
-		System.out.println(cnt);
 	}
 }

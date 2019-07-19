@@ -61,11 +61,12 @@
          ]]>
     </select>
     
-    <select id="idcheck" parameterClass="String" resultClass="Integer">
-        select count(*) as cnt from member where email=#email#
+	<select id="idcheck" parameterClass="String" resultClass="Integer">
+    	select count(*) as cnt from member where email=#email#
+    </select>    
+    
+    <select id="mypetList" parameterClass="member.MypetVO">
+        select * from mypet where member_pk=#no# ORDER BY registdate DESC 
     </select>
-    
-    
-    
     
 </sqlMap>

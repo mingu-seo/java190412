@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import manage.admin.AdminVO;
+import member.MypetVO;
 import util.Page;
 
 @Service
@@ -78,6 +78,10 @@ public class MemberService {
 			r += memberDAO.delete(nos);
 		}
 		return r;
+	}
+	
+	public ArrayList<MypetVO> mypetList(int member_pk) throws Exception {
+		return memberDAO.mypetList(member_pk);
 	}
 	
 }

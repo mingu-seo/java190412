@@ -75,19 +75,19 @@ public class MypetController {
 			int r = mypetService.insert(param, request);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
-			model.addAttribute("url", "index");
+			model.addAttribute("url", "/manage/mypet/read?no="+param.getNo());
 		} else if ("edit".equals(param.getCmd())) {
 			int r = mypetService.update(param);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		} else if ("groupDelete".equals(param.getCmd())) {
-			int r = mypetService.groupDelete(param, request);
+			int r = mypetService.groupDelete(request);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "총 "+r+"건이 삭제되었습니다.", "삭제실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		} else if ("delete".equals(param.getCmd())) {
-			int r = mypetService.delete(param);
+			int r = mypetService.delete(param.getNo());
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
