@@ -199,7 +199,7 @@ function goSearch() {
 								NoticeVO data;
 								for (int i=0; i<list.size(); i++) {
 									data = list.get(i);
-									targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, data.getNo())+"'\"";
+									targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("notice_read", param, data.getNo())+"'\"";
                         %>
                         	<tr <%=topClass%>>
 								<%-- <td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td> --%>
