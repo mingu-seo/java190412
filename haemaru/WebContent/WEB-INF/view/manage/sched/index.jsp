@@ -1,11 +1,11 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.util.*"%>
-<%@ page import="manage.doctor.*"%>
+<%@ page import="manage.doctor.sched.*"%>
 <%@ page import="util.*"%>
 <%@ page import="java.util.*"%>
 <%
-	DoctorVO param = (DoctorVO) request.getAttribute("vo");
-	ArrayList<DoctorVO> list = (ArrayList) request.getAttribute("list");
+	SchedVO param = (SchedVO) request.getAttribute("vo");
+	ArrayList<SchedVO> list = (ArrayList) request.getAttribute("list");
 	int totCount = (Integer) request.getAttribute("totCount");
 	int totPage = (Integer) request.getAttribute("totPage");
 %>
@@ -39,7 +39,7 @@
 			<div id="container">
 				<div id="content">
 					<div class="con_tit">
-						<h2>의료진관리 - [목록]</h2>
+						<h2>의료진 일정관리 - [목록]</h2>
 					</div>
 					
 					<!-- //con_tit -->
@@ -71,9 +71,8 @@
 													onClick="check(this, document.frm.no)" /></th>
 												<th scope="col">번호</th>
 												<th scope="col">이름</th>
-												<th scope="col">연락처</th>
-												<th scope="col">진료분야</th>
-												<th scope="col">직급</th>
+												<th scope="col">월요일 시작시간</th>
+												<th scope="col">월요일 종료시간</th>
 												<th scope="col" class="last"></th>
 											</tr>
 										</thead>
@@ -96,10 +95,8 @@
 													id="no" value="<%=list.get(i).getNo()%>" /></td>
 													<td <%=targetUrl%>><%=list.get(i).getNo()%></td>
 												<td <%=targetUrl%>><%=list.get(i).getName()%></td>
-												<td <%=targetUrl%>><%=list.get(i).getTel()%></td>
-												<td <%=targetUrl%>><%=CodeUtil.getDoctorDepartmentName(list.get(i).getDepartment())%> </td>
-												<td <%=targetUrl%>><%=CodeUtil.getDoctorPositionName(list.get(i).getPosition())%> </td>
-												
+												<td <%=targetUrl%>><%=list.get(i).getMon_start()%></td>
+												<td <%=targetUrl%>><%=list.get(i).getMon_end()%></td>
 												<td><input type="button" value="일정관리" onclick=""/></td>
 											</tr>
 											<%
@@ -128,17 +125,9 @@
 								<!-- //페이징 처리 -->
 								<form name="searchForm" id="searchForm" action="index" method="post">
 								<div class="search">
-									<select name="department" onchange="$('#searchForm').submit();">
-										<option value="0" <%=Function.getSelected(param.getDepartment(), 0)%>>전체</option>
-										<option value="1" <%=Function.getSelected(param.getDepartment(), 1)%>>외과</option>
-										<option value="2" <%=Function.getSelected(param.getDepartment(), 2)%>>내과</option>
-										<option value="3" <%=Function.getSelected(param.getDepartment(), 2)%>>영상의학과</option>
-										<option value="4" <%=Function.getSelected(param.getDepartment(), 2)%>>응급중환자센터</option>
-									</select>
 									<select name="stype" title="검색을 선택해주세요">
 										<option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>
 										<option value="name" <%=Function.getSelected(param.getStype(), "name") %>>이름</option>
-										<option value="tel" <%=Function.getSelected(param.getStype(), "tel") %>>연락처</option>
 									</select>
 									<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />
 									<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />

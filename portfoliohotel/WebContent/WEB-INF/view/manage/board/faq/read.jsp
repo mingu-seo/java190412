@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<%@ page import="board.notice.*"%>
+<%@ page import="board.faq.*"%>
 <%@ page import="java.util.*"%>
 <%
-NoticeVO param = (NoticeVO) request.getAttribute("param");
-NoticeVO data = (NoticeVO) request.getAttribute("data");
+FaqVO param = (FaqVO) request.getAttribute("param");
+FaqVO data = (FaqVO) request.getAttribute("data");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -20,7 +20,7 @@ NoticeVO data = (NoticeVO) request.getAttribute("data");
 		}
 	}
 
-	/* function goSave() {
+	 /* function goSave() {
 		var save = confirm ('등록하시겠습니까?');
 		if (save){
 			$("#frm").submit();
@@ -28,16 +28,16 @@ NoticeVO data = (NoticeVO) request.getAttribute("data");
 		} else {
 			return false;
 		}
-	} */
+	}  */
 
 	function goSave() {
 		if ($("#title").val() == "") {
-			alert("제목을 입력해주세요.");
+			alert("질문을 입력해주세요.");
 			$("#title").focus();
 			return false;
 		}
 		if ($("#contents").val() == "") {
-			alert("내용을 입력해주세요.");
+			alert("답변을 입력해주세요.");
 			$("#contents").focus();
 			return false;
 		}
@@ -58,7 +58,7 @@ NoticeVO data = (NoticeVO) request.getAttribute("data");
 			<div id="container">
 				<div id="content">
 					<div class="con_tit">
-						<h2>관리자관리 - [상세]</h2>
+						<h2>FAQ관리 - [상세]</h2>
 					</div>
 					<!-- //con_tit -->
 					<div class="con">
@@ -78,30 +78,23 @@ NoticeVO data = (NoticeVO) request.getAttribute("data");
 									</colgroup>
 									<tbody>
 										<tr>
-											<th scope="row"><label for="">제목</label></th>
+											<th scope="row"><label for="">카테고리</label></th>
+											<td><%=CodeUtil.getCategoryName(data.getCategory())%></td>
+											<th scope="row"><label for="">노출</label></th>
+											<td><%=CodeUtil.getDisplayName(data.getDisplay())%></td>
+										</tr>
+										<tr>
+											<th scope="row"><label for="">질문</label></th>
 											<td colspan="5"><%=data.getTitle()%></td>
 										</tr>
 										<tr>
-											<th scope="row"><label for="">비밀글</label></th>
-											<td><%=CodeUtil.getMemberName(data.getMember())%></td>
-											<th scope="row"><label for="">노출,상단노출</label></th>
-											<td><%=CodeUtil.getDisplayName(data.getDisplay())%></td>
-											<th scope="row"><label for="">상단노출</label></th>
-											<td><%=CodeUtil.getTopName(data.getTop()) %></td>
-										</tr>
-										<tr>
-											<th scope="row"><label for="">첨부파일</label></th>
-											<td colspan="5"><img src="/upload/notice/<%=data.getFile()%>" /></td>
-										</tr>
-										<tr>
-											<th scope="row"><label for="">상세정보</label></th>
-											<td colspan="5"><%=data.getContents()%></td>
+											<th scope="row"><label for="">답변</label></th>
+											<td colspan="5"><%=data.getContents() %></td>
 										</tr>
 										<tr>
 											<th scope="row"><label for="">등록일</label></th>
 											<td colspan="5"><%=data.getRegdate()%></td>
 										</tr>
-										<input type="hidden" name="product_pk" value="product_pk">
 										<!-- value=서버로 넘길 값 -->
 									</tbody>
 									</table>
