@@ -55,7 +55,7 @@ function goSearch() {
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>객실 관리 - [목록]</h2>
+					<h2>객실 옵션 관리 - [목록]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">
@@ -65,14 +65,16 @@ function goSearch() {
 	
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
 								<colgroup>
-									<col class="w3" />
-									<col class="w12" />
-									<col class="w30" />
+									<col class="w2" />
+									<col class="w5" />
+									<col class="w20" />
 									<col class="w10" />
-									<col class="w30" />
-									<col class="w8" />
-									<col class="w3" />
-									<col class="w3" />
+									<col class="w10" />
+									<col class="w10" />
+									<col class="w10" />
+									<col class="w5" />
+									<col class="w2" />
+									<col class="w2" />
 								</colgroup>
 								<thead>
 									<tr>
@@ -81,6 +83,8 @@ function goSearch() {
 										<th scope="col">옵션 소개</th> 
 										<th scope="col">옵션 이미지</th> 
 										<th scope="col">옵션 정보</th> 
+										<th scope="col">상세정보1</th> 
+										<th scope="col">상세정보2</th> 
 										<th scope="col">가격</th>	
 										<th scope="col" class="last">수정</th>								 
 										<th scope="col" class="last">삭제</th>
@@ -100,13 +104,16 @@ function goSearch() {
 									<tr>
 										<td><%=data.getNo()%></td>
 										<td><input type="text" name="name" id="name" value="<%=data.getName()%>" class="w90"/></td>
-										<td><input type="text" name="instruction" id="instruction" value="<%=data.getInstruction()%>" class="w90"/></td>
+										<td><textarea name="instruction" id="instruction" class="w90" rows="5"><%=data.getInstruction()%></textarea></td>
 										<td><img src="/upload/room_opt/<%=data.getImage() %>" width="200px" height="auto"/></td>
-										<td><input type="text" name="info" id="info" value="<%=data.getInfo()%>" class="w90"/></td>
+										<td><textarea name="info" id="info" class="w90" rows="5"><%=data.getInfo()%></textarea></td>
+										<td><textarea name="info_1" id="info_1" class="w90" rows="5"><%=data.getInfo_1()%></textarea></td>
+										<td><textarea name="info_2" id="info_2" class="w90" rows="5"><%=data.getInfo_2()%></textarea></td>
 										<td><input type="text" name="price" id="price" value="<%=data.getPrice()%>" class="w90"/></td>
 										<td><input type="button" value="수정" onclick="goUpdate('frm<%=i%>');" /></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
+									<input type="hidden" id="image" name="image" value="<%=data.getImage() %>"/>
 									<input type="hidden" id="no" name="no" value="<%=data.getNo()%>"/>
 									<input type="hidden" id="cmd" name="cmd" value="edit_opt"/>
 									</form>									

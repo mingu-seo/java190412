@@ -190,7 +190,7 @@ function delTr_i(cls, no, imagename) {
 													HashMap data = list.get(i);
 										%>
 										<tr class="addTr<%=i%>">
-											<td><input type="text" name="name_s" value="<%=data.get("name_s")%>"/></td>
+											<td><input type="text" name="name_s" value="<%=data.get("name")%>"/></td>
 											<td><input type="button" value="삭제" onclick="delTr('addTr<%=i%>')"/></td>
 										</tr>
 										<%

@@ -731,7 +731,7 @@ public class CodeUtil {
 			} else if (room == 4) {
 				result = "Spa Sanctuary Suite";
 			} else if (room == 5) {
-				result = "Banyan Pool Presidential Suite";
+				result = "Portfolio Pool Presidential Suite";
 			}
 			
 			return result;
