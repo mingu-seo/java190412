@@ -149,8 +149,8 @@ function goSearch() {
 									</select>
 									<select name="top" onchange="$('#searchForm').submit();">
 										<option value="0" <%=Function.getSelected(param.getTop(), 0)%>>전체</option>
-										<option value="1" <%=Function.getSelected(param.getTop(), 1)%>>상단노출</option>
-										<option value="2" <%=Function.getSelected(param.getTop(), 2)%>>상단미노출</option>
+										<option value="1" <%=Function.getSelected(param.getTop(), 1)%>>상단미노출</option>
+										<option value="2" <%=Function.getSelected(param.getTop(), 2)%>>상단노출</option>
 									</select>
 									<select name="stype" title="검색을 선택해주세요">
 										<option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>

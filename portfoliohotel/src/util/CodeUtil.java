@@ -740,9 +740,9 @@ public class CodeUtil {
 	 public static String getTopName(int top) {
 		 String result = "";
 			if (top == 1) {
-				result = "상단노출";
-			} else if (top == 2) {
 				result = "상단미노출";
+			} else if (top == 2) {
+				result = "상단노출";
 			} 
 			
 			return result;
