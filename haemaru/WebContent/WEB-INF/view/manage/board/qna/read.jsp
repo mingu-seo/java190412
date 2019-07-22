@@ -37,7 +37,7 @@ ArrayList<HashMap> olist = (ArrayList<HashMap>)request.getAttribute("olist");
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>상품관리 - [상세]</h2>
+					<h2>QnA관리 - [상세]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">
@@ -45,7 +45,7 @@ ArrayList<HashMap> olist = (ArrayList<HashMap>)request.getAttribute("olist");
 					<div id="bbs">
 						<div id="bread">
 							<h3>기본 정보</h3>
-							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="상품 관리 기본내용입니다.">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="QnA 관리 기본내용입니다.">
 								<colgroup>
 									<col width="15%" />
 									<col width="35%" />
@@ -56,43 +56,24 @@ ArrayList<HashMap> olist = (ArrayList<HashMap>)request.getAttribute("olist");
 									<tr>
 										<th scope="row"><label for="">카테고리</label></th>
 										<td><%=data.getCategory()%></td>
-										<th scope="row"><label for="">상품명</label></th>
-										<td><%=data.getName()%></td>
+										<th scope="row"><label for="">이메일</label></th>
+										<td><%=data.getEmail()%></td>
 									</tr>
 									<tr>
-										<th scope="row"><label for="">이미지</label></th>
-										<td><img src="/upload/product/<%=data.getImagename()%>"/></td>
-										<th scope="row"><label for="">가격</label></th>
-										<td><%=data.getPrice()%></td>
+										<th scope="row"><label for="">첨부파일</label></th>
+										<td><a href="/upload/qna/<%=data.getFilename()%>"></a></td>
+										<th scope="row"><label for="">등록일</label></th>
+										<td><%=data.getRegistdate()%></td>
 									</tr>
 									<tr>
-									<th scope="row"><label for="">옵션</label></th>
-									<td colspan="3">
-									<table style="width:300px">
-									<tr>
-									<th>옵션명</th>
-									<th>추가금액</th>
+										<th scope="row"><label for="">제목</label></th>
+										<td colspan="3"><%=data.getTitle() %></td>
 									</tr>
-									<%
-									for(int i=0; i<olist.size(); i++){
-									%>
 									<tr>
-										<td><input type="text" name="title" value="<%=olist.get(i).get("title")%>"/></td>
-										<td><input type="text" name="optPrice" value="<%=olist.get(i).get("price")%>"/></td>
+										<th scope="row">내용</th>
+										<td colspan="3"><textarea style="width:100%;" name="contents" rows="3" id="contents"><%=data.getContents()%></textarea></td>
 									</tr>
-									<%
-									}
-									%>
 									</table>
-									</td>
-									</tr>
-									<tr>
-										<td colspan="4">
-											<%=data.getInfo()%>
-										</td>
-									</tr>
-								</tbody>
-							</table>
 							<div class="btn">
 								<div class="btnLeft">
 									<a class="btns" href="<%=param.getTargetURLParam("index", param, 0)%>"><strong>목록</strong></a>
@@ -112,15 +93,13 @@ ArrayList<HashMap> olist = (ArrayList<HashMap>)request.getAttribute("olist");
 				<!--//con -->
 				<div class="con_tit">
 				
-				<h2>상품후기<input type="button" value="상품후기 보기" id="reviewListBtn"/></h2>
+				<h2>QnA 답변<input type="button" value="답변 보기" id="replyListBtn"/></h2>
 				</div>
 				<div class="con">
-				
 					<div id="bbs">
 						<div id="blist">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<colgroup>
-									<col class="w5"/>
 									<col class="w10"/>
 									<col class=""/>
 									<col class="w10"/>
@@ -128,37 +107,27 @@ ArrayList<HashMap> olist = (ArrayList<HashMap>)request.getAttribute("olist");
 								</colgroup>
 								<thead>
 									<tr>
-										<th scope="col" class="first">평점</th>
 										<th scope="col">작성자</th>
-										<th scope="col">후기</th>
+										<th scope="col">답변내용</th>
 										<th scope="col" class="last"></th>
 									</tr>
 								</thead>
 								<tbody>
-								<form id="reviewFrm">
+								<form id="replyFrm">
 									<tr>
+										<td><input type="text" name="name" id="member_pk"></input></td>
 										<td>
-											<select name="score" id="review_score">
-												<option value="5">5</option>
-												<option value="4">4</option>
-												<option value="3">3</option>
-												<option value="2">2</option>
-												<option value="1">1</option>											
-											</select>
+											<textarea style="width:100%;" name="reply" rows="3" id="reply"></textarea>
 										</td>
-										<td><input type="text" name="name" id="review_name"></input></td>
-										<td>
-											<textarea style="width:100%;" name="contents" rows="3" id="review_contents"></textarea>
-										</td>
-										<td><input type="button" value="후기 저장" id="reviewInsertBtn"/></td>
+										<td><input type="button" value="답변 저장" id="replyInsertBtn"/></td>
 									</tr>
-									<input type="hidden" name="product_pk" value="<%=data.getNo() %>"/>
+									<input type="hidden" name="member_pk" value="<%=data.getMember_pk() %>"/>
 								</form>
 								</tbody>							
 							</table>
 						
 						</div>
-						<div id="blist" class="reviewListArea">
+						<div id="blist" class="replyListArea">
 						</div>
 						
 					</div>
@@ -178,43 +147,37 @@ ArrayList<HashMap> olist = (ArrayList<HashMap>)request.getAttribute("olist");
 function getReviewList(){
 	$.ajax({
 		type: "GET",
-		url: "/manage/product/reviewlist?no=<%=data.getNo()%>",
+		url: "/manage/qna/replylist?no=<%=data.getNo()%>",
 		async: false,
 		success: function(data){
-			$(".reviewListArea").html(data);
+			$(".replyListArea").html(data);
 		}
 	});
 }
 $(function(){
-	$("#reviewListBtn").click(function(){
+	$("#replyListBtn").click(function(){
 		getReviewList();
 	});
 	
 
-	$("#reviewInsertBtn").click(function(){
-		if ($("#review_name").val() == "") {
-			alert('작성자명을 입력하세요.');
-			$("#review_name").focus();
+	$("#replyInsertBtn").click(function(){
+			
+		if ($("#reply").val() == "") {
+			alert('답변을 입력하세요.');
+			$("#reply").focus();
 			return;
 		}
 			
-		if ($("#review_contents").val() == "") {
-			alert('후기를 입력하세요.');
-			$("#review_contents").focus();
-			return;
-		}
-			
-		var data = $("#reviewFrm").serialize();
+		var data = $("#replyFrm").serialize();
 		
 		$.ajax({
 			type: "POST",
-			url: "/review/insert.do",
+			url: "/reply/insert.do",
 			data: data,
 			async: false,
 			success: function(data){
 				alert("정상적으로 등록되었습니다.");
-				$("#review_name").val("");
-				$("#review_contents").val("");
+				$("#reply").val("");
 				getReviewList();
 			}
 		});
@@ -225,7 +188,7 @@ function delReview(no) {
 	if (confirm ('삭제하시겠습니까?')) {
 		$.ajax({
 			type: "POST",
-			url: "/review/delete.do?no="+no,
+			url: "/reply/delete.do?no="+no,
 			async: false,
 			success: function(data){
 				alert("삭제되었습니다.");
@@ -234,15 +197,6 @@ function delReview(no) {
 		});
 	}
 }
-
-
 </script>
-
-
-
-
-
-
-
 </body>
 </html>

@@ -17,16 +17,14 @@
 						<h3>상품후기</h3>
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<colgroup>
-									<col class="w5"/>
 									<col class="w10"/>
 									<col class=""/>
 									<col class="w10"/>
 									<col class="w5"/>									
 								</colgroup>
 								<thead>
-									<th scope="col" class="first">평점</th>
-									<th scope="col">작성자</th>
-									<th scope="col">후기</th>
+									<th scope="col" class="first">작성자</th>
+									<th scope="col">답변</th>
 									<th scope="col">작성일</th>
 									<th scope="col" class="last"></th>
 								</thead>
@@ -35,15 +33,14 @@
 								if (list.size() == 0){ %>
 									
 									<tr>
-										<td colspan="4">등록된 리뷰가 없습니다.</td>
+										<td colspan="4">등록된 답변이 없습니다.</td>
 									</tr>
 									<%
 								}else{
 									for(int i=0; i<list.size(); i++){
 									%>							
 									<tr>
-										<td><%=list.get(i).getScore()%></td>
-										<td><%=list.get(i).getName() %></td>
+										<td><%=list.get(i).getTitle()%></td>
 										<td><%=list.get(i).getContents() %></td>
 										<td><%=list.get(i).getRegistdate() %></td>
 										<td><input type="button" value="삭제" onclick="delReview(<%=list.get(i).getNo()%>);"/></td>

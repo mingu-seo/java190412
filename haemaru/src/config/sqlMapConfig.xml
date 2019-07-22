@@ -42,4 +42,5 @@
 	<sqlMap resource="manage/adopt/adopt.xml"/>
 	<sqlMap resource="mypet/mypet.xml"/>
 	<sqlMap resource="manage/faq/faq.xml"/>
+	<sqlMap resource="board/qna/qna.xml"/>
 </sqlMapConfig>

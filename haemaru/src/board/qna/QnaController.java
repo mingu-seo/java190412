@@ -19,9 +19,9 @@ public class QnaController {
 	@Autowired
 	QnaService qnaService;
 	
-	@RequestMapping("/manage/product/index")
+	@RequestMapping("/manage/board/qna/index")
 	public String index(Model model, QnaVO param) throws Exception {
-		param.setTablename("product");
+		param.setTablename("qna");
 		int[] rowPageCount = qnaService.count(param);
 		ArrayList<AdminVO> list = qnaService.list(param);
 		
@@ -30,45 +30,41 @@ public class QnaController {
 		model.addAttribute("list", list);
 		model.addAttribute("vo", param);
 		
-		return "manage/product/index";
+		return "manage/board/qna/index";
 	}
 	
-	@RequestMapping("/manage/product/read")
+	@RequestMapping("/manage/board/qna/read")
 	public String read(Model model, QnaVO param) throws Exception {
 		QnaVO data = qnaService.read(param);
-		ArrayList<HashMap> olist = qnaService.listOption(data.getNo());
 		model.addAttribute("data", data);
 		model.addAttribute("vo", param);
-		model.addAttribute("olist", olist);
 		
-		return "manage/product/read";
+		return "manage/board/qna/read";
 	}
 	
 	
-	@RequestMapping("/manage/product/write")
+	@RequestMapping("/manage/board/qna/write")
 	public String write(Model model, QnaVO param) throws Exception {
 		model.addAttribute("vo", param);
 		
-		return "manage/product/write";
+		return "manage/board/qna/write";
 	}
 	
-	@RequestMapping("/manage/product/edit")
+	@RequestMapping("/manage/board/qna/edit")
 	public String edit(Model model, QnaVO param) throws Exception {
-		param.setTablename("product");
+		param.setTablename("qna");
 		QnaVO data = qnaService.read(param);
-		ArrayList<HashMap> olist = qnaService.listOption(data.getNo());
 		model.addAttribute("data", data);
 		model.addAttribute("param", param);
-		model.addAttribute("olist", olist);
 		
-		return "manage/product/edit";
+		return "manage/board/qna/edit";
 	}
 	
-	@RequestMapping("/manage/product/reviewlist")
-	public String reviewList(Model model, QnaVO param) throws Exception {
-		ArrayList<QnaReplyVO> list = qnaService.reviewlist(param.getNo());
+	@RequestMapping("/manage/board/qna/replylist")
+	public String replyList(Model model, QnaVO param) throws Exception {
+		ArrayList<QnaReplyVO> list = qnaService.replylist(param.getNo());
 		model.addAttribute("list", list);		
-		return "manage/product/reviewlist";
+		return "manage/board/qna/replylist";
 	}
 	
 	/**
@@ -79,22 +75,19 @@ public class QnaController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/manage/product/process")
+	@RequestMapping("/manage/board/qna/process")
 	public String process(Model model, QnaVO param, HttpServletRequest request) throws Exception {
 		model.addAttribute("vo", param);
-		param.setTablename("product");
+		param.setTablename("qna");
 		System.out.println(param.getCmd());
 		
 		if ("write".equals(param.getCmd())) {
 			int r = qnaService.insert(param, request);
-			qnaService.insertOption(request, r);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
 			model.addAttribute("url", "index");
 		} else if ("edit".equals(param.getCmd())) {
 			int r = qnaService.update(param);
-			qnaService.deleteOption(param.getNo());
-			qnaService.insertOption(request, param.getNo());
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
@@ -114,15 +107,15 @@ public class QnaController {
 		return "include/alert";
 	}
 	
-	@RequestMapping("/review/insert.do")
-	public String insertReview(Model model, QnaReplyVO param) throws Exception {
-		qnaService.reviewInsert(param);
+	@RequestMapping("/reply/insert.do")
+	public String insertReply(Model model, QnaReplyVO param) throws Exception {
+		qnaService.replyInsert(param);
 		return "include/return";
 	}
 	
-	@RequestMapping("/review/delete.do")
-	public String deleteReview(Model model, QnaReplyVO param) throws Exception {
-		qnaService.reviewDelete(param.getNo());
+	@RequestMapping("/reply/delete.do")
+	public String deleteReply(Model model, QnaReplyVO param) throws Exception {
+		qnaService.replyDelete(param.getNo());
 		return "include/return";
 	}
 }

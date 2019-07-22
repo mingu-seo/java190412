@@ -1,4 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="manage.adopt.*" %>
+<%@ page import="util.*" %>
+<%@ page import="java.util.*" %>
+<%
+AdoptVO param = (AdoptVO)request.getAttribute("vo");
+ArrayList<AdoptVO> list = (ArrayList)request.getAttribute("list");
+int totCount = (Integer)request.getAttribute("totCount");
+int totPage = (Integer)request.getAttribute("totPage");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -61,10 +71,35 @@
                     <!-- 프로필 강아지 부분 -->
                     <div class="tab-box">
                         <!-- 프로필 한 부분 -->
+                        <%
+                        for(int i=0; i<list.size(); i++){
+                        %>
+                        <div class="box1 clear" data-aos="fade-up" data-aos-duration="1500">
+                            <!-- 프로필 동물 이미지부분 -->
+                            <div class="<%=list.get(i).getAnimal_image() %>"></div>
+                            <!-- 프로필 동물 정보 부분 -->                       
+                            <div class="box">
+                                <p><span class="info-text">이름</span><%=list.get(i).getName() %></p>
+                                <p><span class="info-text">품종</span><%=list.get(i).getBreed() %></p>
+                                <p><span class="info-text">성별</span><%=list.get(i).getGender() %></p>
+                                <p><span class="info-text">나이</span><%=list.get(i).getAge() %></p>
+                                <p><span class="info-text">접종</span><%=list.get(i).getVac() %></p>
+                                <p><span class="info-text">성격</span><%=list.get(i).getAnimal_image() %></p>
+                                <!-- 상담신청 버튼 부분 -->
+                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
+                                <!-- 아이콘 부분 -->
+                                <img src="/icon/sub_dog.png">
+                            </div>
+                        </div>
+                        <%
+                        }
+                        %>
                         <div class="box1 clear" data-aos="fade-up" data-aos-duration="1500">
                             <!-- 프로필 동물 이미지부분 -->
                             <div class="box-img1"></div>
                             <!-- 프로필 동물 정보 부분 -->
+                          
+                            
                             <div class="box">
                                 <p><span class="info-text">이름</span>크림이</p>
                                 <p><span class="info-text">품종</span>웰시코기</p>
@@ -75,7 +110,7 @@
                                 <!-- 상담신청 버튼 부분 -->
                                 <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
                                 <!-- 아이콘 부분 -->
-                                <img src="icon/sub_dog.png">
+                                <img src="/icon/sub_dog.png">
                             </div>
                         </div>
                         <div class="box2 clear" data-aos="fade-up" data-aos-duration="1500">
@@ -87,7 +122,7 @@
                                 <p><span class="info-text">접종</span>2차접종</p>
                                 <p><span class="info-text">성격</span>호기심이 많아요</p>
                                 <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
-                                <img src="icon/sub_dog.png">
+                                <img src="/icon/sub_dog.png">
                             </div>
                             <div class="box-img2"></div>
                         </div>
@@ -101,7 +136,7 @@
                                 <p><span class="info-text">접종</span>2차접종</p>
                                 <p><span class="info-text">성격</span>변종 사냥꾼. 혼자 돌아다니며, 눈을 좋아함</p>
                                 <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
-                                <img src="icon/sub_dog.png">
+                                <img src="/icon/sub_dog.png">
                             </div>
                         </div>
                         <div class="box4 clear"  data-aos="fade-up" data-aos-duration="1500">
@@ -113,7 +148,7 @@
                                 <p><span class="info-text">접종</span>1차접종</p>
                                 <p><span class="info-text">성격</span>잠이 많아요</p>
                                 <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
-                                <img src="icon/sub_dog.png">
+                                <img src="/icon/sub_dog.png">
                             </div>
                             <div class="box-img4"></div>
                         </div>
@@ -130,7 +165,7 @@
                                 <p><span class="info-text">접종</span>2차접종</p>
                                 <p><span class="info-text">성격</span>밝고 활발하며 사람을 좋아해요</p>
                                 <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
-                                <img src="icon/sub_cat.jpg">
+                                <img src="/icon/sub_cat.jpg">
                             </div>
                         </div>
                         <div class="box6 clear"  data-aos="fade-up" data-aos-duration="1500">
@@ -142,7 +177,7 @@
                                 <p><span class="info-text">접종</span>2차접종</p>
                                 <p><span class="info-text">성격</span>호기심이 많아요</p>
                                 <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
-                                <img src="icon/sub_cat.jpg">
+                                <img src="/icon/sub_cat.jpg">
                             </div>
                             <div class="box-img6"></div>
                         </div>
@@ -156,7 +191,7 @@
                                 <p><span class="info-text">접종</span>2차접종 실패</p>
                                 <p><span class="info-text">성격</span>있는 듯 없는 듯 지내요, 어떨때는 안보여요</p>
                                 <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
-                                <img src="icon/sub_cat.jpg">
+                                <img src="/icon/sub_cat.jpg">
                             </div>
                         </div>
                         <div class="box8 clear" data-aos="fade-up" data-aos-duration="1500">
@@ -168,7 +203,7 @@
                                 <p><span class="info-text">접종</span>종합건강검진 실패</p>
                                 <p><span class="info-text">성격</span>밥을 안주면 물어요 조심해요^^  특기: 사지절단</p>
                                 <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
-                                <img src="icon/sub_cat.jpg">
+                                <img src="/icon/sub_cat.jpg">
                             </div>
                             <div class="box-img8"></div>    
                         </div>
@@ -185,7 +220,7 @@
                                 <p><span class="info-text">접종</span>2차접종</p>
                                 <p><span class="info-text">성격</span>사람을 좋아하며 아주 활발해요</p>
                                 <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
-                                <img src="icon/sub_bird.jpg">
+                                <img src="/icon/sub_bird.jpg">
                             </div>
                         </div>
                         <div class="box10 clear" data-aos="fade-up" data-aos-duration="1500">
@@ -197,7 +232,7 @@
                                 <p><span class="info-text">접종</span>2차접종</p>
                                 <p><span class="info-text">성격</span>인사를 잘해요 *욕도 배움</p>
                                 <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
-                                <img src="icon/sub_bird.jpg">
+                                <img src="/icon/sub_bird.jpg">
                             </div>
                             <div class="box-img10"></div>
                         </div>
@@ -211,7 +246,7 @@
                                 <p><span class="info-text">접종</span>2차접종</p>
                                 <p><span class="info-text">성격</span>가시 발사 가능, 항상 조심 할 것</p>
                                 <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
-                                <img src="icon/sub_bird.jpg">
+                                <img src="/icon/sub_bird.jpg">
                             </div>
                         </div>
                         <div class="box12 clear"  data-aos="fade-up" data-aos-duration="1500">
@@ -223,7 +258,7 @@
                                 <p><span class="info-text">접종</span>1차접종</p>
                                 <p><span class="info-text">성격</span>잠이 많아요</p>
                                 <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
-                                <img src="icon/sub_bird.jpg">
+                                <img src="/icon/sub_bird.jpg">
                             </div>
                             <div class="box-img12"></div>
                         </div>
