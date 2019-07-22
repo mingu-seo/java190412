@@ -50,7 +50,7 @@ function goSearch() {
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>다이닝 예약관리- [목록]</h2>
+					<h2>다이닝 예약 관리- [목록]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">
@@ -115,7 +115,7 @@ function goSearch() {
 										<td <%=targetUrl%> class="guest_ename"><%=data.getGuest_ename()%></td>
 										<td <%=targetUrl%> class="guest_tel"><%=data.getGuest_tel()%></td>
 										<td <%=targetUrl%> class="guest_email"><%=data.getGuest_email()%></td>
-										<td <%=targetUrl%> class="guest_regdate"><%=data.getRegdate()%></td>
+										<td <%=targetUrl%> class="guest_regdate"><%=DateUtil.getDateTimeFormat(data.getRegdate())%></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
 								<%

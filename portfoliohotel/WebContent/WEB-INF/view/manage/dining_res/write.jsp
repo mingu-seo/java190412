@@ -11,12 +11,13 @@ Dining_resVO param = (Dining_resVO)request.getAttribute("vo");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp" %>
 <script>
+jQuery(window).load(function() {
+	initCal({id:"d_day",type:"day",today:"y"});
+});
+
+function goSave() {
 	
-	jQuery(window).load(function(){
-		initCal({id:"d_day",type:"day",today:"y"});
-		initCal({id:"d_time",type:"day",time:"y"});
-	});
-	
+}
 
 </script>
 </head>
@@ -53,18 +54,15 @@ Dining_resVO param = (Dining_resVO)request.getAttribute("vo");
 										<th scope="row"><label for="">예약날짜</label></th>
 										<td>
 											<input type="text" id="d_day" name="d_day" class="inputTitle" value="" title="예약날짜일을 입력해주세요" />&nbsp;
-											<span id="CalstartdateIcon">
-												<img src="/manage/img/calendar_icon.png" id="CalstartdateIconImg" style="cursor:pointer;"/>
+											<span id="Cald_dayIcon">
+												<img src="/manage/img/calendar_icon.png" id="Cald_dayIconImg" style="cursor:pointer;"/>
 											</span>
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">예약시간</label></th>
-										<td>
-											<input type="text" id="d_time" name="d_time" class="inputTitle" value="" title="예약시간을 입력해주세요" />&nbsp;
-											<span id="CalstartdateIcon">
-												<img src="/manage/img/calendar_icon.png" id="CalstartdateIconImg" style="cursor:pointer;"/>
-											</span>
+										<td colspan="3">
+											<input type="text" id="d_time" name="d_time" class="w5" title="예약시간을 입력해주세요" />	
 										</td>
 									</tr>
 									<tr>

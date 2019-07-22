@@ -9,7 +9,8 @@
 	</select>
 
 	<select id="list" parameterClass="dining_resvo" resultClass="dining_resvo">
-		select * from dining_res
+		select no, d_day, d_time, adult, kid, guest_kname, guest_ename
+		, guest_tel, guest_email, regdate from dining_res
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
 	</select>
 	
@@ -23,5 +24,28 @@
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
+	
+	<update id="update" parameterClass="dining_resvo">
+        update dining_res set
+        	d_day=#d_day#, d_time=#d_time#, adult=#adult#, kid=#kid#, guest_kname=#guest_kname#,
+        	guest_ename=#guest_ename#, guest_tel=#guest_tel#, guest_email=#guest_email#
+        where no=#no#
+    </update>
+    
+    <select id="read" parameterClass="Integer" resultClass="dining_resvo">
+		select no, d_day, d_time, adult, kid, guest_kname, guest_ename, guest_tel,
+		guest_email from dining_res where no=#no#
+	</select>
+    
+    <delete id="delete" parameterClass="Integer">
+		delete from dining_res where no=#no#
+	</delete>
 
 </sqlMap>
+
+
+
+
+
+
+
