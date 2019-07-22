@@ -815,7 +815,7 @@ public class CodeUtil {
 	 public static String getCategoryName(int category) {
 		 String result = "";
 		 if (category == 1) {
-			 result = "에약";
+			 result = "예약";
 		 } else if (category == 2) {
 			 result = "결제";
 		 }
