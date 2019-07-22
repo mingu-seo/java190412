@@ -1,4 +1,4 @@
-
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/edit_account.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="../js/gnb.js"></script>
-    <title>탈퇴사유</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/edit_account.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="/js/gnb.js"></script>
+    <title>회원정보수정</title>
 </head>
 <body>
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="../index.html"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="/index.do"><img src="../img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">BOOK</a>
@@ -136,7 +136,7 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="sign_in.html">SIGN IN</a>
+                <a href="sign_in.do">SIGN IN</a>
             </div>
         </div>
     </div>
@@ -153,34 +153,52 @@
         <div class="notice">
             <div class="support-list">
                 <ul class="support-list-center">
-                    <li><a href="edit_account.html">회원정보 수정</a></li>
-                    <li><a href="edit_password.html">비밀번호 설정 및 변경</a></li>
-                    <li class="on"><a href="delete_account.html">탈퇴요청</a></li>
+                    <li class="on"><a href="edit_account.do">회원정보수정</a></li>
+                    <li><a href="edit_password.do">비밀번호변경</a></li>
+                    <li><a href="delete_account.do">회원탈퇴요청</a></li>
                 </ul>
             </div>
             <div class="section-edit">
-                <p>워커힐 리워즈 멤버십 회원 탈퇴 시, 보유하신 포인트가 삭제됩니다.</p>
-
+                <h2>회원정보</h2>
                 <div class="edit-table">
                     <div class="edit-table-right">
                         <form method="POST">
-                       
-                            <div class="section01_del">
-                                <input type="text" id="section01_del" name="section01_del" placeholder="사용자 비밀번호 입력">
+                            <div class="name clear">
+                                <div class="name1">
+                                    <label for="first-name">성</label>
+                                    <input type="text" id="first-name" maxlength="2">
+                                </div>
+                                <div class="name2">
+                                    <label for="middle-name">이름</label>
+                                    <input type="text" id="middle-name" maxlenght="10">
+                                </div>
                             </div>
-                            <div class="section02_del">
-                                <select>
-                                    <option>탈퇴사유</option>
-                                    <option>더 이상 서비스를 사용하지 않음</option>
-                                    <option>서비스가 불편함</option>
-                                    <option>시스템 장애(속도 저조, 에러등)</option>
-                                    <option>장기간 부재(군 입대, 유학등)</option>
-                                    <option>기타사유</option>
-                                </select>
+                        
+                            <div class="birth">
+                                <label for="birth-y">생년월일</label>
+                                <input type="text" id="birth-y" name="birth-y" placeholder="년(4자)" maxlength="4">
+                                <input type="text" id="birth-m" name="birth-m" placeholder="월" maxlength="2">
+                                <input type="text" id="birth-d" name="birth-d" placeholder="일" maxlength="2">
+                            </div>
+                            <div class="email">
+                                <label for="email">이메일</label>
+                                <input type="text" id="email" name="email" placeholder="이메일을 입력하세요" maxlength="40">
+                            </div>
+                            <div class="email">
+                                <label for="account-contact">연락처</label>
+                                <input type="text" id="account-contact" name="account-contact" placeholder="연락처를 입력하세요" maxlength="40">
+                            </div>
+
+                            <div class="adress clear">
+                                <label for="adress">주소</label>
+                                <input type="text" id="adress1" name="adress1" placeholder="우편번호">
+                                <button class="ad-button">우편번호</button>
+                                <input type="text" id="adress2" name="adress2" placeholder="기본주소">
+                                <input type="text" id="adress3" name="adress3" placeholder="상세주소">
                             </div>
 
                             <div class="submit">
-                                    <input type="submit" value="탈퇴확인" class="submit-button">
+                                    <input type="submit" value="수정하기" class="submit-button">
                             </div>
                         </form>
                     </div>

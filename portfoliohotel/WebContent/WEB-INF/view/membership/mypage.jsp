@@ -1,57 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../css/slick.css">
-        <link rel="stylesheet" href="../css/slick-theme.css">
-        <link rel="stylesheet" href="../css/aos.css">
-        <link rel="stylesheet" href="../css/default.css">
-        <link rel="stylesheet" href="../css/header.css">
-        <link rel="stylesheet" href="../css/promotion.css">
-        <link rel="stylesheet" href="../css/footer.css">
-        <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
-        <script type="text/javascript" src="../js/gnb.js"></script>
-        <script type="text/javascript" src="../js/slick.js"></script>
-        <script type="text/javascript" src="../js/slick-slide.js"></script>
-        <script type="text/javascript" src="../js/aos.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-            
-                //AOS 플러그인 시작구문
-                AOS.init();            
-            
-                 //마우스 휠 플러그인 사용구문
- 
-                //delta 라는 변수는 마우스 휠 올리고 내렸을때 휠 감도 알아내는 변수
-
-                $("#container > div").mousewheel(function(event,delta){    
-                        event.preventDefault();    
-
-                        //마우스 휠을 올렸을때	
-                        if (delta > 0) {  
-                            var prev = $(this).prev().offset().top; // 휠을 걸어준 대상 다음구역의 시작하는 위치값 변수
-                           $("html,body").stop().animate({"scrollTop":prev});
-                        }
-                    
-                        //마우스 휠을 내렸을때	
-                        else if (delta < 0) {  
-                           var next = $(this).next().offset().top; // 휠을 걸어준 대상 다음구역의 시작하는 위치값 변수
-                           $("html,body").stop().animate({"scrollTop":next});
-                        }
-                });
-            });
-        </script>
-    <title>>The Oasis Summer Package</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/mypage.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="/js/gnb.js"></script>
+    <title>마이페이지</title>
 </head>
 <body>
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="../index.html"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="/index.do"><img src="../img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">BOOK</a>
@@ -60,18 +27,18 @@
                                         <div class="pc-sub-box">
                                             <h2><a href="../special_promotion.html">Promotion</a></h2>
                                             <ul class="offer">
-                                                <li><a href="room_offer.html">Room Package</a></li>
-                                                <li><a href="dining_offer.html">Dining Package</a></li>
-                                                <li><a href="etc_offer.html">Events & Gift</a></li>
+                                                <li><a href="../room_offer.html">Room Package</a></li>
+                                                <li><a href="../room_offer.html">Dining Package</a></li>
+                                                <li><a href="../room_offer.html">Events & Gift</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
                                             <h2>Rooms</h2>
                                             <ul class="Rooms">
-                                                <li><a href="../room/room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
-                                                <li><a href="../room/room-detail-subpage.html2">Namsan Pool Premier Suite</a></li>
-                                                <li><a href="../room/room-detail-subpage.html3">Namsan Presidential Suite</a></li>
-                                                <li><a href="../room/room-detail-subpage.html4">Spa Sanctuary Suite</a></li>
+                                                <li><a href="../room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
+                                                <li><a href="../room-detail-subpage.html">Namsan Pool Premier Suite</a></li>
+                                                <li><a href="../room-detail-subpage.html">Namsan Presidential Suite</a></li>
+                                                <li><a href="../room-detail-subpage.html">Spa Sanctuary Suite</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -130,7 +97,7 @@
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Support</h2>
-                                                <a href="../membership/notice.html" class="notice-a">
+                                                <a href="../notice.html" class="notice-a">
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
@@ -142,7 +109,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../membership/faq.html">
+                                                <a href="../faq.html">
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">
@@ -154,7 +121,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../membership/qna.html">
+                                                <a href="../qna.html">
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">
@@ -169,63 +136,136 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="../membership/sign_in.html">SIGN IN</a>
+                <a href="sign_in.do">SIGN IN</a>
             </div>
         </div>
     </div>
     
+    
     <div id="container">
-        <div class="banner oasis">
-            <div class="banner-center">
-                <div class="banner-text">
-                    <h2>오아시스 서머 패키지
-                        <span>The Oasis Summer Package</span>
-                    </h2>
-                    <h3>남산의 상쾌한 전경이 펼쳐진 이국적인 분위기의 오아시스 야외 수영장에서 도심 속 완벽한 휴식을 즐겨보세요.
-                    </h3>
+        
+        <div class="banner">
+            <div class="mypage-section">
+                    <h2>마이페이지</h2>
+                    <h3>MY PAGE</h3>
                 </div>
-            </div>
         </div>
-        <div class="contents-center">
-            <div class="logo-post"><img src="../img/promotion/promotion-logo.jpg"></div>
-            <div class="contents-info clear">
-                <div class="contents-left">
+        <div class="reservation clear">
+            <h3>예약현황<span class="title-sub">RESERVATION STATUS</span></h3>
+            <div class="reservation-status-left">
+                <table>
+                    <tr class="table-head">
+                        <th>예약 상품</th>
+                        <th>인원</th>
+                        <th>추가사항</th>
+                    </tr>
+                    <tr class="reserved">
+                        <td>NAMSAN POOL DELUX ROOM</td>
+                        <td class="participants">성인 x 2
+                            <br/>
+                            어린이 x 1
+                        </td>
+                        <td class="option">
+                            SPA
+                            <span class="option-select">- 추가사항 없음</span>
+                            침대 추가
+                            <span class="option-select">x 1</span>
+                            웰컴 와인 & 치즈
+                            <span class="option-select">x 1</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TOTAL</td>
+                        <td class="price" colspan="2">1,000,000 WON</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="reservation-status-right">
+                <div class="my-info">
+                    <h4>
+                        배경민 님<br/>
+                        환영합니다 !
+                    </h4>
                     <table>
                         <tr>
-                            <td class="table-list">기간</td>
-                            <td>2019. 5. 1 (수) ~ 2019. 9. 1 (일)</td>
+                            <td>회원등급</td>
+                            <td>VIP</td>
                         </tr>
                         <tr>
-                            <td class="table-list">포함내역</td>
-                            <td class="td-lh">· 객실 투숙 1박 <br/>
-                                · 오아시스 야외 수영장 이용 (2인) <br/>
-                                · 그라넘 다이닝 라운지 조식 (2인) <br/>
-                                · 실내 수영장, 피트니스 센터 이용 (2인)
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-list price">가격</td>
-                            <td>420,000원 부터 (VAT별도)</td>
-                        </tr>
-                        <tr>
-                            <td class="table-list info">안내</td>
-                            <td class="td-lh">· 가격은 2인 1실 1박을 기준이며, 세금 별도입니다. <br/>
-                                · 객실 상황에 따라 가격이 변동됩니다.  <br/>
-                                · 투숙 인원 추가 시 별도의 요금이 부과됩니다.  <br/>
-                                · 패키지에 포함된 혜택은 투숙 기간 중에 한해 1회 제공되며,  <br/> 오아시스 야외 수영장은 투숙 기간 중에만 입장 가능합니다.  <br/>
-                                <br/>
-                                * 오아시스 대관 행사 또는 이벤트로 인해 야외 수영장 이용에   <br/>제한이 있을 수 있습니다.  <br/>
-                                  <br/>
-                                · 피트니스, 사우나, 반얀트리 스파의 정기 휴관일은  <br/> 매월 첫째 주 화요일입니다.
-                            </td>
+                            <td>포인트</td>
+                            <td>10,000P</td>
                         </tr>
                     </table>
                 </div>
-                <div class="contents-right">
-                    <h3>예약 및 이용문의</h3>
-                    <h4>전화</h4>
-                    <h4>02 2250 8000</h4>
-                    <a href="../pkg_book_channel.html">온라인 예약</a>
+                <ul class="my-info-list">
+                    <li><a href="edit_account.do">개인정보 수정</a></li>
+                    <li><a href="delete_account.do">회원탈퇴</a></li>
+                    <li><a href="#">로그아웃</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="point">
+            <h3>포인트 내역<span class="title-sub">POINT</span></h3>
+            <div class="point-box">
+                <table>
+                    <tr>
+                        <td><span class="plus">+</span> 9,000P</td>
+                        <td>2019-06-29</td>
+                    </tr>
+                    <tr>
+                        <td><span class="plus">+</span> 10,000P</td>
+                        <td>2019-07-01</td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div>
+        <div class="my-question">
+            <h3>나의 질문<span class="title-sub">MY QUESTION</span></h3>
+            <div class="my-question-box">
+                <table>
+                    <tr>
+                            <td><a href="#"><span class="plus">┌</span>회원탈퇴에 대한 답변입니다.</a></td>
+                            <td>2019-06-29</td>
+                    </tr>
+                    <tr>
+                        <td><a href="../qna.html">회원탈퇴를 하고싶어요.</a></td>
+                        <td>2019-07-01</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="membership-benefit">
+                <h3>멤버십 등급별 특전<span class="title-sub">MEMBERSHIP CLASS BENEFIT</span></h3>
+            <div class="membership-benefit-box clear">
+                <div class="membership-benefit-box-center clear">
+                    <div class="classic">
+                        <div class="benefit-img">
+                            <p>CLASSIC</p>
+                        </div>
+                        <div class="benefit-text">
+                            <p>3번 투숙 또는 6박 이상 이용</p>
+                            <p>객실이용 금액 5% 적립</p>
+                        </div>
+                    </div>
+                    <div class="vip on">
+                            <div class="benefit-img">
+                                <p>VIP</p>
+                            </div>
+                            <div class="benefit-text">
+                                <p>3번 투숙 또는 6박 이상 이용</p>
+                                <p>객실이용 금액 5% 적립</p>
+                            </div>
+                    </div>
+                    <div class="vvip">
+                            <div class="benefit-img">
+                                <p>VVIP</p>
+                            </div>
+                            <div class="benefit-text">
+                                <p>7번 투숙 또는 12박 이상 이용</p>
+                                <p>객실이용 금액 7% 적립</p>
+                            </div>
+                    </div>
                 </div>
             </div>
         </div>

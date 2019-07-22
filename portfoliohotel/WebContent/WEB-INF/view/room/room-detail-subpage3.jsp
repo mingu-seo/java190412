@@ -139,7 +139,7 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="../membership/sign_in.html">SIGN IN</a>
+                <a href="../membership/sign_in.do">SIGN IN</a>
             </div>
         </div>
     </div>

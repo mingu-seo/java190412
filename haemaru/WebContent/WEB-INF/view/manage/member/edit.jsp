@@ -18,7 +18,7 @@ $(window).load(function() {
 
 function goSave() {
 	// 비밀번호 유효성체크
-	if(!validPassword($("#pw"))) return false;
+	$("#frm").submit();
 	
 	oEditors.getById["memo"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
 	$("#frm").submit();

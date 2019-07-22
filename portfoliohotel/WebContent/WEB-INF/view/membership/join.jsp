@@ -1,57 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../css/slick.css">
-        <link rel="stylesheet" href="../css/slick-theme.css">
-        <link rel="stylesheet" href="../css/aos.css">
-        <link rel="stylesheet" href="../css/default.css">
-        <link rel="stylesheet" href="../css/header.css">
-        <link rel="stylesheet" href="../css/granum-dining.css">
-        <link rel="stylesheet" href="../css/footer.css">
-        <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
-        <script type="text/javascript" src="../js/gnb.js"></script>
-        <script type="text/javascript" src="../js/slick.js"></script>
-        <script type="text/javascript" src="../js/slick-slide.js"></script>
-        <script type="text/javascript" src="../js/aos.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-            
-                //AOS 플러그인 시작구문
-                AOS.init();            
-            
-                 //마우스 휠 플러그인 사용구문
- 
-                //delta 라는 변수는 마우스 휠 올리고 내렸을때 휠 감도 알아내는 변수
-
-                $("#container > div").mousewheel(function(event,delta){    
-                        event.preventDefault();    
-
-                        //마우스 휠을 올렸을때	
-                        if (delta > 0) {  
-                            var prev = $(this).prev().offset().top; // 휠을 걸어준 대상 다음구역의 시작하는 위치값 변수
-                           $("html,body").stop().animate({"scrollTop":prev});
-                        }
-                    
-                        //마우스 휠을 내렸을때	
-                        else if (delta < 0) {  
-                           var next = $(this).next().offset().top; // 휠을 걸어준 대상 다음구역의 시작하는 위치값 변수
-                           $("html,body").stop().animate({"scrollTop":next});
-                        }
-                });
-            });
-        </script>
-    <title>Granum Dining Lounge</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/join.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="/js/gnb.js"></script>
+    <title>Tree_로그인페이지</title>
 </head>
 <body>
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="../index.html"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="/index.do"><img src="../img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">BOOK</a>
@@ -60,18 +27,18 @@
                                         <div class="pc-sub-box">
                                             <h2><a href="../special_promotion.html">Promotion</a></h2>
                                             <ul class="offer">
-                                                <li><a href="room_offer.html">Room Package</a></li>
-                                                <li><a href="dining_offer.html">Dining Package</a></li>
-                                                <li><a href="etc_offer.html">Events & Gift</a></li>
+                                                <li><a href="../room_offer.html">Room Package</a></li>
+                                                <li><a href="../room_offer.html">Dining Package</a></li>
+                                                <li><a href="../room_offer.html">Events & Gift</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
                                             <h2>Rooms</h2>
                                             <ul class="Rooms">
-                                                <li><a href="../room/room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
-                                                <li><a href="../room/room-detail-subpage.html2">Namsan Pool Premier Suite</a></li>
-                                                <li><a href="../room/room-detail-subpage.html3">Namsan Presidential Suite</a></li>
-                                                <li><a href="../room/room-detail-subpage.html4">Spa Sanctuary Suite</a></li>
+                                                <li><a href="../room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
+                                                <li><a href="../room-detail-subpage.html">Namsan Pool Premier Suite</a></li>
+                                                <li><a href="../room-detail-subpage.html">Namsan Presidential Suite</a></li>
+                                                <li><a href="../room-detail-subpage.html">Spa Sanctuary Suite</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -130,7 +97,7 @@
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Support</h2>
-                                                <a href="../membership/notice.html" class="notice-a">
+                                                <a href="../notice.html" class="notice-a">
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
@@ -142,7 +109,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../membership/faq.html">
+                                                <a href="../faq.html">
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">
@@ -154,7 +121,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../membership/qna.html">
+                                                <a href="../qna.html">
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">
@@ -169,57 +136,82 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="../membership/sign_in.html">SIGN IN</a>
+                <a href="sign_in.do">SIGN IN</a>
             </div>
         </div>
     </div>
     
     <div id="container">
-        <div class="banner granum-dining">
-            <div class="banner-center">
-                <div class="banner-text">
-                    <h2>그라넘 다이닝 라운지
-                        <span>Granum Dining Lounge</span>
-                    </h2>
-                    <h3>호텔 1층에 위치한 그라넘 다이닝 라운지는 ‘리프레싱 & 헬시’ 콘셉트의 모던 유러피안 퀴진 입니다.  
-                    </h3>
-                    <p>
-                        아침에는 투숙 고객과 회원을 위한 건강한 조식 뷔페가 준비되며, 점심은 계절에 따라 테마를 달리한 메인 디시와 다채로운 안티파스토 및 디저트로 구성된 ‘그라넘 런치 테이블’ 세미 뷔페가 펼쳐집니다. 
-                    </p>
+        <!-- account section 영역 -->
+        <div class="account-section">
+            <h2>멤버십 회원가입</h2>
+            <h3>Account</h3>
+        <!-- account section title 영역 끝 -->
+            <div class="account-box clear">
+                <div class="account-box-logo"><img src="../img/sign_in_img/login-logo.png"></div>
+                <div class="account-form">
+                    <form>
+                        <div class="account-form1">
+                            <!-- <label for="account-id">아이디</label>
+                            <input type="text" name="account-id" id="account-id" placeholder="ID를 입력하세요.">
+                            <input type="submit" id="check-id" value="중복확인"> -->
+                            <label for="account-password">비밀번호</label>
+                            <input type="password" name="account-password" id="account-password" placeholder="비밀번호를 입력하세요.">
+                            <label for="check-password">비밀번호 재입력</label>
+                            <input type="password" name="check-password" id="check-password" placeholder="비밀번호를 재입력하세요.">
+                        </div>
+                        <div class="account-form2 clear">
+                            <div class="account-name">
+                                <div class="first-name">
+                                    <label for="first-name">성</label>
+                                    <input type="text" name="first-name" id="first-name" placeholder="성">
+                                </div>
+                                <div class="middle-name">
+                                    <label for="middle-name">이름</label>
+                                    <input type="text" name="middle-name" id="middle-name" placeholder="이름">
+                                </div>
+                            </div>
+                            <div class="account-sex">
+                                <label for="male">남성</label>
+                                <input type="radio" name="sex" id="male">
+                                <label for="male" class="female">여성</label>
+                                <input type="radio" name="sex" id="female">
+                            </div>
+                            <div class="account-birthday clear">
+                                <div class="birth-form">
+                                    <label for="birth-y">생년월일</label>
+                                    <input type="text" name="birth-y" id="birth-y" placeholder="년 (4자)">
+                                </div>
+                                <div class="birth-form">
+                                    <input type="text" name="birth-m" id="birth-m" placeholder="월">
+                                </div>
+                                <div class="birth-form">
+                                    <input type="text" name="birth-d" id="birth-d" placeholder="일">
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="account-form3">
+                            <div class="account-email">
+                                <label for="account-email">이메일</label>
+                                <input type="text" name="account-email" id="account-email" placeholder="이메일을 입력하세요.">
+                            </div>
+                            <div class="account-contact">
+                                <label for="account-contact">연락처</label>
+                                <input type="text" name="account-contact" id="account-contact" placeholder="연락처를 입력하세요.">
+                            </div>
+
+                            <div class="adress clear">
+                                <label for="adress">주소</label>
+                                <input type="text" id="adress1" name="adress1" placeholder="우편번호">
+                                <button class="ad-button">우편번호</button>
+                                <input type="text" id="adress2" name="adress2" placeholder="기본주소">
+                                <input type="text" id="adress3" name="adress3" placeholder="상세주소">
+                            </div>
+                            <input type="submit" value="가입하기">
+                        </div>
+                    </form>
                 </div>
-            </div>
-        </div>
-        <div class="contents-center">
-            <div class="logo-post"><img src="../img/promotion/promotion-logo.jpg"></div>
-            <div class="contents-info clear">
-                <div class="contents-left">
-                    <table>
-                        <tr>
-                            <td class="table-list">위치</td>
-                            <td>더 호텔 1F</td>
-                        </tr>
-                        <tr>
-                            <td class="table-list time">좌석수</td>
-                            <td>50석</td>
-                        </tr>
-                        <tr>
-                            <td class="table-list info">주요사항</td>
-                            <td class="td-lh">금연, 사전예약
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-list place">운영시간</td>
-                            <td>06:30 ~ 22:00 (Last Order: 21:30)</td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="contents-right">
-                    <h3>예약 및 이용문의</h3>
-                    <h4>전화</h4>
-                    <h4>02 2250 8000</h4>
-                    <a href="#">온라인 예약</a>
-                </div>
-            </div>
+            </div><!--acoount-box 끝-->
         </div>
     </div>
     <div id="footer">

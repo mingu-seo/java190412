@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -5,39 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/join.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="../js/gnb.js"></script>
-    <title>Tree_로그인페이지</title>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="/js/gnb.js"></script>
+    <title>로그인페이지</title>
 </head>
 <body>
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="../index.html"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="/index.do"><img src="../img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
-                        <a href="#">BOOK</a>
+                        <a href="#">Book</a>
                             <div class="pc-sub">
                                     <div class="pc-sub-center">
                                         <div class="pc-sub-box">
-                                            <h2><a href="../special_promotion.html">Promotion</a></h2>
+                                            <h2><a href="../pkg/special_promotion.html">Promotion</a></h2>
                                             <ul class="offer">
-                                                <li><a href="../room_offer.html">Room Package</a></li>
-                                                <li><a href="../room_offer.html">Dining Package</a></li>
-                                                <li><a href="../room_offer.html">Events & Gift</a></li>
+                                                <li><a href="../pkg/room_offer.html">Room Package</a></li>
+                                                <li><a href="../pkg/dining_offer.html">Dining Package</a></li>
+                                                <li><a href="../pkg/etc_offer.html">Events & Gift</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
                                             <h2>Rooms</h2>
                                             <ul class="Rooms">
-                                                <li><a href="../room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
-                                                <li><a href="../room-detail-subpage.html">Namsan Pool Premier Suite</a></li>
-                                                <li><a href="../room-detail-subpage.html">Namsan Presidential Suite</a></li>
-                                                <li><a href="../room-detail-subpage.html">Spa Sanctuary Suite</a></li>
+                                                <li><a href="../room/room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
+                                                <li><a href="../room/room-detail-subpage2.html">Namsan Pool Premier Suite</a></li>
+                                                <li><a href="../room/room-detail-subpage3.html">Namsan Presidential Suite</a></li>
+                                                <li><a href="../room/room-detail-subpage4.html">Spa Sanctuary Suite</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -61,22 +62,22 @@
                             </div>
                     </li>
                     <li class="facilities">
-                        <a href="#">Facilities</a>
+                        <a href="#">Facilites</a>
                             <div class="pc-sub">
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box facil-left">
                                                 <h2 class="no-line">Facilities</h2>
                                                 <ul>
-                                                    <li><a href="../facilities.html#f1">The Oasis</a></li>
-                                                    <li><a href="../facilities.html#f2">Indoor Swimming Pool</a></li>
+                                                    <li><a href="../facilites.html#f1">The Oasis</a></li>
+                                                    <li><a href="../facilites.html#f2">Indoor Swimming Pool</a></li>
                                                     
                                                 </ul>
                                             </div>
                                             <div class="pc-sub-box mtop">
                 
                                                 <ul class="Rooms">
-                                                        <li><a href="../facilities.html#f3">Fitness Centre</a></li>
-                                                        <li><a href="../facilities.html#f4">Sauna</a></li>
+                                                        <li><a href="../facilites.html#f3">Fitness Centre</a></li>
+                                                        <li><a href="../facilites.html#f4">Sauna</a></li>
                                                 </ul>
                                             </div>
                                             <div class="pc-sub-box mtop facil-right">
@@ -96,7 +97,7 @@
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Support</h2>
-                                                <a href="../notice.html" class="notice-a">
+                                                <a href="../membership/notice.html" class="notice-a">
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
@@ -108,7 +109,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../faq.html">
+                                                <a href="../membership/faq.html">
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">
@@ -120,7 +121,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../qna.html">
+                                                <a href="../membership/qna.html">
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">
@@ -135,82 +136,71 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="sign_in.html">SIGN IN</a>
+                <a href="/membership/sign_in.do">Sign in</a>
             </div>
         </div>
     </div>
+
     
     <div id="container">
-        <!-- account section 영역 -->
-        <div class="account-section">
-            <h2>멤버십 회원가입</h2>
-            <h3>Account</h3>
-        <!-- account section title 영역 끝 -->
-            <div class="account-box clear">
-                <div class="account-box-logo"><img src="../img/sign_in_img/login-logo.png"></div>
-                <div class="account-form">
-                    <form>
-                        <div class="account-form1">
-                            <!-- <label for="account-id">아이디</label>
-                            <input type="text" name="account-id" id="account-id" placeholder="ID를 입력하세요.">
-                            <input type="submit" id="check-id" value="중복확인"> -->
-                            <label for="account-password">비밀번호</label>
-                            <input type="password" name="account-password" id="account-password" placeholder="비밀번호를 입력하세요.">
-                            <label for="check-password">비밀번호 재입력</label>
-                            <input type="password" name="check-password" id="check-password" placeholder="비밀번호를 재입력하세요.">
+        <div class="login-section">
+            <h2>멤버십 로그인</h2>
+            <h3>Log In</h3>
+            <div class="login-box clear">
+                <form action="#" method="POST">
+                    <div class="login-box-logo"><img src="../img/sign_in_img/login-logo.png"></div>
+                    <div class="login-board clear">
+                        <div class="login-box-left">
+                            <!-- ID 구역 -->
+                            <input type="text" id="id" name="id" placeholder="아이디 또는 이메일">
+                            <!-- 비밀번호 구역 -->
+                            <input type="password" id="password" name="password" placeholder="비밀번호">
                         </div>
-                        <div class="account-form2 clear">
-                            <div class="account-name">
-                                <div class="first-name">
-                                    <label for="first-name">성</label>
-                                    <input type="text" name="first-name" id="first-name" placeholder="성">
-                                </div>
-                                <div class="middle-name">
-                                    <label for="middle-name">이름</label>
-                                    <input type="text" name="middle-name" id="middle-name" placeholder="이름">
-                                </div>
-                            </div>
-                            <div class="account-sex">
-                                <label for="male">남성</label>
-                                <input type="radio" name="sex" id="male">
-                                <label for="male" class="female">여성</label>
-                                <input type="radio" name="sex" id="female">
-                            </div>
-                            <div class="account-birthday clear">
-                                <div class="birth-form">
-                                    <label for="birth-y">생년월일</label>
-                                    <input type="text" name="birth-y" id="birth-y" placeholder="년 (4자)">
-                                </div>
-                                <div class="birth-form">
-                                    <input type="text" name="birth-m" id="birth-m" placeholder="월">
-                                </div>
-                                <div class="birth-form">
-                                    <input type="text" name="birth-d" id="birth-d" placeholder="일">
-                                </div>                                
-                            </div>
+                        <div class="login-board-right">
+                            <input type="submit" id="submit" value="LOGIN">
                         </div>
-                        <div class="account-form3">
-                            <div class="account-email">
-                                <label for="account-email">이메일</label>
-                                <input type="text" name="account-email" id="account-email" placeholder="이메일을 입력하세요.">
-                            </div>
-                            <div class="account-contact">
-                                <label for="account-contact">연락처</label>
-                                <input type="text" name="account-contact" id="account-contact" placeholder="연락처를 입력하세요.">
-                            </div>
+                        <div class="id-remember">
+                            <input type="checkbox" id="login-chk" name="login-chk" >
+                            <label for="login-chk">아이디 기억하기</label>
+                        </div>
+                        <h4 class="find_id"><a href="#">· 아이디 / 비밀번호 찾기</a></h4>
+                    </div> 
+                </form>    
 
-                            <div class="adress clear">
-                                <label for="adress">주소</label>
-                                <input type="text" id="adress1" name="adress1" placeholder="우편번호">
-                                <button class="ad-button">우편번호</button>
-                                <input type="text" id="adress2" name="adress2" placeholder="기본주소">
-                                <input type="text" id="adress3" name="adress3" placeholder="상세주소">
-                            </div>
-                            <input type="submit" value="가입하기">
-                        </div>
-                    </form>
+                <div class="login-info">
+                    <p>
+                        호텔 회원번호의 경우 아이디 입력 영역에 입력해 주세요.<br/>
+                        오프라인 회원의 경우 온라인 '반얀트리 멤버십' 가입을 통해 계정연동 가능합니다.
+                    </p>
+
+                    <ul class="snsLogin clear">
+                        <li>
+                            <button class="facebook"><p>페이스북으로 로그인</p></button>
+                        </li>
+
+                        <li>
+                            <button class="google"><p>구글로 로그인</p></button>
+                        </li>
+
+                        <li>
+                            <button class="naver"><p>네이버로 로그인</p></button>
+                        </li>
+
+                        <li>
+                            <button class="kakao"><p>카카오로 로그인</p></button>
+                        </li>
+                    </ul>
                 </div>
-            </div><!--acoount-box 끝-->
+                <h5>아직 호텔 회원이 아니신가요?</h5>
+                <p>온라인 회원은 예약/결제 정보를 온라인에서 확인하실 수 있습니다.</p>
+                <div class="join-box">
+                    <a href="choice_join.do">호텔 멤버십 가입 </a>
+                </div>
+                <div class="error-text clear">
+                    <h6>멤버십 가입 및 온라인 인증에 문제가 생기셨나요?</h6>
+                    <h6>대표문의 (02-455-5000)로 연락 주시기 바랍니다.</h6>
+                </div>
+            </div>    
         </div>
     </div>
     <div id="footer">
