@@ -25,7 +25,7 @@ public class QnaVO extends Parameter {
 	private String		reply_contents;		// 답변내용
 	private Timestamp	reply_regdate;		// 답변 등록일
 	private int 		send_email;			// 이메일 전송여부 (미전송 :0 / 전송:1)
-	
+	private String 		file_chk;
 	//검색조건(페이지) 추가
 	private int display;
 	
@@ -207,6 +207,13 @@ public class QnaVO extends Parameter {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public String getFile_chk() {
+		return file_chk;
+	}
+	public void setFile_chk(String file_chk) {
+		this.file_chk = file_chk;
+	}
+	
 	
 	
 }
