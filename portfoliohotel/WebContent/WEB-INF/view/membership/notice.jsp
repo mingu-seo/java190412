@@ -177,49 +177,40 @@ function goSearch() {
             </div>
             <div class="notice-table">
                 <div class="table-box">
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    	<colgroup>
-                    		<col class="w20">
-                    		<col class="w10">
-                    	</colgroup>
+                    <table>
                         <tr class="table-head">
-                            <th scope="col" class="firlst">내용</th>
+                            <th scope="col" class="firlst">제목</th>
                             <th scope="col" class="last">등록일</th>
                         </tr>
                         <%
                         	if (totCount == 0) {
                         %>
                         	<tr>
-                        		<td class="first" colspan="8">등록된 공지사항이 없습니다.</td>
+                        		<td colspan="2">등록된 공지사항이 없습니다.</td>
                         	</tr>
                         <%
                         	} else {
-								String targetUrl = "";
-								String topClass = "";
-								NoticeVO data;
+                        		String targetUrl = "";
+                        		NoticeVO data;
 								for (int i=0; i<list.size(); i++) {
-									data = list.get(i);
-									targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("notice_read", param, data.getNo())+"'\"";
+									targetUrl = "style='cusor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("notice_read", param, list.get(i).getNo())+"'\"";
                         %>
-                        	<tr <%=topClass%>>
-								<%-- <td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td> --%>
-								<td <%=targetUrl%> class="title"><%=data.getTitle() %></td>
-								<td <%=targetUrl%> class="regdate"><%=DateUtil.getDateFormat(data.getRegdate()) %></td>
+                        <%
+                        	if (list.get(i).getTop() == 2) {
+                        		targetUrl = "style='cursor:pointer; background-color:#bebebe', onclick=\"location.href='"+param.getTargetURLParam("notice_read", param, list.get(i).getNo())+"'\"";
+                        	}
+                        %>
+                        	<tr>
+								<td <%=targetUrl%>> <a href="#"><%=list.get(i).getTitle() %></a></td>
+								<td <%=targetUrl%> class="table-date"><%=DateUtil.getDateFormat(list.get(i).getRegdate()) %></td>
 							</tr>
 						<%
 								}
                         	}
 						%>
                     </table>
-                    	<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
-						<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
-						<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
-						<input type="hidden" name="no" id="no" value="<%=param.getNo() %>"/>
                 </div>
-                <div class="table-page">
-                    <ul class="page-number clear">
-                        <li><%=Page.indexList(param.getReqPageNo(), totPage, request)%></li>
-                    </ul>
+                       <%=Page.userIndexList(param.getReqPageNo(), totPage, request)%>
                 </div>
         </div>
     </div>

@@ -38,7 +38,7 @@
         select *
         from notice
         <include refid="searchSql"/>
-		ORDER BY regdate DESC LIMIT $startPageNo$, $pageRows$
+		ORDER BY top DESC, regdate DESC LIMIT $startPageNo$, $pageRows$
     </select>    
     
 	<!-- 해당 테이블에 게시글 작성 -->

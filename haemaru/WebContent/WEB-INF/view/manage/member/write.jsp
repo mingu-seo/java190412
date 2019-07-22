@@ -3,6 +3,7 @@
 <%@ page import="java.util.*" %>
 <%
 MemberVO param = (MemberVO)request.getAttribute("vo");
+MemberVO data = (MemberVO)request.getAttribute("data");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -140,7 +141,7 @@ function goSave() {
 					<!-- 내용 : e -->
 				</div>
 				<!--//con -->
-			</div>
+			</div>				
 			<!--//content -->
 		</div>
 		<!--//container --> 
@@ -149,6 +150,5 @@ function goSave() {
 	<!--//canvas -->
 </div>
 <!--//wrap -->
-
 </body>
 </html>

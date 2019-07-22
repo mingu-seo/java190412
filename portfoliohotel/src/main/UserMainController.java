@@ -9,13 +9,13 @@ import manage.admin.AdminVO;
 @Controller
 public class UserMainController {
 
-	@RequestMapping("/index.do")
+	@RequestMapping("/index")
 	public String index(Model model, AdminVO param) throws Exception {
 		
 		return "index";
 	}
 	
-	@RequestMapping("/pkg/special_promotion.do")
+	@RequestMapping("/pkg/special_promotion")
 	public String pkg_special(Model model, AdminVO param) throws Exception {
 		
 		return "pkg/special_promotion";
