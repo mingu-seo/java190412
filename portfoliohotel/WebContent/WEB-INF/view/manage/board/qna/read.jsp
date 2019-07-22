@@ -27,6 +27,25 @@ function goDelete() {
 			return false;
 		}
 	}
+	
+
+
+function goSave() {
+	
+	var sHTML = oEditors.getById["reply_contents"].getIR();
+	if (sHTML == "" || sHTML == "<p><br></p>") {
+		alert('내용을 입력하세요.');
+		$("#reply_contents").focus();
+		return false;
+	} else {
+		oEditors.getById["reply_contents"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+		data.setReply(1);
+	}
+	
+	return true;
+	
+	
+}
 </script>
 </head>
 <body>
@@ -109,7 +128,7 @@ function goDelete() {
 									<tr>
 										<th scope="row"><label for="">내용</label></th>
 										<td colspan="5">
-											<%=data.getCategory()%>
+											<%=data.getContents()%>
 										</td>
 									</tr>
 									<tr>
@@ -134,6 +153,8 @@ function goDelete() {
 									</div>
 									<div class="btnRight">
 										<a class="btns"
+											href="<%=param.getTargetURLParam("write_reply", param, data.getNo())%>"><strong>답변쓰기</strong></a>
+										<a class="btns"
 											href="<%=param.getTargetURLParam("edit", param, data.getNo())%>"><strong>수정</strong></a>
 										<a class="btns" href="#" onClick="goDelete();"><strong>삭제</strong></a>
 									</div>
@@ -154,8 +175,79 @@ function goDelete() {
 						<!-- 내용 : e -->
 					</div>
 					<!--//con -->
+					<div class="con_tit">
+					<%-- <h2>QnA 답변보기 <input type="button" value="QnA 답변" id="replyListBtn"/></h2>
+				</div>
+				<div class="con">
+					<div id="bbs">
+						<div id="blist">
+							
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<colgroup>
+									<col class="w10"/>
+									<col class=""/>
+									<col class="w10"/>
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col" class="first">이메일 전송 여부</th>
+										<th scope="col">내용</th>
+										<th scope="col" class="last"></th>
+									</tr>
+								</thead>
+								<tbody>
+								<%
+										if (data.getReply() == 0) {
+								%>
+								<form id="replyFrm">
+									<tr>
+										<td>
+											<input type="radio" name="send_email" value="0">미전송 </input>
+											<input type="radio" name="send_email" value="1">전송</input>
+										</td>
+										
+										<td>
+											<textarea style="width:100%;" name="" rows="3" id="reply_contents"></textarea>
+										</td>
+										<td><input type="button" value="후기 저장" id="replyInsertBtn"/></td>
+									</tr>
+								<input type="hidden" name="member_pk" value="<%=data.getNo() %>"/>
+								<input type="hidden" name="reply_title" value="re:"<%=data.getTitle() %>"/>
+								<input type="hidden" name="reply" value="0"/>
+								</form>
+								<%
+										} else if(data.getReply() == 1){
+								%>
+								<form id="replyFrm">
+									<tr>
+										<td>
+											<input type="radio" name="send_email" value="0"  ${data.send_email == 0 ? "selected" : ""}>미전송 </input>
+											<input type="radio" name="send_email" value="1"  ${data.send_email == 1 ? "selected" : ""}>전송</input>
+										</td>
+										
+										<th scope="row"><label for="">내용</label></th>
+										<td colspan="4">
+											<textarea id="reply_contents" name="reply_contents" title="내용을 입력해주세요" style="width:100%;" value="<%=Function.checkNull(data.getReply_contents())%>" ></textarea>	
+										</td>
+										<td><input type="button" value="후기 저장" id="replyInsertBtn"/></td>
+									</tr>
+								<input type="hidden" name="member_pk" value="<%=data.getNo() %>"/>
+								<input type="hidden" name="reply_title" value="re:"<%=data.getTitle() %>"/>
+								<input type="hidden" name="reply" value="1"/>
+								</form>
+								<%
+										}
+								%>
+								</tbody>
+							</table>
+						</div>
+						
+						<div id="blist" class="replyListArea"> --%>
+						
+						</div>
 					</div>
 				</div>
+			</div>
 				<!--//content -->
 			</div>
 			<!--//container -->
@@ -164,5 +256,6 @@ function goDelete() {
 		<!--//canvas -->
 	</div>
 	<!--//wrap -->
+
 </body>
 </html>
