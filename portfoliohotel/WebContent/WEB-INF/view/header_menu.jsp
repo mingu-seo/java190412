@@ -1,18 +1,18 @@
 <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="/index"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="/index"><img src="/img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">BOOK</a>
                             <div class="pc-sub">
                                     <div class="pc-sub-center">
                                         <div class="pc-sub-box">
-                                            <h2><a href="../special_promotion.html">Promotion</a></h2>
+                                            <h2><a href="/pkg/special_promotion">Promotion</a></h2>
                                             <ul class="offer">
-                                                <li><a href="../room_offer.html">Room Package</a></li>
-                                                <li><a href="../room_offer.html">Dining Package</a></li>
-                                                <li><a href="../room_offer.html">Events & Gift</a></li>
+                                                <li><a href="/pkg/room/room_offer">Room Package</a></li>
+                                                <li><a href="/pkg/room/room_offer">Dining Package</a></li>
+                                                <li><a href="/pkg/room/room_offer">Events & Gift</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -81,7 +81,7 @@
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Support</h2>
-                                                <a href="../membership/mypage.html" class="notice-a">
+                                                <a href="/membership/mypage" class="notice-a">
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
@@ -93,7 +93,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../membership/faq.html">
+                                                <a href="/membership/faq">
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">
@@ -105,7 +105,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../membership/qna.html">
+                                                <a href="/membership/qna">
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">
@@ -120,7 +120,7 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="../membership/sign_in.html">Sign In</a>
+                <a href="/membership/sign_in">Sign In</a>
             </div>
         </div>
     </div>

@@ -76,7 +76,7 @@
             <div class="logined-box">
                 <h2 class="close-btn"><a href="#">x</a></h2>
                 <h3>기멍솔<span>님 안녕하세요.</span></h3>
-                <p class="mypage"><a href="membership/mypage.do">마이페이지 <img src="img/white-arrow.png" class="white-arrow"></a></p>
+                <p class="mypage"><a href="/membership/mypage">마이페이지 <img src="img/white-arrow.png" class="white-arrow"></a></p>
                 <table>
                     <tr>
                         <td class="left">등급</td>
@@ -102,11 +102,11 @@
                             <div class="pc-sub">
                                     <div class="pc-sub-center">
                                         <div class="pc-sub-box">
-                                            <h2><a href="/pkg/special_promotion.do">Promotion</a></h2>
+                                            <h2><a href="/pkg/special_promotion">Promotion</a></h2>
                                             <ul class="offer">
-                                                <li><a href="/pkg/room_offer.html">Room Package</a></li>
-                                                <li><a href="/pkg/dining_offer.html">Dining Package</a></li>
-                                                <li><a href="/pkg/etc_offer.html">Events & Gift</a></li>
+                                                <li><a href="/pkg/room/room_offer">Room Package</a></li>
+                                                <li><a href="/pkg/dinning/dining_offer">Dining Package</a></li>
+                                                <li><a href="/pkg/event_gift/etc_offer">Events & Gift</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -122,18 +122,18 @@
                                         <div class="pc-sub-box">
                                             <h2>Dining</h2>
                                             <ul class="Dining">
-                                                <li><a href="dining/thefesta.do">The Festa</a></li>
-                                                <li><a href="dining/granum-dining.do">Granum Dining Lounge</a></li>
-                                                <li><a href="dining/moon-bar.do">Moon Bar</a></li>
-                                                <li><a href="dining/outdoor-kitchen.do">The Oasis Outdoor Kitchen</a></li>
+                                                <li><a href="/dining/thefesta">The Festa</a></li>
+                                                <li><a href="/dining/granum-dining">Granum Dining Lounge</a></li>
+                                                <li><a href="/dining/moon-bar">Moon Bar</a></li>
+                                                <li><a href="/dining/outdoor-kitchen">The Oasis Outdoor Kitchen</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
                                             <h2>Meeting & Wedding</h2>
                                             <ul class="Meeting & Wedding">
-                                                <li><a href="meeting_wedding/meeting.html">Meeting</li>
-                                                <li><a href="meeting_wedding/wedding.html">Wedding</a></li>
-                                                <li><a href="meeting_wedding/familyparty.html">Family Party</a></li>
+                                                <li><a href="/meeting_wedding/meeting">Meeting</li>
+                                                <li><a href="/meeting_wedding/wedding">Wedding</a></li>
+                                                <li><a href="/meeting_wedding/familyparty">Family Party</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -177,7 +177,7 @@
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Support</h2>
-                                                <a href="/membership/notice.do" class="notice-a">
+                                                <a href="/membership/notice" class="notice-a">
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
@@ -189,7 +189,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="/membership/faq.do">
+                                                <a href="/membership/faq">
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">
@@ -201,7 +201,7 @@
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="membership/qna.do">
+                                                <a href="/membership/qna">
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">
@@ -216,7 +216,7 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="/membership/sign_in.do">Sign in</a>
+                <a href="/membership/sign_in">Sign in</a>
             </div>
         </div>
     </div>
@@ -278,7 +278,7 @@
                             </div>
                             <div class="d-r-input2">
                                 <!-- <input type="submit" value="예약 조회"> -->
-                                <a href="/book/check_room.do">예약조회</a>
+                                <a href="/book/check_room">예약조회</a>
                             </div>
                         </form>
                 </div>
@@ -297,7 +297,7 @@
                     <li class="special_offer">
                         <p>SPECIAL OFFERS</p>
                         <div class="bg">
-                                <a href="special_promotion.html">
+                                <a href="/pkg/special_promotion">
                                     <div class="hover-box">
                                         <p>SPECIAL OFFER</p>
                                         <img src="img/ico_arrow.png">
@@ -310,7 +310,7 @@
                     <li class="fitness">
                         <p>FACILITIES</p>
                         <div class="bg">
-                                <a href="facilites.html">
+                                <a href="/facilites">
                                         <div class="hover-box">
                                             <p>FACILITIES</p>
                                             <img src="img/ico_arrow.png">
@@ -334,7 +334,7 @@
                     <li class="dining">
                         <p>DINING</p>
                         <div class="bg">
-                                <a href="dining.html">
+                                <a href="/pkg/dining/dining_offer">
                                         <div class="hover-box">
                                             <p>DINING</p>
                                             <img src="img/ico_arrow.png">
@@ -388,7 +388,7 @@
                         </div>
 
                         <div class="pro_list2 pro_list">
-                                <a href="bbq.html">
+                                <a href="/pkg/room/bbq">
                                     <img src="img/promotion2.jpg">
                                     <div class="promotion_text">
                                         <p>The Oasis BBQ Package</p>
@@ -420,7 +420,7 @@
                         </div>
 
                         <div class="pro_list2 pro_list">
-                                <a href="senseof.html">
+                                <a href="/pkg/room/senseof">
                                     <img src="img/promotion4.jpg">
                                     <div class="promotion_text">
                                         <p>Sense of Romance</p>
@@ -554,8 +554,8 @@
                     
                             <!-- 객실 자세히 보기/ 객실조회 버튼 -->
                             <ul class="green-box clear">
-                                <li class="room_more"><a href="room/room-detail-subpage.html">MORE</a></li>
-                                <li class="room_book"><a href="book/check_room.html">RESERVATION</a></li>
+                                <li class="room_more"><a href="/room/room-detail-subpage">MORE</a></li>
+                                <li class="room_book"><a href="/book/check_room">RESERVATION</a></li>
                             </ul>
                         </div>  
                         <div class="room_intro">
