@@ -48,6 +48,13 @@ function groupDelete() {
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="blist">
+						<div class="btn">
+								
+								<div class="btnRight">
+									<a class="btns" href="join"><strong>로그인</strong> </a>
+								</div>
+							</div>
+							
 							<p><span><strong>총 <%=totCount%>개</strong>  |  <%=param.getReqPageNo()%>/<%=totPage%>페이지</span></p>
 							<form name="frm" id="frm" action="process.do" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">

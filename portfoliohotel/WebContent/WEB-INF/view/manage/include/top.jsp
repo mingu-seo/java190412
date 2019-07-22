@@ -69,7 +69,7 @@ $(window).load(function(){
 		
 		<div id="menu">
   			<ul class="menu">
-  				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>회원관리</span></a></li>
+  				<li><a href="<%=request.getContextPath()%>/manage/member/index" class="parent"><span>회원관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/room/index" class="parent"><span>객실관리</span></a>
 					<div class="standard_left">
 					<ul>

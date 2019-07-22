@@ -16,61 +16,12 @@ $(window).load(function() {
 	oEditors = setEditor("memo"); // 에디터 셋팅
 });
 
-/* function goSave() {
+function goSave() {
 	// 비밀번호 유효성체크
 	if(!validPassword($("#password"))) return false;
 	
 	oEditors.getById["memo"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
 	$("#frm").submit();
-} */
-function goSave() {
-	if ($("#email").val() == "") {
-		alert("이메일 입력해주세요.");
-		$("#email").focus();
-		return false;
-	}
-	
-	if ($("#fname").val() == "") {
-		alert("성을 입력해주세요.");
-		$("#fname").focus();
-		return false;
-	}
-	if ($("#lname").val() == "") {
-		alert("이름을 입력해주세요.");
-		$("#lname").focus();
-		return false;
-	}
-	if ($("#tel").val() == "") {
-		alert("연락처를 입력해주세요.");
-		$("#tel").focus();
-		return false;
-	}
-	
-	// 비밀번호 유효성체크
-	if(!validPassword($("#password"))) return false;
-	
-	$.ajax ({
-		type:'POST',
-		url:"/manage/member/emailcheck",
-		data:$("[name=frm]").serialize(), //serialize() 직렬로 정렬
-		async:false,
-		success:function(data) {
-			var val = data.trim();
-			if (val == "0") {
-				$("#emailcheck").val("1");
-			} else {
-				alert("존재하는 이메일입니다.");
-				$("#emailcheck").val("0");
-				return false;
-			}
-		}
-	});
-	if ($("#emailcheck").val() == "0") {
-		return false;
-	}
-
-
-	$("#frm").submit();  
 }
 
 
@@ -193,66 +144,28 @@ function goSave() {
 							<form name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
-									<col width="15%" />
+									
 									<col width="35%" />
-									<col width="15%" />
+									
 									<col width="35%" />
 								</colgroup>
 								<tbody>
 								<%
 								String[] nameArr = data.getName().split(",");								
 								%>
-									<tr>
-										<%-- <th scope="row"><label for="">*이름</label></th>
-										<td>
-											<input type="text" id="name" name="name" value="<%=nameArr[0]%> <%=nameArr[1] %>" title="관리자 이름을 입력해주세요." />
-										</td> --%>
-										<th scope="row"><label for="">*이름</label></th>
-										<td >
-											성<input type="text" style="width:50px; height:20px;" id="fname" name="name" value="<%=nameArr[0]%>" title="관리자 이름을 입력해주세요." />	
-											이름<input type="text" style="width:80px; height:20px;" id="lname" name="name" value="<%=nameArr[1] %>" title="관리자 이름을 입력해주세요." />										
-										</td>
-										
-									</tr>
-									<th scope="row"><label for="">생년월일</label></th>
-										<td colspan="3">
-											<input type="text" style="width:100px;height:20px;" id="year" name="birthday" value="" title="관리자 이름을 입력해주세요.">년</input>
-											<input type="text" style="width:50px; height:20px;" id="month" name="birthday" value="" title="관리자 이름을 입력해주세요.">월</input>
-											<input type="text" style="width:50px; height:20px;" id="day" name="birthday" value="" title="관리자 이름을 입력해주세요.">일</input>
-										</td>
 									
 									<tr>
 										<th scope="row"><label for="">*비밀번호</label></th>
 										<td>
-											<input type="password" style="width:150px; height:20px;"id="password" name="password" value="" title="관리자 이메일을 입력해주세요." />
+											<input type="password" id="password" name="password" value="" title="관리자 이메일을 입력해주세요." />
 										</td>
 									</tr>
 									
-									<tr>
-										<th scope="row"><label for="">*연락처</label></th>
-										<td>
-											<input type="text" id="tel" name="tel" value="" title="관리자 이름을 입력해주세요." />
-										</td>
-									</tr>
-									<tr>
-										<th scope="row"><label for="">주소/우편번호</label></th>
-										<td>											
-											<input type="text" style="width:200px; height:20px;" id="addr" name="addr" value="" title="관리자 이름을 입력해주세요." />
-											<input type="text" id="zipcode" name="zipcode" value="" title="관리자 이름을 입력해주세요." />
-											<input type="button" value="우편번호" id="" name="layer" onclick="sample2_execDaumPostcode()"/>
-										</td>
-									</tr>
-									<tr>
-										<th scope="row"><label for="">상세주소</label></th>
-										<td>
-											<input type="text" style="width:300px; height:20px;" id="addr_detail" name="addr_detail" value="" title="관리자 이름을 입력해주세요." />
-										</td>
-									</tr>
 									
 									
 								</tbody>
 							</table>
-							<input type="hidden" name="cmd" value="edit">
+							<input type="hidden" name="cmd" value="pwedit">
 							<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
 							<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
 							<input type="hidden" name="no" id="no" value="<%=param.getNo()%>"/>
@@ -262,7 +175,7 @@ function goSave() {
 									<a class="btns" href="<%=param.getTargetURLParam("index", param, 0)%>"><strong>목록</strong></a>
 								</div>
 								<div class="btnRight">
-									<a class="btns" href="#" onclick="goSave();"><strong>수정하기</strong></a>
+									<a class="btns" href="#" onclick="goSave();"><strong>저장</strong></a>
 								</div>
 							</div>
 							<!--//btn-->

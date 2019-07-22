@@ -29,6 +29,33 @@ public class MemberController {
 
 		return "manage/member/index";
 	}
+	
+	@RequestMapping("/manage/member/join")
+	public String join(Model model, MemberVO param) throws Exception {
+		MemberVO data = memberService.read(param.getNo());
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+
+		return "manage/member/join";
+	}
+	
+	@RequestMapping("/manage/member/idSrc")
+	public String idSrc(Model model, MemberVO param) throws Exception {
+		MemberVO data = memberService.read(param.getNo());
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+
+		return "manage/member/idSrc";
+	}
+	
+	@RequestMapping("/manage/member/pwdSrc")
+	public String pwdSrc(Model model, MemberVO param) throws Exception {
+		MemberVO data = memberService.read(param.getNo());
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+
+		return "manage/member/pwdSrc";
+	}
 
 	@RequestMapping("/manage/member/read")
 	public String read(Model model, MemberVO param) throws Exception {
@@ -47,6 +74,24 @@ public class MemberController {
 
 		return "manage/member/edit";
 	}
+	
+	@RequestMapping("/manage/member/memberDelete")
+	public String memberDelete(Model model, MemberVO param) throws Exception {
+		MemberVO data = memberService.read(param.getNo());
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+
+		return "manage/member/memberDelete";
+	}
+	
+//	@RequestMapping("/manage/member/pwedit")
+//	public String PWedit(Model model, MemberVO param) throws Exception {
+//		MemberVO data = memberService.read(param.getNo());
+//		model.addAttribute("data", data);
+//		model.addAttribute("vo", param);
+//
+//		return "manage/member/pwedit";
+//	}
 
 	@RequestMapping("/manage/member/write")
 	public String write(Model model, MemberVO param) throws Exception {
@@ -68,6 +113,17 @@ public class MemberController {
 		model.addAttribute("vo", param);
 
 		int value = memberService.emailcheck(request.getParameter("email"));
+
+		model.addAttribute("value", value);
+
+		return "include/return";
+	}
+	
+	@RequestMapping("/manage/member/pwdcheck")
+	public String pwdcheck(Model model, MemberVO param, HttpServletRequest request) throws Exception {
+		model.addAttribute("vo", param);
+
+		int value = memberService.emailcheck(request.getParameter("pwd"));
 
 		model.addAttribute("value", value);
 

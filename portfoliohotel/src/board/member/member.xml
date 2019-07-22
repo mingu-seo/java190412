@@ -54,9 +54,18 @@
         	<isNotEqual property="password" compareValue="">
         	    password = #password#,
         	</isNotEqual>
-        	 name=#name#, tel=#tel#, addr=#addr#, zipcode=#zipcode#, addr_detail=#add_detail#
+        	 name=#name#, tel=#tel#, addr=#addr#, zipcode=#zipcode#, addr_detail=#addr_detail#
         where no=#no#
     </update>
+    
+    <!-- <update id="update" parameterClass="membervo">
+        update member set
+        	<isNotEqual property="password" compareValue="">
+        	    password = #password#
+        	</isNotEqual>
+        	 
+        where no=#no#
+    </update> -->
     
     <delete id="delete" parameterClass="Integer">
         delete from member where no=#no#
