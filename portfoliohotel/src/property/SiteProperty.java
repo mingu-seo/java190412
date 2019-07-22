@@ -7,7 +7,7 @@ public class SiteProperty {
 	/**
 	 * 업체명
 	 */
-	public static final String 	COMPANY_NAME			= "SPRING";
+	public static final String 	COMPANY_NAME			= "Portfolio Hotel";
 	/**
 	 * 관리자 시작페이지
 	 */

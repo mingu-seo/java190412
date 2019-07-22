@@ -11,10 +11,10 @@ Room_optVO param = (Room_optVO)request.getAttribute("vo");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp" %>
 <script>
-var oEditors; // 에디터 객체 담을 곳
+/* var oEditors; // 에디터 객체 담을 곳
 jQuery(window).load(function(){
 	oEditors = setEditor("instruction"); // 에디터 셋팅
-});
+}); */
 
 function groupDelete() {	
 	if ( isSeleted(document.frm.no) ){
@@ -35,14 +35,14 @@ function goDelete(v) {
 function goSave() {
 	
 	
-	var sHTML = oEditors.getById["instruction"].getIR();
+	/* var sHTML = oEditors.getById["instruction"].getIR();
 	if (sHTML == "" || sHTML == "<p><br></p>") {
 		alert('제품 정보를 입력하세요.');
 		$("#instruction").focus();
 		return false;
 	} else {
 		oEditors.getById["instruction"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
-	}
+	} */
 	
 	return true;
 	/* $("#frm").submit(); */
@@ -74,29 +74,38 @@ function goSave() {
 							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process_opt" enctype="multipart/form-data" onsubmit="return goSave();">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
-									<col width="15%" />
-									<col width="35%" />
+									<col width="10%" />
+									<col width="5%" />
+									<col width="85%" />
 								</colgroup>
 								<tbody>
 									<tr>
 										<th>옵션 종류</th>
-										<td colspan="3"><input type="text" id="name" name="name" class="w100" /></td>
+										<td colspan="2"><input type="text" id="name" name="name" class="w100" /></td>
 									</tr>
 									<tr>
 										<th>옵션 소개</th>
-										<td colspan="3"><input type="text" id="instruction" name="instruction" class="w100" /></td>
+										<td colspan="2"><textarea id="instruction" name="instruction" class="w100"></textarea></td>
 									</tr>
 									<tr>
 										<th>옵션 이미지</th>
-										<td colspan="3"><input type="file" id="imagename_tmp" name="imagename_tmp" class="w100" /></td>
+										<td colspan="2"><input type="file" id="imagename_tmp" name="imagename_tmp" class="w100" /></td>
 									</tr>
 									<tr>
-										<th>옵션 정보</th>
-										<td colspan="3"><input type="text" id="info" name="info" class="w100" /></td>
+										<th rowspan="3">옵션 정보</th>
+										<td colspan="2"><textarea id="info" name="info" class="w100"></textarea></td>
+									</tr>
+									<tr>
+										<td><b>상세정보1</b></td>
+										<td><textarea id="info_1" name="info_1" class="w100"></textarea></td>
+									</tr>
+									<tr>
+										<td><b>상세정보2</b></td>
+										<td><textarea id="info_2" name="info_2" class="w100"></textarea></td>
 									</tr>
 									<tr>
 										<th>옵션 가격</th>
-										<td colspan="3"><input type="text" id="price" name="price" class="w100" /></td>
+										<td colspan="2"><input type="text" id="price" name="price" class="w100" /></td>
 									</tr>
 								</tbody>
 							</table>
@@ -104,7 +113,7 @@ function goSave() {
 							</form>
 							<div class="btn">
 								<div class="btnLeft">
-									<a class="btns" href="<%=param.getTargetURLParam("index", param, 0)%>"><strong>목록</strong></a>
+									<a class="btns" href="/manage/room/index_opt"><strong>목록</strong></a>
 								</div>
 								<div class="btnRight">
 									<a class="btns" href="javascript:$('#frm').submit();"><strong>저장</strong></a>

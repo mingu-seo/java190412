@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="room.*" %>
+<%@ page import="java.util.*"%>
+<%
+ArrayList<Room_optVO> list = (ArrayList<Room_optVO>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,132 +50,8 @@
     <title>객실예약</title>
 </head>
 <body>
-    <div id="header">
-        <div class="header-center">
-            <div class="pc-header">
-                <h1 class="logo"><a href="../index.html"><img src="../img/header-logo.png"></a></h1>
-                <ul class="pc-gnb">
-                    <li>
-                        <a href="#">Book</a>
-                            <div class="pc-sub">
-                                    <div class="pc-sub-center">
-                                        <div class="pc-sub-box">
-                                            <h2><a href="../pkg/special_promotion.html">Promotion</a></h2>
-                                            <ul class="offer">
-                                                <li><a href="../pkg/room_offer.html">Room Package</a></li>
-                                                <li><a href="../pkg/dining_offer.html">Dining Package</a></li>
-                                                <li><a href="../pkg/etc_offer.html">Events & Gift</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="pc-sub-box">
-                                            <h2>Rooms</h2>
-                                            <ul class="Rooms">
-                                                <li><a href="../room/room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
-                                                <li><a href="../room/room-detail-subpage2.html">Namsan Pool Premier Suite</a></li>
-                                                <li><a href="../room/room-detail-subpage3.html">Namsan Presidential Suite</a></li>
-                                                <li><a href="../room/room-detail-subpage4.html">Spa Sanctuary Suite</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="pc-sub-box">
-                                            <h2>Dining</h2>
-                                            <ul class="Dining">
-                                                <li><a href="#">The Festa</a></li>
-                                                <li><a href="#">Granum Dining Lounge</a></li>
-                                                <li><a href="#">Moon Bar</a></li>
-                                                <li><a href="#">The Oasis Outdoor Kitchen</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="pc-sub-box">
-                                            <h2>Meeting & Wedding</h2>
-                                            <ul class="Meeting & Wedding">
-                                                <li><a href="#">Meeting</li>
-                                                <li><a href="#">Wedding</a></li>
-                                                <li><a href="#">Family Party</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                    </li>
-                    <li class="facilities">
-                        <a href="#">Facilities</a>
-                            <div class="pc-sub">
-                                    <div class="pc-sub-center center clear">
-                                            <div class="pc-sub-box facil-left">
-                                                <h2 class="no-line">Facilities</h2>
-                                                <ul>
-                                                    <li><a href="../facilities.html#f1">The Oasis</a></li>
-                                                    <li><a href="../facilities.html#f2">Indoor Swimming Pool</a></li>
-                                                    
-                                                </ul>
-                                            </div>
-                                            <div class="pc-sub-box mtop">
-                
-                                                <ul class="Rooms">
-                                                        <li><a href="../facilities.html#f3">Fitness Centre</a></li>
-                                                        <li><a href="../facilities.html#f4">Sauna</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="pc-sub-box mtop facil-right">
-                                                
-                                                <ul class="Dining">
-                                                    <li><a href="#">Troon Golf Academy</a></li>
-                                                    <li><a href="#">Foresta Beauty Salon</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                            </div>
-                        
-                    </li>
-                    <li>
-                        <a href="#">Support</a>
-                            <div class="pc-sub">
-                                    <div class="pc-sub-center center clear">
-                                            <div class="pc-sub-box">
-                                                <h2 class="no-line">Support</h2>
-                                                <a href="../membership/notice.html" class="notice-a">
-                                                <ul>
-                                                    <li>Notice</li>
-                                                    <li class="support-text">
-                                                        반얀트리 공지사항과<br/>
-                                                        놓칠 수 없는 이벤트 정보를 알려드립니다.
-                                                    </li>
-                                                    <li class="support-icon"><img src="../img/notice-icon.png"></li>
-                                                </ul>
-                                                </a>
-                                            </div>
-                                            <div class="pc-sub-box mtop">
-                                                <a href="../membership/faq.html">
-                                                <ul>
-                                                    <li>FAQ</li>
-                                                    <li class="support-text">
-                                                        반얀트리에 대한<br/>
-                                                        자주 묻는 질문입니다.
-                                                    </li>
-                                                    <li class="support-icon"><img src="../img/faq-icon.png"></li>
-                                                </ul>
-                                                </a>
-                                            </div>
-                                            <div class="pc-sub-box mtop">
-                                                <a href="../membership/qna.html">
-                                                <ul>
-                                                    <li>Q&A</li>
-                                                    <li class="support-text">
-                                                        반얀트리에 관한질문 사항이나 궁금한 점을<br/> 
-                                                        남겨 주시면 신속하게 답변을 드리겠습니다.
-                                                    </li>
-                                                    <li class="support-icon"><img src="../img/qna-icon.png"></li>
-                                                </ul>
-                                                </a>
-                                        </div>
-                            </div>
-                    </li>
-                    <!-- <li><a href="#">SIGN IN</a></li> -->
-                </ul>
-                <a href="../membership/sign_in.html">Sign in</a>
-            </div>
-        </div>
-    </div>
-    
+<%@ include file="../header_menu.jsp" %>
+
     <div id="container">
         <div class="option_channel clear">
             <h1 class="head-title">객실예약</h1>
@@ -188,94 +69,49 @@
                             <p>추가 옵션 선택</p>
                         </div>
 
-                        <div class="add01">
-                            <div class="add-detail">
-                                <h3>스파 세션 추가</h3>
-                                <p>마음과 여행으로 피곤해진 내 몸을 위한 특별한<br/>
-                                    시간, 오직 반얀트리에서 누릴 수 있는 럭셔리한<br/>
-                                    반얀트리만의 특화된 스파를 즐겨보세요.</p>
-                                <div class="detail-pic"><img src="../img/option-img/option-spa.gif"></div>
-                            </div>
-                            <div class="option-box">
-                                <ul class="option-detail">
-                                    <li>· 60분의 힐링타임을 위한 바디마사지</li>
-                                    <li>· 마사지 전과 후에 30분동안 바디 릴렉스와 바디 탄력 셋업</li>
-                                </ul>
-
-                                <div class="chk-box">
-                                    <p>2019. 06. 05 ~ 2019. 06. 08(투숙 기간중 1회)</p>
-                                    <p>SPA SESSION 객실 요금 KRW 210,000 [1인/1객실]</p>
-                                        <div class="number-chk">
-                                            <select>
+						<%
+						if(list.size() > 0) {
+							for(int i=0; i<list.size(); i++) {
+						%>
+							<div class="add0<%=i==0 ? "1":"2"%>">
+								<div class="add-detail">
+									<h3><%=list.get(i).getName() %></h3>
+									<p><%=list.get(i).getInstruction() %></p>
+									<div class="detail-pic"><img src="/upload/room_opt/<%=list.get(i).getImage() %>"/></div>
+								</div>
+								<div class="option-box">
+									<ul class="option-detail">
+									<%
+									if(!list.get(i).getInfo_1().equals("")) {
+									%>
+										<li>· <%=list.get(i).getInfo_1() %></li>
+									<%
+									}
+									if(!list.get(i).getInfo_2().equals("")) {
+									%>
+										<li>· <%=list.get(i).getInfo_2() %></li>
+									<%
+									}
+									%>
+									</ul>
+									<div class="chk-box">
+										<p><%=list.get(i).getInfo() %></p>
+										<div class="number-chk">
+											<select>
                                                 <option>0</option>
                                                 <option>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
                                                 <option>4</option>
                                             </select>
-                                        </div>
-                                </div>   
-                            </div>
-
-                        </div>
-
-                        <div class="add02">
-                                <div class="add-detail">
-                                    <h3>침대 추가</h3>
-                                    <p>객실 내 이동식 침대를 추가해 드립니다. 단, <br/>
-                                        한정된 수량으로 인해 수급이 불가 할 수 있습니다. <br/>
-                                        체그인 시 가능 여부를 확인해드립니다.</p>
-                                    <div class="detail-pic"><img src="../img/option-img/option-bed.gif"></div>
-                                </div>
-                                <div class="option-box">
-                                    <div class="chk-box">
-                                        <p>이동식 침대 KRW 50,000 [1대/1박]</p>
-                                            <div class="number-chk">
-                                                <select>
-                                                    <option>0</option>
-                                                    <option>1</option>
-                                                </select>
-                                            </div>
-                                    </div>
-                                </div>
-                                <div class="breifNotice">
-                                    <p>* 침대 추가는 객실당 하루 1개까지 가능합니다.</p>
-                                    <p>* 침대 추가 금액은 일정 기간에 적용됩니다.</p>
-                                </div>
-
-                        </div>
-<!-- <input name="pass" type="text">
-<select>
-    <option value="포토샵">포토샵</option>
-</select> -->
-                        <div class="add02">
-                                <div class="add-detail">
-                                    <h3>Welcome Wine & Chocolate</h3>
-                                    <p> 반얀트리 소믈리에와 셰프가 준비한 이탈리안<br/>
-                                        빈티지 레드 와인과 치즈 플레이트를 객실에 <br/>
-                                        준비해 드립니다.</p>
-                                    <div class="detail-pic"><img src="../img/option-img/option-wine.gif"></div>
-                                </div>
-                                <div class="option-box">
-                                    <div class="chk-box">
-                                        <p>웰컴 와인과 치즈 KRW 66,000 [1set]</p>
-                                            <div class="number-chk">
-                                                <select>
-                                                    <option>0</option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                </select>
-                                            </div>
-                                    </div>
-                                </div>
-                                            
-                        </div>
-
-                    
+										</div>
+									</div>
+								</div>
+							</div>
+						<%
+							}
+						}
+						%>
                     </div>
 
                     <div class="right-section">
@@ -321,7 +157,6 @@
                                 <div class="content-area04 area">
                                     <h4><span></span>객실 예약문의 00-0000-0000</h4>
                                 </div>
-                                
                         </div>
                     </div>
                 </div>   
