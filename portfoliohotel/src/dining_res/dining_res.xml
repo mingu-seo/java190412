@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="dining_res">
+
+	<typeAlias alias="dining_resvo" type="dining_res.Dining_resVO" />
+
+	<select id="count" parameterClass="dining_resvo" resultClass="Integer">
+		select count(*) from dining_res
+	</select>
+
+	<select id="list" parameterClass="dining_resvo" resultClass="dining_resvo">
+		select * from dining_res
+		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
+	</select>
+	
+	
+	<insert id="insert" parameterClass="dining_resvo">
+		insert into dining_res (
+		d_day, d_time, adult, kid, guest_kname, guest_ename, guest_tel, guest_email, regdate) 
+		values (
+		#d_day#, #d_time#, #adult#, #kid#, #guest_kname#, #guest_ename#, #guest_tel#, #guest_email#, now())
+		<selectKey keyProperty="no" resultClass="Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+</sqlMap>

@@ -50,8 +50,8 @@ public class MypetDAO extends SqlMapClientDAOSupport {
 	 * @param vo
 	 * @throws SQLException
 	 */
-	public int delete(MypetVO vo) throws SQLException {
-		return getSqlMapClient().delete("mypet.delete", vo);
+	public int delete(int no) throws SQLException {
+		return getSqlMapClient().delete("mypet.delete", no);
 	}
 
 	/**
@@ -72,21 +72,6 @@ public class MypetDAO extends SqlMapClientDAOSupport {
 	 * @return boolean
 	 * @throws SQLException
 	 */
-	
-	public int loginCheck(MypetVO vo) throws SQLException {
-		return (Integer) getSqlMapClient().queryForObject("mypet.loginCheck", vo);
-	}
-	
-	/**
-	 * 관리자 아이디체크
-	 * @param param
-	 * @return
-	 * @throws SQLException
-	 */
-
-	public MypetVO getLoginSessionInfo(MypetVO vo) throws SQLException {
-		return (MypetVO) getSqlMapClient().queryForObject("mypet.loginSessionInfo", vo);
-	}
 
 	
 	public static void main(String[] args) throws Exception {

@@ -106,7 +106,6 @@ public class NoticeController {
 		System.out.println(param.getCmd());
 		
 		if ("write".equals(param.getCmd()) ) {
-			
 			int r = noticeService.insert(param, request);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
@@ -131,5 +130,4 @@ public class NoticeController {
 		}		
 		return "include/alert";
 	}
-	
 }

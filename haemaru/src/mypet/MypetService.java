@@ -38,7 +38,7 @@ public class MypetService {
 		
 		FileUtil fu = new FileUtil();
 		Map fileMap = fu.getFileMap(request);
-		MultipartFile file= (MultipartFile)fileMap.get("imagename_tmp");
+		MultipartFile file= (MultipartFile)fileMap.get("image_tmp");
 		if (!file.isEmpty()) {
 			fu.upload(file, SiteProperty.MYPET_UPLOAD_PATH, SiteProperty.REAL_PATH, "mypet");
 			vo.setMypet_image(fu.getName());
@@ -60,7 +60,7 @@ public class MypetService {
 		MypetVO data = mypetDAO.read(vo);
 		int r = (Integer)mypetDAO.update(vo);
 		if(r > 0){
-			if("1".equals(vo.getMypet_image_org()) || !"".equals(Function.checkNull(vo.getMypet_image()))){
+			if("1".equals(vo.getMypet_image_chk()) || !"".equals(Function.checkNull(vo.getMypet_image()))){
 				Function.fileDelete(vo.getUploadPath(), data.getMypet_image());
 			}
 		}
@@ -68,31 +68,19 @@ public class MypetService {
 	}
 
 	
-	public int delete(MypetVO vo) throws Exception {
-		MypetVO data = mypetDAO.read(vo);
-		int r = mypetDAO.delete(vo);
-		if (r > 0) {
-			Function.fileDelete(vo.getUploadPath(), data.getMypet_image());
-		}
-		return r;
+	public int delete(int no) throws Exception {
+		int cnt = mypetDAO.delete(no);
+		return cnt;
 	}
 	
-	public int groupDelete(MypetVO vo, HttpServletRequest request) throws Exception {
-		String[] nos = request.getParameterValues("no");
-		int delCount = 0;
-		if (nos.length > 0) {
-			for (int i=0; i<nos.length; i++) {
-				MypetVO nvo = new MypetVO();
-				nvo.setNo(Function.getIntParameter(nos[i]));
-				MypetVO data = mypetDAO.read(vo);
-				int r = mypetDAO.delete(vo);
-				if (r > 0) {
-					delCount++;
-					Function.fileDelete(vo.getUploadPath(), data.getMypet_image());
-				}
-			}
+	public int groupDelete(HttpServletRequest request) throws Exception {
+		String[] no = request.getParameterValues("no");
+		int r = 0;
+		for (int i = 0; i < no.length; i++) {
+			int nos = Integer.parseInt(no[i]);
+			r += mypetDAO.delete(nos);
 		}
-		return delCount;
+		return r;
 	}
 	
 	

@@ -15,6 +15,7 @@ public class MypetVO extends Parameter{
 	private String vac;
 	private String mypet_image;
 	private String mypet_image_org;
+	private String mypet_image_chk;
 	private String memo;
 	private Timestamp registdate;
 	
@@ -112,6 +113,14 @@ public class MypetVO extends Parameter{
 
 	public void setMypet_image_org(String mypet_image_org) {
 		this.mypet_image_org = mypet_image_org;
+	}
+
+	public String getMypet_image_chk() {
+		return mypet_image_chk;
+	}
+
+	public void setMypet_image_chk(String mypet_image_chk) {
+		this.mypet_image_chk = mypet_image_chk;
 	}
 
 	public String getMemo() {

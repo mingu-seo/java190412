@@ -76,7 +76,7 @@
             <div class="logined-box">
                 <h2 class="close-btn"><a href="#">x</a></h2>
                 <h3>기멍솔<span>님 안녕하세요.</span></h3>
-                <p class="mypage"><a href="membership/mypage.html">마이페이지 <img src="img/white-arrow.png" class="white-arrow"></a></p>
+                <p class="mypage"><a href="membership/mypage.do">마이페이지 <img src="img/white-arrow.png" class="white-arrow"></a></p>
                 <table>
                     <tr>
                         <td class="left">등급</td>
@@ -216,7 +216,7 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="membership/sign_in.html">Sign in</a>
+                <a href="/membership/sign_in.do">Sign in</a>
             </div>
         </div>
     </div>

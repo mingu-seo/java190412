@@ -737,12 +737,65 @@ public class CodeUtil {
 			return result;
 		}	
 	 
+
+	 public static String getGender(int gender) {
+			String result = "";
+			if (gender == 1) {
+				result = "남자";
+			} else if (gender == 2) {
+				result = "여자";
+			}
+			
+			return result;
+		}
+	 
+	 public static String getMgrade(int grade) {
+			String result = "";
+			if (grade == 0) {
+				result = "없음";
+			} else if (grade == 1) {
+				result = "CLASSIC";
+			} else if (grade == 2) {
+				result = "VIP";				
+			}else if (grade == 3) {
+				result = "VVIP";
+			}
+			
+			return result;
+		}
+	 
+	 public static String getSns_type(int sns_type) {
+			String result = "";
+			if (sns_type == 1) {
+				result = "FACEBOOK";
+			} else if (sns_type == 2) {
+				result = "GOOGLE";
+			}else if (sns_type == 3) {
+				result = "NAVER";
+			}else if (sns_type == 4) {
+				result = "KAKAO";
+			}
+			
+			return result;
+		}
+	 
+	 public static String getSecession(int secession) {
+			String result = "";
+			if (secession == 1) {
+				result = "";
+			} else if (secession == 2) {
+				result = "탈퇴한 회원";
+			}
+			
+			return result;
+		}
+
 	 public static String getTopName(int top) {
 		 String result = "";
 			if (top == 1) {
-				result = "상단노출";
-			} else if (top == 2) {
 				result = "상단미노출";
+			} else if (top == 2) {
+				result = "상단노출";
 			} 
 			
 			return result;
@@ -768,5 +821,6 @@ public class CodeUtil {
 		 }
 		return result;
 	 }
+
 	 	
 }

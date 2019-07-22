@@ -250,7 +250,8 @@ public class Page {
 	 */
 	public static String getPageURL(HttpServletRequest request) {
 		 
-		String originalURL = request.getRequestURI(); 
+		/* String originalURL = request.getRequestURI(); */ // getRequestURI() : jsp에 있는 경로가 나옴
+		String originalURL = (String)request.getAttribute("javax.servlet.forward.request_uri"); //getAttribute("") :맵핑된 주소를 톰캣이 담아줌
 		  
 		Enumeration param = request.getParameterNames();	// request
 		String paramName = "";								// 파라미터 네임값
