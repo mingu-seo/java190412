@@ -4,9 +4,9 @@ import util.Parameter;
 
 public class Room_imageVO extends Parameter {
 
-		private int no;
-		private String image;
-		private int room_pk;
+		private int no; //pk
+		private String image; //이미지명
+		private int room_pk; //객실 pk
 		
 		private String image_chk;
 		

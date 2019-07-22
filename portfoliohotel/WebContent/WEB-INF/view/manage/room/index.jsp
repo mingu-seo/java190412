@@ -57,7 +57,7 @@ function goSearch() {
 					<div id="bbs">
 						<div id="blist">
 							<form name="frm" id="frm" action="process_del" method="post">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<colgroup>
 									<col class="w2" />
 									<col class="w3" />
@@ -100,8 +100,6 @@ function goSearch() {
 								</tbody>
 							</table>
 								<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
-								<%-- <input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
-								<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/> --%>
 							</form>
 							<div class="btn">
 								<div class="btnLeft">

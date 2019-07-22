@@ -52,7 +52,7 @@ $(window).load(function(){
 	
 	// 메뉴 수에 맞게 width 값 수정.
 	$("ul.menu > li").css("width", (100 / $("ul.menu > li").length) + "%");
-});
+}); 
 </script>
 <div id="header">
 	<div class="header_inner">

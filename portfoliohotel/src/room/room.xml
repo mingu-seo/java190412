@@ -18,14 +18,6 @@
 		</selectKey>
 	</insert>
 	
-	<insert id="insert_image" parameterClass="java.util.HashMap">
-		INSERT INTO room_img (image, room_pk) VALUES (#image#, #room_pk#)
-	</insert>
-	
-	<select id="list_image" parameterClass="Integer" resultClass="java.util.HashMap">
-		SELECT * FROM room_img where room_pk=#room_pk#
-	</select>
-	
 	<select id="read" parameterClass="roomVO" resultClass="roomVO">
 		SELECT * FROM room where no=#no#
 	</select>
@@ -42,6 +34,16 @@
 		DELETE FROM room WHERE no=#no#
 	</delete>
 	
+	
+	
+	<insert id="insert_image" parameterClass="java.util.HashMap">
+		INSERT INTO room_img (image, room_pk) VALUES (#image#, #room_pk#)
+	</insert>
+	
+	<select id="list_image" parameterClass="Integer" resultClass="java.util.HashMap">
+		SELECT * FROM room_img where room_pk=#room_pk#
+	</select>
+	
 	<delete id="delete_image" parameterClass="Integer">
 		DELETE FROM room_img WHERE no=#no#
 	</delete>
@@ -55,8 +57,8 @@
 	</select>
 	
 	<insert id="insert_opt" parameterClass="room_optVO">
-		INSERT INTO room_opt (name, instruction, image, image_org, info, price)
-		VALUES (#name#, #instruction#, #image#, #image_org#, #info#, #price#)				
+		INSERT INTO room_opt (name, instruction, image, image_org, info, info_1, info_2, price)
+		VALUES (#name#, #instruction#, #image#, #image_org#, #info#, #info_1#, #info_2#, #price#)				
 		<selectKey keyProperty="no" resultClass="Integer">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
@@ -68,7 +70,7 @@
 	
 	<update id="update_opt" parameterClass="room_optVO">
 		UPDATE room_opt SET
-			name=#name#, instruction=#instruction#, image=#image#, image_org=#image_org#, info=#info#, price=#price#
+			name=#name#, instruction=#instruction#, info=#info#, info_1=#info_1#, info_2=#info_2#, price=#price#
 		WHERE no=#no#
 	</update>
 	
