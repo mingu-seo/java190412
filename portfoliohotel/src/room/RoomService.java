@@ -234,6 +234,9 @@ public class RoomService {
 	public int delete_opt(Room_optVO vo) throws SQLException {
 		Room_optVO read = roomDAO.read_opt(vo);
 		int r = roomDAO.delete_opt(vo);
+		if (r > 0) {
+			Function.fileDelete(SiteProperty.REAL_PATH+SiteProperty.ROOM_OPT_UPLOAD_PATH, read.getImage());
+		}
 		
 		return r;
 	}
