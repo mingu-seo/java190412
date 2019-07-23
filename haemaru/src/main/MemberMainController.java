@@ -26,7 +26,7 @@ public class MemberMainController {
 		return "index";
 	}
 	
-	@RequestMapping("/manage/login")
+	@RequestMapping("/member/login")
 	public String login(Model model, @RequestParam(value="login_url", required=false) String login_url, @RequestParam(value="login_param", required=false) String login_param, MemberVO vo, HttpSession session) throws Exception {
 		if (memberService.loginCheck(vo)) {
 			
@@ -57,7 +57,7 @@ public class MemberMainController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/manage/logout")
+	@RequestMapping("/member/logout")
 	public String logout(Model model) {
 		//loginInfoProvider.get().remove();
 		
