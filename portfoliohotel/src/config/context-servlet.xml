@@ -15,7 +15,6 @@
 	<context:component-scan base-package="dining" />
 	<context:component-scan base-package="dining_res" />
 	<context:component-scan base-package="membership" />
-	
 	<mvc:annotation-driven/>
 	
 

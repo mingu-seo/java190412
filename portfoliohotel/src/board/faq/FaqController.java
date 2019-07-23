@@ -28,7 +28,7 @@ public class FaqController {
 		model.addAttribute("list", list);
 		model.addAttribute("vo", param);
 		
-		return "manage/board/faq/index";
+		return "book/dining_pkg_book";
 	}	
 	
 	@RequestMapping("/membership/faq")
