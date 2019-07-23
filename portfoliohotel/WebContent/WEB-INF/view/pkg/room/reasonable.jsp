@@ -46,26 +46,22 @@
                 });
             });
         </script>
-    <title>테스트</title>
+    <title>The Reasonable</title>
 </head>
 <body>
-    <%@ include file="../header_menu.jsp" %>
+    <%@ include file="../../header_menu.jsp" %>
     
     <div id="container">
-        <div class="banner propose">
+        <div class="banner reasonable">
             <div class="banner-center">
                 <div class="banner-text">
-                    <h2>프로포즈 & 기념일 패키지</h2>
-                    <h3>'For My Parents' & 'For my Fiancé'<br/>
-                        서울의 야경이 펼쳐진 문 바에서 커플을 위한<br/>
-                        프로포즈 & 기념일 패키지를 선보입니다.
+                    <h2>더 리즈너블
+                        <span>The Reasonable</span>
+                    </h2>
+                    <h3>밤이 깊어질수록 매력을 더하는<br/> 문 바에서 봄 바람이 불어오는 밤에 즐거움을 더할 위스키 세트를 선보입니다.
                     </h3>
                     <p>
-                        사랑하는 사람과 평생을 약속하는 순간인 프로포즈를<br/> 
-                        문 바에서 준비해드립니다. <br/>
-                        결혼을 앞둔 커플의 프로포즈는 물론, 긴 시간 동안 <br/>
-                        사랑을 이어온 부모님의 기념일을 위한 <br/>
-                        로맨틱한 시간도 준비해드립니다.
+                        싱글 몰트 위스키의 향기와 조화를 이루는 치즈&과일 플래터, 소프트 드링크로 구성된 ‘더 리즈너블’과 함께 더욱 깊이 있는 밤을 즐겨보세요.
                     </p>
                 </div>
             </div>
@@ -77,31 +73,29 @@
                     <table>
                         <tr>
                             <td class="table-list">기간</td>
-                            <td>상시운영</td>
+                            <td>상시 운영</td>
                         </tr>
                         <tr>
-                            <td class="table-list time">시간</td>
-                            <td>오후7시~오후9시</td>
+                            <td class="table-list">시간</td>
+                            <td>18:00 ~ 02:00 (Last Oder 01:30)</td>
                         </tr>
                         <tr>
-                            <td class="table-list">혜택</td>
-                            <td class="td-lh">- 푸드 플래터(2인)<br/>
-                                - 와인 1병 (레드 또는 로제 스파클링 와인 중 택 1) <br/>
-                                - 케이크 (초콜렛 또는 생크림 중 택 1) <br/>
-                                - 플라워 데코레이션 <br/>
-                                - 포토 데코레이션 (사진인화 2장 및 액자 셋팅) 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="table-list price">가격</td>
-                            <td>380,000 (VAT 포함)</td>
-                        </tr>
-                        <tr>
-                            <td class="table-list">장소</td>
-                            <td class="td-lh">문바 21층<br/>
+                            <td class="table-list info">메뉴</td>
+                            <td class="td-lh">문 세트 374,000원 <br/>
+                                - 발베니(Balvenie) 12년 1병  <br/>
+                                - 소프트 드링크 2잔  <br/>
+                                - 과일 플래터 또는 치즈 플래터 중 택 1  <br/>
                                 <br/>
-                                *케이크 제작으로 인해 3일 전 사전 예약 필수
+                                남산 세트 437,000원  <br/>
+                                - 글렌피딕(Glenfiddich) 15년 1병  <br/>
+                                - 소프트 드링크 2잔  <br/>
+                                - 과일 플래터 또는 치즈 플래터 중 택 1
+                                <br/>
                             </td>
+                        </tr>
+                        <tr>
+                            <td class="table-list place">장소</td>
+                            <td>문 바 (20F)</td>
                         </tr>
                     </table>
                 </div>

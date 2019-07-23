@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="notice">
+    
+    <typeAlias alias="notice_vo" type="board.notice.NoticeVO"/>
+    
+	<sql id="searchSql">		
+		<!-- WHERE 절 검색 -->
+		<dynamic prepend="where"> <!-- prepend:자동으로 ""안의 문자가 앞에 붙게끔 -->
+			1=1
+		    <isNotEqual property="member" compareValue="0">
+		    	and member = #member#
+		    </isNotEqual>			
+		    <isNotEqual property="display" compareValue="0">
+		    	and display = #display#
+		    </isNotEqual>
+		    <isNotEqual property="top" compareValue="0">
+		    	and top = #top#
+		    </isNotEqual>    		    
+			<isNotEqual property="sval" compareValue="">
+				<isEqual property="stype" compareValue="all" prepend="and">
+					and ( (title like '%$sval$%' ) or (contents like '%$sval$%' )) 					
+				</isEqual>
+				<isNotEqual property="stype" compareValue="all" prepend="and">
+					and ($stype$ like '%$sval$%' )
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql>
+    
+	<!-- 해당 테이블의 총 게시글 수 -->
+	<select id="count" parameterClass="notice_vo" resultClass="Integer">
+        select count(*) from notice	
+        <include refid="searchSql"/>
+    </select>
+    
+	<select id="list" parameterClass="notice_vo" resultClass="notice_vo">
+        select *
+        from notice
+        <include refid="searchSql"/>
+		ORDER BY top DESC, regdate DESC LIMIT $startPageNo$, $pageRows$
+    </select>    
+    
+	<!-- 해당 테이블에 게시글 작성 -->
+    <insert id="insert" parameterClass="notice_vo">
+        INSERT INTO notice (
+        	title, member, top, display, contents, 
+        	regdate, readno, file_org, file
+        ) VALUES (
+        	#title#, #member#, #top#, #display#, #contents#, 
+        	now(), 0, #file_org#, #file#
+        )
+        <selectKey keyProperty="no" resultClass="Integer">
+        	SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    
+    <update id="update" parameterClass="notice_vo">
+        update notice set
+        	title=#title#, member=#member#, top=#top#, display=#display#,  	
+        <isEqual property="file_chk" compareValue="1">
+        	file='', file_org='',
+        </isEqual>       	
+        <isNotEqual property="file" compareValue="">
+            <isNotNull property="file">
+        		file=#file#, file_org=#file_org#,
+        	</isNotNull>
+        </isNotEqual>	
+        contents=#contents#
+        where no=#no#
+    </update>
+    
+    <delete id="delete" parameterClass="Integer">
+        delete from notice where no=#no#
+    </delete>
+    
+    <select id="read" parameterClass="Integer" resultClass="notice_vo">
+        select * FROM notice where no=#no#
+    </select>
+    
+    <update id="updateReadno" parameterClass="notice_vo">
+        UPDATE notice SET readno = readno+1 WHERE no = #no#
+    </update>
+    
+</sqlMap>
