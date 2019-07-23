@@ -26,6 +26,17 @@
 			</isNotEqual>
 		</dynamic>
 	</sql>
+	
+		<!-- 공통조건 -->
+	<sql id="searchDoctor">
+		<!-- WHERE 절 검색 -->
+		<dynamic prepend="where">
+			<isNotEqual property="department" compareValue="0"
+				prepend="and">
+				department = #department#
+			</isNotEqual>
+		</dynamic>
+	</sql>
 
 
 	<select id="count" parameterClass="doctorvo"
@@ -41,6 +52,9 @@
 		<include refid="searchSql" />
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
 	</select>
+	
+
+	
 
 	<insert id="insert" parameterClass="doctorvo">
 		INSERT INTO doctor
