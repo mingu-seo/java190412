@@ -170,29 +170,20 @@ NoticeVO data = (NoticeVO)request.getAttribute("data");
             </div>
             <div class="notice-table">
                 <div class="table-box">
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    	<colgroup>
-                    		<col width="15%" />
-							<col width="15%" />
-							<col width="15%" />
-							<col width="15%" />
-							<col width="15%" />
-							<col width="15%" />
-                    	</colgroup>
-                    	<tbody>
-                    		<tr>
-								<th scope="row"><label for="">제목</label></th>
+                    	<table>
+                    		<tr class="table-head">
+								<th scope="col">제목</th>
 								<td><%=data.getTitle()%></td>
 							</tr>
 							<tr>
-								<th scope="row"><label for="">등록일</label></th>
-								<td colspan="1"><%=DateUtil.getDateFormat(data.getRegdate())%></td>
-								<th scope="row"><label for="">조회수</label></th>
-								<td colspan="1"><%=data.getReadno() %></td>
+								<th scope="col">등록일</th>
+								<td><%=DateUtil.getDateFormat(data.getRegdate())%></td>
+								<th scope="col">조회수</th>
+								<td><%=data.getReadno() %></td>
 							</tr>					
 							<tr>
-								<th scope="row"><label for="">첨부파일</label></th>
-								<td colspan="3"><img src="/upload/notice/<%=data.getFile()%>" /></td>
+								<th scope="col"><label for="">첨부파일</label></th>
+								<td><img src="/upload/notice/<%=data.getFile()%>"></td>
 							</tr>
 							<tr>
 								<td colspan="4"><%=data.getContents()%></td>

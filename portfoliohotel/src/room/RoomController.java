@@ -21,8 +21,16 @@ public class RoomController {
 
 	@Autowired
 	RoomService roomService;
-
-//	관리자_객실
+	
+//  관리자 페이지 
+	
+	/**
+	 * 객실 목록
+	 * @param model
+	 * @param vo
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/manage/room/index")
 	public String index(Model model, RoomVO vo) throws Exception {
 		ArrayList<RoomVO> list = roomService.list(vo);
@@ -33,6 +41,16 @@ public class RoomController {
 		return "manage/room/index";
 	}
 
+	/**
+	 * 객실 등록
+	 * @param model
+	 * @param vo
+	 * @param vo_s
+	 * @param vo_i
+	 * @param req
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/manage/room/write")
 	public String write(Model model, RoomVO vo, Room_serviceVO vo_s, Room_imageVO vo_i, HttpServletRequest req) throws Exception {
 		int no = vo.getNo();
@@ -46,6 +64,13 @@ public class RoomController {
 		return "manage/room/write";
 	}
 
+	/**
+	 * 객실 상세
+	 * @param model
+	 * @param vo
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/manage/room/read")
 	public String read(Model model, RoomVO vo) throws Exception {
 		RoomVO read = roomService.read(vo);
@@ -59,6 +84,13 @@ public class RoomController {
 		return "manage/room/read";
 	}
 
+	/**
+	 * 객실 수정
+	 * @param model
+	 * @param vo
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/manage/room/edit")
 	public String edit(Model model, RoomVO vo) throws Exception {
 		RoomVO read = roomService.read(vo);
@@ -74,6 +106,13 @@ public class RoomController {
 		return "manage/room/edit";
 	}
 	
+	/**
+	 * 객실 이미지 삭제
+	 * @param model
+	 * @param vo
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/manage/room/delete_image")
 	public String delete_image(Model model, Room_imageVO vo) throws Exception {
 		roomService.delete_image(vo.getNo(), vo.getImage());
@@ -82,7 +121,13 @@ public class RoomController {
 	}
 	
 	
-//	관리자_객실 옵션
+	/**
+	 * 객실 옵션 목록
+	 * @param model
+	 * @param vo
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/manage/room/index_opt")
 	public String index_opt(Model model, Room_optVO vo) throws Exception {
 		ArrayList<RoomVO> list_opt = roomService.list_opt(vo);
@@ -93,6 +138,13 @@ public class RoomController {
 		return "manage/room/index_opt";
 	}
 	
+	/**
+	 * 객실 옵션 등록
+	 * @param model
+	 * @param vo
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/manage/room/write_opt")
 	public String write_opt(Model model, Room_optVO vo) throws Exception {
 		model.addAttribute("vo", vo);
@@ -101,53 +153,6 @@ public class RoomController {
 	}
 	
 	
-	
-
-	/**
-	 * 사용자 페이지
-	 */
-	@RequestMapping("/room/room-detail-subpage.do")
-	public String room_detail_subpage(Model model, AdminVO vo) throws Exception {
-
-		return "room/room-detail-subpage";
-	}
-
-	@RequestMapping("/room/room-detail-subpage2.do")
-	public String room_detail_subpage2(Model model, AdminVO vo) throws Exception {
-
-		return "room/room-detail-subpage2";
-	}
-
-	@RequestMapping("/room/room-detail-subpage3.do")
-	public String room_detail_subpage3(Model model, AdminVO vo) throws Exception {
-
-		return "room/room-detail-subpage3";
-	}
-
-	@RequestMapping("/room/room-detail-subpage4.do")
-	public String room_detail_subpage4(Model model, AdminVO vo) throws Exception {
-
-		return "room/room-detail-subpage4";
-	}
-
-	@RequestMapping("/book/add_option.do")
-	public String add_option(Model model, AdminVO vo) throws Exception {
-
-		return "book/add_option";
-	}
-
-	@RequestMapping("/book/check_room.do")
-	public String check_room(Model model, AdminVO vo) throws Exception {
-
-		return "book/check_room";
-	}
-
-	@RequestMapping("/book/price_room.do")
-	public String price_room(Model model, AdminVO vo) throws Exception {
-
-		return "book/price_room";
-	}
-
 	/**
 	 * 등록, 수정, 삭제 cmd값으로 구분해서 처리
 	 * 
@@ -165,7 +170,6 @@ public class RoomController {
 		if ("write".equals(vo.getCmd())) {
 			int r = roomService.insert(vo, request, image_tmp);
 			roomService.insert_service(request, r);
-//			roomService.insert_image(request, r);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
 			model.addAttribute("url", "index");
@@ -210,6 +214,15 @@ public class RoomController {
 		return "include/alert";
 	}
 	
+	/**
+	 * 등록, 수정, 삭제 cmd값으로 객실 옵션 처리
+	 * 
+	 * @param model
+	 * @param vo
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/manage/room/process_opt")
 	public String process_opt(Model model, Room_optVO vo, HttpServletRequest request) throws Exception {
 		model.addAttribute("vo", vo);
@@ -236,6 +249,95 @@ public class RoomController {
 			model.addAttribute("url", "index_opt"); 
 		}
 		return "include/alert";
+	}
+	
+	
+
+//	사용자 페이지 
+	
+	@RequestMapping("/room/detail_sub1")
+	public String room_detail_subpage(Model model, RoomVO vo) throws Exception {
+		vo.setNo(1);		
+		RoomVO read = roomService.read(vo);
+		ArrayList<HashMap> list_service = roomService.list_service(read.getNo());
+		ArrayList<HashMap> list_image = roomService.list_image(read.getNo());
+		model.addAttribute("read",read);
+		model.addAttribute("list_service", list_service);
+		model.addAttribute("list_image", list_image);
+		
+		return "room/detail_sub";
+	}
+
+	@RequestMapping("/room/detail_sub2")
+	public String room_detail_subpage2(Model model, RoomVO vo) throws Exception {
+		vo.setNo(31);		
+		RoomVO read = roomService.read(vo);
+		ArrayList<HashMap> list_service = roomService.list_service(read.getNo());
+		ArrayList<HashMap> list_image = roomService.list_image(read.getNo());
+		model.addAttribute("read",read);
+		model.addAttribute("list_service", list_service);
+		model.addAttribute("list_image", list_image);
+		
+		return "room/detail_sub";
+	}
+
+	@RequestMapping("/room/detail_sub3")
+	public String room_detail_subpage3(Model model, RoomVO vo) throws Exception {
+		vo.setNo(32);		
+		RoomVO read = roomService.read(vo);
+		ArrayList<HashMap> list_service = roomService.list_service(read.getNo());
+		ArrayList<HashMap> list_image = roomService.list_image(read.getNo());
+		model.addAttribute("read",read);
+		model.addAttribute("list_service", list_service);
+		model.addAttribute("list_image", list_image);
+		
+		return "room/detail_sub";
+	}
+
+	@RequestMapping("/room/detail_sub4")
+	public String room_detail_subpage4(Model model, RoomVO vo) throws Exception {
+		vo.setNo(33);		
+		RoomVO read = roomService.read(vo);
+		ArrayList<HashMap> list_service = roomService.list_service(read.getNo());
+		ArrayList<HashMap> list_image = roomService.list_image(read.getNo());
+		model.addAttribute("read",read);
+		model.addAttribute("list_service", list_service);
+		model.addAttribute("list_image", list_image);
+		
+		return "room/detail_sub";
+	}
+	
+	@RequestMapping("/room/detail_sub5")
+	public String room_detail_subpage5(Model model, RoomVO vo) throws Exception {
+		vo.setNo(34);		
+		RoomVO read = roomService.read(vo);
+		ArrayList<HashMap> list_service = roomService.list_service(read.getNo());
+		ArrayList<HashMap> list_image = roomService.list_image(read.getNo());
+		model.addAttribute("read",read);
+		model.addAttribute("list_service", list_service);
+		model.addAttribute("list_image", list_image);
+		
+		return "room/detail_sub";
+	}
+
+	@RequestMapping("/book/add_option")
+	public String add_option(Model model, Room_optVO vo) throws Exception {
+		ArrayList<Room_optVO> list = roomService.list_opt(vo);
+		model.addAttribute("list", list);
+
+		return "book/add_option";
+	}
+
+	@RequestMapping("/book/check_room")
+	public String check_room(Model model, AdminVO vo) throws Exception {
+
+		return "book/check_room";
+	}
+
+	@RequestMapping("/book/price_room")
+	public String price_room(Model model, AdminVO vo) throws Exception {
+
+		return "book/price_room";
 	}
 
 }

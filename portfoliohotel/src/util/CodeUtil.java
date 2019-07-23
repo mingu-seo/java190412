@@ -731,7 +731,7 @@ public class CodeUtil {
 			} else if (room == 4) {
 				result = "Spa Sanctuary Suite";
 			} else if (room == 5) {
-				result = "Banyan Pool Presidential Suite";
+				result = "Portfolio Pool Presidential Suite";
 			}
 			
 			return result;
@@ -793,9 +793,9 @@ public class CodeUtil {
 	 public static String getTopName(int top) {
 		 String result = "";
 			if (top == 1) {
-				result = "상단노출";
-			} else if (top == 2) {
 				result = "상단미노출";
+			} else if (top == 2) {
+				result = "상단노출";
 			} 
 			
 			return result;
@@ -815,7 +815,7 @@ public class CodeUtil {
 	 public static String getCategoryName(int category) {
 		 String result = "";
 		 if (category == 1) {
-			 result = "에약";
+			 result = "예약";
 		 } else if (category == 2) {
 			 result = "결제";
 		 }

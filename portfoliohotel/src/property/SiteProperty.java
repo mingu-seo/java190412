@@ -7,7 +7,7 @@ public class SiteProperty {
 	/**
 	 * ��ü��
 	 */
-	public static final String 	COMPANY_NAME			= "SPRING";
+	public static final String 	COMPANY_NAME			= "Portfolio Hotel";
 	/**
 	 * ������ ����������
 	 */

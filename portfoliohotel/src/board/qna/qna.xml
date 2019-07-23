@@ -34,7 +34,7 @@
 	<select id="list" parameterClass="qna_vo" resultClass="qna_vo">
         select 
    			no, category, email, name,  tel, password, title, contents,
-        	regdate, file_org, file, filesize, open 
+        	regdate, file_org, file, filesize, open
         from qna
         <include refid="searchSql" />
 		ORDER BY regdate DESC LIMIT $startPageNo$, $pageRows$
@@ -44,7 +44,7 @@
     <insert id="insert" parameterClass="qna_vo">
         INSERT INTO qna (
         	category, email, name,  tel, password, title, contents,
-        	regdate, file_org, file, filesize, open 
+        	regdate, file_org, file, filesize, open
         ) VALUES (
         	#category#, #email#, #name#, #tel#, #password#, #title#, #contents#, 
         	now(), #file_org#, #file#, #filesize#, #open#  
@@ -62,5 +62,35 @@
    	 <delete id="delete" parameterClass="qna_vo">
         DELETE FROM qna WHERE no=#no#
     </delete>
+    
+    <update id="update" parameterClass="qna_vo">
+        UPDATE qna SET
+        	category=#category#, email=#email#, name=#name#, tel=#tel#, password=#password#, title=#title#, contents=#contents#,
+        	
+         <isNotEqual property="regdate" compareValue="">
+       	    regdate = #regdate#,
+       	</isNotEqual>
+        <isEqual property="file_chk" compareValue="1">
+        	file='', file_org='', filesize=0,
+        </isEqual>
+        <isNotEqual property="file" compareValue="">
+            <isNotNull property="file">
+        		file=#file#, file_org=#file_org#, filesize=#filesize#,
+        	</isNotNull>
+        </isNotEqual>
+        	open=#open#
+        WHERE no = #no#
+    </update>
+    
+    
+    <insert id="insertReply" parameterClass="qna_vo" >
+        insert into qna
+        	(reply, reply_title, reply_contents, reply_regdate, send_email )
+        values
+        	(#reply#, #reply_title#, #reply_contents#, now(), #send_email#)
+        <selectKey keyProperty="no" resultClass="Integer">
+			SELECT  LAST_INSERT_ID()		<!-- MemberDAO.java 39열  //마지막 등록된 id의 no를 integer로 가져옴 -->
+		</selectKey>
+    </insert> 
     
  </sqlMap>
