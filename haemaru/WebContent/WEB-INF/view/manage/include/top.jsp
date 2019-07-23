@@ -80,7 +80,7 @@ $(window).load(function(){
 					</ul>
 					</div>
 				</li>
-				<li><a href="<%=request.getContextPath()%>/manage/reservation/index" class="parent"><span>예약관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/reserve/index" class="parent"><span>예약관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/adopt/index" class="parent"><span>입양관리</span></a></li>
 
 				<li><a href="<%=request.getContextPath()%>/manage/cscenter/index.do" class="parent"><span>고객지원</span></a>
