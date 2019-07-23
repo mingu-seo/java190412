@@ -173,9 +173,6 @@ int totPage = (Integer)request.getAttribute("totPage");
             <div class="faq-table">
                 <div class="table-box">
                     <table>
-                        <tr class="table-head">
-                            <th>내용</th>
-                        </tr>
 			<form name="searchForm" id="searchForm" action="" method="post">
 				<div class="search">
 					<select name="category" onchange="$('#searchForm').submit();">
@@ -183,44 +180,35 @@ int totPage = (Integer)request.getAttribute("totPage");
 						<option value="1" <%=Function.getSelected(param.getCategory(), 1)%>>예약</option>
 						<option value="2" <%=Function.getSelected(param.getCategory(), 2)%>>결제</option>
 					</select>   
-				</div>
-			</form>                     
+				</div>                   
+                        <tr class="table-head">
+                            <th>내용</th>
+                        </tr>
 					<%
 						if (totCount == 0) {
 					%>
 						<tr>
-							<td class="first" colspan="8">등록된 글이 없습니다.</td>
+							<td colspan="2">등록된 글이 없습니다.</td>
 						</tr>
 					<%
 						} else {
-							String targetUrl = "";
-							String topClass = "";
-							FaqVO data;
 							for (int i=0; i<list.size(); i++) {
-								data = list.get(i);
-								/* targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, data.getNo())+"'\""; */
 					%>
 						<tr class="faq-q">
-							<td <%=targetUrl%>><a href="#"><%=data.getTitle() %></td>
+							<td><a href="#"><%=list.get(i).getTitle() %></a></td>
 						</tr>
 						<tr class="faq-answer">
-							<td <%=targetUrl%>><a href="#"><%=data.getContents() %></td>
+							<td><a href="#"><%=list.get(i).getContents() %></a></td>
 						</tr>
 					<%
 							}
 						 }
 					%>
+				</form>
                     </table>
-                    	<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
-						<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
-						<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
-						<input type="hidden" name="no" id="no" value="<%=param.getNo() %>"/>
                 </div>
                 <!-- 페이징 처리 -->
-                <div class="table-page">
-                    <ul class="page-number clear">
-                        <li><%=Page.indexList(param.getReqPageNo(), totPage, request)%></li>
-                    </ul>
+                        <%=Page.userIndexList(param.getReqPageNo(), totPage, request)%>
                 </div>               
                 <!-- 페이징 처리 -->
                 </div>
