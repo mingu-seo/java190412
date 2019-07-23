@@ -38,7 +38,7 @@
                    
                     <div class="promotion_list clear">
                         <div class="promo_list">
-                            <a href="/reasonable">
+                            <a href="/pkg/room/reasonable">
                                 <div class="promo-bg">
                                     <div class="promo-text">
                                         <p>자세히보기</p>
