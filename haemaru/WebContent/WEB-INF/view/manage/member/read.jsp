@@ -89,6 +89,8 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 							<div class="btnCenter" style="width:100%;">
 								<a class="pet-plus-more" href="<%=param.getTargetURLParam("/manage/mypet/write", param, data.getNo())%>" ><strong>반려동물추가</strong></a>
 								<img src="/icon/icon_plus.png" width="15px;" height="15px;" >
+								<input class="pet-plus-more" type="button" value="반려동물 보기" id="mypetListBtn"/>
+								<img src="/icon/icon_plus.png" width="15px;" height="15px;" >
 							</div>
 						</div>
 						<!-- //bread -->
@@ -97,6 +99,12 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 					<!-- 내용 : e -->
 				</div>
 				<!--//con -->
+					<div id="bbs">
+						<div id="blist">
+			<div id="blist" class="mypetListArea">
+				
+						</div>
+					</div>
 			</div>
 			<!--//content -->
 		</div>
@@ -119,7 +127,7 @@ function getMypetList() {
 }
 $(function(){
 	$("#mypetListBtn").click(function(){
-		getReviewList();
+		getMypetList();
 	});
 	$("#mypetInsertBtn").click(function() {
 		$.ajax({

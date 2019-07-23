@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="mypet.*"%>
-<%@ page import="member.*"%>
 <%@ page import="util.*"%>
 <%
 	MypetVO param = (MypetVO) request.getAttribute("vo");
@@ -13,20 +12,21 @@
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp"%>
 <script>
 var oEditors; // 에디터 객체 담을 곳
-jQuery(window).load(function() {
+$(window).load(function() {
 	oEditors = setEditor("memo"); // 에디터 셋팅
 });
-	function goSave() {
-		if ($("#name").val() == "") {
-			alert('이름을 입력하세요.');
-			$("#name").focus();
-			return false;
-		}
-		return true;
+
+function goSave() {
+	if ($("#name").val() == "") {
+		alert("이름을 입력해주세요.");
+		$("#name").focus();
+		return false;
+	}
 	
 	oEditors.getById["memo"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
 	$("#frm").submit();
 }
+
 </script>
 </head>
 <body>
@@ -49,9 +49,7 @@ jQuery(window).load(function() {
 						<!-- 내용 : s -->
 						<div id="bbs">
 							<div id="bread">
-								<form method="post" name="frm" id="frm"
-									action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do"
-									enctype="multipart/form-data" onsubmit="return goSave();">
+								<form name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" method="post" enctype="multipart/form-data">
 									<table width="100%" border="0" cellspacing="0" cellpadding="0"
 										summary="관리자 관리 기본내용입니다.">
 										<colgroup>
@@ -71,7 +69,7 @@ jQuery(window).load(function() {
 											</tr>
 											<tr>
 												<th scope="row"><label for="">성별</label></th>
-												<td><select name="gender">
+												<td><select id="gender">
 														<option value='1'>여아</option>
 														<option value='2'>남아</option>
 												</select></td>
@@ -88,7 +86,8 @@ jQuery(window).load(function() {
 													name="image_tmp" class="w50" title="첨부파일을 업로드 해주세요." /></td>
 											</tr>
 											<tr>
-												<td colspan="4"><textarea id="memo" name="memo" title="내용을 입력해주세요" style="width: 100%"></textarea>
+												<td colspan="4">
+													<textarea id="memo" name="memo" value="" title="내용을 입력해주세요" style="width: 100%"></textarea>
 												</td>
 											</tr>
 										</tbody>
@@ -102,7 +101,7 @@ jQuery(window).load(function() {
 											href="<%=param.getTargetURLParam("index", param, 0)%>"><strong>목록</strong></a>
 									</div>
 									<div class="btnRight">
-										<a class="btns" href="javascript:$('#frm').submit();"><strong>저장</strong></a>
+										<a class="btns" href="#" onclick="goSave();"><strong>저장</strong></a>
 									</div>
 								</div>
 								<!--//btn-->

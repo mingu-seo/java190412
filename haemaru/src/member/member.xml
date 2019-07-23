@@ -65,7 +65,7 @@
     	select count(*) as cnt from member where email=#email#
     </select>    
     
-    <select id="mypetList" parameterClass="member.MypetVO">
+    <select id="mypetList" parameterClass="Integer" resultClass="member.MypetVO">
         select * from mypet where member_pk=#no# ORDER BY registdate DESC 
     </select>
     
