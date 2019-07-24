@@ -43,5 +43,6 @@
 	<sqlMap resource="board/qna/qna.xml"/>	
 	<sqlMap resource="room/room.xml"/>
 	<sqlMap resource="board/faq/faq.xml"/>
+	<sqlMap resource="pkg/dining/pkgdining.xml"/>
 
 </sqlMapConfig>
