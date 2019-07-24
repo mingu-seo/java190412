@@ -70,15 +70,8 @@ $(window).load(function(){
 		<div id="menu">
   			<ul class="menu">
   				<li><a href="<%=request.getContextPath()%>/manage/member/index" class="parent"><span>회원관리</span></a></li>
-				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>예매 관리</span></a></li>
-				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>전시 관리</span></a>
-					<div>
-					<ul>
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>현재 전시</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>지난 전시</span></a></li>
-					</ul>
-					</div>
-				</li>
+				<li><a href="<%=request.getContextPath()%>/manage/ticket/index" class="parent"><span>예매 관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/exhibition/index" class="parent"><span>전시 관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>대관 관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>프로그램</span></a>
 					<div>
