@@ -27,6 +27,34 @@ function goDelete() {
 			return false;
 		}
 	}
+function goDelete_reply() {
+	var del = confirm ('삭제하시겠습니까?');
+	if (del){
+		document.location.href = "/manage/board/qna/process?no=<%=data.getNo()%>&cmd=delete_reply";
+		} else {
+			return false;
+		}
+	}
+
+	
+
+
+function goSave() {
+	
+	var sHTML = oEditors.getById["reply_contents"].getIR();
+	if (sHTML == "" || sHTML == "<p><br></p>") {
+		alert('내용을 입력하세요.');
+		$("#reply_contents").focus();
+		return false;
+	} else {
+		oEditors.getById["reply_contents"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+		data.setReply(1);
+	}
+	
+	return true;
+	
+	
+}
 </script>
 </head>
 <body>
@@ -49,7 +77,7 @@ function goDelete() {
 						<!-- 내용 : s -->
 						<div id="bbs">
 							<div id="bread">
-								<h3>기본 정보</h3>
+								<h3>문의글</h3>
 								<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" enctype="multipart/form-data" onsubmit="return goSave();">
 								<table width="100%" border="0" cellspacing="0" cellpadding="0"
 									summary="관리자 관리 기본내용입니다.">
@@ -62,6 +90,12 @@ function goDelete() {
 										<col width="15%" />
 									</colgroup>
 									<tbody>
+									
+									<% 
+									String[] emailArr= data.getEmail().split(",");
+									String[] nameArr= data.getName().split(",");
+									String[] telArr=data.getTel().split(",");
+									%>
 									<tr>
 										<th scope="row"><label for="">공개여부</label></th>
 										<td>
@@ -69,20 +103,20 @@ function goDelete() {
 										</td>
 										<th scope="row"><label for="">카테고리</label></th>
 										<td colspan="3">
-											<%=data.getCategory()%>
+											<%=CodeUtil.getCategory_name(data.getCategory()) %>
 										</td>
 										
 									</tr>
 									<tr>
 										<th scope="row"><label for="">이름</label></th>
 										<td >
-											<%=data.getName()%>
+											<%=nameArr[0]%><%=nameArr[1]%>
 											
 										</td>
 										
 										<th scope="row"><label for="">연락처</label></th>
 										<td colspan="4">
-											<%=data.getTel()%>
+											<%=telArr[0]%>-<%=telArr[1]%>-<%=telArr[2]%>
 										</td>
 										
 									
@@ -90,7 +124,8 @@ function goDelete() {
 									<tr>
 										<th scope="row"><label for="">이메일</label></th>
 										<td >
-											<%=data.getEmail()%>
+											<%=emailArr[0]%><%=emailArr[1]%>
+											
 											
 										</td>
 										<th scope="row"><label for="">게시글 비밀번호</label></th>
@@ -109,7 +144,7 @@ function goDelete() {
 									<tr>
 										<th scope="row"><label for="">내용</label></th>
 										<td colspan="5">
-											<%=data.getCategory()%>
+											<%=data.getContents()%>
 										</td>
 									</tr>
 									<tr>
@@ -134,6 +169,8 @@ function goDelete() {
 									</div>
 									<div class="btnRight">
 										<a class="btns"
+											href="<%=param.getTargetURLParam("write_reply", param, data.getNo())%>"><strong>답변쓰기</strong></a>
+										<a class="btns"
 											href="<%=param.getTargetURLParam("edit", param, data.getNo())%>"><strong>수정</strong></a>
 										<a class="btns" href="#" onClick="goDelete();"><strong>삭제</strong></a>
 									</div>
@@ -154,8 +191,72 @@ function goDelete() {
 						<!-- 내용 : e -->
 					</div>
 					<!--//con -->
+					<div class="con_tit">
+					
+				</div>
+				<div class="con">
+					<div id="bbs">
+						<div id="blist">
+							<%
+							if (data.getReply() == 0) {
+							%>
+							<table width="0px" border="0"></table>
+							<%
+							}else if (data.getReply() == 1){
+							%>
+							<table width="100%" border="0" cellspacing="0" cellpadding="0">
+								<colgroup>
+									<col class="w20"/>
+									<col class=""/>
+									
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col" class="first">이메일 전송 여부</th>
+										<th scope="col">내용</th>
+									</tr>
+								</thead>
+								<tbody>
+									
+									<tr>
+										<td>
+											<%=CodeUtil.getSend_Email(data.getSend_email()) %>
+										</td>
+										<td colspan="5">
+											<%=data.getReply_contents()%>
+										</td>
+										
+									</tr>
+									<%-- <%
+									}
+									%> --%>
+								</tbody>
+							</table>
+							<form>
+								<input type="hidden" name="no" value="<%=data.getNo() %>"/>
+								<input type="hidden" name="reply_title" value="re:<%=data.getTitle() %>"/>
+								<input type="hidden" name="reply" value="<%=data.getReply() %>"/>
+								<input type="hidden" name="cmd" value="write_reply" />
+							</form>
+							
+							<div class="btn">
+								<div class="btnRight">
+									<a class="btns" href="<%=param.getTargetURLParam("edit_reply", param, data.getNo())%>"><strong>답변수정</strong></a>
+								</div>
+								<div class="btnRight">
+									<a class="btns" href="#" onClick="goDelete_reply();"><strong>답변삭제</strong></a>
+								</div>
+							</div>
+							<%
+							}
+							%>
+							
+						<div id="blist">
+						
+						</div>
 					</div>
 				</div>
+			</div>
 				<!--//content -->
 			</div>
 			<!--//container -->
@@ -164,5 +265,6 @@ function goDelete() {
 		<!--//canvas -->
 	</div>
 	<!--//wrap -->
+
 </body>
 </html>

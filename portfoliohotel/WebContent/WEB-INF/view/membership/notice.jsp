@@ -22,6 +22,11 @@ int totPage = (Integer)request.getAttribute("totPage");
     <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
     <script type="text/javascript" src="../js/gnb.js"></script>
     <title>Tree_로그인페이지</title>
+<script>
+function goSearch() {
+	$("#searchForm").submit();
+}
+</script>
 </head>
 <body>
     <div id="header">
@@ -161,6 +166,7 @@ int totPage = (Integer)request.getAttribute("totPage");
                             놓칠 수 없는 이벤트 정보를 알려드립니다.</h4>
                 </div>
         </div>
+
         <div class="notice">
             <div class="support-list">
                 <ul class="support-list-center">
@@ -173,28 +179,39 @@ int totPage = (Integer)request.getAttribute("totPage");
                 <div class="table-box">
                     <table>
                         <tr class="table-head">
-                            <th>내용</th>
-                            <th>등록일</th>
+                            <th scope="col" class="firlst">제목</th>
+                            <th scope="col" class="last">등록일</th>
                         </tr>
-                        <tr>
-                            <td><a href="#">오늘 공지된 내용입니다.</a></td>
-                            <td class="table-date">2019-06-20</td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">반얀트리에 오신걸 환영합니다.</a></td>
-                            <td class="table-date">2019-06-19</td>
-                        </tr>
+                        <%
+                        	if (totCount == 0) {
+                        %>
+                        	<tr>
+                        		<td colspan="2">등록된 공지사항이 없습니다.</td>
+                        	</tr>
+                        <%
+                        	} else {
+                        		String targetUrl = "";
+                        		NoticeVO data;
+								for (int i=0; i<list.size(); i++) {
+									targetUrl = "style='cusor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("notice_read", param, list.get(i).getNo())+"'\"";
+                        %>
+                        <%
+                        	if (list.get(i).getTop() == 2) {
+                        		targetUrl = "style='cursor:pointer; background-color:#bebebe', onclick=\"location.href='"+param.getTargetURLParam("notice_read", param, list.get(i).getNo())+"'\"";
+                        	}
+                        %>
+                        	<tr>
+								<td <%=targetUrl%>> <a href="#"><%=list.get(i).getTitle() %></a></td>
+								<td <%=targetUrl%> class="table-date"><%=DateUtil.getDateFormat(list.get(i).getRegdate()) %></td>
+							</tr>
+						<%
+								}
+                        	}
+						%>
                     </table>
                 </div>
-                <div class="table-page">
-                    <ul class="page-number clear">
-                        <li class="on"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                    </ul>
+                       <%=Page.userIndexList(param.getReqPageNo(), totPage, request)%>
                 </div>
-            </div>
         </div>
     </div>
     <div id="footer">

@@ -9,6 +9,7 @@ import board.qna.QnaVO;
 import db.SqlMapClientDAOSupport;
 
 
+
 @Repository
 public class QnaDAO extends SqlMapClientDAOSupport {
 		
@@ -44,6 +45,7 @@ public class QnaDAO extends SqlMapClientDAOSupport {
 	public int insert(QnaVO vo) throws SQLException {
 		return (Integer)getSqlMapClient().insert("qna.insert",vo);
 	}
+	
 	public int update(QnaVO vo) throws SQLException {
 		return getSqlMapClient().update("qna.update", vo);
 	}
@@ -76,6 +78,21 @@ public class QnaDAO extends SqlMapClientDAOSupport {
 	 * @throws SQLException
 	 */
 	
+	/*
+	 * public int insertReply(QnaVO vo)throws SQLException{ return
+	 * (Integer)getSqlMapClient().insert("qna.insertReply",vo); } public int
+	 * replyDelete(int no) throws SQLException { return
+	 * getSqlMapClient().delete("qna.replyDelete", no); }
+	 */
+	public int updateReply(QnaVO vo) throws SQLException {
+		return (Integer)getSqlMapClient().update("qna.updateReply",vo);
+	}
+	
+	public int deleteReply(QnaVO vo) throws SQLException {
+		return getSqlMapClient().delete("qna.deleteReply", vo);
+	}
+	
+	
 	
 	public static void main(String[] args) throws Exception {
 		QnaDAO ad = new QnaDAO();
@@ -85,4 +102,6 @@ public class QnaDAO extends SqlMapClientDAOSupport {
 	
 		
 	}
+
+	
 }

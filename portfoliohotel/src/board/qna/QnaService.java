@@ -3,6 +3,7 @@ package board.qna;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import board.notice.NoticeVO;
 import board.qna.QnaVO;
+import mail.SendMail;
 import property.SiteProperty;
 import util.FileUtil;
 import util.Function;
@@ -54,11 +56,20 @@ public class QnaService {
 		
 		return no;
 	}
-	public int update(QnaVO vo) throws SQLException {
-		int r = qnaDao.update(vo);
-		return r;
+	
+public int update(QnaVO vo) throws SQLException, IOException {
+		
+	QnaVO data = qnaDao.read(vo);
+	int r = (Integer)qnaDao.update(vo);
+	if(r > 0){
+		if("1".equals(vo.getFile_chk()) || !"".equals(Function.checkNull(vo.getFile()))){
+			Function.fileDelete(vo.getUploadPath(), data.getFile());
+		}
 	}
-
+	return r;
+		 
+		
+	}
 
 	public QnaVO read(QnaVO vo) throws SQLException {
 		QnaVO r = qnaDao.read(vo);
@@ -71,6 +82,29 @@ public class QnaService {
 		
 		return r;
 	}
+	
+
+	
+	public int updateReply(QnaVO vo)throws SQLException, Exception { 
+		 QnaVO read = qnaDao.read(vo);
+		 int no = qnaDao.updateReply(vo); 
+		 if(vo.getSend_email()==1) {
+			 SendMail.sendEmail("joonoh94@naver.com", "joonoh94@gmail.com", read.getName()+"님 질문에 답변이 달렸습니다.", "널포인트 싫어요" ); 
+		 }
+		 return no; 
+	 } 
+	 
+	 public int deleteReply(QnaVO vo) throws SQLException {
+		 int no = qnaDao.deleteReply(vo); 
+		 return no; 
+		}
+	 
+	/*
+	 * public int replyDelete(int no) throws SQLException { int cnt =
+	 * qnaDao.replyDelete(no); return cnt; }
+	 */
+	 
+
 
 
 	public int groupDelete(QnaVO vo, HttpServletRequest request) throws Exception {
@@ -90,4 +124,8 @@ public class QnaService {
 		}
 		return delCount;
 	}
+
+	
+
+	
 }

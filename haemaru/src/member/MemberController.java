@@ -64,15 +64,6 @@ public class MemberController {
 		return "manage/member/write";
 	}
 	
-	@RequestMapping("/my/my-infor.do")
-	public String myInfor(Model model, MemberVO param) throws Exception {
-		MemberVO data = memberService.read(param.getNo());//세션에서 가져와야됨
-		model.addAttribute("data", data);
-		model.addAttribute("vo", param);
-		
-		return "my/my-infor.do";
-	}
-	
 	/**
 	 * 관리자 아이디 중복체크
 	 * 사용자에서 저장시 ajax로 체크
@@ -120,4 +111,14 @@ public class MemberController {
 		
 		return "include/alert";
 	}
+	
+	@RequestMapping("/my/my-infor.do")
+	public String myInfor(Model model, MemberVO param) throws Exception {
+		MemberVO data = memberService.read(param.getNo());//세션에서 가져와야됨
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+		
+		return "my/my-infor.do";
+	}
+	
 }
