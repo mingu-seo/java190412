@@ -200,13 +200,12 @@ function goSave() {
 								</colgroup>
 								<tbody>
 								<%
-								String[] nameArr = data.getName().split(",");								
+								String[] nameArr = data.getName().split(",");
+								String[] birthdayArr = data.getBirthday().split(",");
+								String[] telArr = data.getTel().split(",");
 								%>
 									<tr>
-										<%-- <th scope="row"><label for="">*이름</label></th>
-										<td>
-											<input type="text" id="name" name="name" value="<%=nameArr[0]%> <%=nameArr[1] %>" title="관리자 이름을 입력해주세요." />
-										</td> --%>
+										
 										<th scope="row"><label for="">*이름</label></th>
 										<td >
 											성<input type="text" style="width:50px; height:20px;" id="fname" name="name" value="<%=nameArr[0]%>" title="관리자 이름을 입력해주세요." />	
@@ -216,9 +215,9 @@ function goSave() {
 									</tr>
 									<th scope="row"><label for="">생년월일</label></th>
 										<td colspan="3">
-											<input type="text" style="width:100px;height:20px;" id="year" name="birthday" value="" title="관리자 이름을 입력해주세요.">년</input>
-											<input type="text" style="width:50px; height:20px;" id="month" name="birthday" value="" title="관리자 이름을 입력해주세요.">월</input>
-											<input type="text" style="width:50px; height:20px;" id="day" name="birthday" value="" title="관리자 이름을 입력해주세요.">일</input>
+											<input type="text" style="width:100px;height:20px;" id="year" name="birthday" value="<%=birthdayArr[0]%>" title="관리자 이름을 입력해주세요.">년</input>
+											<input type="text" style="width:50px; height:20px;" id="month" name="birthday" value="<%=birthdayArr[1]%>" title="관리자 이름을 입력해주세요.">월</input>
+											<input type="text" style="width:50px; height:20px;" id="day" name="birthday" value="<%=birthdayArr[2]%>" title="관리자 이름을 입력해주세요.">일</input>
 										</td>
 									
 									<tr>
@@ -231,21 +230,23 @@ function goSave() {
 									<tr>
 										<th scope="row"><label for="">*연락처</label></th>
 										<td>
-											<input type="text" id="tel" name="tel" value="" title="관리자 이름을 입력해주세요." />
+											<input type="text" style="width:60px;height:20px;" id="tel1" name="tel" value="<%=telArr[0]%>" > -</input>
+											<input type="text" style="width:80px;height:20px;" id="tel2" name="tel" value="<%=telArr[1]%>" > -</input>
+											<input type="text" style="width:80px;height:20px;" id="tel3" name="tel" value="<%=telArr[2]%>" ></input>
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">주소/우편번호</label></th>
 										<td>											
-											<input type="text" style="width:200px; height:20px;" id="addr" name="addr" value="" title="관리자 이름을 입력해주세요." />
-											<input type="text" id="zipcode" name="zipcode" value="" title="관리자 이름을 입력해주세요." />
+											<input type="text" style="width:200px; height:20px;" id="addr" name="addr" value="<%=data.getAddr()%>" title="관리자 이름을 입력해주세요." />
+											<input type="text" id="zipcode" name="zipcode" value=" <%=data.getZipcode()%>" title="관리자 이름을 입력해주세요." />
 											<input type="button" value="우편번호" id="" name="layer" onclick="sample2_execDaumPostcode()"/>
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">상세주소</label></th>
 										<td>
-											<input type="text" style="width:300px; height:20px;" id="addr_detail" name="addr_detail" value="" title="관리자 이름을 입력해주세요." />
+											<input type="text" style="width:300px; height:20px;" id="addr_detail" name="addr_detail" value="<%=data.getAddr_detail()%>" title="관리자 이름을 입력해주세요." />
 										</td>
 									</tr>
 									

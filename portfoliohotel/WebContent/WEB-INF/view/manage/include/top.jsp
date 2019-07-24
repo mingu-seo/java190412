@@ -62,7 +62,7 @@ $(window).load(function(){
 		<div class="util">
 			<ul>
 				<li class="frist"><a href="#" onclick="window.open('<%=property.SiteProperty.COMPANY_URL%>');">Home</a></li>
-				<li><a href="<%=request.getContextPath()%>/manage/logout">LogOut</a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/member/join">LogOut</a></li>
 			</ul>
 		</div>
 		<!-- util : e --> 

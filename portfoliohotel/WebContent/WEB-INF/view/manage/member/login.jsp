@@ -6,10 +6,56 @@
 <%
 	MemberVO param = (MemberVO) request.getAttribute("vo");
 	ArrayList<MemberVO> list = (ArrayList) request.getAttribute("list");
-	int totCount = (Integer) request.getAttribute("totCount");
-	int totPage = (Integer) request.getAttribute("totPage");
 %>
+<script>
+function loginCheck(){
+	if ( getObject("email").value.length < 1 ) {
+		alert("이메일을 입력해주세요.");
+		getObject("email").focus();
+		return false;
+	}
+	if ( getObject("password").value.length < 1 ) {
+		alert("비밀번호를 입력해주세요.");
+		getObject("password").focus();
+		return false;
+	}
+	var f = document.board;
+	if (f.reg.checked==true) {
+	   document.cookie = "cookie_userid=" + f.id.value + ";path=/;expires=Sat, 31 Dec 2050 23:59:59 GMT;";
+	} else {
+	   var now = new Date();	
+	   document.cookie = "cookie_userid=" + f.id.value + ";path=/;expires="+now.getTime();
+	}
+	return true;
+	
+	
+}
 
+function userid_chk() {
+	var f=document.board;
+	var useridname = CookieVal("cookie_userid");
+	
+	if (useridname=="null"){	
+		f.id.focus();
+		f.id.value="";
+	} else {
+		f.password.focus();
+		f.id.value=useridname;
+		f.reg.checked=true;
+	}
+}
+
+function CookieVal(cookieName) {
+	thisCookie = document.cookie.split("; ");
+	for (var i = 0; i < thisCookie.length;i++) {
+		if (cookieName == thisCookie[i].split("=")[0]) {
+			return thisCookie[i].split("=")[1];
+		}
+	}
+	return "null" ;
+}
+
+</script>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -42,12 +88,13 @@
 									<div class="login-section">
 
 										<div class="login-box clear">
-											<form action="#" method="POST">
+										
+											<form action="#" method="post">
 												<div class="login-box-logo"></div>
 												<div class="login-board clear">
 													<div class="login-box-left">
 														<!-- ID 구역 -->
-														<input type="text" id="id" name="id" placeholder="이메일">
+														<input type="text" id="email" name="email" placeholder="이메일">
 														</input>
 														</div>
 														<div>
@@ -57,14 +104,16 @@
 													</div>
 													
 													<div class="login-board-right">
-														<input type="submit" id="submit" value="LOGIN">
+														<input type="submit"  href="#" onclick="loginCheck();"value="LOGIN"> 
+														
 													</div>
 													<div class="id-remember">
 														<input type="checkbox" id="login-chk" name="login-chk">
 															<label for="login-chk">아이디 기억하기</label>
 													</div>
 													<h4 class="find_id">
-														<a href="<%=param.getTargetURLParam("idSrc", param, 0)%>">아이디 / 비밀번호 찾기</a>
+														<a href="<%=param.getTargetURLParam("idSrc", param, 0)%>">이메일찾기 </a>/
+														<a href="<%=param.getTargetURLParam("pwdSrc", param, 0)%>"> 비밀번호 찾기</a>
 													</h4>
 													<div class="btnLeft">
 														<a class="btns"

@@ -59,6 +59,7 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 								<%
 								String[] nameArr = data.getName().split(",");
 								String[] birthdayArr = data.getBirthday().split(",");
+								String[] telArr = data.getTel().split(",");
 								%>
 									<tr>
 										<th scope="row"><label for="">이름</label></th>
@@ -76,12 +77,14 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 									<tr>
 										<th scope="row"><label for="">생년월일</label></th>
 										<%-- <td colspan="3"><%=data.getBirthday()%></td> --%>
-										<td colspan="3"><%=birthdayArr[0]%></td>
+										<td colspan="3"><%=birthdayArr[0]%>년 <%=birthdayArr[1] %>월 <%=birthdayArr[2]%>일</td>
 									
 									</tr>
 									<tr>
 										<th scope="row"><label for="">연락처</label></th>
-										<td colspan="3"><%=data.getTel()%></td>
+										<%-- <td colspan="3"><%=data.getTel()%></td> --%>
+										<td colspan="3"><%=telArr[0]%> - <%=telArr[1] %> - <%=telArr[2]%></td>
+										
 									</tr>
 									<tr>
 										<th scope="row"><label for="">주소/우편번호</label></th>
@@ -106,6 +109,11 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 									<tr>
 										<th scope="row"><label for="">최근로그인 날짜</label></th>
 										<td colspan="3"><%=data.getLogindate()%></td>
+									</tr> 
+									
+									<tr>
+										<th scope="row"><label for="">탈퇴 여부</label></th>
+										<td colspan="3"><%=CodeUtil.getSecession(data.getSecession())%></td>
 									</tr> 
 									
 								

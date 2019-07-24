@@ -39,7 +39,7 @@
         	 addr_detail,logindate,point,grade,sns_type,sns_key,secession) 
         	 
         values
-        	(#email#, #password#, #name#, #gender#,#tel#, #birthday#,now(),#zipcode#,#addr#,
+        	(#email#, md5(#password#), #name#, #gender#,#tel#, #birthday#,now(),#zipcode#,#addr#,
         	 #addr_detail#,now(),#point#,#grade#,#sns_type#,#sns_key#,#secession#)
         	 
         <selectKey keyProperty="no" resultClass="Integer">
@@ -90,11 +90,11 @@
     </select>
     
     <select id="loginCheck" parameterClass="membervo" resultClass="Integer">
-        select count(*) as cnt from member where email=#email# and password=#password#
+        select count(*) as cnt from member where email=#email# and password=md5(#password#)
     </select>
     
     <select id="loginSessionInfo" parameterClass="param" resultClass="membervo">
-        select * from member where email=#email# and password=#password#
+        select * from member where email=#email# and password=md5(#password#)
     </select>
     <!-- 
         관리자 로그인 접속 기록

@@ -4,10 +4,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import manage.admin.AdminVO;
 import util.Page;
 
 @Service
@@ -49,8 +51,13 @@ public class MemberService {
 		MemberVO vo = memberDao.read(no);
 		return vo;
 	}
+	
+	public MemberVO mypage(int no) throws SQLException {
+		MemberVO vo = memberDao.read(no);
+		return vo;
+	}
 
-	public boolean loginCheck(MemberVO param) throws SQLException {
+	public boolean loginCheck(MemberVO param, HttpSession session) throws SQLException {
 		int cnt = memberDao.loginCheck(param);
 		boolean result = false;
 		if (cnt == 1) {
@@ -58,12 +65,16 @@ public class MemberService {
 		}
 		return result;
 	}
-//
-//	public MemberVO getLoginSessionInfo(MemberVO param) throws SQLException {
-//		MemberVO vo = memberDao.getLoginSessionInfo(param);
-//		vo.setIp(param.getIp());	// 아이피 추가
-//		return vo;
-//	}
+	
+	public int idcheck(MemberVO param) throws SQLException {
+		return memberDao.idcheck(param);
+	}
+
+	public MemberVO getLoginSessionInfo(MemberVO param) throws SQLException {
+		MemberVO vo = memberDao.getLoginSessionInfo(param);
+		vo.setIp(param.getIp());	// 아이피 추가
+		return vo;
+	}
 //
 //	public int[] countLoginHistory(MemberVO param) throws SQLException {
 //		int rowCount = memberDao.countLoginHistory(param);
@@ -82,9 +93,18 @@ public class MemberService {
 //	public void insertLoginHistory(MemberVO param) throws SQLException {
 //		memberDao.insertLoginHistory(param);
 //	}
-//
+
 	public int emailcheck(String email) throws SQLException {
 		return memberDao.emailcheck(email);
+		
+	}
+	
+	public int pwdcheck(String pwd) throws SQLException {
+		return memberDao.pwdcheck(pwd);
+		
+	}
+	public int samePwdcheck(String samePwd) throws SQLException {
+		return memberDao.samePwdcheck(samePwd);
 		
 	}
 
