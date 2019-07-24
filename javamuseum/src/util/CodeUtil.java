@@ -650,13 +650,115 @@ public class CodeUtil {
 		return result;
 	}
 	
-	public static String getDisplayOption(int arg){
+	public static String getDisplayOp(int arg){
         StringBuffer result = new StringBuffer();
         	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getDisplayName(0)+"</option>");
         	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getDisplayName(1)+"</option>");
         return result.toString();
+    }	
+	
+	public static String getDisplayOption(int arg){
+        StringBuffer result = new StringBuffer();
+        	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getDisplayName(0)+"</option>");
+        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getDisplayName(1)+"</option>");
+        	result.append("<option value='-1'"+Function.getSelected(-1,arg)+">"+getDisplayName(-1)+"</option>");
+        return result.toString();
+    }
+	
+	
+	public static String getDisplay(int display) {
+		String result = "";
+		if (display == 1) {
+			result = "노출";
+		} else if (display == 0) {
+			result = "숨김";
+		} else if (display == -1) {
+			result = "전체";
+		}
+		return result;
+	}
+	
+	//카테고리 
+	
+	public static String getCategory(int Category) {
+		String result = "";
+		if (Category == 1) {
+			result = "아동";
+		} else if (Category == 0) {
+			result = "청소년";
+		} else if (Category == -1) {
+			result = "성인";
+		}
+		return result;
+	}
+	
+	public static String getCategoryOption(int arg){
+        StringBuffer result = new StringBuffer();
+        	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getCategory(0)+"</option>");
+        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getCategory(1)+"</option>");
+        	result.append("<option value='-1'"+Function.getSelected(-1,arg)+">"+getCategory(-1)+"</option>");
+        return result.toString();
     }
 		
+	
+	
+	/**
+	 * 프로그램예약시간(출력부분)
+	 * @param type
+	 * @return StringBuffer
+	 */
+	public static String getP_timeName(int type){
+		String result = null;
+        switch ( type ){
+        	case 1 :
+        	    result = "08:00";
+        	    break;
+        	case 2:
+        	    result = "09:00";
+        	    break;
+        	case 3:
+        	    result = "10:00";
+        	    break;
+			case 4:
+        	    result = "12:00";
+        	    break;
+			case 5 :
+        	    result = "13:00";
+        	    break;
+			case 6 :
+        	    result = "14:00";
+        	    break;
+			case 7 :
+        	    result = "15:00";
+        	    break;
+			case 8 :
+        	    result = "16:00";
+        	    break;
+			case 9 :
+        	    result = "17:00";
+        	    break;
+			case 10 :
+        	    result = "18:00";
+        	    break;
+			case 11 :
+        	    result = "19:00";
+        	    break;
+			case 12 :
+        	    result = "20:00";
+        	    break;
+        }
+        return result;
+    }
+	
+	public static String getP_timeType(int type){
+		StringBuffer result = new StringBuffer();
+		for ( int i=1; i<=12; i++ ){
+			result.append("<option value='"+i+"' "+Function.getSelected(i,type)+">"+CodeUtil.getP_timeName(i)+"</option>");
+		}
+		return result.toString();
+	}
+		
+			
 	 // 결제방법
  	public static String getPaymentName(String payment) {
  		String result = "";

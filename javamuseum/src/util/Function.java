@@ -930,6 +930,21 @@ public class Function {
 		}
 		return url;
 	}
+	public static String downloadUrl1(String uploadPath, String name) {
+		String url = "/include/download.jsp?";
+		try {
+			if(!"".equals(checkNull(uploadPath))){
+				url += "path="+uploadPath;
+			}
+			
+			if(!"".equals(checkNull(name))){
+				url += "&af="+name;
+			}
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		return url;
+	}
 
 	/**
 	 * 레퍼러값 체크
