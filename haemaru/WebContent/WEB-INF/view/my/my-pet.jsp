@@ -166,16 +166,17 @@
                             <img src="/img/mypagedog1.jpg">
                         </div>
                         <div>
-                            <p><span>이름</span>별이</p>
-                            <p><span>나이</span>3살</p>
-                            <p><span>품종</span>푸들</p>
-                            <p><span>성별</span>여</p>
-                            <p><span>최근 접종 현황</span>4차접종완료</p>
+                            <p><span>이름</span></p>
+                            <p><span>나이</span></p>
+                            <p><span>품종</span></p>
+                            <p><span>성별</span></p>
+                            <p><span>최근 접종 현황</span></p>
                         </div>
                         <div>
                             <div class="sub6-more"><a href="#">EDIT</a></div>
                         </div>
                     </div>
+                    
                     <div class="pet-box clear">
                         <div>
                             <img src="/img/mypagedog2.jpg">
