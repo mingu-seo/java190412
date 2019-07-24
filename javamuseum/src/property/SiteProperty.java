@@ -92,10 +92,16 @@ public class SiteProperty {
 	/**
 	 * 로컬 홈디렉토리경로 (실서버 변경 필요)
 	 */
-	public static final String REAL_PATH				= "D:\\workspace\\java\\spring\\WebContent";
+	public static final String REAL_PATH				= "C:\\java\\git\\java190412\\javamuseum\\WebContent";
 	/**
 	 * 공지사항 첨부파일 경로
 	 */
 	public static final String NOTICE_UPLOAD_PATH		= "/upload/notice/";
+	/**
+	 * 전시 첨부파일 경로
+	 */
+	public static final String EXHIBITION_UPLOAD_PATH		= "/upload/exhibition/";
+	
+	
 
 }

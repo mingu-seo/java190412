@@ -1,5 +1,7 @@
 package util;
 
+import java.sql.Timestamp;
+
 /**
  * 각종 코드값 가져오기
  * 각 코드들의 option, select 값 구하기
@@ -650,12 +652,59 @@ public class CodeUtil {
 		return result;
 	}
 	
+	//예매 상태 노출
+	public static String getResStateSave(int reservestate) {
+		String result = "";
+		if(reservestate == 1) {
+			result = "예매 완료";
+		} else {
+			result = "예매 취소";
+		}
+		return result;
+	}
+	//결제 상태 노출
+	public static String getPayStateSave(int paystate) {
+		String result = "";
+		if(paystate == 1) {
+			result = "결제 완료";
+		} else {
+			result = "결제 대기";
+		}
+		return result;
+	}
+	//환불 상태 노출
+	public static String getRefunState(int refundstate) {
+		String result = "";
+		if(refundstate == 1) {
+			result = "-";
+		} else {
+			result = "환불 완료";
+		}
+		return result;
+	}
+	
 	public static String getDisplayOption(int arg){
         StringBuffer result = new StringBuffer();
         	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getDisplayName(0)+"</option>");
         	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getDisplayName(1)+"</option>");
         return result.toString();
     }
+	
+	//대관 관 선택
+	public static String getHallnum(int arg) {
+		StringBuffer result = new StringBuffer();
+		result.append("<option value='1'"+Function.getSelected(1,arg)+">1</option>");
+		result.append("<option value='2'"+Function.getSelected(2,arg)+">2</option>");
+		result.append("<option value='3'"+Function.getSelected(3,arg)+">3</option>");
+		result.append("<option value='4'"+Function.getSelected(4,arg)+">4</option>");
+		result.append("<option value='5'"+Function.getSelected(5,arg)+">5</option>");
+		result.append("<option value='6'"+Function.getSelected(6,arg)+">6</option>");
+		result.append("<option value='7'"+Function.getSelected(7,arg)+">7</option>");
+		result.append("<option value='8'"+Function.getSelected(8,arg)+">8</option>");
+		result.append("<option value='9'"+Function.getSelected(9,arg)+">9</option>");
+		
+		return result.toString();
+	}
 		
 	 // 결제방법
  	public static String getPaymentName(String payment) {
@@ -669,8 +718,36 @@ public class CodeUtil {
  		}
  		return result;
  	}
+ 	
+ 	//날짜에 따라 전시 상태(int값)
+	public static int getDisState(String startdate, String enddate) throws Exception {
+ 		String today = DateUtil.getToday();
+ 		int result = 0;
+ 		
+ 		if(DateUtil.getDiff(startdate, today) > 0) {
+ 			result = 1;
+ 		} else if(DateUtil.getDiff(enddate, today) >= 0 && DateUtil.getDiff(today, startdate) >= 0) {
+ 			result = 2;
+ 		} else if(DateUtil.getDiff(today, enddate) > 0) {
+ 			result = 3;
+ 		}
+ 		return result;
+ 	}
+	//날짜에 따라 전시 상태(String값)
+	public static String getStrDisState(int disState) throws Exception {
+		String result = "";
+		if(disState == 1) {
+			result = "전시 대기";
+		} else if(disState == 2) {
+			result = "전시 중";
+		} else if(disState == 3) {
+			result = "전시 종료";
+		}
+		
+		return result;
+	}
 
-	 public static String getState(int type){
+	public static String getState(int type){
 	    String result = null;
 	    
 	    switch ( type ){
