@@ -41,6 +41,14 @@ public class NoticeController {
 		
 		return "manage/board/notice/write";
 	}
+	@RequestMapping("/manage/board/notice/read")
+	public String read(Model model, NoticeVO param) throws Exception {
+		NoticeVO data = noticeService.read(param, false);
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+		
+		return "manage/board/notice/read";
+	}
 	
 	@RequestMapping("/manage/board/notice/edit")
 	public String edit(Model model, NoticeVO param) throws Exception {
@@ -60,7 +68,7 @@ public class NoticeController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/manage/board/notice/process.do")
+	@RequestMapping("/manage/board/notice/process")
 	public String process(Model model, NoticeVO param, HttpServletRequest request) throws Exception {
 		model.addAttribute("vo", param);
 		param.setTablename("notice");
@@ -90,4 +98,32 @@ public class NoticeController {
 		
 		return "include/alert";
 	}
+	
+	
+	@RequestMapping("/customer/notice/notice")
+	public String main(Model model, NoticeVO param) throws Exception {
+		param.setTablename("notice");
+		int[] rowPageCount = noticeService.count(param);
+		ArrayList<AdminVO> list = noticeService.list(param);
+		
+		model.addAttribute("totCount", rowPageCount[0]);
+		model.addAttribute("totPage", rowPageCount[1]);
+		model.addAttribute("list", list);
+		model.addAttribute("vo", param);
+		
+		
+		return "/customer/notice/notice";
+	}
+	
+	@RequestMapping("/customer/notice/read")
+	public String userread(Model model, NoticeVO param) throws Exception {
+		NoticeVO data = noticeService.read(param, false);
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+		
+		return "customer/notice/read";
+	}
+	
+	
+	
 }

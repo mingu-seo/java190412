@@ -77,12 +77,6 @@ NoticeVO data = (NoticeVO)request.getAttribute("data");
 								</colgroup>
 								<tbody>
 									<tr>
-										<th scope="row"><label for="">상태</label></th>
-										<td>
-											<select name="display">
-												<%=CodeUtil.getDisplayOption(data.getDisplay())%>
-											</select>
-										</td>
 										<th scope="row"><label for="">등록일</label></th>
 										<td>
 											<input type="text" id="registdate" name="registdate" class="inputTitle" value="<%=DateUtil.getDateTimeFormat(data.getRegistdate())%>" title="등록일을 입력해주세요"/>&nbsp;
@@ -92,13 +86,19 @@ NoticeVO data = (NoticeVO)request.getAttribute("data");
 										</td>
 									</tr>
 									<tr>
+										<th scope="row"><label for="">작성자</label></th>
+										<td colspan="3">
+											<input type="text" id="writer" name="writer" class="w50" title="제목을 입력해주세요" value="<%=Function.checkNull(data.getWriter())%>" />	
+										</td>
+									</tr>
+									<tr>
 										<th scope="row"><label for="">첨부파일</label></th>
 										<td colspan="3">
 											<% if (data.getFilename() == null || "".equals(data.getFilename())) { %>
 											<input type="file" name="filename_tmp" id="filename_tmp" title="첨부파일" />
 											<% } else { %>
 												<div class="weidtFile">
-													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.NOTICE_UPLOAD_PATH, java.net.URLEncoder.encode(data.getFilename_org(), "UTF-8"), data.getFilename()) %>" target="_blank"><%= Function.checkNull(data.getFilename_org()) %> [<%= Function.getFileSize(data.getFilesize())%>]</a><br />
+													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.NOTICE_UPLOAD_PATH, java.net.URLEncoder.encode(data.getFilename_org(), "UTF-8"), data.getFilename()) %>" target="_blank"><%= Function.checkNull(data.getFilename_org()) %> </a><br />
 														<input type="checkbox" id="filename_chk" name="filename_chk" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
 														<label for="file_name_chk">기존파일삭제</label>
 													</p>

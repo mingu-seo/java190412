@@ -434,6 +434,15 @@ public class Function {
 		}
 		return fSize;
 	}
+	
+	//처음 값은 ""로,   검색 후 검색 값 출력
+	public static String getText(String startdate) {
+		if(startdate != null) {
+			return startdate;
+		} else {
+			return "";
+		}
+	}
 
 	/**
 	 *  checkbox 체크 출력 여부
@@ -444,7 +453,19 @@ public class Function {
 	public static String getChecked(int s,int w) {
 		return (s==w)? "checked" : "";
 	}
-
+	
+	public static String getChecked1(String[] s, int w) {
+		String result = "";
+		if(s != null && s.length > 0) {
+			for(int i = 0; i < s.length; i++) {
+				if(Integer.parseInt(s[i]) == w) {
+					result = "checked";
+					break;
+				}
+			}
+		}
+		return result;
+	}
 	/**
 	 *  checkbox 반대값 체크 출력 여부
 	 * @param s Integer
@@ -464,7 +485,12 @@ public class Function {
 	public static String getChecked(String s,String word) {
 		return s.equals(word) ? "checked" : "";
 	}
-
+	public static String getChecked1(String s, String word) {
+		if(s == null) {
+			s = "";
+		}
+		return s.equals(word) ? "checked" : "";
+	}
 	/**
 	 *  selectbox 선택 여부
 	 * @param s int
@@ -921,6 +947,41 @@ public class Function {
 			}
 			if(!"".equals(checkNull(name_org))){
 				url += "&vf="+name_org;
+			}
+			if(!"".equals(checkNull(name))){
+				url += "&af="+name;
+			}
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		return url;
+	}
+	public static String downloadUrl1(String uploadPath, String name) {
+		String url = "/include/download.jsp?";
+		try {
+			if(!"".equals(checkNull(uploadPath))){
+				url += "path="+uploadPath;
+			}
+			
+			if(!"".equals(checkNull(name))){
+				url += "&af="+name;
+			}
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
+		return url;
+	}
+	
+	/**
+	 * 다운로드URL
+	 * @param uploadPath
+	 * @param name
+	 */
+	public static String downloadUrl(String uploadPath, String name) {
+		String url = "/include/download.jsp?";
+		try {
+			if(!"".equals(checkNull(uploadPath))){
+				url += "path="+uploadPath;
 			}
 			if(!"".equals(checkNull(name))){
 				url += "&af="+name;

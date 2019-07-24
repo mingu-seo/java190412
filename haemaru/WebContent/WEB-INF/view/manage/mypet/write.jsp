@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="mypet.*"%>
-<%@ page import="member.*"%>
 <%@ page import="util.*"%>
 <%
 	MypetVO param = (MypetVO) request.getAttribute("vo");
@@ -12,35 +11,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp"%>
 <script>
-	function goSave() {
-		if ($("#name").val() == "") {
-			alert('이름을 입력하세요.');
-			$("#name").focus();
-			return false;
-		}
-		return true;
+var oEditors; // 에디터 객체 담을 곳
+$(window).load(function() {
+	oEditors = setEditor("memo"); // 에디터 셋팅
+});
+
+function goSave() {
+	if ($("#name").val() == "") {
+		alert("이름을 입력해주세요.");
+		$("#name").focus();
+		return false;
 	}
+	
+	oEditors.getById["memo"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+	$("#frm").submit();
+}
 
-	$(function() {
-		var trIdx = 0;
-		$(".addBtn")
-				.click(
-						function() {
-							var trObj = "<tr class='addTr'>";
-							trObj += '<td><input type="text" name="title"/></td>';
-							trObj += "<td><input type=\"text\" name=\"oprice\"/></td>";
-							trObj += "<td><input type=\"button\" value=\"삭제\" class=\"delBtn\"/></td>";
-							trObj += "</tr>";
-							$("#optionTable").append(trObj);
-							trIdx++;
-
-							$(".delBtn").off("click");
-							$(".delBtn").click(function() {
-								var idx = $(".delBtn").index(this);
-								$(".addTr").eq(idx).remove();
-							});
-						});
-	});
 </script>
 </head>
 <body>
@@ -63,9 +49,7 @@
 						<!-- 내용 : s -->
 						<div id="bbs">
 							<div id="bread">
-								<form method="post" name="frm" id="frm"
-									action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do"
-									enctype="multipart/form-data" onsubmit="return goSave();">
+								<form name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" method="post" enctype="multipart/form-data">
 									<table width="100%" border="0" cellspacing="0" cellpadding="0"
 										summary="관리자 관리 기본내용입니다.">
 										<colgroup>
@@ -85,28 +69,31 @@
 											</tr>
 											<tr>
 												<th scope="row"><label for="">성별</label></th>
-												<td><input type="text" id="birth" name="birth" value="" />
-												</td>
+												<td><select id="gender">
+														<option value='1'>여아</option>
+														<option value='2'>남아</option>
+												</select></td>
 												<th scope="row"><label for="">견종</label></th>
-												<td><input type="text" id="tel" name="tel" value="" />
+												<td><input type="text" id="breed" name="breed" value="" />
 												</td>
 											</tr>
 											<tr>
 												<th scope="row"><label for="">접종현황</label></th>
-												<td><input type="text" id="tel" name="tel" value="" />
+												<td><input type="text" id="vac" name="vac" value="" />
 												</td>
-												<th scope="row"><label for="">보호자</label></th>
-												<td><input type="text" id="member_pk" name="member_pk" value="<%=param.getMember_pk()%>" />
-												</td>
-											</tr>
-											<tr>
 												<th scope="row"><label for="">이미지</label></th>
 												<td colspan="3"><input type="file" id="image_tmp"
 													name="image_tmp" class="w50" title="첨부파일을 업로드 해주세요." /></td>
 											</tr>
+											<tr>
+												<td colspan="4">
+													<textarea id="memo" name="memo" value="" title="내용을 입력해주세요" style="width: 100%"></textarea>
+												</td>
+											</tr>
 										</tbody>
 									</table>
 									<input type="hidden" name="cmd" value="write" />
+									<input type="hidden" name="member_pk" value="<%=param.getNo()%>" />
 								</form>
 								<div class="btn">
 									<div class="btnLeft">
@@ -114,7 +101,7 @@
 											href="<%=param.getTargetURLParam("index", param, 0)%>"><strong>목록</strong></a>
 									</div>
 									<div class="btnRight">
-										<a class="btns" href="javascript:$('#frm').submit();"><strong>저장</strong></a>
+										<a class="btns" href="#" onclick="goSave();"><strong>저장</strong></a>
 									</div>
 								</div>
 								<!--//btn-->

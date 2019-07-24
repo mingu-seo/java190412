@@ -52,7 +52,7 @@ $(window).load(function(){
 	
 	// 메뉴 수에 맞게 width 값 수정.
 	$("ul.menu > li").css("width", (100 / $("ul.menu > li").length) + "%");
-});
+}); 
 </script>
 <div id="header">
 	<div class="header_inner">
@@ -86,7 +86,7 @@ $(window).load(function(){
 
 						<li><a href="<%=request.getContextPath()%>/manage/board/faq/index.do"><span>FAQ</span></a></li>
 
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>영화후기</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/board/pkg/index.do"><span>pkg관리</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/qna/index.do"><span>QnA</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>자주하는질문</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>FAQ분류관리</span></a></li>

@@ -69,22 +69,15 @@ $(window).load(function(){
 		
 		<div id="menu">
   			<ul class="menu">
-  				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>회원관리</span></a></li>
-				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>예매 관리</span></a></li>
-				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>전시 관리</span></a>
-					<div>
-					<ul>
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>현재 전시</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>지난 전시</span></a></li>
-					</ul>
-					</div>
-				</li>
+  				<li><a href="<%=request.getContextPath()%>/manage/member/index" class="parent"><span>회원관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/ticket/index" class="parent"><span>예매 관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/exhibition/index" class="parent"><span>전시 관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>대관 관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>프로그램</span></a>
 					<div>
 						<ul>
 							<li><a href="<%=request.getContextPath()%>/manage/program/list"><span>프로그램관리</span></a></li>
-							<li><a href="<%=request.getContextPath()%>/manage/program/p_appList"><span>프로그램신청내역관리</span></a></li>
+							<li><a href="<%=request.getContextPath()%>/manage/program/reservation/list"><span>프로그램신청내역관리</span></a></li>
 						</ul>
 					</div>
 				</li>
@@ -93,9 +86,9 @@ $(window).load(function(){
 					<div class="standard_left">
 					<ul>
 						<li><a href="<%=request.getContextPath()%>/manage/board/notice/index.do"><span>공지사항</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>이벤트</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/board/event/index"><span>이벤트</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>자유게시판</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>1:1문의</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/board/qna/index"><span>1:1문의</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>FAQ분류관리</span></a></li>
 						
 					</ul>

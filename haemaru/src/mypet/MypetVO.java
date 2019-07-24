@@ -15,8 +15,10 @@ public class MypetVO extends Parameter{
 	private String vac;
 	private String mypet_image;
 	private String mypet_image_org;
+	private String mypet_image_chk;
 	private String memo;
 	private Timestamp registdate;
+	private String member_name;//디비에 없다
 	
 	public MypetVO() {
 		super.setPageRows(10);
@@ -56,6 +58,14 @@ public class MypetVO extends Parameter{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getMember_name() {
+		return member_name;
+	}
+
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
 	}
 
 	public int getGender() {
@@ -112,6 +122,14 @@ public class MypetVO extends Parameter{
 
 	public void setMypet_image_org(String mypet_image_org) {
 		this.mypet_image_org = mypet_image_org;
+	}
+
+	public String getMypet_image_chk() {
+		return mypet_image_chk;
+	}
+
+	public void setMypet_image_chk(String mypet_image_chk) {
+		this.mypet_image_chk = mypet_image_chk;
 	}
 
 	public String getMemo() {

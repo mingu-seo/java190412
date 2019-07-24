@@ -42,9 +42,12 @@
     <update id="update" parameterClass="mypetvo">
         UPDATE mypet SET
 		name=#name#, age=#age#, vac=#vac#, gender=#gender#
+		<isEqual property="mypet_image_chk" compareValue="1">
+			mypet_image='', mypet_image_org='',
+		</isEqual>
 		<isNotEqual property="mypet_image" compareValue="">
 			<isNotNull property="mypet_image">
-				mypet_image=#mypet_image#, mypet_image_org=#mypet_image_org#
+				mypet_image=#mypet_image#, mypet_image_org=#mypet_image_org#,
 			</isNotNull>
 		</isNotEqual>
 		WHERE no = #no#
@@ -54,16 +57,12 @@
         delete from mypet where no=#no#
     </delete>
     
-    <select id="read" parameterClass="Integer" resultClass="mypetvo">
+    <select id="read" parameterClass="mypetvo" resultClass="mypetvo">
     	<![CDATA[
-        select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate,
-        	ifnull((select max(no) from mypet where no>1 and no<#no#), 0) as prev_no,
-        	ifnull((select min(no) from mypet where no>1 and no>#no#), 0) as next_no
-         from mypet where no=#no#
+        select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,
+        	(select name from member where no=mypet.member_pk) as member_name from mypet where no=#no#
          ]]>
     </select>
-    
-    
     
     
 </sqlMap>

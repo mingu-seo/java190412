@@ -21,9 +21,9 @@
 	function goDelete() {
 		var del = confirm ('삭제하시겠습니까?');
 		if (del){
-			document.location.href = "process?no=<%=data.getNo()%>
-	&cmd=delete";
+			document.location.href = "process?no=<%=data.getNo()%>&cmd=delete";
 		}
+		.0
 	}
 </script>
 </head>
@@ -49,7 +49,7 @@
 							<div id="bread">
 								<h3>기본 정보</h3>
 								<table width="100%" border="0" cellspacing="0" cellpadding="0"
-									summary="관리자 관리 기본내용입니다.">
+									summary="의료진 관리 기본내용입니다.">
 									<colgroup>
 										<col width="15%" />
 										<col width="35%" />
@@ -63,9 +63,10 @@
 											<th scope="row"><label for="">직급</label></th>
 											<td colspan="2"><%=CodeUtil.getDoctorPositionName(data.getPosition())%></td>
 										</tr>
-										<tr>
+											<tr>
 											<th scope="row"><label for="">성별</label></th>
 											<td colspan="2"><%=CodeUtil.getDoctorGenderName(data.getGender())%></td>
+										</tr>
 										</tr>
 										<tr>
 											<th scope="row"><label for="">이름</label></th>
@@ -79,18 +80,20 @@
 											<th scope="row"><label for="">연락처</label></th>
 											<td colspan="2"><%=data.getTel()%></td>
 										</tr>
+										
 										<tr>
 											<th scope="row"><label for="">사진</label></th>
 											<td><img src="/upload/doctor/<%=data.getDoc_image()%>"
 												width="300px" height="auto" /></td>
 										</tr>
-										<tr>
-											<th scope="row"><label for="">등록일</label></th>
-											<td colspan="2"><%=DateUtil.getDateTimeFormat(data.getRegistdate())%></td>
-										</tr>
 									</tbody>
 
+
 								</table>
+
+
+								<input type="hidden" name="doctor_pk" id="doctor_pk"
+									value="<%=data.getNo()%>" />
 								<div class="btn">
 									<div class="btnLeft">
 										<a class="btns"
@@ -101,8 +104,9 @@
 											href="<%=param.getTargetURLParam("edit", param, data.getNo())%>"><strong>수정</strong></a>
 										<a class="btns" href="#" id="delBtn"><strong>삭제</strong></a>
 									</div>
-
 								</div>
+								<!--//btn-->
+
 							</div>
 							<!-- //bread -->
 						</div>
@@ -111,14 +115,12 @@
 					</div>
 					<!--//con -->
 				</div>
+				<!--//content -->
 			</div>
+			<!--//container -->
+			<!-- E N D :: containerArea-->
 		</div>
-		<!--//content -->
-	</div>
-	<!--//container -->
-	<!-- E N D :: containerArea-->
-	</div>
-	<!--//canvas -->
+		<!--//canvas -->
 	</div>
 	<!--//wrap -->
 </body>

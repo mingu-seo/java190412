@@ -30,6 +30,11 @@
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$	
     </select>
     
+    <select id="checkMember" parameterClass="membervo" resultClass="membervo">
+        select no from member
+        WHERE name=#name# and tel=#tel#
+    </select>
+    
     <insert id="insert" parameterClass="membervo" >
         insert into member
         	(email, tel, birth, pw, name, memo, registdate)
@@ -61,11 +66,12 @@
          ]]>
     </select>
     
-    <select id="idcheck" parameterClass="String" resultClass="Integer">
-        select count(*) as cnt from member where email=#email#
+	<select id="idcheck" parameterClass="String" resultClass="Integer">
+    	select count(*) as cnt from member where email=#email#
+    </select>    
+    
+    <select id="mypetList" parameterClass="Integer" resultClass="member.MypetVO">
+        select * from mypet where member_pk=#no# ORDER BY registdate DESC 
     </select>
-    
-    
-    
     
 </sqlMap>

@@ -70,7 +70,7 @@ $(window).load(function(){
 		<div id="menu">
   			<ul class="menu">
   				<li><a href="<%=request.getContextPath()%>/manage/member/index" class="parent"><span>회원관리</span></a></li>
-				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>반려동물관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/mypet/index" class="parent"><span>반려동물관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/doctor/index" class="parent"><span>의료진관리</span></a>
 					<div class="standard_left">
 					<ul>
@@ -80,7 +80,7 @@ $(window).load(function(){
 					</ul>
 					</div>
 				</li>
-				<li><a href="<%=request.getContextPath()%>/manage/reservation/index" class="parent"><span>예약관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/reserve/index" class="parent"><span>예약관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/adopt/index" class="parent"><span>입양관리</span></a></li>
 
 				<li><a href="<%=request.getContextPath()%>/manage/cscenter/index.do" class="parent"><span>고객지원</span></a>
