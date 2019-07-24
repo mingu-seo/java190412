@@ -5,7 +5,7 @@ import util.Parameter;
 public class RoomVO extends Parameter{
 	
 	private int no; //객실 pk
-	private int name; //객실 종류
+	private String name; //객실 종류
 	private int price; //객실 가격
 	private int count; //객실 수량
 	private int adult; //성인(기본정원)
@@ -20,7 +20,7 @@ public class RoomVO extends Parameter{
 	public int getNo() {
 		return no;
 	}
-	public int getName() {
+	public String getName() {
 		return name;
 	}
 	public int getPrice() {
@@ -56,7 +56,7 @@ public class RoomVO extends Parameter{
 	public void setNo(int no) {
 		this.no = no;
 	}
-	public void setName(int name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	public void setPrice(int price) {
