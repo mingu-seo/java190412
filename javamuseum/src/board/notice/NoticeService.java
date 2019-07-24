@@ -43,7 +43,6 @@ public class NoticeService {
 			fu.upload(file, SiteProperty.NOTICE_UPLOAD_PATH, SiteProperty.REAL_PATH, "notice");
 			vo.setFilename(fu.getName());
 			vo.setFilename_org(fu.getSrcName());
-			vo.setFilesize(fu.getSrcSize());
 		}
 		
 		int lastNo = (Integer)noticeDao.insert(vo);
@@ -53,9 +52,7 @@ public class NoticeService {
 	
 	public NoticeVO read(NoticeVO vo, boolean userCon) throws Exception {
 		NoticeVO data = noticeDao.read(vo);
-		if (userCon) {	// 사용자쪽 조회시만 update
-			noticeDao.updateReadno(vo);
-		}
+		
 		return data;
 	}
 
@@ -88,10 +85,10 @@ public class NoticeService {
 				NoticeVO nvo = new NoticeVO();
 				nvo.setNo(Function.getIntParameter(nos[i]));
 				NoticeVO data = noticeDao.read(vo);
-				int r = noticeDao.delete(vo);
+				int r = noticeDao.delete(nvo);
 				if (r > 0) {
 					delCount++;
-					Function.fileDelete(vo.getUploadPath(), data.getFilename());
+					//Function.fileDelete(vo.getUploadPath(), data.getFilename());
 				}
 			}
 		}

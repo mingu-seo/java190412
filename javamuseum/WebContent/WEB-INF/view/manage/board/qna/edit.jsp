@@ -1,11 +1,11 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.util.*" %>
-<%@ page import="board.notice.*" %>
+<%@ page import="board.qna.*" %>
 <%@ page import="util.*" %>
 <%@ page import="property.*" %>
 <%
-NoticeVO param = (NoticeVO)request.getAttribute("param");
-NoticeVO data = (NoticeVO)request.getAttribute("data");
+QnaVO param = (QnaVO)request.getAttribute("param");
+QnaVO data = (QnaVO)request.getAttribute("data");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -86,19 +86,13 @@ NoticeVO data = (NoticeVO)request.getAttribute("data");
 										</td>
 									</tr>
 									<tr>
-										<th scope="row"><label for="">작성자</label></th>
-										<td colspan="3">
-											<input type="text" id="writer" name="writer" class="w50" title="제목을 입력해주세요" value="<%=Function.checkNull(data.getWriter())%>" />	
-										</td>
-									</tr>
-									<tr>
 										<th scope="row"><label for="">첨부파일</label></th>
 										<td colspan="3">
 											<% if (data.getFilename() == null || "".equals(data.getFilename())) { %>
 											<input type="file" name="filename_tmp" id="filename_tmp" title="첨부파일" />
 											<% } else { %>
 												<div class="weidtFile">
-													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.NOTICE_UPLOAD_PATH, java.net.URLEncoder.encode(data.getFilename_org(), "UTF-8"), data.getFilename()) %>" target="_blank"><%= Function.checkNull(data.getFilename_org()) %> </a><br />
+													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.NOTICE_UPLOAD_PATH, java.net.URLEncoder.encode(data.getFilename_org(), "UTF-8"), data.getFilename()) %>" target="_blank"><%= Function.checkNull(data.getFilename_org()) %> [<%= Function.getFileSize(data.getFilesize())%>]</a><br />
 														<input type="checkbox" id="filename_chk" name="filename_chk" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
 														<label for="file_name_chk">기존파일삭제</label>
 													</p>
