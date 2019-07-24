@@ -51,8 +51,8 @@ function groupDelete() {
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
 								<colgroup>
 									<col class="w3" />
-									<col class="w5" />
-									<col class="w10" />
+									<col class="w3" />
+									<col class="w20" />
 									<col class="w10" />
 								</colgroup>
 								<thead>
@@ -76,8 +76,9 @@ function groupDelete() {
 								%>
 									<tr>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=list.get(i).getNo()%>"/></td>
-										<td <%=targetUrl%>><%=list.get(i).getPetit_title()%></td>
-										<td <%=targetUrl%>><%=DateUtil.getDateTimeFormat(list.get(i).getRegistdate())%></td>
+										<td <%=targetUrl%>><%=list.get(i).getNo()%></td>
+										<td <%=targetUrl%>><%=list.get(i).getSet_name()%></td>
+										<td <%=targetUrl%>><%=DateUtil.getDateTimeFormat(list.get(i).getRegdate())%></td>
 									</tr>
 								<%
 										}
