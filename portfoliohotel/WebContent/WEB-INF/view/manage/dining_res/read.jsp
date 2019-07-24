@@ -73,37 +73,39 @@ Dining_resVO data = (Dining_resVO) request.getAttribute("data");
 										<col width="15%" />
 										<col width="15%" />
 										<col width="15%" />
-										<col width="15%" />
-										<col width="15%" />
-										<col width="10%" />
 									</colgroup>
 									<tbody>
 										<tr>
 											<th scope="row"><label for="">예약날짜</label></th>
-											<td colspan="2"><%=data.getD_day()%></td>
-											<th scope="row"><label for="">예약시간</label></th>
-											<td colspan="2"><%=data.getD_time()%></td>
+											<td colspan="6"><%=data.getD_day()%></td>
 										</tr>
+										<tr>
+											<th scope="row"><label for="">회원명</label></th>
+											<td><%=data.getMember_name()%></td>
+											
+											<th scope="row"><label for="">회원 연락처</label></th>
+											<td colspan="2"><%=data.getGuest_tel()%></td>
+										<tr>
+											<th scope="row"><label for="">다이닝명</label></th>
+											<td colspan="4"><%=data.getDining_name()%></td>
+										</tr>											 
 										<tr>
 											<th scope="row"><label for="">예약인원(성인)</label></th>
-											<td colspan="2"><%=data.getAdult()%></td>
-										
+											<td><%=data.getAdult()%></td>
+											
 											<th scope="row"><label for="">예약인원(어린이)</label></th>
-											<td colspan="5"><%=data.getKid()%></td>
+											<td colspan="2"><%=data.getKid()%></td>
 										</tr>
 										<tr>
-											<th scope="row"><label for="">투숙객 한글명</label></th>
-											<td colspan="2"><%=data.getGuest_kname()%></td>
+											<th scope="row"><label for="">예약일</label></th>
+											<td colspan="6"><%=data.getRegdate()%></td>
+										</tr>	
+										<tr>
+											<th scope="row"><label for="">결제 금액</label></th>
+											<td colspan="6"><%=data.getPrice()%></td>
+										</tr>	
+									
 										
-											<th scope="row"><label for="">투숙객 영문명</label></th>
-											<td colspan="5"><%=data.getGuest_ename()%></td>
-										</tr>
-										<tr>
-											<th scope="row"><label for="">투숙객 이메일</label></th>
-											<td colspan="5"><%=data.getGuest_email()%></td>
-										</tr>
-										<!-- <input type="hidden" name="product_pk" value="product_pk"> -->
-										<!-- value=서버로 넘길 값 -->
 									</tbody>
 									</table>
 								<div class="btn">

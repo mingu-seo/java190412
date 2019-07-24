@@ -9,17 +9,28 @@
 	</select>
 
 	<select id="list" parameterClass="dining_resvo" resultClass="dining_resvo">
-		select no, d_day, d_time, adult, kid, guest_kname, guest_ename
+		select no, member_name, dining_name, d_day, d_time, adult, kid, guest_kname, guest_ename
 		, guest_tel, guest_email, regdate from dining_res
-		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
+		ORDER BY
+		<isEqual property="orderCond" compareValue="">
+			regdate DESC
+		</isEqual>
+		<isNotEqual property="orderCond" compareValue="">
+			<isEqual property="orderCond" compareValue="regdate_desc">
+				regdate DESC
+			</isEqual>
+			<isEqual property="orderCond" compareValue="regdate_asc">
+				regdate ASC
+			</isEqual>
+		</isNotEqual>
+		LIMIT $startPageNo$, $pageRows$
 	</select>
-	
 	
 	<insert id="insert" parameterClass="dining_resvo">
 		insert into dining_res (
-		d_day, d_time, adult, kid, guest_kname, guest_ename, guest_tel, guest_email, regdate) 
+		d_day, d_time, adult, kid, guest_kname, guest_ename, guest_tel, guest_email, regdate, price) 
 		values (
-		#d_day#, #d_time#, #adult#, #kid#, #guest_kname#, #guest_ename#, #guest_tel#, #guest_email#, now())
+		#d_day#, #d_time#, #adult#, #kid#, #guest_kname#, #guest_ename#, #guest_tel#, #guest_email#, now(), #price#)
 		<selectKey keyProperty="no" resultClass="Integer">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
@@ -33,8 +44,8 @@
     </update>
     
     <select id="read" parameterClass="Integer" resultClass="dining_resvo">
-		select no, d_day, d_time, adult, kid, guest_kname, guest_ename, guest_tel,
-		guest_email from dining_res where no=#no#
+		select no, d_day, member_name, guest_tel, dining_name, adult, kid, regdate, price
+		from dining_res where no=#no#
 	</select>
     
     <delete id="delete" parameterClass="Integer">
