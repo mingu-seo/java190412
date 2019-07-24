@@ -17,6 +17,7 @@ public class UserMainController {
 	@Autowired
 	private UmemberService memberSerivce;
 
+	//메인페이지 구경용
 	@RequestMapping("/user/index")
 	public String main(Model model) throws Exception {
 		return "/user/index";
