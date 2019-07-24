@@ -70,10 +70,12 @@ MypetVO data = (MypetVO)request.getAttribute("data");
 									<tr>
 										<th scope="row"><label for="">접종현황</label></th>
 										<td><%=data.getVac()%></td>
-										<th scope="row"><label for="">이미지</label></th>
-										<td><img src ="/upload/mypet/<%=data.getMypet_image()%>"></img></td>
+										<th scope="row"><label for="">보호자</label></th>
+										<td><a href="/manage/member/read?no=<%=data.getMember_pk()%>"><%=data.getMember_name()%></a></td>
 									</tr>
 									<tr>
+										<th scope="row"><label for="">이미지</label></th>
+										<td><img src ="/upload/mypet/<%=data.getMypet_image()%>"></img></td>
 										<th scope="row"><label for="">내용</label></th>
 										<td colspan="4">
 											<%=data.getMemo()%>

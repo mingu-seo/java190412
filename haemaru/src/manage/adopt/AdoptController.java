@@ -111,18 +111,18 @@ public class AdoptController {
 		return "include/alert";
 	}
 	
-	@RequestMapping("/manage/adopt/loginHistory")
-	public String loginHistory(Model model, AdoptVO param) throws Exception {
-		int[] rowPageCount = adoptService.countLoginHistory(param);
-		ArrayList<AdoptVO> list = adoptService.listLoginHistory(param);
-		
-		model.addAttribute("totCount", rowPageCount[0]);
-		model.addAttribute("totPage", rowPageCount[1]);
-		model.addAttribute("list", list);
-		model.addAttribute("vo", param);
-		
-		return "manage/adopt/loginHistory";
-	}
+//	@RequestMapping("/manage/adopt/loginHistory")
+//	public String loginHistory(Model model, AdoptVO param) throws Exception {
+//		int[] rowPageCount = adoptService.countLoginHistory(param);
+//		ArrayList<AdoptVO> list = adoptService.listLoginHistory(param);
+//		
+//		model.addAttribute("totCount", rowPageCount[0]);
+//		model.addAttribute("totPage", rowPageCount[1]);
+//		model.addAttribute("list", list);
+//		model.addAttribute("vo", param);
+//		
+//		return "manage/adopt/loginHistory";
+//	}
 	
 	@RequestMapping("/manage/adopt/animalprofile/animalprofile.do")
 	public String animalprofile(Model model, AdoptVO param) throws Exception {

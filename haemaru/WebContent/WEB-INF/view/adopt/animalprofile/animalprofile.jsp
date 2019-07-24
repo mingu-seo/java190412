@@ -59,7 +59,7 @@ int totPage = (Integer)request.getAttribute("totPage");
                     </a>
                 </div>
                 <h3>프로필</h3>
-                <p>Propile</p>
+                <p>Profile</p>
                 <!-- 강아지 고양이 특수동믈 버튼 리스트 -->
                 <ul class="tab-list clear">
                     <li class="on"><a href="#">강아지</a></li>

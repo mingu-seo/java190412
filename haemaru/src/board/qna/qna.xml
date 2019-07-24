@@ -123,7 +123,7 @@
     </select>
         
       <select id="replyList" parameterClass="Integer" resultClass="board.qna.QnaReplyVO">
-    	SELECT * FROM qna_reply WHERE ask_no=#no# ORDER BY registdate DESC
+    	SELECT * FROM qna_reply WHERE qna_no=#no# ORDER BY registdate DESC
       </select>
     
     <insert id = "replyInsert" parameterClass="board.qna.QnaReplyVO">

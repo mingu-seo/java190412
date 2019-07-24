@@ -780,6 +780,7 @@ public class CodeUtil {
 					return result;
 				}
 				
+						
 				public static String getDoctorCategoryOption(int arg){
 			        StringBuffer result = new StringBuffer();
 			        
@@ -787,7 +788,6 @@ public class CodeUtil {
 			        	result.append("<option value='2'"+Function.getSelected(2,arg)+">"+getDoctorCategoryName(2)+"</option>");
 			        return result.toString();
 			    }
-				
 				
 				
 				public static String getDoctorScheduleName(int time) {
@@ -875,6 +875,25 @@ public class CodeUtil {
 			        	result.append("<option value='25'"+Function.getSelected(25,arg)+">"+getDoctorScheduleName(25)+"</option>");
 			        return result.toString();
 			    }
+				
+				
+				public static String getReserveRouteOption(int arg){
+			        StringBuffer result = new StringBuffer();
+			        
+			        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getReserveRouteName(1)+"</option>");
+			        	result.append("<option value='2'"+Function.getSelected(2,arg)+">"+getReserveRouteName(2)+"</option>");
+			        return result.toString();
+			    }
+				
+				public static String getReserveRouteName(int route) {
+					String result = "";
+					if (route == 1) {
+						result = "온라인";
+					} else if (route == 2) {
+						result = "오프라인";
+					}
+					return result;
+				}
 				
 
 }

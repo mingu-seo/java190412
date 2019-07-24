@@ -52,11 +52,14 @@ function groupDelete() {
 								<colgroup>
 									<col class="w3" />
 									<col class="w5" />
+									<col class="w7" />
+									<col class="w7" />
+									<col class="w7" />
+									<col class="w10" />
 									<col class="w10" />
 									<col class="w10" />
 									<col class="" />
-									<col class="" />
-									<col class="w20" />
+									<col class="w10" />
 								</colgroup>
 								<thead>
 									<tr>
@@ -66,8 +69,8 @@ function groupDelete() {
 										<th scope="col">나이</th>
 										<th scope="col">성별</th>
 										<th scope="col">견종</th>
-										<th scope="col">접종현황</th>
 										<th scope="col">이미지</th>
+										<th scope="col">접종현황</th>
 										<th scope="col">메모</th>
 										<th scope="col" class="last">등록일</th>
 									</tr>
@@ -90,8 +93,8 @@ function groupDelete() {
 										<td <%=targetUrl%>><%=list.get(i).getAge()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getGender()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getBreed()%></td>
-										<td <%=targetUrl%>><%=list.get(i).getVac()%></td>
 										<td <%=targetUrl%>><img src ="/upload/mypet/<%=list.get(i).getMypet_image()%>" width="70px" height="70px"></td>
+										<td <%=targetUrl%>><%=list.get(i).getVac()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getMemo()%></td>
 										<td <%=targetUrl%>><%=DateUtil.getDateTimeFormat(list.get(i).getRegistdate())%></td>
 									</tr>
