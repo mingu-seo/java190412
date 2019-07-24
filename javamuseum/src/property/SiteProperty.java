@@ -12,6 +12,7 @@ public class SiteProperty {
 	 * 관리자 시작페이지
 	 */
 	public static final String	INDEX_PAGE				= "/manage/admin/index.do";
+	public static final String	UserINDEX_PAGE				= "/user/index";
 	/**
 	 * 보안서버인증서(SSL)사용여부
 	 */

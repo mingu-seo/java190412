@@ -69,9 +69,9 @@ $(window).load(function(){
 		
 		<div id="menu">
   			<ul class="menu">
-  				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>회원관리</span></a></li>
-				<li><a href="<%=request.getContextPath()%>/manage/ticket/index.do" class="parent"><span>예매 관리</span></a></li>
-				<li><a href="<%=request.getContextPath()%>/manage/exhibition/index.do" class="parent"><span>전시 관리</span></a></li>
+  				<li><a href="<%=request.getContextPath()%>/manage/member/index" class="parent"><span>회원관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>예매 관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>전시 관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>대관 관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>프로그램</span></a>
 					<div>
