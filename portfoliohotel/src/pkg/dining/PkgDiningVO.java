@@ -6,56 +6,72 @@ import util.Parameter;
 
 public class PkgDiningVO extends Parameter {
 
-	private int no; // petit 번호
-	private String petit_title; // petit 제목
-	private String petit_event; // petit 이벤트 내용
-	private String petit_time; // petit 이벤트 시간
-	private String petit_menu; // petit 메뉴
-	private String petit_place; // petit 장소
-	private Timestamp registdate; // petit 등록일
+	private int no; // dining 번호
+	private String period; // dining 기간
+	private String time_limit; // dining 시간
+	private String set_name; // dining 세트 이름
+	private String set_contents; // dining 메뉴 내용
+	private String place; // dining 장소
+	private Timestamp regdate; // dining 등록일
+	private int set_price; // 세트 가격
+	private int set_personnel; // 인원추천
 	
-	
+	public PkgDiningVO() {
+		super.setPageRows(10);
+	}
 	public int getNo() {
 		return no;
 	}
 	public void setNo(int no) {
 		this.no = no;
 	}
-	public String getPetit_event() {
-		return petit_event;
+	public String getPeriod() {
+		return period;
 	}
-	public void setPetit_event(String petit_event) {
-		this.petit_event = petit_event;
+	public void setPeriod(String period) {
+		this.period = period;
 	}
-	public String getPetit_time() {
-		return petit_time;
+	public String getTime_limit() {
+		return time_limit;
 	}
-	public void setPetit_time(String petit_time) {
-		this.petit_time = petit_time;
+	public void setTime_limit(String time_limit) {
+		this.time_limit = time_limit;
 	}
-	public String getPetit_menu() {
-		return petit_menu;
+	public String getSet_name() {
+		return set_name;
 	}
-	public void setPetit_menu(String petit_menu) {
-		this.petit_menu = petit_menu;
+	public void setSet_name(String set_name) {
+		this.set_name = set_name;
 	}
-	public String getPetit_place() {
-		return petit_place;
+	public String getSet_contents() {
+		return set_contents;
 	}
-	public void setPetit_place(String petit_place) {
-		this.petit_place = petit_place;
+	public void setSet_contents(String set_contents) {
+		this.set_contents = set_contents;
 	}
-	public String getPetit_title() {
-		return petit_title;
+	public String getPlace() {
+		return place;
 	}
-	public void setPetit_title(String petit_title) {
-		this.petit_title = petit_title;
+	public void setPlace(String place) {
+		this.place = place;
 	}
-	public Timestamp getRegistdate() {
-		return registdate;
+	public Timestamp getRegdate() {
+		return regdate;
 	}
-	public void setRegistdate(Timestamp registdate) {
-		this.registdate = registdate;
+	public void setRegdate(Timestamp regdate) {
+		this.regdate = regdate;
+	}
+	public int getSet_price() {
+		return set_price;
+	}
+	public void setSet_price(int set_price) {
+		this.set_price = set_price;
+	}
+	public int getSet_personnel() {
+		return set_personnel;
+	}
+	public void setSet_personnel(int set_personnel) {
+		this.set_personnel = set_personnel;
 	}
 	
 }
