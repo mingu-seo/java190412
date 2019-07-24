@@ -39,4 +39,7 @@
 	<sqlMap resource="board/notice/notice.xml"/>
 	<sqlMap resource="manage/program/program.xml"/>
 	<sqlMap resource="manage/reservation/reservation.xml"/>
+	<sqlMap resource="manage/exhibition/exhibition.xml"/>
+	<sqlMap resource="manage/ticket/ticket.xml"/>
+	<sqlMap resource="manage/member/member.xml"/>	
 </sqlMapConfig>

@@ -11,9 +11,13 @@
 	<context:component-scan base-package="manage" />
 	<context:component-scan base-package="board" />
 	<context:component-scan base-package="main" />
-	<context:component-scan base-package="pet" />
+	<context:component-scan base-package="mypet" />
 	<context:component-scan base-package="member" />
 	<context:component-scan base-package="reservation" />
+	<context:component-scan base-package="doctor" />
+	<context:component-scan base-package="adopt" />
+	<context:component-scan base-package="sched" />
+	<context:component-scan base-package="reserve" />
 	
 	<mvc:annotation-driven/>
 <!-- 
@@ -42,6 +46,23 @@
  	<mvc:default-servlet-handler/>
  	<mvc:view-controller path="/my/my-ask.do"/>
  	<mvc:default-servlet-handler/>
+ 	
+ 	<mvc:view-controller path="/department/surgery.do"/>
+ 	<mvc:default-servlet-handler/>
+ 	<mvc:view-controller path="/department/internal.do"/>
+ 	<mvc:default-servlet-handler/>
+ 	<mvc:view-controller path="/department/radiology.do"/>
+ 	<mvc:default-servlet-handler/>
+ 	<mvc:view-controller path="/department/emergency.do"/>
+ 	<mvc:default-servlet-handler/>
+ 	
+ 	<mvc:view-controller path="/adopt/animalprofile/animalprofile.do"/>
+ 	<mvc:default-servlet-handler/>
+ 	<mvc:view-controller path="/adopt/review/review.do"/>
+ 	<mvc:default-servlet-handler/>
+ 	<mvc:view-controller path="/adopt/review/addreview.do"/>
+ 	<mvc:default-servlet-handler/> 	
+ 
  	
  	<mvc:view-resolvers>
  	    <mvc:jsp prefix="/WEB-INF/view/"/>

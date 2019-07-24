@@ -11,7 +11,7 @@
 			1=1
 			<isNotEqual property="sval" compareValue="" prepend="and">
 				<isEqual property="stype" compareValue="all" prepend="and">
-					( (name like '%$sval$%' ) or (id like '%$sval$%' )  ) 					
+					( (name like '%$sval$%' ) or (email like '%$sval$%' )  ) 					
 				</isEqual>
 				<isNotEqual property="stype" compareValue="all" prepend="and">
 					($stype$ like '%$sval$%' )
@@ -30,19 +30,24 @@
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$	
     </select>
     
+    <select id="checkMember" parameterClass="membervo" resultClass="membervo">
+        select no from member
+        WHERE name=#name# and tel=#tel#
+    </select>
+    
     <insert id="insert" parameterClass="membervo" >
         insert into member
-        	(id, password, name, registdate)
+        	(email, tel, birth, pw, name, memo, registdate)
         values
-        	(#id#, md5(#password#), #name#, now())
+        	(#email#, #tel#, #birth#, md5(#pw#), #name#, #memo#, now())
         <selectKey keyProperty="no" resultClass="Integer">
 			SELECT  LAST_INSERT_ID()
 		</selectKey>
     </insert>
     <update id="update" parameterClass="membervo">
         update member set
-        	<isNotEqual property="password" compareValue="">
-        	    password = md5(#password#),
+        	<isNotEqual property="pw" compareValue="">
+        	    pw = md5(#pw#),
         	</isNotEqual>
         	name=#name#
         where no=#no#
@@ -54,26 +59,19 @@
     
     <select id="read" parameterClass="Integer" resultClass="membervo">
     	<![CDATA[
-        select no, id, password, 
-        	name, registdate,
+        select no, email, tel, birth, pw, name, memo, registdate,
         	ifnull((select max(no) from member where no>1 and no<#no#), 0) as prev_no,
         	ifnull((select min(no) from member where no>1 and no>#no#), 0) as next_no
-         from member where no>1 and no=#no#
+         from member where no=#no#
          ]]>
     </select>
     
-    <select id="idcheck" parameterClass="String" resultClass="Integer">
-        select count(*) as cnt from member where id=#id#
+	<select id="idcheck" parameterClass="String" resultClass="Integer">
+    	select count(*) as cnt from member where email=#email#
+    </select>    
+    
+    <select id="mypetList" parameterClass="Integer" resultClass="member.MypetVO">
+        select * from mypet where member_pk=#no# ORDER BY registdate DESC 
     </select>
-    
-    <select id="loginCheck" parameterClass="membervo" resultClass="Integer">
-        select count(*) as cnt from member where id=#id# and password=md5(#password#)
-    </select>
-    
-    <select id="loginSessionInfo" parameterClass="membervo" resultClass="membervo">
-        select * from member where id=#id# and password=md5(#password#)
-    </select>
-    
-    
     
 </sqlMap>

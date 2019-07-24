@@ -1,7 +1,6 @@
 package board.notice;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import board.notice.NoticeVO;
 import util.Function;
 
 @Controller
@@ -18,7 +16,8 @@ public class NoticeController {
 
 	@Autowired
 	NoticeService noticeService;
-
+	
+	/* [관리자] 공지사항 목록 */
 	@RequestMapping("/manage/board/notice/index")
 	public String index(Model model, NoticeVO param) throws Exception {
 		param.setTablename("notice");
@@ -33,21 +32,58 @@ public class NoticeController {
 		return "manage/board/notice/index";
 	}	
 	
+	/* [사용자] 공지사항 목록 */
+	@RequestMapping("/membership/notice")
+	public String Nindex(Model model, NoticeVO param) throws Exception {
+		param.setTablename("notice");
+		int[] rowPageCount = noticeService.count(param);
+		ArrayList<NoticeVO> list = noticeService.list(param);
+		
+		model.addAttribute("totCount", rowPageCount[0]);
+		model.addAttribute("totPage", rowPageCount[1]);
+		model.addAttribute("list", list);
+		model.addAttribute("vo", param);
+		
+		return "membership/notice";
+	}	
+	
+	/* [관리자] 공지사항 상세페이지 */
 	@RequestMapping("/manage/board/notice/read")
 	public String read(Model model, NoticeVO param) throws Exception {
-		NoticeVO data = noticeService.read(param.getNo());
+		NoticeVO data = noticeService.read(param.getNo(), false);
 		model.addAttribute("data", data);
 		model.addAttribute("param", param);
 		
 		return "manage/board/notice/read";
 	}
 	
+	/* [사용자] 공지사항 상세페이지 */
+	@RequestMapping("/membership/notice_read")
+	public String Nread(Model model, NoticeVO param) throws Exception {
+		NoticeVO data = noticeService.read(param.getNo(), true);
+		model.addAttribute("data", data);
+		model.addAttribute("param", param);
+		
+		return "membership/notice_read";
+	}
+	
+	/* [관리자] 공지사항 수정 */
+	@RequestMapping("/manage/board/notice/edit")
+	public String edit(Model model, NoticeVO param) throws Exception {
+		NoticeVO data = noticeService.read(param.getNo(), false);
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+		return "manage/board/notice/edit";
+	}
+	
+	/* [관리자] 공지사항 글쓰기 */
 	@RequestMapping("/manage/board/notice/write")
 	public String insertReview(Model model, NoticeVO param) throws Exception {
 		model.addAttribute("vo", param);
 		return "manage/board/notice/write";
 	}
 	
+	/* [관리자] 공지사항 삭제 */
 	@RequestMapping("/manage/board/notice/delete")
 	public String deleteReview(Model model, NoticeVO param) throws Exception {
 		noticeService.delete(param.getNo());
@@ -70,15 +106,26 @@ public class NoticeController {
 		System.out.println(param.getCmd());
 		
 		if ("write".equals(param.getCmd()) ) {
-			
 			int r = noticeService.insert(param, request);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
 			model.addAttribute("url", "index");
+		} else if ("edit".equals(param.getCmd())) {
+			int r = noticeService.update(param, request);
+			//productService.deleteOption(param.getNo()); //왜 getNo()
+			/* noticeService.insertOption(request, param.getNo()); */
+			model.addAttribute("code", "alertMessageUrl");
+			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));
+			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		} else if ("delete".equals(param.getCmd())) {
 			int r = noticeService.delete(param.getNo());
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패"));
+			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
+		} else if ("groupDelete".equals(param.getCmd())) {
+			int r = noticeService.groupDelete(request);
+			model.addAttribute("code", "alertMessageUrl");
+			model.addAttribute("message", Function.message(r, "총 "+r+"건이 삭제되었습니다.", "삭제실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		}		
 		return "include/alert";

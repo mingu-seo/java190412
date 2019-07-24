@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="mypet">
+    
+    <typeAlias alias="mypetvo" type="mypet.MypetVO"/>
+    
+	<!-- 공통조건 -->
+	<sql id="searchSql">		
+		<!-- WHERE 절 검색 -->
+		<dynamic prepend="where">
+			1=1
+			<isNotEqual property="sval" compareValue="" prepend="and">
+				<isEqual property="stype" compareValue="all" prepend="and">
+					( (name like '%$sval$%' ) or (gender like '%$sval$%' )  ) 					
+				</isEqual>
+				<isNotEqual property="stype" compareValue="all" prepend="and">
+					($stype$ like '%$sval$%' )
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql>
+	<select id="count" parameterClass="mypetvo" resultClass="Integer">
+        select count(*) from mypet
+        <include refid="searchSql"/>
+    </select>
+	
+    <select id="list" parameterClass="mypetvo" resultClass="mypetvo">
+        select * from mypet
+        <include refid="searchSql"/>
+		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$	
+    </select>
+    
+    <insert id="insert" parameterClass="mypetvo" >
+        insert into mypet
+        	(name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, member_pk, registdate)
+        values
+        	(#name#, #age#, #gender#, #breed#, #vac#, #mypet_image#, #mypet_image_org#, #memo#, #member_pk#, now())
+        <selectKey keyProperty="no" resultClass="Integer">
+			SELECT  LAST_INSERT_ID()
+		</selectKey>
+    </insert>
+    <update id="update" parameterClass="mypetvo">
+        UPDATE mypet SET
+		name=#name#, age=#age#, vac=#vac#, gender=#gender#
+		<isEqual property="mypet_image_chk" compareValue="1">
+			mypet_image='', mypet_image_org='',
+		</isEqual>
+		<isNotEqual property="mypet_image" compareValue="">
+			<isNotNull property="mypet_image">
+				mypet_image=#mypet_image#, mypet_image_org=#mypet_image_org#,
+			</isNotNull>
+		</isNotEqual>
+		WHERE no = #no#
+    </update>
+    
+    <delete id="delete" parameterClass="Integer">
+        delete from mypet where no=#no#
+    </delete>
+    
+    <select id="read" parameterClass="mypetvo" resultClass="mypetvo">
+    	<![CDATA[
+        select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,
+        	(select name from member where no=mypet.member_pk) as member_name from mypet where no=#no#
+         ]]>
+    </select>
+    
+    
+</sqlMap>

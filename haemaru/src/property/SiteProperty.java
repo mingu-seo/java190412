@@ -7,11 +7,15 @@ public class SiteProperty {
 	/**
 	 * 업체명
 	 */
-	public static final String 	COMPANY_NAME			= "SPRING";
+	public static final String 	COMPANY_NAME			= "HAEMARU";
 	/**
 	 * 관리자 시작페이지
 	 */
 	public static final String	INDEX_PAGE				= "/manage/admin/index.do";
+	/**
+	 * 유저 시작페이지
+	 */
+	public static final String	MEMBER_INDEX_PAGE				= "/index.do";
 	/**
 	 * 보안서버인증서(SSL)사용여부
 	 */
@@ -92,10 +96,14 @@ public class SiteProperty {
 	/**
 	 * 로컬 홈디렉토리경로 (실서버 변경 필요)
 	 */
-	public static final String REAL_PATH				= "D:\\workspace\\java\\spring\\WebContent";
+	public static final String REAL_PATH				= "C:\\java\\git\\java190412\\haemaru\\WebContent";
 	/**
 	 * 공지사항 첨부파일 경로
 	 */
-	public static final String NOTICE_UPLOAD_PATH		= "/upload/notice/";
+	public static final String NOTICE_UPLOAD_PATH = "/upload/notice/";
+	public static final String DOCTOR_UPLOAD_PATH = "/upload/doctor/";
+	public static final String QNA_UPLOAD_PATH = "/upload/qna/";
+	public static final String ANIMAL_UPLOAD_PATH = "/upload/adopt/";
+	public static final String MYPET_UPLOAD_PATH = "/upload/mypet/";
 
 }

@@ -2,9 +2,12 @@
 <%@ page import="room.*" %>
 <%@ page import="property.SiteProperty" %>
 <%@ page import="util.*" %>
+<%@ page import="java.util.*" %>
 <%
 RoomVO read = (RoomVO)request.getAttribute("read");
 RoomVO param = (RoomVO)request.getAttribute("vo");
+ArrayList<HashMap> list = (ArrayList<HashMap>)request.getAttribute("list");
+ArrayList<HashMap> list_i = (ArrayList<HashMap>)request.getAttribute("list_i");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -33,9 +36,7 @@ function goDelete(v) {
 	}
 }
 
-function goSave() {
-	
-	
+function goSave() {	
 	var sHTML = oEditors.getById["instruction"].getIR();
 	if (sHTML == "" || sHTML == "<p><br></p>") {
 		alert('제품 정보를 입력하세요.');
@@ -49,6 +50,52 @@ function goSave() {
 	/* $("#frm").submit(); */
 }
 
+$(function(){		
+	var trIdx = 0;		
+	$(".addBtn").click(function(){
+		var trObj = "<tr class='addTr'>";
+		trObj += "	<td><input type=\"text\" name=\"name_s\"/></td>";
+		trObj += "	<td><input type=\"button\" value=\"삭제\" class=\"delBtn\"/></td>";
+		trObj += "</tr>";
+		$("#table_s").append(trObj);
+		trIdx++;
+		
+		$(".delBtn").off("click");
+		$(".delBtn").click(function(){
+			var idx = $(".delBtn").index(this);
+			$(".addTr").eq(idx).remove();
+		});
+	});	
+	
+	var trIdx_i = 0;		
+	$(".addBtn_i").click(function(){
+		var trObj = "<tr class='addTr_i'>";
+		trObj += "	<td><input type=\"file\" name=\"image_tmp\" multiple/></td>";
+		trObj += "	<td><input type=\"button\" value=\"삭제\" class=\"delBtn_i\"/></td>";
+		trObj += "</tr>";
+		$("#table_i").append(trObj);
+		trIdx_i++;
+		
+		$(".delBtn_i").off("click");
+		$(".delBtn_i").click(function(){
+			var idx = $(".delBtn_i").index(this);
+			$(".addTr_i").eq(idx).remove();
+		});
+	});
+	
+});
+
+function delTr_i(cls, no, imagename) {
+	$.ajax({
+		type : "GET",
+		url : "/manage/room/delete_image?no="+no+"&image="+imagename,
+		async : false,
+		success : function(data){
+			alert("정상적으로 삭제되었습니다.");
+			$("."+cls).remove();
+		}
+	});
+}
 </script>
 <title>관리자 객실 등록</title>
 </head>
@@ -83,46 +130,128 @@ function goSave() {
 								<tbody>
 									<tr>
 										<th>객실 종류</th>
-										<td colspan="3"><input type="text" id="name" name="name" class="w50" value="<%=read.getName() %>"/></td>
+										<td colspan="5"><input type="text" id="name" name="name" class="w50" value="<%=read.getName() %>"/></td>
 									</tr>
 									<tr>
 										<th>객실 가격</th>
-										<td><input type="text" id="price" name="price" class="w25" value="<%=read.getPrice() %>"/></td>
+										<td colspan="2"><input type="text" id="price" name="price" class="w25" value="<%=read.getPrice() %>"/></td>
 										<th>객실 수량</th>
-										<td><input type="text" id="count" name="count" class="w25" value="<%=read.getCount() %>"/></td>
+										<td colspan="2"><input type="text" id="count" name="count" class="w25" value="<%=read.getCount() %>"/></td>
 									</tr>
 									<tr>
 										<th>성인(기본정원)</th>
-										<td><input type="text" id="adult" name="adult" class="w25" value="<%=read.getAdult() %>"/></td>
+										<td colspan="2"><input type="text" id="adult" name="adult" class="w25" value="<%=read.getAdult() %>"/></td>
 										<th>어린이(기본정원)</th>
-										<td><input type="text" id="kid" name="kid" class="w25" value="<%=read.getKid() %>"/></td>
-									</tr>
-									<tr>
-										<th scope="row"><label for="">객실 이미지</label></th>
-										<td colspan="3"><input type="file" id="filename_tmp" name="filename_tmp" class="w50" /></td>
+										<td colspan="2"><input type="text" id="kid" name="kid" class="w25" value="<%=read.getKid() %>"/></td>
 									</tr>
 									<tr>
 										<th>객실 소개</th>
-										<td colspan="3"><textarea id="instruction" name="instruction" style="width:100%;"><%=read.getInstruction() %></textarea></td>
+										<td colspan="5"><textarea id="instruction" name="instruction" style="width:100%;"><%=read.getInstruction() %></textarea></td>
 									</tr>
 									<tr>
 										<th>체크인 시간</th>
-										<td><input type="text" id="checkin_time" name="checkin_time" class="w25" value="<%=read.getCheckin_time() %>"/></td>
+										<td colspan="2"><input type="text" id="checkin_time" name="checkin_time" class="w25" value="<%=read.getCheckin_time() %>"/></td>
 										<th>체크아웃 시간</th>
-										<td><input type="text" id="checkout_time" name="checkout_time" class="w25" value="<%=read.getCheckout_time() %>"/></td>
+										<td colspan="2"><input type="text" id="checkout_time" name="checkout_time" class="w25" value="<%=read.getCheckout_time() %>"/></td>
 									</tr>
 									<tr>
 										<th>객실 위치</th>
-										<td colspan="3"><input type="text" id="location" name="location" class="w50" value="<%=read.getLocation() %>"/></td>
+										<td colspan="5"><input type="text" id="location" name="location" class="w50" value="<%=read.getLocation() %>"/></td>
 									</tr>
 									<tr>
 										<th>객실 전망</th>
-										<td><input type="text" id="landscape" name="landscape" class="w25" value="<%=read.getLandscape() %>"/></td>
+										<td colspan="2"><input type="text" id="landscape" name="landscape" class="w25" value="<%=read.getLandscape() %>"/></td>
 										<th>객실 타입</th>
-										<td><input type="text" id="type" name="type" class="w25" value="<%=read.getType() %>"/></td>
+										<td colspan="2"><input type="text" id="type" name="type" class="w25" value="<%=read.getType() %>"/></td>
 									</tr>
 								</tbody>
 							</table>
+							
+							<table border="0" cellspacing="0" cellpadding="0">
+								<colgroup>
+									<col width="15%" />
+								</colgroup>
+								<tbody>						
+									<input type="button" value="추가" class="w5 addBtn"></input>
+									<tr>
+										<td>
+										
+									<table id="table_s">
+										<tr>
+											<th>편의시설</th>
+											<th></th>
+										</tr>
+										<%
+											if (list.size() == 0) {
+										%>
+										<%
+											} else {
+												for (int i = 0; i < list.size(); i++) {
+													HashMap data = list.get(i);
+										%>
+										<tr class="addTr<%=i%>">
+											<td><input type="text" name="name_s" value="<%=data.get("name")%>"/></td>
+											<td><input type="button" value="삭제" onclick="delTr('addTr<%=i%>')"/></td>
+										</tr>
+										<%
+												}
+											}
+										%>
+									</table>
+										</td>
+									</tr>										
+								</tbody>
+							</table>
+							
+							<table border="0" cellspacing="0" cellpadding="0">
+								<colgroup>
+									<col width="15%" />
+								</colgroup>
+								<tbody>
+									<tr>
+										<td>			
+											<input type="button" value="추가" class="w5 addBtn_i"></input>
+										</td>
+									</tr>	
+									<tr>
+										<td>
+											<table id="table_i">
+												<tr>
+													<th>객실 이미지</th>
+													<th></th>
+												</tr>
+												<%
+													if (list_i.size() == 0) {
+												%>
+												<%
+													} else {
+														for (int i = 0; i < list_i.size(); i++) {
+															HashMap data = list_i.get(i);
+												%>
+												<tr class="addTr_i<%=i%>">
+													<td>
+												<% if (data.get("image") == null || data.get("image") == "") { %>
+													<input type="file" name="image_tmp" id="image_tmp" />
+												<% } else { %>
+															<p>기존파일 : <%= Function.checkNull((String)data.get("image")) %><br/>
+																<input type="checkbox" id="image_chk" name="image_chk" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
+																<label for="image_chk">기존파일삭제</label>
+															</p>
+															<input type="file" name="image_tmp" id="image_tmp" />
+															<td><input type="button" value="삭제" onclick="delTr_i('addTr_i<%=i%>', <%=data.get("no")%>, '<%=data.get("image")%>')"/></td>
+													<% } %>
+													</td>	
+												</tr>	
+												<%
+														}
+													}
+												%>
+											</table>
+										</td>
+									</tr>								
+								</tbody>
+							</table>
+							
 							<input type="hidden" name="cmd" value="edit" />
 							<input type="hidden" name="no" id="no" value="<%=param.getNo() %>"/>
 							</form>

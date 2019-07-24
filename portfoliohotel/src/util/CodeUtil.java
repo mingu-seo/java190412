@@ -644,8 +644,24 @@ public class CodeUtil {
 		String result = "";
 		if (display == 1) {
 			result = "노출";
-		} else if (display == 0) {
+		} else if (display == 2) {
 			result = "숨김";
+		}
+		return result;
+	}
+	
+	public static String getOpenOption(int arg){
+        StringBuffer result = new StringBuffer();
+        	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getOpenName(0)+"</option>");
+        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getOpenName(1)+"</option>");
+        return result.toString();
+    }
+	public static String getOpenName(int open) {
+		String result = "";
+		if (open == 1) {
+			result = "공개";
+		} else if (open == 0) {
+			result = "비공개";
 		}
 		return result;
 	}
@@ -715,10 +731,96 @@ public class CodeUtil {
 			} else if (room == 4) {
 				result = "Spa Sanctuary Suite";
 			} else if (room == 5) {
-				result = "Banyan Pool Presidential Suite";
+				result = "Portfolio Pool Presidential Suite";
 			}
 			
 			return result;
-		}		
+		}	
+	 
+
+	 public static String getGender(int gender) {
+			String result = "";
+			if (gender == 1) {
+				result = "남자";
+			} else if (gender == 2) {
+				result = "여자";
+			}
+			
+			return result;
+		}
+	 
+	 public static String getMgrade(int grade) {
+			String result = "";
+			if (grade == 0) {
+				result = "없음";
+			} else if (grade == 1) {
+				result = "CLASSIC";
+			} else if (grade == 2) {
+				result = "VIP";				
+			}else if (grade == 3) {
+				result = "VVIP";
+			}
+			
+			return result;
+		}
+	 
+	 public static String getSns_type(int sns_type) {
+			String result = "";
+			if (sns_type == 1) {
+				result = "FACEBOOK";
+			} else if (sns_type == 2) {
+				result = "GOOGLE";
+			}else if (sns_type == 3) {
+				result = "NAVER";
+			}else if (sns_type == 4) {
+				result = "KAKAO";
+			}
+			
+			return result;
+		}
+	 
+	 public static String getSecession(int secession) {
+			String result = "";
+			if (secession == 1) {
+				result = "";
+			} else if (secession == 2) {
+				result = "탈퇴한 회원";
+			}
+			
+			return result;
+		}
+
+	 public static String getTopName(int top) {
+		 String result = "";
+			if (top == 1) {
+				result = "상단미노출";
+			} else if (top == 2) {
+				result = "상단노출";
+			} 
+			
+			return result;
+	 }
+	 
+	 public static String getMemberName(int member) {
+		 String result = "";
+			if (member == 1) {
+				result = "공개";
+			} else if (member == 2) {
+				result = "비공개";
+			} 
+			
+			return result;
+	 }
+	 
+	 public static String getCategoryName(int category) {
+		 String result = "";
+		 if (category == 1) {
+			 result = "예약";
+		 } else if (category == 2) {
+			 result = "결제";
+		 }
+		return result;
+	 }
+
 	 	
 }

@@ -9,7 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import manage.admin.AdminVO;
+import member.MemberVO;
+import member.MypetVO;
 import util.Function;
 
 @Controller
@@ -40,6 +41,13 @@ public class MemberController {
 		return "manage/member/read";
 	}
 	
+	@RequestMapping("/manage/member/mypetList")
+	public String mypetList(Model model, MemberVO param) throws Exception {
+		ArrayList<MypetVO> list = memberService.mypetList(param.getNo());
+		model.addAttribute("list", list);
+		return "manage/member/mypetList";
+	}
+	
 	@RequestMapping("/manage/member/edit")
 	public String edit(Model model, MemberVO param) throws Exception {
 		MemberVO data = memberService.read(param.getNo());
@@ -56,15 +64,6 @@ public class MemberController {
 		return "manage/member/write";
 	}
 	
-	@RequestMapping("/my/my-infor.do")
-	public String myInfor(Model model, MemberVO param) throws Exception {
-		MemberVO data = memberService.read(param.getNo());//세션에서 가져와야됨
-		model.addAttribute("data", data);
-		model.addAttribute("vo", param);
-		
-		return "my/my-infor.do";
-	}
-	
 	/**
 	 * 관리자 아이디 중복체크
 	 * 사용자에서 저장시 ajax로 체크
@@ -77,7 +76,7 @@ public class MemberController {
 	@RequestMapping("/manage/member/idcheck")
 	public String idcheck(Model model, MemberVO param, HttpServletRequest request) throws Exception {
 		model.addAttribute("vo", param);
-		int value = memberService.idcheck(request.getParameter("id"));
+		int value = memberService.idcheck(request.getParameter("email"));
 
 		model.addAttribute("value", value);
 		
@@ -112,4 +111,14 @@ public class MemberController {
 		
 		return "include/alert";
 	}
+	
+	@RequestMapping("/my/my-infor.do")
+	public String myInfor(Model model, MemberVO param) throws Exception {
+		MemberVO data = memberService.read(param.getNo());//세션에서 가져와야됨
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+		
+		return "my/my-infor.do";
+	}
+	
 }

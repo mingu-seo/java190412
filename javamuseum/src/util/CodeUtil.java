@@ -657,11 +657,18 @@ public class CodeUtil {
         return result.toString();
     }	
 	
-	public static String getDisplayOption(int arg){
+	public static String getDisplayOption1(int arg){
         StringBuffer result = new StringBuffer();
         	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getDisplayName(0)+"</option>");
         	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getDisplayName(1)+"</option>");
         	result.append("<option value='-1'"+Function.getSelected(-1,arg)+">"+getDisplayName(-1)+"</option>");
+        return result.toString();
+    }
+	
+	public static String getDisplayOption(int arg){
+        StringBuffer result = new StringBuffer();
+        	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getDisplayName(0)+"</option>");
+        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getDisplayName(1)+"</option>");
         return result.toString();
     }
 	
@@ -771,6 +778,34 @@ public class CodeUtil {
  		}
  		return result;
  	}
+ 	
+ 	//날짜에 따라 전시 상태(int값)
+	public static int getDisState(String startdate, String enddate) throws Exception {
+ 		String today = DateUtil.getToday();
+ 		int result = 0;
+ 		
+ 		if(DateUtil.getDiff(startdate, today) > 0) {
+ 			result = 1;
+ 		} else if(DateUtil.getDiff(enddate, today) >= 0 && DateUtil.getDiff(today, startdate) >= 0) {
+ 			result = 2;
+ 		} else if(DateUtil.getDiff(today, enddate) > 0) {
+ 			result = 3;
+ 		}
+ 		return result;
+ 	}
+	//날짜에 따라 전시 상태(String값)
+	public static String getStrDisState(int disState) throws Exception {
+		String result = "";
+		if(disState == 1) {
+			result = "전시 대기";
+		} else if(disState == 2) {
+			result = "전시 중";
+		} else if(disState == 3) {
+			result = "전시 종료";
+		}
+		
+		return result;
+	}
 
 	 public static String getState(int type){
 	    String result = null;
@@ -804,4 +839,39 @@ public class CodeUtil {
 	    return result;
 	}
 	 	
+	// 성별
+		public static String getGenderName(int gender) {
+			String result = "";
+			if (gender == 1) {
+				result = "여성";
+			} else if (gender == 0) {
+				result = "남성";
+			}
+			return result;
+		}
+		
+		public static String getGenderOption(int arg){
+	        StringBuffer result = new StringBuffer();
+	        	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getGenderName(0)+"</option>");
+	        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getGenderName(1)+"</option>");
+	        return result.toString();
+	    }
+		
+	// 포인트 구분	 0: 적립		1: 사용
+		public static String getPointName(int state) {
+			String result = "";
+			if (state == 1) {
+				result = "사용";
+			} else if (state == 0) {
+				result = "적립";
+			}
+			return result;
+		}
+		
+		public static String getPointOption(int arg){
+	        StringBuffer result = new StringBuffer();
+	        	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getPointName(0)+"</option>");
+	        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getPointName(1)+"</option>");
+	        return result.toString();
+	    }
 }

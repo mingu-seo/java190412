@@ -42,6 +42,19 @@ public class NoticeDAO extends SqlMapClientDAOSupport{
 	}
 	
 	/**
+	 * 관리자 수정
+	 * @param vo
+	 * @throws SQLException
+	 */
+	public int update(NoticeVO vo) throws SQLException {
+		return getSqlMapClient().update("notice.update", vo);
+	}
+	
+	public int updateReadno(NoticeVO vo) throws SQLException {
+		return getSqlMapClient().update("notice.updateReadno", vo);
+	}
+	
+	/**
 	 * 관리자 삭제
 	 * @param no
 	 * @throws SQLException

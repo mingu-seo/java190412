@@ -26,10 +26,10 @@
             <div class="reservation-ck-page">
                 <div class="headline">
                     <p>예약확인</p>
-                    <img src="icon/footer-icon.png">
+                    <img src="/icon/footer-icon.png">
                 </div>
                 <div class="re-page-ck-text">
-                    <img src="img/con2-4.png">
+                    <img src="/img/con2-4.png">
                     <h2>Reservation</h2>
                     <p>2019년 06월 20일 13:05분<br/><span>남정우 </span>님 예약 하시겠습니까?</p>
                 </div>
@@ -45,10 +45,10 @@
             <div class="reservation-page">
                 <div class="headline">
                     <p>예약확인</p>
-                    <img src="icon/footer-icon.png">
+                    <img src="/icon/footer-icon.png">
                 </div>
                 <div class="re-page-text">
-                    <img src="img/con2-4.png">
+                    <img src="/img/con2-4.png">
                     <h2>Reservation</h2>
                     <p>2019년 06월 20일 13:05분<br/><span>남정우 </span>님의 예약이 확정 되었습니다.</p>
                 </div>
@@ -103,7 +103,7 @@
                 <div class="doctor">
                     <div class="doctor-box clear">
                         <div>
-                            <img src="img/sub7.png">
+                            <img src="/img/sub7.png">
                         </div>
                         <div>
                             <p><span>담당의사</span>최 경 욱 / 진료수의사</p>
@@ -113,12 +113,12 @@
                             <div class="doc-btn">
                                 <a href="#">예약하기</a>
                             </div>
-                            <img src="icon/doctor1.jpg">
+                            <img src="/icon/doctor1.jpg">
                         </div>
                     </div>
                     <div class="doctor-box clear">
                         <div>
-                            <img src="img/sub11.png">
+                            <img src="/img/sub11.png">
                         </div>
                         <div>
                             <p><span>담당의사</span>김 하 나 / 팀장</p>
@@ -128,12 +128,12 @@
                             <div class="doc-btn">
                                 <a href="#">예약하기</a>
                             </div>
-                            <img src="icon/doctor2.jpg">
+                            <img src="/icon/doctor2.jpg">
                         </div>
                     </div>
                     <div class="doctor-box clear">
                         <div>
-                            <img src="img/sub16.png">
+                            <img src="/img/sub16.png">
                         </div>
                         <div>
                             <p><span>담당의사</span>양 재 원 / 진료수의사</p>
@@ -143,7 +143,7 @@
                             <div class="doc-btn">
                                 <a href="#">예약하기</a>
                             </div>
-                            <img src="icon/doctor1.jpg">
+                            <img src="/icon/doctor1.jpg">
                         </div>
                     </div>
                 </div>
