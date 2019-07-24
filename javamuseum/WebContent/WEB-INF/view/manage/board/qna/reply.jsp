@@ -1,11 +1,10 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.util.*" %>
-<%@ page import="board.notice.*" %>
-<%@ page import="manage.admin.*" %>
+<%@ page import="board.qna.*" %>
 <%@ page import="util.*" %>
 <%
-NoticeVO param = (NoticeVO)request.getAttribute("vo");
-AdminVO Aparam = (AdminVO)request.getAttribute("Avo");
+QnaVO param = (QnaVO)request.getAttribute("param");
+QnaVO data= (QnaVO)request.getAttribute("data");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -69,42 +68,29 @@ AdminVO Aparam = (AdminVO)request.getAttribute("Avo");
 								</colgroup>
 								<tbody>
 									<tr>
-										
-										<th scope="row"><label for="">등록일</label></th>
-										<td>
-											<input type="text" id="registdate" name="registdate" class="inputTitle" value="<%=DateUtil.getFullToday()%>" title="등록일을 입력해주세요" />&nbsp;
-											<span id="CalregistdateIcon">
-												<img src="/manage/img/calendar_icon.png" id="CalregistdateIconImg" style="cursor:pointer;"/>
-											</span>
-										</td>
-									</tr>
-									<tr>
-										<th scope="row"><label for="">*작성자</label></th>
-										<td colspan="3">
-											<input type="text" id="writer" name="writer" class="w50" title="제목을 입력해주세요" />	
-										</td>
-									</tr>
-									<tr>
-										<th scope="row"><label for="">첨부파일</label></th>
-										<td colspan="3">
-											<input type="file" id="filename_tmp" name="filename_tmp" class="w50" title="첨부파일을 업로드 해주세요." />	
-										</td>
-									</tr>
-									<tr>
 										<th scope="row"><label for="">*제목</label></th>
 										<td colspan="3">
-											<input type="text" id="title" name="title" class="w50" title="제목을 입력해주세요" />	
+											<input type="text" id="title" name="title" class="w50" title="제목을 입력해주세요" value="답변: <%=data.getTitle() %>" />	
 										</td>
 									</tr>
 									<tr>
 										<td colspan="4">
-											<textarea id="contents" name="contents" title="내용을 입력해주세요" style="width:100%;"></textarea>	
+											<textarea id="contents" name="contents" title="내용을 입력해주세요" style="width:100%;">
+<br/><br/>										
+============================================
+<%=data.getContents() %>											
+											</textarea>	
 										</td>
 									</tr>
 									
 								</tbody>
 							</table>
-							<input type="hidden" name="cmd" value="write" />
+							<input type="hidden" name="cmd" value="reply" />
+							<input type="hidden" name="gno" value="<%=data.getGno() %>"/>
+							<input type="hidden" name="ono" value="<%=data.getOno() %>"/>
+							<input type="hidden" name="nest" value="<%=data.getNest() %>"/>
+							<input type="hidden" name="memberid" value="<%=data.getMemberid() %>"/>
+							<input type="hidden" name="admin_pk" value="<%=data.getAdmin_pk() %>"/>
 							</form>
 							<div class="btn">
 								<div class="btnLeft">

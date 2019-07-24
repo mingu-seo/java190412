@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="qna">
+    
+    <typeAlias alias="qna_vo" type="board.qna.QnaVO"/>
+    
+    <!-- 공통조건 -->
+	<sql id="searchSql">		
+		<!-- WHERE 절 검색 -->
+		<dynamic prepend="where">
+		1=1
+			<!-- 검색어 검색 -->
+			<isNotEqual property="sval" compareValue="">
+				<!-- 검색 타입이 all일 때 -->
+				<isEqual property="stype" compareValue="all" prepend="and">
+					( (name like '%$sval$%' ) or (contents like '%$sval$%' ) or (title like '%$sval$%' ) ) 					
+				</isEqual>
+				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
+				<isNotEqual property="stype" compareValue="all" prepend="and">
+					($stype$ like '%$sval$%' )
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql>
+	
+	<!-- 해당 테이블의 총 게시글 수 -->
+	<select id="count" parameterClass="qna_vo" resultClass="Integer">
+        select count(*) from qna
+        <include refid="searchSql" />	
+    </select>
+    
+	<select id="list" parameterClass="qna_vo" resultClass="qna_vo">
+        select *
+        from qna
+        <include refid="searchSql" />
+		ORDER BY gno DESC, ono ASC LIMIT $startPageNo$, $pageRows$
+    </select>
+	
+	<!-- 해당 테이블에 게시글 작성 -->
+    <insert id="insert" parameterClass="qna_vo">
+        INSERT INTO qna (
+        	gno, ono, nest, memberid, admin_pk, title, contents, registdate,
+        	filename_org, filename, filesize
+        ) VALUES (
+        	#gno#, #ono#, #nest#, #memberid#, #admin_pk#, #title#, #contents#, now(),
+        	#filename_org#, #filename#, #filesize#
+        )
+        <selectKey keyProperty="no" resultClass="Integer">
+        	SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    
+    
+       <!-- 등록할때 최대gno + 1 -->
+    <select id="getMaxGno"  resultClass="Integer">
+    	select ifnull(max(gno),0)+1 from qna
+    </select>
+    
+    <!-- 답별달떄 같은 그룹내에 최대 ono -->
+    <select id="getMaxOno" parameterClass="qna_vo" resultClass="Integer">
+    	select max(ono) from qna where gno=#gno#
+    </select>
+    
+    <!-- 답별달떄 같은 그룹내에 원글 ono보다 크고 원글의 nested보다 작거나 같은 최소 ono -->
+    <select id="getMinOno" parameterClass="qna_vo" resultClass="Integer">
+    <![CDATA[
+    	select ifnull(min(ono),0) from qna where gno=#gno# and ono > #ono# and nest <= #nest#
+    ]]>
+    </select>
+    
+    <!-- 이미 답변이 존재할떄(minono > 0) 같은 그룹내 ono >= minono ono+1 -->
+    <update id="updateOno" parameterClass="java.util.HashMap">
+    <![CDATA[
+    	update qna set ono=ono+1 where gno=#gno# and ono >= #minono#
+    ]]>
+    </update>
+    
+    
+    
+    
+    
+    
+    
+    <update id="update" parameterClass="qna_vo">
+        UPDATE qna SET
+        	title=#title#
+        <isNotEqual property="registdate" compareValue="">
+       	    registdate = #registdate#,
+       	</isNotEqual>  
+       	<isEqual property="filename_chk" compareValue="1">
+        	filename='', filename_org='', filesize=0,
+        </isEqual>
+        <isNotEqual property="filename" compareValue="">
+            <isNotNull property="filename">
+        		filename=#filename#, filename_org=#filename_org#, filesize=#filesize#,
+        	</isNotNull>
+       	</isNotEqual>
+        	contents=#contents#
+        WHERE no = #no#
+    </update>
+    
+    <select id="read" parameterClass="qna_vo" resultClass="qna_vo">
+        SELECT 
+        	*
+        FROM qna
+        where no = #no#
+    </select>
+        
+    <select id="getRowNum" parameterClass="notice_vo" resultClass="Integer">
+        select rownum from (
+        	select @rownum:=@rownum+1 as rownum, no, title from qna, (select @rownum:=0) as r
+        	<include refid="searchSql" />
+        	ORDER BY registdate DESC
+        ) as r2
+        where r2.no = #no#
+    </select>
+    
+    <select id="getNextRowNum" parameterClass="qna_vo" resultClass="qna_vo">
+        select ifnull(rownum,0), ifnull(no,0) as next_no, title as next_title
+        from (
+        	select @rownum:=@rownum+1 as rownum, no, title from qna, (select @rownum:=0) as r
+        	<include refid="searchSql" />
+        	ORDER BY registdate DESC
+        ) as r2
+        <![CDATA[
+        where r2.rownum = $rownum$+1
+    	]]>
+    </select>
+    
+    <select id="getPrevRowNum" parameterClass="qna_vo" resultClass="qna_vo">
+    	select ifnull(rownum,0), ifnull(no,0) as prev_no, title as prev_title
+        from (
+        	select @rownum:=@rownum+1 as rownum, no, title from qna, (select @rownum:=0) as r
+        	<include refid="searchSql" />
+        	ORDER BY registdate DESC
+        ) as r2
+        <![CDATA[
+        where r2.rownum = $rownum$-1
+    	]]>
+    </select>
+    
+    <delete id="delete" parameterClass="qna_vo">
+        DELETE FROM qna WHERE no=#no#
+    </delete>
+    
+   
+
+    
+</sqlMap>

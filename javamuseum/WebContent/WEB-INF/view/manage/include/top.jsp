@@ -86,9 +86,9 @@ $(window).load(function(){
 					<div class="standard_left">
 					<ul>
 						<li><a href="<%=request.getContextPath()%>/manage/board/notice/index.do"><span>공지사항</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>이벤트</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/board/event/index"><span>이벤트</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>자유게시판</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>1:1문의</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/board/qna/index"><span>1:1문의</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>FAQ분류관리</span></a></li>
 						
 					</ul>
