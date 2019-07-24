@@ -121,7 +121,7 @@ CREATE TABLE `dining` (
   `imagename` varchar(225) DEFAULT NULL,
   `imagename_org` varchar(225) DEFAULT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8
 
 
 CREATE TABLE `dining_res` (
@@ -137,8 +137,11 @@ CREATE TABLE `dining_res` (
   `guest_tel` int(11) DEFAULT NULL,
   `guest_email` varchar(45) DEFAULT NULL,
   `regdate` timestamp NULL DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `member_name` varchar(45) DEFAULT NULL,
+  `dining_name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8
 
 
 CREATE TABLE `faq` (
