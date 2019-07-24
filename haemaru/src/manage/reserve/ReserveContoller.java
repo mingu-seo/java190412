@@ -1,7 +1,6 @@
 package manage.reserve;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,8 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import manage.admin.AdminVO;
-import member.MemberVO;
+import manage.doctor.DoctorVO;
 import util.Function;
 
 @Controller
@@ -58,6 +56,16 @@ public class ReserveContoller {
 		model.addAttribute("vo", param);
 
 		return "manage/reserve/write";
+	}
+	
+	@RequestMapping("/manage/reserve/doctorList")
+	public String doctorList(Model model, HttpServletRequest req) throws Exception {
+		String date = req.getParameter("date");
+		int department = Integer.parseInt(req.getParameter("department"));
+		ArrayList<DoctorVO> list = reserveService.doctorList(date, department);
+		model.addAttribute("list", list);
+
+		return "manage/reserve/doctorList";
 	}
 
 	

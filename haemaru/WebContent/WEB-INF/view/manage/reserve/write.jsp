@@ -58,6 +58,7 @@
 	}
 
 	$(function() {
+		getDoctorList();
 		var trIdx = 0;
 		$(".addBtn")
 				.click(
@@ -76,6 +77,10 @@
 								$(".addTr").eq(idx).remove();
 							});
 						});
+		
+		$("#doctor_department").change(function() {
+			getDoctorList();
+		});
 	});
 	
 	
@@ -83,7 +88,7 @@
 	function getDoctorList(){
 		$.ajax({
 			type :"GET",
-			url : "/manage/reserve/doctorList?no=<%=param.getDoctor_department()%>",
+			url : "/manage/reserve/doctorList?date="+$("#res_date").val()+"&department="+$("#doctor_department").val(),
 			async : false,
 			success : function(data) {
 				$(".doctorListArea").html(data);
@@ -151,14 +156,14 @@
 												</tr>
 												<tr>
 													<th scope="row"><label for="">진료과목</label></th>
-													<td><select name="doctor_department">
+													<td><select name="doctor_department" id="doctor_department">
 															<%=CodeUtil.getDoctorDepartmentOption(0)%>
 													</select></td>
 												</tr>
 												<tr>
 												
 													<th scope="row"><label for="">의료진</label></th>
-													<td><div id="blist" class="doctorListArea"></div></td>
+													<td><div class="doctorListArea"></div></td>
 											<!-- 		<td colspan="3"><input type="text" id="doctor_name"
 														name="doctor_name" class="w50" title="이름을 입력해주세요" /></td>  -->
 												</tr>

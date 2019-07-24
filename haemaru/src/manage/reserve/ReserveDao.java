@@ -7,8 +7,8 @@ import java.util.HashMap;
 import org.springframework.stereotype.Repository;
 
 import db.SqlMapClientDAOSupport;
-import manage.admin.AdminVO;
-import member.MemberVO;
+import manage.doctor.DoctorVO;
+import util.DateUtil;
 
 
 @Repository
@@ -70,10 +70,23 @@ public class ReserveDao extends SqlMapClientDAOSupport {
 		
 	}
 	
+	public ArrayList doctorList(HashMap hm) throws SQLException {
+		return (ArrayList)getSqlMapClient().queryForList("reserve.doctorList", hm);
+	}
 	
-	public static void main(String[] args) throws SQLException {
+	
+	public static void main(String[] args) throws Exception {
 		ReserveDao dao = new ReserveDao();
 		ReserveVO vo = new ReserveVO();
+		
+		// 진료과목이 외과, 예약일자 2019-07-24
+		HashMap hm = new HashMap();
+		hm.put("department", 1);
+		hm.put("yoil", DateUtil.getYoil("2019-07-24"));
+		ArrayList<DoctorVO> list = dao.doctorList(hm);
+		for (int i=0; i<list.size(); i++) {
+			System.out.println(list.get(i).getName());
+		}
 //		ad.count(av);
 //		ad.list(av);
 //		av.setId("dayeong");

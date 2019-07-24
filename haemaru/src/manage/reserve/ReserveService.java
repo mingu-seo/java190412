@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import property.SiteProperty;
+import util.DateUtil;
 import util.Function;
 import util.Page;
 import manage.doctor.sched.*;
@@ -87,6 +88,13 @@ public class ReserveService {
 			r += reserveDao.delete(nos);
 		}
 		return r;
+	}
+	
+	public ArrayList doctorList(String date, int department) throws Exception {
+		HashMap hm = new HashMap();
+		hm.put("department", department);
+		hm.put("yoil", DateUtil.getYoil(date));
+		return reserveDao.doctorList(hm);
 	}
 	
 }

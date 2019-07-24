@@ -83,8 +83,30 @@
 	</select>
 	
 	
-	<select id="doctorList" parameterClass="Integer" resultClass="doctor.DoctorVO">
+	<select id="doctorList" parameterClass="java.util.HashMap" resultClass="manage.doctor.DoctorVO">
 		SELECT * FROM doctor
+		WHERE department = #department#
+		<isEqual property="yoil" compareValue="1">
+		and no IN (select doctor_pk from doc_schedule where sun_res=1)
+		</isEqual>
+		<isEqual property="yoil" compareValue="2">
+		and no IN (select doctor_pk from doc_schedule where mon_res=1)
+		</isEqual>
+		<isEqual property="yoil" compareValue="3">
+		and no IN (select doctor_pk from doc_schedule where tue_res=1)
+		</isEqual>
+		<isEqual property="yoil" compareValue="4">
+		and no IN (select doctor_pk from doc_schedule where wed_res=1)
+		</isEqual>
+		<isEqual property="yoil" compareValue="5">
+		and no IN (select doctor_pk from doc_schedule where thu_res=1)
+		</isEqual>
+		<isEqual property="yoil" compareValue="6">
+		and no IN (select doctor_pk from doc_schedule where fri_res=1)
+		</isEqual>
+		<isEqual property="yoil" compareValue="7">
+		and no IN (select doctor_pk from doc_schedule where sat_res=1)
+		</isEqual>
 	</select>
 
 </sqlMap>
