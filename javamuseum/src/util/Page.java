@@ -251,7 +251,7 @@ public class Page {
 	public static String getPageURL(HttpServletRequest request) {
 		 
 //		String originalURL = request.getRequestURI(); 
-		String originalURL = (String) request.getAttribute("javax.servlet.forward.request_uri");  
+		String originalURL = (String)request.getAttribute("javax.servlet.forward.request_uri");
 		  
 		Enumeration param = request.getParameterNames();	// request
 		String paramName = "";								// 파라미터 네임값

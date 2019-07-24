@@ -11,6 +11,9 @@
 	<context:component-scan base-package="manage" />
 	<context:component-scan base-package="board" />
 	<context:component-scan base-package="user" />
+	<context:component-scan base-package="program" />
+	<context:component-scan base-package="reservation" />
+	
 	
 	<mvc:annotation-driven/>
 <!-- 

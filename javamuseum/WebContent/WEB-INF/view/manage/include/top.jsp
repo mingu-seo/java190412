@@ -77,7 +77,7 @@ $(window).load(function(){
 					<div>
 						<ul>
 							<li><a href="<%=request.getContextPath()%>/manage/program/list"><span>프로그램관리</span></a></li>
-							<li><a href="<%=request.getContextPath()%>/manage/program/p_appList"><span>프로그램신청내역관리</span></a></li>
+							<li><a href="<%=request.getContextPath()%>/manage/program/reservation/list"><span>프로그램신청내역관리</span></a></li>
 						</ul>
 					</div>
 				</li>

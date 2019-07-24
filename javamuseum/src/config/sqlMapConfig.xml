@@ -14,9 +14,10 @@
 		maxTransactions="5"
 		useStatementNamespaces="true"
 	/>
-     <transactionManager type="JDBC"> 
+     <transactionManager type="JDBC">     
 		<dataSource type="DBCP">
 			<property name="JDBC.Driver" value="com.mysql.jdbc.Driver"/>
+			 	
 			<property name="JDBC.ConnectionURL" value="jdbc:mysql://localhost:3306/museum?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=Asia/Seoul"/>			
 			<property name="JDBC.Username" value="root"/>
 			<property name="JDBC.Password" value="root1234"/>
@@ -37,10 +38,11 @@
 	<sqlMap resource="manage/admin/admin.xml"/>	
 	<sqlMap resource="manage/review/review.xml"/>
 	<sqlMap resource="board/notice/notice.xml"/>
+	<sqlMap resource="manage/program/program.xml"/>
+	<sqlMap resource="manage/reservation/reservation.xml"/>
 	<sqlMap resource="board/qna/qna.xml"/>
 	<sqlMap resource="board/faq/faq.xml"/>
-		
 	<sqlMap resource="manage/exhibition/exhibition.xml"/>
 	<sqlMap resource="manage/ticket/ticket.xml"/>
-	<sqlMap resource="manage/member/member.xml"/>		
+	<sqlMap resource="manage/member/member.xml"/>	
 </sqlMapConfig>

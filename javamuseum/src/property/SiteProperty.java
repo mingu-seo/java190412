@@ -7,7 +7,7 @@ public class SiteProperty {
 	/**
 	 * 업체명
 	 */
-	public static final String 	COMPANY_NAME			= "SPRING";
+	public static final String 	COMPANY_NAME			= "JAVA MUSEUM";
 	/**
 	 * 관리자 시작페이지
 	 */
@@ -104,5 +104,11 @@ public class SiteProperty {
 	public static final String EXHIBITION_UPLOAD_PATH		= "/upload/exhibition/";
 	
 	
+
+	
+	/**
+	 * 프로그램 첨부파일 경로
+	 */
+	public static final String PROGRAM_UPLOAD_PATH		= "/upload/program/";
 
 }
