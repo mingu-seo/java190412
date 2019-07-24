@@ -149,7 +149,13 @@ function goSearch() {
 							<%=Page.indexList(param.getReqPageNo(), totPage, request)%>
 							<!-- //페이징 처리 -->
 							<form name="searchForm" id="searchForm" action="index" method="post">
+								
 								<div class="search">
+									<select name="reply" onchange="$('#searchForm').submit();">
+										<option value="-1" <%=Function.getSelected(param.getReply(), -1)%>>전체</option>
+										<option value="0" <%=Function.getSelected(param.getReply(), 0)%>>미완료</option>
+										<option value="1" <%=Function.getSelected(param.getReply(), 1)%>>완료</option>
+									</select>
 									<select name="open" onchange="$('#searchForm').submit();">
 										<option value="-1" <%=Function.getSelected(param.getOpen(), -1)%>>전체</option>
 										<option value="0" <%=Function.getSelected(param.getOpen(), 0)%>>비공개</option>

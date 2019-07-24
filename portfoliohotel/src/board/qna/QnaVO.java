@@ -32,6 +32,8 @@ public class QnaVO extends Parameter {
 	public QnaVO() {
 		super.setPageRows(10);
 		this.setDisplay(-1);
+		this.setOpen(-1);
+		this.setReply(-1);
 	}
 	public QnaVO(int pageRows) {
 		super.setPageRows(pageRows);

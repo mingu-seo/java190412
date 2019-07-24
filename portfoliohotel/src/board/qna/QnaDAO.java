@@ -88,6 +88,10 @@ public class QnaDAO extends SqlMapClientDAOSupport {
 		return (Integer)getSqlMapClient().update("qna.updateReply",vo);
 	}
 	
+	public int deleteReply(QnaVO vo) throws SQLException {
+		return getSqlMapClient().delete("qna.deleteReply", vo);
+	}
+	
 	
 	
 	public static void main(String[] args) throws Exception {

@@ -84,9 +84,29 @@ public class QnaController {
 		QnaVO data = qnaService.read(param);
 		model.addAttribute("data", data);
 		model.addAttribute("vo", param);
-
+		
 		return "manage/board/qna/write_reply";
 	}
+	
+	@RequestMapping("/manage/board/qna/edit_reply")
+	public String edit_reply(Model model, QnaVO param) throws Exception {
+		QnaVO data = qnaService.read(param);
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+
+		return "manage/board/qna/edit_reply";
+	}
+	
+	@RequestMapping("/manage/board/qna/delete_reply")
+	public String delete_reply(Model model, QnaVO param) throws Exception {
+		QnaVO data = qnaService.read(param);
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+
+		return "manage/board/qna/delete_reply";
+	}
+
+
 
 	@RequestMapping("/manage/board/qna/process")
 	public String process(Model model, QnaVO param, HttpServletRequest request) throws Exception {
@@ -117,8 +137,17 @@ public class QnaController {
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "답변이 정상적으로 등록되었습니다.", "등록실패"));
 			model.addAttribute("url","/manage/board/qna/read?no=" + param.getNo());
-		} 
-
+		} else if ("edit_reply".equals(param.getCmd())) {
+			int r = qnaService.updateReply(param);
+			model.addAttribute("code", "alertMessageUrl");
+			model.addAttribute("message", Function.message(r, "답변이 정상적으로 등록되었습니다.", "등록실패"));
+			model.addAttribute("url","/manage/board/qna/read?no=" + param.getNo());
+		} else if ("delete_reply".equals(param.getCmd())) {
+			int r = qnaService.deleteReply(param);
+			model.addAttribute("code", "alertMessageUrl");
+			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패"));
+			model.addAttribute("url", "/manage/board/qna/read?no=" + param.getNo());
+		}
 		return "include/alert";
 	}
 

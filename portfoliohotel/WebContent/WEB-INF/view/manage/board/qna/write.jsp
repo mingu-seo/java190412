@@ -120,14 +120,8 @@ QnaVO param = (QnaVO)request.getAttribute("vo");
 								</colgroup>
 								<tbody>
 									<tr>
-										<th scope="row"><label for="">공개여부</label></th>
-										<td>
-											<select name="open">
-												<%=CodeUtil.getOpenOption(0) %>
-											</select>
-										</td>
 										<th scope="row"><label for="">카테고리</label></th>
-										<td colspan="3">
+										<td>
 											<select name="category">
 												<option value="1"> 예약 </option>
 												<option value="2"> 멤버쉽 </option>
@@ -135,6 +129,13 @@ QnaVO param = (QnaVO)request.getAttribute("vo");
 											</select>
 										</td>
 										
+										<th scope="row"><label for="">공개여부</label></th>
+										<td colspan="3">
+											<select name="open">
+												<%=CodeUtil.getOpenOption(0) %>
+											</select>
+										</td>
+																			
 									</tr>
 									<tr>
 										<th scope="row"><label for="">이름</label></th>
@@ -187,11 +188,7 @@ QnaVO param = (QnaVO)request.getAttribute("vo");
 											<input type="password" id="password1" name="password" maxlength="12" class="w30" title="비밀번호를 입력해주세요" />	
 											
 										</td>
-										<th scope="row"><label for="">게시글 비밀번호 확인</label></th>
-										<td colspan="4" >
-											<input type="password" id="password2" name="password" maxlength="12" class="w30" title="비밀번호를 입력해주세요" />	
-											
-										</td>
+										
 									
 									</tr>
 									

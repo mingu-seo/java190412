@@ -27,6 +27,15 @@ function goDelete() {
 			return false;
 		}
 	}
+function goDelete_reply() {
+	var del = confirm ('삭제하시겠습니까?');
+	if (del){
+		document.location.href = "/manage/board/qna/process?no=<%=data.getNo()%>&cmd=delete_reply";
+		} else {
+			return false;
+		}
+	}
+
 	
 
 
@@ -231,11 +240,11 @@ function goSave() {
 							</form>
 							
 							<div class="btn">
-								<div class="btnLeft">
-									<a class="btns" href="/manage/board/qna/read?no=<%=data.getNo() %>"><strong>목록</strong></a>
+								<div class="btnRight">
+									<a class="btns" href="<%=param.getTargetURLParam("edit_reply", param, data.getNo())%>"><strong>답변수정</strong></a>
 								</div>
 								<div class="btnRight">
-									<a class="btns" href="javascript:$('#frm').submit();"><strong>저장</strong></a>
+									<a class="btns" href="#" onClick="goDelete_reply();"><strong>답변삭제</strong></a>
 								</div>
 							</div>
 							<%

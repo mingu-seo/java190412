@@ -8,8 +8,12 @@
 	<sql id="searchSql">		
 		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where">
+		1=1
+			<isNotEqual property="reply" compareValue="-1">
+			    and reply = #reply#
+			</isNotEqual>
 			<isNotEqual property="open" compareValue="-1">
-			    open = #open#
+			    and open = #open#
 			</isNotEqual>
 			<!-- 검색어 검색 -->
 			<isNotEqual property="sval" compareValue="">
@@ -34,7 +38,7 @@
 	<select id="list" parameterClass="qna_vo" resultClass="qna_vo">
         select 
    			no, category, email, name,  tel, password, title, contents,
-        	regdate, file_org, file, filesize, reply
+        	regdate, file_org, file, filesize, reply, open
         from qna
         <include refid="searchSql" />
 		ORDER BY regdate DESC LIMIT $startPageNo$, $pageRows$
@@ -102,6 +106,12 @@
        	</isNotEqual>
         	send_email=#send_email#
         WHERE no = #no#
+    </update>
+    
+     <update id="deleteReply" parameterClass="qna_vo">
+       UPDATE qna SET
+        	reply="0", reply_title=null, reply_contents=null, reply_regdate = null, send_email="0"
+       WHERE no = #no#
     </update>
     
  </sqlMap>

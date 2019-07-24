@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import board.notice.NoticeVO;
 import board.qna.QnaVO;
-
+import mail.SendMail;
 import property.SiteProperty;
 import util.FileUtil;
 import util.Function;
@@ -85,10 +85,19 @@ public int update(QnaVO vo) throws SQLException, IOException {
 	
 
 	
-	 public int updateReply(QnaVO vo)throws SQLException{ 
+	public int updateReply(QnaVO vo)throws SQLException, Exception { 
+		 QnaVO read = qnaDao.read(vo);
 		 int no = qnaDao.updateReply(vo); 
+		 if(vo.getSend_email()==1) {
+			 SendMail.sendEmail("joonoh94@naver.com", "joonoh94@gmail.com", read.getName()+"님 질문에 답변이 달렸습니다.", "널포인트 싫어요" ); 
+		 }
 		 return no; 
 	 } 
+	 
+	 public int deleteReply(QnaVO vo) throws SQLException {
+		 int no = qnaDao.deleteReply(vo); 
+		 return no; 
+		}
 	 
 	/*
 	 * public int replyDelete(int no) throws SQLException { int cnt =
