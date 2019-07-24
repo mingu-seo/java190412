@@ -61,8 +61,8 @@ function disState() {
 						<div id="blist">
 							<!-- 전시 상태 선택 -->
 							<form name="searchForm" id="searchForm" action="index" method="post">
-								<div class="search" style="padding:0 550px;">
-								<table style="width:800px; border-right:1px solid #cccdd0;">
+								<div class="search" style="width:100%;">
+								<table style="width:800px; border-right:1px solid #cccdd0; margin:0 auto;">
 									<tr>
 										<th style="width:15%; background-color:#eeeff0; border:1px solid #cccdd0;">예매일</th>
 										<td width="50%">
