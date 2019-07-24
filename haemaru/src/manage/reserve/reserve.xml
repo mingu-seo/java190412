@@ -81,10 +81,10 @@
 		SELECT *
 		FROM reserve WHERE no>1 and no=#no#
 	</select>
-	
-	
-	<select id="doctorList" parameterClass="Integer" resultClass="doctor.DoctorVO">
+		
+	<select id="doctorList" parameterClass="java.util.HashMap" resultClass="manage.doctor.DoctorVO">
 		SELECT * FROM doctor
+		WHERE department  = #department# AND 
 	</select>
 
 </sqlMap>

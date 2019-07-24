@@ -81,7 +81,9 @@
 														<th>시작 - 종료</th>
 													</tr>
 													<tr>
-														<th scope="row"><label for="">월요일</label></th>
+														<th scope="row"><label for="">월요일</label>
+														<input type="checkbox" name="mon_res" value="1" <%=Function.getChecked(1, data.getMon_res()) %>/>
+														</th>
 														<td><select name="mon_start">
 																<%=CodeUtil.getDoctorScheduleOption(data.getMon_start())%>
 														</select> <strong> - </strong> <select name="mon_end">
@@ -89,7 +91,9 @@
 
 													</tr>
 													<tr>
-														<th scope="row"><label for="">화요일</label></th>
+														<th scope="row"><label for="">화요일</label>
+														<input type="checkbox" name="tue_res" value="1" <%=Function.getChecked(2, data.getTue_res()) %>/>
+														</th>
 														<td><select name="tue_start">
 																<%=CodeUtil.getDoctorScheduleOption(data.getTue_start())%>
 														</select> <strong> - </strong> <select name="tue_end">
@@ -97,7 +101,9 @@
 
 													</tr>
 													<tr>
-														<th scope="row"><label for="">수요일</label></th>
+														<th scope="row"><label for="">수요일</label>
+														<input type="checkbox" name="wed_res" value="1" <%=Function.getChecked(1, data.getWed_res()) %>/>
+														</th>
 														<td><select name="wed_start">
 																<%=CodeUtil.getDoctorScheduleOption(data.getWed_start())%>
 														</select> <strong> - </strong> <select name="wed_end">
