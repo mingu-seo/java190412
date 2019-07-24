@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Repository;
 
 import db.SqlMapClientDAOSupport;
-import manage.admin.AdminVO;
+
 
 @Repository
 public class MemberDAO extends SqlMapClientDAOSupport {
@@ -76,6 +76,11 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 	public MemberVO read(int no) throws SQLException {
 		return (MemberVO) getSqlMapClient().queryForObject("member.read", no);
 	}
+	
+	public MemberVO loginForm(int no) throws SQLException {
+		return (MemberVO) getSqlMapClient().queryForObject("member.loginForm", no);
+	}
+
 
 	/**
 	 * 관리자 로그인체크 id, password로 조회 후 존재하면 true 리턴
@@ -102,6 +107,7 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 	public int idcheck(MemberVO param) throws SQLException {
 		return (Integer) getSqlMapClient().queryForObject("member.idcheck", param);
 	}
+	
 	public int emailcheck(String email) throws SQLException {
 		return (Integer) getSqlMapClient().queryForObject("member.emailcheck", email);
 	}

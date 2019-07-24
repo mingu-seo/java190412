@@ -6,8 +6,7 @@
 <%
 MemberVO param = (MemberVO)request.getAttribute("vo");
 ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
-int totCount = (Integer)request.getAttribute("totCount");
-int totPage = (Integer)request.getAttribute("totPage");
+
 %>
 
 
@@ -16,17 +15,7 @@ int totPage = (Integer)request.getAttribute("totPage");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp" %>
-<script>
-function groupDelete() {	
-	if ( isSeleted(document.frm.no) ){
-		if (confirm ('삭제하시겠습니까?')) {
-			document.frm.submit();
-		}
-	} else {
-		alert("삭제할 항목을 하나 이상 선택해 주세요.");
-	}
-}
-</script>
+
 </head>
 <body> 
 <%@ include file="/WEB-INF/view/manage/include/common.jsp" %>
@@ -48,40 +37,33 @@ function groupDelete() {
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="blist">
-						<div class="btn">
-								
-								<div class="btnRight">
-									<a class="btns" href="loginForm"><strong>로그인</strong> </a>
-								</div>
-							</div>
+						
 							
-							<p><span><strong>총 <%=totCount%>개</strong>  |  <%=param.getReqPageNo()%>/<%=totPage%>페이지</span></p>
+							
 							<form name="frm" id="frm" action="process.do" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
 								<colgroup>
-									<col class="w3" />
-									<col class="w3" />
+									
+									
 									<col class="w20" />
-									<col class="w10" />							
+															
 									<col class="w8" />
 									<col class="w10" />
-									<col class="w8" />
-									<col class="w8" />
-									<col class="w8" />
+									
+								
 								</colgroup>
 								<thead>
 									<tr>
 										<th scope="col" class="first"><input type="checkbox" name="allChk" id="allChk" onClick="check(this, document.frm.no)"/></th>
-										<th scope="col">번호</th>
-										<th scope="col">이메일</th>
+										
+										
 										<th scope="col">이름</th>
-										<th scope="col">성별</th>		
+											
 										<th scope="col">등급</th>	 																
-										<th scope="col">최근 로그인</th> 
+										<th scope="col">포인트</th>
 										 
 										
-										<th scope="col">등록일</th>
-										<th scope="col">탈퇴 여부</th>
+									
 									</tr>
 								</thead>
 								<tbody>
@@ -104,14 +86,13 @@ function groupDelete() {
 									String[] nameArr = list.get(i).getName().split(",");								
 									%>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=list.get(i).getNo()%>"/></td>
-										<td <%=targetUrl%>><%=list.get(i).getNo()%></td>
-										<td <%=targetUrl%>><%=list.get(i).getEmail()%></td>										
+										
+																			
 										<td <%=targetUrl%>><%=nameArr[0]%> <%=nameArr[1] %></td>
-										<td <%=targetUrl%>><%=CodeUtil.getGender(list.get(i).getGender())%></td>										
+																			
 										<td <%=targetUrl%>><%=CodeUtil.getMgrade(list.get(i).getGrade())%></td>	 
-										<td <%=targetUrl%>><%=list.get(i).getLogindate()%></td>																		
-										<td <%=targetUrl%>><%=DateUtil.getDateTimeFormat(list.get(i).getRegdate())%></td>
-										<td <%=targetUrl%>><%=CodeUtil.getSecession(list.get(i).getSecession())%></td>
+										<td <%=targetUrl%>><%=list.get(i).getPoint() %></td>																	
+										
 									</tr>
 								<%
 										}
@@ -133,19 +114,9 @@ function groupDelete() {
 							</div>
 							<!--//btn-->
 							<!-- 페이징 처리 -->
-							<%=Page.indexList(param.getReqPageNo(), totPage, request)%>
+							
 							<!-- //페이징 처리 -->
-							<form name="searchForm" id="searchForm" action="index" method="post">
-								<div class="search">
-									<select name="stype" title="검색을 선택해주세요">
-										<option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>
-										<option value="email" <%=Function.getSelected(param.getStype(), "email") %>>이메일</option>
-										<option value="name" <%=Function.getSelected(param.getStype(), "name") %>>이름</option>										
-									</select>
-									<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />
-									<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />
-								</div>
-							</form>
+							
 							<!-- //search --> 
 						</div>
 						<!-- //blist -->

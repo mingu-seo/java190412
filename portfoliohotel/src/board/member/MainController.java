@@ -1,6 +1,7 @@
-package manage;
+package board.member;
 
 import javax.servlet.http.HttpSession;
+
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,19 +19,19 @@ public class MainController {
 	@Autowired
 	private MemberService memberService;
 
-	@RequestMapping("/manage")
+	@RequestMapping("/manage/member")
 	public String main(Model model) throws Exception {
 
-		return "manage/index";
+		return "manage/member";
 	}
 	
-	@RequestMapping("/manage/login")
+	@RequestMapping("/manage/member/login")
 	public String login(Model model, @RequestParam(value="login_url", required=false) String login_url, @RequestParam(value="login_param", required=false) String login_param, MemberVO vo, HttpSession session) throws Exception {
-		if (memberService.loginCheck(vo,session)) {
+		if (memberService.loginCheck(vo)) {
 			
 			MemberVO memberInfo = memberService.getLoginSessionInfo(vo);
 			memberInfo.setIp(vo.getIp());
-//			memberService.insertLoginHistory(adminInfo);		// 로그인히스토리 저장
+//			memberService.insertLoginHistory(memberInfo);		// 로그인히스토리 저장
 			session.setAttribute("memberInfo", memberInfo);	// 세션 저장
 			String redirectUrl = SiteProperty.INDEX_PAGE; // 시작페이지
 			
@@ -56,7 +57,7 @@ public class MainController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/manage/logout")
+	@RequestMapping("/manage/member/logout")
 	public String logout(Model model) {
 		//loginInfoProvider.get().remove();
 		

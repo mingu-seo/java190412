@@ -32,7 +32,7 @@ function loginCheck(){
 }
 
 function userid_chk() {
-	var f=document.board;
+	var f=document.member;
 	var useridname = CookieVal("cookie_userid");
 	
 	if (useridname=="null"){	
@@ -89,7 +89,8 @@ function CookieVal(cookieName) {
 
 										<div class="login-box clear">
 										
-											<form action="#" method="post">
+											<!-- <form action="#" method="post"> -->
+											<form name="mamber" id="member" method="post" action="<%=request.getContextPath()%>/manage/member/memberIndex" onsubmit="return loginCheck();">
 												<div class="login-box-logo"></div>
 												<div class="login-board clear">
 													<div class="login-box-left">
@@ -104,7 +105,8 @@ function CookieVal(cookieName) {
 													</div>
 													
 													<div class="login-board-right">
-														<input type="submit"  href="#" onclick="loginCheck();"value="LOGIN"> 
+														<!-- <input type="submit"  href="#" onclick="loginCheck();"value="LOGIN"> --> 
+														<input type="submit" src="<%=request.getContextPath()%>" value ="로그인" class="loginBtn" title="" />
 														
 													</div>
 													<div class="id-remember">

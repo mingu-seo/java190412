@@ -327,7 +327,7 @@ function pwdCkeck(){
 										</td>
 										<th scope="row"><label for="">비밀번호 확인</label></th>
 										<td>
-											<input type="password" style="width:250px; height:20px;" id="passwordCheck" name="password" value="" title="관리자 이메일을 입력해주세요." />
+											<input type="password" style="width:250px; height:20px;" id="passwordCheck" name="password2" value="" title="관리자 이메일을 입력해주세요." />
 										</td>
 										
 									</tr>

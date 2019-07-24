@@ -52,7 +52,7 @@
     <update id="update" parameterClass="membervo">
         update member set
         	<isNotEqual property="password" compareValue="">
-        	    password = #password#,
+        	    password = md5(#password#),
         	</isNotEqual>
         	 name=#name#, tel=#tel#, addr=#addr#, zipcode=#zipcode#, addr_detail=#addr_detail#
         where no=#no#
@@ -89,11 +89,11 @@
         select count(*) as cnt from member where email=#email#
     </select>
     
-    <select id="loginCheck" parameterClass="membervo" resultClass="Integer">
+    <select id="loginCheck" parameterClass="membervo" resultClass="membervo">
         select count(*) as cnt from member where email=#email# and password=md5(#password#)
     </select>
     
-    <select id="loginSessionInfo" parameterClass="param" resultClass="membervo">
+    <select id="loginSessionInfo" parameterClass="membervo" resultClass="membervo">
         select * from member where email=#email# and password=md5(#password#)
     </select>
     <!-- 

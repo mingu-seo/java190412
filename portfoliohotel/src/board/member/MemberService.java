@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import manage.admin.AdminVO;
+
 import util.Page;
 
 @Service
@@ -56,8 +56,13 @@ public class MemberService {
 		MemberVO vo = memberDao.read(no);
 		return vo;
 	}
+	
+	public MemberVO memberIndex(int no) throws SQLException {
+		MemberVO vo = memberDao.read(no);
+		return vo;
+	}
 
-	public boolean loginCheck(MemberVO param, HttpSession session) throws SQLException {
+	public boolean loginCheck(MemberVO param) throws SQLException {
 		int cnt = memberDao.loginCheck(param);
 		boolean result = false;
 		if (cnt == 1) {
