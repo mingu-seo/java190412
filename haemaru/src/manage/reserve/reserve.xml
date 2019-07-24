@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="reserve">
+
+	<typeAlias alias="reservevo" type="manage.reserve.ReserveVO" />
+
+
+	<!-- 공통조건 -->
+	<sql id="searchSql">
+		<!-- WHERE 절 검색 -->
+		<dynamic prepend="where">
+			<isNotEqual property="route" compareValue="0"
+				prepend="and">
+				route = #route#
+			</isNotEqual>
+			<!-- 검색어 검색 -->
+			<isNotEqual property="sval" compareValue="" prepend="and">
+				<!-- 검색 타입이 all일 때 -->
+				<isEqual property="stype" compareValue="all">
+					((name like
+					'%$sval$%' ) or (tel like '%$sval$%' ))
+				</isEqual>
+				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
+				<isNotEqual property="stype" compareValue="all">
+					($stype$ like
+					'%$sval$%' )
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+
+	</sql>
+	
+	<select id="count" parameterClass="reservevo"
+		resultClass="Integer">
+		SELECT count(*) FROM reserve
+		<include refid="searchSql" />
+	</select>
+
+	<select id="list" parameterClass="reservevo"
+		resultClass="reservevo">
+		SELECT *, ifnull((select department from doctor where
+		no=reserve.doctor_pk),0) as doctor_department, 
+		ifnull((select name from doctor where
+		no=reserve.doctor_pk and department=doctor_department),0) as doctor_name
+		FROM reserve
+		<include refid="searchSql" />
+		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
+	</select>
+
+
+	<insert id="insert" parameterClass="reservevo">
+		INSERT INTO reserve
+		(name, tel, res_hour, res_date, member_pk,
+		doctor_pk, route,
+		res_contents, registdate)
+		VALUES
+		(#name#, #tel#, #res_hour#, #res_date#,
+		#member_pk#,
+		#doctor_pk#, #route#, #res_contents#, now())
+		<selectKey keyProperty="no" resultClass="Integer">
+			SELECT
+			LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<update id="update" parameterClass="reservevo">
+		UPDATE reserve SET
+		res_hour=#res_hour#, res_date=#res_date#, member_pk=#member_pk#,
+		doctor_pk=#doctor_pk#, route=#route#, res_contents=#res_contents#
+		WHERE no = #no#
+	</update>
+
+	<delete id="delete" parameterClass="Integer">
+		DELETE FROM reserve
+		WHERE
+		no=#no#
+	</delete>
+
+	<select id="read" parameterClass="Integer"
+		resultClass="reservevo">
+		SELECT *
+		FROM reserve WHERE no>1 and no=#no#
+	</select>
+	
+	
+	<select id="doctorList" parameterClass="Integer" resultClass="doctor.DoctorVO">
+		SELECT * FROM doctor
+	</select>
+
+</sqlMap>
