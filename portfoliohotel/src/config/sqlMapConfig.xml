@@ -18,7 +18,7 @@
 		<dataSource type="DBCP">
 			<property name="JDBC.Driver" value="com.mysql.jdbc.Driver"/>
 			 	
-			<property name="JDBC.ConnectionURL" value="jdbc:mysql://localhost:3306/portfoliohotel?useUnicode=true&amp;characterEncoding=utf8"/>			
+			<property name="JDBC.ConnectionURL" value="jdbc:mysql://localhost:3306/portfoliohotel?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=Asia/Seoul"/>			
 			<property name="JDBC.Username" value="hotel"/>
 			<property name="JDBC.Password" value="hotel1234"/>
 			 
@@ -36,6 +36,12 @@
     
 	<sqlMap resource="test/test.xml"/>	
 	<sqlMap resource="manage/admin/admin.xml"/>	
-	<sqlMap resource="board/notice/notice.xml"/>	
+	<sqlMap resource="dining/dining.xml"/>
+	<sqlMap resource="dining_res/dining_res.xml"/>
+	<sqlMap resource="board/notice/notice.xml"/>
+	<sqlMap resource="board/member/member.xml"/>	
+	<sqlMap resource="board/qna/qna.xml"/>	
 	<sqlMap resource="room/room.xml"/>
+	<sqlMap resource="board/faq/faq.xml"/>
+
 </sqlMapConfig>

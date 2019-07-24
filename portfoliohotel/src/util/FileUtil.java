@@ -20,8 +20,6 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import property.SiteProperty;
-
 public class FileUtil {
 	protected final Log logger = LogFactory.getLog(getClass());
 	

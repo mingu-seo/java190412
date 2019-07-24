@@ -8,14 +8,17 @@
 				http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<context:component-scan base-package="test" />
-	<context:component-scan base-package="manage" />
+	<context:component-scan base-package="manage.admin" />
 	<context:component-scan base-package="board" />
 	<context:component-scan base-package="main" />
 	<context:component-scan base-package="room" />
 	<context:component-scan base-package="dining" />
-	
-	
+	<context:component-scan base-package="dining_res" />
+	<context:component-scan base-package="membership" />
+	<context:component-scan base-package="pkg" />
 	<mvc:annotation-driven/>
+	
+
 <!-- 
 	<mvc:interceptors>
 		<mvc:interceptor>
