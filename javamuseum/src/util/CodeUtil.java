@@ -702,4 +702,39 @@ public class CodeUtil {
 	    return result;
 	}
 	 	
+	// 성별
+		public static String getGenderName(int gender) {
+			String result = "";
+			if (gender == 1) {
+				result = "여성";
+			} else if (gender == 0) {
+				result = "남성";
+			}
+			return result;
+		}
+		
+		public static String getGenderOption(int arg){
+	        StringBuffer result = new StringBuffer();
+	        	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getGenderName(0)+"</option>");
+	        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getGenderName(1)+"</option>");
+	        return result.toString();
+	    }
+		
+	// 포인트 구분	 0: 적립		1: 사용
+		public static String getPointName(int state) {
+			String result = "";
+			if (state == 1) {
+				result = "사용";
+			} else if (state == 0) {
+				result = "적립";
+			}
+			return result;
+		}
+		
+		public static String getPointOption(int arg){
+	        StringBuffer result = new StringBuffer();
+	        	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getPointName(0)+"</option>");
+	        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getPointName(1)+"</option>");
+	        return result.toString();
+	    }
 }
