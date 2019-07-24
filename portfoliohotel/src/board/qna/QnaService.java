@@ -85,8 +85,8 @@ public int update(QnaVO vo) throws SQLException, IOException {
 	
 
 	
-	 public int insertReply(QnaVO vo)throws SQLException{ 
-		 int no = qnaDao.insertReply(vo); 
+	 public int updateReply(QnaVO vo)throws SQLException{ 
+		 int no = qnaDao.updateReply(vo); 
 		 return no; 
 	 } 
 	 

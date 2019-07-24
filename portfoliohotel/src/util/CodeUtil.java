@@ -821,6 +821,37 @@ public class CodeUtil {
 		 }
 		return result;
 	 }
+	 
+	 public static String getReplyExist(int reply) {
+		 String result = "";
+		 if (reply == 0) {
+			 result = "미완료";
+		 } else if (reply == 1) {
+			 result = "답변완료";
+		 }
+		return result;
+	 }
+
+	 public static String getSend_Email(int send_email) {
+		 String result = "";
+		 if (send_email == 0) {
+			 result = "미전송";
+		 } else if (send_email == 1) {
+			 result = "전송";
+		 }
+		return result;
+	 }
+	 public static String getCategory_name(int category) {
+		 String result = "";
+		 if (category == 1) {
+			 result = "예약";
+		 } else if (category == 2) {
+			 result = "멤버쉽";
+		 } else if (category == 3) {
+			 result = "기타";
+		 }
+		 return result;
+	 }
 
 	 	
 }

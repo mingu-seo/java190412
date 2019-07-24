@@ -113,7 +113,7 @@ public class QnaController {
 			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		} else if ("write_reply".equals(param.getCmd())) {
-			int r = qnaService.insertReply(param);
+			int r = qnaService.updateReply(param);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "답변이 정상적으로 등록되었습니다.", "등록실패"));
 			model.addAttribute("url","/manage/board/qna/read?no=" + param.getNo());
