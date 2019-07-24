@@ -75,18 +75,24 @@ $(window).load(function(){
 					<ul>
 						<li><a href="<%=request.getContextPath()%>/manage/room/index"><span>객실관리</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/room/index_opt"><span>객실옵션관리</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/room/res/index"><span>객실예약관리</span></a></li>
 					</ul>
 					</div>
 				</li>
-				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>예매관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>pkg관리</span></a>
+					<div class="standard_left">
+					<ul>
+						<li><a href="<%=request.getContextPath()%>/manage/pkg/room/index.do"><span>room관리</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/pkg/dining/index.do"><span>dining관리</span></a></li>
+					</ul>
+					</div>
+				</li>
 				<li><a href="<%=request.getContextPath()%>/manage/board/notice/index.do" class="parent"><span>고객지원</span></a>
 					<div class="standard_left">
 					<ul>
 						<li><a href="<%=request.getContextPath()%>/manage/board/notice/index.do"><span>공지사항</span></a></li>
 
 						<li><a href="<%=request.getContextPath()%>/manage/board/faq/index.do"><span>FAQ</span></a></li>
-
-						<li><a href="<%=request.getContextPath()%>/manage/board/pkg/index.do"><span>pkg관리</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/qna/index.do"><span>QnA</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>자주하는질문</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>FAQ분류관리</span></a></li>

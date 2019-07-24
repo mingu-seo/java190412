@@ -27,7 +27,7 @@ CREATE TABLE `member` (
 
 CREATE TABLE `room` (
   `no` int(11) NOT NULL AUTO_INCREMENT,
-  `name` int(11) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `count` int(11) DEFAULT NULL,
   `adult` int(11) DEFAULT NULL,
@@ -38,29 +38,11 @@ CREATE TABLE `room` (
   `location` varchar(45) DEFAULT NULL,
   `landscape` varchar(45) DEFAULT NULL,
   `type` varchar(45) DEFAULT NULL,
-  `image1` varchar(255) DEFAULT NULL,
-  `image_org1` varchar(255) DEFAULT NULL,
-  `image2` varchar(255) DEFAULT NULL,
-  `image_org2` varchar(255) DEFAULT NULL,
-  `image3` varchar(255) DEFAULT NULL,
-  `image_org3` varchar(255) DEFAULT NULL,
-  `image4` varchar(255) DEFAULT NULL,
-  `image_org4` varchar(255) DEFAULT NULL,
-  `image5` varchar(255) DEFAULT NULL,
-  `image_org5` varchar(255) DEFAULT NULL,
-  `image6` varchar(255) DEFAULT NULL,
-  `image_org6` varchar(255) DEFAULT NULL,
-  `image7` varchar(255) DEFAULT NULL,
-  `image_org7` varchar(255) DEFAULT NULL,
-  `image8` varchar(255) DEFAULT NULL,
-  `image_org8` varchar(255) DEFAULT NULL,
-  `image9` varchar(255) DEFAULT NULL,
-  `image_org9` varchar(255) DEFAULT NULL,
-  `image10` varchar(255) DEFAULT NULL,
-  `image_org10` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ALTER TABLE `portfoliohotel`.`room` 
+CHANGE COLUMN `name` `name` VARCHAR(45) NULL DEFAULT NULL ;
 
 CREATE TABLE `room_opt` (
   `no` int(11) NOT NULL AUTO_INCREMENT,
@@ -70,6 +52,8 @@ CREATE TABLE `room_opt` (
   `image_org` varchar(255) DEFAULT NULL,
   `info` text,
   `price` int(11) DEFAULT NULL,
+  `info_1` varchar(225) DEFAULT NULL,
+  `info_2` varchar(225) DEFAULT NULL,
   PRIMARY KEY (`no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -80,7 +64,7 @@ CREATE TABLE `room_res` (
   `room_name` varchar(45) DEFAULT NULL,
   `member_pk` int(11) DEFAULT NULL,
   `checkin` char(10) DEFAULT NULL,
-  `chechout` char(10) DEFAULT NULL,
+  `checkout` char(10) DEFAULT NULL,
   `bookdate` timestamp NULL DEFAULT NULL,
   `adult` int(11) DEFAULT NULL,
   `kid` int(11) DEFAULT NULL,
@@ -98,6 +82,11 @@ CREATE TABLE `room_res` (
   `res_state` int(11) DEFAULT NULL,
   PRIMARY KEY (`no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `portfoliohotel`.`room_res` 
+CHANGE COLUMN `chechout` `checkout` CHAR(10) NULL DEFAULT NULL ;
+
 
 
 CREATE TABLE `room_service` (
@@ -129,6 +118,8 @@ CREATE TABLE `dining` (
   `book_period` int(11) DEFAULT NULL,
   `inclusion` text,
   `info` text,
+  `imagename` varchar(225) DEFAULT NULL,
+  `imagename_org` varchar(225) DEFAULT NULL,
   PRIMARY KEY (`no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -153,9 +144,10 @@ CREATE TABLE `dining_res` (
 CREATE TABLE `faq` (
   `no` int(11) NOT NULL,
   `title` varchar(45) DEFAULT NULL,
-  `content` varchar(45) DEFAULT NULL,
+  `contents` varchar(45) DEFAULT NULL,
   `display` int(11) DEFAULT NULL,
   `category` int(11) DEFAULT NULL,
+  `regdate` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -164,7 +156,7 @@ CREATE TABLE `notice` (
   `no` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `title` varchar(45) DEFAULT NULL,
-  `content` text,
+  `contents` text,
   `regdate` timestamp NULL DEFAULT NULL,
   `file` varchar(255) DEFAULT NULL,
   `file_org` varchar(255) DEFAULT NULL,

@@ -32,4 +32,10 @@ public class PkgRoomController {
 		
 		return "pkg/room/senseof";
 	}
+	
+	@RequestMapping("/pkg/room/oasis")
+	public String oasis(Model model, AdminVO param) throws Exception {
+		
+		return "pkg/room/oasis";
+	}
 }
