@@ -238,3 +238,45 @@ function strecthAndLessen( _this ){
 		}
 	});	// 이벤트 end
 }
+
+//생년월일 유효성 체크                   1111-11-11
+function isValidBirth(year, day) {
+    var year = Number(year); 
+    var day = Number(day);
+    var re = /^[0-9]+$/;
+    
+    if (year < 1900){
+         alert("년도를 확인하세요.");
+         return false;
+    }
+   if (day < 1 || day > 31) {
+         alert("출생일은 1일부터 31일까지 입력가능합니다.");
+         return false;
+    } else {
+    	return true;
+    }
+}
+
+//비밀번호 수정 유효성체크
+function validEditPassword(password) {
+	var jQuerypass = password.val();
+	var jQuerystr = /^[a-zA-Z0-9@]{6,12}$/;
+	var jQuerystr2 = /(\w)\1\1\1/;
+	var jQuerychk_num = jQuerypass.search(/[0-9]/g);
+	var jQuerychk_eng = jQuerypass.search(/[a-z]/ig);
+	var check = false;
+	if((!jQuerystr.test(jQuerypass) || jQuerypass.indexOf(' ') > -1) && jQuerypass != "" ){
+		alert("비밀번호는 영문+숫자 6~12자리를 입력해 주세요.");
+		password.focus();
+	}else if(jQuerystr2.test(jQuerypass) && jQuerypass != ""){
+		alert("비밀번호에 반복되는 문자 및 숫자가 있습니다.");
+		password.focus();
+	}else if((jQuerychk_num < 0 || jQuerychk_eng < 0) && jQuerypass != "") {
+		alert("비밀번호는 숫자와 영문자를 혼용하여야 합니다.");
+		password.focus();
+	}else{
+		check = true;
+	}
+	return check;
+}
+

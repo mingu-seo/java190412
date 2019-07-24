@@ -12,6 +12,7 @@ public class SiteProperty {
 	 * 관리자 시작페이지
 	 */
 	public static final String	INDEX_PAGE				= "/manage/admin/index.do";
+	public static final String	UserINDEX_PAGE				= "/user/index";
 	/**
 	 * 보안서버인증서(SSL)사용여부
 	 */
@@ -92,10 +93,16 @@ public class SiteProperty {
 	/**
 	 * 로컬 홈디렉토리경로 (실서버 변경 필요)
 	 */
-	public static final String REAL_PATH				= "C:\\Java\\git\\java190412\\javamuseum\\WebContent\\upload\\notice";
+	public static final String REAL_PATH				= "C:\\java\\git\\java190412\\javamuseum\\WebContent";
 	/**
 	 * 공지사항 첨부파일 경로
 	 */
 	public static final String NOTICE_UPLOAD_PATH		= "/upload/notice/";
+	/**
+	 * 전시 첨부파일 경로
+	 */
+	public static final String EXHIBITION_UPLOAD_PATH		= "/upload/exhibition/";
+	
+	
 
 }

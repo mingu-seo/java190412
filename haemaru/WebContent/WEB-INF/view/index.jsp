@@ -30,124 +30,7 @@
     <script type="text/javascript" src="js/custom.js"></script>
 </head>
 <body>
-<<<<<<< HEAD
-    <!-- header html -->
-    <div id="header">
-        <!-- 로그인 -->
-        <div id="login-wrap"><!--화면 끄는 코드--></div>
-        <div id="login">
-
-        <%@ include file="/WEB-INF/view/manage/include/login.jsp" %>
-
-        </div>
-        <!-- 회원가입 -->
-        <div id="join-area">
-         <%@ include file="/WEB-INF/view/manage/include/application.jsp" %>
-           
-        </div>
-        <!-- Right Fix -->
-        <div class="fix-menu-box">
-            <ul class="fix-menu">
-                <li class="os"><a href="#"></a></li>
-                <li><a href="#">병원소개</a></li>
-                <li><a href="#">진료과목</a></li>
-                <li><a href="#">입양후기</a></li>
-                <li><a href="#">입양프로필</a></li>
-                <!-- <li class="oq"><a href="#">오시는길</a></li> -->
-            </ul>
-            <!-- <div class="fix-menu-text">오시는 길</div> -->
-        </div>
-        <h1 class="header-logo"><a href="index.html"><img src="/icon/logo_lightgreen.png"></a></h1>
-        <!-- GNB MENU -->
-        <div class="header-center clear">
-           
-        <%@ include file="/WEB-INF/view/manage/include/top.jsp" %>
-        </div>
-        <!-- 로그인 메뉴들-->
-        <ul class="login-box clear">
-            <li><a href="https://www.facebook.com/haemaruah/"></a></li>
-            <li><a href="https://www.youtube.com/results?search_query=%ED%95%B4%EB%A7%88%EB%A3%A8%EB%8F%99%EB%AC%BC%EB%B3%91%EC%9B%90"></a></li>
-            <li><a href="https://instagram.com/haemaru_ah?igshid=zw6yyof9s7ka"></a></li>
-            <li><a href="#">로그인</a></li>
-            <li><a href="#">회원가입</a></li>
-        </ul>
-        <!-- 끝 -->
-        <!-- 비밀번호 찿기 -->
-        <div id="pass-lost">
-            <div class="pass-head">
-                <p>Find</p>
-                <img src="/icon/footer-icon.png">
-            </div>
-            <div class="pass-page">
-                <div class="pass-back-arrow">
-                    <a href="#"><img src="/icon/backarrow.png">
-                    <P>뒤로가기</P></a>
-                </div>
-                <h1 class="pass-logo">
-                    <a href="#"><img src="/icon/logo_lightgreen.png"></a>
-                </h1>
-                <form class="pass-form" method="GET" action="text.php">
-                    <div class="email-pass-box">
-                        <span><label for="email_pass_input" class="label">어려움을 겪고 있는 해마루 계정</label></span>
-                    </div>
-                    <div>
-                        <input type="text" maxlength="5" id="name_pass_input" name="name_pass_input" class="pass-size" placeholder="이름을 입력하세요.">
-                    </div>
-                    <div>
-                        <input type="text" maxlength="8" id="birth_pass_input" name="birth_pass_input" class="pass-size" placeholder="생년월일을 입력하세요.">
-                    </div>
-                    <div>
-                        <input type="text" maxlength="11" id="number_pass_input" name="number_pass_input" class="pass-size" placeholder="전화번호를 입력하세요.">
-                    </div>
-                    <div>
-                        <input type="text" maxlength="20" id="email_pass_input" name="email_pass_input" class="pass-size" placeholder="이메일을 입력하세요.">
-                    </div>
-                    <div>
-                        <input type="submit" value="인증번호 보내기" id="pass-lost-submit">
-                    </div>
-                </form>
-                <ul class="pass-bot clear">
-                    <li><a href="#">개인정보처리방침</a></li>
-                    <li><a href="#">이메일무단수집거부</a></li>
-                </ul>
-            </div>
-        </div>
-        <!-- 끝 -->
-        <!-- 비밀번호 찾기 인증확인창 -->
-        <div id="pass-chk">
-            <div class="pass-chk-head">
-                <p>Find</p>
-                <img src="/icon/footer-icon.png">
-            </div>
-            <div class="pass-chk-page">
-                <div class="pass-chk-back-arrow">
-                    <a href="#"><img src="/icon/backarrow.png">
-                    <P>뒤로가기</P></a>
-                </div>
-                <h1 class="pass-chk-logo">
-                    <a href="#"><img src="/icon/logo_lightgreen.png"></a>
-                </h1>
-                <form class="pass-chk-form" method="GET" action="text.php">
-                    <div class="email-pass-chk-box">
-                        <span><label for="email_pass_chk_input" class="label">어려움을 겪고 있는 해마루 계정</label></span>
-                    </div>
-                    <div>
-                        <input type="text" maxlength="20" id="email_pass_chk_input" name="email_pass_input" class="pass-size" placeholder="인증번호를 입력하세요.">
-                    </div>
-                    <div>
-                        <input type="submit" value="확인" id="pass_chk-submit">
-                    </div>
-                </form>
-                <ul class="pass-chk-bot clear">
-                    <li><a href="#">개인정보처리방침</a></li>
-                    <li><a href="#">이메일무단수집거부</a></li>
-                </ul>
-            </div>
-        </div>
-    </div> 
-=======
-<%@ include file="/WEB-INF/view/include/headHtml.jsp" %>
->>>>>>> branch 'master' of https://github.com/mingu-seo/java190412.git
+<%@ include file="/WEB-INF/view/include/headHtmlMain.jsp" %>
     <div id="container">
         <!-- 첫번째  화면 베너 -->
         <div class="con1">
@@ -435,7 +318,7 @@
             <div class="con3-box">
                 <div class="con3-info clear">
                     <div class="con3-view">
-                        <a href="sub2-1.html">
+                        <a href="department/surgery.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-1.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -446,7 +329,7 @@
                         </a>
                     </div>
                     <div class="con3-view">
-                        <a href="sub2-1.html">
+                        <a href="department/surgery.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-2.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -457,7 +340,7 @@
                         </a>
                     </div>
                     <div class="con3-view">
-                        <a href="sub2-2.html">
+                        <a href="department/internal.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-3.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -468,7 +351,7 @@
                         </a>
                     </div>
                     <div class="con3-view">
-                        <a href="sub2-2.html">
+                        <a href="department/internal.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-4.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -479,7 +362,7 @@
                         </a>
                     </div>
                     <div class="con3-view">
-                        <a href="sub2-2.html">
+                        <a href="department/radiology.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-5.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -490,7 +373,7 @@
                         </a>
                     </div>
                     <div class="con3-view">
-                        <a href="sub2-3.html">
+                        <a href="department/radiology.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-6.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -501,7 +384,7 @@
                         </a>
                     </div>
                     <div class="con3-view">
-                        <a href="sub2-3.html">
+                        <a href="department/radiology.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-7.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -512,7 +395,7 @@
                         </a>
                     </div>
                     <div class="con3-view">
-                        <a href="sub2-4.html">
+                        <a href="department/emergency.do">
                             <div class="con3-view-img"><img src="img/subcon3/subcon3-8.jpg"></div>
                             <div class="con3-view-bg"></div>
                             <div class="con3-view-text">
@@ -529,7 +412,7 @@
                     <div class="con3-bot-text clear">
                         <h5>Hamaru Clinic</h5>
                         <h6>고객에게 행복을 직원에게 즐거움을 반려동물에게<br/>최상의 진료 서비스를 제공하려 노력하는 해마루 동물병원입니다.</h6>
-                        <a href="sub2-1.html">more</a>
+                        <a href="department/surgery.do">more</a>
                     </div>
                 </div>
                 <!-- <div class="con3-bot-right"></div> -->
@@ -543,7 +426,7 @@
             <div class="con5-box clear">
                 <div class="con5-box-info">
                     <div class="con5-box-info-img">
-                        <a href="sub4-2.html"><img src="img/con4-2/con4-2-20.jpg"></a>
+                        <a href="adopt/review"><img src="img/con4-2/con4-2-20.jpg"></a>
                     </div>
                     <div class="con5-box-info-text">
                         <h5>Haemaru adoption</h5>
@@ -561,7 +444,7 @@
                 </div>
                 <div class="con5-box-info">
                     <div class="con5-box-info-img">
-                        <a href="sub4-2.html"><img src="img/con4-2/con4-2-21.jpg"></a>
+                        <a href="adopt/review"><img src="img/con4-2/con4-2-21.jpg"></a>
                     </div>
                     <div class="con5-box-info-text">
                         <h5>Haemaru adoption</h5>
@@ -579,7 +462,7 @@
                 </div>
                 <div class="con5-box-info">
                     <div class="con5-box-info-img">
-                        <a href="sub4-2.html"><img src="img/con4-2/con4-2-22.jpg"></a>
+                        <a href="adopt/review"><img src="img/con4-2/con4-2-22.jpg"></a>
                     </div>
                     <div class="con5-box-info-text">
                         <h5>Haemaru adoption</h5>
@@ -599,7 +482,7 @@
             <div class="con5-bot clear">
                 <div class="con5-bot-info clear">
                     <div>
-                        <a href="sub4-2.html"><img src="img/con4-2/con4-2-9.jpg"></a>
+                        <a href="adopt/review"><img src="img/con4-2/con4-2-9.jpg"></a>
                     </div>
                     <div>
                         <h5>Haemaru adoption</h5>

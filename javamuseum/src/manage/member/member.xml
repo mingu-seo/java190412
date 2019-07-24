@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="member">
+    
+    <typeAlias alias="membervo" type="manage.member.MemberVO"/>
+    <typeAlias alias="pointvo" type="manage.member.PointVO"/>
+    
+    <!-- 공통조건 -->
+	<sql id="searchSql">		
+		<!-- WHERE 절 검색 -->
+		<dynamic prepend="where">
+		    no > 0
+			<isNotEqual property="sval" compareValue="">
+				<isEqual property="stype" compareValue="all">
+					and ( (name like '%$sval$%' ) or (id like '%$sval$%' )	)				
+				</isEqual>
+				<isNotEqual property="stype" compareValue="all">
+					and ($stype$ like '%$sval$%' )
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql>
+	
+	<select id="count" parameterClass="membervo" resultClass="Integer">
+        select count(*) from member
+        <include refid="searchSql" />	
+    </select>
+	
+	
+    <select id="list" parameterClass="membervo" resultClass="membervo">
+        SELECT no, id, name, gender, email, tel, point, reg_date, mod_date  FROM member
+        <include refid="searchSql" />
+		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$	
+    </select>
+    
+    <insert id="insert" parameterClass="membervo" >
+        INSERT INTO member
+        	(name, email, password, id, point, tel, reg_date, mod_date, birthday, gender, zipcode, addr1, addr2)
+        values
+        	(#name#, #email#, md5(#password#), #id#, 0, #tel#, now(), now(), #birthday#, #gender#, #zipcode#, #addr1#, #addr2#)
+        <selectKey keyProperty="no" resultClass="Integer">
+			SELECT  LAST_INSERT_ID()
+		</selectKey>
+    </insert>
+
+    <update id="update" parameterClass="membervo">
+        update member set
+        	<isNotEqual property="password" compareValue="">
+        	    password = md5(#password#),
+        	</isNotEqual>
+        	email=#email#, name=#name#, mod_date=now(), zipcode=#zipcode#, addr1=#addr1#, addr2=#addr2#
+        where no=#no#
+    </update>
+    
+    <delete id="delete" parameterClass="Integer">
+        delete from member where no=#no#
+    </delete>
+
+    <select id="read" parameterClass="Integer" resultClass="membervo">
+        select *
+         from member where no=#no#
+    </select>
+    
+     <select id="idcheck" parameterClass="membervo" resultClass="Integer">
+        select count(*) as cnt from member where id=#id#
+    </select>
+    
+    <!-- 포인트관련 -->
+    <select id="pointcount" parameterClass="pointvo" resultClass="Integer">
+        select count(*) from point where member_pk=#member_pk#
+        <isNotEqual property="state" compareValue="2">
+			    and state = #state#
+		</isNotEqual>
+		<isNotEqual property="sval" compareValue="">
+				<isEqual property="stype" compareValue="all">
+					and ( (accum like '%$sval$%') or (memo like '%$sval$%')	)				
+				</isEqual>
+				<isNotEqual property="stype" compareValue="all">
+					and ($stype$ like '%$sval$%')
+				</isNotEqual>
+		</isNotEqual>
+    </select>
+     
+    <select id="pointlist" parameterClass="pointvo" resultClass="pointvo">
+        SELECT no, member_pk, registdate, accum, state, memo FROM point
+        where no > 0
+        <isNotEqual property="state" compareValue="2">
+			    and state = #state#
+		</isNotEqual>
+		<isNotEqual property="sval" compareValue="">
+				<isEqual property="stype" compareValue="all">
+					and ( (accum like '%$sval$%') or (memo like '%$sval$%')	)				
+				</isEqual>
+				<isNotEqual property="stype" compareValue="all">
+					and ($stype$ like '%$sval$%')
+				</isNotEqual>
+		</isNotEqual>
+        ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
+    </select>
+    
+    <insert id="pointinsert" parameterClass="pointvo">
+    	INSERT INTO point
+        	(member_pk, registdate, accum, state, memo)
+        values
+        	(#member_pk#, now(), #accum#, #state#, #memo#)
+        <selectKey keyProperty="no" resultClass="Integer">
+			SELECT  LAST_INSERT_ID()
+		</selectKey>
+    </insert>
+    
+    <update id="pointupdate" parameterClass="pointvo">
+    	update member set point=point+#accum#
+    	where no=#member_pk#
+    </update>
+    
+    <update id="pointuse" parameterClass="pointvo">
+    	update member set point=point-#accum#
+    	where no=#member_pk#
+    </update>
+</sqlMap>

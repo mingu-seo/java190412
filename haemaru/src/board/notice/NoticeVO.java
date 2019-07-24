@@ -7,14 +7,13 @@ import util.Parameter;
 public class NoticeVO extends Parameter {
 
 	private int			no;						// 글 번호
-	private String	 	name;					// 작성자
+	private int			type;					// 공지 유형
 	private String 		title;					// 글 제목
 	private String		contents;				// 내용
-	private Timestamp	registdate;				// 작성일
+	private Timestamp	cre_date;				// 작성일
 	private int 		readno;					// 조회수
 	private String 		filename_org;			// 첨부파일 이름 [사용자]
 	private String 		filename;				// 첨부파일 이름 [시스템 처리용]
-	private long 		filesize;				// 첨부파일 크기
 	private int			display;				// 노출여부
 	
 	private String 		filename_chk;
@@ -31,6 +30,11 @@ public class NoticeVO extends Parameter {
 		this.setSdisplay(-1);	// 검색기본값(전체)
 	}
 
+	
+	
+	
+	
+	
 	public int getDisplay() {
 		return display;
 	}
@@ -55,14 +59,6 @@ public class NoticeVO extends Parameter {
 		this.no = no;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getTitle() {
 		return title;
 	}
@@ -77,14 +73,6 @@ public class NoticeVO extends Parameter {
 
 	public void setContents(String contents) {
 		this.contents = contents;
-	}
-
-	public Timestamp getRegistdate() {
-		return registdate;
-	}
-
-	public void setRegistdate(Timestamp registdate) {
-		this.registdate = registdate;
 	}
 
 	public int getReadno() {
@@ -151,12 +139,22 @@ public class NoticeVO extends Parameter {
 		this.filename = filename;
 	}
 
-	public long getFilesize() {
-		return filesize;
+	public Timestamp getCre_date() {
+		return cre_date;
 	}
 
-	public void setFilesize(long filesize) {
-		this.filesize = filesize;
+	public void setCre_date(Timestamp cre_date) {
+		this.cre_date = cre_date;
 	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	
 	
 }

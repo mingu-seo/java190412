@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="doctor">
+
+	<typeAlias alias="doctorvo" type="manage.doctor.DoctorVO" />
+
+
+	<!-- 공통조건 -->
+	<sql id="searchSql">
+		<!-- WHERE 절 검색 -->
+		<dynamic prepend="where">
+			<isNotEqual property="department" compareValue="0"
+				prepend="and">
+				department = #department#
+			</isNotEqual>
+			<!-- 검색어 검색 -->
+			<isNotEqual property="sval" compareValue="" prepend="and">
+				<!-- 검색 타입이 all일 때 -->
+				<isEqual property="stype" compareValue="all">
+					((name like '%$sval$%' ) or (tel like '%$sval$%' ))
+				</isEqual>
+				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
+				<isNotEqual property="stype" compareValue="all">
+					($stype$ like '%$sval$%' )
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql>
+	
+		<!-- 공통조건 -->
+	<sql id="searchDoctor">
+		<!-- WHERE 절 검색 -->
+		<dynamic prepend="where">
+			<isNotEqual property="department" compareValue="0"
+				prepend="and">
+				department = #department#
+			</isNotEqual>
+		</dynamic>
+	</sql>
+
+
+	<select id="count" parameterClass="doctorvo"
+		resultClass="Integer">
+		select count(*) from doctor
+		<include refid="searchSql" />
+	</select>
+
+	<select id="list" parameterClass="doctorvo"
+		resultClass="doctorvo">
+		select *
+		from doctor
+		<include refid="searchSql" />
+		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
+	</select>
+	
+
+	
+
+	<insert id="insert" parameterClass="doctorvo">
+		INSERT INTO doctor
+		(name, department, position, addr, tel, category, doc_image, doc_image_org, registdate, gender)
+		VALUES
+		(#name#, #department#, #position#, #addr#, #tel#, #category#, #doc_image#, #doc_image_org#, now(), #gender#)
+		<selectKey keyProperty="no" resultClass="Integer">
+			SELECT
+			LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<update id="update" parameterClass="doctorvo">
+		UPDATE doctor SET
+		name=#name#,department=#department#,
+		position=#position#, addr=#addr#, gender=#gender#,
+		<isEqual property="doc_imagename_chk" compareValue="1">
+			doc_image='', doc_image_org='',
+		</isEqual>
+		<isNotEqual property="doc_image" compareValue="">
+			<isNotNull property="doc_image">
+				doc_image=#doc_image#, doc_image_org=#doc_image_org#,
+			</isNotNull>
+		</isNotEqual>
+		 tel=#tel#
+		WHERE no = #no#
+	</update>
+
+	<delete id="delete" parameterClass="Integer">
+		DELETE FROM doctor WHERE no=#no#
+	</delete>
+
+	<select id="read" parameterClass="Integer"
+		resultClass="doctorvo">
+		SELECT * FROM doctor WHERE no>1 and no=#no#
+	</select>
+</sqlMap>
