@@ -19,6 +19,31 @@ public class QnaController {
 	@Autowired
 	QnaService qnaService;
 	
+	@RequestMapping("/cscenter/qna/qna")
+	public String qna(Model model, QnaVO param) throws Exception {
+		param.setTablename("qna");
+		int[] rowPageCount = qnaService.count(param);
+		ArrayList<AdminVO> list = qnaService.list(param);
+		
+		model.addAttribute("totCount", rowPageCount[0]);
+		model.addAttribute("totPage", rowPageCount[1]);
+		model.addAttribute("list", list);
+		model.addAttribute("vo", param);
+		
+		return "cscenter/qna/qna";
+	}	
+	
+	
+	@RequestMapping("/cscenter/qna/viewqna")
+	public String viewqna(Model model, QnaVO param) throws Exception {
+		QnaVO data = qnaService.read(param);
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+		
+		return "cscenter/qna/viewqna";
+	}
+	
+	
 	@RequestMapping("/manage/board/qna/index")
 	public String index(Model model, QnaVO param) throws Exception {
 		param.setTablename("qna");

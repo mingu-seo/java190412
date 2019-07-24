@@ -7,6 +7,7 @@ import java.util.HashMap;
 import org.springframework.stereotype.Repository;
 
 import db.SqlMapClientDAOSupport;
+import board.qna.*;
 
 @Repository
 public class QnaDAO extends SqlMapClientDAOSupport {
@@ -71,8 +72,8 @@ public class QnaDAO extends SqlMapClientDAOSupport {
 		return getSqlMapClient().delete("qna.delete", vo);
 	}
 	
-	public ArrayList<QnaReplyVO> replylist(int ask_no) throws SQLException {
-		return (ArrayList<QnaReplyVO>)getSqlMapClient().queryForList("qna.replyList", ask_no);
+	public ArrayList<QnaReplyVO> replylist(int qna_no) throws SQLException {
+		return (ArrayList<QnaReplyVO>)getSqlMapClient().queryForList("qna.replylist", qna_no);
 	}
 	
 	public void replyInsert(QnaReplyVO vo) throws Exception{

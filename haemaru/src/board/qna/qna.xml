@@ -122,8 +122,8 @@
 		ORDER BY registdate DESC LIMIT 0, $number$
     </select>
         
-      <select id="replyList" parameterClass="Integer" resultClass="board.qna.QnaReplyVO">
-    	SELECT * FROM qna_reply WHERE qna_no=#no# ORDER BY registdate DESC
+      <select id="replylist" parameterClass="Integer" resultClass="board.qna.QnaReplyVO">
+    	SELECT title, contents, filename, filename_org, registdate, qna_no FROM qna_reply WHERE qna_no=#no# ORDER BY registdate DESC
       </select>
     
     <insert id = "replyInsert" parameterClass="board.qna.QnaReplyVO">

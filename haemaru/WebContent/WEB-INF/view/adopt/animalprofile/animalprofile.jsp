@@ -51,10 +51,9 @@ int totPage = (Integer)request.getAttribute("totPage");
             </div>
             <!-- main 부분 (여기다가 하면 됨) -->
             <div class="main">
-                
                 <div class="top-arrow">
                     <a href="#">
-                        <img src="icon/top-arrow.png">
+                        <img src="/icon/top-arrow.png">
                         <p>위로가기</p>
                     </a>
                 </div>
@@ -76,7 +75,7 @@ int totPage = (Integer)request.getAttribute("totPage");
                         %>
                         <div class="box1 clear" data-aos="fade-up" data-aos-duration="1500">
                             <!-- 프로필 동물 이미지부분 -->
-                            <div class="<%=list.get(i).getAnimal_image() %>"></div>
+                            <div class="box-img5"><img src="/upload/adopt/<%=list.get(i).getAnimal_image()%>" width="320px" height="320px"/></div>
                             <!-- 프로필 동물 정보 부분 -->                       
                             <div class="box">
                                 <p><span class="info-text">이름</span><%=list.get(i).getName() %></p>
@@ -84,7 +83,7 @@ int totPage = (Integer)request.getAttribute("totPage");
                                 <p><span class="info-text">성별</span><%=list.get(i).getGender() %></p>
                                 <p><span class="info-text">나이</span><%=list.get(i).getAge() %></p>
                                 <p><span class="info-text">접종</span><%=list.get(i).getVac() %></p>
-                                <p><span class="info-text">성격</span><%=list.get(i).getAnimal_image() %></p>
+                                <p><span class="info-text">성격</span><%=list.get(i).getCharr() %></p>
                                 <!-- 상담신청 버튼 부분 -->
                                 <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
                                 <!-- 아이콘 부분 -->
@@ -94,65 +93,6 @@ int totPage = (Integer)request.getAttribute("totPage");
                         <%
                         }
                         %>
-                        <div class="box1 clear" data-aos="fade-up" data-aos-duration="1500">
-                            <!-- 프로필 동물 이미지부분 -->
-                            <div class="box-img1"></div>
-                            <!-- 프로필 동물 정보 부분 -->
-                          
-                            
-                            <div class="box">
-                                <p><span class="info-text">이름</span>크림이</p>
-                                <p><span class="info-text">품종</span>웰시코기</p>
-                                <p><span class="info-text">성별</span>남</p>
-                                <p><span class="info-text">나이</span>2살</p>
-                                <p><span class="info-text">접종</span>2차접종</p>
-                                <p><span class="info-text">성격</span>밝고 활발하며 사람을 좋아해요</p>
-                                <!-- 상담신청 버튼 부분 -->
-                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
-                                <!-- 아이콘 부분 -->
-                                <img src="/icon/sub_dog.png">
-                            </div>
-                        </div>
-                        <div class="box2 clear" data-aos="fade-up" data-aos-duration="1500">
-                            <div class="box">
-                                <p><span class="info-text">이름</span>달이</p>
-                                <p><span class="info-text">품종</span>웰시코기</p>
-                                <p><span class="info-text">성별</span>남</p>
-                                <p><span class="info-text">나이</span>3개월</p>
-                                <p><span class="info-text">접종</span>2차접종</p>
-                                <p><span class="info-text">성격</span>호기심이 많아요</p>
-                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
-                                <img src="/icon/sub_dog.png">
-                            </div>
-                            <div class="box-img2"></div>
-                        </div>
-                        <div class="box3 clear"  data-aos="fade-up" data-aos-duration="1500">
-                            <div class="box-img3"></div>
-                            <div class="box">
-                                <p><span class="info-text">이름</span>고스트</p>
-                                <p><span class="info-text">품종</span>스타크 가문 수호 늑대</p>
-                                <p><span class="info-text">성별</span>남</p>
-                                <p><span class="info-text">나이</span>2년</p>
-                                <p><span class="info-text">접종</span>2차접종</p>
-                                <p><span class="info-text">성격</span>변종 사냥꾼. 혼자 돌아다니며, 눈을 좋아함</p>
-                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
-                                <img src="/icon/sub_dog.png">
-                            </div>
-                        </div>
-                        <div class="box4 clear"  data-aos="fade-up" data-aos-duration="1500">
-                            <div class="box">
-                                <p><span class="info-text">이름</span>코코</p>
-                                <p><span class="info-text">품종</span>진돗개</p>
-                                <p><span class="info-text">성별</span>여</p>
-                                <p><span class="info-text">나이</span>2개월</p>
-                                <p><span class="info-text">접종</span>1차접종</p>
-                                <p><span class="info-text">성격</span>잠이 많아요</p>
-                                <div class="sub4-1-more"><a href="sub5-4.html">상담신청</a></div>
-                                <img src="/icon/sub_dog.png">
-                            </div>
-                            <div class="box-img4"></div>
-                        </div>
-                    </div>
                     <!-- 프로필 고양이 부분 -->
                     <div class="tab-box">
                         <div class="box5 clear"  data-aos="fade-up" data-aos-duration="1500">

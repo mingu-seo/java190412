@@ -18,6 +18,20 @@ public class AdoptController {
 	@Autowired
 	private AdoptService adoptService;
 	
+	@RequestMapping("/adopt/animalprofile/animalprofile")
+	public String animalprofile(Model model, AdoptVO param) throws Exception {
+		int[] rowPageCount = adoptService.count(param);
+		ArrayList<AdoptVO> list = adoptService.list(param);
+		
+		model.addAttribute("totCount", rowPageCount[0]);
+		model.addAttribute("totPage", rowPageCount[1]);
+		model.addAttribute("list", list);
+		model.addAttribute("vo", param);
+		
+		return "adopt/animalprofile/animalprofile";
+	}	
+	
+	
 	@RequestMapping("/manage/adopt/index")
 	public String index(Model model, AdoptVO param) throws Exception {
 		int[] rowPageCount = adoptService.count(param);
@@ -124,18 +138,6 @@ public class AdoptController {
 //		return "manage/adopt/loginHistory";
 //	}
 	
-	@RequestMapping("/manage/adopt/animalprofile/animalprofile.do")
-	public String animalprofile(Model model, AdoptVO param) throws Exception {
-		int[] rowPageCount = adoptService.count(param);
-		ArrayList<AdoptVO> list = adoptService.list(param);
-		
-		model.addAttribute("totCount", rowPageCount[0]);
-		model.addAttribute("totPage", rowPageCount[1]);
-		model.addAttribute("list", list);
-		model.addAttribute("vo", param);
-		
-		return "manage/adopt/animalprofile/animalprofile";
-	}
 	
 	
 }
