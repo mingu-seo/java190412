@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Repository;
 
 import db.SqlMapClientDAOSupport;
+import manage.admin.AdminVO;
 import member.MypetVO;
 
 @Repository
@@ -78,6 +79,10 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 		return (Integer) getSqlMapClient().queryForObject("member.loginCheck", vo);
 	}
 	
+	public void insertLoginHistory(MemberVO vo) throws SQLException {
+		getSqlMapClient().insert("member.insertLoginHistory", vo);
+	}
+	
 	/**
 	 * 관리자 아이디체크
 	 * @param param
@@ -88,6 +93,12 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 		return (Integer) getSqlMapClient().queryForObject("member.idcheck", email);
 	}
 
+	
+	public MemberVO checkMember(MemberVO vo) throws SQLException {
+		return (MemberVO) getSqlMapClient().queryForObject("member.checkMember", vo);
+	}
+	
+	
 	public MemberVO getLoginSessionInfo(MemberVO vo) throws SQLException {
 		return (MemberVO) getSqlMapClient().queryForObject("member.loginSessionInfo", vo);
 	}

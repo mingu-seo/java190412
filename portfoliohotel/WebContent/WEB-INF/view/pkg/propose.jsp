@@ -49,7 +49,7 @@
     <title>테스트</title>
 </head>
 <body>
-    <%@ include file="../../header_menu.jsp" %>
+    <%@ include file="../header_menu.jsp" %>
     
     <div id="container">
         <div class="banner propose">

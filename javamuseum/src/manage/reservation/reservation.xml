@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="reservation">
+
+   <typeAlias alias="reservationvo" type="manage.reservation.ReservationVO" />
+   <typeAlias alias="programvo" type="manage.program.ProgramVO" />
+   
+
+   <select id="count" parameterClass="reservationvo" resultClass="Integer">
+      SELECT count(*) FROM program_res
+   </select>
+
+	<select id="list" parameterClass="reservationvo" resultClass="reservationvo">
+		SELECT *, (select title from program where no= program_res.program_pk) title ,(select category from program where no= program_res.program_pk) category , (select name from member where no = program_res.member_pk) name
+		FROM program_res 
+		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
+	</select>
+
+	<insert id="insert" parameterClass="reservationvo">
+		INSERT INTO program_res
+		(member_pk, program_pk, date, time, state, registdate)
+		VALUES
+		(#member_pk#, #program_pk#, #date#, #time#, #state#, now())
+		<selectKey keyProperty="no" resultClass="Integer">
+			SELECT
+			LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+   
+	<update id="update" parameterClass="reservationvo">
+		UPDATE program_res 
+		SET date=#date#,
+		time=#time#
+		WHERE no = #no#
+	</update>
+
+	<delete id="delete" parameterClass="Integer">
+		DELETE FROM program_res 
+		WHERE no=#no#
+	</delete>
+
+	<select id="read" parameterClass="Integer" resultClass="reservationvo">
+		SELECT *
+		FROM program where no=#no#
+	</select>
+   
+</sqlMap>
