@@ -26,6 +26,13 @@ public class SchedVO extends Parameter {
 	private int hol_end;
 	private int time; // 시간 선택
 	private Timestamp registdate;
+	private int mon_res;
+	private int tue_res;
+	private int wed_res;
+	private int thu_res;
+	private int fri_res;
+	private int sat_res;
+	private int sun_res;
 
 	public SchedVO() {
 		super.setPageRows(10);
@@ -197,6 +204,62 @@ public class SchedVO extends Parameter {
 
 	public void setRegistdate(Timestamp registdate) {
 		this.registdate = registdate;
+	}
+
+	public int getMon_res() {
+		return mon_res;
+	}
+
+	public void setMon_res(int mon_res) {
+		this.mon_res = mon_res;
+	}
+
+	public int getTue_res() {
+		return tue_res;
+	}
+
+	public void setTue_res(int tue_res) {
+		this.tue_res = tue_res;
+	}
+
+	public int getWed_res() {
+		return wed_res;
+	}
+
+	public void setWed_res(int wed_res) {
+		this.wed_res = wed_res;
+	}
+
+	public int getThu_res() {
+		return thu_res;
+	}
+
+	public void setThu_res(int thu_res) {
+		this.thu_res = thu_res;
+	}
+
+	public int getFri_res() {
+		return fri_res;
+	}
+
+	public void setFri_res(int fri_res) {
+		this.fri_res = fri_res;
+	}
+
+	public int getSat_res() {
+		return sat_res;
+	}
+
+	public void setSat_res(int sat_res) {
+		this.sat_res = sat_res;
+	}
+
+	public int getSun_res() {
+		return sun_res;
+	}
+
+	public void setSun_res(int sun_res) {
+		this.sun_res = sun_res;
 	}
 	
 	

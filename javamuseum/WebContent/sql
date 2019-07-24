@@ -10,21 +10,28 @@ CREATE TABLE `admin` (
 
 CREATE TABLE `ticket` (
   `no` int(11) NOT NULL AUTO_INCREMENT,
-  `member_pk` int(11) NOT NULL,
-  `display_pk` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
-  `point_pk` int(11) NOT NULL,
-  `displaydate` timestamp NOT NULL,
-  `usepoint` int(11) DEFAULT NULL,
+  `member_pk` int(11) DEFAULT '1',
+  `display_pk` int(11) DEFAULT '1',
+  `point_pk` int(11) DEFAULT '1',
+  `usepoint` int(11) DEFAULT '0',
   `storepoint` int(11) NOT NULL,
-  `method` int(1) NOT NULL,
-  `reservedate` timestamp NOT NULL,
-  `canceldate` timestamp NULL DEFAULT NULL,
-  `reservestate` varchar(45) NOT NULL,
-  `paystate` varchar(45) DEFAULT NULL,
-  `refundstate` varchar(45) DEFAULT NULL,
+  `method` varchar(10) NOT NULL DEFAULT '0',
+  `price` int(11) DEFAULT '10000',
+  `pay_price` int(11) NOT NULL,
+  `sale_price` int(11) DEFAULT '0',
+  `displaydate` char(10) NOT NULL,
+  `reservedate` char(10) NOT NULL,
+  `reservestate` int(1) NOT NULL,
+  `canceldate` char(10) DEFAULT '-',
+  `refundstate` int(1) DEFAULT '0',
+  `paydate` char(10) NOT NULL,
+  `paystate` int(1) NOT NULL,
+  `number` int(20) NOT NULL,
+  `old_number` int(11) DEFAULT '0',
+  `adult_number` int(11) DEFAULT '0',
+  `student_number` int(11) DEFAULT '0',
   PRIMARY KEY (`no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `review` (
   `no` int(11) NOT NULL AUTO_INCREMENT,
@@ -130,13 +137,14 @@ CREATE TABLE `display` (
   `contents` text NOT NULL,
   `score` double DEFAULT '0',
   `imagename` varchar(45) NOT NULL,
-  `startdate` timestamp NULL DEFAULT NULL,
-  `enddate` timestamp NULL DEFAULT NULL,
-  `registdate` timestamp NULL DEFAULT NULL,
-  `state` varchar(45) NOT NULL,
+  `startdate` char(10) NOT NULL,
+  `enddate` char(10) NOT NULL,
+  `registdate` timestamp NOT NULL,
+  `state` int(5) DEFAULT '1',
   `like_cnt` int(11) DEFAULT '0',
+  `preview` text NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `admin_login_history` (
   `no` int(11) NOT NULL AUTO_INCREMENT,

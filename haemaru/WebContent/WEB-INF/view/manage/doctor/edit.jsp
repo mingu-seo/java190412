@@ -49,7 +49,7 @@ function goSave() {
 			<div id="container">
 				<div id="content">
 					<div class="con_tit">
-						<h2>공지사항 - [수정]</h2>
+						<h2>의료진관리 - [수정]</h2>
 					</div>
 					<!-- //con_tit -->
 					<div class="con">
