@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="sched">
+
+	<typeAlias alias="schedvo" type="manage.doctor.sched.SchedVO" />
+	
+	
+	<!-- 공통조건 -->
+	<sql id="searchSql">
+		<!-- WHERE 절 검색 -->
+		<dynamic prepend="where">
+						<!-- 검색어 검색 -->
+			<isNotEqual property="sval" compareValue="" prepend="and">
+				<!-- 검색 타입이 all일 때 -->
+				<isEqual property="stype" compareValue="all" >
+					((name like '%$sval$%' ) or (info like '%$sval$%' ))
+				</isEqual>
+				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
+				<isNotEqual property="stype" compareValue="all">
+					($stype$ like '%$sval$%' )
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql>
+
+
+	<select id="count" parameterClass="schedvo"
+		resultClass="Integer">
+		SELECT count(*) FROM doc_schedule
+		<include refid="searchSql" />
+	</select>
+
+	<select id="list" parameterClass="schedvo"
+		resultClass="schedvo">
+		SELECT *
+		FROM doc_schedule
+		<include refid="searchSql" />
+		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
+	</select>
+
+	<insert id="insert" parameterClass="schedvo">
+		INSERT INTO doc_schedule
+			(doctor_pk, name, mon_start, mon_end, tue_start, tue_end, wed_start, wed_end,
+			thu_start, thu_end, fri_start, fri_end, sat_start, sat_end,
+			sun_start, sun_end, hol_start, hol_end)
+		VALUES
+			(#doctor_pk#, #name#, #mon_start#, #mon_end#, #tue_start#, #tue_end#, #wed_start#, #wed_end#,
+			#thu_start#, #thu_end#, #fri_start#, #fri_end#, #sat_start#, #sat_end#,
+			#sun_start#, #sun_end#, #hol_start#, #hol_end#)
+		<selectKey keyProperty="no" resultClass="Integer">
+			SELECT
+			LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	
+	<update id="update" parameterClass="schedvo">
+        UPDATE doc_schedule SET
+			mon_start=#mon_start#, mon_end=#mon_end#, tue_start=#tue_start#, tue_end=#tue_end#, 
+			wed_start=#wed_start#, wed_end=#wed_end#, thu_start=#thu_start#, thu_end=#thu_end#, 
+			fri_start=#fri_start#, fri_end=#fri_end#, sat_start=#sat_start#, sat_end=#sat_end#,
+			sun_start=#sun_start#, sun_end=#sun_end#, hol_start=#hol_start#, hol_end=#hol_end#,
+			mon_res=#mon_res#, tue_res=#tue_res#, wed_res=#wed_res#, thu_res=#thu_res#, 
+			fri_res=#fri_res#, sat_res=#sat_res#, sun_res=#sun_res#
+        WHERE no = #no#
+    </update>
+
+	<delete id="delete" parameterClass="Integer">
+		DELETE FROM doc_schedule 
+		WHERE no=#no#
+	</delete>
+
+	<select id="read" parameterClass="Integer"
+		resultClass="schedvo">
+		SELECT *
+		FROM doc_schedule WHERE no>1 and no=#no#
+	</select>
+
+</sqlMap>

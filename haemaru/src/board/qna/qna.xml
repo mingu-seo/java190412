@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="product">
+    
+    <typeAlias alias="productvo" type="product.ProductVO"/>
+    
+    <!-- 공통조건 -->
+	<sql id="searchSql">		
+		<!-- WHERE 절 검색 -->
+		<dynamic prepend="where">
+			<isNotEqual property="category" compareValue="0">
+			    category = #category#
+			</isNotEqual>
+			<!-- 검색어 검색 -->
+			<isNotEqual property="sval" compareValue="">
+				<!-- 검색 타입이 all일 때 -->
+				<isEqual property="stype" compareValue="all" prepend="and">
+					( (name like '%$sval$%' ) or (info like '%$sval$%' )  ) 					
+				</isEqual>
+				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
+				<isNotEqual property="stype" compareValue="all" prepend="and">
+					($stype$ like '%$sval$%' )
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql>
+	
+	<!-- 해당 테이블의 총 게시글 수 -->
+	<select id="count" parameterClass="productvo" resultClass="Integer">
+        select count(*) from product
+        <include refid="searchSql" />	
+    </select>
+    
+	<select id="list" parameterClass="productvo" resultClass="productvo">
+        select * from product
+        <include refid="searchSql" />
+		ORDER BY registdate DESC LIMIT $startPageNo$, $pageRows$
+    </select>
+	
+	<!-- 해당 테이블에 게시글 작성 -->
+    <insert id="insert" parameterClass="productvo">
+        INSERT INTO product (name, category, info, imagename, imagename_org, price, registdate) VALUES (
+        	#name#, #category#, #info#, #imagename#, #imagename_org#, #price#, now())
+        <selectKey keyProperty="no" resultClass="Integer">
+        	SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    
+    <update id="update" parameterClass="productvo">
+        UPDATE product SET
+        	name=#name#, info=#info#, price=#price#
+       	<isEqual property="imagename_chk" compareValue="1">
+        	imagename='', imagename_org=''
+        </isEqual>   	
+        <isNotEqual property="imagename" compareValue="">
+            <isNotNull property="imagename">
+        		imagename=#imagename#, imagename_org=#imagename_org#
+        	</isNotNull>
+        </isNotEqual>
+        WHERE no = #no#
+    </update>
+     
+    <select id="read" parameterClass="productvo" resultClass="productvo">
+        SELECT 
+        	*
+        FROM product
+        where no = #no#
+    </select>
+    
+    <select id="filenames" parameterClass="productvo" resultClass="productvo">
+    	<![CDATA[
+        SELECT 
+        	file_name
+        FROM product
+        where no = #no#
+        ]]>
+    </select> 
+        
+    <select id="getRowNum" parameterClass="productvo" resultClass="Integer">
+        select rownum from (
+        	select @rownum:=@rownum+1 as rownum, no, title from product, (select @rownum:=0) as r
+        	<include refid="searchSql" />
+        	ORDER BY registdate DESC
+        ) as r2
+        where r2.no = #no#
+    </select>
+    
+    <select id="getNextRowNum" parameterClass="productvo" resultClass="productvo">
+        select ifnull(rownum,0), ifnull(no,0) as next_no, title as next_title
+        from (
+        	select @rownum:=@rownum+1 as rownum, no, title from product, (select @rownum:=0) as r
+        	<include refid="searchSql" />
+        	ORDER BY registdate DESC
+        ) as r2
+        <![CDATA[
+        where r2.rownum = $rownum$+1
+    	]]>
+    </select>
+    
+    <select id="getPrevRowNum" parameterClass="productvo" resultClass="productvo">
+    	select ifnull(rownum,0), ifnull(no,0) as prev_no, title as prev_title
+        from (
+        	select @rownum:=@rownum+1 as rownum, no, title from product, (select @rownum:=0) as r
+        	<include refid="searchSql" />
+        	ORDER BY registdate DESC
+        ) as r2
+        <![CDATA[
+        where r2.rownum = $rownum$-1
+    	]]>
+    </select>
+    
+    <delete id="delete" parameterClass="productvo">
+        DELETE FROM product WHERE no=#no#
+    </delete>
+    
+    <insert id="insertOption" parameterClass="java.util.HashMap">
+    	INSERT INTO product_option (product_pk, title, price) values (#product_pk#, #title#, #price#)
+    </insert>
+    
+	<delete id="deleteOption" parameterClass="Integer">
+		DELETE FROM product_option WHERE product_pk=#product_pk#
+	</delete>
+    
+    <update id="updateReadno" parameterClass="productvo">
+        UPDATE product SET readno = readno+1 WHERE no = #no#
+    </update>
+    
+    <select id="mainList" parameterClass="productvo" resultClass="productvo">
+        select *
+        from product
+        <include refid="searchSql" />
+		ORDER BY registdate DESC LIMIT 0, $number$
+    </select>
+    
+     
+    <select id="listOption" parameterClass="Integer" resultClass="java.util.HashMap">
+    	SELECT * FROM product_option WHERE product_pk=#product_pk#
+    </select>
+    
+      <select id="reviewList" parameterClass="Integer" resultClass="product.ReviewVO">
+    	SELECT * FROM review WHERE product_pk=#no# ORDER BY registdate DESC
+      </select>
+    
+    <insert id = "reviewInsert" parameterClass="product.ReviewVO">
+    	INSERT INTO review (score, name, contents, registdate, product_pk) values (#score#, #name#, #contents#, now(), #product_pk#)
+    </insert>
+    
+    <delete id="reviewDelete" parameterClass="Integer">
+    	DELETE FROM review WHERE no=#no#
+    </delete>      
+ 
+  
+</sqlMap>

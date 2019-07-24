@@ -168,7 +168,7 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="../membership/sign_in.html">SIGN IN</a>
+                <a href="../membership/sign_in.do">SIGN IN</a>
             </div>
         </div>
     </div>
@@ -216,7 +216,7 @@
                     <h3>예약 및 이용문의</h3>
                     <h4>전화</h4>
                     <h4>02 2250 8000</h4>
-                    <a href="#">온라인 예약</a>
+                    <a href="/dining/dining_origin_book.do">온라인 예약</a>
                 </div>
             </div>
         </div>

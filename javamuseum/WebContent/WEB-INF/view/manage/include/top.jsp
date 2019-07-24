@@ -80,7 +80,14 @@ $(window).load(function(){
 					</div>
 				</li>
 				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>대관 관리</span></a></li>
-				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>프로그램</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>프로그램</span></a>
+					<div>
+						<ul>
+							<li><a href="<%=request.getContextPath()%>/manage/program/list"><span>프로그램관리</span></a></li>
+							<li><a href="<%=request.getContextPath()%>/manage/program/p_appList"><span>프로그램신청내역관리</span></a></li>
+						</ul>
+					</div>
+				</li>
 				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>후기 관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/board/notice/index.do" class="parent"><span>고객지원</span></a>
 					<div class="standard_left">

@@ -19,7 +19,7 @@ body {color:#1d1d1d;}
 .room-pic4 { background-image:url("../img/room4.jpg"); }
 .room-pic5 { background-image:url("../img/room5.jpg"); }
 
-.room-btn {position:absolute; right:352px; bottom:131px; width:94px;}
+.room-btn {position:absolute; right:352px; bottom:20px; width:94px;} 
 .room-btn > button {float:left; width:47px; height:44px; border:none; background-color:rgba(0,0,0,0.9); transition:all 0.5s;
                     background-repeat:no-repeat; background-position:center center; background-size:26px 32px; }
 

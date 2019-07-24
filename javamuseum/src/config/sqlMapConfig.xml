@@ -38,4 +38,5 @@
 	<sqlMap resource="manage/admin/admin.xml"/>	
 	<sqlMap resource="board/notice/notice.xml"/>
 	<sqlMap resource="manage/member/member.xml"/>		
+	<sqlMap resource="manage/program/program.xml"/>	
 </sqlMapConfig>
