@@ -38,8 +38,11 @@ $(function(){
 			}
 		
 		});
-		}
+	  }
 	});
+
+
+
 	$("#email").keyup(function(){
 		$.ajax ({
 			type:'POST',
@@ -58,6 +61,8 @@ $(function(){
 			}
 		});
 	});
+	
+	
 });
 
 
@@ -78,14 +83,60 @@ function goSave() {
 		$("#lname").focus();
 		return false;
 	}
-	if ($("#tel").val() == "") {
+	
+	if(!validPassword($("#password"))) return false;
+	
+	
+	if ($("#birthday").val() == "") {
+		alert("생년월일을 입력해주세요.");
+		$("#birthday").focus();
+		return false;
+	}
+
+	if ($("#tel1").val() == "") {
 		alert("연락처를 입력해주세요.");
-		$("#tel").focus();
+		$("#tel1").focus();
+		return false;		
+	}
+	if ($("#addr").val() == "") {
+		alert("주소를 입력해주세요.");
+		$("#addr").focus();
+		return false;		
+	}
+	if ($("#addr_detail").val() == "") {
+		alert("상세주소를 입력해주세요.");
+		$("#addr_detail").focus();
+		return false;		
+	}
+	
+	
+	if($("#password").val()!=$("#passwordCheck").val()){
+		alert("비밀번호가 다릅니다.");
+		$("#password").focus();
 		return false;
 	}
 	
+	
+	/* $("#samePwdcheck").keyup(function(){
+		$.ajax ({
+			type:'POST',
+			url:"/manage/member/samePwdcheck",
+			data:$("[name=frm]").serialize(), //serialize() 직렬로 정렬
+			async:false,
+			success:function(data) {
+				var val = data.trim();
+				if ("#password" != "#passwordCheck") {
+					alert("비밀번호가 다릅니다.");
+					return false;
+				} 
+			}
+		});
+	}); */
+	
+	
+	
 	// 비밀번호 유효성체크
-	if(!validPassword($("#password"))) return false;
+	
 	
 	$.ajax ({
 		type:'POST',
@@ -106,10 +157,22 @@ function goSave() {
 	if ($("#emailcheck").val() == "0") {
 		return false;
 	}
-
+	
 
 	$("#frm").submit();  
 }
+/* if(!validPassword($("#Fpassword"))) return false;
+function pwdCkeck(){
+		var pw = document.getPassword("#Fpassword").val;
+		var pwck = document.getPassword("#Spassword").val;
+		
+		if(pw!=pwChcek){
+			alert("비밀번호가 다릅니다.");
+			return false;
+		}
+		
+	} */ 
+  
 
 
 </script>
@@ -233,41 +296,40 @@ function goSave() {
 								<colgroup>
 									<col width="20%" />
 									<col width="30%" />
+									<col width="20%" />
+									<col width="30%" />
+									
 									
 								
 									
 								</colgroup>
 								<tbody>
 									<tr>
-										<th scope="row"><label for="">*이메일</label></th>
+										<th scope="row"><label for="">이메일</label></th>
 										<td>
 											<input type="text" style="width:300px; height:20px;" id="email" name="email" value="" title="관리자 이름을 입력해주세요." />
 											<input type="button" value="중복 체크" id="emailCheckBtn"/>
 											<span id="emailText"></span>
 										</td>
-										
-										<th scope="row"><label for="">생년월일</label></th>
-										<td colspan="3">
-											<input type="text" style="width:100px;height:20px;" id="year" name="birthday" value="" title="관리자 이름을 입력해주세요.">년</input>
-											<input type="text" style="width:50px; height:20px;" id="month" name="birthday" value="" title="관리자 이름을 입력해주세요.">월</input>
-											<input type="text" style="width:50px; height:20px;" id="day" name="birthday" value="" title="관리자 이름을 입력해주세요.">일</input>
-										</td>
-										
-										
-										
-									</tr>
-									
-									<tr>
-										<th scope="row"><label for="">*이름</label></th>
+										<th scope="row"><label for="">이름</label></th>
 										<td >
 											성<input type="text" style="width:50px; height:20px;" id="fname" name="name" value="" title="관리자 이름을 입력해주세요." />	
 											이름<input type="text" style="width:80px; height:20px;" id="lname" name="name" value="" title="관리자 이름을 입력해주세요." />										
 										</td>
-										
-										<th scope="row"><label for="">*비밀번호</label></th>
+								
+									</tr>
+									
+									<tr>
+									
+										<th scope="row"><label for="">비밀번호</label></th>
 										<td>
 											<input type="password" style="width:250px; height:20px;" id="password" name="password" value="" title="관리자 이메일을 입력해주세요." />
 										</td>
+										<th scope="row"><label for="">비밀번호 확인</label></th>
+										<td>
+											<input type="password" style="width:250px; height:20px;" id="passwordCheck" name="password2" value="" title="관리자 이메일을 입력해주세요." />
+										</td>
+										
 									</tr>
 									
 									<tr>
@@ -283,23 +345,33 @@ function goSave() {
                             				</div>
 											
 										</td>
-										<th scope="row"><label for="">*연락처</label></th>
-										<td>
-											<input type="text" id="tel" name="tel" value="" title="관리자 이메일을 입력해주세요." />
+										
+										<th scope="row"><label for="">생년월일</label></th>
+										<td colspan="3">
+											<input type="text" style="width:100px;height:20px;" id="year" name="birthday" value="" title="관리자 이름을 입력해주세요.">년</input>
+											<input type="text" style="width:50px; height:20px;" id="month" name="birthday" value="" title="관리자 이름을 입력해주세요.">월</input>
+											<input type="text" style="width:50px; height:20px;" id="day" name="birthday" value="" title="관리자 이름을 입력해주세요.">일</input>
 										</td>
+										
+										
 										
 									</tr>
 									<tr>
+									<th scope="row"><label for="">연락처</label></th>
+										<td>
+											<input type="text" style="width:60px;height:20px;" id="tel1" name="tel" value="" > -</input>
+											<input type="text" style="width:80px;height:20px;" id="tel2" name="tel" value="" > -</input>
+											<input type="text" style="width:80px;height:20px;" id="tel3" name="tel" value="" ></input>
+										</td>
 									
 									<th scope="row"><label for="">주소/우편번호</label></th>
 										<td>
-										<input type="text" id="addr" name="addr" value="" title="관리자 이름을 입력해주세요." />
+										<input type="text" style="width:200px;height:20px;" id="addr" name="addr" value="" title="관리자 이름을 입력해주세요." />
 											<input type="" id="zipcode" name="zipcode" value="" title="관리자 이메일을 입력해주세요." />
-											<input type="button" value="우편번호" id="" name="layer" onclick="sample2_execDaumPostcode()"/>
+											<input type="button" value="우편번호" id="zipcode" name="layer" onclick="sample2_execDaumPostcode()"/>
 											
 										</td>										
-										<td></td>										
-										<td></td>										
+																				
 									</tr>
 									<tr>
 									<th scope="row"><label for="">상세주소</label></th>

@@ -40,7 +40,7 @@ public class QnaService {
 		
 		FileUtil fu = new FileUtil();
 		Map fileMap = fu.getFileMap(request);
-		MultipartFile file= (MultipartFile)fileMap.get("imagename_tmp");
+		MultipartFile file= (MultipartFile)fileMap.get("filename_tmp");
 		if (!file.isEmpty()) {
 			fu.upload(file, SiteProperty.QNA_UPLOAD_PATH, SiteProperty.REAL_PATH, "qna");
 			vo.setFilename(fu.getName());
@@ -95,39 +95,17 @@ public class QnaService {
 		}
 		return delCount;
 	}
-	
-	public void insertOption(HttpServletRequest req, int no) throws Exception {
-		String[] title = req.getParameterValues("title");
-		String[] optPrice = req.getParameterValues("optPrice");
-		int optSize = title.length;
-		for(int i=0; i<optSize; i++) {
-			HashMap m = new HashMap();
-			m.put("title", title[i]);
-			m.put("price", optPrice[i]);
-			m.put("no", no);
-			qnaDao.insertOption(m);
-		}
+
+	public ArrayList<QnaReplyVO> replylist(int no) throws Exception{
+		return qnaDao.replylist(no);
 	}
-	
-	public ArrayList<HashMap> listOption(int no) throws Exception {
-		ArrayList<HashMap> list = qnaDao.listOption(no);
-		return list;
-	}
-	
-	public void deleteOption(int no) throws Exception{
-		qnaDao.deleteOption(no);
-	}
-	
-	public ArrayList<QnaReplyVO> reviewlist(int no) throws Exception{
-		return qnaDao.reviewlist(no);
-	}
-	public void reviewInsert(QnaReplyVO vo) throws Exception{
-		qnaDao.reviewInsert(vo);
+	public void replyInsert(QnaReplyVO vo) throws Exception{
+		qnaDao.replyInsert(vo);
 		
 	}
 	
-	public void reviewDelete(int no) throws Exception {
-		qnaDao.reviewDelete(no);
+	public void replyDelete(int no) throws Exception {
+		qnaDao.replyDelete(no);
 	}
 	
 

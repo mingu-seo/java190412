@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 import util.Parameter;
 
-public class MypetVO extends Parameter{
+public class MypettVO extends Parameter{
 	
 	private int no;
 	private int member_pk;
@@ -19,15 +19,15 @@ public class MypetVO extends Parameter{
 	private String memo;
 	private Timestamp registdate;
 	
-	public MypetVO() {
+	public MypettVO() {
 		super.setPageRows(10);
 	}
 	
-	public MypetVO(int pageRows) {
+	public MypettVO(int pageRows) {
 		super.setPageRows(pageRows);
 	}
 	
-	public String getTargetURLParam(String pageUrl, MypetVO param, int index) {
+	public String getTargetURLParam(String pageUrl, MypettVO param, int index) {
 
 		StringBuffer strList= new StringBuffer();
 

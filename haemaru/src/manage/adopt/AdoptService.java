@@ -65,23 +65,23 @@ public class AdoptService {
 //		return vo;
 //	}
 
-	public int[] countLoginHistory(AdoptVO param) throws SQLException {
-		int rowCount = adoptDao.countLoginHistory(param);
-		int[] rowPageCount = new int[2];
-		int pageCount = Page.getPageCount(param.getPageRows(), rowCount);
-		rowPageCount[0] = rowCount;
-		rowPageCount[1] = pageCount;
-		return rowPageCount;
-	}
-
-	public ArrayList listLoginHistory(AdoptVO param) throws SQLException {
-		ArrayList list = adoptDao.listLoginHistory(param);
-		return list;
-	}
-
-	public void insertLoginHistory(AdoptVO param) throws SQLException {
-		adoptDao.insertLoginHistory(param);
-	}
+//	public int[] countLoginHistory(AdoptVO param) throws SQLException {
+//		int rowCount = adoptDao.countLoginHistory(param);
+//		int[] rowPageCount = new int[2];
+//		int pageCount = Page.getPageCount(param.getPageRows(), rowCount);
+//		rowPageCount[0] = rowCount;
+//		rowPageCount[1] = pageCount;
+//		return rowPageCount;
+//	}
+//
+//	public ArrayList listLoginHistory(AdoptVO param) throws SQLException {
+//		ArrayList list = adoptDao.listLoginHistory(param);
+//		return list;
+//	}
+//
+//	public void insertLoginHistory(AdoptVO param) throws SQLException {
+//		adoptDao.insertLoginHistory(param);
+//	}
 
 	public int idcheck(AdoptVO param) throws SQLException {
 		return adoptDao.idcheck(param);

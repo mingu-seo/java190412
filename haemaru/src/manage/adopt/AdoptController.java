@@ -18,6 +18,20 @@ public class AdoptController {
 	@Autowired
 	private AdoptService adoptService;
 	
+	@RequestMapping("/adopt/animalprofile/animalprofile")
+	public String animalprofile(Model model, AdoptVO param) throws Exception {
+		int[] rowPageCount = adoptService.count(param);
+		ArrayList<AdoptVO> list = adoptService.list(param);
+		
+		model.addAttribute("totCount", rowPageCount[0]);
+		model.addAttribute("totPage", rowPageCount[1]);
+		model.addAttribute("list", list);
+		model.addAttribute("vo", param);
+		
+		return "adopt/animalprofile/animalprofile";
+	}	
+	
+	
 	@RequestMapping("/manage/adopt/index")
 	public String index(Model model, AdoptVO param) throws Exception {
 		int[] rowPageCount = adoptService.count(param);
@@ -111,16 +125,19 @@ public class AdoptController {
 		return "include/alert";
 	}
 	
-	@RequestMapping("/manage/adopt/loginHistory")
-	public String loginHistory(Model model, AdoptVO param) throws Exception {
-		int[] rowPageCount = adoptService.countLoginHistory(param);
-		ArrayList<AdoptVO> list = adoptService.listLoginHistory(param);
-		
-		model.addAttribute("totCount", rowPageCount[0]);
-		model.addAttribute("totPage", rowPageCount[1]);
-		model.addAttribute("list", list);
-		model.addAttribute("vo", param);
-		
-		return "manage/adopt/loginHistory";
-	}
+//	@RequestMapping("/manage/adopt/loginHistory")
+//	public String loginHistory(Model model, AdoptVO param) throws Exception {
+//		int[] rowPageCount = adoptService.countLoginHistory(param);
+//		ArrayList<AdoptVO> list = adoptService.listLoginHistory(param);
+//		
+//		model.addAttribute("totCount", rowPageCount[0]);
+//		model.addAttribute("totPage", rowPageCount[1]);
+//		model.addAttribute("list", list);
+//		model.addAttribute("vo", param);
+//		
+//		return "manage/adopt/loginHistory";
+//	}
+	
+	
+	
 }

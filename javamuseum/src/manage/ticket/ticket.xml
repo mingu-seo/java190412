@@ -45,6 +45,9 @@
 					</isNotEqual>
 				</isNotNull>
 			</isNotNull>
+			<isNotEqual property="display_pk" compareValue="0">
+				and display_pk=#display_pk#
+			</isNotEqual>
 			<isNotEqual property="sval" compareValue="" prepend="and">
 				<isEqual property="stype" compareValue="all" prepend="and">
 					( (id like '%$sval$%') or (title like '%$sval$%') ) 
@@ -96,6 +99,12 @@
 		reservedate=#reservedate#, canceldate=#canceldate#, displaydate=#displaydate#, paystate=#paystate#, reservestate=#reservestate#,
 		refundstate=#refundstate#
     	WHERE no=#no#
+    </update>
+    
+    <update id="reserveUpdate" parameterClass="ticketvo">
+    	UPDATE ticket SET
+    	reservestate=#reservestate#
+    	WHERE no=##no
     </update>
     
     <delete id="delete" parameterClass="Integer">

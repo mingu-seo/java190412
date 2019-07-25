@@ -180,10 +180,10 @@
                                 <input type="text" id="birth-m" name="birth-m" placeholder="월" maxlength="2">
                                 <input type="text" id="birth-d" name="birth-d" placeholder="일" maxlength="2">
                             </div>
-                            <div class="email">
+                            <!-- <div class="email">
                                 <label for="email">이메일</label>
                                 <input type="text" id="email" name="email" placeholder="이메일을 입력하세요" maxlength="40">
-                            </div>
+                            </div> -->
                             <div class="email">
                                 <label for="account-contact">연락처</label>
                                 <input type="text" id="account-contact" name="account-contact" placeholder="연락처를 입력하세요" maxlength="40">

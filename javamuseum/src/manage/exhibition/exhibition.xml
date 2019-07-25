@@ -41,6 +41,11 @@
    		ORDER BY hallnumber ASC
    	</select>
    	
+   	<select id="exList" parameterClass="exhibitionvo" resultClass="exhibitionvo">
+   		SELECT no, title FROM display
+   		WHERE not state=2
+   	</select>
+   	
     <insert id="insert" parameterClass="exhibitionvo">
 		INSERT INTO display 
 		(title, artist, hallnumber, contents, preview, imagename, like_cnt, state, startdate, enddate, registdate)
