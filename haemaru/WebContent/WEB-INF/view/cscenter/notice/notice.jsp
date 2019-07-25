@@ -1,4 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="board.notice.*" %>
+<%@ page import="property.SiteProperty" %>
+<%@ page import="util.*" %>
+<%@ page import="java.util.*" %>
+<%
+NoticeVO param = (NoticeVO)request.getAttribute("vo");
+ArrayList<NoticeVO> list = (ArrayList)request.getAttribute("list");
+int totCount = (Integer)request.getAttribute("totCount");
+int totPage = (Integer)request.getAttribute("totPage");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -60,69 +70,30 @@
                                 <th>Data</th>
                                 <th>View</th>
                             </tr>
+                        <% if (totCount == 0) { %>
+                        	<tr>
+								<td class="first" colspan="8">등록된 질문이 없습니다.</td>
+							</tr>
+							<%
+                        	} else {
+							String targetUrl = "";
+							String topClass = "";
+							NoticeVO data;
+							for (int i=0; i<list.size(); i++) {
+								data = list.get(i);
+								targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, data.getNo())+"'\"";
+							%>
                             <tr>
-                                <td>13</td>
-                                <td>소식</td>
-                                <td><a href="viewnotice.do">[소식] 해마루이차진료동물병원 김진경 원장 취임 인터뷰</a></td>
-                                <td>2019-06-04</td>
-                                <td>246</td>
+                                <td><%=data.getNo()%></td>
+                                <td><%=data.getType()%></td>
+                                <td><a href="viewnotice?no=<%=data.getNo()%>"><%=data.getTitle()%></a></td>
+                                <td><%=DateUtil.getDateFormat(data.getCre_date())%></td>
+                                <td><%=data.getReadno()%></td>
                             </tr>
-                            <tr>
-                                <td>12</td>
-                                <td>칼럼</td>
-                                <td><a href="viewnotice.do">[칼럼] 반려동물 건강이야기 - 오줌을 못 눠 안절부절못하는 강아지, 원인은 이것!</a></td>
-                                <td>2019-06-01</td>
-                                <td>215</td>
-                            </tr>
-                            <tr>
-                                <td>11</td>
-                                <td>칼럼</td>
-                                <td><a href="viewnotice.do">[칼럼] 반려동물 건강이야기 - 심장사상충이 강아지의 경계 대상 0순위인 이유</a></td>
-                                <td>2019-05-28</td>
-                                <td>156</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>소식</td>
-                                <td><a href="viewnotice.do">[소식] 해마루동물병원 전문 영상의학팀 방사선 촬영</a></td>
-                                <td>2019-05-13</td>
-                                <td>103</td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>보도자료</td>
-                                <td><a href="viewnotice.do">[보도자료] 네이버 동그람이 - 가습기 살균제 참사 관련 김현욱원장님 인터뷰</a></td>
-                                <td>2019-05-04</td>
-                                <td>145</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>카드뉴스</td>
-                                <td><a href="viewnotice.do">[카드뉴스] 마이크로바이옴이란?</a></td>
-                                <td>2019-04-22</td>
-                                <td>123</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>칼럼</td>
-                                <td><a href="viewnotice.do">[칼럼] 반려동물 건강이야기 - 전염성 강한 ‘강아지 인플루엔자’ 주의보</a></td>
-                                <td>2019-03-02</td>
-                                <td>105</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>증례소개</td>
-                                <td><a href="viewnotice.do">[증례소개] 고양이에서의 간 외성 동정맥 기형 발병 증례</a></td>
-                                <td>2019-02-25</td>
-                                <td>210</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>소식</td>
-                                <td><a href="viewnotice.do">[소식] 해마루소동물임상의학 연구소 황선영 소장, 2018 아시아생물공학연합체 포럼 참여</a></td>
-                                <td>2019-01-07</td>
-                                <td>156</td>
-                            </tr>
+                            <%
+								}
+							}
+                            %>
                         </table>
                         <div class="notice-number-all clear">
                             <p class="notice-number-arrow"><a href="#"></a></p>

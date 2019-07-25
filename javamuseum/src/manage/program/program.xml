@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="program">
+
+   <typeAlias alias="programvo" type="manage.program.ProgramVO" />
+   
+   
+   <!-- 공통조건 -->
+   <sql id="searchSql">
+      <!-- WHERE 절 검색 -->
+      <dynamic prepend="where">
+         <isNotEqual property="state" compareValue="0" prepend="and">
+            category = #category#
+         </isNotEqual>
+         <!-- 검색어 검색 -->
+         <isNotEqual property="sval" compareValue="" prepend="and">
+            <!-- 검색 타입이 all일 때 -->
+            <isEqual property="stype" compareValue="all" >
+               ((title like '%$sval$%' ) or (instructor like '%$sval$%' )or (contents like '%$sval$%' ))
+            </isEqual>
+            <!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
+            <isNotEqual property="stype" compareValue="all">
+               ($stype$ like '%$sval$%' )
+            </isNotEqual>
+         </isNotEqual>
+      </dynamic>
+   </sql>
+
+
+   <select id="count" parameterClass="programvo" resultClass="Integer">
+      select count(*) from program
+      <include refid="searchSql" />
+   </select>
+
+   <select id="list" parameterClass="programvo" resultClass="programvo">
+      select *
+      from program
+       <include refid="searchSql" />
+      ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
+   </select>
+
+   <insert id="insert" parameterClass="programvo">
+      insert into program
+      (instructor, max_mem, location, price, target, display, p_time, title, category, contents, imagename, state, registdate
+      )
+      values
+      (#instructor#, #max_mem#, #location#, #price#, #target#, #display#, #p_time#, #title#, #category#, #contents#, #imagename#, #state#, now()
+      )
+      <selectKey keyProperty="no" resultClass="Integer">
+         SELECT
+         LAST_INSERT_ID()
+      </selectKey>
+   </insert>
+   
+   <update id="update" parameterClass="programvo">
+        update program set
+      category=#category#, title=#title#,
+       price=#price#,
+        <isEqual property="imagename_chk" compareValue="1">
+           imagename='',
+        </isEqual>
+        <isNotEqual property="imagename" compareValue="">
+            <isNotNull property="imagename">
+              imagename=#imagename#,
+           </isNotNull>
+        </isNotEqual>
+           info=#info#
+        WHERE no = #no#
+    </update>
+
+   <delete id="delete" parameterClass="Integer">
+      delete from program where
+      no=#no#
+   </delete>
+
+   <select id="read" parameterClass="Integer" resultClass="programvo">
+      select *
+      from program where no=#no#
+   </select>
+   
+   <select id="countOption" parameterClass="java.util.HashMap" resultClass="Integer">
+      select count(*) from program_option
+      where program_pk=#program_pk#
+   </select>
+   
+   <select id="listOption" parameterClass="Integer" resultClass="java.util.HashMap">
+      select *
+      from program_option
+      WHERE program_pk=#program_pk#
+   </select>
+   
+   <insert id="insertOption" parameterClass="java.util.HashMap">
+      insert into program_option (program_pk, date, time, join_mem)
+      values (#program_pk#, #date#, #time#, #join_mem#)      
+   </insert>
+   
+   <delete id="deleteOption" parameterClass="Integer">
+      DELETE from program_option
+      WHERE program_pk=#program_pk#
+   </delete>
+   
+   
+</sqlMap>

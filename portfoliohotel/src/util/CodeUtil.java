@@ -719,7 +719,7 @@ public class CodeUtil {
 	}
 	 
 	 
-	// 룸 카테고리
+	 // 룸 카테고리
 	 public static String getRoomName(int room) {
 			String result = "";
 			if (room == 1) {
@@ -737,7 +737,39 @@ public class CodeUtil {
 			return result;
 		}	
 	 
-
+	 // 객실 예약 결제 방법
+	 public static String getPayMethod(int pay_method) {
+		 String result = "";
+		 if (pay_method == 0) {
+			 result = "무통장입금";
+		 } else if (pay_method == 1) {
+			 result = "신용카드";
+		 }
+		 return result;
+	 }
+	 
+	 // 객실 예약 결제 상태
+	 public static String getPayState(int pay_state) {
+		 String result = "";
+		 if (pay_state == 0) {
+			 result = "미결제";
+		 } else if (pay_state == 1) {
+			 result = "결제";
+		 }
+		 return result;
+	 }
+	 
+	 // 객실 예약 상태
+	 public static String getResState(int res_state) {
+			 String result = "";
+			 if (res_state == 0) {
+				 result = "취소";
+			 } else if (res_state == 1) {
+				 result = "예약";
+			 }
+			 return result;
+		 }
+	 
 	 public static String getGender(int gender) {
 			String result = "";
 			if (gender == 1) {
@@ -820,6 +852,37 @@ public class CodeUtil {
 			 result = "결제";
 		 }
 		return result;
+	 }
+	 
+	 public static String getReplyExist(int reply) {
+		 String result = "";
+		 if (reply == 0) {
+			 result = "미완료";
+		 } else if (reply == 1) {
+			 result = "답변완료";
+		 }
+		return result;
+	 }
+
+	 public static String getSend_Email(int send_email) {
+		 String result = "";
+		 if (send_email == 0) {
+			 result = "미전송";
+		 } else if (send_email == 1) {
+			 result = "전송";
+		 }
+		return result;
+	 }
+	 public static String getCategory_name(int category) {
+		 String result = "";
+		 if (category == 1) {
+			 result = "예약";
+		 } else if (category == 2) {
+			 result = "멤버쉽";
+		 } else if (category == 3) {
+			 result = "기타";
+		 }
+		 return result;
 	 }
 
 	 	

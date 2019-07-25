@@ -23,6 +23,16 @@ public class MemberVO extends Parameter {
 	private int sns_type;
 	private String sns_key;
 	private int secession;
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	private String ip;				//접속 아이피
 	
 	
 	

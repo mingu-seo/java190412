@@ -95,7 +95,7 @@
         </div>
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="index.do"><img src="img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="/index"><img src="img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">Book</a>
@@ -105,7 +105,7 @@
                                             <h2><a href="/pkg/special_promotion">Promotion</a></h2>
                                             <ul class="offer">
                                                 <li><a href="/pkg/room/room_offer">Room Package</a></li>
-                                                <li><a href="/pkg/dinning/dining_offer">Dining Package</a></li>
+                                                <li><a href="/pkg/dining/dining_offer">Dining Package</a></li>
                                                 <li><a href="/pkg/event_gift/etc_offer">Events & Gift</a></li>
                                             </ul>
                                         </div>
@@ -372,7 +372,7 @@
                 <div class="promotion_panel">
                     <div class="promotion_list clear">
                         <div class="pro_list1 pro_list">
-                            <a href="oasis.html">
+                            <a href="/pkg/room/oasis">
                                 <img src="img/promotion1.jpg">
                                 <div class="promotion_text">
                                     <p>The Oasis Summer Package</p>

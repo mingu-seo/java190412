@@ -1,0 +1,111 @@
+2019-07-22 17:59:41,173 [http-bio-8080-exec-3] DEBUG Connection - {conn-100000} Connection
+2019-07-22 17:59:41,177 [http-bio-8080-exec-3] DEBUG Connection - {conn-100000} Preparing Statement:          select no from member         WHERE name=? and tel=?     
+2019-07-22 17:59:41,204 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100001} Executing Statement:          select no from member         WHERE name=? and tel=?     
+2019-07-22 17:59:41,205 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100001} Parameters: [맹다영4, 01012345678]
+2019-07-22 17:59:41,205 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100001} Types: [java.lang.String, java.lang.String]
+2019-07-22 17:59:41,218 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100002} ResultSet
+2019-07-22 17:59:41,229 [http-bio-8080-exec-3] DEBUG Connection - {conn-100003} Connection
+2019-07-22 17:59:41,229 [http-bio-8080-exec-3] DEBUG Connection - {conn-100003} Preparing Statement:          insert into member          (email, tel, birth, pw, name, memo, registdate)         values          (?, ?, ?, md5(?), ?, ?, now())              
+2019-07-22 17:59:41,229 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100004} Executing Statement:          insert into member          (email, tel, birth, pw, name, memo, registdate)         values          (?, ?, ?, md5(?), ?, ?, now())              
+2019-07-22 17:59:41,229 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100004} Parameters: [null, 01012345678, null, null, 맹다영4, null]
+2019-07-22 17:59:41,229 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100004} Types: [null, java.lang.String, null, null, java.lang.String, null]
+2019-07-22 17:59:41,231 [http-bio-8080-exec-3] DEBUG Connection - {conn-100003} Preparing Statement:     SELECT  LAST_INSERT_ID()   
+2019-07-22 17:59:41,231 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100005} Executing Statement:     SELECT  LAST_INSERT_ID()   
+2019-07-22 17:59:41,231 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100005} Parameters: []
+2019-07-22 17:59:41,231 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100005} Types: []
+2019-07-22 17:59:41,232 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100006} ResultSet
+2019-07-22 17:59:41,234 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100006} Header: [LAST_INSERT_ID()]
+2019-07-22 17:59:41,234 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100006} Result: [5]
+2019-07-22 17:59:41,241 [http-bio-8080-exec-3] DEBUG Connection - {conn-100007} Connection
+2019-07-22 17:59:41,241 [http-bio-8080-exec-3] DEBUG Connection - {conn-100007} Preparing Statement:    INSERT INTO reserve   (name, tel, res_hour, res_date, member_pk, doctor_pk, route,   res_contents, registdate)   VALUES   (?, ?, ?, now(), ?,   ?, ?, ?, now())     
+2019-07-22 17:59:41,242 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100008} Executing Statement:    INSERT INTO reserve   (name, tel, res_hour, res_date, member_pk, doctor_pk, route,   res_contents, registdate)   VALUES   (?, ?, ?, now(), ?,   ?, ?, ?, now())     
+2019-07-22 17:59:41,242 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100008} Parameters: [맹다영4, 01012345678, 1, 5, 0, 1, <p>ㅋㅋ</p>]
+2019-07-22 17:59:41,242 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100008} Types: [java.lang.String, java.lang.String, java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.String]
+2019-07-22 18:00:22,526 [http-bio-8080-exec-3] DEBUG Connection - {conn-100000} Connection
+2019-07-22 18:00:22,530 [http-bio-8080-exec-3] DEBUG Connection - {conn-100000} Preparing Statement:          select no from member         WHERE name=? and tel=?     
+2019-07-22 18:00:22,558 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100001} Executing Statement:          select no from member         WHERE name=? and tel=?     
+2019-07-22 18:00:22,558 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100001} Parameters: [맹다영4, 01012345678]
+2019-07-22 18:00:22,558 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100001} Types: [java.lang.String, java.lang.String]
+2019-07-22 18:00:22,570 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100002} ResultSet
+2019-07-22 18:00:22,579 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100002} Header: [no]
+2019-07-22 18:00:22,579 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100002} Result: [5]
+2019-07-22 18:00:22,583 [http-bio-8080-exec-3] DEBUG Connection - {conn-100003} Connection
+2019-07-22 18:00:22,583 [http-bio-8080-exec-3] DEBUG Connection - {conn-100003} Preparing Statement:    INSERT INTO reserve   (name, tel, res_hour, res_date, member_pk, doctor_pk, route,   res_contents, registdate)   VALUES   (?, ?, ?, ?, ?,   ?, ?, ?, now())     
+2019-07-22 18:00:22,584 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100004} Executing Statement:    INSERT INTO reserve   (name, tel, res_hour, res_date, member_pk, doctor_pk, route,   res_contents, registdate)   VALUES   (?, ?, ?, ?, ?,   ?, ?, ?, now())     
+2019-07-22 18:00:22,584 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100004} Parameters: [맹다영4, 01012345678, 1, 2019-07-22, 5, 0, 1, <p>ㅋㅋ</p>]
+2019-07-22 18:00:22,584 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100004} Types: [java.lang.String, java.lang.String, java.lang.Integer, java.lang.String, java.lang.Integer, java.lang.Integer, java.lang.Integer, java.lang.String]
+2019-07-22 18:00:22,586 [http-bio-8080-exec-3] DEBUG Connection - {conn-100003} Preparing Statement:     SELECT    LAST_INSERT_ID()   
+2019-07-22 18:00:22,586 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100005} Executing Statement:     SELECT    LAST_INSERT_ID()   
+2019-07-22 18:00:22,586 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100005} Parameters: []
+2019-07-22 18:00:22,586 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100005} Types: []
+2019-07-22 18:00:22,587 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100006} ResultSet
+2019-07-22 18:00:22,587 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100006} Header: [LAST_INSERT_ID()]
+2019-07-22 18:00:22,587 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100006} Result: [2]
+2019-07-22 18:00:24,495 [http-bio-8080-exec-5] DEBUG Connection - {conn-100007} Connection
+2019-07-22 18:00:24,505 [http-bio-8080-exec-5] DEBUG Connection - {conn-100007} Preparing Statement:    SELECT count(*) FROM reserve                            
+2019-07-22 18:00:24,506 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100008} Executing Statement:    SELECT count(*) FROM reserve                            
+2019-07-22 18:00:24,506 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100008} Parameters: []
+2019-07-22 18:00:24,506 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100008} Types: []
+2019-07-22 18:00:24,509 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100009} ResultSet
+2019-07-22 18:00:24,511 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100009} Header: [count(*)]
+2019-07-22 18:00:24,511 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100009} Result: [1]
+2019-07-22 18:00:24,518 [http-bio-8080-exec-5] DEBUG Connection - {conn-100010} Connection
+2019-07-22 18:00:24,518 [http-bio-8080-exec-5] DEBUG Connection - {conn-100010} Preparing Statement:    SELECT * FROM reserve                              ORDER BY no DESC LIMIT 0, 10  
+2019-07-22 18:00:24,518 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100011} Executing Statement:    SELECT * FROM reserve                              ORDER BY no DESC LIMIT 0, 10  
+2019-07-22 18:00:24,519 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100011} Parameters: []
+2019-07-22 18:00:24,519 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100011} Types: []
+2019-07-22 18:00:24,522 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100012} ResultSet
+2019-07-22 18:00:24,523 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100012} Header: [no, res_hour, member_pk, doctor_pk, registdate, res_date, route, res_contents, name, tel]
+2019-07-22 18:00:24,523 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100012} Result: [2, 1, 5, 0, 2019-07-22 18:00:22.0, 2019-07-22, 1, <p>ㅋㅋ</p>, 맹다영4, 01012345678]
+2019-07-22 18:01:04,497 [http-bio-8080-exec-6] DEBUG Connection - {conn-100013} Connection
+2019-07-22 18:01:04,498 [http-bio-8080-exec-6] DEBUG Connection - {conn-100013} Preparing Statement:    SELECT count(*) FROM reserve                            
+2019-07-22 18:01:04,499 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100014} Executing Statement:    SELECT count(*) FROM reserve                            
+2019-07-22 18:01:04,499 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100014} Parameters: []
+2019-07-22 18:01:04,499 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100014} Types: []
+2019-07-22 18:01:04,501 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100015} ResultSet
+2019-07-22 18:01:04,501 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100015} Header: [count(*)]
+2019-07-22 18:01:04,501 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100015} Result: [1]
+2019-07-22 18:01:04,504 [http-bio-8080-exec-6] DEBUG Connection - {conn-100016} Connection
+2019-07-22 18:01:04,504 [http-bio-8080-exec-6] DEBUG Connection - {conn-100016} Preparing Statement:    SELECT * FROM reserve                              ORDER BY no DESC LIMIT 0, 10  
+2019-07-22 18:01:04,505 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100017} Executing Statement:    SELECT * FROM reserve                              ORDER BY no DESC LIMIT 0, 10  
+2019-07-22 18:01:04,505 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100017} Parameters: []
+2019-07-22 18:01:04,505 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100017} Types: []
+2019-07-22 18:01:04,506 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100018} ResultSet
+2019-07-22 18:01:04,507 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100018} Header: [no, res_hour, member_pk, doctor_pk, registdate, res_date, route, res_contents, name, tel]
+2019-07-22 18:01:04,507 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100018} Result: [2, 1, 5, 0, 2019-07-22 18:00:22.0, 2019-07-22, 1, <p>ㅋㅋ</p>, 맹다영4, 01012345678]
+2019-07-22 18:01:21,843 [http-bio-8080-exec-9] DEBUG Connection - {conn-100019} Connection
+2019-07-22 18:01:21,843 [http-bio-8080-exec-9] DEBUG Connection - {conn-100019} Preparing Statement:          select count(*) from member                 where    1=1              
+2019-07-22 18:01:21,844 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100020} Executing Statement:          select count(*) from member                 where    1=1              
+2019-07-22 18:01:21,844 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100020} Parameters: []
+2019-07-22 18:01:21,844 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100020} Types: []
+2019-07-22 18:01:21,847 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100021} ResultSet
+2019-07-22 18:01:21,847 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100021} Header: [count(*)]
+2019-07-22 18:01:21,848 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100021} Result: [5]
+2019-07-22 18:01:21,853 [http-bio-8080-exec-9] DEBUG Connection - {conn-100022} Connection
+2019-07-22 18:01:21,854 [http-bio-8080-exec-9] DEBUG Connection - {conn-100022} Preparing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-22 18:01:21,854 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100023} Executing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-22 18:01:21,855 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100023} Parameters: []
+2019-07-22 18:01:21,855 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100023} Types: []
+2019-07-22 18:01:21,857 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100024} ResultSet
+2019-07-22 18:01:21,860 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100024} Header: [no, name, email, pw, tel, birth, registdate, memo]
+2019-07-22 18:01:21,860 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100024} Result: [5, 맹다영4, null, null, 01012345678, null, 2019-07-22 17:59:41.0, null]
+2019-07-22 18:01:21,861 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100024} Result: [4, 맹다영2, null, null, 0102157811, null, 2019-07-22 16:55:29.0, null]
+2019-07-22 18:01:21,862 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100024} Result: [3, 한서하, seoha@seoha, fa18a7c6cef7c3386b38301e35ae0a0b, 01012341234, 20002000, 2019-07-22 15:04:26.0, <p>&nbsp;</p>]
+2019-07-22 18:01:21,862 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100024} Result: [2, 이윤, yoonlee@yoonlee, f8e154e34d4d1933869e1d834967b408, 12341234, 20001234, 2019-07-22 15:03:55.0, <p>&nbsp;</p>]
+2019-07-22 18:01:21,863 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100024} Result: [1, 맹다영, dayeong@naver.com, e5a4c8ca37ec0deb6f5e03b18be22a9b, 01012345678, 19940504, 2019-07-22 15:03:13.0, ]
+2019-07-22 18:01:28,700 [http-bio-8080-exec-9] DEBUG Connection - {conn-100025} Connection
+2019-07-22 18:01:28,700 [http-bio-8080-exec-9] DEBUG Connection - {conn-100025} Preparing Statement:    SELECT count(*) FROM reserve                            
+2019-07-22 18:01:28,701 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100026} Executing Statement:    SELECT count(*) FROM reserve                            
+2019-07-22 18:01:28,701 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100026} Parameters: []
+2019-07-22 18:01:28,701 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100026} Types: []
+2019-07-22 18:01:28,704 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100027} ResultSet
+2019-07-22 18:01:28,704 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100027} Header: [count(*)]
+2019-07-22 18:01:28,704 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100027} Result: [1]
+2019-07-22 18:01:28,709 [http-bio-8080-exec-9] DEBUG Connection - {conn-100028} Connection
+2019-07-22 18:01:28,709 [http-bio-8080-exec-9] DEBUG Connection - {conn-100028} Preparing Statement:    SELECT * FROM reserve                              ORDER BY no DESC LIMIT 0, 10  
+2019-07-22 18:01:28,710 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100029} Executing Statement:    SELECT * FROM reserve                              ORDER BY no DESC LIMIT 0, 10  
+2019-07-22 18:01:28,710 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100029} Parameters: []
+2019-07-22 18:01:28,710 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100029} Types: []
+2019-07-22 18:01:28,711 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100030} ResultSet
+2019-07-22 18:01:28,712 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100030} Header: [no, res_hour, member_pk, doctor_pk, registdate, res_date, route, res_contents, name, tel]
+2019-07-22 18:01:28,712 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100030} Result: [2, 1, 5, 0, 2019-07-22 18:00:22.0, 2019-07-22, 1, <p>ㅋㅋ</p>, 맹다영4, 01012345678]

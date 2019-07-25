@@ -107,7 +107,7 @@
                     <div class="my-img">
                     </div>
                     <div>
-                        <h5><%=data.getName()%></h5>
+                        <h5><%=mdata.getName()%></h5>
                     </div>
                    <a class="myinfo-btn" href="#">EDIT</a>
                 </div>
@@ -115,19 +115,19 @@
                     <h3>Contact info</h3>
                     <div>
                         <h5>Email</h5>
-                        <p><%=data.getEmail()%></p>
+                        <p><%=mdata.getEmail()%></p>
                     </div>
                     <div>
                         <h5>Phone</h5>
-                        <p><%=data.getTel()%></p>
+                        <p><%=mdata.getTel()%></p>
                     </div>
                     <div>
                         <h5>Birth</h5>
-                        <p><%=data.getBirth()%></p>
+                        <p><%=mdata.getBirth()%></p>
                     </div>
                     <div>
                         <h5>Address</h5>
-                        <p><%=data.getBirth()%></p>
+                        <p><%=mdata.getBirth()%></p>
                     </div>
                 </div>
                 <div class="sub6-botbox">

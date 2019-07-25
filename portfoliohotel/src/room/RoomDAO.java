@@ -13,7 +13,7 @@ import db.SqlMapClientDAOSupport;
 public class RoomDAO extends SqlMapClientDAOSupport {
 	
 	/**
-	 * 객실 목록 조회
+	 * 객실 목록
 	 * @param vo
 	 * @return ArrayList
 	 * @throws SQLException

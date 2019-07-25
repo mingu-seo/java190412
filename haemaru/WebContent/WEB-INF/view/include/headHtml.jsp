@@ -6,8 +6,8 @@
   <!-- header html -->
   <%
   	MemberVO memberInfo = (MemberVO)session.getAttribute("memberInfo"); 
-    MemberVO data = (MemberVO)request.getAttribute("data");
-    ArrayList<MypetVO> list = (ArrayList<MypetVO>) request.getAttribute("list");
+    MemberVO mdata = (MemberVO)request.getAttribute("data");
+    ArrayList<MypetVO> mlist = (ArrayList<MypetVO>) request.getAttribute("list");
   %>
   <!-- header html -->
     <div id="header">
