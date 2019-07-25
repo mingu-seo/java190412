@@ -90,7 +90,7 @@ function CookieVal(cookieName) {
 										<div class="login-box clear">
 										
 											<!-- <form action="#" method="post"> -->
-											<form name="mamber" id="member" method="post" action="<%=request.getContextPath()%>/manage/member/memberIndex" onsubmit="return loginCheck();">
+											<form name="mamber" id="member" method="post" action="<%=request.getContextPath()%>/manage/member/login" onsubmit="return loginCheck();">
 												<div class="login-box-logo"></div>
 												<div class="login-board clear">
 													<div class="login-box-left">

@@ -164,6 +164,9 @@ public class MemberController {
 		return "manage/member/loginCheck";
 	}
 	
+	
+	
+	
 //	@RequestMapping("/manage/member/loginCheck")
 //	public String loginCheck(Model model, MemberVO param, HttpSession session) throws Exception {
 //		boolean result = memberService.loginCheck(param,session);
