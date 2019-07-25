@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="member.*" %>
+<%
+   MemberVO mdata = (MemberVO)request.getAttribute("data");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -107,7 +111,7 @@
                     <div class="my-img">
                     </div>
                     <div>
-                        <h5>남 정 우</h5>
+                        <h5><%=mdata.getName()%></h5>
                     </div>
                    <a class="myinfo-btn" href="#">EDIT</a>
                 </div>
@@ -115,23 +119,23 @@
                     <h3>Contact info</h3>
                     <div>
                         <h5>Email</h5>
-                        <p>yoon@naver.com</p>
+                        <p><%=mdata.getEmail()%></p>
                     </div>
                     <div>
                         <h5>Phone</h5>
-                        <p>010 2450 5028</p>
+                        <p><%=mdata.getTel()%></p>
                     </div>
                     <div>
                         <h5>Birth</h5>
-                        <p>1989. 04. 08.</p>
+                        <p><%=mdata.getBirth()%></p>
                     </div>
                     <div>
-                        <h5>Address</h5>
-                        <p>경기도 고양시</p>
+                        <h5>RegistDate</h5>
+                        <p><%=mdata.getRegistdate()%></p>
                     </div>
                 </div>
                 <div class="sub6-botbox">
-                    <p><span>남 정 우</span> 님의 다음 진료 / 접종 예정일은 2019 년 06 월 20 일 입니다.</p>
+                    <p><span><%=mdata.getName()%></span> 님의 다음 진료 / 접종 예정일은 2019 년 06 월 20 일 입니다.</p>
                 </div>
             </div>
         </div>

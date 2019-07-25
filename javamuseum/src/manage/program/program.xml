@@ -90,8 +90,8 @@
    </select>
    
    <insert id="insertOption" parameterClass="java.util.HashMap">
-      insert into program_option (program_pk, date, time, join_mem)
-      values (#program_pk#, #date#, #time#, #join_mem#)      
+      insert into program_option (program_pk, date, time)
+      values (#program_pk#, #date#, #time#)      
    </insert>
    
    <delete id="deleteOption" parameterClass="Integer">
@@ -99,5 +99,10 @@
       WHERE program_pk=#program_pk#
    </delete>
    
+	<select id="searchMemb" parameterClass="Integer" resultClass="java.util.HashMap">
+		select *
+		from member
+		WHERE =#program_pk#
+	</select>
    
 </sqlMap>

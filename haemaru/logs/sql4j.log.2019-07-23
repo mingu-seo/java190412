@@ -2323,3 +2323,4 @@
 2019-07-23 18:09:00,254 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100110} Header: [no, res_hour, member_pk, doctor_pk, registdate, res_date, route, res_contents, name, tel, doctor_department, doctor_name]
 2019-07-23 18:09:00,254 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100110} Result: [3, 4, 6, 0, 2019-07-23 10:11:47.0, 2019-07-23, 1, <p>ㅋㅋ</p>, 성호, 0101234567, 0, 0]
 2019-07-23 18:09:00,255 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100110} Result: [2, 1, 5, 0, 2019-07-22 18:00:22.0, 2019-07-22, 1, <p>ㅋㅋ</p>, 맹다영4, 01012345678, 0, 0]
+>>>>>>> branch 'master' of https://github.com/mingu-seo/java190412.git

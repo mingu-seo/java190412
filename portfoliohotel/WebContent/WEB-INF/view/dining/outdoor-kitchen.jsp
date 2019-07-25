@@ -79,7 +79,7 @@
                                                 <li><a href="#">The Festa</a></li>
                                                 <li><a href="#">Granum Dining Lounge</a></li>
                                                 <li><a href="#">Moon Bar</a></li>
-                                                <li><a href="outdoor-kitchen.do">The Oasis Outdoor Kitchen</a></li>
+                                                <li><a href="outdoor-kitchen">The Oasis Outdoor Kitchen</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">

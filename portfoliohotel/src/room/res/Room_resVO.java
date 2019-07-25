@@ -28,6 +28,8 @@ public class Room_resVO  extends Parameter{
 	private int pay_state; //결제 상태 (0:미결제  1:결제)
 	private int res_state; //예약 상태 (0:취소  1:예약)
 	
+	private Timestamp paydate; //결제일
+	
 	public Room_resVO() {
 		super.setPageRows(10);
 	}
@@ -158,5 +160,13 @@ public class Room_resVO  extends Parameter{
 	public void setRes_state(int res_state) {
 		this.res_state = res_state;
 	}
+
+	public Timestamp getPaydate() {
+		return paydate;
+	}
+	public void setPaydate(Timestamp paydate) {
+		this.paydate = paydate;
+	}
+	
 	
 }

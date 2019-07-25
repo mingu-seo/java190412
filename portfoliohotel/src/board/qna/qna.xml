@@ -37,8 +37,7 @@
     
 	<select id="list" parameterClass="qna_vo" resultClass="qna_vo">
         select 
-   			no, category, email, name,  tel, password, title, contents,
-        	regdate, file_org, file, filesize, reply, open
+   			*
         from qna
         <include refid="searchSql" />
 		ORDER BY regdate DESC LIMIT $startPageNo$, $pageRows$

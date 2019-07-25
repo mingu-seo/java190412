@@ -3,6 +3,7 @@ package mypet;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import manage.admin.AdminVO;
+import member.MemberVO;
+import mypet.MypetVO;
 import util.Function;
 
 @Controller
@@ -58,12 +61,16 @@ public class MypetController {
 	}
 	
 	@RequestMapping("/my/my-pet.do")
-	public String myInfor(Model model, MypetVO param) throws Exception {
-		MypetVO data = mypetService.read(param);//세션에서 가져와야됨
-		model.addAttribute("data", data);
+	public String myPet(Model model, MypetVO param, HttpSession session) throws Exception {
+		MemberVO member = (MemberVO)session.getAttribute("memberInfo");
+		param.setMember_pk(member.getNo());
+		ArrayList list = mypetService.mypetsList(param);
+		MypetVO data = mypetService.read(param);
+		model.addAttribute("list", list);
 		model.addAttribute("vo", param);
+		model.addAttribute("data", data);
 		
-		return "my/my-pet.do";
+		return "my/my-pet";
 	}
 	
 	@RequestMapping("/manage/mypet/process")

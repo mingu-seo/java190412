@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import manage.admin.AdminVO;
-import member.MypetVO;
+import member.MypettVO;
 import util.Page;
 
 @Service
@@ -62,7 +62,8 @@ public class MemberService {
 	}
 
 	public MemberVO getLoginSessionInfo(MemberVO vo) throws SQLException {
-		return vo;
+		MemberVO data = memberDAO.getLoginSessionInfo(vo);
+		return data;
 	}
 
 	public int idcheck(String id) throws SQLException {
@@ -81,7 +82,7 @@ public class MemberService {
 		return r;
 	}
 	
-	public ArrayList<MypetVO> mypetList(int member_pk) throws Exception {
+	public ArrayList<MypettVO> mypetList(int member_pk) throws Exception {
 		return memberDAO.mypetList(member_pk);
 	}
 	
