@@ -23,21 +23,31 @@ public class QnaController {
 
 	@Autowired
 	QnaService qnaService;
-
-	@RequestMapping("/membership/qna.do")
+	
+	/*	[사용자]  QnA 목록	 */
+	@RequestMapping("/membership/qna")
 	public String qna(Model model, QnaVO param) throws Exception {
-
+		int[] rowPageCount = qnaService.count(param);
+		ArrayList<QnaVO> list = qnaService.list(param);
+		
+		model.addAttribute("totCount", rowPageCount[0]);
+		model.addAttribute("totPage", rowPageCount[1]);
+		model.addAttribute("list", list);
+		model.addAttribute("vo", param);
+		
 		return "membership/qna";
 	}
 
-	@RequestMapping("/membership/qna_q.do")
+	@RequestMapping("/membership/qna_q")
 	public String qna_q(Model model, QnaVO param) throws Exception {
 
 		return "membership/qna_q";
 	}
 
-	// 관리자
+	// ======================= 관리자 ===============================================
 
+	
+	/*	[관리자]  QnA 목록	 */ 
 	@RequestMapping("/manage/board/qna/index")
 	public String index(Model model, QnaVO param) throws Exception {
 
@@ -52,14 +62,16 @@ public class QnaController {
 
 		return "manage/board/qna/index";
 	}
-
+	
+	/*	[관리자]  QnA 글쓰기	 */ 
 	@RequestMapping("/manage/board/qna/write")
 	public String write(Model model, QnaVO param) throws Exception {
 		model.addAttribute("vo", param);
 
 		return "manage/board/qna/write";
 	}
-
+	
+	/*	[관리자]  QnA 수정	 */ 
 	@RequestMapping("/manage/board/qna/edit")
 	public String edit(Model model, QnaVO param) throws Exception {
 
@@ -69,7 +81,8 @@ public class QnaController {
 
 		return "manage/board/qna/edit";
 	}
-
+	
+	/*	[관리자]  QnA 세부	 */ 
 	@RequestMapping("/manage/board/qna/read")
 	public String read(Model model, QnaVO param) throws Exception {
 		QnaVO data = qnaService.read(param);
@@ -78,7 +91,8 @@ public class QnaController {
 
 		return "manage/board/qna/read";
 	}
-
+	
+	/*	[관리자]  QnA 답변	 */ 
 	@RequestMapping("/manage/board/qna/write_reply")
 	public String write_reply(Model model, QnaVO param) throws Exception {
 		QnaVO data = qnaService.read(param);
@@ -88,6 +102,7 @@ public class QnaController {
 		return "manage/board/qna/write_reply";
 	}
 	
+	/*	[관리자]  QnA 답변 수정	 */
 	@RequestMapping("/manage/board/qna/edit_reply")
 	public String edit_reply(Model model, QnaVO param) throws Exception {
 		QnaVO data = qnaService.read(param);
@@ -97,6 +112,7 @@ public class QnaController {
 		return "manage/board/qna/edit_reply";
 	}
 	
+	/*	[관리자]  QnA 답변 삭제	 */
 	@RequestMapping("/manage/board/qna/delete_reply")
 	public String delete_reply(Model model, QnaVO param) throws Exception {
 		QnaVO data = qnaService.read(param);
