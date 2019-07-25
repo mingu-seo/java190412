@@ -2027,3 +2027,89 @@
 2019-07-24 17:53:02,163 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100008} Header: [no, email, tel, birth, pw, name, memo, registdate]
 2019-07-24 17:53:02,163 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100008} Result: [14, qwer, 2342,3423, 324234, 962012d09b8170d912f0669f6d7d9d07, test, null, 2019-07-24 16:16:10.0]
 2019-07-24 17:53:05,607 [http-bio-8080-exec-7] DEBUG Connection - {conn-100009} Connection
+2019-07-24 17:55:36,975 [http-bio-8080-exec-6] DEBUG Connection - {conn-100000} Connection
+2019-07-24 17:55:36,985 [http-bio-8080-exec-6] DEBUG Connection - {conn-100000} Preparing Statement:       select count(*) as cnt from member where email=? and pw=md5(?)     
+2019-07-24 17:55:37,043 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100001} Executing Statement:       select count(*) as cnt from member where email=? and pw=md5(?)     
+2019-07-24 17:55:37,043 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100001} Parameters: [qwer, qwer]
+2019-07-24 17:55:37,044 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100001} Types: [java.lang.String, java.lang.String]
+2019-07-24 17:55:37,069 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100002} ResultSet
+2019-07-24 17:55:37,082 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100002} Header: [cnt]
+2019-07-24 17:55:37,082 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100002} Result: [1]
+2019-07-24 17:55:37,087 [http-bio-8080-exec-6] DEBUG Connection - {conn-100003} Connection
+2019-07-24 17:55:37,087 [http-bio-8080-exec-6] DEBUG Connection - {conn-100003} Preparing Statement:          select * from member where email=? and pw=md5(?)     
+2019-07-24 17:55:37,088 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100004} Executing Statement:          select * from member where email=? and pw=md5(?)     
+2019-07-24 17:55:37,088 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100004} Parameters: [qwer, qwer]
+2019-07-24 17:55:37,088 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100004} Types: [java.lang.String, java.lang.String]
+2019-07-24 17:55:37,092 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100005} ResultSet
+2019-07-24 17:55:37,093 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100005} Header: [no, name, email, pw, tel, birth, registdate, memo]
+2019-07-24 17:55:37,093 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100005} Result: [14, test, qwer, 962012d09b8170d912f0669f6d7d9d07, 2342,3423, 324234, 2019-07-24 16:16:10.0, null]
+2019-07-24 17:55:39,457 [http-bio-8080-exec-8] DEBUG Connection - {conn-100006} Connection
+2019-07-24 17:55:39,457 [http-bio-8080-exec-8] DEBUG Connection - {conn-100006} Preparing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-24 17:55:39,458 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100007} Executing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-24 17:55:39,458 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100007} Parameters: [14, 14, 14]
+2019-07-24 17:55:39,458 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100007} Types: [java.lang.Integer, java.lang.Integer, java.lang.Integer]
+2019-07-24 17:55:39,459 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100008} ResultSet
+2019-07-24 17:55:39,460 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100008} Header: [no, email, tel, birth, pw, name, memo, registdate]
+2019-07-24 17:55:39,460 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100008} Result: [14, qwer, 2342,3423, 324234, 962012d09b8170d912f0669f6d7d9d07, test, null, 2019-07-24 16:16:10.0]
+2019-07-24 17:55:41,112 [http-bio-8080-exec-10] DEBUG Connection - {conn-100009} Connection
+2019-07-24 17:55:41,113 [http-bio-8080-exec-10] DEBUG Connection - {conn-100009} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 17:55:41,114 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100010} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 17:55:41,114 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100010} Parameters: [0]
+2019-07-24 17:55:41,114 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100010} Types: [java.lang.Integer]
+2019-07-24 17:55:41,118 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100011} ResultSet
+2019-07-24 17:58:14,682 [http-bio-8080-exec-7] DEBUG Connection - {conn-100012} Connection
+2019-07-24 17:58:14,682 [http-bio-8080-exec-7] DEBUG Connection - {conn-100012} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 17:58:14,683 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100013} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 17:58:14,683 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100013} Parameters: [0]
+2019-07-24 17:58:14,683 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100013} Types: [java.lang.Integer]
+2019-07-24 17:58:14,687 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100014} ResultSet
+2019-07-24 18:05:08,196 [http-bio-8080-exec-6] DEBUG Connection - {conn-100015} Connection
+2019-07-24 18:05:08,196 [http-bio-8080-exec-6] DEBUG Connection - {conn-100015} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 18:05:08,198 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100016} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 18:05:08,198 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100016} Parameters: [0]
+2019-07-24 18:05:08,198 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100016} Types: [java.lang.Integer]
+2019-07-24 18:05:08,199 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100017} ResultSet
+2019-07-24 18:05:16,478 [http-bio-8080-exec-9] DEBUG Connection - {conn-100018} Connection
+2019-07-24 18:05:16,478 [http-bio-8080-exec-9] DEBUG Connection - {conn-100018} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 18:05:16,479 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100019} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 18:05:16,479 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100019} Parameters: [0]
+2019-07-24 18:05:16,479 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100019} Types: [java.lang.Integer]
+2019-07-24 18:05:16,480 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100020} ResultSet
+2019-07-24 18:07:07,057 [http-bio-8080-exec-3] DEBUG Connection - {conn-100021} Connection
+2019-07-24 18:07:07,057 [http-bio-8080-exec-3] DEBUG Connection - {conn-100021} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 18:07:07,057 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100022} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 18:07:07,057 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100022} Parameters: [0]
+2019-07-24 18:07:07,057 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100022} Types: [java.lang.Integer]
+2019-07-24 18:07:07,059 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100023} ResultSet
+2019-07-24 18:07:13,063 [http-bio-8080-exec-3] DEBUG Connection - {conn-100024} Connection
+2019-07-24 18:07:13,063 [http-bio-8080-exec-3] DEBUG Connection - {conn-100024} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 18:07:13,064 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100025} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 18:07:13,064 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100025} Parameters: [0]
+2019-07-24 18:07:13,064 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100025} Types: [java.lang.Integer]
+2019-07-24 18:07:13,066 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100026} ResultSet
+2019-07-24 18:07:14,499 [http-bio-8080-exec-3] DEBUG Connection - {conn-100027} Connection
+2019-07-24 18:07:14,499 [http-bio-8080-exec-3] DEBUG Connection - {conn-100027} Preparing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-24 18:07:14,500 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100028} Executing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-24 18:07:14,500 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100028} Parameters: [14, 14, 14]
+2019-07-24 18:07:14,500 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100028} Types: [java.lang.Integer, java.lang.Integer, java.lang.Integer]
+2019-07-24 18:07:14,500 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100029} ResultSet
+2019-07-24 18:07:14,501 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100029} Header: [no, email, tel, birth, pw, name, memo, registdate]
+2019-07-24 18:07:14,501 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100029} Result: [14, qwer, 2342,3423, 324234, 962012d09b8170d912f0669f6d7d9d07, test, null, 2019-07-24 16:16:10.0]
+2019-07-24 18:07:15,930 [http-bio-8080-exec-4] DEBUG Connection - {conn-100030} Connection
+2019-07-24 18:07:15,930 [http-bio-8080-exec-4] DEBUG Connection - {conn-100030} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 18:07:15,930 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100031} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 18:07:15,930 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100031} Parameters: [0]
+2019-07-24 18:07:15,930 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100031} Types: [java.lang.Integer]
+2019-07-24 18:07:15,932 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100032} ResultSet
+2019-07-24 18:07:39,867 [http-bio-8080-exec-6] DEBUG Connection - {conn-100033} Connection
+2019-07-24 18:07:39,868 [http-bio-8080-exec-6] DEBUG Connection - {conn-100033} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 18:07:39,868 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100034} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 18:07:39,868 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100034} Parameters: [0]
+2019-07-24 18:07:39,868 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100034} Types: [java.lang.Integer]
+2019-07-24 18:07:39,871 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100035} ResultSet
+2019-07-24 18:07:57,575 [http-bio-8080-exec-9] DEBUG Connection - {conn-100036} Connection
+2019-07-24 18:07:57,575 [http-bio-8080-exec-9] DEBUG Connection - {conn-100036} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 18:07:57,576 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100037} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-24 18:07:57,576 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100037} Parameters: [0]
+2019-07-24 18:07:57,576 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100037} Types: [java.lang.Integer]
+2019-07-24 18:07:57,578 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100038} ResultSet
