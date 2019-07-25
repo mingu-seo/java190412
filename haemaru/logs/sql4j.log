@@ -19985,3 +19985,44 @@
 2019-07-25 17:54:11,370 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100029} Result: [34, 1, 1, 1, , , 0, null, null, 2019-07-25 17:26:28.0, 1]
 2019-07-25 17:54:11,370 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100029} Result: [33, 이윤, 4, 1, 대화, 01012345678, 0, null, null, 2019-07-25 15:01:13.0, 1]
 2019-07-25 17:54:11,370 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100029} Result: [32, 한서하, 2, 1, 백석, 01012345678, 0, null, null, 2019-07-25 15:01:00.0, 1]
+2019-07-25 18:06:17,324 [http-bio-8080-exec-3] DEBUG Connection - {conn-100000} Connection
+2019-07-25 18:06:17,330 [http-bio-8080-exec-3] DEBUG Connection - {conn-100000} Preparing Statement:    select count(*) from doctor                            
+2019-07-25 18:06:17,358 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100001} Executing Statement:    select count(*) from doctor                            
+2019-07-25 18:06:17,358 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100001} Parameters: []
+2019-07-25 18:06:17,358 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100001} Types: []
+2019-07-25 18:06:17,371 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100002} ResultSet
+2019-07-25 18:06:17,379 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100002} Header: [count(*)]
+2019-07-25 18:06:17,379 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100002} Result: [11]
+2019-07-25 18:06:17,384 [http-bio-8080-exec-3] DEBUG Connection - {conn-100003} Connection
+2019-07-25 18:06:17,385 [http-bio-8080-exec-3] DEBUG Connection - {conn-100003} Preparing Statement:    select *   from doctor                             ORDER BY no DESC LIMIT 0, 10  
+2019-07-25 18:06:17,385 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100004} Executing Statement:    select *   from doctor                             ORDER BY no DESC LIMIT 0, 10  
+2019-07-25 18:06:17,385 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100004} Parameters: []
+2019-07-25 18:06:17,385 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100004} Types: []
+2019-07-25 18:06:17,386 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100005} ResultSet
+2019-07-25 18:06:17,387 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100005} Header: [no, name, department, position, addr, tel, category, doc_image, doc_image_org, registdate, gender]
+2019-07-25 18:06:17,387 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100005} Result: [41, 8, 1, 1, , , 0, null, null, 2019-07-25 17:26:52.0, 1]
+2019-07-25 18:06:17,387 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100005} Result: [40, 7, 1, 1, , , 0, null, null, 2019-07-25 17:26:48.0, 1]
+2019-07-25 18:06:17,388 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100005} Result: [39, 6, 1, 1, , , 0, null, null, 2019-07-25 17:26:45.0, 1]
+2019-07-25 18:06:17,388 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100005} Result: [38, 5, 1, 1, , , 0, null, null, 2019-07-25 17:26:41.0, 1]
+2019-07-25 18:06:17,388 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100005} Result: [37, 4, 1, 1, , , 0, null, null, 2019-07-25 17:26:38.0, 1]
+2019-07-25 18:06:17,388 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100005} Result: [36, 3, 1, 1, , , 0, null, null, 2019-07-25 17:26:35.0, 1]
+2019-07-25 18:06:17,388 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100005} Result: [35, 2, 1, 1, , , 0, null, null, 2019-07-25 17:26:31.0, 1]
+2019-07-25 18:06:17,389 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100005} Result: [34, 1, 1, 1, , , 0, null, null, 2019-07-25 17:26:28.0, 1]
+2019-07-25 18:06:17,389 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100005} Result: [33, 이윤, 4, 1, 대화, 01012345678, 0, null, null, 2019-07-25 15:01:13.0, 1]
+2019-07-25 18:06:17,389 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100005} Result: [32, 한서하, 2, 1, 백석, 01012345678, 0, null, null, 2019-07-25 15:01:00.0, 1]
+2019-07-25 18:06:18,894 [http-bio-8080-exec-6] DEBUG Connection - {conn-100006} Connection
+2019-07-25 18:06:18,894 [http-bio-8080-exec-6] DEBUG Connection - {conn-100006} Preparing Statement:    select count(*) from doctor                            
+2019-07-25 18:06:18,895 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100007} Executing Statement:    select count(*) from doctor                            
+2019-07-25 18:06:18,895 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100007} Parameters: []
+2019-07-25 18:06:18,895 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100007} Types: []
+2019-07-25 18:06:18,897 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100008} ResultSet
+2019-07-25 18:06:18,897 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100008} Header: [count(*)]
+2019-07-25 18:06:18,897 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100008} Result: [11]
+2019-07-25 18:06:18,899 [http-bio-8080-exec-6] DEBUG Connection - {conn-100009} Connection
+2019-07-25 18:06:18,900 [http-bio-8080-exec-6] DEBUG Connection - {conn-100009} Preparing Statement:    select *   from doctor                             ORDER BY no DESC LIMIT 10, 10  
+2019-07-25 18:06:18,900 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100010} Executing Statement:    select *   from doctor                             ORDER BY no DESC LIMIT 10, 10  
+2019-07-25 18:06:18,900 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100010} Parameters: []
+2019-07-25 18:06:18,900 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100010} Types: []
+2019-07-25 18:06:18,901 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100011} ResultSet
+2019-07-25 18:06:18,902 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100011} Header: [no, name, department, position, addr, tel, category, doc_image, doc_image_org, registdate, gender]
+2019-07-25 18:06:18,902 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100011} Result: [31, 맹다영, 1, 1, 원당, 01012341234, 0, null, null, 2019-07-25 14:56:27.0, 1]
