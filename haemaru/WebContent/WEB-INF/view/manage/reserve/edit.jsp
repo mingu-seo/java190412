@@ -4,6 +4,7 @@
 <%@ page import="util.*"%>
 <%
 	ReserveVO param = (ReserveVO) request.getAttribute("vo");
+	ReserveVO data = (ReserveVO) request.getAttribute("data");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -105,7 +106,7 @@
 	function getSchedList(){
 		$.ajax({
 			type :"GET",
-			url : "/manage/reserve/schedList?date="+$("#res_date").val()+"&doctor_pk="+$("#doctor_pk").val(),
+			url : "/manage/reserve/schedList?date="+$("#res_date").val()+"&doctor_pk="+$("#doctor_pk").val()+"&res_hour=<%=data.getRes_hour()%>",
 			async : false,
 			success : function(data) {
 				$(".schedListArea").html(data);
@@ -149,23 +150,23 @@
 											<tr>
 												<th scope="row"><label for="">예약경로</label></th>
 												<td><select name="route">
-														<%=CodeUtil.getReserveRouteOption(0)%>
+														<%=CodeUtil.getReserveRouteOption(data.getRoute())%>
 												</select></td>
 												<tr>
 													<th scope="row"><label for="">이름</label></th>
 													<td colspan="3"><input type="text" id="name"
-														name="name" class="w50" title="이름을 입력해주세요" /></td>
+														name="name" class="w50" title="이름을 입력해주세요" value="<%=data.getName()%>"/></td>
 												</tr>
 												<tr>
 													<th scope="row"><label for="">연락처</label></th>
 													<td colspan="3"><input type="text" id="tel" name="tel"
-														class="w50" title="전화번호를 입력해주세요" /></td>
+														class="w50" title="전화번호를 입력해주세요" value="<%=data.getTel()%>"/></td>
 												</tr>
 
 												<tr>
 													<th scope="row"><label for="">예약날짜</label></th>
 													<td><input type="text" id="res_date" name="res_date"
-														class="inputTitle" value="<%=DateUtil.getToday()%>"
+														class="inputTitle" value="<%=data.getRes_date()%>"
 														title="예약일을 입력해주세요" />&nbsp; <span id="Calres_dateIcon">
 															<img src="/manage/img/calendar_icon.png"
 															id="Calres_dateIconImg" style="cursor: pointer;" />
@@ -174,40 +175,47 @@
 												<tr>
 													<th scope="row"><label for="">진료과목</label></th>
 													<td><select name="doctor_department" id="doctor_department">
-															<%=CodeUtil.getDoctorDepartmentOption(0)%>
+															<%=CodeUtil.getDoctorDepartmentOption(data.getDoctor_department())%>
 													</select></td>
 												</tr>
 												<tr>
 												
 													<th scope="row"><label for="">의료진</label></th>
-													<td ><div class="doctorListArea" ></div></td>
+													<td ><div class="doctorListArea" >
+													<%=data.getDoctor_name()%>
+													</div></td>
 											<!-- 		<td colspan="3"><input type="text" id="doctor_name"
 														name="doctor_name" class="w50" title="이름을 입력해주세요" /></td>  -->
 												</tr>
 
 												<th scope="row"><label for="">예약시간</label></th>
-												<td ><div class="schedListArea" ></div></td>
+												<td ><div class="schedListArea" >
+												<%=data.getRes_hour()%>
+												</div></td>
 
 												<tr>
 
 													<td colspan="4"><textarea id="info"
 															name="res_contents" title="내용을 입력해주세요"
-															style="width: 100%;"></textarea></td>
+															style="width: 100%;"><%=data.getRes_contents()%></textarea></td>
 												</tr>
 										</tbody>
 									</table>
 									<input type="hidden" name="member_pk" id="member_pk"
 										value="<%=param.getNo()%>" /> <input type="hidden"
 										name="doctor_pk" id="doctor_pk" value="<%=param.getNo()%>" />
-									<input type="hidden" name="cmd" value="write" />
+									<input type="hidden" name="cmd" value="edit" />
+									<input type="hidden" name="no"
+										value="<%=param.getNo()%>" /> 
 								</form>
 								<div class="btn">
 									<div class="btnLeft">
 										<a class="btns"
 											href="<%=param.getTargetURLParam("index", param, 0)%>"><strong>목록</strong></a>
 									</div>
-									<div class="btnRight">
-										<a class="btns" href="javascript:$('#frm').submit();"><strong>저장</strong></a>
+								<div class="btnRight">
+										<a class="btns" style="cursor: pointer;"
+											onclick="$('#frm').submit();"><strong>저장</strong></a>
 									</div>
 								</div>
 								<!--//btn-->

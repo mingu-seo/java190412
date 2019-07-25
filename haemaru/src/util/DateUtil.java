@@ -625,6 +625,7 @@ public class DateUtil {
 		return icon;
 	}
 
+
 	public static int getYoil(String date) throws Exception{
 
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -639,11 +640,7 @@ public class DateUtil {
 
 	}
 
-	public static void main(String[] args) throws Exception{
-//		String day = "2013-06-01";
-//		System.out.println(DateUtil.getDatePart(day));
-//		System.out.println(DateUtil.getDayName(getDatePart(day) - 1));
-		
+	public static void main(String[] args) throws Exception {
 		System.out.println(getYoil("2019-07-21"));
 	}
 

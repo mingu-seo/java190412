@@ -90,11 +90,11 @@ public class DoctorService {
 
 	public int delete(int no) throws SQLException {
 		int cnt = doctorDao.delete(no);
-		SchedVO svo = new SchedVO();
-		svo.setDoctor_pk(no);
-		sDao.delete(no);
+		if(cnt > 0 ){
+			sDao.delete(no);
+		}
 		return cnt;
-		
+
 	}
 
 	public int groupDelete(HttpServletRequest request) throws SQLException {
@@ -103,6 +103,9 @@ public class DoctorService {
 		for (int i = 0; i < no.length; i++) {
 			int nos = Integer.parseInt(no[i]);
 			r += doctorDao.delete(nos);
+			if(r > 0) {
+				sDao.delete(nos);
+				}
 		}
 		return r;
 	}

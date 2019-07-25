@@ -1,5 +1,8 @@
 package util;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * 각종 코드값 가져오기
  * 각 코드들의 option, select 값 구하기
@@ -873,6 +876,21 @@ public class CodeUtil {
 			        	result.append("<option value='23'"+Function.getSelected(23,arg)+">"+getDoctorScheduleName(23)+"</option>");
 			        	result.append("<option value='24'"+Function.getSelected(24,arg)+">"+getDoctorScheduleName(24)+"</option>");
 			        	result.append("<option value='25'"+Function.getSelected(25,arg)+">"+getDoctorScheduleName(25)+"</option>");
+			        return result.toString();
+			    }
+				
+				public static String getDoctorScheduleOptionForReserve(int arg, int start, int end, ArrayList timeList){
+					int[] res_hour = new int[timeList.size()];
+					for (int i=0; i<timeList.size(); i++) {
+						res_hour[i] = (int)timeList.get(i);
+					}
+			        StringBuffer result = new StringBuffer();
+			        for (int i=start; i<=end; i++) {
+			        	if (Arrays.binarySearch(res_hour, i) < 0 || arg == i) {
+			        		result.append("<option value='"+i+"'"+Function.getSelected(i,arg)+">"+getDoctorScheduleName(i)+"</option>");
+			        	}
+			        	
+			        }
 			        return result.toString();
 			    }
 				

@@ -12,8 +12,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import property.SiteProperty;
+import util.DateUtil;
 import util.Function;
 import util.Page;
+import manage.doctor.DoctorVO;
 import manage.doctor.sched.*;
 import member.MemberDAO;
 import member.MemberVO;
@@ -88,5 +90,29 @@ public class ReserveService {
 		}
 		return r;
 	}
+	
+	public ArrayList doctorList(String date, int department) throws Exception {
+		HashMap hm = new HashMap();
+		hm.put("department", department);
+		hm.put("yoil", DateUtil.getYoil(date));
+		return reserveDao.doctorList(hm);
+	}
+	
+	public SchedVO schedList(SchedVO param) throws Exception {
+//		return reserveDao.schedList(param);
+		int yoil = DateUtil.getYoil(param.getDate());
+		param.setYoil(yoil);
+		SchedVO slist = reserveDao.schedList(param);
+		ReserveVO vo = new ReserveVO();
+		return slist;
+	}
+	
+	public ArrayList reservedTime(String date, int doctor_pk) throws Exception {
+		ReserveVO vo = new ReserveVO();
+		vo.setDoctor_pk(doctor_pk);
+		vo.setRes_date(date);
+		return reserveDao.reservedTime(vo);
+	}
+
 	
 }
