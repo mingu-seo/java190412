@@ -64,13 +64,13 @@ public class MemberController {
 		return "manage/member/edit";
 	}
 	
-	@RequestMapping("/manage/member/mypage")
+	@RequestMapping("/manage/member/memberMypage")
 	public String mypage(Model model, MemberVO param) throws Exception {
 		MemberVO data = memberService.read(param.getNo());
 		model.addAttribute("data", data);
 		model.addAttribute("vo", param);
 
-		return "manage/member/mypage";
+		return "manage/member/memberMypage";
 	}
 	
 	@RequestMapping("/manage/member/memberIndex")

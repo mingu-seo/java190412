@@ -26,7 +26,7 @@ public class MainController {
 	
 	@RequestMapping("/manage/login")
 	public String login(Model model, @RequestParam(value="login_url", required=false) String login_url, @RequestParam(value="login_param", required=false) String login_param, MemberVO vo, HttpSession session) throws Exception {
-		if (memberService.loginCheck(vo,session)) {
+		if (memberService.loginCheck(vo)) {
 			
 			MemberVO memberInfo = memberService.getLoginSessionInfo(vo);
 			memberInfo.setIp(vo.getIp());
