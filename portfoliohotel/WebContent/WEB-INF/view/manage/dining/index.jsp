@@ -81,7 +81,7 @@ function goSearch() {
 								<tbody>
 								<% if (totCount == 0) { %>
 									<tr>
-										<td class="first" colspan="7">등록된 글이 없습니다.</td>
+										<td class="first" colspan="6">등록된 글이 없습니다.</td>
 									</tr>
 								<%
 									 } else {
@@ -95,7 +95,7 @@ function goSearch() {
 									<tr <%=topClass%>>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
 										<td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td>
-										<td <%=targetUrl%>><img src="/upload/dining/<%=data.getImagename()%>" width="100px" height="auto"/></td>
+										<td <%=targetUrl%>><img src="/upload/dining/<%=data.getImagename()%>" width="130px" height="auto"/></td>
 										<td <%=targetUrl%> class="name"><%=data.getName()%></td>
 										<td <%=targetUrl%> class="price"><%=data.getPrice()%></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>

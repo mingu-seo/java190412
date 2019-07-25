@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import board.notice.NoticeVO;
 import property.SiteProperty;
 import util.FileUtil;
-import util.Function;
 import util.Page;
 
 @Service
@@ -36,5 +35,10 @@ public class PkgDiningService {
 		ArrayList list = pkgDiningDao.list(vo);
 		return list;
 	}	
+	
+	public int insert(PkgDiningVO vo, HttpServletRequest request) throws SQLException, IOException {
+		int no = pkgDiningDao.insert(vo);
+		return no;
+	}
 
 }

@@ -103,7 +103,7 @@ jQuery(window).load(function(){
 												</td>
 											</tr>
 											<tr>
-												<th scope="row"><label for="">예약기간</label></th>
+												<th scope="row"><label for="">예약 가능기간</label></th>
 												<td><input type="text" id="book_period"
 													name="book_period" value="<%=data.getBook_period()%>"
 													title="예약기간을 입력해주세요." /></td>

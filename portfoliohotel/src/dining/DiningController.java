@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import util.Function;
+import util.Page;
 
 @Controller
 public class DiningController {
