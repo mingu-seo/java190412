@@ -98,6 +98,7 @@ public class ProgramService {
 	      int optSize =	date.length;
 	      for (int i = 0; i < optSize; i++) {
 	         HashMap m = new HashMap();
+	         m.put("program_pk", program_pk);
 	         m.put("date", date[i]);
 	         m.put("time", time[i]);
 	         programDao.insertOption(m);
