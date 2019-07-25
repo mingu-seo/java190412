@@ -63,7 +63,7 @@ public class MainController {
 		
 		model.addAttribute("code", "alertMessageUrl");
 		model.addAttribute("message", "정상적으로 로그아웃 되었습니다.");
-		model.addAttribute("url", "/manage");
+		model.addAttribute("url", "/manage/member/index");
 		
 		return "include/alert";		
 	}

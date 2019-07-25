@@ -23,6 +23,7 @@ public class MemberVO extends Parameter {
 	private int sns_type;
 	private String sns_key;
 	private int secession;
+	private int secession_reason;
 
 	public String getIp() {
 		return ip;
@@ -174,6 +175,14 @@ public class MemberVO extends Parameter {
 
 	public void setSecession(int secession) {
 		this.secession = secession;
+	}
+
+	public int getSecession_reason() {
+		return secession_reason;
+	}
+
+	public void setSecession_reason(int secession_reason) {
+		this.secession_reason = secession_reason;
 	}
 	
 	

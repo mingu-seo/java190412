@@ -6,7 +6,8 @@
 <%
 MemberVO param = (MemberVO)request.getAttribute("vo");
 ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
-
+MemberVO vo = (MemberVO)session.getAttribute("memberInfo");
+MemberVO data = (MemberVO)request.getAttribute("data");
 %>
 
 
@@ -38,54 +39,47 @@ ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
 					<div id="bbs">
 						<div id="blist">
 							<form name="frm" id="frm" action="process.do" method="post">
-							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
-							
-							
-								<colgroup>																	
-									<col class="w20" />															
-									<col class="w8" />
+							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">													
+								<colgroup>																								
+									<col class="w10" />															
 									<col class="w10" />
+									<col class="w10" />									
 								</colgroup>
 								<thead>
 									<tr>
-										<th scope="col" class="first"><input type="checkbox" name="allChk" id="allChk" onClick="check(this, document.frm.no)"/></th>																		
+																												
 										<th scope="col">이름</th>											
 										<th scope="col">등급</th>	 																
 										<th scope="col">포인트</th>
+										
 									</tr>
 								</thead>
 								<tbody>
+					<%String[] nameArr = vo.getName().split(","); %>
+									<tr>
 								
+																																							
+										<td><%= nameArr[0]%> <%=nameArr[1]%></td>																			
+										<td><%=CodeUtil.getMgrade(vo.getGrade())%></td>	 
+										<td><%=vo.getPoint()%></td>																											
+									</tr>
 							
-								<% if (list.size() == 0) { %>
-									<tr>
-										<td class="first" colspan="10">등록된 자료가 없습니다.</td>
-									</tr>
-								<%
-									 } else {
-										String targetUrl = "";
-										for (int i=0; i<list.size(); i++) {
-											targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, list.get(i).getNo())+"'\"";											
-								%>								
-									<tr>
-									<%
-									String[] nameArr = list.get(i).getName().split(",");								
-									%>
-										<td class="first"><input type="checkbox" name="no" id="no" value="<%=list.get(i).getNo()%>"/></td>																													
-										<td <%=targetUrl%>><%=nameArr[0]%> <%=nameArr[1] %></td>																			
-										<td <%=targetUrl%>><%=CodeUtil.getMgrade(list.get(i).getGrade())%></td>	 
-										<td <%=targetUrl%>><%=list.get(i).getPoint() %></td>																											
-									</tr>
-								<%
-										}
-									 }
-								%>
 								</tbody>
+								
 							</table>
-							<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
+							
 							<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
 							<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
 							</form>
+							<div class="btn">
+							
+							
+							<div class="btnRight">
+									<a class="btns" href="memberMypage"><strong>마이페이지</strong> </a>
+									
+								</div>
+							</div>
+							
 						
 							<!--//btn-->
 							<!-- 페이징 처리 -->
