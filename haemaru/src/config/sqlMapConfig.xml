@@ -44,4 +44,5 @@
 	<sqlMap resource="board/qna/qna.xml"/>
 	<sqlMap resource="manage/faq/faq.xml"/>
 	<sqlMap resource="manage/doctor/sched/sched.xml"/> 
+	<sqlMap resource="manage/reserve/reserve.xml"/>
 </sqlMapConfig>

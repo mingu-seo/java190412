@@ -65,7 +65,10 @@ public class MypetController {
 		MemberVO member = (MemberVO)session.getAttribute("memberInfo");
 		param.setMember_pk(member.getNo());
 		ArrayList list = mypetService.mypetsList(param);
+		MypetVO data = mypetService.read(param);
 		model.addAttribute("list", list);
+		model.addAttribute("vo", param);
+		model.addAttribute("data", data);
 		
 		return "my/my-pet";
 	}

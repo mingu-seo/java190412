@@ -77,7 +77,7 @@ function goSave() {
 									<tr>
 										<th scope="row"><label for="">성별</label></th>
 										<td>
-											<select id="gender">
+											<select name="gender" value="<%=data.getGender()%>">
 												<option value='1'>여아</option>
 												<option value='2'>남아</option>
 											</select>
