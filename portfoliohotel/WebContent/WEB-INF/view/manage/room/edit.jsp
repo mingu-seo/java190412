@@ -88,7 +88,7 @@ $(function(){
 function delTr_i(cls, no, imagename) {
 	$.ajax({
 		type : "GET",
-		url : "/manage/room/delete_image?no="+no+"&image="+imagename,
+		url : "/manage/room/delete_image?no="+no+"&image="+imagename, 
 		async : false,
 		success : function(data){
 			alert("정상적으로 삭제되었습니다.");
@@ -122,136 +122,136 @@ function delTr_i(cls, no, imagename) {
 							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" enctype="multipart/form-data" onsubmit="return goSave();">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
-									<col width="15%" />
-									<col width="35%" />
-									<col width="15%" />
-									<col width="35%" />
-								</colgroup>
+									<col width="10%" />
+									<col width="40%" />
+									<col width="10%" />
+									<col width="40%" />
+								</colgroup> 
 								<tbody>
 									<tr>
 										<th>객실 종류</th>
-										<td colspan="5"><input type="text" id="name" name="name" class="w50" value="<%=read.getName() %>"/></td>
+										<td colspan="3"><input type="text" id="name" name="name" class="w50" value="<%=read.getName() %>"/></td>
 									</tr>
 									<tr>
 										<th>객실 가격</th>
-										<td colspan="2"><input type="text" id="price" name="price" class="w25" value="<%=read.getPrice() %>"/></td>
+										<td><input type="text" id="price" name="price" class="w25" value="<%=read.getPrice() %>"/></td>
 										<th>객실 수량</th>
-										<td colspan="2"><input type="text" id="count" name="count" class="w25" value="<%=read.getCount() %>"/></td>
+										<td><input type="text" id="count" name="count" class="w25" value="<%=read.getCount() %>"/></td>
 									</tr>
 									<tr>
 										<th>성인(기본정원)</th>
-										<td colspan="2"><input type="text" id="adult" name="adult" class="w25" value="<%=read.getAdult() %>"/></td>
+										<td><input type="text" id="adult" name="adult" class="w25" value="<%=read.getAdult() %>"/></td>
 										<th>어린이(기본정원)</th>
-										<td colspan="2"><input type="text" id="kid" name="kid" class="w25" value="<%=read.getKid() %>"/></td>
+										<td><input type="text" id="kid" name="kid" class="w25" value="<%=read.getKid() %>"/></td>
 									</tr>
 									<tr>
 										<th>객실 소개</th>
-										<td colspan="5"><textarea id="instruction" name="instruction" style="width:100%;"><%=read.getInstruction() %></textarea></td>
+										<td><textarea id="instruction" name="instruction" style="width:100%;"><%=read.getInstruction() %></textarea></td>
+										<th>객실 이미지</th>
+										<td>
+											<table>
+												<colgroup>
+													<col width="60%" /> 
+													<col width="40%" />
+												</colgroup>
+												<tbody>
+													<tr>
+														<td>
+															<table id="table_i">
+																<tr>
+																	<td>			
+																		<input type="button" value="추가" class="w3 addBtn_i"></input>
+																	</td>
+																</tr>
+																<%
+																	if (list_i.size() == 0) {
+																%>
+																<%
+																	} else {
+																		for (int i = 0; i < list_i.size(); i++) {
+																			HashMap data = list_i.get(i);
+																%>
+																<tr class="addTr_i<%=i%>">
+																	<td>
+																<% if (data.get("image") == null || data.get("image") == "") { %>
+																	<input type="file" name="image_tmp" id="image_tmp" />
+																<% } else { %>
+																			<p>기존파일 : <%= Function.checkNull((String)data.get("image")) %><br/>
+																				<input type="checkbox" id="image_chk" name="image_chk" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
+																				<label for="image_chk">기존파일삭제</label>
+																			</p>
+																			<input type="file" name="image_tmp" id="image_tmp" />
+																			<input type="button" value="삭제" onclick="delTr_i('addTr_i<%=i%>', <%=data.get("no")%>, '<%=data.get("image")%>')"/>
+																	<% } %>
+																	</td>	
+																</tr>	
+																<%
+																		}
+																	}
+																%>
+															</table>
+														</td>
+													</tr>								
+												</tbody>
+											</table>
+										</td>
 									</tr>
 									<tr>
 										<th>체크인 시간</th>
-										<td colspan="2"><input type="text" id="checkin_time" name="checkin_time" class="w25" value="<%=read.getCheckin_time() %>"/></td>
+										<td><input type="text" id="checkin_time" name="checkin_time" class="w25" value="<%=read.getCheckin_time() %>"/></td>
 										<th>체크아웃 시간</th>
-										<td colspan="2"><input type="text" id="checkout_time" name="checkout_time" class="w25" value="<%=read.getCheckout_time() %>"/></td>
+										<td><input type="text" id="checkout_time" name="checkout_time" class="w25" value="<%=read.getCheckout_time() %>"/></td>
 									</tr>
 									<tr>
 										<th>객실 위치</th>
-										<td colspan="5"><input type="text" id="location" name="location" class="w50" value="<%=read.getLocation() %>"/></td>
+										<td colspan="3"><input type="text" id="location" name="location" class="w50" value="<%=read.getLocation() %>"/></td>
 									</tr>
 									<tr>
 										<th>객실 전망</th>
-										<td colspan="2"><input type="text" id="landscape" name="landscape" class="w25" value="<%=read.getLandscape() %>"/></td>
+										<td><input type="text" id="landscape" name="landscape" class="w25" value="<%=read.getLandscape() %>"/></td>
 										<th>객실 타입</th>
-										<td colspan="2"><input type="text" id="type" name="type" class="w25" value="<%=read.getType() %>"/></td>
+										<td><input type="text" id="type" name="type" class="w25" value="<%=read.getType() %>"/></td>
+									</tr>
+									<tr>
+										<th>편의시설</th>
+										<td>
+											<table>
+												<colgroup>
+													<col width="60%" />
+													<col width="40%" />
+												</colgroup>
+												<tbody>	
+													<tr>
+														<td>					
+															<table id="table_s">
+																<tr>
+																	<td><input type="button" value="추가" class="w3 addBtn" style="margin-bottom:5px;"></input></td> 
+																</tr>
+																<%
+																	if (list.size() == 0) {
+																%>
+																<%
+																	} else {
+																		for (int i = 0; i < list.size(); i++) {
+																			HashMap data = list.get(i);
+																%>
+																<tr class="addTr<%=i%>">
+																	<td><input type="text" name="name_s" value="<%=data.get("name")%>" style="width:40%;"/>
+																	<input type="button" value="삭제" onclick="delTr('addTr<%=i%>')"/></td>
+																</tr>
+																<%
+																		}
+																	}
+																%>
+															</table>
+														</td>
+													</tr>										
+												</tbody>
+											</table> 
+										</td>
 									</tr>
 								</tbody>
 							</table>
-							
-							<table border="0" cellspacing="0" cellpadding="0">
-								<colgroup>
-									<col width="15%" />
-								</colgroup>
-								<tbody>						
-									<input type="button" value="추가" class="w5 addBtn"></input>
-									<tr>
-										<td>
-										
-									<table id="table_s">
-										<tr>
-											<th>편의시설</th>
-											<th></th>
-										</tr>
-										<%
-											if (list.size() == 0) {
-										%>
-										<%
-											} else {
-												for (int i = 0; i < list.size(); i++) {
-													HashMap data = list.get(i);
-										%>
-										<tr class="addTr<%=i%>">
-											<td><input type="text" name="name_s" value="<%=data.get("name")%>"/></td>
-											<td><input type="button" value="삭제" onclick="delTr('addTr<%=i%>')"/></td>
-										</tr>
-										<%
-												}
-											}
-										%>
-									</table>
-										</td>
-									</tr>										
-								</tbody>
-							</table>
-							
-							<table border="0" cellspacing="0" cellpadding="0">
-								<colgroup>
-									<col width="15%" />
-								</colgroup>
-								<tbody>
-									<tr>
-										<td>			
-											<input type="button" value="추가" class="w5 addBtn_i"></input>
-										</td>
-									</tr>	
-									<tr>
-										<td>
-											<table id="table_i">
-												<tr>
-													<th>객실 이미지</th>
-													<th></th>
-												</tr>
-												<%
-													if (list_i.size() == 0) {
-												%>
-												<%
-													} else {
-														for (int i = 0; i < list_i.size(); i++) {
-															HashMap data = list_i.get(i);
-												%>
-												<tr class="addTr_i<%=i%>">
-													<td>
-												<% if (data.get("image") == null || data.get("image") == "") { %>
-													<input type="file" name="image_tmp" id="image_tmp" />
-												<% } else { %>
-															<p>기존파일 : <%= Function.checkNull((String)data.get("image")) %><br/>
-																<input type="checkbox" id="image_chk" name="image_chk" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
-																<label for="image_chk">기존파일삭제</label>
-															</p>
-															<input type="file" name="image_tmp" id="image_tmp" />
-															<td><input type="button" value="삭제" onclick="delTr_i('addTr_i<%=i%>', <%=data.get("no")%>, '<%=data.get("image")%>')"/></td>
-													<% } %>
-													</td>	
-												</tr>	
-												<%
-														}
-													}
-												%>
-											</table>
-										</td>
-									</tr>								
-								</tbody>
-							</table>
-							
 							<input type="hidden" name="cmd" value="edit" />
 							<input type="hidden" name="no" id="no" value="<%=param.getNo() %>"/>
 							</form>

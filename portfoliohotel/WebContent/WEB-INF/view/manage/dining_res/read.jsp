@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<%@ page import="dining.*"%>
+<%@ page import="dining_res.*"%>
 <%@ page import="java.util.*"%>
 <%
-DiningVO param = (DiningVO) request.getAttribute("vo");
-DiningVO data = (DiningVO) request.getAttribute("data");
+Dining_resVO param = (Dining_resVO) request.getAttribute("vo");
+Dining_resVO data = (Dining_resVO) request.getAttribute("data");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -11,16 +11,16 @@ DiningVO data = (DiningVO) request.getAttribute("data");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp"%>
 <script type="text/javascript">
-	<%-- function goDelete() {
+		function goDelete() {
 		var del = confirm ('삭제하시겠습니까?');
 		if (del){
 			document.location.href = "process?no=<%=data.getNo()%>&cmd=delete";
 		} else {
 			return false;
 		}
-	} --%>
+	} 
 
-	/* function goSave() {
+		function goSave() {
 		var save = confirm ('등록하시겠습니까?');
 		if (save){
 			$("#frm").submit();
@@ -28,17 +28,17 @@ DiningVO data = (DiningVO) request.getAttribute("data");
 		} else {
 			return false;
 		}
-	} */
+	} 
 
 	function goSave() {
-		if ($("#name").val() == "") {
-			alert("다이닝명을 입력해주세요.");
-			$("#name").focus();
+		if ($("#d_day").val() == "") {
+			alert("예약날짜를 입력해주세요.");
+			$("#d_day").focus();
 			return false;
 		}
-		if ($("#info").val() == "") {
-			alert("안내 작성해주세요.");
-			$("#info").focus();
+		if ($("#d_time").val() == "") {
+			alert("예약시간을 입력해주세요.");
+			$("#d_time").focus();
 			return false;
 		}
 		$("#frm").submit();
@@ -58,7 +58,7 @@ DiningVO data = (DiningVO) request.getAttribute("data");
 			<div id="container">
 				<div id="content">
 					<div class="con_tit">
-						<h2>다이닝관리- [상세]</h2>
+						<h2>다이닝 예약 관리- [상세]</h2>
 					</div>
 					<!-- //con_tit -->
 					<div class="con">
@@ -73,38 +73,39 @@ DiningVO data = (DiningVO) request.getAttribute("data");
 										<col width="15%" />
 										<col width="15%" />
 										<col width="15%" />
-										<col width="15%" />
-										<col width="15%" />
-										<col width="10%" />
 									</colgroup>
 									<tbody>
 										<tr>
-											<th scope="row"><label for="">다이닝명</label></th>
-											<td colspan="2"><%=data.getName()%></td>
+											<th scope="row"><label for="">예약날짜</label></th>
+											<td colspan="6"><%=data.getD_day()%></td>
+										</tr>
+										<tr>
+											<th scope="row"><label for="">회원명</label></th>
+											<td><%=data.getMember_name()%></td>
 											
-											<th scope="row"><label for="">가격</label></th>
-											<td colspan="2"><%=data.getPrice()%></td>
+											<th scope="row"><label for="">회원 연락처</label></th>
+											<td colspan="2"><%=data.getGuest_tel()%></td>
+										<tr>
+											<th scope="row"><label for="">다이닝명</label></th>
+											<td colspan="4"><%=data.getDining_name()%></td>
+										</tr>											 
+										<tr>
+											<th scope="row"><label for="">예약인원(성인)</label></th>
+											<td><%=data.getAdult()%></td>
+											
+											<th scope="row"><label for="">예약인원(어린이)</label></th>
+											<td colspan="2"><%=data.getKid()%></td>
 										</tr>
 										<tr>
-											<th scope="row"><label for="">운영기간 시작일</label></th>
-											<td colspan="2"><%=data.getStartdate()%></td>
+											<th scope="row"><label for="">예약일</label></th>
+											<td colspan="6"><%=data.getRegdate()%></td>
+										</tr>	
+										<tr>
+											<th scope="row"><label for="">결제 금액</label></th>
+											<td colspan="6"><%=data.getPrice()%></td>
+										</tr>	
+									
 										
-											<th scope="row"><label for="">운영기간 종료일</label></th>
-											<td colspan="2"><%=data.getEnddate()%></td>
-										</tr>
-										<tr>
-											<th scope="row"><label for="">예약 가능기간</label></th>
-											<td colspan="2"><%=data.getBook_period()%></td>
-										
-											<th scope="row"><label for="">포함내역</label></th>
-											<td colspan="2"><%=data.getInclusion()%></td>
-										</tr>
-										<tr>
-											<th scope="row"><label for="">안내</label></th>
-											<td colspan="5"><%=data.getInfo()%></td>
-										</tr>
-										<!-- <input type="hidden" name="product_pk" value="product_pk"> -->
-										<!-- value=서버로 넘길 값 -->
 									</tbody>
 									</table>
 								<div class="btn">

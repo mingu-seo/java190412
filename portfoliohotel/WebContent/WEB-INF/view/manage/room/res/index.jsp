@@ -1,11 +1,13 @@
 <%@ page contentType="text/html; charset=utf-8" %>
+<%@ page import="room.res.*" %>
 <%@ page import="room.*" %>
 <%@ page import="property.SiteProperty" %>
 <%@ page import="util.*" %>
 <%@ page import="java.util.*" %>
 <%
-ArrayList<RoomVO> list = (ArrayList)request.getAttribute("list");
-RoomVO param = (RoomVO)request.getAttribute("vo");
+ArrayList<Room_resVO> list = (ArrayList)request.getAttribute("list");
+Room_resVO param = (Room_resVO)request.getAttribute("vo");
+RoomVO rvo = (RoomVO)request.getAttribute("rvo");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -49,7 +51,7 @@ function goSearch() {
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>객실 관리 - [목록]</h2>
+					<h2>객실 예약 관리 - [목록]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">
@@ -59,28 +61,36 @@ function goSearch() {
 							<form name="frm" id="frm" action="process_del" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<colgroup>
-									<col class="w2" />
 									<col class="w3" />
-									<col class="w20" />
+									<col class="w3" />
 									<col class="w10" />
+									<col class="w10" />
+									<col class="w8" />
+									<col class="w20" />
 									<col class="w5" />
-									<col class="w2" />
+									<col class="w5" />
+									<col class="w10" />
+									<col class="w3" />
 								</colgroup>
 								<thead>
 									<tr>
 										<th scope="col" class="first"><input type="checkbox" name="allChk" id="allChk" onClick="check(this, document.frm.no)"/></th>
 										<th scope="col">번호</th>
-										<th scope="col">객실명</th> 
-										<th scope="col">가격</th>
-										<th scope="col">객실수량</th>										 
-										<th scope="col" class="last">삭제</th>
+										<th scope="col">체크인</th> 
+										<th scope="col">체크아웃</th> 
+										<th scope="col">예약 고객</th> 
+										<th scope="col">객실</th> 
+										<th scope="col">인원_성인</th> 
+										<th scope="col">인원_어린이</th> 
+										<th scope="col">예약일</th> 
+										<th scope="col"></th> 
 									</tr>
 								</thead>
 								<tbody>
 									<%
 									String targetUrl = "";
 									String topClass = "";
-									RoomVO data;
+									Room_resVO data;
 									
 									for (int i=0; i<list.size(); i++) {
 										data = list.get(i);
@@ -89,9 +99,13 @@ function goSearch() {
 									<tr>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
 										<td><%=data.getNo()%></td>
-										<td <%=targetUrl%>><%=data.getName()%></td>
-										<td><%=data.getPrice()%></td>
-										<td><%=data.getCount()%></td>
+										<td><%=data.getCheckin() %></td>
+										<td><%=data.getCheckout() %></td>
+										<td><%=data.getGuest_kname() %></td>
+										<td><%=data.getRoom_name() %></td>
+										<td><%=data.getAdult() %></td>
+										<td><%=data.getKid() %></td>
+										<td><%=data.getBookdate() %></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
 								<%

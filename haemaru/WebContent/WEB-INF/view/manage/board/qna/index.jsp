@@ -63,9 +63,11 @@ function goSearch() {
 								<colgroup>
 									<col class="w3" />
 									<col class="w5" />
-									<col class="w10" />
+									<col class="w5" />
+									<col class="w15" />
 									<col class="w20" />
-									<col class="" />
+									<col class="w15" />
+									<col class="w5" />
 									<col class="w5" />
 									<col class="w5" />
 								</colgroup>
@@ -75,15 +77,17 @@ function goSearch() {
 										<th scope="col">번호</th>
 										<th scope="col">카테고리</th>
 										<th scope="col">회원이메일</th> 
-										<th scope="col">제목</th>										<th scope="col">가격</th>
+										<th scope="col">제목</th>
+										<th scope="col">첨부파일</th>
 										<th scope="col">노출여부</th>
+										<th scope="col">등록일</th>
 										<th scope="col" class="last">삭제</th>
 									</tr>
 								</thead>
 								<tbody>
 								<% if (totCount == 0) { %>
 									<tr>
-										<td class="first" colspan="8">등록된 상품이 없습니다.</td>
+										<td class="first" colspan="8">등록된 질문이 없습니다.</td>
 									</tr>
 								<%
 									 } else {
@@ -98,10 +102,10 @@ function goSearch() {
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
 										<td <%=targetUrl%>><%=data.getNo()%></td>
 										<td <%=targetUrl%>><%=data.getCategory()%></td>
-										<td <%=targetUrl%>><%=data.getName()%></td>
-										<td <%=targetUrl%>><img src="/upload/product/<%=data.getImagename() %>" width="50px" height="50px"/></td>
-										<td <%=targetUrl%>><%=data.getInfo()%></td>
-										<td <%=targetUrl%>><%=data.getPrice()%></td>
+										<td <%=targetUrl%>><%=data.getEmail()%></td>
+										<td <%=targetUrl%>><%=data.getTitle()%></td>
+										<td <%=targetUrl%>><%=data.getFilename() %></a></td>
+										<td <%=targetUrl%>><%=data.getDisplay()%></td>
 										<td <%=targetUrl%>><%=DateUtil.getDateFormat(data.getRegistdate())%></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
@@ -131,13 +135,13 @@ function goSearch() {
 								<div class="search">
 									<select name="category" onchange="$('#searchForm').submit();">
 										<option value="0" <%=Function.getSelected(param.getCategory(), 0)%>>전체</option>
-										<option value="1" <%=Function.getSelected(param.getCategory(), 1)%>>남성의류</option>
-										<option value="2" <%=Function.getSelected(param.getCategory(), 2)%>>여성의류</option>
-										<option value="3" <%=Function.getSelected(param.getCategory(), 3)%>>아동의류</option>
+										<option value="1" <%=Function.getSelected(param.getCategory(), 1)%>>일반</option>
+										<option value="2" <%=Function.getSelected(param.getCategory(), 2)%>>입양</option>
+										<option value="3" <%=Function.getSelected(param.getCategory(), 3)%>>진료</option>
 									</select>
 									<select name="stype" title="검색을 선택해주세요">
 										<option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>
-										<option value="name" <%=Function.getSelected(param.getStype(), "name") %>>이름</option>
+										<option value="email" <%=Function.getSelected(param.getStype(), "email") %>>이메일</option>
 										<option value="title" <%=Function.getSelected(param.getStype(), "title") %>>제목</option>
 										<option value="contents" <%=Function.getSelected(param.getStype(), "contents") %>>내용</option>
 									</select>

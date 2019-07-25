@@ -719,7 +719,7 @@ public class CodeUtil {
 	}
 	 
 	 
-	// 룸 카테고리
+	 // 룸 카테고리
 	 public static String getRoomName(int room) {
 			String result = "";
 			if (room == 1) {
@@ -737,7 +737,39 @@ public class CodeUtil {
 			return result;
 		}	
 	 
-
+	 // 객실 예약 결제 방법
+	 public static String getPayMethod(int pay_method) {
+		 String result = "";
+		 if (pay_method == 0) {
+			 result = "무통장입금";
+		 } else if (pay_method == 1) {
+			 result = "신용카드";
+		 }
+		 return result;
+	 }
+	 
+	 // 객실 예약 결제 상태
+	 public static String getPayState(int pay_state) {
+		 String result = "";
+		 if (pay_state == 0) {
+			 result = "미결제";
+		 } else if (pay_state == 1) {
+			 result = "결제";
+		 }
+		 return result;
+	 }
+	 
+	 // 객실 예약 상태
+	 public static String getResState(int res_state) {
+			 String result = "";
+			 if (res_state == 0) {
+				 result = "취소";
+			 } else if (res_state == 1) {
+				 result = "예약";
+			 }
+			 return result;
+		 }
+	 
 	 public static String getGender(int gender) {
 			String result = "";
 			if (gender == 1) {

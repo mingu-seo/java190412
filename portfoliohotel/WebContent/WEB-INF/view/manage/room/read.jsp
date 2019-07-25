@@ -65,7 +65,7 @@ function goDelete() {
 								<tbody>
 									<tr>
 										<th>객실 종류</th>
-										<td colspan="5"><%=CodeUtil.getRoomName(read.getName())%> [<%=read.getName() %>]</td>
+										<td colspan="5"><%=read.getName()%></td>
 									</tr>
 									<tr>
 										<th>객실 가격</th>
@@ -115,7 +115,7 @@ function goDelete() {
 						
 							<div id="bbs">
 								<div id="blist">
-									<h3><%=CodeUtil.getRoomName(read.getName())%>의 편의시설 목록</h3>
+									<h3><%=read.getName()%>의 편의시설 목록</h3>
 									<table style="width:275px;" border="0" cellspacing="0" cellpadding="0">
 										<colgroup>											
 											<col class="w10" />
@@ -152,7 +152,7 @@ function goDelete() {
 							
 							<div id="bbs">
 								<div id="blist">
-									<h3><%=CodeUtil.getRoomName(read.getName())%>의 객실 이미지 목록</h3>
+									<h3><%=read.getName()%>의 객실 이미지 목록</h3>
 									<table style="width:275px;" border="0" cellspacing="0" cellpadding="0">
 										<colgroup>											
 											<col class="w10" />
