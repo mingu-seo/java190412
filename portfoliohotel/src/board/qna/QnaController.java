@@ -11,11 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import board.qna.QnaVO;
-import board.notice.NoticeVO;
 import board.qna.QnaService;
-import manage.admin.AdminVO;
 
-import room.Room_optVO;
 import util.Function;
 
 @Controller
@@ -43,6 +40,15 @@ public class QnaController {
 
 		return "membership/qna_q";
 	}
+	
+//	@RequestMapping("/membership/qna/processU")
+//	public String processU(Model model, QnaVO param, HttpServletRequest request) throws Exception {
+//		model.addAttribute("param", param);
+//		
+//		return "include/alert";
+//	}
+
+
 
 	// ======================= 관리자 ===============================================
 

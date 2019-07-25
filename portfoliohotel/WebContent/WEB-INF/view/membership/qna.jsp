@@ -3,6 +3,13 @@
 <%@ page import="property.SiteProperty" %>
 <%@ page import="util.*" %>
 <%@ page import="java.util.*" %>
+<%
+QnaVO param = (QnaVO)request.getAttribute("vo");
+ArrayList<QnaVO> list = (ArrayList)request.getAttribute("list");
+int totCount = (Integer)request.getAttribute("totCount");
+int totPage = (Integer)request.getAttribute("totPage");
+
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -170,15 +177,21 @@
                     <table>
                         <tr class="table-head">
                             <th>내용</th>
+                            <th>작성자</th>
                             <th>등록일</th>
+                            <th>답글여부</th>
                         </tr>
                         <tr>
                             <td><a href="#">┌ 회원탈퇴에 대한 답변입니다.</a></td>
                             <td class="table-date">2019-06-20</td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td><a href="#">회원탈퇴를 하고싶어요.</a></td>
                             <td class="table-date">2019-06-19</td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </table>
 
