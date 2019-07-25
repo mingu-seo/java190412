@@ -15,12 +15,12 @@
                             <h1 class="login-logo">
                                 <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                             </h1>
-                            <form class="login-form" method="POST" action="test.php">
+                            <form class="login-form" method="POST" action="/member/login">
                                 <div class="login-email">
-                                    <input type="text" maxlength="20" id="email_input" name="email_input" placeholder="E-Mail">
+                                    <input type="text" maxlength="20" id="email_input" name="email" placeholder="E-Mail">
                                 </div>
                                 <div class="login-password">
-                                    <input type="password" maxlength="12" id="id_pass" name="id_pass" placeholder="Password">
+                                    <input type="password" maxlength="12" id="id_pass" name="pw" placeholder="Password">
                                 </div>
                                 <div class="login-btn">
                                     <input type="submit" value="LOGIN"  id="btn_submit1">

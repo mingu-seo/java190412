@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+<<<<<<< HEAD
+  
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p %c{1} - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="sql_logfile_dailyfile" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="C:/java/git/java190412/haemaru/logs/sql4j.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %-5p %c{1} - %m%n" />
+        </layout>
+    </appender>
+    
+	<appender name="logfile_dailyfile" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="C:/java/git/java190412/haemaru/logs/log4j.log"/>
+        <param name="Append" value="true"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %-5p %c{1} - %m%n" />
+        </layout>
+    </appender>
+
+	<category name="com.ibatis">
+		<priority value="debug" />
+		<appender-ref ref="sql_logfile_dailyfile" />
+	</category>
+	
+	<category name="java.sql">
+		<priority value="debug" />
+		<appender-ref ref="sql_logfile_dailyfile" />
+	</category>
+	
+	<!-- 
+	<category name="org.apache.log4j">
+		<priority value="debug" />
+		<appender-ref ref="stdout_logfile_dailyfile" />
+	</category>
+	
+	<category name="System.out">
+		<priority value="debug" />
+		<appender-ref ref="logfile_dailyfile" />
+	</category>
+	-->
+=======
    
 	<appender name="console" class="org.apache.log4j.ConsoleAppender">
 		<param name="Target" value="System.out" />
@@ -48,6 +97,7 @@
 		<priority value="debug" />
 		<appender-ref ref="logfile_dailyfile" />
 	</category>
+>>>>>>> branch 'master' of https://github.com/mingu-seo/java190412.git
 
 	<root>
 	    <level value="debug"/>

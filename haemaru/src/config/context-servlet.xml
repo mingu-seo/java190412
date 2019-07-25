@@ -40,8 +40,6 @@
  	<mvc:view-controller path="/intro/intro-map.do"/>
  	<mvc:default-servlet-handler/>
  	
- 	<mvc:view-controller path="/my/my-pet.do"/>
- 	<mvc:default-servlet-handler/>
  	<mvc:view-controller path="/my/my-res.do"/>
  	<mvc:default-servlet-handler/>
  	<mvc:view-controller path="/my/my-ask.do"/>

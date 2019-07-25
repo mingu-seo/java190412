@@ -62,14 +62,14 @@ $(window).load(function(){
 		<div class="util">
 			<ul>
 				<li class="frist"><a href="#" onclick="window.open('<%=property.SiteProperty.COMPANY_URL%>');">Home</a></li>
-				<li><a href="<%=request.getContextPath()%>/manage/logout">LogOut</a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/member/join">LogOut</a></li>
 			</ul>
 		</div>
 		<!-- util : e --> 
 		
 		<div id="menu">
   			<ul class="menu">
-  				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>회원관리</span></a></li>
+  				<li><a href="<%=request.getContextPath()%>/manage/member/index" class="parent"><span>회원관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/room/index" class="parent"><span>객실관리</span></a>
 					<div class="standard_left">
 					<ul>
