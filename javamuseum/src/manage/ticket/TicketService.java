@@ -67,6 +67,10 @@ public class TicketService {
 		return r;
 	}
 	
+	public void reserveUpdate(TicketVO param) throws Exception {
+		ticketDao.reserveUpdate(param);
+	}
+	
 	public int delete(TicketVO param) throws Exception {
 		int r = ticketDao.delete(param.getNo());
 		

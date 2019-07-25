@@ -88,9 +88,8 @@ $(window).load(function(){
 					<ul>
 						<li><a href="<%=request.getContextPath()%>/manage/board/notice/index.do"><span>공지사항</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/review/index.do"><span>후기</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>자유게시판</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/faq/index.do"><span>자주하는질문</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/faq/"><span>FAQ분류관리</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/board/qna/index.do"><span>QnA</span></a></li>
 						
 					</ul>
 					</div>

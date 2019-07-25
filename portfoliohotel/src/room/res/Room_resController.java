@@ -44,8 +44,30 @@ public class Room_resController {
 		model.addAttribute("ovo", ovo);
 		model.addAttribute("list", list);
 		model.addAttribute("list_o", list_o);
+		
 		return "manage/room/res/write";
 	}
+	
+	@RequestMapping("/manage/room/res/read")
+	public String read(Model model, Room_resVO vo) throws Exception {
+		Room_resVO read = room_resService.read(vo);
+		
+		model.addAttribute("read", read);
+		model.addAttribute("vo", vo);
+		
+		return "manage/room/res/read";
+	}
+	
+	@RequestMapping("/manage/room/res/edit")
+	public String edit(Model model, Room_resVO vo) throws Exception {
+		Room_resVO read = room_resService.read(vo);
+		
+		model.addAttribute("read", read);
+		model.addAttribute("vo", vo);
+		
+		return "manage/room/res/edit";
+	}
+	
 	
 	@RequestMapping("/manage/room/res/process")
 	public String process(Model model, Room_resVO vo, HttpServletRequest request, RoomVO rvo) throws Exception {

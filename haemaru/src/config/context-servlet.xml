@@ -17,8 +17,8 @@
 	<context:component-scan base-package="doctor" />
 	<context:component-scan base-package="adopt" />
 	<context:component-scan base-package="sched" />
+	<context:component-scan base-package="qna" />
 	<context:component-scan base-package="reserve" />
-	
 	<mvc:annotation-driven/>
 <!-- 
 	<mvc:interceptors>
@@ -40,8 +40,6 @@
  	<mvc:view-controller path="/intro/intro-map.do"/>
  	<mvc:default-servlet-handler/>
  	
- 	<mvc:view-controller path="/my/my-pet.do"/>
- 	<mvc:default-servlet-handler/>
  	<mvc:view-controller path="/my/my-res.do"/>
  	<mvc:default-servlet-handler/>
  	<mvc:view-controller path="/my/my-ask.do"/>

@@ -64,5 +64,9 @@
          ]]>
     </select>
     
+    <select id="mypetsList" parameterClass="mypetvo" resultClass="mypetvo">
+        select * from mypet where member_pk=#no# ORDER BY registdate DESC 
+    </select>
+    
     
 </sqlMap>

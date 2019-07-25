@@ -110,11 +110,13 @@ $(function(){
 		var kid_add = 0;
 		if($("#adult option:selected").data("num") > $("#room_pk option:selected").data("adult")){
 			adult_add = ($("#adult option:selected").data("num") - $("#room_pk option:selected").data("adult"))*100000;
-		} else {
+			$("#adult_add").text("[추가인원 "+ ($("#adult option:selected").data("num") - $("#room_pk option:selected").data("adult")) +"]");
+		} else { 
 			adult_add = 0;
 		}
 		if($("#kid option:selected").data("num") > $("#room_pk option:selected").data("kid")){
 			kid_add = ($("#kid option:selected").data("num") - $("#room_pk option:selected").data("kid"))*(100000*0.7);
+			$("#kid_add").text("[추가인원 "+ ($("#kid option:selected").data("num") - $("#room_pk option:selected").data("kid")) +"]");
 		} else {
 			kid_add = 0;
 		}
@@ -131,6 +133,13 @@ $(function(){
 		var time_out = new Date(arr_out[0], arr_out[1], arr_out[2]);
 		day_stay = (time_out.getTime() - time_in.getTime())/(1000*60*60*24);
 	});
+	
+	$("#pay_state").change(function() {
+		if($("#pay_state option:selected").val() == 1) {
+			$("#paydate").text("<%=DateUtil.getToday() %>");
+			$("#paydate").val("<%=DateUtil.getToday() %>");
+		}
+	})
 	
 });
 
@@ -209,6 +218,7 @@ $(function(){
 												} 
 												%>
 											</select>
+											<b><span id="adult_add" style="color:#4C9A2A;"></span></b>
 										</td>
 										<th>어린이</th>
 										<td>
@@ -222,6 +232,7 @@ $(function(){
 												} 
 												%>
 											</select>
+											<b><span id="kid_add" style="color:#4C9A2A;"></span></b>
 										</td>
 									</tr>
 									<tr>
@@ -235,7 +246,7 @@ $(function(){
 													<tr style="height:30px;">
 														<td><%=list_o.get(i).getName() %></td>
 														<td>
-															<select name="price_opt<%=i %>" class="price_opt">
+															<select name="price_opt<%=i %>" class="price_opt" data-opt="<%=list_o.get(i).getNo() %>">
 																<option value="">옵션 선택</option>
 																<%
 																for(int j=0; j<5; j++) {
@@ -302,8 +313,8 @@ $(function(){
 												<option value="1"><%=CodeUtil.getPayState(1) %></option>
 											</select>
 										</td>
-										<th>예약일</th>
-										<td><%=DateUtil.getToday() %></td>
+										<th>결제일</th>
+										<td><span id="paydate" name="paydate"></span></td>
 									</tr>									
 								</tbody>
 							</table>
