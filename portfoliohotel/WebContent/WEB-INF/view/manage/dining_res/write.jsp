@@ -11,12 +11,13 @@ Dining_resVO param = (Dining_resVO)request.getAttribute("vo");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp" %>
 <script>
+jQuery(window).load(function() {
+	initCal({id:"d_day",type:"day",today:"y"});
+});
+
+function goSave() {
 	
-	jQuery(window).load(function(){
-		initCal({id:"d_day",type:"day",today:"y"});
-		initCal({id:"d_time",type:"day",time:"y"});
-	});
-	
+}
 
 </script>
 </head>
@@ -43,67 +44,52 @@ Dining_resVO param = (Dining_resVO)request.getAttribute("vo");
 							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do"  onsubmit="return goSave();">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
-									<col width="5%" />
-									<col width="25%" />
-									<col width="5%" />
-									<col width="25%" />
+									<col width="10%" />
+									<col width="35%" />
+									<col width="10%" />
+									<col width="35%" />
 								</colgroup>
 								<tbody>
 									<tr>
-										<th scope="row"><label for="">예약날짜</label></th>
-										<td>
-											<input type="text" id="d_day" name="d_day" class="inputTitle" value="" title="예약날짜일을 입력해주세요" />&nbsp;
-											<span id="CalstartdateIcon">
-												<img src="/manage/img/calendar_icon.png" id="CalstartdateIconImg" style="cursor:pointer;"/>
-											</span>
+										<th scope="row"><label for="">다이닝 종류</label></th>
+										<td colspan="3">
+											<input type="text" id="dining_pk" name="dining_pk" class="w10" title="예약인원을 입력해주세요" />	
 										</td>
 									</tr>
+									
 									<tr>
-										<th scope="row"><label for="">예약시간</label></th>
-										<td>
-											<input type="text" id="d_time" name="d_time" class="inputTitle" value="" title="예약시간을 입력해주세요" />&nbsp;
-											<span id="CalstartdateIcon">
-												<img src="/manage/img/calendar_icon.png" id="CalstartdateIconImg" style="cursor:pointer;"/>
-											</span>
+										<th scope="row"><label for="">결제 금액</label></th>
+										<td colspan="3">
+											<input type="text" id="price" name="price" class="w10" title="예약인원을 입력해주세요" />	
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">예약인원(성인)</label></th>
 										<td colspan="3">
-											<input type="text" id="adult" name="adult" class="w5" title="예약인원을 입력해주세요" />	
+											<input type="text" id="adult" name="adult" class="w10" title="예약인원을 입력해주세요" />	
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">예약인원(어린이)</label></th>
 										<td colspan="3">
-											<input type="text" id="kid" name="kid" class="w5" title="예약인원을 입력해주세요" />	
+											<input type="text" id="kid" name="kid" class="w10" title="예약인원을 입력해주세요" />	
 										</td>
 									</tr>
 									<tr>
-										<th scope="row"><label for="">투숙객 한글명</label></th>
-										<td colspan="3">
-											<input type="text" id="guest_kname" name="guest_kname" class="w10" title="투숙객 한글명을 입력해주세요" />	
+										<th scope="row"><label for="">예약날짜</label></th>
+										<td>
+											<input type="text" id="d_day" name="d_day" class="inputTitle" value="" title="예약날짜일을 입력해주세요" />&nbsp;
+											<span id="Cald_dayIcon">
+												<img src="/manage/img/calendar_icon.png" id="Cald_dayIconImg" style="cursor:pointer;"/>
+											</span>
 										</td>
 									</tr>
 									<tr>
-										<th scope="row"><label for="">투숙객 영문명</label></th>
+										<th scope="row"><label for="">예약시간</label></th>
 										<td colspan="3">
-											<input type="text" id="guest_ename" name="guest_ename" class="w10" title="투숙객 영문명을 입력해주세요" />	
+											<input type="text" id="d_time" name="d_time" class="w10" title="예약시간을 입력해주세요" />	
 										</td>
 									</tr>
-									<tr>
-										<th scope="row"><label for="">투숙객 연락처</label></th>
-										<td colspan="3">
-											<input type="text" id="guest_tel" name="guest_tel" class="w10" title="투숙객 연락처를 입력해주세요" />	
-										</td>
-									</tr>
-									<tr>
-										<th scope="row"><label for="">투숙객 이메일</label></th>
-										<td colspan="3">
-											<input type="text" id="guest_email" name="guest_email" class="w15" title="이메일을 입력해주세요" />	
-										</td>
-									</tr>
-									
 									
 									
 								</tbody>

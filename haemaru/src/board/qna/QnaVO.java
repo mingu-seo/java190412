@@ -14,6 +14,7 @@ public class QnaVO extends Parameter {
 	private int member_pk;
 	private String filename;
 	private String filename_org;
+	private String filename_chk;
 	private Timestamp registdate;
 	private int display;
 		
@@ -83,6 +84,15 @@ public class QnaVO extends Parameter {
 
 	public void setFilename_org(String filename_org) {
 		this.filename_org = filename_org;
+	}
+	
+
+	public String getFilename_chk() {
+		return filename_chk;
+	}
+
+	public void setFilename_chk(String filename_chk) {
+		this.filename_chk = filename_chk;
 	}
 
 	public Timestamp getRegistdate() {

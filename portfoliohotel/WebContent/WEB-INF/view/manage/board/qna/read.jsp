@@ -27,6 +27,15 @@ function goDelete() {
 			return false;
 		}
 	}
+function goDelete_reply() {
+	var del = confirm ('삭제하시겠습니까?');
+	if (del){
+		document.location.href = "/manage/board/qna/process?no=<%=data.getNo()%>&cmd=delete_reply";
+		} else {
+			return false;
+		}
+	}
+
 	
 
 
@@ -68,7 +77,7 @@ function goSave() {
 						<!-- 내용 : s -->
 						<div id="bbs">
 							<div id="bread">
-								<h3>기본 정보</h3>
+								<h3>문의글</h3>
 								<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" enctype="multipart/form-data" onsubmit="return goSave();">
 								<table width="100%" border="0" cellspacing="0" cellpadding="0"
 									summary="관리자 관리 기본내용입니다.">
@@ -81,6 +90,12 @@ function goSave() {
 										<col width="15%" />
 									</colgroup>
 									<tbody>
+									
+									<% 
+									String[] emailArr= data.getEmail().split(",");
+									String[] nameArr= data.getName().split(",");
+									String[] telArr=data.getTel().split(",");
+									%>
 									<tr>
 										<th scope="row"><label for="">공개여부</label></th>
 										<td>
@@ -88,20 +103,20 @@ function goSave() {
 										</td>
 										<th scope="row"><label for="">카테고리</label></th>
 										<td colspan="3">
-											<%=data.getCategory()%>
+											<%=CodeUtil.getCategory_name(data.getCategory()) %>
 										</td>
 										
 									</tr>
 									<tr>
 										<th scope="row"><label for="">이름</label></th>
 										<td >
-											<%=data.getName()%>
+											<%=nameArr[0]%><%=nameArr[1]%>
 											
 										</td>
 										
 										<th scope="row"><label for="">연락처</label></th>
 										<td colspan="4">
-											<%=data.getTel()%>
+											<%=telArr[0]%>-<%=telArr[1]%>-<%=telArr[2]%>
 										</td>
 										
 									
@@ -109,7 +124,8 @@ function goSave() {
 									<tr>
 										<th scope="row"><label for="">이메일</label></th>
 										<td >
-											<%=data.getEmail()%>
+											<%=emailArr[0]%><%=emailArr[1]%>
+											
 											
 										</td>
 										<th scope="row"><label for="">게시글 비밀번호</label></th>
@@ -176,73 +192,66 @@ function goSave() {
 					</div>
 					<!--//con -->
 					<div class="con_tit">
-					<%-- <h2>QnA 답변보기 <input type="button" value="QnA 답변" id="replyListBtn"/></h2>
+					
 				</div>
 				<div class="con">
 					<div id="bbs">
 						<div id="blist">
-							
+							<%
+							if (data.getReply() == 0) {
+							%>
+							<table width="0px" border="0"></table>
+							<%
+							}else if (data.getReply() == 1){
+							%>
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<colgroup>
-									<col class="w10"/>
+									<col class="w20"/>
 									<col class=""/>
-									<col class="w10"/>
+									
 								</colgroup>
 								<thead>
 									<tr>
 										<th scope="col" class="first">이메일 전송 여부</th>
 										<th scope="col">내용</th>
-										<th scope="col" class="last"></th>
 									</tr>
 								</thead>
 								<tbody>
-								<%
-										if (data.getReply() == 0) {
-								%>
-								<form id="replyFrm">
+									
 									<tr>
 										<td>
-											<input type="radio" name="send_email" value="0">미전송 </input>
-											<input type="radio" name="send_email" value="1">전송</input>
+											<%=CodeUtil.getSend_Email(data.getSend_email()) %>
+										</td>
+										<td colspan="5">
+											<%=data.getReply_contents()%>
 										</td>
 										
-										<td>
-											<textarea style="width:100%;" name="" rows="3" id="reply_contents"></textarea>
-										</td>
-										<td><input type="button" value="후기 저장" id="replyInsertBtn"/></td>
 									</tr>
-								<input type="hidden" name="member_pk" value="<%=data.getNo() %>"/>
-								<input type="hidden" name="reply_title" value="re:"<%=data.getTitle() %>"/>
-								<input type="hidden" name="reply" value="0"/>
-								</form>
-								<%
-										} else if(data.getReply() == 1){
-								%>
-								<form id="replyFrm">
-									<tr>
-										<td>
-											<input type="radio" name="send_email" value="0"  ${data.send_email == 0 ? "selected" : ""}>미전송 </input>
-											<input type="radio" name="send_email" value="1"  ${data.send_email == 1 ? "selected" : ""}>전송</input>
-										</td>
-										
-										<th scope="row"><label for="">내용</label></th>
-										<td colspan="4">
-											<textarea id="reply_contents" name="reply_contents" title="내용을 입력해주세요" style="width:100%;" value="<%=Function.checkNull(data.getReply_contents())%>" ></textarea>	
-										</td>
-										<td><input type="button" value="후기 저장" id="replyInsertBtn"/></td>
-									</tr>
-								<input type="hidden" name="member_pk" value="<%=data.getNo() %>"/>
-								<input type="hidden" name="reply_title" value="re:"<%=data.getTitle() %>"/>
-								<input type="hidden" name="reply" value="1"/>
-								</form>
-								<%
-										}
-								%>
+									<%-- <%
+									}
+									%> --%>
 								</tbody>
 							</table>
-						</div>
-						
-						<div id="blist" class="replyListArea"> --%>
+							<form>
+								<input type="hidden" name="no" value="<%=data.getNo() %>"/>
+								<input type="hidden" name="reply_title" value="re:<%=data.getTitle() %>"/>
+								<input type="hidden" name="reply" value="<%=data.getReply() %>"/>
+								<input type="hidden" name="cmd" value="write_reply" />
+							</form>
+							
+							<div class="btn">
+								<div class="btnRight">
+									<a class="btns" href="<%=param.getTargetURLParam("edit_reply", param, data.getNo())%>"><strong>답변수정</strong></a>
+								</div>
+								<div class="btnRight">
+									<a class="btns" href="#" onClick="goDelete_reply();"><strong>답변삭제</strong></a>
+								</div>
+							</div>
+							<%
+							}
+							%>
+							
+						<div id="blist">
 						
 						</div>
 					</div>

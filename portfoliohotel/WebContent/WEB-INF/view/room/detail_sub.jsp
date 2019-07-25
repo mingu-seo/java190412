@@ -63,7 +63,7 @@ ArrayList<HashMap> list_i = (ArrayList<HashMap>)request.getAttribute("list_image
     <div id="container">
         <div class="container">
             <!-- 서브페이지 상단 타이틀 -->
-            <h1><%=CodeUtil.getRoomName(read.getName())%></h1>
+            <h1><%=read.getName()%></h1>
 
             <!-- 객실 사진 슬라이드 영역 -->
             <div class="slide">
