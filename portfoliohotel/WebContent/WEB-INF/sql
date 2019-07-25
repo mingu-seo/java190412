@@ -191,5 +191,6 @@ CREATE TABLE `qna` (
   `send_email` int(11) DEFAULT NULL,
   `name` varchar(45) DEFAULT NULL,
   `filesize` mediumtext,
+  `file_chk` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8

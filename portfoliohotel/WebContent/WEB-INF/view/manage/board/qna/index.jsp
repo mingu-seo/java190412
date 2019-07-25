@@ -142,7 +142,7 @@ function goSearch() {
 								</div>
 								<div class="btnRight">
 									<a class="wbtn" href="write.do"><strong>등록</strong> </a>
-								</div>
+								</div>제목
 							</div>
 							<!--//btn-->
 							<!-- 페이징 처리 -->
