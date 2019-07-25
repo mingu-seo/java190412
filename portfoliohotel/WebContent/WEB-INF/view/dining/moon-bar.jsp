@@ -78,7 +78,7 @@
                                             <ul class="Dining">
                                                 <li><a href="#">The Festa</a></li>
                                                 <li><a href="#">Granum Dining Lounge</a></li>
-                                                <li><a href="moon-bar.do">Moon Bar</a></li>
+                                                <li><a href="moon-bar">Moon Bar</a></li>
                                                 <li><a href="#">The Oasis Outdoor Kitchen</a></li>
                                             </ul>
                                         </div>
