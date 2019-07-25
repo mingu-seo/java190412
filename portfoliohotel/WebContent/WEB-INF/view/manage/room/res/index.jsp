@@ -101,11 +101,11 @@ function goSearch() {
 										<td><%=data.getNo()%></td>
 										<td><%=data.getCheckin() %></td>
 										<td><%=data.getCheckout() %></td>
-										<td><%=data.getGuest_kname() %></td>
+										<td <%=targetUrl%>><%=data.getGuest_kname() %></td>
 										<td><%=data.getRoom_name() %></td>
 										<td><%=data.getAdult() %></td>
 										<td><%=data.getKid() %></td>
-										<td><%=data.getBookdate() %></td>
+										<td <%=targetUrl%>><%=data.getBookdate() %></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
 								<%
