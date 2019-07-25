@@ -81,7 +81,7 @@ $(window).load(function(){
 						</ul>
 					</div>
 				</li>
-				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>후기 관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/review/index" class="parent"><span>후기 관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/board/notice/index.do" class="parent"><span>고객지원</span></a>
 					<div class="standard_left">
 					<ul>
@@ -89,7 +89,7 @@ $(window).load(function(){
 						<li><a href="<%=request.getContextPath()%>/manage/board/event/index"><span>이벤트</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>자유게시판</span></a></li>
 						<li><a href="<%=request.getContextPath()%>/manage/board/qna/index"><span>1:1문의</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/board/"><span>FAQ분류관리</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/board/faq/index"><span>FAQ분류관리</span></a></li>
 						
 					</ul>
 					</div>

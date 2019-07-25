@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <div id="header">
         <div class="header-center">
             <div class="pc-header">
@@ -8,11 +9,11 @@
                             <div class="pc-sub">
                                     <div class="pc-sub-center">
                                         <div class="pc-sub-box">
-                                            <h2><a href="/pkg/special_promotion">Promotion</a></h2>
+	                                        <h2><a href="/pkg/special_promotion">Promotion</a></h2>
                                             <ul class="offer">
                                                 <li><a href="/pkg/room/room_offer">Room Package</a></li>
-                                                <li><a href="/pkg/room/room_offer">Dining Package</a></li>
-                                                <li><a href="/pkg/room/room_offer">Events & Gift</a></li>
+                                                <li><a href="/pkg/dining/dining_offer">Dining Package</a></li>
+                                                <li><a href="/pkg/event_gift/etc_offer">Events & Gift</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -88,7 +89,7 @@
                                                         호텔 공지사항과<br/>
                                                         놓칠 수 없는 이벤트 정보를 알려드립니다.
                                                     </li>
-                                                    <li class="support-icon"><img src="../img/notice-icon.png"></li>
+                                                    <li class="support-icon"><img src="/img/notice-icon.png"></li>
                                                 </ul>
                                                 </a>
                                             </div>
@@ -100,7 +101,7 @@
                                                         호텔에 대한<br/>
                                                         자주 묻는 질문입니다.
                                                     </li>
-                                                    <li class="support-icon"><img src="../img/faq-icon.png"></li>
+                                                    <li class="support-icon"><img src="/img/faq-icon.png"></li>
                                                 </ul>
                                                 </a>
                                             </div>
@@ -112,7 +113,7 @@
                                                         호텔에 관한질문 사항이나 궁금한 점을<br/> 
                                                         남겨 주시면 신속하게 답변을 드리겠습니다.
                                                     </li>
-                                                    <li class="support-icon"><img src="../img/qna-icon.png"></li>
+                                                    <li class="support-icon"><img src="/img/qna-icon.png"></li>
                                                 </ul>
                                                 </a>
                                         </div>

@@ -13,6 +13,7 @@ import property.SiteProperty;
 import util.FileUtil;
 import util.Page;
 import util.Function;
+import mypet.MypetVO;
 
 @Service
 public class MypetService {
@@ -83,5 +84,8 @@ public class MypetService {
 		return r;
 	}
 	
+	public ArrayList<MypetVO> mypetsList(MypetVO param) throws Exception {
+		return mypetDAO.mypetsList(param);
+	}
 	
 }

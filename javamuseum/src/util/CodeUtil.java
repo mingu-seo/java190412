@@ -874,4 +874,65 @@ public class CodeUtil {
 	        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getPointName(1)+"</option>");
 	        return result.toString();
 	    }
+
+
+
+//예매 상태 노출
+	public static String getResStateSave(int reservestate) {
+		String result = "";
+		if(reservestate == 1) {
+			result = "예매 완료";
+		} else {
+			result = "예매 취소";
+		}
+		return result;
+	}
+	//결제 상태 노출
+	public static String getPayStateSave(int paystate) {
+		String result = "";
+		if(paystate == 1) {
+			result = "결제 완료";
+		} else {
+			result = "결제 대기";
+		}
+		return result;
+	}
+	//환불 상태 노출
+	public static String getRefunState(int refundstate) {
+		String result = "";
+		if(refundstate == 1) {
+			result = "-";
+		} else {
+			result = "환불 완료";
+		}
+		return result;
+	}
+
+
+	//대관 관 선택
+	public static String getHallnum(int arg) {
+		StringBuffer result = new StringBuffer();
+		result.append("<option value='1'"+Function.getSelected(1,arg)+">1</option>");
+		result.append("<option value='2'"+Function.getSelected(2,arg)+">2</option>");
+		result.append("<option value='3'"+Function.getSelected(3,arg)+">3</option>");
+		result.append("<option value='4'"+Function.getSelected(4,arg)+">4</option>");
+		result.append("<option value='5'"+Function.getSelected(5,arg)+">5</option>");
+		result.append("<option value='6'"+Function.getSelected(6,arg)+">6</option>");
+		result.append("<option value='7'"+Function.getSelected(7,arg)+">7</option>");
+		result.append("<option value='8'"+Function.getSelected(8,arg)+">8</option>");
+		result.append("<option value='9'"+Function.getSelected(9,arg)+">9</option>");
+
+		return result.toString();
+	}
+
+
+
+	 	
 }
+
+
+
+
+
+
+

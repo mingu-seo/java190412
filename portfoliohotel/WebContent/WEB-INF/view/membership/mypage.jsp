@@ -1,4 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="board.member.*" %>
+<%@ page import="util.*" %>
+<%@ page import="java.util.*" %>
+<%
+MemberVO param = (MemberVO)request.getAttribute("vo");
+MemberVO data = (MemberVO)request.getAttribute("data");
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -183,17 +191,26 @@
             <div class="reservation-status-right">
                 <div class="my-info">
                     <h4>
-                        배경민 님<br/>
+  <%-- <td colspan="3"><%=data.getName()%> </td> --%>
+			배경민 님<br/>
                         환영합니다 !
                     </h4>
                     <table>
                         <tr>
                             <td>회원등급</td>
+                            
                             <td>VIP</td>
-                        </tr>
+                        </tr> 
+                        <%-- <tr>
+							<th scope="row"><label for="">등급</label></th>
+							<td colspan="3"><%=CodeUtil.getMgrade(data.getGrade())%></td>
+										
+						</tr> --%>
                         <tr>
                             <td>포인트</td>
                             <td>10,000P</td>
+                            <%-- <th scope="row"><label for="">포인트</label></th>
+							<td colspan="3"><%=data.getPoint()%></td> --%>
                         </tr>
                     </table>
                 </div>

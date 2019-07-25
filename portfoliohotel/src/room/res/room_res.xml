@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="room_res">
+	<typeAlias alias="room_resVO" type="room.res.Room_resVO"/>
+	
+	<select id="list" parameterClass="room_resVO" resultClass="room_resVO">
+		SELECT * FROM room_res
+	</select>
+	
+	<insert id="insert" parameterClass="room_resVO">
+		INSERT INTO room_res 
+			(room_pk, room_name, member_pk, checkin, checkout, bookdate, adult, kid,
+			room_price, person_price, option_price, charge_price, total_price, 
+			guest_kname, guest_ename, guest_tel, guest_email, 
+			pay_method, pay_state, res_state)
+		VALUES (#room_pk#, #room_name#, #member_pk#, #checkin#, #checkout#, now(), #adult#, #kid#,
+				#room_price#, #person_price#, #option_price#, #charge_price#, #total_price#, 
+				#guest_kname#, #guest_ename#, #guest_tel#, #guest_email#, 
+				#pay_method#, #pay_state#, #res_state#)	
+		<selectKey keyProperty="no" resultClass="Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	
+	<update id="update" parameterClass="room_resVO">
+		UPDATE room_res SET
+			guest_kname=#guest_kname#, guest_ename=#guest_ename#, guest_tel=#guest_tel#, 
+			guest_email=#guest_email#, pay_method=#pay_method#, pay_state=#pay_state#, 
+			<isEqual property="pay_state" compareValue="1">
+				paydate=#paydate#,
+			</isEqual>
+			res_state=#res_state#
+		WHERE no=#no#
+	</update>
+	
+	<select id="read" parameterClass="room_resVO" resultClass="room_resVO">
+		SELECT * FROM room_res 
+		WHERE no=#no#
+	</select>
+	
+	
+	
+	<typeAlias alias="room_opt_resVO" type="room.res.Room_opt_resVO"/>
+	
+	<insert id="insert_opt" parameterClass="room_opt_resVO">
+		INSERT INTO room_opt_res
+			(room_res_pk, option_pk, count, name, price, total_price)
+		VALUES (#room_res_pk#, #option_pk#, #count#, #name#, #price#, #total_price#)
+	</insert>
+	
+	
+	
+	
+</sqlMap>

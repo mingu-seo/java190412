@@ -78,14 +78,14 @@ public class QnaDAO extends SqlMapClientDAOSupport {
 	 * @throws SQLException
 	 */
 	
-	/*
-	 * public int insertReply(QnaVO vo)throws SQLException{ return
-	 * (Integer)getSqlMapClient().insert("qna.insertReply",vo); } public int
-	 * replyDelete(int no) throws SQLException { return
-	 * getSqlMapClient().delete("qna.replyDelete", no); }
-	 */
-	public int insertReply(QnaVO vo) throws SQLException {
-		return (Integer)getSqlMapClient().insert("qna.insertReply",vo);
+	/* 관리자 답변  쓰기, 수정*/ 
+	public int updateReply(QnaVO vo) throws SQLException {
+		return (Integer)getSqlMapClient().update("qna.updateReply",vo);
+	}
+	
+	/* 관리자 답변  삭제 */
+	public int deleteReply(QnaVO vo) throws SQLException {
+		return getSqlMapClient().delete("qna.deleteReply", vo);
 	}
 	
 	
@@ -98,4 +98,6 @@ public class QnaDAO extends SqlMapClientDAOSupport {
 	
 		
 	}
+
+	
 }

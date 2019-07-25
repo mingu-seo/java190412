@@ -49,7 +49,7 @@ function goSave() {
 					<div id="bbs">
 						<div id="bread">
 							<h3>반려동물 기본 정보</h3>
-							<form name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" method="post">
+							<form name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" method="post" enctype="multipart/form-data">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="반려동물 관리 기본내용입니다.">
 								<colgroup>
 									<col width="15%" />
@@ -103,7 +103,7 @@ function goSave() {
 									</tr>
 								</tbody>
 							</table>
-							<input type="hidden" name="cmd" value="edit">
+							<input type="hidden" name="cmd" value="edit"/>
 							<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
 							<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
 							<input type="hidden" name="no" id="no" value="<%=param.getNo()%>"/>

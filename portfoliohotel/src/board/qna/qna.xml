@@ -8,8 +8,12 @@
 	<sql id="searchSql">		
 		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where">
-			<isNotEqual property="open" compareValue="0">
-			    open = #open#
+		1=1
+			<isNotEqual property="reply" compareValue="-1">
+			    and reply = #reply#
+			</isNotEqual>
+			<isNotEqual property="open" compareValue="-1">
+			    and open = #open#
 			</isNotEqual>
 			<!-- 검색어 검색 -->
 			<isNotEqual property="sval" compareValue="">
@@ -34,7 +38,7 @@
 	<select id="list" parameterClass="qna_vo" resultClass="qna_vo">
         select 
    			no, category, email, name,  tel, password, title, contents,
-        	regdate, file_org, file, filesize, open
+        	regdate, file_org, file, filesize, reply, open
         from qna
         <include refid="searchSql" />
 		ORDER BY regdate DESC LIMIT $startPageNo$, $pageRows$
@@ -44,10 +48,10 @@
     <insert id="insert" parameterClass="qna_vo">
         INSERT INTO qna (
         	category, email, name,  tel, password, title, contents,
-        	regdate, file_org, file, filesize, open
+        	regdate, file_org, file, filesize, open, reply, send_email
         ) VALUES (
         	#category#, #email#, #name#, #tel#, #password#, #title#, #contents#, 
-        	now(), #file_org#, #file#, #filesize#, #open#  
+        	now(), #file_org#, #file#, #filesize#, #open#, #reply#, #send_email#
         )
         <selectKey keyProperty="no" resultClass="Integer">
         	SELECT LAST_INSERT_ID()
@@ -56,7 +60,7 @@
     
      <select id="read" parameterClass="qna_vo" resultClass="qna_vo">
         select no, category, email, name,  tel, password, title, contents,
-        	regdate, file_org, file, filesize, open FROM qna where no=#no#
+        	regdate, file_org, file, filesize, open, send_email, reply ,reply_contents FROM qna where no=#no#
    	 </select>
    	 
    	 <delete id="delete" parameterClass="qna_vo">
@@ -92,5 +96,22 @@
 			SELECT  LAST_INSERT_ID()		<!-- MemberDAO.java 39열  //마지막 등록된 id의 no를 integer로 가져옴 -->
 		</selectKey>
     </insert> 
+    
+    <update id="updateReply" parameterClass="qna_vo">
+        UPDATE qna SET
+        	reply=#reply#, reply_title=#reply_title#, reply_contents=#reply_contents#, 
+        	
+         <isNotEqual property="reply_regdate" compareValue="">
+       	    reply_regdate = now(),
+       	</isNotEqual>
+        	send_email=#send_email#
+        WHERE no = #no#
+    </update>
+    
+     <update id="deleteReply" parameterClass="qna_vo">
+       UPDATE qna SET
+        	reply="0", reply_title=null, reply_contents=null, reply_regdate = null, send_email="0"
+       WHERE no = #no#
+    </update>
     
  </sqlMap>
