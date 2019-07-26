@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import util.Function;
-import util.Page;
 
 @Controller
 public class DiningController {
@@ -31,22 +30,22 @@ public class DiningController {
 
 		return "manage/dining/index";
 	}
-	
+
 	@RequestMapping("/manage/dining/read")
 	public String read(Model model, DiningVO param) throws Exception {
 		DiningVO data = diningService.read(param.getNo());
 		model.addAttribute("data", data);
 		model.addAttribute("vo", param);
-		
-		return "manage/dining/read";
+
+		return "manage/dining/thefesta";
 	}
-	
+
 	@RequestMapping("/manage/dining/edit")
 	public String edit(Model model, DiningVO param) throws Exception {
 		DiningVO data = diningService.read(param.getNo());
 		model.addAttribute("data", data);
 		model.addAttribute("vo", param);
-		
+
 		return "manage/dining/edit";
 	}
 
@@ -59,7 +58,9 @@ public class DiningController {
 
 	@RequestMapping("/dining/thefesta")
 	public String thefesta(Model model, DiningVO param) throws Exception {
-
+		DiningVO data = diningService.read(36);
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
 		return "dining/thefesta";
 	}
 
@@ -90,9 +91,9 @@ public class DiningController {
 	@RequestMapping("/manage/dining/process.do")
 	public String process(Model model, DiningVO param, HttpServletRequest request) throws Exception {
 		model.addAttribute("vo", param);
-		
+
 		if ("write".equals(param.getCmd())) {
-			System.out.println("info:"+param.getInfo());
+			System.out.println("info:" + param.getInfo());
 			int r = diningService.insert(param, request);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
@@ -105,7 +106,7 @@ public class DiningController {
 		} else if ("groupDelete".equals(param.getCmd())) {
 			int r = diningService.groupDelete(request);
 			model.addAttribute("code", "alertMessageUrl");
-			model.addAttribute("message", Function.message(r, "총 "+r+"건이 삭제되었습니다.", "삭제실패"));
+			model.addAttribute("message", Function.message(r, "총 " + r + "건이 삭제되었습니다.", "삭제실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		} else if ("delete".equals(param.getCmd())) {
 			int r = diningService.delete(param.getNo());
@@ -113,7 +114,9 @@ public class DiningController {
 			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		}
-		
+
 		return "include/alert";
 	}
 }
+
+

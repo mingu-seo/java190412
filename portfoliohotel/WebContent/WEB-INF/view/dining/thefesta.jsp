@@ -1,4 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="dining.*"%>
+<%@ page import="java.util.*"%>
+<%
+DiningVO param = (DiningVO) request.getAttribute("vo");
+DiningVO data = (DiningVO) request.getAttribute("data");
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -177,7 +184,7 @@
         <div class="banner oasis">
             <div class="banner-center">
                 <div class="banner-text">
-                    <h2>더 페스타
+                    <h2><%=data.getName() %>
                         <span>The Festa</span>
                     </h2>
                     <h3>남산의 상쾌한 전경이 펼쳐진 이국적인 분위기의 오아시스 야외 수영장에서 도심 속 완벽한 휴식을 즐겨보세요.

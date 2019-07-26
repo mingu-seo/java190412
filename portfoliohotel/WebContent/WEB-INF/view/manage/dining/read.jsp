@@ -70,20 +70,22 @@ DiningVO data = (DiningVO) request.getAttribute("data");
 									summary="관리자 관리 기본내용입니다.">
 									<colgroup>
 										<col width="15%" />
+										<col width="20%" />
 										<col width="15%" />
-										<col width="15%" />
-										<col width="15%" />
-										<col width="15%" />
-										<col width="15%" />
-										<col width="10%" />
+										<col width="20%" />
 									</colgroup>
 									<tbody>
 										<tr>
 											<th scope="row"><label for="">다이닝명</label></th>
-											<td colspan="2"><%=data.getName()%></td>
-											
+											<td colspan="4"><%=data.getName()%></td>
+										</tr>
+										<tr>	
 											<th scope="row"><label for="">가격</label></th>
-											<td colspan="2"><%=data.getPrice()%></td>
+											<td colspan="4"><%=data.getPrice()%></td>
+										</tr>
+										<tr>	
+											<th scope="row"><label for="">수량</label></th>
+											<td colspan="4"><%=data.getCount()%></td>
 										</tr>
 										<tr>
 											<th scope="row"><label for="">운영기간 시작일</label></th>

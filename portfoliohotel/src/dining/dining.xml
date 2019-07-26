@@ -38,9 +38,9 @@
 
 	<insert id="insert" parameterClass="diningvo">
 		insert into dining (
-		name, price, imagename, imagename_org, startdate, enddate, book_period, inclusion, info) 
+		name, price, count, imagename, imagename_org, startdate, enddate, book_period, inclusion, info) 
 		values (
-		#name#, #price#, #imagename#, #imagename_org#, #startdate#, #enddate#,
+		#name#, #price#, #count#, #imagename#, #imagename_org#, #startdate#, #enddate#,
 		#book_period#, #inclusion#, #info#)
 		<selectKey keyProperty="no" resultClass="Integer">
 			SELECT LAST_INSERT_ID()
@@ -54,7 +54,7 @@
         		imagename=#imagename#, imagename_org=#imagename_org#,	  	
         	</isNotNull>
         </isNotEqual>
-        name=#name#, price=#price#, imagename=#imagename#, startdate=#startdate#, enddate=#enddate#, book_period=#book_period#,
+        name=#name#, price=#price#, count=#count#, imagename=#imagename#, startdate=#startdate#, enddate=#enddate#, book_period=#book_period#,
         inclusion=#inclusion#, info=#info#
         where no=#no#
     </update>

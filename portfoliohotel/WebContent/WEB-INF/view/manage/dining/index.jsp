@@ -66,6 +66,7 @@ function goSearch() {
 									<col class="w7" />
 									<col class="w5" />
 									<col class="w5" />
+									<col class="w2" />
 									<col class="w1" />
 								</colgroup>
 								<thead>
@@ -74,14 +75,15 @@ function goSearch() {
 										<th scope="col">번호</th>
 										<th scope="col">이미지</th>
 										<th scope="col">다이닝명</th> 
-										<th scope="col">가격</th> 
+										<th scope="col">가격</th>
+										<th scope="col">수량</th> 
 										<th scope="col" class="last">삭제</th>
 									</tr>
 								</thead>
 								<tbody>
 								<% if (totCount == 0) { %>
 									<tr>
-										<td class="first" colspan="6">등록된 글이 없습니다.</td>
+										<td class="first" colspan="7">등록된 글이 없습니다.</td>
 									</tr>
 								<%
 									 } else {
@@ -98,6 +100,7 @@ function goSearch() {
 										<td <%=targetUrl%>><img src="/upload/dining/<%=data.getImagename()%>" width="130px" height="auto"/></td>
 										<td <%=targetUrl%> class="name"><%=data.getName()%></td>
 										<td <%=targetUrl%> class="price"><%=data.getPrice()%></td>
+										<td <%=targetUrl%> class="count"><%=data.getCount()%></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
 								<%
