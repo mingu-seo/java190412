@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="board.qna.*" %>
+<%@ page import="board.member.*" %>
 <%@ page import="util.*" %>
 <%
 QnaVO param = (QnaVO)request.getAttribute("vo");
+MemberVO member_vo = (MemberVO)request.getAttribute("memberInfo");
 %>
 <!DOCTYPE html>
 
@@ -247,6 +249,11 @@ QnaVO param = (QnaVO)request.getAttribute("vo");
             <div class="qna_q-table">
                 <div class="qna_q-box">
                     <form method="POST"name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/processU" enctype="multipart/form-data" onsubmit="return goSave();" >
+                    <% if(member_vo.getName() == null) { %>
+						로그인하세요!</br>
+					<% } else { %>
+						로그인 관리자명 : <%=member_vo.getName() %> <br/>
+					<% } %>
                     	<ul class="base_info clear">
                             <li>
                                 <label for="">카테고리</label>
