@@ -38,9 +38,11 @@
 .review-img {float:left;  box-shadow: 0 3px 5px rgba(0,0,0,0.2); width:300px; background-position: center; height:100%; margin-right:50px; border-radius: 10px; background-size:100% 100%; transition: all 0.3s;}
 .review-img:hover {transform: translateY(5px); }
 .review-img a {display:block; height:100%;}
+/*
 .review-box-area:nth-child(1) .review-img {background-image: url("../img/con4-2/con4-2-1.jpg");}
 .review-box-area:nth-child(2) .review-img {background-image: url("../img/con4-2/con4-2-2.jpg");}
 .review-box-area:nth-child(3) .review-img {background-image: url("../img/con4-2/con4-2-3.jpg");}
+*/
 .review-info {float:left; width:600px; position: relative;}
 
 .review-icon {width:130; position: absolute; right:0; top:0;}

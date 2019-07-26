@@ -3,8 +3,10 @@
 <%@ page import="property.SiteProperty" %>
 <%@ page import="util.*" %>
 <%@ page import="java.util.*" %>
+<%@ page import="manage.admin.*" %>
 <%
 QnaVO param = (QnaVO)request.getAttribute("vo");
+AdminVO admin_vo = (AdminVO)request.getAttribute("admin_vo");
 ArrayList<QnaVO> list = (ArrayList)request.getAttribute("list");
 int totCount = (Integer)request.getAttribute("totCount");
 int totPage = (Integer)request.getAttribute("totPage");
@@ -87,6 +89,8 @@ function goSearch() {
 								</thead>
 								<tbody>
 								
+								
+								
 								<%
 									if (totCount == 0) {
 								%>
@@ -142,7 +146,7 @@ function goSearch() {
 								</div>
 								<div class="btnRight">
 									<a class="wbtn" href="write.do"><strong>등록</strong> </a>
-								</div>제목
+								</div>
 							</div>
 							<!--//btn-->
 							<!-- 페이징 처리 -->
