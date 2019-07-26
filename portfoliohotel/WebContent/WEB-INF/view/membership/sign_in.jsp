@@ -9,6 +9,7 @@
 %>
 
 <script>
+//
 function loginCheck(){
 	if ( getObject("email").value.length < 1 ) {
 		alert("이메일을 입력해주세요.");
