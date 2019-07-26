@@ -98,9 +98,10 @@ $(function(){
 		$(".price_opt").each(function(idx) {
 			if ($(".price_opt").eq(idx).find("option:selected").val() != "") {
 				price_opt += $(".price_opt").eq(idx).find("option:selected").data("price_opt");
+				$("#count").val($(".price_opt").eq(idx).find("option:selected").val());
 			}
 		});
-		$("#room_opt_price_span").text(price_opt);
+		$("#option_price_span").text(price_opt);
 		calculate();
 		$("#option_price").val(Number(price_opt)); // hidden에 value 넣기
 	});
@@ -136,8 +137,11 @@ $(function(){
 	
 	$("#pay_state").change(function() {
 		if($("#pay_state option:selected").val() == 1) {
-			$("#paydate").text("<%=DateUtil.getToday() %>");
+			$("#paydate_span").text("<%=DateUtil.getToday() %>");
 			$("#paydate").val("<%=DateUtil.getToday() %>");
+		} else {
+			$("#paydate_span").text(" - ");
+			$("#paydate").val("");
 		}
 	})
 	
@@ -166,7 +170,7 @@ $(function(){
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="bread">
-							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" enctype="multipart/form-data" onsubmit="return goSave();">
+							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" onsubmit="return goSave();">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
 									<col width="10%"/>
@@ -246,7 +250,7 @@ $(function(){
 													<tr style="height:30px;">
 														<td><%=list_o.get(i).getName() %></td>
 														<td>
-															<select name="price_opt<%=i %>" class="price_opt" data-opt="<%=list_o.get(i).getNo() %>">
+															<select name="price_opt" class="price_opt" data-opt="<%=list_o.get(i).getNo() %>">
 																<option value="">옵션 선택</option>
 																<%
 																for(int j=0; j<5; j++) {
@@ -258,6 +262,11 @@ $(function(){
 															</select>
 														</td>
 													</tr>
+													<input type="hidden" name="option_pk" value="<%=list_o.get(i).getNo()%>"/>
+													<input type="hidden" name="name" value="<%=list_o.get(i).getName()%>"/>
+													<input type="hidden" name="price" value="<%=list_o.get(i).getPrice() %>"/>
+													<input type="hidden" name="count" id="count" value=""/>
+													
 													<%
 													}
 													%>
@@ -283,7 +292,7 @@ $(function(){
 										<th>추가 인원 금액</th>
 										<td style="color:#4C9A2A;"><b><span id="person_price_span"></span></b></td>
 										<th>추가 옵션 금액</th>
-										<td style="color:#4C9A2A;"><b><span id="room_opt_price_span"></span></b></td>
+										<td style="color:#4C9A2A;"><b><span id="option_price_span"></span></b></td>
 										<th>세금 및 수수료</th>
 										<td style="color:#4C9A2A;"><b><span id="charge_price_span"></span></b></td>
 										<th>총 결제 금액</th>
@@ -291,12 +300,7 @@ $(function(){
 									</tr>
 									<tr>
 										<th>예약 상태</th>
-										<td>
-											<select name="res_state" id="res_state">
-												<option value="0" seleted><%=CodeUtil.getResState(0) %></option>
-												<option value="1"><%=CodeUtil.getResState(1) %></option>
-											</select>
-										</td>
+										<td><%=CodeUtil.getResState(1) %></span></td>
 										<th>예약일</th>
 										<td><%=DateUtil.getToday() %></td>
 										<th>결제 방법</th>
@@ -314,7 +318,7 @@ $(function(){
 											</select>
 										</td>
 										<th>결제일</th>
-										<td><span id="paydate" name="paydate"></span></td>
+										<td><span id="paydate_span" name="paydate_span"></span></td>
 									</tr>									
 								</tbody>
 							</table>
@@ -337,6 +341,7 @@ $(function(){
 							<input type="hidden" name="charge_price" id="charge_price" value="" />
 							<input type="hidden" name="total_price" id="total_price" value="" />
 							<input type="hidden" name="room_name" id="room_name" value="" />
+							<input type="hidden" name="paydate" id="paydate" value="" />
 							</form>
 							<div class="btn">
 								<div class="btnLeft">
