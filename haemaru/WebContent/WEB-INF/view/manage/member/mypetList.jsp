@@ -4,7 +4,7 @@
 <%@ page import="util.*"%>
 <%@ page import="java.util.*"%>
 <%
-	ArrayList<MypetVO> list = (ArrayList<MypetVO>) request.getAttribute("list");
+	ArrayList<MypettVO> list = (ArrayList<MypettVO>) request.getAttribute("list");
 %>
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<colgroup>
@@ -42,7 +42,7 @@
 			<td><img src ="/upload/mypet/<%=list.get(i).getMypet_image()%>" width="40px" height="40px"></td>
 			<td><%=list.get(i).getName() %></td>
 			<td><%=list.get(i).getAge() %></td>
-			<td><%=list.get(i).getGender() %></td>
+			<td><%=list.get(i).getGender() !=1 ? "남아":"여아" %></td>
 			<td><%=list.get(i).getBreed() %></td>
 			<td><%=list.get(i).getVac() %></td>
 			<td><%=list.get(i).getMemo() %></td>

@@ -1,4 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="board.review.*" %>
+<%@ page import="util.*" %>
+<%
+ReviewVO param = (ReviewVO)request.getAttribute("vo");
+ArrayList<ReviewVO> list = (ArrayList)request.getAttribute("list");
+int totCount = (Integer)request.getAttribute("totCount");
+int totPage = (Integer)request.getAttribute("totPage");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -29,8 +38,8 @@
                     <p>adopt an animal</p>
                 </div>
                 <ul class="sub-bar">
-                    <li ><a href="sub4-1.html">프로필</a></li>
-                    <li class="on"><a href="sub4-2.html">입양후기</a></li>
+                    <li ><a href="/adopt/animalprofile/animalprofile.do">프로필</a></li>
+                    <li class="on"><a href="/adopt/review/review.do">입양후기</a></li>
                 </ul>
             </div>
             <!-- main 부분 (여기다가 하면 됨) -->
@@ -43,8 +52,11 @@
                 </div>
                 <h3>입양후기</h3>
                 <p>review</p>
+                <%
+					for(int i=0; i<list.size(); i++){
+					%>
                 <div class="review-box-group">
-                    <div class="review-box-area clear">
+				   <div class="review-box-area clear">
                         <div class="review-img"><a href="#"></a></div>
                         <div class="review-info">
                             <ul class="review-icon clear">
@@ -53,79 +65,27 @@
                                 <li></li>
                                 <li>11</li>
                             </ul>
-                            <!-- 리뷰 텍스브 부분 -->
+                            <!-- 리뷰 텍스트 부분 -->
                             <div class="review-text">
-                                <h2><a href="#">우리 똘이가 집에 온 날 ~</a></h2>
-                                <p>Praesent in nunc sit amet orci dignissim mollis. Pellentesque elementum lacinia urna, 
-                                    <br/>sit amet scelerisque libero blandit vel. Aliquam erat volutpat. Praesent vel nunc orci. 
-                                    <br/>Suspendisse quis mauris sed ipsum lobortis semper id nec diam. 
+                                <h2><%=list.get(i).getTitle() %></h2>
+                                <p><%=list.get(i).getContents() %>
                                 </p>
                             </div>
                             <!-- 리뷰 작성자 부분 -->
                             <div class="review-writer clear">
                                 <div class="writer-1"></div>
                                 <div class="writer-2">
-                                    <h6>rronn1</h6>
-                                    <p>September 5, 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review-box-area clear">
-                        <div class="review-img"><a href="#"></a></div>
-                        <div class="review-info">
-                            <ul class="review-icon clear">
-                                <li></li>
-                                <li>112</li>
-                                <li></li>
-                                <li>5</li>
-                            </ul>
-                            <!-- 리뷰 텍스브 부분 -->
-                            <div class="review-text">
-                                <h2><a href="#">봉봉이 입양 후기입니다.</a></h2>
-                                <p>Praesent in nunc sit amet orci dignissim mollis. Pellentesque elementum lacinia urna, 
-                                    <br/>sit amet scelerisque libero blandit vel. Aliquam erat volutpat. Praesent vel nunc orci. 
-                                    <br/>Suspendisse quis mauris sed ipsum lobortis semper id nec diam. 
-                                </p>
-                            </div>
-                            <!-- 리뷰 작성자 부분 -->
-                            <div class="review-writer clear">
-                                <div class="writer-1"></div>
-                                <div class="writer-2">
-                                    <h6>rronn1</h6>
-                                    <p>September 5, 2019</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review-box-area clear">
-                        <div class="review-img"><a href="#"></a></div>
-                        <div class="review-info clear">
-                            <ul class="review-icon clear">
-                                <li></li>
-                                <li>220</li>
-                                <li></li>
-                                <li>12</li>
-                            </ul>
-                            <!-- 리뷰 텍스브 부분 -->
-                            <div class="review-text">
-                                <h2><a href="#">사랑스런 토끼 후기입니다!</a></h2>
-                                <p>Praesent in nunc sit amet orci dignissim mollis. Pellentesque elementum lacinia urna, 
-                                    <br/>sit amet scelerisque libero blandit vel. Aliquam erat volutpat. Praesent vel nunc orci. 
-                                    <br/>Suspendisse quis mauris sed ipsum lobortis semper id nec diam. 
-                                </p>
-                            </div>
-                            <!-- 리뷰 작성자 부분 -->
-                            <div class="review-writer clear">
-                                <div class="writer-1"></div>
-                                <div class="writer-2">
-                                    <h6>rronn1</h6>
-                                    <p>September 5, 2019</p>
+                                    <h6><%=list.get(i).getMember_pk() %></h6>
+                                    <p><%=DateUtil.getDateFormat(param.getRegistdate())%></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <%
+					}
+                %>
                 <!-- 하단 번호 -->
                 <ul class="notice-number clear">
                         <li ><a href="#"></a></li>

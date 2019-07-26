@@ -1,4 +1,9 @@
   <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+  <%@ page import="main.*" %>
+  <%@ page import="member.*" %>
+  <%
+  	MemberVO memberInfo = (MemberVO)session.getAttribute("memberInfo"); 
+  %>
   <!-- header html -->
     <div id="header">
        <%@ include file="/WEB-INF/view/include/login.jsp" %>
@@ -65,9 +70,20 @@
             <li><a href="https://www.facebook.com/haemaruah/"></a></li>
             <li><a href="https://www.youtube.com/results?search_query=%ED%95%B4%EB%A7%88%EB%A3%A8%EB%8F%99%EB%AC%BC%EB%B3%91%EC%9B%90"></a></li>
             <li><a href="https://instagram.com/haemaru_ah?igshid=zw6yyof9s7ka"></a></li>
-            <li><a href="#">로그인</a></li>
-            <li><a href="#">회원가입</a></li>
-        </ul>
+            <%
+				if(memberInfo == null) {
+			%>           
+            <li class="loginBtn"><a href="#">로그인</a></li>
+            <li class="joinBtn"><a href="#">회원가입</a></li>
+        	<%
+				}else{
+        	%>
+            <li><a href="/my/my-infor.do"><%=memberInfo.getName()%>님</a></li>
+            <li><a href="/member/logout.do">로그아웃</a></li>
+            <%
+				}
+        	%>
+        </ul>  
         <!-- 끝 -->
         <!-- 비밀번호 찿기 -->
         <div id="pass-lost">

@@ -20,7 +20,7 @@ public class MemberVO extends Parameter{
 		super.setPageRows(10);
 	}
 	
-	public String getTargetURLParam(String pageUrl, AdminVO param, int index) {
+	public String getTargetURLParam(String pageUrl, MemberVO param, int index) {
 
 		StringBuffer strList= new StringBuffer();
 

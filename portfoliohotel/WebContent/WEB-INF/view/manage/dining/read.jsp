@@ -81,6 +81,7 @@ DiningVO data = (DiningVO) request.getAttribute("data");
 										<tr>
 											<th scope="row"><label for="">다이닝명</label></th>
 											<td colspan="2"><%=data.getName()%></td>
+											
 											<th scope="row"><label for="">가격</label></th>
 											<td colspan="2"><%=data.getPrice()%></td>
 										</tr>
@@ -89,14 +90,14 @@ DiningVO data = (DiningVO) request.getAttribute("data");
 											<td colspan="2"><%=data.getStartdate()%></td>
 										
 											<th scope="row"><label for="">운영기간 종료일</label></th>
-											<td colspan="5"><%=data.getEnddate()%></td>
+											<td colspan="2"><%=data.getEnddate()%></td>
 										</tr>
 										<tr>
-											<th scope="row"><label for="">예약기간</label></th>
+											<th scope="row"><label for="">예약 가능기간</label></th>
 											<td colspan="2"><%=data.getBook_period()%></td>
 										
 											<th scope="row"><label for="">포함내역</label></th>
-											<td colspan="5"><%=data.getInclusion()%></td>
+											<td colspan="2"><%=data.getInclusion()%></td>
 										</tr>
 										<tr>
 											<th scope="row"><label for="">안내</label></th>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
-<sqlMap namespace="product">
+<sqlMap namespace="qna">
     
-    <typeAlias alias="productvo" type="product.ProductVO"/>
+    <typeAlias alias="qnavo" type="board.qna.QnaVO"/>
     
     <!-- 공통조건 -->
 	<sql id="searchSql">		
@@ -26,69 +26,70 @@
 	</sql>
 	
 	<!-- 해당 테이블의 총 게시글 수 -->
-	<select id="count" parameterClass="productvo" resultClass="Integer">
-        select count(*) from product
+	<select id="count" parameterClass="qnavo" resultClass="Integer">
+        select count(*) from qna
         <include refid="searchSql" />	
     </select>
     
-	<select id="list" parameterClass="productvo" resultClass="productvo">
-        select * from product
+	<select id="list" parameterClass="qnavo" resultClass="qnavo">
+        select * from qna
         <include refid="searchSql" />
 		ORDER BY registdate DESC LIMIT $startPageNo$, $pageRows$
     </select>
 	
 	<!-- 해당 테이블에 게시글 작성 -->
-    <insert id="insert" parameterClass="productvo">
-        INSERT INTO product (name, category, info, imagename, imagename_org, price, registdate) VALUES (
-        	#name#, #category#, #info#, #imagename#, #imagename_org#, #price#, now())
+    <insert id="insert" parameterClass="qnavo">
+        INSERT INTO qna (email, category, title, contents, member_pk, filename, filename_org, registdate, display) VALUES (
+        	#email#, #category#, #title#, #contents#, #member_pk#, #filename#, #filename_org#, now(), #display#)
         <selectKey keyProperty="no" resultClass="Integer">
         	SELECT LAST_INSERT_ID()
         </selectKey>
     </insert>
     
-    <update id="update" parameterClass="productvo">
-        UPDATE product SET
-        	name=#name#, info=#info#, price=#price#
-       	<isEqual property="imagename_chk" compareValue="1">
-        	imagename='', imagename_org=''
+    <update id="update" parameterClass="qnavo">
+        UPDATE qna SET
+        	category=#category#, title=#title#, 
+       	<isEqual property="filename_chk" compareValue="1">
+        	filename='', filename_org=''
         </isEqual>   	
-        <isNotEqual property="imagename" compareValue="">
-            <isNotNull property="imagename">
-        		imagename=#imagename#, imagename_org=#imagename_org#
+        <isNotEqual property="filename" compareValue="">
+            <isNotNull property="filename">
+        		filename=#filename#, filename_org=#filename_org#
         	</isNotNull>
         </isNotEqual>
+	        contents=#contents#
         WHERE no = #no#
     </update>
      
-    <select id="read" parameterClass="productvo" resultClass="productvo">
+    <select id="read" parameterClass="qnavo" resultClass="qnavo">
         SELECT 
         	*
-        FROM product
+        FROM qna
         where no = #no#
     </select>
     
-    <select id="filenames" parameterClass="productvo" resultClass="productvo">
+    <select id="filenames" parameterClass="qnavo" resultClass="qnavo">
     	<![CDATA[
         SELECT 
         	file_name
-        FROM product
+        FROM qna
         where no = #no#
         ]]>
     </select> 
         
-    <select id="getRowNum" parameterClass="productvo" resultClass="Integer">
+    <select id="getRowNum" parameterClass="qnavo" resultClass="Integer">
         select rownum from (
-        	select @rownum:=@rownum+1 as rownum, no, title from product, (select @rownum:=0) as r
+        	select @rownum:=@rownum+1 as rownum, no, title from qna, (select @rownum:=0) as r
         	<include refid="searchSql" />
         	ORDER BY registdate DESC
         ) as r2
         where r2.no = #no#
     </select>
     
-    <select id="getNextRowNum" parameterClass="productvo" resultClass="productvo">
+    <select id="getNextRowNum" parameterClass="qnavo" resultClass="qnavo">
         select ifnull(rownum,0), ifnull(no,0) as next_no, title as next_title
         from (
-        	select @rownum:=@rownum+1 as rownum, no, title from product, (select @rownum:=0) as r
+        	select @rownum:=@rownum+1 as rownum, no, title from qna, (select @rownum:=0) as r
         	<include refid="searchSql" />
         	ORDER BY registdate DESC
         ) as r2
@@ -97,10 +98,10 @@
     	]]>
     </select>
     
-    <select id="getPrevRowNum" parameterClass="productvo" resultClass="productvo">
+    <select id="getPrevRowNum" parameterClass="qnavo" resultClass="qnavo">
     	select ifnull(rownum,0), ifnull(no,0) as prev_no, title as prev_title
         from (
-        	select @rownum:=@rownum+1 as rownum, no, title from product, (select @rownum:=0) as r
+        	select @rownum:=@rownum+1 as rownum, no, title from qna, (select @rownum:=0) as r
         	<include refid="searchSql" />
         	ORDER BY registdate DESC
         ) as r2
@@ -109,44 +110,28 @@
     	]]>
     </select>
     
-    <delete id="delete" parameterClass="productvo">
-        DELETE FROM product WHERE no=#no#
+    <delete id="delete" parameterClass="qnavo">
+        DELETE FROM qna WHERE no=#no#
     </delete>
+   
     
-    <insert id="insertOption" parameterClass="java.util.HashMap">
-    	INSERT INTO product_option (product_pk, title, price) values (#product_pk#, #title#, #price#)
-    </insert>
-    
-	<delete id="deleteOption" parameterClass="Integer">
-		DELETE FROM product_option WHERE product_pk=#product_pk#
-	</delete>
-    
-    <update id="updateReadno" parameterClass="productvo">
-        UPDATE product SET readno = readno+1 WHERE no = #no#
-    </update>
-    
-    <select id="mainList" parameterClass="productvo" resultClass="productvo">
+    <select id="mainList" parameterClass="qnavo" resultClass="qnavo">
         select *
-        from product
+        from qna
         <include refid="searchSql" />
 		ORDER BY registdate DESC LIMIT 0, $number$
     </select>
-    
-     
-    <select id="listOption" parameterClass="Integer" resultClass="java.util.HashMap">
-    	SELECT * FROM product_option WHERE product_pk=#product_pk#
-    </select>
-    
-      <select id="reviewList" parameterClass="Integer" resultClass="product.ReviewVO">
-    	SELECT * FROM review WHERE product_pk=#no# ORDER BY registdate DESC
+        
+      <select id="replylist" parameterClass="Integer" resultClass="board.qna.QnaReplyVO">
+    	SELECT title, contents, filename, filename_org, registdate, qna_no FROM qna_reply WHERE qna_no=#no# ORDER BY registdate DESC
       </select>
     
-    <insert id = "reviewInsert" parameterClass="product.ReviewVO">
-    	INSERT INTO review (score, name, contents, registdate, product_pk) values (#score#, #name#, #contents#, now(), #product_pk#)
+    <insert id = "replyInsert" parameterClass="board.qna.QnaReplyVO">
+    	INSERT INTO qna_reply (title, contents, filename, filename_org, registdate, qna_no) values (#title#, #contents#, #filename#, #filename_org#, now(), #qna_no#)
     </insert>
     
-    <delete id="reviewDelete" parameterClass="Integer">
-    	DELETE FROM review WHERE no=#no#
+    <delete id="replyDelete" parameterClass="Integer">
+    	DELETE FROM qna_reply WHERE no=#no#
     </delete>      
  
   

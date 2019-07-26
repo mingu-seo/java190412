@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="faq">
+
+	<typeAlias alias="faq_vo" type="board.faq.FaqVO" />
+
+	<!-- 공통조건 -->
+	<sql id="searchSql">
+		<!-- WHERE 절 검색 -->
+		<dynamic prepend="where">
+			1=1
+			<!-- 검색어 검색 -->
+			<isNotEqual property="sval" compareValue="">
+				<!-- 검색 타입이 all일 때 -->
+				<isEqual property="stype" compareValue="all" prepend="and">
+					( (name
+					like '%$sval$%' ) or (contents like '%$sval$%' ) or (title like
+					'%$sval$%' ) )
+				</isEqual>
+				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
+				<isNotEqual property="stype" compareValue="all"
+					prepend="and">
+					($stype$ like '%$sval$%' )
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql>
+
+	<!-- 해당 테이블의 총 게시글 수 -->
+	<select id="count" parameterClass="faq_vo" resultClass="Integer">
+		select count(*) from faq
+		<include refid="searchSql" />
+	</select>
+
+	<select id="list" parameterClass="faq_vo" resultClass="faq_vo">
+		select *
+		from faq
+		<include refid="searchSql" />
+		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$	
+	</select>
+
+	<!-- 해당 테이블에 게시글 작성 -->
+	<insert id="insert" parameterClass="faq_vo">
+		INSERT INTO faq (no, question, answer) 
+		VALUES (#no#, #question#, #answer#)
+		<selectKey keyProperty="no" resultClass="Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<update id="update" parameterClass="faq_vo">
+		UPDATE faq SET
+		question=#question#, answer=#answer#
+		WHERE no = #no#
+	</update>
+
+	<select id="read" parameterClass="faq_vo" resultClass="faq_vo">
+		SELECT
+		*
+		FROM faq
+		where no = #no#
+	</select>
+
+
+	<delete id="delete" parameterClass="faq_vo">
+		DELETE FROM faq WHERE no=#no#
+	</delete>
+
+
+
+
+</sqlMap>

@@ -2,18 +2,18 @@ package property;
 
 public class SiteProperty {
 	/*
-	 * �⺻����
+	 * 기본정보
 	 */
 	/**
-	 * ��ü��
+	 * 업체명
 	 */
 	public static final String 	COMPANY_NAME			= "Portfolio Hotel";
 	/**
-	 * ������ ����������
+	 * 관리자 시작페이지
 	 */
-	public static final String	INDEX_PAGE				= "/manage/admin/index.do";
+	public static final String	INDEX_PAGE				= "/manage/member/memberIndex";
 	/**
-	 * ���ȼ���������(SSL)��뿩��
+	 * 보안서버인증서(SSL)사용여부
 	 */
 	public static final boolean	SSL_USE					= false;
 	/**
@@ -29,52 +29,56 @@ public class SiteProperty {
 	public static final String 	COMPANY_SSL_URL_MO		= "https://localhost:8080";
 	
 	/**
-	 * JSP ���ϰ����ġ
+	 * JSP 파일경로위치
 	 */
 	public static final String	JSP_HOME				= "/WEB-INF/view";
 
 	/**
-	 * mysql ��й�ȣ ��ȣȭ ���
+	 * mysql 비밀번호 암호화 방식
 	 * password, old_password, md5, sha
 	 */
 	public static final String	DB_ENCRYPTION			= "password";
 	/**
-	 * ��ǥ �̸���
+	 * 대표 이메일
 	 */
 	public static final String 	COMPANY_EMAIL			= "withsky999@gmail.com";
 
 	/*
-	 * ���ϰ���
+	 * 메일관련
 	 */
 	/**
-	 * ���ϼ���
+	 * 메일서버
 	 */
-	public static final String 	SMTP_HOST				= "mail.";
+	public static final String 	SMTP_HOST				= "smtp.naver.com";
 	/**
-	 * ���ϰ��� ���̵�
+	 * 메일포트
 	 */
-	public static final String 	SMTP_USER				= "";
+	public static final String 	SMTP_PORT				= "465";
 	/**
-	 * ���ϰ��� �н�����
+	 * 메일계정 아이디
 	 */
-	public static final String 	SMTP_PASSWORD			= "";
+	public static final String 	SMTP_USER				= "joonoh94";
 	/**
-	 * �̸��� �⺻ ��
+	 * 메일계정 패스워드
+	 */
+	public static final String 	SMTP_PASSWORD			= "fnehfvm890";
+	/**
+	 * 이메일 기본 폼
 	 */
 	public static final String 	EMAIL_FORM				= "/include/emailForm.jsp";
 
 	/**
-	 * ������ �̹��� ���ε� ���
+	 * 에디터 이미지 업로드 경로
 	 */
 	public static final String	EDITOR_UPLOAD_PATH		= "/upload/editor/";
 
 	/**
-	 * ������ �̹��� ���ε� �뷮����
+	 * 에디터 이미지 업로드 용량제한
 	 */
 	public static final int		EDITOR_MAXSIZE 			= 10*1024*1024;
 
 	/**
-	 * ó�������� (process.jsp)���� ���۷�(������������) �񱳿���
+	 * 처리페이지 (process.jsp)에서 레퍼러(이전페이지값) 비교여부
 	 */
 	public static final boolean	CHECK_REFERER			= true;
 
@@ -88,10 +92,10 @@ public class SiteProperty {
 		return REFERER_URL;
 	}
 	
-	// ���Ͼ��ε� ���
-	/**
-	 * ���� Ȩ���丮��� (�Ǽ��� ���� �ʿ�)
-	 */
+	// 파일업로드 경로
+		/**
+		 * 로컬 홈디렉토리경로 (실서버 변경 필요)
+		 */
 
 	public static final String REAL_PATH = "C:\\java\\git\\java190412\\portfoliohotel\\WebContent";
 	

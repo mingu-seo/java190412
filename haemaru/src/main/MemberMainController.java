@@ -21,17 +21,25 @@ public class MemberMainController {
 	private MemberService memberService;
 	
 	@RequestMapping("/index.do")
-	public String main(Model model) throws Exception {
+	public String read(Model model) throws Exception {
 
 		return "index";
 	}
+	
+	@RequestMapping("/member/join")
+	public String join(Model model, MemberVO vo) throws Exception {
+			memberService.insert(vo);
+			String redirectUrl = SiteProperty.MEMBER_INDEX_PAGE; // 시작페이지
+			
+			return "redirect:"+redirectUrl;
+		}
 	
 	@RequestMapping("/member/login")
 	public String login(Model model, @RequestParam(value="login_url", required=false) String login_url, @RequestParam(value="login_param", required=false) String login_param, MemberVO vo, HttpSession session) throws Exception {
 		if (memberService.loginCheck(vo)) {
 			
 			MemberVO memberInfo = memberService.getLoginSessionInfo(vo);
-			memberService.insertLoginHistory(memberInfo);		// 로그인히스토리 저장
+			System.out.println(memberInfo.getName());
 			session.setAttribute("memberInfo", memberInfo);	// 세션 저장
 			String redirectUrl = SiteProperty.MEMBER_INDEX_PAGE; // 시작페이지
 			
@@ -58,12 +66,12 @@ public class MemberMainController {
 	 * @return
 	 */
 	@RequestMapping("/member/logout")
-	public String logout(Model model) {
+	public String logout(Model model, HttpSession session) {
 		//loginInfoProvider.get().remove();
-		
+		session.invalidate();
 		model.addAttribute("code", "alertMessageUrl");
 		model.addAttribute("message", "정상적으로 로그아웃 되었습니다.");
-		model.addAttribute("url", "/manage");
+		model.addAttribute("url", "/index.do");
 		
 		return "include/alert";		
 	}

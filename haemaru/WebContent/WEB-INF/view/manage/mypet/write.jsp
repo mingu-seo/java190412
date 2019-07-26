@@ -69,7 +69,7 @@ function goSave() {
 											</tr>
 											<tr>
 												<th scope="row"><label for="">성별</label></th>
-												<td><select id="gender">
+												<td><select name="gender">
 														<option value='1'>여아</option>
 														<option value='2'>남아</option>
 												</select></td>
