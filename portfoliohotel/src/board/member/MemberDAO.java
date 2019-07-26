@@ -132,8 +132,9 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 		MemberVO av = new MemberVO();
 //		ad.count(av);
 //		ad.list(av);
-//		av.setId("hahc1");
+//		av.setEmail("hahc1");
 //		av.setPassword("ha1234");
+//		ad.loginCheck(av);
 //		av.setName("하희철");
 //		int no =ad.insert(av);
 //		System.out.println(no);

@@ -205,7 +205,7 @@ function CookieVal(cookieName) {
             <h3>Log In</h3>
             <div class="login-box clear">
                 <!-- <form action="#" method="POST"> -->
-                <form name="mamber" id="member" method="post" action="<%=request.getContextPath()%>/index" onsubmit="return loginCheck();">
+                <form name="mamber" id="member" method="post" action="<%-- <%=request.getContextPath()%>/index --%>" onsubmit="return loginCheck();">
                     <div class="login-box-logo"><img src="../img/sign_in_img/login-logo.png"></div>
                     <div class="login-board clear">
                         <div class="login-box-left">
@@ -224,7 +224,11 @@ function CookieVal(cookieName) {
                             <input type="checkbox" id="login-chk" name="login-chk" >
                             <label for="login-chk">아이디 기억하기</label>
                         </div>
-                        <h4 class="find_id"><a href="#">· 아이디 / 비밀번호 찾기</a></h4>
+                        <!-- <h4 class="find_id"><a href="#">· 아이디 / 비밀번호 찾기</a></h4> -->
+                        <h4 class="find_id">
+							<a href="">이메일찾기 </a><a>/</a>
+							<a href=""> 비밀번호 찾기</a>
+						</h4>
                         
                     </div> 
                 </form>    

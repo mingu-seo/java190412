@@ -70,9 +70,10 @@ Dining_resVO data = (Dining_resVO) request.getAttribute("data");
 									summary="관리자 관리 기본내용입니다.">
 									<colgroup>
 										<col width="15%" />
-										<col width="15%" />
-										<col width="15%" />
-										<col width="15%" />
+										<col width="10%" />
+										<col width="30%" />
+										<col width="30%" />
+										
 									</colgroup>
 									<tbody>
 										<tr>
@@ -81,19 +82,23 @@ Dining_resVO data = (Dining_resVO) request.getAttribute("data");
 										</tr>
 										<tr>
 											<th scope="row"><label for="">회원명</label></th>
-											<td><%=data.getMember_name()%></td>
-											
+											<td colspan="6"><%=data.getMember_name()%></td>
+										<tr>
+										</tr>	
 											<th scope="row"><label for="">회원 연락처</label></th>
 											<td colspan="2"><%=data.getGuest_tel()%></td>
 										<tr>
 											<th scope="row"><label for="">다이닝명</label></th>
-											<td colspan="4"><%=data.getDining_name()%></td>
+											<td colspan="6"><%=data.getDining_name()%></td>
 										</tr>											 
 										<tr>
-											<th scope="row"><label for="">예약인원(성인)</label></th>
-											<td><%=data.getAdult()%></td>
-											
-											<th scope="row"><label for="">예약인원(어린이)</label></th>
+											<th rowspan="2"><label for="">예약인원</th>
+																					
+											<th scope="row" style="border-left: 1px solid #bec0c4;"><label for="">성인</th>
+											<td colspan="2"><%=data.getAdult()%></td>
+										</tr>
+										<tr>	
+											<th scope="row"><label for="">어린이</label></th>
 											<td colspan="2"><%=data.getKid()%></td>
 										</tr>
 										<tr>

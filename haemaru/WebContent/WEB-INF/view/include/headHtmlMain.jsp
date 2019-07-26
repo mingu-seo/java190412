@@ -1,10 +1,8 @@
   <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
   <%@ page import="member.*" %>
   <%@ page import="main.*" %>
-  <!-- header html -->
   <%
   MemberVO memberInfo = (MemberVO)session.getAttribute("memberInfo"); 
-  MemberVO data = (MemberVO)request.getAttribute("data");
   %>
     <div id="header">
         <%@ include file="/WEB-INF/view/include/login.jsp" %>
