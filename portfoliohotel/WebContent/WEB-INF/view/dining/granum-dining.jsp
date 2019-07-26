@@ -77,7 +77,7 @@
                                             <h2>Dining</h2>
                                             <ul class="Dining">
                                                 <li><a href="#">The Festa</a></li>
-                                                <li><a href="granum-dining.do">Granum Dining Lounge</a></li>
+                                                <li><a href="granum-dining">Granum Dining Lounge</a></li>
                                                 <li><a href="#">Moon Bar</a></li>
                                                 <li><a href="#">The Oasis Outdoor Kitchen</a></li>
                                             </ul>

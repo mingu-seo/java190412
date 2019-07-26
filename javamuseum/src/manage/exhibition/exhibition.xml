@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="exhibition">
+    
+    <typeAlias alias="exhibitionvo" type="manage.exhibition.ExhibitionVO"/>
+
+	<sql id="searchSql">
+		<dynamic prepend="where">
+			1=1
+			<isNotNull property="sstate" prepend="and state IN ">
+			<iterate property="sstate" open="(" close=")" conjunction="," prepend="and state IN">
+				#sstate[]#
+			</iterate>
+			</isNotNull>
+			<isNotEqual property="sval" compareValue="" prepend="and">
+				<isEqual property="stype" compareValue="all" prepend="and">
+					( (artist like '%$sval$%') or (title like '%$sval$%') or (contents like '%$sval$%') ) 
+				</isEqual>
+				<isNotEqual property="stype" compareValue="all" prepend="and">
+					( $stype$ like '%$sval$%' ) 
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql>
+	
+	<select id="preList" parameterClass="exhibitionvo" resultClass="exhibitionvo">
+		SELECT * FROM display
+		<include refid="searchSql"/>
+		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
+	</select>
+	
+	<select id="count" parameterClass="exhibitionvo" resultClass="Integer">
+		SELECT COUNT(*) FROM display
+		<include refid="searchSql"/>
+	</select>
+   
+   	<!-- 티켓 등록 페이지에서 필요한 진행 중인 전시 작품 리스트 -->
+   	<select id="ingList" parameterClass="exhibitionvo" resultClass="exhibitionvo">
+   		SELECT no, artist, title, hallnumber FROM display 
+   		WHERE state=2
+   		ORDER BY hallnumber ASC
+   	</select>
+   	
+   	<select id="exList" parameterClass="exhibitionvo" resultClass="exhibitionvo">
+   		SELECT no, title FROM display
+   		WHERE not state=2
+   	</select>
+   	
+    <insert id="insert" parameterClass="exhibitionvo">
+		INSERT INTO display 
+		(title, artist, hallnumber, contents, preview, imagename, like_cnt, state, startdate, enddate, registdate)
+		VALUES 
+		(#title#, #artist#, #hallnumber#, #contents#, #preview#, #imagename#, #like_cnt#, #state#, #startdate#, #enddate#, now())
+		<selectKey keyProperty="no" resultClass="Integer">
+			SELECT  LAST_INSERT_ID()
+		</selectKey>
+    </insert>
+    
+    <select id="read" parameterClass="Integer" resultClass="exhibitionvo">
+        SELECT * FROM display 
+        where no=#no#
+    </select>
+    
+    <update id="update" parameterClass="exhibitionvo">
+    	UPDATE display SET
+    	hallnumber=#hallnumber#, artist=#artist#, title=#title#, contents=#contents#, preview=#preview#, state=#state#,
+    	<isEqual property="imagename_chk" compareValue="1">
+    		imagename='',
+    	</isEqual>
+    	<isNotEqual property="imagename" compareValue="">
+    		<isNotNull property="imagename">
+    			imagename=#imagename#,
+    		</isNotNull>
+    	</isNotEqual>
+    	startdate=#startdate#, enddate=#enddate#
+    	WHERE no = #no#
+    </update>
+    
+    <delete id="delete" parameterClass="Integer">
+    	DELETE FROM display
+    	WHERE no=#no#
+    </delete>
+    
+</sqlMap>

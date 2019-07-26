@@ -8,6 +8,7 @@ QnaVO param = (QnaVO)request.getAttribute("vo");
 ArrayList<QnaVO> list = (ArrayList)request.getAttribute("list");
 int totCount = (Integer)request.getAttribute("totCount");
 int totPage = (Integer)request.getAttribute("totPage");
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -80,11 +81,12 @@ function goSearch() {
 										<th scope="col">이메일</th>
 										<th scope="col">제목</th>
 										<th scope="col">등록일</th> 
-										<th scope="col">공개여부</th> 
+										<th scope="col">답글여부</th> 
 										<th scope="col" class="last">삭제</th>
 									</tr>
 								</thead>
 								<tbody>
+								
 								<%
 									if (totCount == 0) {
 								%>
@@ -96,20 +98,30 @@ function goSearch() {
 																String targetUrl = "";
 																String topClass = "";
 																QnaVO data;
+																String bgColor ="";
+																
 																for (int i=0; i<list.size(); i++) {
 																	data = list.get(i);
 																	targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, data.getNo())+"'\"";
+																	bgColor = (data.getReply()==0)?"#ffffff":"#e8e8e8";
+																	
 								%>
-									<tr <%=topClass%>>
+								
+									<tr <%=topClass%> bgcolor="<%=bgColor%>">
+										<% 
+										String[] emailArr= data.getEmail().split(",");
+										String[] nameArr= data.getName().split(",");
+										
+										%>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
 										<%-- <td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td>  --%>
 										<td <%=targetUrl%> class="no"><%=data.getNo() %></td>
 										<td <%=targetUrl%> class="category"><%=data.getCategory() %></td>
-										<td <%=targetUrl%> class="name"><%=data.getName() %></td>
-										<td <%=targetUrl%> class="email"><%=data.getEmail() %></td>
+										<td <%=targetUrl%> class="name"><%=nameArr[0]%><%=nameArr[1]%></td>
+										<td <%=targetUrl%> class="email"><%=emailArr[0]%><%=emailArr[1]%></td>
 										<td <%=targetUrl%> class="title"><%=data.getTitle() %></td>
 										<td <%=targetUrl%>><%=DateUtil.getDateFormat(data.getRegdate())%></td>
-										<td <%=targetUrl%>><%=CodeUtil.getOpenName(data.getOpen())%></td>
+										<td <%=targetUrl%>><%=CodeUtil.getReplyExist(data.getReply())%></td>
 									
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
@@ -130,14 +142,20 @@ function goSearch() {
 								</div>
 								<div class="btnRight">
 									<a class="wbtn" href="write.do"><strong>등록</strong> </a>
-								</div>
+								</div>제목
 							</div>
 							<!--//btn-->
 							<!-- 페이징 처리 -->
 							<%=Page.indexList(param.getReqPageNo(), totPage, request)%>
 							<!-- //페이징 처리 -->
 							<form name="searchForm" id="searchForm" action="index" method="post">
+								
 								<div class="search">
+									<select name="reply" onchange="$('#searchForm').submit();">
+										<option value="-1" <%=Function.getSelected(param.getReply(), -1)%>>전체</option>
+										<option value="0" <%=Function.getSelected(param.getReply(), 0)%>>미완료</option>
+										<option value="1" <%=Function.getSelected(param.getReply(), 1)%>>완료</option>
+									</select>
 									<select name="open" onchange="$('#searchForm').submit();">
 										<option value="-1" <%=Function.getSelected(param.getOpen(), -1)%>>전체</option>
 										<option value="0" <%=Function.getSelected(param.getOpen(), 0)%>>비공개</option>

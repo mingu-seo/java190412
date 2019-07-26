@@ -10,7 +10,7 @@
 	</appender>
 
 	<appender name="sql_logfile_dailyfile" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="file" value="C:/java/git/java190412/haemaru/logs/sql4j.log"/>
+        <param name="file" value="D:/workspace/java/spring/logs/sql4j.log"/>
         <param name="Append" value="true"/>
         <param name="DatePattern" value="'.'yyyy-MM-dd"/>
         <layout class="org.apache.log4j.PatternLayout">
@@ -19,7 +19,7 @@
     </appender>
     
 	<appender name="logfile_dailyfile" class="org.apache.log4j.DailyRollingFileAppender">
-        <param name="file" value="C:/java/git/java190412/haemaru/logs/log4j.log"/>
+        <param name="file" value="D:/workspace/java/spring/logs/log4j.log"/>
         <param name="Append" value="true"/>
         <param name="DatePattern" value="'.'yyyy-MM-dd"/>
         <layout class="org.apache.log4j.PatternLayout">
@@ -43,11 +43,11 @@
 		<appender-ref ref="stdout_logfile_dailyfile" />
 	</category>
 	
+	-->
 	<category name="System.out">
 		<priority value="debug" />
 		<appender-ref ref="logfile_dailyfile" />
 	</category>
-	-->
 
 	<root>
 	    <level value="debug"/>

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="manage.doctor.*"%>
+<%@ page import="manage.doctor.sched.*"%>
 <%@ page import="util.*"%>
 <%@ page import="java.util.*"%>
 <%
@@ -105,7 +106,7 @@
 												<td>
 													<div class="btnRight">
 														<a class="btns"
-															href="<%=param.getTargetURLParam("edit", param, list.get(i).getNo())%>"><strong>일정관리</strong></a>
+															href="/manage/sched/edit?reqPageNo=<%=list.get(i).getReqPageNo()%>&no=<%=list.get(i).getNo()%>&noType=doctor"><strong>일정관리</strong></a>
 													</div>
 												</td>
 											</tr>

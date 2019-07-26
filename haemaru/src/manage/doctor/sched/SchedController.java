@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import manage.admin.AdminVO;
 import member.MemberVO;
@@ -36,7 +37,7 @@ public class SchedController {
 
 	@RequestMapping("/manage/sched/read")
 	public String read(Model model, SchedVO param) throws Exception {
-		SchedVO data = schedService.read(param.getNo());
+		SchedVO data = schedService.read(param.getNo(), "");
 		
 		model.addAttribute("data", data);
 		model.addAttribute("vo", param);
@@ -46,8 +47,8 @@ public class SchedController {
 	
 
 	@RequestMapping("/manage/sched/edit")
-	public String edit(Model model, SchedVO param) throws Exception {
-		SchedVO data = schedService.read(param.getNo());
+	public String edit(Model model, SchedVO param, @RequestParam(value="noType", required = false) String noType) throws Exception {
+		SchedVO data = schedService.read(param.getNo(), noType);
 		model.addAttribute("data", data);
 		model.addAttribute("vo", param);
 		return "manage/sched/edit";

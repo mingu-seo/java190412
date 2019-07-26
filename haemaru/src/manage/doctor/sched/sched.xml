@@ -72,7 +72,13 @@
 	<select id="read" parameterClass="Integer"
 		resultClass="schedvo">
 		SELECT *
-		FROM doc_schedule WHERE no>1 and no=#no#
+		FROM doc_schedule WHERE no=#no#
+	</select>
+	
+	<select id="readByDoctor" parameterClass="Integer"
+		resultClass="schedvo">
+		SELECT *
+		FROM doc_schedule WHERE doctor_pk=#doctor_pk#
 	</select>
 
 </sqlMap>

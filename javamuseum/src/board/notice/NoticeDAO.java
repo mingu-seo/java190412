@@ -48,10 +48,7 @@ public class NoticeDAO extends SqlMapClientDAOSupport {
 	public int update(NoticeVO vo) throws SQLException {
 		return getSqlMapClient().update("notice.update", vo);
 	}
-	
-	public int updateReadno(NoticeVO vo) throws SQLException {
-		return getSqlMapClient().update("notice.updateReadno", vo);
-	}
+
 
 	/**
 	 * 상세 (readno 수정을 위해 테이블명 필요)

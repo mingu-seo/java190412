@@ -41,8 +41,13 @@ public class SchedService {
 		return lastNo;
 	}
 
-	public SchedVO read(int no) throws SQLException {
-		SchedVO vo = schedDao.read(no);
+	public SchedVO read(int no, String noType) throws SQLException {
+		SchedVO vo = new SchedVO();
+		if ("doctor".equals(noType)) {
+			vo = schedDao.readByDoctor(no);
+		} else {
+			vo = schedDao.read(no);
+		}
 		return vo;
 	}
 

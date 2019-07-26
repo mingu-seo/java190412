@@ -3,6 +3,7 @@ package member;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import member.MemberVO;
-import member.MypetVO;
+import member.MypettVO;
 import util.Function;
 
 @Controller
@@ -43,7 +44,7 @@ public class MemberController {
 	
 	@RequestMapping("/manage/member/mypetList")
 	public String mypetList(Model model, MemberVO param) throws Exception {
-		ArrayList<MypetVO> list = memberService.mypetList(param.getNo());
+		ArrayList<MypettVO> list = memberService.mypetList(param.getNo());
 		model.addAttribute("list", list);
 		return "manage/member/mypetList";
 	}
@@ -113,12 +114,13 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/my/my-infor.do")
-	public String myInfor(Model model, MemberVO param) throws Exception {
-		MemberVO data = memberService.read(param.getNo());//세션에서 가져와야됨
+	public String myInfor(Model model, MemberVO param, HttpSession session) throws Exception {
+		MemberVO m = (MemberVO)session.getAttribute("memberInfo");
+		MemberVO data = memberService.read(m.getNo());//세션에서 가져와야됨
 		model.addAttribute("data", data);
 		model.addAttribute("vo", param);
 		
-		return "my/my-infor.do";
+		return "my/my-infor";
 	}
 	
 }

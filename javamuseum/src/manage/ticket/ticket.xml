@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="ticket">
+    
+    <typeAlias alias="ticketvo" type="manage.ticket.TicketVO"/>
+    
+    <sql id="searchSql">
+		<dynamic prepend="where">
+			1=1
+			<isEqual property="resStateSave" compareValue="1">
+				and reservestate=#resStateSave#
+			</isEqual>
+			<isEqual property="resStateSave" compareValue="2">
+				and reservestate=#resStateSave#
+			</isEqual>
+			<isEqual property="payStateSave" compareValue="1">
+				and paystate=#payStateSave#
+			</isEqual>
+			<isEqual property="payStateSave" compareValue="2">
+				and paystate=#payStateSave#
+			</isEqual>
+			<isNotEqual property="meth" compareValue="">
+				<isEqual property="meth" compareValue="bank">
+					and method=#meth#
+				</isEqual>
+				<isEqual property="meth" compareValue="card">
+					and method=#meth#
+				</isEqual>
+			</isNotEqual>
+			<isNotNull property="startdate1">
+				<isNotNull property="enddate1">
+					<isNotEqual property="startdate1" compareValue="" prepend="and">
+						<isNotEqual property="enddate1" compareValue="" prepend="and">
+							<![CDATA[reservedate between #startdate1# and #enddate1#]]>
+						</isNotEqual>
+					</isNotEqual>
+				</isNotNull>
+			</isNotNull>
+			<isNotNull property="startdate2">
+				<isNotNull property="enddate2">
+					<isNotEqual property="startdate2" compareValue="" prepend="and">
+						<isNotEqual property="enddate2" compareValue="">
+							<![CDATA[paydate between #startdate2# and #enddate2#]]>
+						</isNotEqual>
+					</isNotEqual>
+				</isNotNull>
+			</isNotNull>
+			<isNotEqual property="display_pk" compareValue="0">
+				and display_pk=#display_pk#
+			</isNotEqual>
+			<isNotEqual property="sval" compareValue="" prepend="and">
+				<isEqual property="stype" compareValue="all" prepend="and">
+					( (id like '%$sval$%') or (title like '%$sval$%') ) 
+				</isEqual>
+				<isNotEqual property="stype" compareValue="all" prepend="and">
+					( $stype$ like '%$sval$%' ) 
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql>
+
+	<select id="ticketList" parameterClass="ticketvo" resultClass="ticketvo">
+		SELECT ticket.*, display.title, display.state, member.name, member.id from ticket, display, member
+		<include refid="searchSql"/>
+		AND ticket.display_pk=display.no 
+		AND ticket.member_pk=member.no
+		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
+	</select>
+	
+	<select id="count" parameterClass="ticketvo" resultClass="Integer">
+		SELECT COUNT(*) FROM ticket, display
+		<include refid="searchSql"/>
+		AND ticket.display_pk=display.no
+	</select>	
+    
+    <insert id="insert" parameterClass="ticketvo">
+    	INSERT INTO ticket 
+    	(member_pk, display_pk, pay_price, sale_price, displaydate, usepoint, storepoint, method, 
+    	reservedate, canceldate, paydate, reservestate, paystate, number, old_number, 
+    	adult_number, student_number)
+    	values
+    	(#member_pk#, #display_pk#, #pay_price#, #sale_price#, #displaydate#, #usepoint#, 
+    	#storepoint#, #method#, #reservedate#, #canceldate#, #paydate#, #reservestate#, #paystate#, 
+    	#number#, #old_number#, #adult_number#, #student_number#)
+    	<selectKey keyProperty="no" resultClass="Integer">
+    		SELECT LAST_INSERT_ID()
+    	</selectKey>
+    </insert>
+    
+    <select id="read" parameterClass="Integer" resultClass="ticketvo">
+    	SELECT *, (select title from display where ticket.display_pk=display.no) as title, (select id from member where ticket.member_pk=member.no) as id FROM ticket
+    	WHERE no=#no#
+    </select>
+    
+    <update id="update" parameterClass="ticketvo">
+    	UPDATE ticket SET
+		old_number=#old_number#, adult_number=#adult_number#, student_number=#student_number#, usepoint=#usepoint#,
+		storepoint=#storepoint#, pay_price=#pay_price#, sale_price=#sale_price#, paydate=#paydate#,
+		reservedate=#reservedate#, canceldate=#canceldate#, displaydate=#displaydate#, paystate=#paystate#, reservestate=#reservestate#,
+		refundstate=#refundstate#
+    	WHERE no=#no#
+    </update>
+    
+    <update id="reserveUpdate" parameterClass="ticketvo">
+    	UPDATE ticket SET
+    	reservestate=#reservestate#
+    	WHERE no=##no
+    </update>
+    
+    <delete id="delete" parameterClass="Integer">
+    	DELETE FROM ticket
+    	WHERE no=#no#
+    </delete>
+    
+</sqlMap>

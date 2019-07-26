@@ -89,7 +89,7 @@ function goSearch() {
 									<tr>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
 										<td><%=data.getNo()%></td>
-										<td <%=targetUrl%>><%=CodeUtil.getRoomName(data.getName())%></td>
+										<td <%=targetUrl%>><%=data.getName()%></td>
 										<td><%=data.getPrice()%></td>
 										<td><%=data.getCount()%></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>

@@ -48,6 +48,13 @@ function groupDelete() {
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="blist">
+						<div class="btn">
+								
+								<div class="btnRight">
+									<a class="btns" href="loginForm"><strong>로그인</strong> </a>
+								</div>
+							</div>
+							
 							<p><span><strong>총 <%=totCount%>개</strong>  |  <%=param.getReqPageNo()%>/<%=totPage%>페이지</span></p>
 							<form name="frm" id="frm" action="process.do" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
@@ -58,7 +65,9 @@ function groupDelete() {
 									<col class="w10" />							
 									<col class="w8" />
 									<col class="w10" />
-									<col class="w20" />
+									<col class="w8" />
+									<col class="w8" />
+									<col class="w8" />
 								</colgroup>
 								<thead>
 									<tr>
@@ -69,8 +78,10 @@ function groupDelete() {
 										<th scope="col">성별</th>		
 										<th scope="col">등급</th>	 																
 										<th scope="col">최근 로그인</th> 
+										 
 										
-										<th scope="col" class="last">등록일</th>
+										<th scope="col">등록일</th>
+										<th scope="col">탈퇴 여부</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -100,6 +111,7 @@ function groupDelete() {
 										<td <%=targetUrl%>><%=CodeUtil.getMgrade(list.get(i).getGrade())%></td>	 
 										<td <%=targetUrl%>><%=list.get(i).getLogindate()%></td>																		
 										<td <%=targetUrl%>><%=DateUtil.getDateTimeFormat(list.get(i).getRegdate())%></td>
+										<td <%=targetUrl%>><%=CodeUtil.getSecession(list.get(i).getSecession())%></td>
 									</tr>
 								<%
 										}

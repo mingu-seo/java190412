@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import manage.doctor.sched.SchedDAO;
 import manage.doctor.sched.SchedVO;
+import mypet.MypetVO;
 import property.SiteProperty;
 import util.FileUtil;
 import util.Function;
@@ -108,6 +109,10 @@ public class DoctorService {
 				}
 		}
 		return r;
+	}
+
+	public ArrayList<DoctorVO> Intro(DoctorVO param) throws Exception {
+		return doctorDao.Intro(param);
 	}
 	
 }

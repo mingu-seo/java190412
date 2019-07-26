@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import manage.doctor.DoctorVO;
+import member.MemberVO;
+import mypet.MypetVO;
 import util.Function;
 
 @Controller
@@ -56,6 +59,16 @@ public class DoctorController {
 		model.addAttribute("data", data);
 		model.addAttribute("vo", param);
 		return "manage/doctor/edit";
+	}
+	
+	@RequestMapping("/intro/intro-staff.do")
+	public String Intro(Model model, DoctorVO param) throws Exception {
+		DoctorVO data = doctorService.read(param.getNo());
+		
+		ArrayList list = doctorService.Intro(param);
+		model.addAttribute("list", list);
+		
+		return "intro/intro-staff";
 	}
 
 

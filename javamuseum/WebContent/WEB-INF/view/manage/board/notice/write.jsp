@@ -1,9 +1,11 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.util.*" %>
 <%@ page import="board.notice.*" %>
+<%@ page import="manage.admin.*" %>
 <%@ page import="util.*" %>
 <%
 NoticeVO param = (NoticeVO)request.getAttribute("vo");
+AdminVO Aparam = (AdminVO)request.getAttribute("Avo");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -67,18 +69,19 @@ NoticeVO param = (NoticeVO)request.getAttribute("vo");
 								</colgroup>
 								<tbody>
 									<tr>
-										<th scope="row"><label for="">상태</label></th>
-										<td>
-											<select name="display">
-												<%=CodeUtil.getDisplayOption(0) %>
-											</select>
-										</td>
+										
 										<th scope="row"><label for="">등록일</label></th>
 										<td>
 											<input type="text" id="registdate" name="registdate" class="inputTitle" value="<%=DateUtil.getFullToday()%>" title="등록일을 입력해주세요" />&nbsp;
 											<span id="CalregistdateIcon">
 												<img src="/manage/img/calendar_icon.png" id="CalregistdateIconImg" style="cursor:pointer;"/>
 											</span>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">*작성자</label></th>
+										<td colspan="3">
+											<input type="text" id="writer" name="writer" class="w50" title="제목을 입력해주세요" />	
 										</td>
 									</tr>
 									<tr>

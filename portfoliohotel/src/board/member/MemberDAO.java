@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import db.SqlMapClientDAOSupport;
 
+
 @Repository
 public class MemberDAO extends SqlMapClientDAOSupport {
 
@@ -37,13 +38,13 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 		return (Integer) getSqlMapClient().insert("member.insert", vo);
 	}
 
-	/*
-	 * public int insert(Member_serviceVO vo) throws SQLException { return (Integer)
-	 * getSqlMapClient().insert("member_service.insert", vo); }
-	 * 
-	 * public int insert(Member_loginVO vo) throws SQLException { return (Integer)
-	 * getSqlMapClient().insert("member_login.insert", vo); }
-	 */
+	
+//	  public int insert(Member_serviceVO vo) throws SQLException { return (Integer)
+//	  getSqlMapClient().insert("member_service.insert", vo); }
+//	  
+//	  public int insert(Member_loginVO vo) throws SQLException { return (Integer)
+//	  getSqlMapClient().insert("member_login.insert", vo); }
+	 
 
 	/**
 	 * 관리자 수정
@@ -75,6 +76,11 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 	public MemberVO read(int no) throws SQLException {
 		return (MemberVO) getSqlMapClient().queryForObject("member.read", no);
 	}
+	
+	public MemberVO loginForm(int no) throws SQLException {
+		return (MemberVO) getSqlMapClient().queryForObject("member.loginForm", no);
+	}
+
 
 	/**
 	 * 관리자 로그인체크 id, password로 조회 후 존재하면 true 리턴
@@ -87,6 +93,8 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 	public int loginCheck(MemberVO param) throws SQLException {
 		return (Integer) getSqlMapClient().queryForObject("member.loginCheck", param);
 	}
+	
+
 
 	/**
 	 * 관리자 아이디체크
@@ -95,8 +103,20 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 	 * @return
 	 * @throws SQLException
 	 */
+	
+	public int idcheck(MemberVO param) throws SQLException {
+		return (Integer) getSqlMapClient().queryForObject("member.idcheck", param);
+	}
+	
 	public int emailcheck(String email) throws SQLException {
 		return (Integer) getSqlMapClient().queryForObject("member.emailcheck", email);
+	}
+	public int pwdcheck(String pwd) throws SQLException {
+		return (Integer) getSqlMapClient().queryForObject("member.pwdcheck", pwd);
+	}
+	
+	public int samePwdcheck(String samePwd) throws SQLException {
+		return (Integer) getSqlMapClient().queryForObject("member.samePwdcheck", samePwd);
 	}
 
 	public MemberVO getLoginSessionInfo(MemberVO param) throws SQLException {
@@ -119,4 +139,6 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 //		System.out.println(no);
 
 	}
+
+	
 }
