@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="member.*" %>
+<%
+   MemberVO mdata = (MemberVO)request.getAttribute("data");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -126,12 +130,12 @@
                         <p><%=mdata.getBirth()%></p>
                     </div>
                     <div>
-                        <h5>Address</h5>
-                        <p><%=mdata.getBirth()%></p>
+                        <h5>RegistDate</h5>
+                        <p><%=mdata.getRegistdate()%></p>
                     </div>
                 </div>
                 <div class="sub6-botbox">
-                    <p><span>남 정 우</span> 님의 다음 진료 / 접종 예정일은 2019 년 06 월 20 일 입니다.</p>
+                    <p><span><%=mdata.getName()%></span> 님의 다음 진료 / 접종 예정일은 2019 년 06 월 20 일 입니다.</p>
                 </div>
             </div>
         </div>

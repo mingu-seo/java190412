@@ -61,6 +61,11 @@ public class MemberService {
 		MemberVO vo = memberDao.read(no);
 		return vo;
 	}
+	
+	public MemberVO memberEdit(int no) throws SQLException {
+		MemberVO vo = memberDao.read(no);
+		return vo;
+	}
 
 	public boolean loginCheck(MemberVO param) throws SQLException {
 		int cnt = memberDao.loginCheck(param);

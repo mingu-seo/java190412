@@ -51,16 +51,15 @@ function goSave() {
 								</colgroup>
 								<tbody>
 									<tr>
-										<th scope="row"><label for="">다이닝 종류</label></th>
+										<th scope="row"><label for="">회원명</label></th>
 										<td colspan="3">
 											<input type="text" id="dining_pk" name="dining_pk" class="w10" title="예약인원을 입력해주세요" />	
 										</td>
 									</tr>
-									
 									<tr>
-										<th scope="row"><label for="">결제 금액</label></th>
+										<th scope="row"><label for="">다이닝명</label></th>
 										<td colspan="3">
-											<input type="text" id="price" name="price" class="w10" title="예약인원을 입력해주세요" />	
+											<input type="text" id="dining_pk" name="dining_pk" class="w10" title="예약인원을 입력해주세요" />	
 										</td>
 									</tr>
 									<tr>
@@ -73,6 +72,12 @@ function goSave() {
 										<th scope="row"><label for="">예약인원(어린이)</label></th>
 										<td colspan="3">
 											<input type="text" id="kid" name="kid" class="w10" title="예약인원을 입력해주세요" />	
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">결제 금액</label></th>
+										<td colspan="3">
+											<input type="text" id="price" name="price" class="w10" title="예약인원을 입력해주세요" />	
 										</td>
 									</tr>
 									<tr>

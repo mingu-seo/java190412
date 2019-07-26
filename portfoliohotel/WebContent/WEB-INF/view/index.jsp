@@ -1,4 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
+<%@ page import="java.util.*" %>
+<%@ page import="board.member.*" %>
+<%@ page import="util.*" %>
+<%
+MemberVO param = (MemberVO)request.getAttribute("vo");
+ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
+MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
+MemberVO data = (MemberVO)request.getAttribute("data");
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -70,29 +81,40 @@
         </script>
     <title>테스트</title>
 </head>
+
 <body>
+
     <div id="header">
-        <div id="logined">
+    
+    <%if(sessionMember != null) {%>
+          <div id="logined">
             <div class="logined-box">
                 <h2 class="close-btn"><a href="#">x</a></h2>
-                <h3>기멍솔<span>님 안녕하세요.</span></h3>
+                 <%
+                 String[] nameArr = sessionMember.getName().split(",");
+                 %>
+                <h3><%=nameArr[0]%> <%=nameArr[1]%><span>님 안녕하세요.</span></h3>
                 <p class="mypage"><a href="/membership/mypage">마이페이지 <img src="img/white-arrow.png" class="white-arrow"></a></p>
                 <table>
+               
                     <tr>
                         <td class="left">등급</td>
-                        <td class="right">VIP</td>
+                        <td class="right"><%=CodeUtil.getMgrade(sessionMember.getGrade())%></td>
                     </tr>
                     <tr>
                         <td class="left">포인트</td>
-                        <td class="right">0 P</td>
+                        <td class="right"><%=sessionMember.getPoint()%> P</td>
                     </tr>
                     <tr>
                         <td class="left">회원번호</td>
-                        <td class="right">35001913379</td>
+                        <td class="right"><%=sessionMember.getNo()%></td>
                     </tr>
                 </table>
-            </div>
-        </div>
+            </div>      
+        </div>  
+        <%} %>
+        
+        
         <div class="header-center">
             <div class="pc-header">
                 <h1 class="logo"><a href="/index"><img src="img/header-logo.png"></a></h1>
@@ -216,7 +238,11 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
+                <%if(sessionMember == null){ %>
                 <a href="/membership/sign_in">Sign in</a>
+                <%}else{ %>
+                <a href="/membership/mypage">My page</a>
+                <%} %>
             </div>
         </div>
     </div>

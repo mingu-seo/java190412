@@ -42,6 +42,8 @@
 	<sqlMap resource="manage/adopt/adopt.xml"/>
 	<sqlMap resource="mypet/mypet.xml"/>
 	<sqlMap resource="board/qna/qna.xml"/>
+	<sqlMap resource="board/review/review.xml"/>
 	<sqlMap resource="manage/faq/faq.xml"/>
 	<sqlMap resource="manage/doctor/sched/sched.xml"/> 
+	<sqlMap resource="manage/reserve/reserve.xml"/>
 </sqlMapConfig>

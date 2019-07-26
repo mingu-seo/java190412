@@ -1,13 +1,8 @@
   <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
   <%@ page import="main.*" %>
   <%@ page import="member.*" %>
-  <%@ page import="mypet.*" %>
-  <%@ page import="java.util.*"%>
-  <!-- header html -->
   <%
   	MemberVO memberInfo = (MemberVO)session.getAttribute("memberInfo"); 
-    MemberVO mdata = (MemberVO)request.getAttribute("data");
-    ArrayList<MypetVO> mlist = (ArrayList<MypetVO>) request.getAttribute("list");
   %>
   <!-- header html -->
     <div id="header">

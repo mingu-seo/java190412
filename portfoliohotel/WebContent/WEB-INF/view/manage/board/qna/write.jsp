@@ -81,7 +81,19 @@ QnaVO param = (QnaVO)request.getAttribute("vo");
 	        
 	    return true;
 	}
-		
+	$(function() {
+		$('#selectEmail').change(function(){ 
+			   $("#selectEmail option:selected").each(function () { 
+			      if($(this).val()== '1'){ //직접입력일 경우
+			         $("#email2").val(''); //값 초기화
+			         $("#email2").attr("disabled",false); //활성화
+			         }else{ //직접입력이 아닐경우
+			            $("#email2").val($(this).text()); //선택값 입력
+			            $("#email2").attr("disabled",true); //비활성화
+			         } 
+			    }); 
+		});
+	});
 	
 	
 </script>
@@ -159,28 +171,19 @@ QnaVO param = (QnaVO)request.getAttribute("vo");
 										<th scope="row"><label for="">이메일</label></th>
 										<td colspan="4">
 											<input type="text" name="email" id="email" style="width:100px"> @ 
-											<input type="text" name="email" id="email" style="width:100px;" disabled value="naver.com">
-											<select style="width:100px;margin-right:10px" name="email" id="email"> 
+											<input type="text" name="email" id="email2" style="width:100px;" disabled value="naver.com">
+											<select style="width:100px;margin-right:10px" name="email" id="selectEmail"> 
 												<option value="1">직접입력</option> 
 												<option value="@naver.com" selected>naver.com</option> 
-												<option value="@hanmail.net">hanmail.net</option> 
+												<option value="@daum.net">hanmail.net</option>
+												<option value="@hanmail.net">hanmail.net</option>
+												<option value="@gmail.com">gmail.com</option>  
 												<option value="@hotmail.com">hotmail.com</option> 
 												<option value="@nate.com">nate.com</option> 
-												<option value="@yahoo.co.kr">yahoo.co.kr</option> 
-												<option value="@empas.com">empas.com</option> 
 												<option value="@dreamwiz.com">dreamwiz.com</option> 
-												<option value="@freechal.com">freechal.com</option> 
-												<option value="@lycos.co.kr">lycos.co.kr</option> 
-												<option value="@korea.com">korea.com</option> 
-												<option value="@gmail.com">gmail.com</option> 
-												<option value="@hanmir.com">hanmir.com</option> 
-												<option value="@paran.com">paran.com</option> 
-											</select> 
-
-
 											
+											</select> 
 										</td>
-										
 									</tr>
 									<tr>
 										<th scope="row"><label for="">게시글 비밀번호</label></th>

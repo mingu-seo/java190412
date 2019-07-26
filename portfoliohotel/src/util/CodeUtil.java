@@ -818,14 +818,34 @@ public class CodeUtil {
 	 
 	 public static String getSecession(int secession) {
 			String result = "";
-			if (secession == 1) {
+			if (secession == 0) {
 				result = "";
-			} else if (secession == 2) {
-				result = "탈퇴한 회원";
+			} else if (secession == 1) {
+				result = "탈퇴요청";
 			}
 			
 			return result;
 		}
+	 
+	 public static String getSecession_reason(int secession) {
+			String result = "";
+			if(secession == 0) {
+				result="";
+			} else if (secession == 1) {
+				result = "더 이상 서비스를 사용하지 않음";
+			} else if (secession == 2) {
+				result = "서비스가 불편함";
+			}else if (secession == 3) {
+				result = "시스템 장애(속도 저조, 에러등)";
+			}else if (secession == 4) {
+				result = "장기간 부재(군 입대, 유학등)";
+			}else if (secession == 5) {
+				result = "기타사유";
+			}
+			
+			return result;
+		}
+	 
 
 	 public static String getTopName(int top) {
 		 String result = "";

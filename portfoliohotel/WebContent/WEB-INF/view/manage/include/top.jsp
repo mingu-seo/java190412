@@ -69,6 +69,7 @@ $(window).load(function(){
 		
 		<div id="menu">
   			<ul class="menu">
+				
   				<li><a href="<%=request.getContextPath()%>/manage/member/index" class="parent"><span>회원관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/room/index" class="parent"><span>객실관리</span></a>
 					<div class="standard_left">
@@ -78,6 +79,13 @@ $(window).load(function(){
 						<li><a href="<%=request.getContextPath()%>/manage/room/res/index"><span>객실예약관리</span></a></li>
 					</ul>
 					</div>
+				</li>
+				<li><a href="<%=request.getContextPath()%>/manage/dining/index" class="parent"><span>다이닝관리</span></a>
+					<div class="standard_left">
+					<ul>
+						<li><a href="<%=request.getContextPath()%>/manage/dining/index"><span>다이닝관리</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/dining_res/index"><span>다이닝 예약관리</span></a></li>
+					</ul>	
 				</li>
 				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>pkg관리</span></a>
 					<div class="standard_left">
