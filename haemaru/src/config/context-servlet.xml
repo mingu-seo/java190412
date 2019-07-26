@@ -56,13 +56,6 @@
  	<mvc:view-controller path="/department/emergency.do"/>
  	<mvc:default-servlet-handler/>
  	
- 	<mvc:view-controller path="/adopt/animalprofile/animalprofile.do"/>
- 	<mvc:default-servlet-handler/>
- 	<mvc:view-controller path="/adopt/review/review.do"/>
- 	<mvc:default-servlet-handler/>
- 	<mvc:view-controller path="/adopt/review/addreview.do"/>
- 	<mvc:default-servlet-handler/> 	
- 
  	
  	<mvc:view-resolvers>
  	    <mvc:jsp prefix="/WEB-INF/view/"/>
