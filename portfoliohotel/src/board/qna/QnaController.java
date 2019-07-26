@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import board.qna.QnaVO;
 import board.qna.QnaService;
+import manage.admin.AdminVO;
 
 import util.Function;
 
@@ -37,16 +39,22 @@ public class QnaController {
 
 	@RequestMapping("/membership/qna_q")
 	public String qna_q(Model model, QnaVO param) throws Exception {
-
+		model.addAttribute("vo", param);
+		
 		return "membership/qna_q";
 	}
 	
-//	@RequestMapping("/membership/qna/processU")
-//	public String processU(Model model, QnaVO param, HttpServletRequest request) throws Exception {
-//		model.addAttribute("param", param);
-//		
-//		return "include/alert";
-//	}
+	@RequestMapping("/membership/processU")
+	public String processU(Model model, QnaVO param, HttpServletRequest request) throws Exception {
+		model.addAttribute("param", param);
+		if ("write".equals(param.getCmd())) {
+			int r = qnaService.insert(param, request);
+			model.addAttribute("code", "alertMessageUrl");
+			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
+			model.addAttribute("url", "qna");
+		}
+		return "include/alert";
+	}
 
 
 
@@ -55,16 +63,18 @@ public class QnaController {
 	
 	/*	[관리자]  QnA 목록	 */ 
 	@RequestMapping("/manage/board/qna/index")
-	public String index(Model model, QnaVO param) throws Exception {
+	public String index(Model model, QnaVO param, HttpSession session) throws Exception {
 
 		param.setTablename("qna");
 		int[] rowPageCount = qnaService.count(param);
 		ArrayList<QnaVO> list = qnaService.list(param);
-
+		AdminVO vo = (AdminVO)session.getAttribute("adminInfo");
+		
 		model.addAttribute("totCount", rowPageCount[0]);
 		model.addAttribute("totPage", rowPageCount[1]);
 		model.addAttribute("list", list);
 		model.addAttribute("vo", param);
+		model.addAttribute("admin_vo", vo); 
 
 		return "manage/board/qna/index";
 	}
