@@ -1,4 +1,4 @@
-d<%@ page contentType="text/html; charset=utf-8" %>
+<%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="board.member.*" %>
 <%@ page import="java.util.*" %>
 <%
@@ -48,7 +48,7 @@ function goSave() {
 	}
 	
 	// 비밀번호 유효성체크
-	if(!validPassword($("#password"))) return false;
+	// if(!validPassword($("#password"))) return false;
 	
 	$.ajax ({
 		type:'POST',
@@ -183,7 +183,7 @@ function goSave() {
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>관리자관리 - [수정]</h2>
+					<h2>회원 - [수정]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">

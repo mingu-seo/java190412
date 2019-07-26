@@ -5,6 +5,7 @@
 <%
 	MemberVO param = (MemberVO) request.getAttribute("vo");
 	ArrayList<MemberVO> list = (ArrayList) request.getAttribute("list");
+	MemberVO vo = (MemberVO)session.getAttribute("memberInfo");
 %>
 
 <script>
@@ -75,7 +76,7 @@ function CookieVal(cookieName) {
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="/index.do"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="/index"><img src="../img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">Book</a>
@@ -193,7 +194,7 @@ function CookieVal(cookieName) {
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="/membership/sign_in.do">Sign in</a>
+                <a href="/membership/sign_in">Sign in</a>
             </div>
         </div>
     </div>
@@ -205,7 +206,7 @@ function CookieVal(cookieName) {
             <h3>Log In</h3>
             <div class="login-box clear">
                 <!-- <form action="#" method="POST"> -->
-                <form name="mamber" id="member" method="post" action="<%-- <%=request.getContextPath()%>/index --%>" onsubmit="return loginCheck();">
+                <form name="mamber" id="member" method="post" action=" <%=request.getContextPath()%>/membership/login" onsubmit="return loginCheck();">
                     <div class="login-box-logo"><img src="../img/sign_in_img/login-logo.png"></div>
                     <div class="login-board clear">
                         <div class="login-box-left">
@@ -260,7 +261,7 @@ function CookieVal(cookieName) {
                 <h5>아직 호텔 회원이 아니신가요?</h5>
                 <p>온라인 회원은 예약/결제 정보를 온라인에서 확인하실 수 있습니다.</p>
                 <div class="join-box">
-                    <a href="choice_join.do">호텔 멤버십 가입 </a>
+                    <a href="choice_join">호텔 멤버십 가입 </a>
                 </div>
                 <div class="error-text clear">
                     <h6>멤버십 가입 및 온라인 인증에 문제가 생기셨나요?</h6>

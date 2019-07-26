@@ -80,6 +80,9 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 	public MemberVO loginForm(int no) throws SQLException {
 		return (MemberVO) getSqlMapClient().queryForObject("member.loginForm", no);
 	}
+	public MemberVO memberEdit(int no) throws SQLException {
+		return (MemberVO) getSqlMapClient().queryForObject("member.memberEdit", no);
+	}
 
 
 	/**
