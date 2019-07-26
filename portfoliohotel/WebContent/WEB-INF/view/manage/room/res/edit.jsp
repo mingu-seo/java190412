@@ -7,8 +7,8 @@
 <%@ page import="util.*" %>
 
 <%
-Room_resVO read = (Room_resVO)request.getAttribute("read");
 Room_resVO vo = (Room_resVO)request.getAttribute("vo");
+Room_resVO read = (Room_resVO)request.getAttribute("read");
 ArrayList<Room_opt_resVO> list_o = (ArrayList<Room_opt_resVO>)request.getAttribute("list_o");
 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 %>
@@ -18,22 +18,26 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp" %>
 <script>
-$(function() {	
-	$("#cancelBtn").click(function() {
-		goCancel();
+function goSave() {
+	return true;
+}
+
+$(function() {
+	$("#pay_state").change(function() {
+		if($("#pay_state option:selected").val() == 1) {
+			console.log($("#pay_state option:selected").val());
+			$("#paydate_span").text("<%=DateUtil.getToday()%>");
+			$("#paydate").val("<%=DateUtil.getToday()%>");
+			console.log($("#paydate").val());
+		} else if($("#pay_state option:selected").val() != 1) {
+			$("#paydate").val("");
+		}
 	});
 });
 
-function goCancel() {
-	var cancel = confirm('예약을 취소하시겠습니까?');
-	if(cancel) {
-		document.location.href = "/manage/room/res/process?no=<%=read.getNo()%>$cmd=cancel";
-	} else {
-		return false;
-	}
-}
+
 </script>
-<title>관리자 객실 예약 상세</title>
+<title>관리자 객실 예약 등록</title>
 </head>
 <body>
 <%@ include file="/WEB-INF/view/manage/include/common.jsp" %>
@@ -48,14 +52,14 @@ function goCancel() {
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>객실 예약 관리 - [상세]</h2>
+					<h2>객실 예약 관리 - [수정]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="bread">
-							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" enctype="multipart/form-data" onsubmit="return goSave();">
+							<form method="post" name="frm" id="frm" action="/manage/room/res/process?no=<%=read.getNo() %>" onsubmit="return goSave();">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
 									<col width="10%"/>
@@ -114,15 +118,15 @@ function goCancel() {
 									</tr>
 									<tr>
 										<th colspan="2">숙박 고객 한글명</th>
-										<td colspan="3"><%=read.getGuest_kname() %></td>
+										<td colspan="3"><input type="text" id="guest_kname" name="guest_kname" class="w90" value="<%=read.getGuest_kname() %>"/></td>
 										<th colspan="2">숙박 고객 영문명</th>
-										<td colspan="3"><%=read.getGuest_ename() %></td>
+										<td colspan="3"><input type="text" id="guest_ename" name="guest_ename" class="w90" value="<%=read.getGuest_ename() %>"/></td>
 									</tr>
 									<tr>	
 										<th colspan="2">숙박 고객 연락처</th>
-										<td colspan="3"><%=read.getGuest_tel() %></td>
+										<td colspan="3"><input type="text" id="guest_tel" name="guest_tel" class="w90" value="<%=read.getGuest_tel() %>"/></td>
 										<th colspan="2">숙박 고객 이메일</th>
-										<td colspan="3"><%=read.getGuest_email() %></td>
+										<td colspan="3"><input type="text" id="guest_email" name="guest_email" class="w90" value="<%=read.getGuest_email() %>"/></td>
 									</tr>
 									<tr>
 										<th>객실 금액</th>
@@ -138,22 +142,37 @@ function goCancel() {
 									</tr>
 									<tr>
 										<th>예약 상태</th>
-										<td><%=CodeUtil.getResState(read.getRes_state()) %></td>
+										<td>
+											<select name="res_state" id="res_state">
+												<option value="0" <%=Function.getSelected(read.getRes_state(), 0) %>><%=CodeUtil.getResState(0) %></option>
+												<option value="1" <%=Function.getSelected(read.getRes_state(), 1) %>><%=CodeUtil.getResState(1) %></option>
+											</select>
+										</td>
 										<th>예약일</th>
-										<td><%=sdf.format(read.getBookdate())%></td>
+										<td><%=sdf.format(read.getBookdate()) %></td>
 										<th>결제 방법</th>
-										<td><%=CodeUtil.getPayMethod(read.getPay_method()) %></td>
+										<td>
+											<select name="pay_method" id="pay_method">
+												<option value="0" <%=Function.getSelected(read.getPay_method(), 0) %>><%=CodeUtil.getPayMethod(0) %></option>
+												<option value="1" <%=Function.getSelected(read.getPay_method(), 1) %>><%=CodeUtil.getPayMethod(1) %></option>
+											</select>
+										</td>
 										<th>결제 상태</th>
-										<td><%=CodeUtil.getPayState(read.getPay_state()) %></td>
+										<td>
+											<select name="pay_state" id="pay_state">
+												<option value="0" <%=Function.getSelected(read.getPay_state(), 0) %>><%=CodeUtil.getPayState(0) %></option>
+												<option value="1" <%=Function.getSelected(read.getPay_state(), 1) %>><%=CodeUtil.getPayState(1) %></option>
+											</select>
+										</td>
 										<th>결제일</th>
 										<%
-										if(read.getPaydate().equals("")) {
+										if(!read.getPaydate().equals("")) {
 										%>
-										<td> - </td>
+										<td><%=read.getPaydate()%></td>
 										<%
 										} else {
 										%>
-										<td><%=read.getPaydate() %></td>
+										<td><span id="paydate_span" name="paydate_span"></span></td>
 										<%
 										}
 										%>
@@ -171,15 +190,15 @@ function goCancel() {
 									
 								</tbody>
 							</table>
+							<input type="hidden" name="paydate" id="paydate" value=""/>
+							<input type="hidden" name="cmd" id="cmd" value="edit" />
 							</form>
 							<div class="btn">
 								<div class="btnLeft">
-									<a class="btns" href="<%=vo.getTargetURLParam("index", vo, 0)%>"><strong>목록</strong></a>
-									
+									<a class="btns" href="<%=vo.getTargetURLParam("read", vo, read.getNo())%>"><strong>취소</strong></a>
 								</div>
 								<div class="btnRight">
-									<input type="button" class="btns" id="#cancelBtn"><strong>예약 취소</strong></a>
-									<a class="btns" href="<%=vo.getTargetURLParam("edit", vo, read.getNo())%>"><strong>수정</strong></a>
+									<a class="btns" href="javascript:$('#frm').submit();"><strong>저장</strong></a>
 								</div>
 							</div>
 							<!--//btn-->

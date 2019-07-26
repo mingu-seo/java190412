@@ -90,6 +90,9 @@ CHANGE COLUMN `chechout` `checkout` CHAR(10) NULL DEFAULT NULL ;
 ALTER TABLE `portfoliohotel`.`room_res` 
 ADD COLUMN `paydate` TIMESTAMP NULL AFTER `res_state`;
 
+ALTER TABLE `portfoliohotel`.`room_res` 
+CHANGE COLUMN `paydate` `paydate` CHAR(10) NULL DEFAULT NULL ;
+
 
 CREATE TABLE `room_service` (
   `no` int(11) NOT NULL AUTO_INCREMENT,

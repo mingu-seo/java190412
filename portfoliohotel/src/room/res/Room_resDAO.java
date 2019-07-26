@@ -41,9 +41,12 @@ public class Room_resDAO extends SqlMapClientDAOSupport {
 	}
 	
 	public int update(Room_resVO vo) throws SQLException {
-		return getSqlMapClient().update("room_res.update", vo);
+		return getSqlMapClient().update("room_res.edit", vo);
 	}
 	
+	public int cancel(int no) throws SQLException {
+		return getSqlMapClient().update("room_res.cancel", no);
+	}
 	
 	/**
 	 * 객실 추가 옵션 예약
@@ -51,7 +54,11 @@ public class Room_resDAO extends SqlMapClientDAOSupport {
 	 * @return
 	 * @throws SQLException
 	 */
-	public int insert(Room_opt_resVO vo) throws SQLException {
-		return (Integer)getSqlMapClient().insert("room_res.insert_opt", vo);
+	public void insert_opt(Room_opt_resVO vo) throws SQLException {
+		getSqlMapClient().insert("room_res.insert_opt", vo);
+	}
+	
+	public ArrayList list_opt(int room_res_pk) throws SQLException {
+		return (ArrayList)getSqlMapClient().queryForList("room_res.list_opt", room_res_pk);
 	}
 }
