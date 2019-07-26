@@ -5,7 +5,7 @@
 <%
 	MemberVO param = (MemberVO) request.getAttribute("vo");
 	ArrayList<MemberVO> list = (ArrayList) request.getAttribute("list");
-	MemberVO vo = (MemberVO)session.getAttribute("memberInfo");
+	MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
 %>
 
 <script>
