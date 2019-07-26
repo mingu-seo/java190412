@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import board.qna.QnaVO;
 import board.qna.QnaService;
-import manage.admin.AdminVO;
+import board.member.MemberVO;
 
 import util.Function;
 
@@ -38,7 +38,9 @@ public class QnaController {
 	}
 
 	@RequestMapping("/membership/qna_q")
-	public String qna_q(Model model, QnaVO param) throws Exception {
+	public String qna_q(Model model, QnaVO param, HttpSession session) throws Exception {
+		MemberVO vo = (MemberVO)session.getAttribute("memberInfo");
+		
 		model.addAttribute("vo", param);
 		
 		return "membership/qna_q";
@@ -63,18 +65,18 @@ public class QnaController {
 	
 	/*	[관리자]  QnA 목록	 */ 
 	@RequestMapping("/manage/board/qna/index")
-	public String index(Model model, QnaVO param, HttpSession session) throws Exception {
+	public String index(Model model, QnaVO param) throws Exception {
 
 		param.setTablename("qna");
 		int[] rowPageCount = qnaService.count(param);
 		ArrayList<QnaVO> list = qnaService.list(param);
-		AdminVO vo = (AdminVO)session.getAttribute("adminInfo");
+		
 		
 		model.addAttribute("totCount", rowPageCount[0]);
 		model.addAttribute("totPage", rowPageCount[1]);
 		model.addAttribute("list", list);
 		model.addAttribute("vo", param);
-		model.addAttribute("admin_vo", vo); 
+	
 
 		return "manage/board/qna/index";
 	}
