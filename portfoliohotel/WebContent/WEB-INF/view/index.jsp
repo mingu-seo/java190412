@@ -238,7 +238,11 @@ MemberVO data = (MemberVO)request.getAttribute("data");
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
+                <%if(sessionMember == null){ %>
                 <a href="/membership/sign_in">Sign in</a>
+                <%}else{ %>
+                <a href="/membership/mypage">My page</a>
+                <%} %>
             </div>
         </div>
     </div>

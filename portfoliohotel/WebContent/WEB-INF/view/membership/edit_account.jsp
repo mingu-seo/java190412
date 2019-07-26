@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="board.member.*" %>
 <%@ page import="java.util.*" %>
+<%@ page import="util.*"%>
 <%
 MemberVO param = (MemberVO)request.getAttribute("vo");
+ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
+MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
 MemberVO data = (MemberVO)request.getAttribute("data");
-MemberVO vo = (MemberVO)session.getAttribute("memberInfo");
 %>
 <!DOCTYPE html>
 <script>
@@ -209,7 +211,11 @@ function goSave() {
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="sign_in.do">SIGN IN</a>
+               <%if(sessionMember == null){ %>
+                <a href="/membership/sign_in">Sign in</a>
+                <%}else{ %>
+                <a href="/membership/mypage">My page</a>
+                <%} %>
             </div>
         </div>
     </div>
@@ -237,9 +243,9 @@ function goSave() {
                     <div class="edit-table-right">
                         <form method="POST">
                         	<%
-								String[] nameArr = vo.getName().split(",");
-								String[] birthdayArr = vo.getBirthday().split(",");
-								String[] telArr = vo.getTel().split(",");
+								String[] nameArr = sessionMember.getName().split(",");
+								String[] birthdayArr = sessionMember.getBirthday().split(",");
+								String[] telArr = sessionMember.getTel().split(",");
 								%>
                             <div class="name clear">
                                 <div class="name1">

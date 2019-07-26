@@ -145,7 +145,11 @@ MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="sign_in.do">SIGN IN</a>
+              <%if(sessionMember == null){ %>
+                <a href="/membership/sign_in">Sign in</a>
+                <%}else{ %>
+                <a href="/membership/mypage">My page</a>
+                <%} %>
             </div>
         </div>
     </div>
