@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import manage.exhibition.ExhibitionService;
 import manage.exhibition.ExhibitionVO;
+import manage.member.MemberService;
+import manage.member.MemberVO;
 import util.Function;
 
 @Controller
@@ -20,16 +22,22 @@ public class TicketController {
 	private TicketService ticketService;
 	@Autowired
 	private ExhibitionService exhibitionService;
+	@Autowired
+	private MemberService memberService;
 	
 	@RequestMapping("/manage/ticket/index")
-	public String index(Model model, TicketVO param) throws Exception {
+	public String index(Model model, TicketVO param, ExhibitionVO exparam) throws Exception {
 		int[] rowPageCount = ticketService.count(param);
 		ArrayList<TicketVO> list = ticketService.list(param);
+		ArrayList<ExhibitionVO> ingList = exhibitionService.ingList(exparam);
+		ArrayList<ExhibitionVO> exList = exhibitionService.exList(exparam);
 		
 		model.addAttribute("totCount", rowPageCount[0]);
 		model.addAttribute("totPage", rowPageCount[1]);
 		model.addAttribute("list", list);
 		model.addAttribute("param", param);
+		model.addAttribute("ingList", ingList);
+		model.addAttribute("exList", exList);
 		
 		return "manage/ticket/index";
 	}
@@ -63,8 +71,23 @@ public class TicketController {
 	}
 	
 	@RequestMapping("/manage/ticket/searchMemb")
-	public String search(Model model, TicketVO param) throws Exception {
+	public String search(Model model, TicketVO param, MemberVO mparam) throws Exception {
+		int[] rowPageCount = memberService.count(mparam);
+		ArrayList<MemberVO> list = memberService.list(mparam);
+		
+		model.addAttribute("totCount", rowPageCount[0]);
+		model.addAttribute("totPage", rowPageCount[1]);
+		model.addAttribute("list", list);
+		model.addAttribute("param", param);
+		
 		return "manage/ticket/searchMemb";
+	}
+	
+	@RequestMapping("/reserve/update")
+	public String reserveUpdate(Model model, TicketVO param) throws Exception {
+		ticketService.reserveUpdate(param);
+		
+		return "include/return";
 	}
 
 	@RequestMapping("/manage/ticket/process")

@@ -32,7 +32,32 @@
 	<mvc:view-controller path="/login.do"/>
 	<mvc:view-controller path="/validator.do"/>
  -->
- 	
+ <!--
+    <mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/manage/**" />
+			<mvc:exclude-mapping path="/manage" />
+			<mvc:exclude-mapping path="/manage/" />
+			<mvc:exclude-mapping path="/manage/css/*" />
+			<mvc:exclude-mapping path="/manage/js/*" />
+			<mvc:exclude-mapping path="/manage/img/*" />
+			<mvc:exclude-mapping path="/manage/login.do" />
+			<bean class="interceptors.AdminLoginInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+ -->	
+	<mvc:interceptors>
+	   <mvc:interceptor>
+			<mvc:mapping path="/my/**" />
+			<mvc:exclude-mapping path="/my" />
+			<mvc:exclude-mapping path="/my/" />
+			<mvc:exclude-mapping path="/my/css/*" />
+			<mvc:exclude-mapping path="/my/js/*" />
+			<mvc:exclude-mapping path="/my/img/*" />
+			<mvc:exclude-mapping path="/my/login.do" />
+			<bean class="interceptors.MemberLoginInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 	<mvc:view-controller path="/intro/intro-hi.do"/>
  	<mvc:default-servlet-handler/>
  	<mvc:view-controller path="/intro/intro-staff.do"/>
@@ -40,8 +65,6 @@
  	<mvc:view-controller path="/intro/intro-map.do"/>
  	<mvc:default-servlet-handler/>
  	
- 	<mvc:view-controller path="/my/my-pet.do"/>
- 	<mvc:default-servlet-handler/>
  	<mvc:view-controller path="/my/my-res.do"/>
  	<mvc:default-servlet-handler/>
  	<mvc:view-controller path="/my/my-ask.do"/>

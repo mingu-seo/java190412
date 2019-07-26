@@ -24,7 +24,6 @@ public class ReservationDAO extends SqlMapClientDAOSupport {
       return (Integer) getSqlMapClient().insert("reservation.insert", vo);
       
    }
-   
 
    public int update(ReservationVO vo) throws SQLException {
       return getSqlMapClient().update("reservation.update", vo);

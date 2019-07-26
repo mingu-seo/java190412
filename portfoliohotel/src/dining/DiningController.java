@@ -57,31 +57,31 @@ public class DiningController {
 		return "manage/dining/write";
 	}
 
-	@RequestMapping("/dining/thefesta.do")
+	@RequestMapping("/dining/thefesta")
 	public String thefesta(Model model, DiningVO param) throws Exception {
 
 		return "dining/thefesta";
 	}
 
-	@RequestMapping("/dining/granum-dining.do")
+	@RequestMapping("/dining/granum-dining")
 	public String granum_dining(Model model, DiningVO param) throws Exception {
 
 		return "dining/granum-dining";
 	}
 
-	@RequestMapping("/dining/moon-bar.do")
+	@RequestMapping("/dining/moon-bar")
 	public String moon_bar(Model model, DiningVO param) throws Exception {
 
 		return "dining/moon-bar";
 	}
 
-	@RequestMapping("/dining/outdoor-kitchen.do")
+	@RequestMapping("/dining/outdoor-kitchen")
 	public String outdoor_kitchen(Model model, DiningVO param) throws Exception {
 
 		return "dining/outdoor-kitchen";
 	}
 
-	@RequestMapping("/dining/dining_origin_book.do")
+	@RequestMapping("/dining/dining_origin_book")
 	public String dining_origin_book(Model model, DiningVO param) throws Exception {
 
 		return "dining/dining_origin_book";

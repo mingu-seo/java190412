@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import db.SqlMapClientDAOSupport;
 import manage.admin.AdminVO;
-import member.MypetVO;
+import member.MypettVO;
 
 @Repository
 public class MemberDAO extends SqlMapClientDAOSupport {
@@ -103,8 +103,8 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 		return (MemberVO) getSqlMapClient().queryForObject("member.loginSessionInfo", vo);
 	}
 	
-	public ArrayList<MypetVO> mypetList(int member_pk) throws SQLException {
-		return (ArrayList<MypetVO>)getSqlMapClient().queryForList("member.mypetList", member_pk);
+	public ArrayList<MypettVO> mypetList(int member_pk) throws SQLException {
+		return (ArrayList<MypettVO>)getSqlMapClient().queryForList("member.mypetList", member_pk);
 	}
 	
 	public static void main(String[] args) throws Exception {

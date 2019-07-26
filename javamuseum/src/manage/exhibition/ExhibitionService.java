@@ -27,6 +27,10 @@ public class ExhibitionService {
 		ArrayList ingList = exhibitionDao.ingList(param);
 		return ingList;
 	}
+	public ArrayList exList(ExhibitionVO param) throws Exception {
+		ArrayList exList = exhibitionDao.exList(param);
+		return exList;
+	}
 	
 	public ArrayList list(ExhibitionVO param, HttpServletRequest request) throws Exception {
 		String[] stateNo = request.getParameterValues("sstate");

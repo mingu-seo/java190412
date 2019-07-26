@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Repository;
 
 import db.SqlMapClientDAOSupport;
+import mypet.MypetVO;
 
 @Repository
 public class MypetDAO extends SqlMapClientDAOSupport {
@@ -72,7 +73,10 @@ public class MypetDAO extends SqlMapClientDAOSupport {
 	 * @return boolean
 	 * @throws SQLException
 	 */
-
+	
+	public ArrayList<MypetVO> mypetsList(MypetVO param) throws SQLException {
+		return (ArrayList<MypetVO>)getSqlMapClient().queryForList("mypet.mypetsList", param);
+	}
 	
 	public static void main(String[] args) throws Exception {
 		MypetDAO ad = new MypetDAO();

@@ -21,6 +21,9 @@ public class ProgramVO extends Parameter {
 	private String location;		//장소
 	private int display;			//노출 미노출
 	
+	
+	private String imagename_chk;	//임시 보관 이미지
+	
 	private int opt_no;
 	
 	public void setOpt_no(int opt_no) {
@@ -30,7 +33,7 @@ public class ProgramVO extends Parameter {
 	public int getOpt_no() {
 		return opt_no;
 	}
-	private String imagename_chk;	//임시 보관 이미지 
+	 
 	
 	public String getImagename_chk() {
 		return imagename_chk;
