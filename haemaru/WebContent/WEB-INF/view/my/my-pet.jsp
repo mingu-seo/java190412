@@ -36,7 +36,7 @@
 		<div class="con2">
 			<!-- 정보수정 반려동물 부분 -->
 			<div id="mypet-area">
-	<div class="mypet-box">
+<div class="mypet-box">
 		<div class="mypet-head">
 			<p>반려동물 정보 수정</p>
 			<img src="/icon/footer-icon.png">
@@ -52,26 +52,26 @@
 			<form class="mypet-form" method="POST" action="/my/my-pet-edit">
 				<div class="petname_box">
 					<span><label for="pet_name" class="label">My pet 이름</label></span>
-					<input type="text" maxlength="20" id="pet_name" name="name" class="cover-size" value="<%=param.getName()%>">
+					<input type="text" maxlength="20" id="pet_name" name="name" class="cover-size" value="">
 				</div>
 				<div class="petage_box">
 					<span><label for="pet_old" class="label">My pet 나이</label></span> <input
-						type="text" maxlength="20" id="pet_old" name="age"
+						type="text" maxlength="20" id="pet_old" name="age" value=""
 						class="cover-size">
 				</div>
 				<div class="petgender_box">
 					<span>My Pet 성별</span> 
-					<input type="radio" id="radio01"name="gender"><label for="radio01" class="label">남아</label>
-					<input type="radio" id="radio02" name="gender"><label for="radio02" class="label">여아</label>
+					<input type="radio" id="radio01" name="gender" value="2" ><label for="radio01" class="label">남아</label>
+					<input type="radio" id="radio02" name="gender" value="1" ><label for="radio02" class="label">여아</label>
 				</div>
 				<div class="petlist_box">
 					<span><label for="pet_class" class="label">My Pet 품종</label></span>
-					<input type="text" maxlength="5" id="pet_class" name="breed"
+					<input type="text" maxlength="5" id="pet_class" name="breed" value=""
 						class="cover-size">
 				</div>
 				<div class="petdoc_box">
 					<span><label for="pet_helth" class="label">최근 접종 현황</label></span>
-					<input type="text" maxlength="5" id="pet_helth" name="vac"
+					<input type="text" maxlength="5" id="pet_helth" name="vac" value=""
 						class="cover-size">
 				</div>
 				<div class="mypet-btn clear">
@@ -85,7 +85,7 @@
 			</ul>
 		</div>
 	</div>
-</div>
+			</div>
 			<!-- 반려동물 추가부분 -->
 			<%@ include file="/WEB-INF/view/my/my-pet-add.jsp"%>
 			<!-- sub bar 부분 (고정) -->
@@ -127,7 +127,7 @@
 							</div>
 							<div>
 								<div class="sub6-more">
-									<a href="/my/myEdit?no=<%=mlist.get(i).getNo()%>">EDIT</a>
+									<a href="javascript:;" onclick="getPetEditAjax(<%=mlist.get(i).getNo()%>);">EDIT</a>
 								</div>
 							</div>
 						</div>
@@ -166,6 +166,47 @@ $(function(){
 	});
 });
 
+function getPetEdit(no) {
+	$.ajax({
+		type : "POST",
+		url : "/my/my-pet-edit.do?no="+no,
+		async : false,
+		success : function(data) {
+			$("#mypet-area").html(data);
+			$('#mypet-area').stop().fadeIn(500);
+			$('.mypet-back-arrow, #btn_reset2, .mypet-head img').click(function(e){
+			    e.preventDefault();
+			    $('#mypet-area').stop().fadeOut(500);
+			});
+		}
+	});
+}
+
+function getPetEditAjax(no) {
+	$.ajax({
+		type : "POST",
+		url : "/my/my-pet-editJson.do?no="+no,
+		async : false,
+		dataType:'JSON',
+		success : function(data) {
+			//console.log(data.name);
+			$("#pet_name").val(data.name);
+			$("#pet_old").val(data.age);
+			$("#pet_class").val(data.breed);
+			$("#pet_helth").val(data.vac);
+			
+			// 성별
+			if (data.gender == '2') {
+				$("input[name='gender']").eq(0).attr("checked","true");
+			} else {
+				$("input[name='gender']").eq(1).attr("checked","true");
+			}
+			
+			
+			$('#mypet-area').stop().fadeIn(500);
+		}
+	});
+}
 </script>
 	<%@ include file="/WEB-INF/view/include/footer.jsp"%>
 </body>

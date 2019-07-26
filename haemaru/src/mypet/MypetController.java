@@ -80,6 +80,15 @@ public class MypetController {
 		return "my/my-pet-edit";
 	}
 	
+	@RequestMapping("/my/my-pet-editJson.do")
+	public String myPetEditJson(Model model, MypetVO param) throws Exception {
+		MypetVO data = mypetService.read(param);
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+		
+		return "my/my-pet-editJson";
+	}
+	
 	@RequestMapping("/my/myEdit.do")
 	public String myEdit(Model model, MypetVO param) throws Exception {
 		MypetVO data = mypetService.read(param);

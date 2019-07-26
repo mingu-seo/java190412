@@ -2794,3 +2794,789 @@
 2019-07-24 11:56:48,075 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100105} Header: [no, name, department, position, addr, tel, category, doc_image, doc_image_org, registdate, gender]
 2019-07-24 11:56:48,075 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100105} Result: [13, 맹다영, 1, 1, 원당, 01012345678, 0, null, null, 2019-07-19 17:54:53.0, 1]
 2019-07-24 11:56:48,076 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100105} Result: [15, 이윤, 1, 1, 대화, 01012341234, 0, null, null, 2019-07-19 17:55:22.0, 1]
+2019-07-26 13:52:06,412 [http-bio-8080-exec-10] DEBUG Connection - {conn-100000} Connection
+2019-07-26 13:52:06,416 [http-bio-8080-exec-10] DEBUG Connection - {conn-100000} Preparing Statement:          select count(*) as cnt from admin where id=? and password=md5(?)     
+2019-07-26 13:52:06,444 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100001} Executing Statement:          select count(*) as cnt from admin where id=? and password=md5(?)     
+2019-07-26 13:52:06,445 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100001} Parameters: [test, test]
+2019-07-26 13:52:06,445 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100001} Types: [java.lang.String, java.lang.String]
+2019-07-26 13:52:06,473 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100002} ResultSet
+2019-07-26 13:52:06,496 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100002} Header: [cnt]
+2019-07-26 13:52:06,496 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100002} Result: [0]
+2019-07-26 13:52:12,855 [http-bio-8080-exec-3] DEBUG Connection - {conn-100003} Connection
+2019-07-26 13:52:12,863 [http-bio-8080-exec-3] DEBUG Connection - {conn-100003} Preparing Statement:          select count(*) from notice                                        
+2019-07-26 13:52:12,864 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100004} Executing Statement:          select count(*) from notice                                        
+2019-07-26 13:52:12,864 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100004} Parameters: []
+2019-07-26 13:52:12,864 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100004} Types: []
+2019-07-26 13:52:12,901 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100005} ResultSet
+2019-07-26 13:52:12,901 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100005} Header: [count(*)]
+2019-07-26 13:52:12,901 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100005} Result: [0]
+2019-07-26 13:52:12,905 [http-bio-8080-exec-3] DEBUG Connection - {conn-100006} Connection
+2019-07-26 13:52:12,905 [http-bio-8080-exec-3] DEBUG Connection - {conn-100006} Preparing Statement:          select *         from notice                                     ORDER BY cre_date DESC LIMIT 0, 10     
+2019-07-26 13:52:12,905 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100007} Executing Statement:          select *         from notice                                     ORDER BY cre_date DESC LIMIT 0, 10     
+2019-07-26 13:52:12,906 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100007} Parameters: []
+2019-07-26 13:52:12,906 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100007} Types: []
+2019-07-26 13:52:12,906 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100008} ResultSet
+2019-07-26 13:52:34,308 [http-bio-8080-exec-10] DEBUG Connection - {conn-100009} Connection
+2019-07-26 13:52:34,308 [http-bio-8080-exec-10] DEBUG Connection - {conn-100009} Preparing Statement:          select count(*) from member                 where    1=1              
+2019-07-26 13:52:34,308 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100010} Executing Statement:          select count(*) from member                 where    1=1              
+2019-07-26 13:52:34,308 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100010} Parameters: []
+2019-07-26 13:52:34,308 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100010} Types: []
+2019-07-26 13:52:34,324 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100011} ResultSet
+2019-07-26 13:52:34,324 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100011} Header: [count(*)]
+2019-07-26 13:52:34,324 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100011} Result: [8]
+2019-07-26 13:52:34,327 [http-bio-8080-exec-10] DEBUG Connection - {conn-100012} Connection
+2019-07-26 13:52:34,327 [http-bio-8080-exec-10] DEBUG Connection - {conn-100012} Preparing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:52:34,327 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100013} Executing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:52:34,327 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100013} Parameters: []
+2019-07-26 13:52:34,327 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100013} Types: []
+2019-07-26 13:52:34,332 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100014} ResultSet
+2019-07-26 13:52:34,333 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100014} Header: [no, name, email, pw, tel, birth, registdate, memo]
+2019-07-26 13:52:34,333 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100014} Result: [8, lmlml, null, null, mlmmlm, null, 2019-07-24 10:15:36.0, null]
+2019-07-26 13:52:34,334 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100014} Result: [7, mlmlml, null, null, lmlml, null, 2019-07-24 10:15:23.0, null]
+2019-07-26 13:52:34,335 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100014} Result: [6, 성호, null, null, 0101234567, null, 2019-07-23 10:11:47.0, null]
+2019-07-26 13:52:34,335 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100014} Result: [5, 맹다영4, null, null, 01012345678, null, 2019-07-22 17:59:41.0, null]
+2019-07-26 13:52:34,335 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100014} Result: [4, 맹다영2, null, null, 0102157811, null, 2019-07-22 16:55:29.0, null]
+2019-07-26 13:52:34,336 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100014} Result: [3, 한서하, seoha@seoha, fa18a7c6cef7c3386b38301e35ae0a0b, 01012341234, 20002000, 2019-07-22 15:04:26.0, <p>&nbsp;</p>]
+2019-07-26 13:52:34,336 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100014} Result: [2, 이윤, yoonlee@yoonlee, f8e154e34d4d1933869e1d834967b408, 12341234, 20001234, 2019-07-22 15:03:55.0, <p>&nbsp;</p>]
+2019-07-26 13:52:34,337 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100014} Result: [1, 맹다영, dayeong@naver.com, e5a4c8ca37ec0deb6f5e03b18be22a9b, 01012345678, 19940504, 2019-07-22 15:03:13.0, ]
+2019-07-26 13:52:46,909 [http-bio-8080-exec-10] DEBUG Connection - {conn-100015} Connection
+2019-07-26 13:52:46,910 [http-bio-8080-exec-10] DEBUG Connection - {conn-100015} Preparing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 13:52:46,910 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100016} Executing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 13:52:46,910 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100016} Parameters: []
+2019-07-26 13:52:46,910 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100016} Types: []
+2019-07-26 13:52:46,934 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100017} ResultSet
+2019-07-26 13:52:46,934 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100017} Header: [count(*)]
+2019-07-26 13:52:46,934 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100017} Result: [0]
+2019-07-26 13:52:46,936 [http-bio-8080-exec-10] DEBUG Connection - {conn-100018} Connection
+2019-07-26 13:52:46,937 [http-bio-8080-exec-10] DEBUG Connection - {conn-100018} Preparing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:52:46,937 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100019} Executing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:52:46,937 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100019} Parameters: []
+2019-07-26 13:52:46,937 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100019} Types: []
+2019-07-26 13:52:46,938 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100020} ResultSet
+2019-07-26 13:53:07,281 [http-bio-8080-exec-10] DEBUG Connection - {conn-100021} Connection
+2019-07-26 13:53:07,281 [http-bio-8080-exec-10] DEBUG Connection - {conn-100021} Preparing Statement:          select count(*) from member                 where    1=1              
+2019-07-26 13:53:07,281 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100022} Executing Statement:          select count(*) from member                 where    1=1              
+2019-07-26 13:53:07,281 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100022} Parameters: []
+2019-07-26 13:53:07,281 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100022} Types: []
+2019-07-26 13:53:07,283 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100023} ResultSet
+2019-07-26 13:53:07,283 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100023} Header: [count(*)]
+2019-07-26 13:53:07,283 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100023} Result: [8]
+2019-07-26 13:53:07,286 [http-bio-8080-exec-10] DEBUG Connection - {conn-100024} Connection
+2019-07-26 13:53:07,286 [http-bio-8080-exec-10] DEBUG Connection - {conn-100024} Preparing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:53:07,287 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100025} Executing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:53:07,287 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100025} Parameters: []
+2019-07-26 13:53:07,287 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100025} Types: []
+2019-07-26 13:53:07,288 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100026} ResultSet
+2019-07-26 13:53:07,288 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100026} Header: [no, name, email, pw, tel, birth, registdate, memo]
+2019-07-26 13:53:07,288 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100026} Result: [8, lmlml, null, null, mlmmlm, null, 2019-07-24 10:15:36.0, null]
+2019-07-26 13:53:07,288 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100026} Result: [7, mlmlml, null, null, lmlml, null, 2019-07-24 10:15:23.0, null]
+2019-07-26 13:53:07,289 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100026} Result: [6, 성호, null, null, 0101234567, null, 2019-07-23 10:11:47.0, null]
+2019-07-26 13:53:07,289 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100026} Result: [5, 맹다영4, null, null, 01012345678, null, 2019-07-22 17:59:41.0, null]
+2019-07-26 13:53:07,289 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100026} Result: [4, 맹다영2, null, null, 0102157811, null, 2019-07-22 16:55:29.0, null]
+2019-07-26 13:53:07,290 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100026} Result: [3, 한서하, seoha@seoha, fa18a7c6cef7c3386b38301e35ae0a0b, 01012341234, 20002000, 2019-07-22 15:04:26.0, <p>&nbsp;</p>]
+2019-07-26 13:53:07,290 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100026} Result: [2, 이윤, yoonlee@yoonlee, f8e154e34d4d1933869e1d834967b408, 12341234, 20001234, 2019-07-22 15:03:55.0, <p>&nbsp;</p>]
+2019-07-26 13:53:07,291 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100026} Result: [1, 맹다영, dayeong@naver.com, e5a4c8ca37ec0deb6f5e03b18be22a9b, 01012345678, 19940504, 2019-07-22 15:03:13.0, ]
+2019-07-26 13:53:08,605 [http-bio-8080-exec-10] DEBUG Connection - {conn-100027} Connection
+2019-07-26 13:53:08,605 [http-bio-8080-exec-10] DEBUG Connection - {conn-100027} Preparing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:53:08,606 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100028} Executing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:53:08,606 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100028} Parameters: [1, 1, 1]
+2019-07-26 13:53:08,606 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100028} Types: [java.lang.Integer, java.lang.Integer, java.lang.Integer]
+2019-07-26 13:53:08,609 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100029} ResultSet
+2019-07-26 13:53:08,609 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100029} Header: [no, email, tel, birth, pw, name, memo, registdate]
+2019-07-26 13:53:08,610 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100029} Result: [1, dayeong@naver.com, 01012345678, 19940504, e5a4c8ca37ec0deb6f5e03b18be22a9b, 맹다영, , 2019-07-22 15:03:13.0]
+2019-07-26 13:53:17,446 [http-bio-8080-exec-7] DEBUG Connection - {conn-100030} Connection
+2019-07-26 13:53:17,447 [http-bio-8080-exec-7] DEBUG Connection - {conn-100030} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 13:53:17,447 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100031} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 13:53:17,448 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100031} Parameters: [1]
+2019-07-26 13:53:17,448 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100031} Types: [java.lang.Integer]
+2019-07-26 13:53:17,449 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100032} ResultSet
+2019-07-26 13:53:45,022 [http-bio-8080-exec-2] DEBUG Connection - {conn-100033} Connection
+2019-07-26 13:53:45,022 [http-bio-8080-exec-2] DEBUG Connection - {conn-100033} Preparing Statement:          insert into mypet          (name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, member_pk, registdate)         values          (?, ?, ?, ?, ?, ?, ?, ?, ?, now())              
+2019-07-26 13:53:45,024 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100034} Executing Statement:          insert into mypet          (name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, member_pk, registdate)         values          (?, ?, ?, ?, ?, ?, ?, ?, ?, now())              
+2019-07-26 13:53:45,024 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100034} Parameters: [강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 1]
+2019-07-26 13:53:45,024 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100034} Types: [java.lang.String, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Integer]
+2019-07-26 13:53:45,045 [http-bio-8080-exec-2] DEBUG Connection - {conn-100033} Preparing Statement:     SELECT  LAST_INSERT_ID()   
+2019-07-26 13:53:45,045 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100035} Executing Statement:     SELECT  LAST_INSERT_ID()   
+2019-07-26 13:53:45,045 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100035} Parameters: []
+2019-07-26 13:53:45,045 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100035} Types: []
+2019-07-26 13:53:45,046 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100036} ResultSet
+2019-07-26 13:53:45,046 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100036} Header: [LAST_INSERT_ID()]
+2019-07-26 13:53:45,046 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100036} Result: [1]
+2019-07-26 13:53:45,846 [http-bio-8080-exec-2] DEBUG Connection - {conn-100037} Connection
+2019-07-26 13:53:45,846 [http-bio-8080-exec-2] DEBUG Connection - {conn-100037} Preparing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 13:53:45,847 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100038} Executing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 13:53:45,847 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100038} Parameters: [1]
+2019-07-26 13:53:45,847 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100038} Types: [java.lang.Integer]
+2019-07-26 13:53:45,849 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100039} ResultSet
+2019-07-26 13:53:45,851 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100039} Header: [no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk, member_name]
+2019-07-26 13:53:45,851 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100039} Result: [1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0, 1, 맹다영]
+2019-07-26 13:53:57,206 [http-bio-8080-exec-6] DEBUG Connection - {conn-100040} Connection
+2019-07-26 13:53:57,206 [http-bio-8080-exec-6] DEBUG Connection - {conn-100040} Preparing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 13:53:57,207 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100041} Executing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 13:53:57,207 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100041} Parameters: [1]
+2019-07-26 13:53:57,207 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100041} Types: [java.lang.Integer]
+2019-07-26 13:53:57,207 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100042} ResultSet
+2019-07-26 13:53:57,208 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100042} Header: [no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk, member_name]
+2019-07-26 13:53:57,208 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100042} Result: [1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0, 1, 맹다영]
+2019-07-26 13:54:03,690 [http-bio-8080-exec-2] DEBUG Connection - {conn-100043} Connection
+2019-07-26 13:54:03,690 [http-bio-8080-exec-2] DEBUG Connection - {conn-100043} Preparing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 13:54:03,692 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100044} Executing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 13:54:03,692 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100044} Parameters: []
+2019-07-26 13:54:03,692 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100044} Types: []
+2019-07-26 13:54:03,695 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100045} ResultSet
+2019-07-26 13:54:03,697 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100045} Header: [count(*)]
+2019-07-26 13:54:03,697 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100045} Result: [1]
+2019-07-26 13:54:03,702 [http-bio-8080-exec-2] DEBUG Connection - {conn-100046} Connection
+2019-07-26 13:54:03,704 [http-bio-8080-exec-2] DEBUG Connection - {conn-100046} Preparing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:54:03,704 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100047} Executing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:54:03,704 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100047} Parameters: []
+2019-07-26 13:54:03,704 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100047} Types: []
+2019-07-26 13:54:03,709 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100048} ResultSet
+2019-07-26 13:54:03,715 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100048} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 13:54:03,715 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100048} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 13:54:07,579 [http-bio-8080-exec-2] DEBUG Connection - {conn-100049} Connection
+2019-07-26 13:54:07,580 [http-bio-8080-exec-2] DEBUG Connection - {conn-100049} Preparing Statement:          select count(*) from member                 where    1=1              
+2019-07-26 13:54:07,580 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100050} Executing Statement:          select count(*) from member                 where    1=1              
+2019-07-26 13:54:07,581 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100050} Parameters: []
+2019-07-26 13:54:07,581 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100050} Types: []
+2019-07-26 13:54:07,584 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100051} ResultSet
+2019-07-26 13:54:07,585 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100051} Header: [count(*)]
+2019-07-26 13:54:07,585 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100051} Result: [8]
+2019-07-26 13:54:07,588 [http-bio-8080-exec-2] DEBUG Connection - {conn-100052} Connection
+2019-07-26 13:54:07,589 [http-bio-8080-exec-2] DEBUG Connection - {conn-100052} Preparing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:54:07,589 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100053} Executing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:54:07,589 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100053} Parameters: []
+2019-07-26 13:54:07,589 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100053} Types: []
+2019-07-26 13:54:07,590 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100054} ResultSet
+2019-07-26 13:54:07,591 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100054} Header: [no, name, email, pw, tel, birth, registdate, memo]
+2019-07-26 13:54:07,591 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100054} Result: [8, lmlml, null, null, mlmmlm, null, 2019-07-24 10:15:36.0, null]
+2019-07-26 13:54:07,591 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100054} Result: [7, mlmlml, null, null, lmlml, null, 2019-07-24 10:15:23.0, null]
+2019-07-26 13:54:07,592 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100054} Result: [6, 성호, null, null, 0101234567, null, 2019-07-23 10:11:47.0, null]
+2019-07-26 13:54:07,592 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100054} Result: [5, 맹다영4, null, null, 01012345678, null, 2019-07-22 17:59:41.0, null]
+2019-07-26 13:54:07,592 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100054} Result: [4, 맹다영2, null, null, 0102157811, null, 2019-07-22 16:55:29.0, null]
+2019-07-26 13:54:07,592 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100054} Result: [3, 한서하, seoha@seoha, fa18a7c6cef7c3386b38301e35ae0a0b, 01012341234, 20002000, 2019-07-22 15:04:26.0, <p>&nbsp;</p>]
+2019-07-26 13:54:07,592 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100054} Result: [2, 이윤, yoonlee@yoonlee, f8e154e34d4d1933869e1d834967b408, 12341234, 20001234, 2019-07-22 15:03:55.0, <p>&nbsp;</p>]
+2019-07-26 13:54:07,593 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100054} Result: [1, 맹다영, dayeong@naver.com, e5a4c8ca37ec0deb6f5e03b18be22a9b, 01012345678, 19940504, 2019-07-22 15:03:13.0, ]
+2019-07-26 13:54:08,671 [http-bio-8080-exec-2] DEBUG Connection - {conn-100055} Connection
+2019-07-26 13:54:08,671 [http-bio-8080-exec-2] DEBUG Connection - {conn-100055} Preparing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:54:08,672 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100056} Executing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:54:08,672 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100056} Parameters: [1, 1, 1]
+2019-07-26 13:54:08,672 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100056} Types: [java.lang.Integer, java.lang.Integer, java.lang.Integer]
+2019-07-26 13:54:08,674 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100057} ResultSet
+2019-07-26 13:54:08,676 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100057} Header: [no, email, tel, birth, pw, name, memo, registdate]
+2019-07-26 13:54:08,676 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100057} Result: [1, dayeong@naver.com, 01012345678, 19940504, e5a4c8ca37ec0deb6f5e03b18be22a9b, 맹다영, , 2019-07-22 15:03:13.0]
+2019-07-26 13:54:09,982 [http-bio-8080-exec-2] DEBUG Connection - {conn-100058} Connection
+2019-07-26 13:54:09,982 [http-bio-8080-exec-2] DEBUG Connection - {conn-100058} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 13:54:09,983 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100059} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 13:54:09,983 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100059} Parameters: [1]
+2019-07-26 13:54:09,983 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100059} Types: [java.lang.Integer]
+2019-07-26 13:54:09,985 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100060} ResultSet
+2019-07-26 13:54:09,988 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100060} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 13:54:09,988 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100060} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 13:54:32,826 [http-bio-8080-exec-8] DEBUG Connection - {conn-100061} Connection
+2019-07-26 13:54:32,826 [http-bio-8080-exec-8] DEBUG Connection - {conn-100061} Preparing Statement:       select count(*) as cnt from member where email=? and pw=md5(?)     
+2019-07-26 13:54:32,827 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100062} Executing Statement:       select count(*) as cnt from member where email=? and pw=md5(?)     
+2019-07-26 13:54:32,827 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100062} Parameters: [dayeong@naver.com, ekdud1234]
+2019-07-26 13:54:32,827 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100062} Types: [java.lang.String, java.lang.String]
+2019-07-26 13:54:32,827 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100063} ResultSet
+2019-07-26 13:54:32,828 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100063} Header: [cnt]
+2019-07-26 13:54:32,828 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100063} Result: [0]
+2019-07-26 13:54:42,389 [http-bio-8080-exec-8] DEBUG Connection - {conn-100064} Connection
+2019-07-26 13:54:42,389 [http-bio-8080-exec-8] DEBUG Connection - {conn-100064} Preparing Statement:       select count(*) as cnt from member where email=? and pw=md5(?)     
+2019-07-26 13:54:42,389 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100065} Executing Statement:       select count(*) as cnt from member where email=? and pw=md5(?)     
+2019-07-26 13:54:42,389 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100065} Parameters: [dayeong@naver.com, ekdud1234]
+2019-07-26 13:54:42,389 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100065} Types: [java.lang.String, java.lang.String]
+2019-07-26 13:54:42,390 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100066} ResultSet
+2019-07-26 13:54:42,390 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100066} Header: [cnt]
+2019-07-26 13:54:42,390 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100066} Result: [0]
+2019-07-26 13:54:51,292 [http-bio-8080-exec-4] DEBUG Connection - {conn-100067} Connection
+2019-07-26 13:54:51,292 [http-bio-8080-exec-4] DEBUG Connection - {conn-100067} Preparing Statement:          select count(*) from member                 where    1=1              
+2019-07-26 13:54:51,292 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100068} Executing Statement:          select count(*) from member                 where    1=1              
+2019-07-26 13:54:51,292 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100068} Parameters: []
+2019-07-26 13:54:51,292 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100068} Types: []
+2019-07-26 13:54:51,293 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100069} ResultSet
+2019-07-26 13:54:51,293 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100069} Header: [count(*)]
+2019-07-26 13:54:51,293 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100069} Result: [8]
+2019-07-26 13:54:51,294 [http-bio-8080-exec-4] DEBUG Connection - {conn-100070} Connection
+2019-07-26 13:54:51,295 [http-bio-8080-exec-4] DEBUG Connection - {conn-100070} Preparing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:54:51,295 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100071} Executing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:54:51,295 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100071} Parameters: []
+2019-07-26 13:54:51,295 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100071} Types: []
+2019-07-26 13:54:51,295 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100072} ResultSet
+2019-07-26 13:54:51,296 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100072} Header: [no, name, email, pw, tel, birth, registdate, memo]
+2019-07-26 13:54:51,296 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100072} Result: [8, lmlml, null, null, mlmmlm, null, 2019-07-24 10:15:36.0, null]
+2019-07-26 13:54:51,296 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100072} Result: [7, mlmlml, null, null, lmlml, null, 2019-07-24 10:15:23.0, null]
+2019-07-26 13:54:51,296 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100072} Result: [6, 성호, null, null, 0101234567, null, 2019-07-23 10:11:47.0, null]
+2019-07-26 13:54:51,296 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100072} Result: [5, 맹다영4, null, null, 01012345678, null, 2019-07-22 17:59:41.0, null]
+2019-07-26 13:54:51,296 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100072} Result: [4, 맹다영2, null, null, 0102157811, null, 2019-07-22 16:55:29.0, null]
+2019-07-26 13:54:51,296 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100072} Result: [3, 한서하, seoha@seoha, fa18a7c6cef7c3386b38301e35ae0a0b, 01012341234, 20002000, 2019-07-22 15:04:26.0, <p>&nbsp;</p>]
+2019-07-26 13:54:51,296 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100072} Result: [2, 이윤, yoonlee@yoonlee, f8e154e34d4d1933869e1d834967b408, 12341234, 20001234, 2019-07-22 15:03:55.0, <p>&nbsp;</p>]
+2019-07-26 13:54:51,296 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100072} Result: [1, 맹다영, dayeong@naver.com, e5a4c8ca37ec0deb6f5e03b18be22a9b, 01012345678, 19940504, 2019-07-22 15:03:13.0, ]
+2019-07-26 13:54:55,625 [http-bio-8080-exec-4] DEBUG Connection - {conn-100073} Connection
+2019-07-26 13:54:55,625 [http-bio-8080-exec-4] DEBUG Connection - {conn-100073} Preparing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:54:55,627 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100074} Executing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:54:55,627 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100074} Parameters: [1, 1, 1]
+2019-07-26 13:54:55,627 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100074} Types: [java.lang.Integer, java.lang.Integer, java.lang.Integer]
+2019-07-26 13:54:55,630 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100075} ResultSet
+2019-07-26 13:54:55,631 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100075} Header: [no, email, tel, birth, pw, name, memo, registdate]
+2019-07-26 13:54:55,632 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100075} Result: [1, dayeong@naver.com, 01012345678, 19940504, e5a4c8ca37ec0deb6f5e03b18be22a9b, 맹다영, , 2019-07-22 15:03:13.0]
+2019-07-26 13:54:59,558 [http-bio-8080-exec-4] DEBUG Connection - {conn-100076} Connection
+2019-07-26 13:54:59,558 [http-bio-8080-exec-4] DEBUG Connection - {conn-100076} Preparing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:54:59,559 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100077} Executing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:54:59,559 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100077} Parameters: [1, 1, 1]
+2019-07-26 13:54:59,559 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100077} Types: [java.lang.Integer, java.lang.Integer, java.lang.Integer]
+2019-07-26 13:54:59,561 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100078} ResultSet
+2019-07-26 13:54:59,562 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100078} Header: [no, email, tel, birth, pw, name, memo, registdate]
+2019-07-26 13:54:59,562 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100078} Result: [1, dayeong@naver.com, 01012345678, 19940504, e5a4c8ca37ec0deb6f5e03b18be22a9b, 맹다영, , 2019-07-22 15:03:13.0]
+2019-07-26 13:55:43,887 [http-bio-8080-exec-10] DEBUG Connection - {conn-100079} Connection
+2019-07-26 13:55:43,887 [http-bio-8080-exec-10] DEBUG Connection - {conn-100079} Preparing Statement:       select count(*) as cnt from member where email=? and pw=md5(?)     
+2019-07-26 13:55:43,888 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100080} Executing Statement:       select count(*) as cnt from member where email=? and pw=md5(?)     
+2019-07-26 13:55:43,888 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100080} Parameters: [dayeong@naver.com, ekdud1234]
+2019-07-26 13:55:43,888 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100080} Types: [java.lang.String, java.lang.String]
+2019-07-26 13:55:43,889 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100081} ResultSet
+2019-07-26 13:55:43,890 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100081} Header: [cnt]
+2019-07-26 13:55:43,890 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100081} Result: [1]
+2019-07-26 13:55:43,893 [http-bio-8080-exec-10] DEBUG Connection - {conn-100082} Connection
+2019-07-26 13:55:43,893 [http-bio-8080-exec-10] DEBUG Connection - {conn-100082} Preparing Statement:          select * from member where email=? and pw=md5(?)     
+2019-07-26 13:55:43,894 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100083} Executing Statement:          select * from member where email=? and pw=md5(?)     
+2019-07-26 13:55:43,894 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100083} Parameters: [dayeong@naver.com, ekdud1234]
+2019-07-26 13:55:43,894 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100083} Types: [java.lang.String, java.lang.String]
+2019-07-26 13:55:43,895 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100084} ResultSet
+2019-07-26 13:55:43,896 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100084} Header: [no, name, email, pw, tel, birth, registdate, memo]
+2019-07-26 13:55:43,896 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100084} Result: [1, 맹다영, dayeong@naver.com, be276f74bcec7b00bb990c0e3937ca51, 01012345678, 19940504, 2019-07-22 15:03:13.0, ]
+2019-07-26 13:55:47,394 [http-bio-8080-exec-10] DEBUG Connection - {conn-100085} Connection
+2019-07-26 13:55:47,394 [http-bio-8080-exec-10] DEBUG Connection - {conn-100085} Preparing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:55:47,395 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100086} Executing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:55:47,395 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100086} Parameters: [1, 1, 1]
+2019-07-26 13:55:47,395 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100086} Types: [java.lang.Integer, java.lang.Integer, java.lang.Integer]
+2019-07-26 13:55:47,396 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100087} ResultSet
+2019-07-26 13:55:47,397 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100087} Header: [no, email, tel, birth, pw, name, memo, registdate]
+2019-07-26 13:55:47,397 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100087} Result: [1, dayeong@naver.com, 01012345678, 19940504, be276f74bcec7b00bb990c0e3937ca51, 맹다영, , 2019-07-22 15:03:13.0]
+2019-07-26 13:55:53,151 [http-bio-8080-exec-10] DEBUG Connection - {conn-100088} Connection
+2019-07-26 13:55:53,151 [http-bio-8080-exec-10] DEBUG Connection - {conn-100088} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 13:55:53,152 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100089} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 13:55:53,152 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100089} Parameters: [1]
+2019-07-26 13:55:53,152 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100089} Types: [java.lang.Integer]
+2019-07-26 13:55:53,158 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100090} ResultSet
+2019-07-26 13:55:53,159 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100090} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 13:55:53,159 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100090} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 13:56:09,395 [http-bio-8080-exec-7] DEBUG Connection - {conn-100091} Connection
+2019-07-26 13:56:09,395 [http-bio-8080-exec-7] DEBUG Connection - {conn-100091} Preparing Statement:          select count(*) from member                 where    1=1              
+2019-07-26 13:56:09,396 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100092} Executing Statement:          select count(*) from member                 where    1=1              
+2019-07-26 13:56:09,396 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100092} Parameters: []
+2019-07-26 13:56:09,396 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100092} Types: []
+2019-07-26 13:56:09,398 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100093} ResultSet
+2019-07-26 13:56:09,399 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100093} Header: [count(*)]
+2019-07-26 13:56:09,399 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100093} Result: [8]
+2019-07-26 13:56:09,403 [http-bio-8080-exec-7] DEBUG Connection - {conn-100094} Connection
+2019-07-26 13:56:09,404 [http-bio-8080-exec-7] DEBUG Connection - {conn-100094} Preparing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:56:09,405 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100095} Executing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:56:09,405 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100095} Parameters: []
+2019-07-26 13:56:09,405 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100095} Types: []
+2019-07-26 13:56:09,407 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100096} ResultSet
+2019-07-26 13:56:09,408 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100096} Header: [no, name, email, pw, tel, birth, registdate, memo]
+2019-07-26 13:56:09,408 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100096} Result: [8, lmlml, null, null, mlmmlm, null, 2019-07-24 10:15:36.0, null]
+2019-07-26 13:56:09,409 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100096} Result: [7, mlmlml, null, null, lmlml, null, 2019-07-24 10:15:23.0, null]
+2019-07-26 13:56:09,409 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100096} Result: [6, 성호, null, null, 0101234567, null, 2019-07-23 10:11:47.0, null]
+2019-07-26 13:56:09,410 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100096} Result: [5, 맹다영4, null, null, 01012345678, null, 2019-07-22 17:59:41.0, null]
+2019-07-26 13:56:09,410 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100096} Result: [4, 맹다영2, null, null, 0102157811, null, 2019-07-22 16:55:29.0, null]
+2019-07-26 13:56:09,410 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100096} Result: [3, 한서하, seoha@seoha, fa18a7c6cef7c3386b38301e35ae0a0b, 01012341234, 20002000, 2019-07-22 15:04:26.0, <p>&nbsp;</p>]
+2019-07-26 13:56:09,411 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100096} Result: [2, 이윤, yoonlee@yoonlee, f8e154e34d4d1933869e1d834967b408, 12341234, 20001234, 2019-07-22 15:03:55.0, <p>&nbsp;</p>]
+2019-07-26 13:56:09,411 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100096} Result: [1, 맹다영, dayeong@naver.com, be276f74bcec7b00bb990c0e3937ca51, 01012345678, 19940504, 2019-07-22 15:03:13.0, ]
+2019-07-26 13:56:10,734 [http-bio-8080-exec-7] DEBUG Connection - {conn-100097} Connection
+2019-07-26 13:56:10,735 [http-bio-8080-exec-7] DEBUG Connection - {conn-100097} Preparing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:56:10,735 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100098} Executing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:56:10,735 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100098} Parameters: [1, 1, 1]
+2019-07-26 13:56:10,735 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100098} Types: [java.lang.Integer, java.lang.Integer, java.lang.Integer]
+2019-07-26 13:56:10,737 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100099} ResultSet
+2019-07-26 13:56:10,738 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100099} Header: [no, email, tel, birth, pw, name, memo, registdate]
+2019-07-26 13:56:10,739 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100099} Result: [1, dayeong@naver.com, 01012345678, 19940504, be276f74bcec7b00bb990c0e3937ca51, 맹다영, , 2019-07-22 15:03:13.0]
+2019-07-26 13:57:42,347 [http-bio-8080-exec-5] DEBUG Connection - {conn-100100} Connection
+2019-07-26 13:57:42,347 [http-bio-8080-exec-5] DEBUG Connection - {conn-100100} Preparing Statement:          insert into mypet          (name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, member_pk, registdate)         values          (?, ?, ?, ?, ?, ?, ?, ?, ?, now())              
+2019-07-26 13:57:42,348 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100101} Executing Statement:          insert into mypet          (name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, member_pk, registdate)         values          (?, ?, ?, ?, ?, ?, ?, ?, ?, now())              
+2019-07-26 13:57:42,348 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100101} Parameters: [토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 1]
+2019-07-26 13:57:42,348 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100101} Types: [java.lang.String, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Integer]
+2019-07-26 13:57:42,355 [http-bio-8080-exec-5] DEBUG Connection - {conn-100100} Preparing Statement:     SELECT  LAST_INSERT_ID()   
+2019-07-26 13:57:42,355 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100102} Executing Statement:     SELECT  LAST_INSERT_ID()   
+2019-07-26 13:57:42,355 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100102} Parameters: []
+2019-07-26 13:57:42,355 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100102} Types: []
+2019-07-26 13:57:42,355 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100103} ResultSet
+2019-07-26 13:57:42,355 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100103} Header: [LAST_INSERT_ID()]
+2019-07-26 13:57:42,356 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100103} Result: [2]
+2019-07-26 13:57:43,056 [http-bio-8080-exec-5] DEBUG Connection - {conn-100104} Connection
+2019-07-26 13:57:43,057 [http-bio-8080-exec-5] DEBUG Connection - {conn-100104} Preparing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 13:57:43,057 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100105} Executing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 13:57:43,057 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100105} Parameters: [2]
+2019-07-26 13:57:43,057 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100105} Types: [java.lang.Integer]
+2019-07-26 13:57:43,060 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100106} ResultSet
+2019-07-26 13:57:43,062 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100106} Header: [no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk, member_name]
+2019-07-26 13:57:43,062 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100106} Result: [2, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0, 1, 맹다영]
+2019-07-26 13:57:46,460 [http-bio-8080-exec-9] DEBUG Connection - {conn-100107} Connection
+2019-07-26 13:57:46,460 [http-bio-8080-exec-9] DEBUG Connection - {conn-100107} Preparing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 13:57:46,460 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100108} Executing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 13:57:46,461 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100108} Parameters: []
+2019-07-26 13:57:46,461 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100108} Types: []
+2019-07-26 13:57:46,462 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100109} ResultSet
+2019-07-26 13:57:46,462 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100109} Header: [count(*)]
+2019-07-26 13:57:46,462 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100109} Result: [2]
+2019-07-26 13:57:46,464 [http-bio-8080-exec-9] DEBUG Connection - {conn-100110} Connection
+2019-07-26 13:57:46,464 [http-bio-8080-exec-9] DEBUG Connection - {conn-100110} Preparing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:57:46,464 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100111} Executing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:57:46,464 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100111} Parameters: []
+2019-07-26 13:57:46,464 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100111} Types: []
+2019-07-26 13:57:46,465 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100112} ResultSet
+2019-07-26 13:57:46,465 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100112} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 13:57:46,466 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100112} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 13:57:46,466 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100112} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 13:57:49,010 [http-bio-8080-exec-9] DEBUG Connection - {conn-100113} Connection
+2019-07-26 13:57:49,010 [http-bio-8080-exec-9] DEBUG Connection - {conn-100113} Preparing Statement:          select count(*) from member                 where    1=1              
+2019-07-26 13:57:49,011 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100114} Executing Statement:          select count(*) from member                 where    1=1              
+2019-07-26 13:57:49,011 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100114} Parameters: []
+2019-07-26 13:57:49,011 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100114} Types: []
+2019-07-26 13:57:49,014 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100115} ResultSet
+2019-07-26 13:57:49,015 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100115} Header: [count(*)]
+2019-07-26 13:57:49,015 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100115} Result: [8]
+2019-07-26 13:57:49,018 [http-bio-8080-exec-9] DEBUG Connection - {conn-100116} Connection
+2019-07-26 13:57:49,019 [http-bio-8080-exec-9] DEBUG Connection - {conn-100116} Preparing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:57:49,019 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100117} Executing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:57:49,019 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100117} Parameters: []
+2019-07-26 13:57:49,019 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100117} Types: []
+2019-07-26 13:57:49,020 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100118} ResultSet
+2019-07-26 13:57:49,020 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100118} Header: [no, name, email, pw, tel, birth, registdate, memo]
+2019-07-26 13:57:49,020 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100118} Result: [8, lmlml, null, null, mlmmlm, null, 2019-07-24 10:15:36.0, null]
+2019-07-26 13:57:49,021 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100118} Result: [7, mlmlml, null, null, lmlml, null, 2019-07-24 10:15:23.0, null]
+2019-07-26 13:57:49,021 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100118} Result: [6, 성호, null, null, 0101234567, null, 2019-07-23 10:11:47.0, null]
+2019-07-26 13:57:49,021 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100118} Result: [5, 맹다영4, null, null, 01012345678, null, 2019-07-22 17:59:41.0, null]
+2019-07-26 13:57:49,021 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100118} Result: [4, 맹다영2, null, null, 0102157811, null, 2019-07-22 16:55:29.0, null]
+2019-07-26 13:57:49,021 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100118} Result: [3, 한서하, seoha@seoha, fa18a7c6cef7c3386b38301e35ae0a0b, 01012341234, 20002000, 2019-07-22 15:04:26.0, <p>&nbsp;</p>]
+2019-07-26 13:57:49,022 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100118} Result: [2, 이윤, yoonlee@yoonlee, f8e154e34d4d1933869e1d834967b408, 12341234, 20001234, 2019-07-22 15:03:55.0, <p>&nbsp;</p>]
+2019-07-26 13:57:49,022 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100118} Result: [1, 맹다영, dayeong@naver.com, be276f74bcec7b00bb990c0e3937ca51, 01012345678, 19940504, 2019-07-22 15:03:13.0, ]
+2019-07-26 13:57:50,192 [http-bio-8080-exec-9] DEBUG Connection - {conn-100119} Connection
+2019-07-26 13:57:50,192 [http-bio-8080-exec-9] DEBUG Connection - {conn-100119} Preparing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:57:50,193 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100120} Executing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:57:50,193 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100120} Parameters: [1, 1, 1]
+2019-07-26 13:57:50,193 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100120} Types: [java.lang.Integer, java.lang.Integer, java.lang.Integer]
+2019-07-26 13:57:50,198 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100121} ResultSet
+2019-07-26 13:57:50,199 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100121} Header: [no, email, tel, birth, pw, name, memo, registdate]
+2019-07-26 13:57:50,199 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100121} Result: [1, dayeong@naver.com, 01012345678, 19940504, be276f74bcec7b00bb990c0e3937ca51, 맹다영, , 2019-07-22 15:03:13.0]
+2019-07-26 13:58:46,968 [http-bio-8080-exec-3] DEBUG Connection - {conn-100122} Connection
+2019-07-26 13:58:46,968 [http-bio-8080-exec-3] DEBUG Connection - {conn-100122} Preparing Statement:          insert into mypet          (name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, member_pk, registdate)         values          (?, ?, ?, ?, ?, ?, ?, ?, ?, now())              
+2019-07-26 13:58:46,969 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100123} Executing Statement:          insert into mypet          (name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, member_pk, registdate)         values          (?, ?, ?, ?, ?, ?, ?, ?, ?, now())              
+2019-07-26 13:58:46,969 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100123} Parameters: [고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 1]
+2019-07-26 13:58:46,969 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100123} Types: [java.lang.String, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.Integer]
+2019-07-26 13:58:47,016 [http-bio-8080-exec-3] DEBUG Connection - {conn-100122} Preparing Statement:     SELECT  LAST_INSERT_ID()   
+2019-07-26 13:58:47,017 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100124} Executing Statement:     SELECT  LAST_INSERT_ID()   
+2019-07-26 13:58:47,017 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100124} Parameters: []
+2019-07-26 13:58:47,017 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100124} Types: []
+2019-07-26 13:58:47,018 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100125} ResultSet
+2019-07-26 13:58:47,018 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100125} Header: [LAST_INSERT_ID()]
+2019-07-26 13:58:47,018 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100125} Result: [3]
+2019-07-26 13:58:47,486 [http-bio-8080-exec-3] DEBUG Connection - {conn-100126} Connection
+2019-07-26 13:58:47,486 [http-bio-8080-exec-3] DEBUG Connection - {conn-100126} Preparing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 13:58:47,486 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100127} Executing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 13:58:47,487 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100127} Parameters: [3]
+2019-07-26 13:58:47,487 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100127} Types: [java.lang.Integer]
+2019-07-26 13:58:47,488 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100128} ResultSet
+2019-07-26 13:58:47,488 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100128} Header: [no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk, member_name]
+2019-07-26 13:58:47,488 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100128} Result: [3, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0, 1, 맹다영]
+2019-07-26 13:58:53,398 [http-bio-8080-exec-4] DEBUG Connection - {conn-100129} Connection
+2019-07-26 13:58:53,399 [http-bio-8080-exec-4] DEBUG Connection - {conn-100129} Preparing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 13:58:53,399 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100130} Executing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 13:58:53,399 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100130} Parameters: [3]
+2019-07-26 13:58:53,400 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100130} Types: [java.lang.Integer]
+2019-07-26 13:58:53,402 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100131} ResultSet
+2019-07-26 13:58:53,403 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100131} Header: [no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk, member_name]
+2019-07-26 13:58:53,403 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100131} Result: [3, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0, 1, 맹다영]
+2019-07-26 13:58:55,956 [http-bio-8080-exec-1] DEBUG Connection - {conn-100132} Connection
+2019-07-26 13:58:55,956 [http-bio-8080-exec-1] DEBUG Connection - {conn-100132} Preparing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 13:58:55,957 [http-bio-8080-exec-1] DEBUG PreparedStatement - {pstm-100133} Executing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 13:58:55,957 [http-bio-8080-exec-1] DEBUG PreparedStatement - {pstm-100133} Parameters: []
+2019-07-26 13:58:55,957 [http-bio-8080-exec-1] DEBUG PreparedStatement - {pstm-100133} Types: []
+2019-07-26 13:58:55,958 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100134} ResultSet
+2019-07-26 13:58:55,959 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100134} Header: [count(*)]
+2019-07-26 13:58:55,959 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100134} Result: [3]
+2019-07-26 13:58:55,962 [http-bio-8080-exec-1] DEBUG Connection - {conn-100135} Connection
+2019-07-26 13:58:55,963 [http-bio-8080-exec-1] DEBUG Connection - {conn-100135} Preparing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:58:55,963 [http-bio-8080-exec-1] DEBUG PreparedStatement - {pstm-100136} Executing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:58:55,963 [http-bio-8080-exec-1] DEBUG PreparedStatement - {pstm-100136} Parameters: []
+2019-07-26 13:58:55,963 [http-bio-8080-exec-1] DEBUG PreparedStatement - {pstm-100136} Types: []
+2019-07-26 13:58:55,966 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100137} ResultSet
+2019-07-26 13:58:55,967 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100137} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 13:58:55,967 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100137} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 13:58:55,967 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100137} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 13:58:55,967 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100137} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 13:58:57,346 [http-bio-8080-exec-6] DEBUG Connection - {conn-100138} Connection
+2019-07-26 13:58:57,347 [http-bio-8080-exec-6] DEBUG Connection - {conn-100138} Preparing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 13:58:57,348 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100139} Executing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 13:58:57,348 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100139} Parameters: []
+2019-07-26 13:58:57,348 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100139} Types: []
+2019-07-26 13:58:57,350 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100140} ResultSet
+2019-07-26 13:58:57,351 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100140} Header: [count(*)]
+2019-07-26 13:58:57,351 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100140} Result: [3]
+2019-07-26 13:58:57,355 [http-bio-8080-exec-6] DEBUG Connection - {conn-100141} Connection
+2019-07-26 13:58:57,356 [http-bio-8080-exec-6] DEBUG Connection - {conn-100141} Preparing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:58:57,356 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100142} Executing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:58:57,356 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100142} Parameters: []
+2019-07-26 13:58:57,356 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100142} Types: []
+2019-07-26 13:58:57,358 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100143} ResultSet
+2019-07-26 13:58:57,359 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100143} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 13:58:57,359 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100143} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 13:58:57,359 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100143} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 13:58:57,360 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100143} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 13:58:57,838 [http-bio-8080-exec-6] DEBUG Connection - {conn-100144} Connection
+2019-07-26 13:58:57,838 [http-bio-8080-exec-6] DEBUG Connection - {conn-100144} Preparing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 13:58:57,839 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100145} Executing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 13:58:57,839 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100145} Parameters: []
+2019-07-26 13:58:57,839 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100145} Types: []
+2019-07-26 13:58:57,840 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100146} ResultSet
+2019-07-26 13:58:57,840 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100146} Header: [count(*)]
+2019-07-26 13:58:57,840 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100146} Result: [3]
+2019-07-26 13:58:57,842 [http-bio-8080-exec-6] DEBUG Connection - {conn-100147} Connection
+2019-07-26 13:58:57,843 [http-bio-8080-exec-6] DEBUG Connection - {conn-100147} Preparing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:58:57,843 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100148} Executing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:58:57,843 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100148} Parameters: []
+2019-07-26 13:58:57,843 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100148} Types: []
+2019-07-26 13:58:57,844 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100149} ResultSet
+2019-07-26 13:58:57,847 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100149} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 13:58:57,847 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100149} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 13:58:57,847 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100149} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 13:58:57,847 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100149} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 13:58:58,174 [http-bio-8080-exec-6] DEBUG Connection - {conn-100150} Connection
+2019-07-26 13:58:58,174 [http-bio-8080-exec-6] DEBUG Connection - {conn-100150} Preparing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 13:58:58,174 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100151} Executing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 13:58:58,174 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100151} Parameters: []
+2019-07-26 13:58:58,174 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100151} Types: []
+2019-07-26 13:58:58,175 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100152} ResultSet
+2019-07-26 13:58:58,176 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100152} Header: [count(*)]
+2019-07-26 13:58:58,176 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100152} Result: [3]
+2019-07-26 13:58:58,178 [http-bio-8080-exec-6] DEBUG Connection - {conn-100153} Connection
+2019-07-26 13:58:58,178 [http-bio-8080-exec-6] DEBUG Connection - {conn-100153} Preparing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:58:58,178 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100154} Executing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:58:58,178 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100154} Parameters: []
+2019-07-26 13:58:58,178 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100154} Types: []
+2019-07-26 13:58:58,179 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100155} ResultSet
+2019-07-26 13:58:58,179 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100155} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 13:58:58,179 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100155} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 13:58:58,180 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100155} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 13:58:58,180 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100155} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 13:58:59,534 [http-bio-8080-exec-6] DEBUG Connection - {conn-100156} Connection
+2019-07-26 13:58:59,534 [http-bio-8080-exec-6] DEBUG Connection - {conn-100156} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 13:58:59,535 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100157} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 13:58:59,535 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100157} Parameters: [1]
+2019-07-26 13:58:59,535 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100157} Types: [java.lang.Integer]
+2019-07-26 13:58:59,537 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100158} ResultSet
+2019-07-26 13:58:59,538 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100158} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 13:58:59,538 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100158} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 13:58:59,539 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100158} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 13:58:59,539 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100158} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 13:59:48,326 [http-bio-8080-exec-5] DEBUG Connection - {conn-100159} Connection
+2019-07-26 13:59:48,326 [http-bio-8080-exec-5] DEBUG Connection - {conn-100159} Preparing Statement:          select count(*) from member                 where    1=1              
+2019-07-26 13:59:48,326 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100160} Executing Statement:          select count(*) from member                 where    1=1              
+2019-07-26 13:59:48,326 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100160} Parameters: []
+2019-07-26 13:59:48,326 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100160} Types: []
+2019-07-26 13:59:48,327 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100161} ResultSet
+2019-07-26 13:59:48,327 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100161} Header: [count(*)]
+2019-07-26 13:59:48,327 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100161} Result: [8]
+2019-07-26 13:59:48,329 [http-bio-8080-exec-5] DEBUG Connection - {conn-100162} Connection
+2019-07-26 13:59:48,329 [http-bio-8080-exec-5] DEBUG Connection - {conn-100162} Preparing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:59:48,329 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100163} Executing Statement:          select * from member                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 13:59:48,329 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100163} Parameters: []
+2019-07-26 13:59:48,329 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100163} Types: []
+2019-07-26 13:59:48,329 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100164} ResultSet
+2019-07-26 13:59:48,330 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100164} Header: [no, name, email, pw, tel, birth, registdate, memo]
+2019-07-26 13:59:48,330 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100164} Result: [8, lmlml, null, null, mlmmlm, null, 2019-07-24 10:15:36.0, null]
+2019-07-26 13:59:48,330 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100164} Result: [7, mlmlml, null, null, lmlml, null, 2019-07-24 10:15:23.0, null]
+2019-07-26 13:59:48,330 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100164} Result: [6, 성호, null, null, 0101234567, null, 2019-07-23 10:11:47.0, null]
+2019-07-26 13:59:48,330 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100164} Result: [5, 맹다영4, null, null, 01012345678, null, 2019-07-22 17:59:41.0, null]
+2019-07-26 13:59:48,330 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100164} Result: [4, 맹다영2, null, null, 0102157811, null, 2019-07-22 16:55:29.0, null]
+2019-07-26 13:59:48,330 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100164} Result: [3, 한서하, seoha@seoha, fa18a7c6cef7c3386b38301e35ae0a0b, 01012341234, 20002000, 2019-07-22 15:04:26.0, <p>&nbsp;</p>]
+2019-07-26 13:59:48,330 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100164} Result: [2, 이윤, yoonlee@yoonlee, f8e154e34d4d1933869e1d834967b408, 12341234, 20001234, 2019-07-22 15:03:55.0, <p>&nbsp;</p>]
+2019-07-26 13:59:48,330 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100164} Result: [1, 맹다영, dayeong@naver.com, be276f74bcec7b00bb990c0e3937ca51, 01012345678, 19940504, 2019-07-22 15:03:13.0, ]
+2019-07-26 13:59:49,568 [http-bio-8080-exec-5] DEBUG Connection - {conn-100165} Connection
+2019-07-26 13:59:49,568 [http-bio-8080-exec-5] DEBUG Connection - {conn-100165} Preparing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:59:49,568 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100166} Executing Statement:                select no, email, tel, birth, pw, name, memo, registdate,          ifnull((select max(no) from member where no>1 and no<?), 0) as prev_no,          ifnull((select min(no) from member where no>1 and no>?), 0) as next_no          from member where no=?               
+2019-07-26 13:59:49,569 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100166} Parameters: [2, 2, 2]
+2019-07-26 13:59:49,569 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100166} Types: [java.lang.Integer, java.lang.Integer, java.lang.Integer]
+2019-07-26 13:59:49,570 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100167} ResultSet
+2019-07-26 13:59:49,571 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100167} Header: [no, email, tel, birth, pw, name, memo, registdate]
+2019-07-26 13:59:49,571 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100167} Result: [2, yoonlee@yoonlee, 12341234, 20001234, f8e154e34d4d1933869e1d834967b408, 이윤, <p>&nbsp;</p>, 2019-07-22 15:03:55.0]
+2019-07-26 13:59:56,777 [http-bio-8080-exec-5] DEBUG Connection - {conn-100168} Connection
+2019-07-26 13:59:56,778 [http-bio-8080-exec-5] DEBUG Connection - {conn-100168} Preparing Statement:          insert into mypet          (name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, member_pk, registdate)         values          (?, ?, ?, ?, ?, ?, ?, ?, ?, now())              
+2019-07-26 13:59:56,780 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100169} Executing Statement:          insert into mypet          (name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, member_pk, registdate)         values          (?, ?, ?, ?, ?, ?, ?, ?, ?, now())              
+2019-07-26 13:59:56,780 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100169} Parameters: [ㅅㄷㄴㅅ, 1, 1, 1, 1, null, null, <p>1</p>, 2]
+2019-07-26 13:59:56,780 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100169} Types: [java.lang.String, java.lang.Integer, java.lang.Integer, java.lang.String, java.lang.String, null, null, java.lang.String, java.lang.Integer]
+2019-07-26 13:59:56,791 [http-bio-8080-exec-5] DEBUG Connection - {conn-100168} Preparing Statement:     SELECT  LAST_INSERT_ID()   
+2019-07-26 13:59:56,791 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100170} Executing Statement:     SELECT  LAST_INSERT_ID()   
+2019-07-26 13:59:56,791 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100170} Parameters: []
+2019-07-26 13:59:56,791 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100170} Types: []
+2019-07-26 13:59:56,792 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100171} ResultSet
+2019-07-26 13:59:56,792 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100171} Header: [LAST_INSERT_ID()]
+2019-07-26 13:59:56,792 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100171} Result: [4]
+2019-07-26 13:59:57,424 [http-bio-8080-exec-5] DEBUG Connection - {conn-100172} Connection
+2019-07-26 13:59:57,424 [http-bio-8080-exec-5] DEBUG Connection - {conn-100172} Preparing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 13:59:57,425 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100173} Executing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 13:59:57,425 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100173} Parameters: [4]
+2019-07-26 13:59:57,425 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100173} Types: [java.lang.Integer]
+2019-07-26 13:59:57,426 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100174} ResultSet
+2019-07-26 13:59:57,427 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100174} Header: [no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk, member_name]
+2019-07-26 13:59:57,427 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100174} Result: [4, ㅅㄷㄴㅅ, 1, 1, 1, 1, null, null, <p>1</p>, 2019-07-26 13:59:56.0, 2, 이윤]
+2019-07-26 13:59:58,942 [http-bio-8080-exec-10] DEBUG Connection - {conn-100175} Connection
+2019-07-26 13:59:58,942 [http-bio-8080-exec-10] DEBUG Connection - {conn-100175} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 13:59:58,943 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100176} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 13:59:58,943 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100176} Parameters: [1]
+2019-07-26 13:59:58,943 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100176} Types: [java.lang.Integer]
+2019-07-26 13:59:58,945 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100177} ResultSet
+2019-07-26 13:59:58,946 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100177} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 13:59:58,946 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100177} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 13:59:58,946 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100177} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 13:59:58,947 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100177} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 14:00:00,718 [http-bio-8080-exec-10] DEBUG Connection - {conn-100178} Connection
+2019-07-26 14:00:00,718 [http-bio-8080-exec-10] DEBUG Connection - {conn-100178} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:00:00,718 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100179} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:00:00,718 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100179} Parameters: [1]
+2019-07-26 14:00:00,718 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100179} Types: [java.lang.Integer]
+2019-07-26 14:00:00,720 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100180} ResultSet
+2019-07-26 14:00:00,720 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100180} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 14:00:00,720 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100180} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 14:00:00,721 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100180} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 14:00:00,721 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100180} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 14:00:01,061 [http-bio-8080-exec-10] DEBUG Connection - {conn-100181} Connection
+2019-07-26 14:00:01,061 [http-bio-8080-exec-10] DEBUG Connection - {conn-100181} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:00:01,062 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100182} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:00:01,062 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100182} Parameters: [1]
+2019-07-26 14:00:01,063 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100182} Types: [java.lang.Integer]
+2019-07-26 14:00:01,065 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100183} ResultSet
+2019-07-26 14:00:01,066 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100183} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 14:00:01,066 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100183} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 14:00:01,066 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100183} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 14:00:01,067 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100183} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 14:00:02,852 [http-bio-8080-exec-10] DEBUG Connection - {conn-100184} Connection
+2019-07-26 14:00:02,852 [http-bio-8080-exec-10] DEBUG Connection - {conn-100184} Preparing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 14:00:02,852 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100185} Executing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 14:00:02,852 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100185} Parameters: []
+2019-07-26 14:00:02,852 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100185} Types: []
+2019-07-26 14:00:02,853 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100186} ResultSet
+2019-07-26 14:00:02,853 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100186} Header: [count(*)]
+2019-07-26 14:00:02,853 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100186} Result: [4]
+2019-07-26 14:00:02,854 [http-bio-8080-exec-10] DEBUG Connection - {conn-100187} Connection
+2019-07-26 14:00:02,855 [http-bio-8080-exec-10] DEBUG Connection - {conn-100187} Preparing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 14:00:02,855 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100188} Executing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 14:00:02,855 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100188} Parameters: []
+2019-07-26 14:00:02,855 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100188} Types: []
+2019-07-26 14:00:02,855 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100189} ResultSet
+2019-07-26 14:00:02,856 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100189} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 14:00:02,856 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100189} Result: [4, 2, ㅅㄷㄴㅅ, 1, 1, 1, 1, null, null, <p>1</p>, 2019-07-26 13:59:56.0]
+2019-07-26 14:00:02,856 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100189} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 14:00:02,856 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100189} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 14:00:02,856 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100189} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 14:00:03,573 [http-bio-8080-exec-8] DEBUG Connection - {conn-100190} Connection
+2019-07-26 14:00:03,574 [http-bio-8080-exec-8] DEBUG Connection - {conn-100190} Preparing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 14:00:03,574 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100191} Executing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 14:00:03,574 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100191} Parameters: []
+2019-07-26 14:00:03,575 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100191} Types: []
+2019-07-26 14:00:03,577 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100192} ResultSet
+2019-07-26 14:00:03,578 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100192} Header: [count(*)]
+2019-07-26 14:00:03,578 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100192} Result: [4]
+2019-07-26 14:00:03,582 [http-bio-8080-exec-8] DEBUG Connection - {conn-100193} Connection
+2019-07-26 14:00:03,583 [http-bio-8080-exec-8] DEBUG Connection - {conn-100193} Preparing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 14:00:03,583 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100194} Executing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 14:00:03,583 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100194} Parameters: []
+2019-07-26 14:00:03,583 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100194} Types: []
+2019-07-26 14:00:03,585 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100195} ResultSet
+2019-07-26 14:00:03,586 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100195} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 14:00:03,586 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100195} Result: [4, 2, ㅅㄷㄴㅅ, 1, 1, 1, 1, null, null, <p>1</p>, 2019-07-26 13:59:56.0]
+2019-07-26 14:00:03,587 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100195} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 14:00:03,587 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100195} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 14:00:03,588 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100195} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 14:00:03,862 [http-bio-8080-exec-10] DEBUG Connection - {conn-100196} Connection
+2019-07-26 14:00:03,863 [http-bio-8080-exec-10] DEBUG Connection - {conn-100196} Preparing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 14:00:03,863 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100197} Executing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 14:00:03,863 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100197} Parameters: []
+2019-07-26 14:00:03,863 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100197} Types: []
+2019-07-26 14:00:03,867 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100198} ResultSet
+2019-07-26 14:00:03,867 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100198} Header: [count(*)]
+2019-07-26 14:00:03,867 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100198} Result: [4]
+2019-07-26 14:00:03,869 [http-bio-8080-exec-10] DEBUG Connection - {conn-100199} Connection
+2019-07-26 14:00:03,869 [http-bio-8080-exec-10] DEBUG Connection - {conn-100199} Preparing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 14:00:03,870 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100200} Executing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 14:00:03,870 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100200} Parameters: []
+2019-07-26 14:00:03,870 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100200} Types: []
+2019-07-26 14:00:03,870 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100201} ResultSet
+2019-07-26 14:00:03,871 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100201} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 14:00:03,871 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100201} Result: [4, 2, ㅅㄷㄴㅅ, 1, 1, 1, 1, null, null, <p>1</p>, 2019-07-26 13:59:56.0]
+2019-07-26 14:00:03,871 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100201} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 14:00:03,871 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100201} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 14:00:03,871 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100201} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 14:00:04,070 [http-bio-8080-exec-8] DEBUG Connection - {conn-100202} Connection
+2019-07-26 14:00:04,070 [http-bio-8080-exec-8] DEBUG Connection - {conn-100202} Preparing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 14:00:04,070 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100203} Executing Statement:          select count(*) from mypet                 where    1=1              
+2019-07-26 14:00:04,071 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100203} Parameters: []
+2019-07-26 14:00:04,071 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100203} Types: []
+2019-07-26 14:00:04,073 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100204} ResultSet
+2019-07-26 14:00:04,073 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100204} Header: [count(*)]
+2019-07-26 14:00:04,073 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100204} Result: [4]
+2019-07-26 14:00:04,077 [http-bio-8080-exec-8] DEBUG Connection - {conn-100205} Connection
+2019-07-26 14:00:04,077 [http-bio-8080-exec-8] DEBUG Connection - {conn-100205} Preparing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 14:00:04,078 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100206} Executing Statement:          select * from mypet                 where    1=1            ORDER BY no DESC LIMIT 0, 10      
+2019-07-26 14:00:04,078 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100206} Parameters: []
+2019-07-26 14:00:04,078 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100206} Types: []
+2019-07-26 14:00:04,078 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100207} ResultSet
+2019-07-26 14:00:04,079 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100207} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 14:00:04,079 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100207} Result: [4, 2, ㅅㄷㄴㅅ, 1, 1, 1, 1, null, null, <p>1</p>, 2019-07-26 13:59:56.0]
+2019-07-26 14:00:04,079 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100207} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 14:00:04,079 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100207} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 14:00:04,079 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100207} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 14:00:07,038 [http-bio-8080-exec-10] DEBUG Connection - {conn-100208} Connection
+2019-07-26 14:00:07,039 [http-bio-8080-exec-10] DEBUG Connection - {conn-100208} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:00:07,039 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100209} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:00:07,039 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100209} Parameters: [1]
+2019-07-26 14:00:07,039 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100209} Types: [java.lang.Integer]
+2019-07-26 14:00:07,041 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100210} ResultSet
+2019-07-26 14:00:07,042 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100210} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 14:00:07,042 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100210} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 14:00:07,043 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100210} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 14:00:07,043 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100210} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 14:00:07,268 [http-bio-8080-exec-8] DEBUG Connection - {conn-100211} Connection
+2019-07-26 14:00:07,268 [http-bio-8080-exec-8] DEBUG Connection - {conn-100211} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:00:07,268 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100212} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:00:07,268 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100212} Parameters: [1]
+2019-07-26 14:00:07,268 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100212} Types: [java.lang.Integer]
+2019-07-26 14:00:07,268 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100213} ResultSet
+2019-07-26 14:00:07,269 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100213} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 14:00:07,269 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100213} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 14:00:07,269 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100213} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 14:00:07,269 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100213} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 14:05:34,231 [http-bio-8080-exec-4] DEBUG Connection - {conn-100214} Connection
+2019-07-26 14:05:34,231 [http-bio-8080-exec-4] DEBUG Connection - {conn-100214} Preparing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 14:05:34,232 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100215} Executing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 14:05:34,232 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100215} Parameters: [3]
+2019-07-26 14:05:34,232 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100215} Types: [java.lang.Integer]
+2019-07-26 14:05:34,233 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100216} ResultSet
+2019-07-26 14:05:34,233 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100216} Header: [no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk, member_name]
+2019-07-26 14:05:34,233 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100216} Result: [3, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0, 1, 맹다영]
+2019-07-26 14:41:47,748 [http-bio-8080-exec-1] DEBUG Connection - {conn-100217} Connection
+2019-07-26 14:41:47,748 [http-bio-8080-exec-1] DEBUG Connection - {conn-100217} Preparing Statement:       select count(*) as cnt from member where email=? and pw=md5(?)     
+2019-07-26 14:41:47,748 [http-bio-8080-exec-1] DEBUG PreparedStatement - {pstm-100218} Executing Statement:       select count(*) as cnt from member where email=? and pw=md5(?)     
+2019-07-26 14:41:47,748 [http-bio-8080-exec-1] DEBUG PreparedStatement - {pstm-100218} Parameters: [dayeong@naver.com, ekdud1234]
+2019-07-26 14:41:47,748 [http-bio-8080-exec-1] DEBUG PreparedStatement - {pstm-100218} Types: [java.lang.String, java.lang.String]
+2019-07-26 14:41:47,749 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100219} ResultSet
+2019-07-26 14:41:47,749 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100219} Header: [cnt]
+2019-07-26 14:41:47,749 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100219} Result: [1]
+2019-07-26 14:41:47,750 [http-bio-8080-exec-1] DEBUG Connection - {conn-100220} Connection
+2019-07-26 14:41:47,751 [http-bio-8080-exec-1] DEBUG Connection - {conn-100220} Preparing Statement:          select * from member where email=? and pw=md5(?)     
+2019-07-26 14:41:47,751 [http-bio-8080-exec-1] DEBUG PreparedStatement - {pstm-100221} Executing Statement:          select * from member where email=? and pw=md5(?)     
+2019-07-26 14:41:47,751 [http-bio-8080-exec-1] DEBUG PreparedStatement - {pstm-100221} Parameters: [dayeong@naver.com, ekdud1234]
+2019-07-26 14:41:47,751 [http-bio-8080-exec-1] DEBUG PreparedStatement - {pstm-100221} Types: [java.lang.String, java.lang.String]
+2019-07-26 14:41:47,751 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100222} ResultSet
+2019-07-26 14:41:47,752 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100222} Header: [no, name, email, pw, tel, birth, registdate, memo]
+2019-07-26 14:41:47,752 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100222} Result: [1, 맹다영, dayeong@naver.com, be276f74bcec7b00bb990c0e3937ca51, 01012345678, 19940504, 2019-07-22 15:03:13.0, ]
+2019-07-26 14:41:50,475 [http-bio-8080-exec-1] DEBUG Connection - {conn-100223} Connection
+2019-07-26 14:41:50,475 [http-bio-8080-exec-1] DEBUG Connection - {conn-100223} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:41:50,475 [http-bio-8080-exec-1] DEBUG PreparedStatement - {pstm-100224} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:41:50,475 [http-bio-8080-exec-1] DEBUG PreparedStatement - {pstm-100224} Parameters: [1]
+2019-07-26 14:41:50,475 [http-bio-8080-exec-1] DEBUG PreparedStatement - {pstm-100224} Types: [java.lang.Integer]
+2019-07-26 14:41:50,477 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100225} ResultSet
+2019-07-26 14:41:50,477 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100225} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 14:41:50,477 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100225} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 14:41:50,477 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100225} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 14:41:50,477 [http-bio-8080-exec-1] DEBUG ResultSet - {rset-100225} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 14:44:30,053 [http-bio-8080-exec-6] DEBUG Connection - {conn-100226} Connection
+2019-07-26 14:44:30,053 [http-bio-8080-exec-6] DEBUG Connection - {conn-100226} Preparing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 14:44:30,054 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100227} Executing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 14:44:30,054 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100227} Parameters: [3]
+2019-07-26 14:44:30,054 [http-bio-8080-exec-6] DEBUG PreparedStatement - {pstm-100227} Types: [java.lang.Integer]
+2019-07-26 14:44:30,055 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100228} ResultSet
+2019-07-26 14:44:30,055 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100228} Header: [no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk, member_name]
+2019-07-26 14:44:30,055 [http-bio-8080-exec-6] DEBUG ResultSet - {rset-100228} Result: [3, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0, 1, 맹다영]
+2019-07-26 14:47:13,827 [http-bio-8080-exec-8] DEBUG Connection - {conn-100229} Connection
+2019-07-26 14:47:13,827 [http-bio-8080-exec-8] DEBUG Connection - {conn-100229} Preparing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 14:47:13,828 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100230} Executing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 14:47:13,828 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100230} Parameters: [3]
+2019-07-26 14:47:13,828 [http-bio-8080-exec-8] DEBUG PreparedStatement - {pstm-100230} Types: [java.lang.Integer]
+2019-07-26 14:47:13,830 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100231} ResultSet
+2019-07-26 14:47:13,830 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100231} Header: [no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk, member_name]
+2019-07-26 14:47:13,830 [http-bio-8080-exec-8] DEBUG ResultSet - {rset-100231} Result: [3, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0, 1, 맹다영]
+2019-07-26 14:48:12,138 [http-bio-8080-exec-5] DEBUG Connection - {conn-100232} Connection
+2019-07-26 14:48:12,139 [http-bio-8080-exec-5] DEBUG Connection - {conn-100232} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:48:12,139 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100233} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:48:12,139 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100233} Parameters: [1]
+2019-07-26 14:48:12,140 [http-bio-8080-exec-5] DEBUG PreparedStatement - {pstm-100233} Types: [java.lang.Integer]
+2019-07-26 14:48:12,141 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100234} ResultSet
+2019-07-26 14:48:12,142 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100234} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 14:48:12,142 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100234} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 14:48:12,143 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100234} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 14:48:12,143 [http-bio-8080-exec-5] DEBUG ResultSet - {rset-100234} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 14:49:06,430 [http-bio-8080-exec-4] DEBUG Connection - {conn-100235} Connection
+2019-07-26 14:49:06,431 [http-bio-8080-exec-4] DEBUG Connection - {conn-100235} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:49:06,431 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100236} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:49:06,431 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100236} Parameters: [1]
+2019-07-26 14:49:06,431 [http-bio-8080-exec-4] DEBUG PreparedStatement - {pstm-100236} Types: [java.lang.Integer]
+2019-07-26 14:49:06,432 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100237} ResultSet
+2019-07-26 14:49:06,432 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100237} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 14:49:06,432 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100237} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 14:49:06,433 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100237} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 14:49:06,433 [http-bio-8080-exec-4] DEBUG ResultSet - {rset-100237} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 14:49:09,707 [http-bio-8080-exec-3] DEBUG Connection - {conn-100238} Connection
+2019-07-26 14:49:09,708 [http-bio-8080-exec-3] DEBUG Connection - {conn-100238} Preparing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 14:49:09,708 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100239} Executing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 14:49:09,708 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100239} Parameters: [3]
+2019-07-26 14:49:09,708 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100239} Types: [java.lang.Integer]
+2019-07-26 14:49:09,709 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100240} ResultSet
+2019-07-26 14:49:09,710 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100240} Header: [no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk, member_name]
+2019-07-26 14:49:09,710 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100240} Result: [3, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0, 1, 맹다영]
+2019-07-26 14:51:14,128 [http-bio-8080-exec-9] DEBUG Connection - {conn-100241} Connection
+2019-07-26 14:51:14,128 [http-bio-8080-exec-9] DEBUG Connection - {conn-100241} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:51:14,128 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100242} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:51:14,128 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100242} Parameters: [1]
+2019-07-26 14:51:14,128 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100242} Types: [java.lang.Integer]
+2019-07-26 14:51:14,131 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100243} ResultSet
+2019-07-26 14:51:14,132 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100243} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 14:51:14,132 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100243} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 14:51:14,132 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100243} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 14:51:14,133 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100243} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 14:51:19,435 [http-bio-8080-exec-7] DEBUG Connection - {conn-100244} Connection
+2019-07-26 14:51:19,435 [http-bio-8080-exec-7] DEBUG Connection - {conn-100244} Preparing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 14:51:19,436 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100245} Executing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 14:51:19,436 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100245} Parameters: [3]
+2019-07-26 14:51:19,436 [http-bio-8080-exec-7] DEBUG PreparedStatement - {pstm-100245} Types: [java.lang.Integer]
+2019-07-26 14:51:19,437 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100246} ResultSet
+2019-07-26 14:51:19,438 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100246} Header: [no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk, member_name]
+2019-07-26 14:51:19,439 [http-bio-8080-exec-7] DEBUG ResultSet - {rset-100246} Result: [3, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0, 1, 맹다영]
+2019-07-26 14:51:42,824 [http-bio-8080-exec-2] DEBUG Connection - {conn-100247} Connection
+2019-07-26 14:51:42,825 [http-bio-8080-exec-2] DEBUG Connection - {conn-100247} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:51:42,825 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100248} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:51:42,825 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100248} Parameters: [1]
+2019-07-26 14:51:42,825 [http-bio-8080-exec-2] DEBUG PreparedStatement - {pstm-100248} Types: [java.lang.Integer]
+2019-07-26 14:51:42,827 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100249} ResultSet
+2019-07-26 14:51:42,828 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100249} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 14:51:42,828 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100249} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 14:51:42,828 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100249} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 14:51:42,829 [http-bio-8080-exec-2] DEBUG ResultSet - {rset-100249} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 14:51:47,319 [http-bio-8080-exec-3] DEBUG Connection - {conn-100250} Connection
+2019-07-26 14:51:47,319 [http-bio-8080-exec-3] DEBUG Connection - {conn-100250} Preparing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 14:51:47,319 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100251} Executing Statement:                select no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk,          (select name from member where no=mypet.member_pk) as member_name from mypet where no=?               
+2019-07-26 14:51:47,320 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100251} Parameters: [3]
+2019-07-26 14:51:47,320 [http-bio-8080-exec-3] DEBUG PreparedStatement - {pstm-100251} Types: [java.lang.Integer]
+2019-07-26 14:51:47,320 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100252} ResultSet
+2019-07-26 14:51:47,320 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100252} Header: [no, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate, member_pk, member_name]
+2019-07-26 14:51:47,321 [http-bio-8080-exec-3] DEBUG ResultSet - {rset-100252} Result: [3, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0, 1, 맹다영]
+2019-07-26 14:54:54,473 [http-bio-8080-exec-10] DEBUG Connection - {conn-100253} Connection
+2019-07-26 14:54:54,474 [http-bio-8080-exec-10] DEBUG Connection - {conn-100253} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:54:54,474 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100254} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:54:54,474 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100254} Parameters: [1]
+2019-07-26 14:54:54,474 [http-bio-8080-exec-10] DEBUG PreparedStatement - {pstm-100254} Types: [java.lang.Integer]
+2019-07-26 14:54:54,477 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100255} ResultSet
+2019-07-26 14:54:54,478 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100255} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 14:54:54,478 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100255} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 14:54:54,478 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100255} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 14:54:54,478 [http-bio-8080-exec-10] DEBUG ResultSet - {rset-100255} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
+2019-07-26 14:54:55,316 [http-bio-8080-exec-9] DEBUG Connection - {conn-100256} Connection
+2019-07-26 14:54:55,316 [http-bio-8080-exec-9] DEBUG Connection - {conn-100256} Preparing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:54:55,317 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100257} Executing Statement:          select * from mypet where member_pk=? ORDER BY registdate DESC      
+2019-07-26 14:54:55,317 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100257} Parameters: [1]
+2019-07-26 14:54:55,317 [http-bio-8080-exec-9] DEBUG PreparedStatement - {pstm-100257} Types: [java.lang.Integer]
+2019-07-26 14:54:55,319 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100258} ResultSet
+2019-07-26 14:54:55,319 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100258} Header: [no, member_pk, name, age, gender, breed, vac, mypet_image, mypet_image_org, memo, registdate]
+2019-07-26 14:54:55,319 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100258} Result: [3, 1, 고양이, 3, 1, 페르시안, O, mypet_1564117126951.jpg, angry-animal-cat-1331821-1024x683.jpg, <p>ㅁㅁ</p>, 2019-07-26 13:58:46.0]
+2019-07-26 14:54:55,320 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100258} Result: [2, 1, 토끼, 2, 1, 산토끼, X, mypet_1564117061850.jpg, 48253869-흰색에-고립-된-작은-토끼.jpg, <p>ㅅㄷㄴㅅ</p>, 2019-07-26 13:57:42.0]
+2019-07-26 14:54:55,320 [http-bio-8080-exec-9] DEBUG ResultSet - {rset-100258} Result: [1, 1, 강아지, 1, 1, 진돗개, O, mypet_1564116824450.jpg, 장미1.jpg, <p>test</p>, 2019-07-26 13:53:45.0]
