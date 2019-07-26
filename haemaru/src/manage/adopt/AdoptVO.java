@@ -11,6 +11,7 @@ public class AdoptVO extends Parameter  {
 	private int animal_category;
 	private String animal_image;
 	private String animal_image_org;
+	private String imagename_chk;
 	private String name;
 	private int gender;
 	private String age;
@@ -23,6 +24,7 @@ public class AdoptVO extends Parameter  {
 	
 	public AdoptVO() {
 		super.setPageRows(10);
+		this.animal_category = 0;
 	}
 	/**
 	 * 생성자 페이지로우수 세팅
@@ -133,6 +135,14 @@ public class AdoptVO extends Parameter  {
 	public void setRegistdate(Timestamp registdate) {
 		this.registdate = registdate;
 	}
+	public String getImagename_chk() {
+		return imagename_chk;
+	}
+	public void setImagename_chk(String imagename_chk) {
+		this.imagename_chk = imagename_chk;
+	}
+	
+	
 	
 	
 	

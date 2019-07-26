@@ -94,7 +94,7 @@ function groupDelete() {
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=list.get(i).getNo()%>"/></td>
 										<td <%=targetUrl%>><%=list.get(i).getNo()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getAnimal_category()%></td>
-										<td <%=targetUrl%>><img src="<%=list.get(i).getAnimal_image()%>"/></td>
+										<td <%=targetUrl%>><img src="/upload/adopt/<%=list.get(i).getAnimal_image()%>" width="100px" height="100px"/></td>
 										<td <%=targetUrl%>><%=list.get(i).getName()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getGender()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getAge()%></td>

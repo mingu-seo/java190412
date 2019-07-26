@@ -48,61 +48,61 @@
 /* 강아지 부분 */
 .box1 {margin-top:60px;}
 .box {float:left;}
-.box-img1 {float:left; width:320px; height:320px; background-image: url("../img/dog1-1.jpg"); background-size:cover; background-position:bottom -40px center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box-img1 {float:left; width:320px; height:320px; background-size:cover; background-position:bottom -40px center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
 .box {position:relative; width:700px; height:320px; padding-top:60px; border-top:1px solid #d7d7d7; margin-left:80px;}
 .box > p {margin-left:20px; font-size:14px; color:#4d6877; margin-bottom:26px;}
 .info-text {color:#666; width:80px; display:inline-block;}
 .box > img {width:64px; position: absolute; right:0; top:24px;}
 
 .box2 {margin-top:80px;}
-.box-img2 {float:left; width:320px; height:320px; background-image: url("../img/dog1-2.jpg"); background-size:cover; background-position:bottom -100px center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box-img2 {float:left; width:320px; height:320px; background-size:cover; background-position:bottom -100px center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
 .box2 > .box {margin-left:0; margin-right:80px;}
 
 .box3 {margin-top:80px;}
-.box-img3 {float:left; width:320px; height:320px; background-image: url("../img/bel.jpg"); background-size:cover; background-position:center right; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box-img3 {float:left; width:320px; height:320px; background-size:cover; background-position:center right; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
 
 .box4 {margin-top:80px;}
-.box-img4 {float:left; width:320px; height:320px; background-image: url("../img/dog1-4.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box-img4 {float:left; width:320px; height:320px; background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
 .box4 > .box {margin-left:0; margin-right:80px;}
 
 /* 고양이 부분 */
 .box5 {margin-top:60px;}
 .box {float:left;}
-.box-img5 {float:left; width:320px; height:320px; background-image: url("../img/cat1-1.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box-img5 {float:left; width:320px; height:320px; background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
 .box {position:relative; width:700px; height:320px; padding-top:60px; border-top:1px solid #d7d7d7; margin-left:80px;}
 .box > p {margin-left:20px; font-size:14px; color:#4d6877; margin-bottom:26px;}
 .info-text {color:#666; width:80px; display:inline-block;}
 .box > img {width:64px; position: absolute; right:0; top:24px;}
 
 .box6 {margin-top:80px;}
-.box-img6 {float:left; width:320px; height:320px; background-image: url("../img/cat1-2.jpg"); background-size:cover; background-position:bottom -100px center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box-img6 {float:left; width:320px; height:320px; background-size:cover; background-position:bottom -100px center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
 .box6 > .box {margin-left:0; margin-right:80px;}
 
 .box7 {margin-top:80px;}
-.box-img7 {float:left; width:320px; height:320px; background-image: url("../img/cat1-3.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box-img7 {float:left; width:320px; height:320px; background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
 
 .box8 {margin-top:80px;}
-.box-img8 {float:left; width:320px; height:320px; background-image: url("../img/cat1-4.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box-img8 {float:left; width:320px; height:320px; background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
 .box8 > .box {margin-left:0; margin-right:80px;}
 
 /* 특수동물 부분 */
 .box9 {margin-top:60px;}
 .box {float:left;}
-.box-img9 {float:left; width:320px; height:320px; background-image: url("../img/special1-1.jpg"); background-size:cover; background-position:left -110px center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box-img9 {float:left; width:320px; height:320px; background-size:cover; background-position:left -110px center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
 .box {position:relative; width:700px; height:320px; padding-top:60px; border-top:1px solid #d7d7d7; margin-left:80px;}
 .box > p {margin-left:20px; font-size:14px; color:#4d6877; margin-bottom:26px;}
 .info-text {color:#666; width:80px; display:inline-block;}
 .box > img {width:50px; position: absolute; right:0; top:24px;}
 
 .box10 {margin-top:80px;}
-.box-img10 {float:left; width:320px; height:320px; background-image: url("../img/special1-2.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box-img10 {float:left; width:320px; height:320px; background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
 .box10 > .box {margin-left:0; margin-right:80px;}
 
 .box11 {margin-top:80px;}
-.box-img11 {float:left; width:320px; height:320px; background-image: url("../img/special1-3.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box-img11 {float:left; width:320px; height:320px; background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
 
 .box12 {margin-top:80px;}
-.box-img12 {float:left; width:320px; height:320px; background-image: url("../img/special1-4.jpg"); background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
+.box-img12 {float:left; width:320px; height:320px; background-size:cover; background-position:center center; background-repeat:no-repeat; border-radius: 10px; box-shadow: 0 3px 5px rgba(0,0,0,0.2);}
 .box12 > .box {margin-left:0; margin-right:80px;}
 
 /* 상담신청 버튼 부분 */

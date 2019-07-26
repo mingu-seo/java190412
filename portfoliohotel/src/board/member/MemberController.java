@@ -33,15 +33,6 @@ public class MemberController {
 		return "manage/member/index";
 	}
 	
-//	@RequestMapping("/manage/member/join")
-//	public String join(Model model, MemberVO param) throws Exception {
-//		MemberVO data = memberService.read(param.getNo());
-//		model.addAttribute("data", data);
-//		model.addAttribute("vo", param);
-//
-//		return "manage/member/join";
-//	}
-	
 	
 
 	@RequestMapping("/manage/member/read")
@@ -64,6 +55,15 @@ public class MemberController {
 		return "manage/member/edit";
 	}
 	
+	@RequestMapping("/manage/member/memberEdit")
+	public String memberEdit(Model model, MemberVO param) throws Exception {
+		MemberVO data = memberService.read(param.getNo());
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+
+		return "manage/member/memberEdit";
+	}
+	
 	@RequestMapping("/manage/member/memberMypage")
 	public String mypage(Model model, MemberVO param) throws Exception {
 		MemberVO data = memberService.read(param.getNo());
@@ -82,15 +82,7 @@ public class MemberController {
 		return "manage/member/memberIndex";
 	}
 	
-	/*
-	 * @RequestMapping("/manage/member/memberIndex") public String memberIndex(Model
-	 * model, MemberVO param) throws Exception { MemberVO data =
-	 * memberService.read(param.getNo()); model.addAttribute("data", data);
-	 * model.addAttribute("vo", param);
-	 * 
-	 * return "manage/member/memberIndex"; }
-	 */
-	
+
 	@RequestMapping("/manage/member/memberDelete")
 	public String memberDelete(Model model, MemberVO param) throws Exception {
 		MemberVO data = memberService.read(param.getNo());

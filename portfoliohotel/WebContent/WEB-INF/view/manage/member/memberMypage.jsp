@@ -49,7 +49,7 @@ MemberVO data = (MemberVO)request.getAttribute("data");
                     </tr>
                 </table>
             </div>
-            <div class="reservation-status-right">
+            <%-- <div class="reservation-status-right">
                 <div class="my-info">
                     <h4>
  <td colspan="3"><%=data.getName()%> </td> 
@@ -79,8 +79,17 @@ MemberVO data = (MemberVO)request.getAttribute("data");
                     <li><a href="delete_account.do">회원탈퇴</a></li>
                     <li><a href="#">로그아웃</a></li>
                 </ul>
-            </div>
+            </div> --%>
         </div>
-        
+        <div class="btnLeft">
+        	<a class="btns" href="/manage/member/logout" ><strong>로그아웃</strong> </a>
+									
+		</div>
+		<div>
+        <a class="btns" href="/manage/member/memberEdit" ><strong>개인정보 수정</strong> </a>
+        </div>
+        <div>
+        <a class="btns" href="/manage/member/memberDelete" ><strong>회원탈퇴</strong> </a>
+        </div>
 </body>
 </html>
