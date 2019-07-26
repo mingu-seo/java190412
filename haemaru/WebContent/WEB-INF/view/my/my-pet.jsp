@@ -49,35 +49,34 @@
 			<h1 class="mypet-logo">
 				<a href="#"><img src="/icon/logo_lightgreen.png"></a>
 			</h1>
-			<form class="mypet-form" method="GET" action="text.php">
+			<form class="mypet-form" method="POST" action="/my/my-pet-edit">
 				<div class="petname_box">
 					<span><label for="pet_name" class="label">My pet 이름</label></span>
-					<input type="text" maxlength="20" id="pet_name" name="name" class="cover-size" value="<%=data.getName()%>">
+					<input type="text" maxlength="20" id="pet_name" name="name" class="cover-size" value="<%=param.getName()%>">
 				</div>
 				<div class="petage_box">
 					<span><label for="pet_old" class="label">My pet 나이</label></span> <input
-						type="text" maxlength="20" id="pet_old" name="pet_old"
-						class="cover-size" value="<%=param.getName()%>">
+						type="text" maxlength="20" id="pet_old" name="age"
+						class="cover-size">
 				</div>
 				<div class="petgender_box">
-					<span>My Pet 성별</span> <input type="radio" id="radio01"
-						name="pet_sex_radio"> <label for="radio01" class="label">남자</label>
-					<input type="radio" id="radio02" name="pet_sex_radio"> <label
-						for="radio02" class="label">여자</label>
+					<span>My Pet 성별</span> 
+					<input type="radio" id="radio01"name="gender"><label for="radio01" class="label">남아</label>
+					<input type="radio" id="radio02" name="gender"><label for="radio02" class="label">여아</label>
 				</div>
 				<div class="petlist_box">
 					<span><label for="pet_class" class="label">My Pet 품종</label></span>
-					<input type="text" maxlength="5" id="pet_class" name="pet_class"
+					<input type="text" maxlength="5" id="pet_class" name="breed"
 						class="cover-size">
 				</div>
 				<div class="petdoc_box">
 					<span><label for="pet_helth" class="label">최근 접종 현황</label></span>
-					<input type="text" maxlength="5" id="pet_helth" name="pet_health"
+					<input type="text" maxlength="5" id="pet_helth" name="vac"
 						class="cover-size">
 				</div>
 				<div class="mypet-btn clear">
-					<input type="reset" value="취소" id="btn_reset2"> <input
-						type="submit" value="수정" id="btn_submit2">
+					<input type="reset" value="취소" id="btn_reset2"> 
+					<input type="submit" value="수정" id="btn_submit2">
 				</div>
 			</form>
 			<ul class="mypet-bot clear">
@@ -128,7 +127,7 @@
 							</div>
 							<div>
 								<div class="sub6-more">
-									<a href="#">EDIT</a>
+									<a href="/my/myEdit?no=<%=mlist.get(i).getNo()%>">EDIT</a>
 								</div>
 							</div>
 						</div>
@@ -145,6 +144,29 @@
 			</div>
 		</div>
 	</div>
+	<script>
+function getMypet() {
+	$.ajax({
+		type : "GET",
+		url : "/my/myEdit?no=<%=param.getNo()%>",
+		async:false
+	});
+}
+$(function(){
+	$("#mypetEditBtn").click(function() {
+		$.ajax({
+			type : "POST",
+			url : "/my/my-pet-edit",
+			data : $("#editFrm").serialize(),
+			async : false,
+			success : function(data) {
+				alert("정상적으로 수정되었습니다.");
+			}
+		});
+	});
+});
+
+</script>
 	<%@ include file="/WEB-INF/view/include/footer.jsp"%>
 </body>
 </html>
