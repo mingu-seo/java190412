@@ -25,8 +25,11 @@ public class Room_resController {
 	
 	@RequestMapping("/manage/room/res/index")
 	public String index(Model model, Room_resVO vo, RoomVO rvo) throws Exception {
+		int[] rowPageCount = room_resService.count(vo);
 		ArrayList<Room_resVO> list = room_resService.list(vo);
 		
+		model.addAttribute("totCount", rowPageCount[0]);
+		model.addAttribute("totPage", rowPageCount[1]);
 		model.addAttribute("list", list);
 		model.addAttribute("vo", vo);
 		model.addAttribute("rvo", rvo);
@@ -93,6 +96,16 @@ public class Room_resController {
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 취소되었습니다.", "취소실패"));
 			model.addAttribute("url", "/manage/room/res/read?no="+vo.getNo());
+		} else if("delete".equals(vo.getCmd())) {
+			int r = room_resService.delete(vo);
+			model.addAttribute("code", "alertMessageUrl"); 
+			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패")); 
+			model.addAttribute("url", vo.getTargetURLParam("index", vo, 0));
+		} else if("groupDelete".equals(vo.getCmd())) {
+			int r = room_resService.groupDelete(request); 
+			model.addAttribute("code", "alertMessageUrl"); 
+			model.addAttribute("message", Function.message(r, "총 "+r+"건이 삭제되었습니다.", "삭제실패")); 
+			model.addAttribute("url", vo.getTargetURLParam("index", vo, 0)); 
 		}
 		return "include/alert";
 	}

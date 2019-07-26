@@ -18,16 +18,10 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp" %>
 <script>
-$(function() {	
-	$("#cancelBtn").click(function() {
-		goCancel();
-	});
-});
-
 function goCancel() {
 	var cancel = confirm('예약을 취소하시겠습니까?');
 	if(cancel) {
-		document.location.href = "/manage/room/res/process?no=<%=read.getNo()%>$cmd=cancel";
+		document.location.href = "/manage/room/res/process?no=<%=read.getNo()%>&cmd=cancel";
 	} else {
 		return false;
 	}
@@ -55,7 +49,7 @@ function goCancel() {
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="bread">
-							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" enctype="multipart/form-data" onsubmit="return goSave();">
+							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" onsubmit="return goSave();">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
 									<col width="10%"/>
@@ -138,7 +132,17 @@ function goCancel() {
 									</tr>
 									<tr>
 										<th>예약 상태</th>
+										<%
+										if(read.getRes_state() == 0) {
+										%>
+										<td style="color:#FF0000;"><b><%=CodeUtil.getResState(read.getRes_state()) %></b></td>
+										<%
+										} else {
+										%>
 										<td><%=CodeUtil.getResState(read.getRes_state()) %></td>
+										<%
+										}
+										%>
 										<th>예약일</th>
 										<td><%=sdf.format(read.getBookdate())%></td>
 										<th>결제 방법</th>
@@ -178,7 +182,7 @@ function goCancel() {
 									
 								</div>
 								<div class="btnRight">
-									<input type="button" class="btns" id="#cancelBtn"><strong>예약 취소</strong></a>
+									<a class="btns" onclick="goCancel()"><strong>예약 취소</strong></a>
 									<a class="btns" href="<%=vo.getTargetURLParam("edit", vo, read.getNo())%>"><strong>수정</strong></a>
 								</div>
 							</div>

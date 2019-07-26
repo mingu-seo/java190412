@@ -41,6 +41,14 @@
 		WHERE no=#no#
 	</update>
 	
+	<delete id="delete" parameterClass="Integer">
+		DELETE FROM room_res
+		WHERE no=#no#
+	</delete>
+	
+	<select id="count" parameterClass="room_resVO" resultClass="Integer">
+		SELECT COUNT(*) FROM room_res
+	</select>
 	
 	<typeAlias alias="room_opt_resVO" type="room.res.Room_opt_resVO"/>
 	
