@@ -88,12 +88,11 @@ PkgVO pdata = (PkgVO) request.getAttribute("data");
                         
                         <tr>
                             <td class="table-list price">가격</td>
-                            <td><%=pdata.getPrice()%></td>
+                            <td>78000</td>
                         </tr>
                         <tr>
                             <td class="table-list">포함내역</td>
                             <td class="td-lh">· 객실 투숙 1박 <br/>
-                                <%=pdata.getPkg()%>
                             </td>
                         </tr>
                         <tr>

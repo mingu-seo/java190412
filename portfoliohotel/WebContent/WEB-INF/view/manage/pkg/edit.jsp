@@ -15,6 +15,8 @@ PkgVO data = (PkgVO)request.getAttribute("data");
 var oEditors; // 에디터 객체 담을 곳
 $(window).load(function() {
 	oEditors = setEditor("pkg"); // 에디터 셋팅
+	initCal<{id:"startdate",type:"day",today:"y"});
+	initCal({id:"enddate",type:"dat",today:"y"});
 });
 
 function goSave() {
@@ -102,7 +104,7 @@ function goSave() {
 								</colgroup>
 								<tbody>
 									<tr>
-										<th scope="row"><label for="">이름</label></th>
+										<th scope="row"><label for="">패키지 이름</label></th>
 										<td colspan="3">
 											<input type="text" id="name" name="name" value="<%=data.getName()%>"/>
 										</td>

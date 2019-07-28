@@ -88,13 +88,14 @@ PkgVO data = (PkgVO) request.getAttribute("data");
 											<td><%=data.getEnddate() %></td>
 										</tr>
 										<tr>
+											<th scope="row"><label for="">가격</label></th>
+											<td colspan="3"><%=data.getPrice()%></td>
+										</tr>										
+										<tr>
 											<th scope="row"><label for="">포함내역</label></th>
 											<td colspan="3"><%=data.getPkg() %></td>
 										</tr>
-										<tr>
-											<th scope="row"><label for="">가격</label></th>
-											<td colspan="3"><%=data.getPrice()%></td>
-										</tr>
+
 										<tr>
 											<th scope="row"><label for="">이벤트</label></th>
 											<td colspan="3"><%=data.getEvent()%></td>

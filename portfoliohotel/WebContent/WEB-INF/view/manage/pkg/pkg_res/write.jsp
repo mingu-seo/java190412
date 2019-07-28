@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.util.*" %>
-<%@ page import="pkg.*" %>
+<%@ page import="pkg.res.*" %>
 <%@ page import="util.*" %>
 <%
-	PkgVO param = (PkgVO)request.getAttribute("vo");
+	Pkg_resVO param = (Pkg_resVO)request.getAttribute("vo");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -77,42 +77,46 @@
 										</td>
 									</tr>		
 									<tr>
-										<th scope="row"><label for="">운영기간 시작일</label></th>
+										<th scope="row"><label for="">사용일</label></th>
 										<td>
-											<input type="text" id="startdate" name="startdate" class="inputTitle" value=""/>&nbsp;
-											<span id="CalstartdateIcon">
-												<img src="/manage/img/calendar_icon.png" id="CalstartdateIconImg" style="cusor:pointer;"/>
-											</span>
-										</td>
-										<th scope="row"><label for="">운영기간 종료일</label></th>
-										<td>
-											<input type="text" id="enddate" name="enddate" class="inputTitle" value=""/>&nbsp;
+											<input type="text" id="use_date" name="use_date" class="inputTitle" value=""/>&nbsp;
 											<span id="CalstartdateIcon">
 												<img src="/manage/img/calendar_icon.png" id="CalstartdateIconImg" style="cusor:pointer;"/>
 											</span>
 										</td>
 									<tr>
-										<th scope="row"><label for="">가격</label></th>
+										<th scope="row"><label for="">고객 한글명</label></th>
 										<td colspan="3">
-											<input type="text" id="price" name="price" class="w20"/>
+											<input type="text" id="guest_kname" name="guest_kname" class="w20"/>
 										</td>
-									</tr>										
+										<th scope="row"><label for="">고객 영문명</label></th>
+										<td colspan="3">
+											<input type="text" id="guest_ename" name="guest_ename" class="w20"/>
+										</td>
+									</tr>
 									<tr>
-										<th scope="row"><label for="">포함내역</label></th>
+										<th scope="row"><label for="">고객 연락처</lavel></th>
 										<td colspan="3">
-											<textarea id="pkg" name="pkg" style="width:100%"></textarea>
+											<input type="text" id="guest_tel" name="guest_tel" class="w20"/>
 										</td>
-									</tr>						
+										<th scope="row"><label for="">고객 이메일</label></th>
+										<td colspan="3">
+											<input type="text" id="guest_email" name="guest_email" class="w20"/>
+										</td>
+									</tr>
 									<tr>
-										<th scope="row"><label for="">이벤트</lavel></th>
-										<td colspan="3">
-											<input type="text" id="event" name="event" class="w40"/>
+										<th scope="row"><label for="">패키지 금액</label></th>
+										<td>
+											<input type="text" id="pkg_price" name="pkg_price" class="w20"/>
 										</td>
-									<tr>
-										<th scope="row"><label for="">안내</label></th>
-										<td colspan="3">
-											<input type="text" id="guide" name="guide" class="w40"/>
+										<th scope="row"><label for="">수량</label></th>
+										<td>
+											<input type="text" id="pkg_count" name="pkg_count" class="w20"/>
 										</td>
+										<th scope="row"><label for="">총 결제 금액</label></th>
+										<td>
+											<input type="text" id="total_price" name="total_price" class="w20"/>
+										</td>																				
 									</tr>
 									
 								</tbody>

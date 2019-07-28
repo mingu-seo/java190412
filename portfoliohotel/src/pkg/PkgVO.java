@@ -16,7 +16,8 @@ public class PkgVO extends Parameter {
 	private String pkg; // 포함내역
 	private String event; // 이벤트
 	private String guide; // 가이드
-	private Date regdate; // 등록일
+	private Timestamp regdate; // 등록일
+	
 	
 	public PkgVO(int pageRows) {
 		super.setPageRows(pageRows);
@@ -74,12 +75,15 @@ public class PkgVO extends Parameter {
 	public void setGuide(String guide) {
 		this.guide = guide;
 	}
-	public Date getRegdate() {
+
+	public Timestamp getRegdate() {
 		return regdate;
 	}
-	public void setRegdate(Date regdate) {
+
+	public void setRegdate(Timestamp regdate) {
 		this.regdate = regdate;
 	}
+	
 	
 	
 	

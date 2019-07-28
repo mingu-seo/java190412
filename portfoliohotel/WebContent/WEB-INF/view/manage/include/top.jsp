@@ -87,11 +87,11 @@ $(window).load(function(){
 						<li><a href="<%=request.getContextPath()%>/manage/dining_res/index"><span>다이닝 예약관리</span></a></li>
 					</ul>	
 				</li>
-				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>pkg관리</span></a>
+				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>패키지관리</span></a>
 					<div class="standard_left">
 					<ul>
 						<li><a href="<%=request.getContextPath()%>/manage/pkg/index"><span>패키지관리</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/pkg/dining/index.do"><span>패키지예약관리</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/pkg/pkg_res/index"><span>패키지예약관리</span></a></li>
 					</ul>
 					</div>
 				</li>
