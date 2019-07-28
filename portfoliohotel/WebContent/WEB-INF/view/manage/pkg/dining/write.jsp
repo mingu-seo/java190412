@@ -1,5 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-<%@ page import="pkg.dining.*" %>
+<%@ page import="pkg1.dining.*" %>
 <%@ page import="java.util.*" %>
 <%
 PkgDiningVO param = (PkgDiningVO)request.getAttribute("vo");

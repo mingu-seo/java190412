@@ -90,8 +90,8 @@ $(window).load(function(){
 				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>pkg관리</span></a>
 					<div class="standard_left">
 					<ul>
-						<li><a href="<%=request.getContextPath()%>/manage/pkg/room/index.do"><span>room관리</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/manage/pkg/dining/index.do"><span>dining관리</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/pkg/index"><span>패키지관리</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/manage/pkg/dining/index.do"><span>패키지예약관리</span></a></li>
 					</ul>
 					</div>
 				</li>
