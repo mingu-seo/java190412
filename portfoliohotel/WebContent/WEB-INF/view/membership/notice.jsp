@@ -193,11 +193,11 @@ function goSearch() {
                         		String targetUrl = "";
                         		NoticeVO data;
 								for (int i=0; i<list.size(); i++) {
-									targetUrl = "style='cusor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("notice_read", param, list.get(i).getNo())+"'\"";
+									targetUrl = "style='cusor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("notice_form", param, list.get(i).getNo())+"'\"";
                         %>
                         <%
                         	if (list.get(i).getTop() == 2) {
-                        		targetUrl = "style='cursor:pointer; background-color:#bebebe', onclick=\"location.href='"+param.getTargetURLParam("notice_read", param, list.get(i).getNo())+"'\"";
+                        		targetUrl = "style='cursor:pointer; background-color:#bebebe', onclick=\"location.href='"+param.getTargetURLParam("notice_form", param, list.get(i).getNo())+"'\"";
                         	}
                         %>
                         	<tr>

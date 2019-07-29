@@ -24,7 +24,7 @@ public class QnaController {
 	@Autowired
 	QnaService qnaService;
 
-	@RequestMapping("/membership/qna.do")
+	@RequestMapping("/membership/qna")
 	public String qna(Model model, QnaVO param) throws Exception {
 
 		return "membership/qna";

@@ -58,8 +58,17 @@ public class NoticeController {
 	}
 	
 	/* [사용자] 공지사항 상세페이지 */
-	@RequestMapping("/membership/notice_read")
+	@RequestMapping("/membership/notice_form")
 	public String Nread(Model model, NoticeVO param) throws Exception {
+		NoticeVO data = noticeService.read(param.getNo(), true);
+		model.addAttribute("data", data);
+		model.addAttribute("param", param);
+		
+		return "membership/notice_form";
+	}
+	
+	@RequestMapping("/membership/notice_read")
+	public String Ndread(Model model, NoticeVO param) throws Exception {
 		NoticeVO data = noticeService.read(param.getNo(), true);
 		model.addAttribute("data", data);
 		model.addAttribute("param", param);
