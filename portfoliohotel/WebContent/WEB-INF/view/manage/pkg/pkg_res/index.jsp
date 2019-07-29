@@ -1,11 +1,11 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-<%@ page import="java.util.*" %>
-<%@ page import="pkg.dining.*" %>
+<%@ page import="pkg.res.*" %>
+<%@ page import="property.SiteProperty" %>
 <%@ page import="util.*" %>
 <%@ page import="java.util.*" %>
 <%
-PkgDiningVO param = (PkgDiningVO)request.getAttribute("vo");
-ArrayList<PkgDiningVO> list = (ArrayList)request.getAttribute("list");
+Pkg_resVO param = (Pkg_resVO)request.getAttribute("vo");
+ArrayList<Pkg_resVO> list = (ArrayList)request.getAttribute("list");
 int totCount = (Integer)request.getAttribute("totCount");
 int totPage = (Integer)request.getAttribute("totPage");
 %>
@@ -24,6 +24,17 @@ function groupDelete() {
 		alert("삭제할 항목을 하나 이상 선택해 주세요.");
 	}
 }
+
+function goDelete(v) {	
+	if (confirm ('삭제하시겠습니까?')) {
+		document.location.href = "process?no="+v+"&cmd=delete";
+	}
+}
+
+function goSearch() {
+	$("#searchForm").submit();
+}
+
 </script>
 </head>
 <body> 
@@ -39,7 +50,7 @@ function groupDelete() {
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>관리자관리 - [목록]</h2>
+					<h2>패키지예약 - [목록]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">
@@ -50,35 +61,43 @@ function groupDelete() {
 							<form name="frm" id="frm" action="process.do" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
 								<colgroup>
-									<col class="w3" />
-									<col class="w3" />
+									<col class="w3"/>
+									<col class="w3"/>
 									<col class="w20" />
 									<col class="w10" />
+									<col class="w4" />
 								</colgroup>
 								<thead>
 									<tr>
 										<th scope="col" class="first"><input type="checkbox" name="allChk" id="allChk" onClick="check(this, document.frm.no)"/></th>
 										<th scope="col">번호</th>
-										<th scope="col">제목</th>
-										<th scope="col" class="last">등록일</th>
+										<th scope="col">패키지 이름</th>
+										<th scope="col">구매일</th> 
+										<th scope="col" class="last">삭제</th>
 									</tr>
 								</thead>
 								<tbody>
-								<% if (list.size() == 0) { %>
-									<tr>
-										<td class="first" colspan="8">등록된 자료가 없습니다.</td>
-									</tr>
 								<%
-									 } else {
-										String targetUrl = "";
-										for (int i=0; i<list.size(); i++) {
-											targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, list.get(i).getNo())+"'\"";
+									if (totCount == 0) {
 								%>
 									<tr>
-										<td class="first"><input type="checkbox" name="no" id="no" value="<%=list.get(i).getNo()%>"/></td>
-										<td <%=targetUrl%>><%=list.get(i).getNo()%></td>
-										<td <%=targetUrl%>><%=list.get(i).getSet_name()%></td>
-										<td <%=targetUrl%>><%=DateUtil.getDateTimeFormat(list.get(i).getRegdate())%></td>
+										<td class="first" colspan="8">등록된 글이 없습니다.</td>
+									</tr>
+								<%
+									} else {
+										String targetUrl = "";
+										String topClass = "";
+										Pkg_resVO data;
+										for (int i=0; i<list.size(); i++) {
+											data = list.get(i);
+											targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, data.getNo())+"'\"";
+								%>
+									<tr <%=topClass%>>
+										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
+										<td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td>
+										<td <%=targetUrl%>><%=data.getPkg_name() %></td>
+										<td <%=targetUrl%>><%=DateUtil.getDateFormat(data.getPurchase_date())%></td>
+										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
 								<%
 										}
@@ -86,34 +105,50 @@ function groupDelete() {
 								%>
 								</tbody>
 							</table>
-							<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
-							<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
-							<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
+								<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
+								<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
+								<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
+								<input type="hidden" name="no" id="no" value="<%=param.getNo() %>"/>
+								
 							</form>
 							<div class="btn">
 								<div class="btnLeft">
 									<a class="btns" href="#" onclick="groupDelete();"><strong>삭제</strong> </a>
 								</div>
 								<div class="btnRight">
-									<a class="wbtn" href="write"><strong>글쓰기</strong> </a>
+									<a class="wbtn" href="write"><strong>등록</strong> </a>
 								</div>
 							</div>
 							<!--//btn-->
 							<!-- 페이징 처리 -->
-							<%=Page.indexList(param.getReqPageNo(), totPage, request)%>
+							<%-- <%=Page.indexList(param.getReqPageNo(), totPage, request)%>
 							<!-- //페이징 처리 -->
 							<form name="searchForm" id="searchForm" action="index" method="post">
 								<div class="search">
+									<select name="member" onchange="$('#searchForm').submit();">
+										<option value="0" <%=Function.getSelected(param.getMember(), 0)%>>전체</option>
+										<option value="1" <%=Function.getSelected(param.getMember(), 1)%>>공개</option>
+										<option value="2" <%=Function.getSelected(param.getMember(), 2)%>>비공개</option>
+									</select>									
+									<select name="display" onchange="$('#searchForm').submit();">
+										<option value="0" <%=Function.getSelected(param.getDisplay(), 0)%>>전체</option>
+										<option value="1" <%=Function.getSelected(param.getDisplay(), 1)%>>노출</option>
+										<option value="2" <%=Function.getSelected(param.getDisplay(), 2)%>>미노출</option>
+									</select>
+									<select name="top" onchange="$('#searchForm').submit();">
+										<option value="0" <%=Function.getSelected(param.getTop(), 0)%>>전체</option>
+										<option value="1" <%=Function.getSelected(param.getTop(), 1)%>>상단미노출</option>
+										<option value="2" <%=Function.getSelected(param.getTop(), 2)%>>상단노출</option>
+									</select>
 									<select name="stype" title="검색을 선택해주세요">
 										<option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>
-										<option value="id" <%=Function.getSelected(param.getStype(), "petit_title") %>>아이디</option>
-										<option value="name" <%=Function.getSelected(param.getStype(), "name") %>>이름</option>
-										<option value="memo" <%=Function.getSelected(param.getStype(), "memo") %>>메모</option>
+										<option value="title" <%=Function.getSelected(param.getStype(), "title") %>>제목</option>
+										<option value="contents" <%=Function.getSelected(param.getStype(), "contents") %>>상세정보</option>
 									</select>
 									<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />
 									<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />
 								</div>
-							</form>
+							</form> --%>
 							<!-- //search --> 
 						</div>
 						<!-- //blist -->
