@@ -111,11 +111,11 @@ int totPage = (Integer) request.getAttribute("totPage");
 													<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getRes_hour())%></td>
 													<td ><%=CodeUtil.getReserveRouteName(list.get(i).getRoute())%> </td>
 													<td>
-													<div class="btnRight">
-														<a class="btns"
-															href="<%=param.getTargetURLParam("edit", param, list.get(i).getNo())%>"><strong>예약관리</strong></a>
-													</div>
-												</td>
+														<div class="btnRight">
+															<a class="btns"
+																href="<%=param.getTargetURLParam("edit", param, list.get(i).getNo())%>"><strong>예약관리</strong></a>
+														</div>
+													</td>
 											</tr>
 											<%
 												}

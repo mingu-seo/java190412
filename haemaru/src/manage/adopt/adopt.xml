@@ -9,6 +9,9 @@
 		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where">
 		    1=1
+		    <isNotEqual property="animal_category" compareValue="0">
+		    	and animal_category = #animal_category#
+		    </isNotEqual>
 			<isNotEqual property="sval" compareValue="" prepend="and">
 				<isEqual property="stype" compareValue="all" prepend="and">
 					( (name like '%$sval$%' ) or (id like '%$sval$%' ) or (memo like '%$sval$%') ) 					
@@ -43,9 +46,6 @@
     
     <update id="update" parameterClass="adopt_vo">
         update animal_pro set
-        	<isNotEqual property="password" compareValue="">
-        	    password = md5(#password#),
-        	</isNotEqual>
         	animal_category=#animal_category#, animal_image=#animal_image#, animal_image_org=#animal_image_org#, name=#name#, gender=#gender#, age=#age#, charr=#charr#, breed=#breed#, 
         	vac=#vac#, state=#state#
         where no=#no#

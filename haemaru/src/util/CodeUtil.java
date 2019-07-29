@@ -3,6 +3,8 @@ package util;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import manage.reserve.ReserveVO;
+
 /**
  * 각종 코드값 가져오기
  * 각 코드들의 option, select 값 구하기
@@ -715,6 +717,8 @@ public class CodeUtil {
 				result = "영상의학과";
 			} else if (department == 4) {
 				result = "응급중환자센터";
+			} else if (department == 5) {
+				result = "원무과";
 			} 
 			return result;
 		}
@@ -726,6 +730,7 @@ public class CodeUtil {
 	        	result.append("<option value='2'"+Function.getSelected(2,arg)+">"+getDoctorDepartmentName(2)+"</option>");
 	        	result.append("<option value='3'"+Function.getSelected(3,arg)+">"+getDoctorDepartmentName(3)+"</option>");
 	        	result.append("<option value='4'"+Function.getSelected(4,arg)+">"+getDoctorDepartmentName(4)+"</option>");
+	        	result.append("<option value='5'"+Function.getSelected(5,arg)+">"+getDoctorDepartmentName(5)+"</option>");
 	        return result.toString();
 	    }
 	 
@@ -879,14 +884,16 @@ public class CodeUtil {
 			        return result.toString();
 			    }
 				
-				public static String getDoctorScheduleOptionForReserve(int arg, int start, int end, ArrayList timeList){
+				public static String getDoctorScheduleOptionForReserve(int arg, int start, int end, ArrayList<ReserveVO> timeList) throws Exception{
 					int[] res_hour = new int[timeList.size()];
+					String[] res_date = new String[timeList.size()];
 					for (int i=0; i<timeList.size(); i++) {
-						res_hour[i] = (int)timeList.get(i);
+						res_hour[i] = timeList.get(i).getRes_hour();
+						res_date[i] = timeList.get(i).getRes_date();
 					}
 			        StringBuffer result = new StringBuffer();
 			        for (int i=start; i<=end; i++) {
-			        	if (Arrays.binarySearch(res_hour, i) < 0 || arg == i) {
+			        	if (Arrays.binarySearch(res_hour, i) < 0 || arg == i ) {
 			        		result.append("<option value='"+i+"'"+Function.getSelected(i,arg)+">"+getDoctorScheduleName(i)+"</option>");
 			        	}
 			        	

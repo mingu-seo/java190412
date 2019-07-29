@@ -51,9 +51,11 @@ public class Room_resController {
 	@RequestMapping("/manage/room/res/read")
 	public String read(Model model, Room_resVO vo) throws Exception {
 		Room_resVO read = room_resService.read(vo);
+		ArrayList<Room_opt_resVO> list_o = room_resService.list_opt(vo.getNo());
 		
 		model.addAttribute("read", read);
 		model.addAttribute("vo", vo);
+		model.addAttribute("list_o", list_o);
 		
 		return "manage/room/res/read";
 	}
@@ -61,21 +63,36 @@ public class Room_resController {
 	@RequestMapping("/manage/room/res/edit")
 	public String edit(Model model, Room_resVO vo) throws Exception {
 		Room_resVO read = room_resService.read(vo);
-		
-		model.addAttribute("read", read);
+		ArrayList<Room_opt_resVO> list_o = room_resService.list_opt(read.getNo());
+
 		model.addAttribute("vo", vo);
+		model.addAttribute("read", read);
+		model.addAttribute("list_o", list_o);
 		
 		return "manage/room/res/edit";
 	}
 	
 	
 	@RequestMapping("/manage/room/res/process")
-	public String process(Model model, Room_resVO vo, HttpServletRequest request, RoomVO rvo) throws Exception {
+	public String process(Model model, Room_resVO vo, HttpServletRequest request, Room_opt_resVO ovo) throws Exception {
+		model.addAttribute("vo", vo);
+		model.addAttribute("ovo", ovo);
+		System.out.println(vo.getCmd());
 		if ("write".equals(vo.getCmd())) {
-			int r = room_resService.insert(vo);
+			int r = room_resService.insert(vo, ovo, request);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
 			model.addAttribute("url", "index");
+		} else if("edit".equals(vo.getCmd())) {
+			int r = room_resService.update(vo);
+			model.addAttribute("code", "alertMessageUrl");
+			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));
+			model.addAttribute("url", "/manage/room/res/read?no="+vo.getNo());
+		} else if("cancel".equals(vo.getCmd())) {
+			int r = room_resService.cancel(vo);
+			model.addAttribute("code", "alertMessageUrl");
+			model.addAttribute("message", Function.message(r, "정상적으로 취소되었습니다.", "취소실패"));
+			model.addAttribute("url", "/manage/room/res/read?no="+vo.getNo());
 		}
 		return "include/alert";
 	}

@@ -5,6 +5,7 @@
 <%
 MemberVO param = (MemberVO)request.getAttribute("vo");
 MemberVO data = (MemberVO)request.getAttribute("data");
+MemberVO vo = (MemberVO)session.getAttribute("memberInfo");
 %>
 
 <!DOCTYPE html>
@@ -49,38 +50,40 @@ MemberVO data = (MemberVO)request.getAttribute("data");
                     </tr>
                 </table>
             </div>
+            <%String[] nameArr = vo.getName().split(","); %>
             <div class="reservation-status-right">
                 <div class="my-info">
                     <h4>
- <td colspan="3"><%=data.getName()%> </td> 
+ <td colspan="3"><%= nameArr[0]%> <%=nameArr[1]%> 님</td> 
 			<br/>
                         환영합니다 !
                     </h4>
+                     
                     <table>
-                        <tr>
-                            <td>회원등급</td>
-                            
-                            <td>VIP</td>
-                        </tr> 
+                         
                      <tr>
-							<th scope="row"><label for="">등급</label></th>
-							<td colspan="3"><%=CodeUtil.getMgrade(data.getGrade())%></td>
+							<th scope="row"><label for="">회원등급</label></th>
+							<td colspan="3"><%=CodeUtil.getMgrade(vo.getGrade())%></td>
 										
 						</tr> 
                         <tr>
                             
                             <th scope="row"><label for="">포인트</label></th>
-							<td colspan="3"><%=data.getPoint()%></td> 
+							<td colspan="3"><%=vo.getPoint()%></td> 
                         </tr>
                     </table>
-                </div>
-                <ul class="my-info-list">
-                    <li><a href="edit_account.do">개인정보 수정</a></li>
-                    <li><a href="delete_account.do">회원탈퇴</a></li>
-                    <li><a href="#">로그아웃</a></li>
-                </ul>
-            </div>
+                 
         </div>
         
+        <div class="btnRight">
+        	<a class="btns" href="/manage/member/logout" ><strong>로그아웃</strong> </a>
+									
+		</div>
+		<div>
+        <a class="btns" href="/manage/member/memberEdit" ><strong>개인정보 수정</strong> </a>
+        </div>
+        <div>
+        <a class="btns" href="/manage/member/memberDelete" ><strong>회원탈퇴</strong> </a>
+        </div>
 </body>
 </html>

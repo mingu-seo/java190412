@@ -61,30 +61,15 @@
 	$(function() {
 		getDoctorList();
 		getSchedList();
-		var trIdx = 0;
-		$(".addBtn")
-				.click(
-						function() {
-							var trObj = "<tr class='addTr'>";
-							trObj += '<td><input type="text" name="title"/></td>';
-							trObj += "<td><input type=\"text\" name=\"oprice\"/></td>";
-							trObj += "<td><input type=\"button\" value=\"삭제\" class=\"delBtn\"/></td>";
-							trObj += "</tr>";
-							$("#optionTable").append(trObj);
-							trIdx++;
-
-							$(".delBtn").off("click");
-							$(".delBtn").click(function() {
-								var idx = $(".delBtn").index(this);
-								$(".addTr").eq(idx).remove();
-							});
-						});
 		
 		$("#doctor_department").change(function() {
 			getDoctorList();
+			getSchedList();
 		});
 		
-		$(".doctorListArea").change(function() {
+		$("#res_date").change(function() {
+			console.log(0);
+			getDoctorList();
 			getSchedList();
 		});
 	});
@@ -99,6 +84,9 @@
 			async : false,
 			success : function(data) {
 				$(".doctorListArea").html(data);
+				$("#doctor_pk").change(function() {
+					getSchedList();
+				});
 			}
 		});
 	}
@@ -106,7 +94,7 @@
 	function getSchedList(){
 		$.ajax({
 			type :"GET",
-			url : "/manage/reserve/schedList?date="+$("#res_date").val()+"&doctor_pk="+$("#doctor_pk").val()+"&res_hour=<%=data.getRes_hour()%>",
+			url : "/manage/reserve/schedList?date="+$("#res_date").val()+"&doctor_pk="+$("#doctor_pk").val(),
 			async : false,
 			success : function(data) {
 				$(".schedListArea").html(data);
@@ -115,11 +103,13 @@
 	}
 </script>
 </head>
+
+
+
 <body>
 	<%@ include file="/WEB-INF/view/manage/include/common.jsp"%>
 	<div id="wrap">
 		<!-- canvas -->
-		<div id="canvas">
 			<!-- S T A R T :: headerArea-->
 			<%@ include file="/WEB-INF/view/manage/include/top.jsp"%>
 			<!-- E N D :: headerArea-->
@@ -184,8 +174,6 @@
 													<td ><div class="doctorListArea" >
 													<%=data.getDoctor_name()%>
 													</div></td>
-											<!-- 		<td colspan="3"><input type="text" id="doctor_name"
-														name="doctor_name" class="w50" title="이름을 입력해주세요" /></td>  -->
 												</tr>
 
 												<th scope="row"><label for="">예약시간</label></th>

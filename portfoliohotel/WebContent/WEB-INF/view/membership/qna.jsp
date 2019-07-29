@@ -203,6 +203,7 @@ int totPage = (Integer)request.getAttribute("totPage");
 								%>
                         <tr>
                         	<% 
+                        	
 							String[] nameArr= data.getName().split(",");		
 							%>
                             <td <%=targetUrl%> class="title"><a href="#"><%=data.getTitle() %></a></td>
@@ -244,7 +245,7 @@ int totPage = (Integer)request.getAttribute("totPage");
 
                 <!-- 글쓰기 버튼 구역 -->
                 <div class="qna-q-btn">
-                    <p><a href="qna_q.do">글 쓰기</a></p>
+                    <p><a href="qna_q">글 쓰기</a></p>
                 </div>
                 <div class="table-page">
                     <ul class="page-number clear">

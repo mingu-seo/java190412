@@ -63,7 +63,7 @@ public class DoctorController {
 	
 	@RequestMapping("/intro/intro-staff.do")
 	public String Intro(Model model, DoctorVO param) throws Exception {
-		DoctorVO data = doctorService.read(param.getNo());
+		//DoctorVO data = doctorService.read(param.getNo());
 		
 		ArrayList list = doctorService.Intro(param);
 		model.addAttribute("list", list);

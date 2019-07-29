@@ -73,7 +73,7 @@ public class ReserveContoller {
 	@RequestMapping("/manage/reserve/schedList")
 	public String doctorList(Model model, SchedVO svo, @RequestParam(value="res_hour", required = false) String arg) throws Exception {
 		SchedVO slist = reserveService.schedList(svo);
-		ArrayList<Integer> tlist = reserveService.reservedTime(svo.getDate(), svo.getDoctor_pk());
+		ArrayList<ReserveVO> tlist = reserveService.reservedTime(svo.getDate(), svo.getDoctor_pk());
 		model.addAttribute("slist", slist);
 		model.addAttribute("tlist", tlist);
 		model.addAttribute("svo", svo);

@@ -93,6 +93,6 @@
 	</select>
 	
 	<select id="Intro" parameterClass="doctorvo" resultClass="doctorvo">
-        select * from doctor where no=#no# ORDER BY position 
+        select * from doctor ORDER BY position 
     </select>
 </sqlMap>

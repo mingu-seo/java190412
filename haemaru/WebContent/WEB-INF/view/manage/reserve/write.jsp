@@ -60,30 +60,15 @@
 	$(function() {
 		getDoctorList();
 		getSchedList();
-		var trIdx = 0;
-		$(".addBtn")
-				.click(
-						function() {
-							var trObj = "<tr class='addTr'>";
-							trObj += '<td><input type="text" name="title"/></td>';
-							trObj += "<td><input type=\"text\" name=\"oprice\"/></td>";
-							trObj += "<td><input type=\"button\" value=\"삭제\" class=\"delBtn\"/></td>";
-							trObj += "</tr>";
-							$("#optionTable").append(trObj);
-							trIdx++;
-
-							$(".delBtn").off("click");
-							$(".delBtn").click(function() {
-								var idx = $(".delBtn").index(this);
-								$(".addTr").eq(idx).remove();
-							});
-						});
 		
 		$("#doctor_department").change(function() {
 			getDoctorList();
+			getSchedList();
 		});
 		
-		$(".doctorListArea").change(function() {
+		$("#res_date").change(function() {
+			console.log(0);
+			getDoctorList();
 			getSchedList();
 		});
 	});
@@ -98,6 +83,9 @@
 			async : false,
 			success : function(data) {
 				$(".doctorListArea").html(data);
+				$("#doctor_pk").change(function() {
+					getSchedList();
+				});
 			}
 		});
 	}
@@ -194,6 +182,7 @@
 															name="res_contents" title="내용을 입력해주세요"
 															style="width: 100%;"></textarea></td>
 												</tr>
+											</tr>
 										</tbody>
 									</table>
 									<input type="hidden" name="member_pk" id="member_pk"

@@ -144,8 +144,8 @@
 		
 	</select>
 	
-	<select id="reservedTime" parameterClass="manage.reserve.ReserveVO" resultClass="Integer">
-		select res_hour from reserve where doctor_pk = #doctor_pk#  and res_date = #res_date# 
+	<select id="reservedTime" parameterClass="manage.reserve.ReserveVO" resultClass="manage.reserve.ReserveVO">
+		select res_hour, res_date from reserve where doctor_pk = #doctor_pk#  and res_date = #res_date# 
 	</select>
 
 </sqlMap>
