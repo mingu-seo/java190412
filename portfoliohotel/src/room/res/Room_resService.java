@@ -63,9 +63,8 @@ public class Room_resService {
 		return r;
 	}
 	
-	public int cancel(Room_resVO vo) throws Exception {
-		Room_resVO read = room_resDAO.read(vo);
-		int r = room_resDAO.cancel(read.getNo());
+	public int cancel(int no) throws Exception {
+		int r = room_resDAO.cancel(no);
 		return r;
 	}
 	

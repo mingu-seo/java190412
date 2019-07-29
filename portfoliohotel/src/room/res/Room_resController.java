@@ -75,6 +75,11 @@ public class Room_resController {
 		return "manage/room/res/edit";
 	}
 	
+	@RequestMapping("/manage/room/res/cancel")
+	public void cancel(Model model, Room_resVO vo) throws Exception {
+		room_resService.cancel(vo.getNo());
+	}
+	
 	
 	@RequestMapping("/manage/room/res/process")
 	public String process(Model model, Room_resVO vo, HttpServletRequest request, Room_opt_resVO ovo) throws Exception {
@@ -92,7 +97,7 @@ public class Room_resController {
 			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));
 			model.addAttribute("url", "/manage/room/res/read?no="+vo.getNo());
 		} else if("cancel".equals(vo.getCmd())) {
-			int r = room_resService.cancel(vo);
+			int r = room_resService.cancel(vo.getNo());
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 취소되었습니다.", "취소실패"));
 			model.addAttribute("url", "/manage/room/res/read?no="+vo.getNo());

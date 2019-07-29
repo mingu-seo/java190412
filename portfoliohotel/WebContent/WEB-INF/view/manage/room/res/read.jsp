@@ -21,11 +21,21 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 function goCancel() {
 	var cancel = confirm('예약을 취소하시겠습니까?');
 	if(cancel) {
-		document.location.href = "/manage/room/res/process?no=<%=read.getNo()%>&cmd=cancel";
+		<%-- document.location.href = "/manage/room/res/process?no=<%=read.getNo()%>&cmd=cancel"; --%>
+		$.ajax({
+			type : "GET",
+			url : "/manage/room/res/cancel?no=<%=read.getNo()%>",
+			async : false,
+			success : function(data) {
+				$("#res_state_tr").remove();
+				$("#res_state").text("취소");
+			}
+		});
 	} else {
 		return false;
 	}
 }
+
 </script>
 <title>관리자 객실 예약 상세</title>
 </head>
@@ -130,9 +140,10 @@ function goCancel() {
 										<th>총 결제 금액</th>
 										<td style="color:#4C9A2A;"><b><%=read.getTotal_price() %></span></b></td>
 									</tr>
-									<tr>
+									<tr id="res_state_tr">
 										<th>예약 상태</th>
-										<%
+										<td name="res_state" id="res_state"><%=CodeUtil.getResState(read.getRes_state()) %></td>
+										<%-- <%
 										if(read.getRes_state() == 0) {
 										%>
 										<td style="color:#FF0000;"><b><%=CodeUtil.getResState(read.getRes_state()) %></b></td>
@@ -142,7 +153,7 @@ function goCancel() {
 										<td><%=CodeUtil.getResState(read.getRes_state()) %></td>
 										<%
 										}
-										%>
+										%> --%>
 										<th>예약일</th>
 										<td><%=sdf.format(read.getBookdate())%></td>
 										<th>결제 방법</th>

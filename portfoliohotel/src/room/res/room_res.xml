@@ -5,6 +5,8 @@
 	
 	<select id="list" parameterClass="room_resVO" resultClass="room_resVO">
 		SELECT * FROM room_res
+		ORDER BY no desc
+		LIMIT $startPageNo$, $pageRows$
 	</select>
 	
 	<insert id="insert" parameterClass="room_resVO">

@@ -22,7 +22,7 @@ public class Room_resVO  extends Parameter{
 	private int total_price; //총 금액
 	private String guest_kname; //숙박 고객 한글명
 	private String guest_ename; //숙박 고객 영문명
-	private int guest_tel; //숙박 고객 연락처
+	private String guest_tel; //숙박 고객 연락처
 	private String guest_email; //숙박 고객 이메일
 	private int pay_method; //결제 방법 (0:무통장입금  1:신용카드)
 	private int pay_state; //결제 상태 (0:미결제  1:결제)
@@ -32,6 +32,9 @@ public class Room_resVO  extends Parameter{
 	
 	public Room_resVO() {
 		super.setPageRows(10);
+	}	
+	public Room_resVO(int pageRows) {
+		super.setPageRows(pageRows);
 	}
 	
 	public int getNo() {
