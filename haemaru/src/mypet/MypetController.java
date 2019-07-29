@@ -65,12 +65,37 @@ public class MypetController {
 		MemberVO member = (MemberVO)session.getAttribute("memberInfo");
 		param.setMember_pk(member.getNo());
 		ArrayList list = mypetService.mypetsList(param);
-		MypetVO data = mypetService.read(param);
 		model.addAttribute("list", list);
 		model.addAttribute("vo", param);
-		model.addAttribute("data", data);
 		
 		return "my/my-pet";
+	}
+	
+	@RequestMapping("/my/my-pet-edit.do")
+	public String myPetEdit(Model model, MypetVO param) throws Exception {
+		MypetVO data = mypetService.read(param);
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+		
+		return "my/my-pet-edit";
+	}
+	
+	@RequestMapping("/my/my-pet-editJson.do")
+	public String myPetEditJson(Model model, MypetVO param) throws Exception {
+		MypetVO data = mypetService.read(param);
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+		
+		return "my/my-pet-editJson";
+	}
+	
+	@RequestMapping("/my/myEdit.do")
+	public String myEdit(Model model, MypetVO param) throws Exception {
+		MypetVO data = mypetService.read(param);
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+		
+		return "my/myEdit";
 	}
 	
 	@RequestMapping("/manage/mypet/process")

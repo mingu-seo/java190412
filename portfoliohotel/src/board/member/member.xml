@@ -58,12 +58,12 @@
         where no=#no#
     </update>
     
-    <!-- <update id="update" parameterClass="membervo">
+      <!-- <update id="memberEdit" parameterClass="membervo">
         update member set
         	<isNotEqual property="password" compareValue="">
-        	    password = #password#
+        	    password = md5(#password#),
         	</isNotEqual>
-        	 
+        	 name=#name#, birthday=#birthday#,tel=#tel#, addr=#addr#, zipcode=#zipcode#, addr_detail=#addr_detail#
         where no=#no#
     </update> -->
     

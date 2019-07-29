@@ -5,6 +5,8 @@
 	
 	<select id="list" parameterClass="room_resVO" resultClass="room_resVO">
 		SELECT * FROM room_res
+		ORDER BY no desc
+		LIMIT $startPageNo$, $pageRows$
 	</select>
 	
 	<insert id="insert" parameterClass="room_resVO">
@@ -12,24 +14,21 @@
 			(room_pk, room_name, member_pk, checkin, checkout, bookdate, adult, kid,
 			room_price, person_price, option_price, charge_price, total_price, 
 			guest_kname, guest_ename, guest_tel, guest_email, 
-			pay_method, pay_state, res_state)
+			pay_method, pay_state, res_state, paydate)
 		VALUES (#room_pk#, #room_name#, #member_pk#, #checkin#, #checkout#, now(), #adult#, #kid#,
 				#room_price#, #person_price#, #option_price#, #charge_price#, #total_price#, 
 				#guest_kname#, #guest_ename#, #guest_tel#, #guest_email#, 
-				#pay_method#, #pay_state#, #res_state#)	
+				#pay_method#, #pay_state#, 1, #paydate#)	
 		<selectKey keyProperty="no" resultClass="Integer">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 	</insert>
 	
-	<update id="update" parameterClass="room_resVO">
+	<update id="edit" parameterClass="room_resVO">
 		UPDATE room_res SET
 			guest_kname=#guest_kname#, guest_ename=#guest_ename#, guest_tel=#guest_tel#, 
 			guest_email=#guest_email#, pay_method=#pay_method#, pay_state=#pay_state#, 
-			<isEqual property="pay_state" compareValue="1">
-				paydate=#paydate#,
-			</isEqual>
-			res_state=#res_state#
+			paydate=#paydate#
 		WHERE no=#no#
 	</update>
 	
@@ -38,7 +37,20 @@
 		WHERE no=#no#
 	</select>
 	
+	<update	id="cancel" parameterClass="Integer">
+		UPDATE room_res SET
+			res_state=0
+		WHERE no=#no#
+	</update>
 	
+	<delete id="delete" parameterClass="Integer">
+		DELETE FROM room_res
+		WHERE no=#no#
+	</delete>
+	
+	<select id="count" parameterClass="room_resVO" resultClass="Integer">
+		SELECT COUNT(*) FROM room_res
+	</select>
 	
 	<typeAlias alias="room_opt_resVO" type="room.res.Room_opt_resVO"/>
 	
@@ -48,7 +60,9 @@
 		VALUES (#room_res_pk#, #option_pk#, #count#, #name#, #price#, #total_price#)
 	</insert>
 	
-	
-	
+	<select id="list_opt" parameterClass="Integer" resultClass="room_opt_resVO">
+		SELECT * FROM room_opt_res
+		WHERE room_res_pk=#room_res_pk#
+	</select>
 	
 </sqlMap>
