@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import room.RoomService;
 import room.RoomVO;
 import room.Room_optVO;
+import util.DateUtil;
 import util.Function;
 
 @Controller
@@ -24,8 +25,10 @@ public class Room_resController {
 	RoomService roomService;
 	
 	@RequestMapping("/manage/room/res/index")
-	public String index(Model model, Room_resVO vo, RoomVO rvo) throws Exception {
+	public String index(Model model, Room_resVO vo, RoomVO rvo, HttpServletRequest req) throws Exception {
 		int[] rowPageCount = room_resService.count(vo);
+		vo.setCategory(Integer.parseInt(req.getParameter("category")));
+		vo.setToday(DateUtil.getToday());
 		ArrayList<Room_resVO> list = room_resService.list(vo);
 		
 		model.addAttribute("totCount", rowPageCount[0]);
@@ -76,8 +79,10 @@ public class Room_resController {
 	}
 	
 	@RequestMapping("/manage/room/res/cancel")
-	public void cancel(Model model, Room_resVO vo) throws Exception {
-		room_resService.cancel(vo.getNo());
+	public String cancel(Model model, Room_resVO vo) throws Exception {
+		int r = room_resService.cancel(vo.getNo());
+		model.addAttribute("value",r);
+		return "include/return";
 	}
 	
 	

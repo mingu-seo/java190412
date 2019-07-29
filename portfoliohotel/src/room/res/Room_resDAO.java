@@ -99,4 +99,11 @@ public class Room_resDAO extends SqlMapClientDAOSupport {
 	public ArrayList list_opt(int room_res_pk) throws SQLException {
 		return (ArrayList)getSqlMapClient().queryForList("room_res.list_opt", room_res_pk);
 	}
+	
+	public static void main(String[] args) throws Exception {
+		Room_resDAO dao = new Room_resDAO();
+		Room_resVO vo = new Room_resVO();
+		vo.setCategory(1);
+		dao.list(vo);
+	}
 }

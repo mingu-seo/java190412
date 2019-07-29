@@ -2,6 +2,7 @@ package room.res;
 
 import java.sql.Timestamp;
 
+import util.DateUtil;
 import util.Parameter;
 
 public class Room_resVO  extends Parameter{
@@ -29,6 +30,9 @@ public class Room_resVO  extends Parameter{
 	private int res_state; //예약 상태 (0:취소  1:예약)
 	
 	private String paydate; //결제일
+	
+	private int category; //예약 내역 (1:지난 예약  2:다가오는 예약  3:신청된 예약  4:취소된 예약)
+	private String today;
 	
 	public Room_resVO() {
 		super.setPageRows(10);
@@ -85,7 +89,7 @@ public class Room_resVO  extends Parameter{
 	public String getGuest_ename() {
 		return guest_ename;
 	}
-	public int getGuest_tel() {
+	public String getGuest_tel() {
 		return guest_tel;
 	}
 	public String getGuest_email() {
@@ -148,7 +152,7 @@ public class Room_resVO  extends Parameter{
 	public void setGuest_ename(String guest_ename) {
 		this.guest_ename = guest_ename;
 	}
-	public void setGuest_tel(int guest_tel) {
+	public void setGuest_tel(String guest_tel) {
 		this.guest_tel = guest_tel;
 	}
 	public void setGuest_email(String guest_email) {
@@ -170,5 +174,17 @@ public class Room_resVO  extends Parameter{
 	public void setPaydate(String paydate) {
 		this.paydate = paydate;
 	}
-
+	public int getCategory() {
+		return category;
+	}
+	public void setCategory(int category) {
+		this.category = category;
+	}
+	public String getToday() {
+		return today;
+	}
+	public void setToday(String today) {
+		this.today = today;
+	}
+	
 }

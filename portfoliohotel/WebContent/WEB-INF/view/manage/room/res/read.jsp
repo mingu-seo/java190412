@@ -27,8 +27,9 @@ function goCancel() {
 			url : "/manage/room/res/cancel?no=<%=read.getNo()%>",
 			async : false,
 			success : function(data) {
-				$("#res_state_tr").remove();
-				$("#res_state").text("취소");
+				if (data.trim() == "1") {
+					$("#res_state").text("취소");
+				}
 			}
 		});
 	} else {
@@ -142,18 +143,7 @@ function goCancel() {
 									</tr>
 									<tr id="res_state_tr">
 										<th>예약 상태</th>
-										<td name="res_state" id="res_state"><%=CodeUtil.getResState(read.getRes_state()) %></td>
-										<%-- <%
-										if(read.getRes_state() == 0) {
-										%>
-										<td style="color:#FF0000;"><b><%=CodeUtil.getResState(read.getRes_state()) %></b></td>
-										<%
-										} else {
-										%>
-										<td><%=CodeUtil.getResState(read.getRes_state()) %></td>
-										<%
-										}
-										%> --%>
+										<td><span id="res_state"><%=CodeUtil.getResState(read.getRes_state()) %></span></td>
 										<th>예약일</th>
 										<td><%=sdf.format(read.getBookdate())%></td>
 										<th>결제 방법</th>
@@ -193,7 +183,13 @@ function goCancel() {
 									
 								</div>
 								<div class="btnRight">
+									<%
+									if(read.getRes_state() == 1) {
+									%>
 									<a class="btns" onclick="goCancel()"><strong>예약 취소</strong></a>
+									<%
+									}
+									%>
 									<a class="btns" href="<%=vo.getTargetURLParam("edit", vo, read.getNo())%>"><strong>수정</strong></a>
 								</div>
 							</div>
