@@ -41,8 +41,8 @@ function goSave() {
 					<select name="state">
 						<%=CodeUtil.getPointOption(0) %>
 					</select>
-					금액: <input type="text" id="accum" name="accum"/>&nbsp
-					내용: <input type="text" id="memo" name="memo"/>&nbsp
+					금액: <input type="text" id="accum" name="accum"/>&nbsp;
+					내용: <input type="text" id="memo" name="memo"/>&nbsp;
 					<a class="btns" href="#" onclick="goSave();"><strong>저장</strong></a>
 					<!-- 내용 : s -->
 					<div id="bbs">
@@ -115,7 +115,7 @@ function goSave() {
 										<option value="accum" <%=Function.getSelected(param.getStype(), "accum") %>>금액</option>
 										<option value="memo" <%=Function.getSelected(param.getStype(), "memo") %>>내용</option>
 									</select>
-									<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />&nbsp
+									<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />&nbsp;
 									<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />
 								</div>
 							</form>

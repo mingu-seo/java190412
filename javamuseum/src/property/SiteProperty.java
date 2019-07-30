@@ -50,15 +50,16 @@ public class SiteProperty {
 	/**
 	 * 메일서버
 	 */
-	public static final String 	SMTP_HOST				= "mail.";
+	public static final String 	SMTP_HOST				= "smtp.naver.com";
+	public static final String 	SMTP_PORT				= "465";
 	/**
 	 * 메일계정 아이디
 	 */
-	public static final String 	SMTP_USER				= "";
+	public static final String 	SMTP_USER				= "handrush";
 	/**
 	 * 메일계정 패스워드
 	 */
-	public static final String 	SMTP_PASSWORD			= "";
+	public static final String 	SMTP_PASSWORD			= "akdlszm4209";
 	/**
 	 * 이메일 기본 폼
 	 */
@@ -102,7 +103,10 @@ public class SiteProperty {
 	 * 전시 첨부파일 경로
 	 */
 	public static final String EXHIBITION_UPLOAD_PATH		= "/upload/exhibition/";
-	
+	/**
+	 * 전시 첨부파일 경로
+	 */
+	public static final String RENTAL_UPLOAD_PATH		= "/upload/rental/";
 	
 
 	

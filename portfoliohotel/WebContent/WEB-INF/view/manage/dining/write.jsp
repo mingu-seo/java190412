@@ -37,7 +37,6 @@ DiningVO param = (DiningVO)request.getAttribute("vo");
 	
 	
 </script>
-</head>
 <body> 
 <%@ include file="/WEB-INF/view/manage/include/common.jsp" %>
 <div id="wrap">

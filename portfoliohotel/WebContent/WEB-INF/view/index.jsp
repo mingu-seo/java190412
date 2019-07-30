@@ -124,11 +124,11 @@ MemberVO data = (MemberVO)request.getAttribute("data");
                             <div class="pc-sub">
                                     <div class="pc-sub-center">
                                         <div class="pc-sub-box">
-                                            <h2><a href="/pkg/special_promotion">Promotion</a></h2>
+                                            <h2><a href="/pkg/special_promotion">Package</a></h2>
                                             <ul class="offer">
-                                                <li><a href="/pkg/room/room_offer">Room Package</a></li>
-                                                <li><a href="/pkg/dining/dining_offer">Dining Package</a></li>
-                                                <li><a href="/pkg/event_gift/etc_offer">Events & Gift</a></li>
+                                                <li><a href="/pkg/birthday/birthday">Birthday Package</a></li>
+                                                <li><a href="/pkg/dining/dining_offer">Halloween Package</a></li>
+                                                <li><a href="/pkg/room/room_offer">Anniversary Package</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">

@@ -83,7 +83,7 @@
      
     <select id="pointlist" parameterClass="pointvo" resultClass="pointvo">
         SELECT no, member_pk, registdate, accum, state, memo FROM point
-        where no > 0
+        where member_pk = #member_pk#
         <isNotEqual property="state" compareValue="2">
 			    and state = #state#
 		</isNotEqual>

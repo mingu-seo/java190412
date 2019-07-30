@@ -78,9 +78,21 @@ TicketVO param = (TicketVO)request.getAttribute("param");
 									</tr>
 									<tr>
 										<th scope="row"><label for="">예매일</label></th>
-										<td><%=vo.getReservedate()%> | <span style="color:blue;"><%=CodeUtil.getResStateSave(vo.getReservestate())%></span></td>
+										<td><%=vo.getReservedate()%> | 
+											<%if(vo.getReservestate() == 1){ %>
+											<span style="color:blue;"><%=CodeUtil.getResStateSave(vo.getReservestate())%></span>
+											<%} else { %>
+											<span style="color:red;"><%=CodeUtil.getResStateSave(vo.getReservestate())%></span>
+											<%} %>
+										</td>
 										<th scope="row"><label for="">결제일</label></th>
-										<td><%=vo.getPaydate()%> | <span style="color:blue;"><%=CodeUtil.getPayStateSave(vo.getPaystate())%></span></td>
+										<td><%=vo.getPaydate()%> | 
+											<%if(vo.getPaystate() == 1){ %>
+											<span style="color:blue;"><%=CodeUtil.getPayStateSave(vo.getPaystate())%></span>
+											<%} else { %>
+											<span style="color:red;"><%=CodeUtil.getPayStateSave(vo.getPaystate())%></span>
+											<%} %>
+										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">예매취소일</label></th>

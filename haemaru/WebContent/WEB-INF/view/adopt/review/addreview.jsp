@@ -85,7 +85,7 @@ int totPage = (Integer)request.getAttribute("totPage");
                                 <img src="/icon/icon_plus.png">
                                 <img src="/icon/sub_dog.png">
                                 <h4>반려동물 사진 추가</h4>
-                                <p>사진을 추가해주세요.</p>
+                        	        <p>사진을 추가해주세요.</p>
                             </div>
                             <div class="sub4-file"><input type="file" id="filename_tmp" name="filename_tmp" value="파일찾기"></div>
                         </div>
