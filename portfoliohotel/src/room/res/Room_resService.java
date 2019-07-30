@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import room.RoomDAO;
 import room.Room_optVO;
+import util.Function;
+import util.Page;
 
 @Service
 public class Room_resService {
@@ -61,10 +63,43 @@ public class Room_resService {
 		return r;
 	}
 	
-	public int cancel(Room_resVO vo) throws Exception {
-		Room_resVO read = room_resDAO.read(vo);
-		int r = room_resDAO.cancel(read.getNo());
+	public int cancel(int no) throws Exception {
+		int r = room_resDAO.cancel(no);
 		return r;
+	}
+	
+	public int delete(Room_resVO vo) throws Exception {
+		Room_resVO read = room_resDAO.read(vo);
+		int r = room_resDAO.delete(read.getNo());
+		return r;
+	}
+	
+	public int groupDelete(HttpServletRequest req) throws Exception {
+		String[] nos = req.getParameterValues("no"); 
+		int delCount = 0;
+		if(nos.length > 0) {
+			for(int i=0; i<nos.length; i++) {
+				Room_resVO rvo = new Room_resVO();
+				rvo.setNo(Integer.parseInt(nos[i]));
+				Room_resVO read = room_resDAO.read(rvo);
+				
+				int r = room_resDAO.delete(read.getNo());
+				
+				if(r > 0) {
+					delCount++;
+				}
+			}
+		}
+		return delCount;
+	}
+	
+	public int[] count(Room_resVO vo) throws SQLException {
+		int rowCount = room_resDAO.count(vo);
+		int[] rowPageCount = new int[2];
+		int pageCount = Page.getPageCount(vo.getPageRows(), rowCount);
+		rowPageCount[0] = rowCount;
+		rowPageCount[1] = pageCount;
+		return rowPageCount;
 	}
 	
 	public ArrayList list_opt(int room_opt_pk) throws Exception {

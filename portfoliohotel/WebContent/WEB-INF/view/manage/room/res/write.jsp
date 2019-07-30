@@ -306,14 +306,14 @@ $(function(){
 										<th>결제 방법</th>
 										<td>
 											<select name="pay_method" id="pay_method">
-												<option value="0" selected><%=CodeUtil.getPayMethod(0) %></option>
-												<option value="1"><%=CodeUtil.getPayMethod(1) %></option>
+												<option value="0"><%=CodeUtil.getPayMethod(0) %></option>
+												<option value="1" selected><%=CodeUtil.getPayMethod(1) %></option>
 											</select>
 										</td>
 										<th>결제 상태</th>
 										<td>
 											<select name="pay_state" id="pay_state">
-												<option value="0" seleted><%=CodeUtil.getPayState(0) %></option>
+												<option value="0"><%=CodeUtil.getPayState(0) %></option>
 												<option value="1"><%=CodeUtil.getPayState(1) %></option>
 											</select>
 										</td>

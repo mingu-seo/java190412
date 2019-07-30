@@ -340,4 +340,8 @@ public class RoomController {
 		return "book/price_room";
 	}
 
+	@RequestMapping("/book/confirm")
+	public String confirm_room(Model model, RoomVO vo) throws Exception {
+		return "book/confirm";
+	}
 }
