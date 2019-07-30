@@ -27,8 +27,11 @@ public class Room_resController {
 	@RequestMapping("/manage/room/res/index")
 	public String index(Model model, Room_resVO vo, RoomVO rvo, HttpServletRequest req) throws Exception {
 		int[] rowPageCount = room_resService.count(vo);
-		vo.setCategory(Integer.parseInt(req.getParameter("category")));
-		vo.setToday(DateUtil.getToday());
+		if (req.getParameter("category") == null) {
+			vo.setCategory(0);
+		} else {
+			vo.setCategory(Integer.parseInt(req.getParameter("category")));
+		}
 		ArrayList<Room_resVO> list = room_resService.list(vo);
 		
 		model.addAttribute("totCount", rowPageCount[0]);

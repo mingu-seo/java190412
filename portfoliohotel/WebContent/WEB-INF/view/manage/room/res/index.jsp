@@ -6,7 +6,7 @@
 <%@ page import="java.util.*" %>
 <%
 ArrayList<Room_resVO> list = (ArrayList)request.getAttribute("list");
-Room_resVO param = (Room_resVO)request.getAttribute("vo");
+Room_resVO vo = (Room_resVO)request.getAttribute("vo");
 RoomVO rvo = (RoomVO)request.getAttribute("rvo");
 int totCount = (Integer)request.getAttribute("totCount");
 int totPage = (Integer)request.getAttribute("totPage");
@@ -51,7 +51,8 @@ function goDelete(no) {
 }
 
 function goSearch() {
-	$("#searchForm").submit();
+	console.log("클릭");
+	//$("#searchForm").submit();
 }
 
 $(function(){
@@ -90,62 +91,81 @@ $(function(){
 				<!-- //con_tit -->
 				<br/>
 				<div>
-					<table class="category" border="1" bordercolor="black">
-						<colgroup>
-							<col width="20%"/>
-							<col width="20%"/>
-							<col width="20%"/>
-							<col width="20%"/>
-							<col width="20%"/>
-						</colgroup>
-						<tr>
-							<th><a href="/manage/room/res/index?category=0">전체 예약</a></th>
-							<th><a href="/manage/room/res/index?category=1">지난 예약</a></th>
-							<th><a href="/manage/room/res/index?category=2">다가오는 예약</a></th>
-							<th><a href="/manage/room/res/index?category=3">신청된 예약</a></th>
-							<th><a href="/manage/room/res/index?category=4">취소된 예약</a></th>
-						</tr>
-					</table>
-					<br/>
-					<table class="search" border="1" bordercolor="black">
-						<colgroup>
-							<col width="10%"/>
-							<col width="22%"/>
-							<col width="10%"/>
-							<col width="22%"/>
-							<col width="10%"/>
-							<col width="22%"/>
-						</colgroup>
-						<tr>
-							<th>숙박기간</th>
-							<td><input type="date" name="scheckin" id="scheckin"></input> ~ <input type="date" name="scheckout" id="scheckout"></input></td>
-							<th>예약 상태</th>
-							<td>
-								<input type="radio" name="category" >지난 예약</input>
-								<input type="radio" name="category" >다가오는 예약</input>
-								<input type="radio" name="category" >신청된 예약</input>
-								<input type="radio" name="category" >취소된 예약</input>
-							</td>
-							<th>검색</th>
-							<td>
-								<select>
-									<option name="all">전체</option>
-									<option name="guest_kname">고객 한글명</option>
-									<option name="guest_ename">고객 영문명</option>
-									<option name="guest_email">고객 이메일</option>
-									<option name="room_name">객실명</option>
-								</select>
-								<input type="text" id="search" name="search"></input>
-								<img src="/manage/img/btn_search.gif"/>
-							</td>
-						</tr>
-					</table>
+					<form name="searchForm" id="searchForm" action="index" method="post"> 
+						<table class="category" border="1" bordercolor="black">
+							<colgroup>
+								<col width="20%"/>
+								<col width="20%"/>
+								<col width="20%"/>
+								<col width="20%"/>
+								<col width="20%"/>
+							</colgroup>
+							<tr>
+								<th><a href="/manage/room/res/index">전체 예약</a></th>
+								<th><a href="/manage/room/res/index?category=1">지난 예약</a></th>
+								<th><a href="/manage/room/res/index?category=2">다가오는 예약</a></th>
+								<th><a href="/manage/room/res/index?category=3">신청된 예약</a></th>
+								<th><a href="/manage/room/res/index?category=4">취소된 예약</a></th>
+							</tr>
+						</table>
+						<br/>
+						<table class="search" border="1" bordercolor="black">
+							<colgroup>
+								<col width="20%"/>
+								<col width="20%"/>
+								<col width="20%"/>
+								<col width="20%"/>
+								<col width="20%"/>
+							</colgroup>
+							<tr>
+								<th>숙박기간</th>
+								<%
+								if(vo.getScheckin() != null && vo.getScheckout() != null) {
+								%>
+								<td><input type="date" name="scheckin" id="scheckin" value="<%=vo.getScheckin()%>"></input> ~ <input type="date" name="scheckout" id="scheckout" value="<%=vo.getScheckout()%>"></input></td>
+								<%
+								} else {
+								%>
+								<td><input type="date" name="scheckin" id="scheckin"></input> ~ <input type="date" name="scheckout" id="scheckout"></input></td>
+								<%
+								}
+								%>
+								<th>검색</th>
+								<td>
+									<select name="stype">
+										<option value="all" <%=vo.getStype().equals("all")? "selected" : "" %>>전체</option>
+										<option value="guest_kname" <%=vo.getStype().equals("guest_kname")? "selected" : "" %>>고객 한글명</option>
+										<option value="guest_ename" <%=vo.getStype().equals("guest_ename")? "selected" : "" %>>고객 영문명</option>
+										<option value="guest_email" <%=vo.getStype().equals("guest_email")? "selected" : "" %>>고객 이메일</option>
+										<option value="room_name" <%=vo.getStype().equals("room_name")? "selected" : "" %>>객실명</option>
+									</select>
+									<%
+									if(vo.getSval() != null) {
+									%>
+									<input type="text" name="sval" id="sval" value="<%=vo.getSval()%>" style="width:70%;"></input>
+									<%
+									} else {
+									%>
+									<input type="text" name="sval" id="sval" style="width:70%;"></input>
+									<%
+									}
+									%>
+								</td>
+								<td style="border:none;">
+									<input type="image" src="/manage/img/btn_search.gif" onclick="goSearch()"/>
+								</td>
+							</tr>
+						</table>
+						<input type="hidden" name="category" id="category" value="<%=vo.getCategory() %>"/>
+						<input type="hidden" name="stype" id="stype" value="<%=vo.getStype() %>"/>
+						<input type="hidden" name="sval" id="sval" value="<%=vo.getSval() %>"/>
+					</form>
 				</div>
 				<div class="con">
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="blist">
-							<p><span><strong>총 <%=totCount%>개</strong>  |  <%=param.getReqPageNo()%>/<%=totPage%>페이지</span></p>
+							<p><span><strong>총 <%=totCount%>개</strong>  |  <%=vo.getReqPageNo()%>/<%=totPage%>페이지</span></p>
 							<form name="frm" id="frm" action="/manage/room/res/process" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<colgroup>
@@ -184,7 +204,7 @@ $(function(){
 									
 									for (int i=0; i<list.size(); i++) {
 										data = list.get(i);
-										targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, data.getNo())+"'\"";	
+										targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+vo.getTargetURLParam("read", vo, data.getNo())+"'\"";	
 									%>
 									<tr>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
@@ -226,7 +246,7 @@ $(function(){
 							</div>
 							<!--//btn-->
 							<!-- 페이징 처리 -->
-							<%=Page.indexList(param.getReqPageNo(), totPage, request)%>
+							<%=Page.indexList(vo.getReqPageNo(), totPage, request)%>
 							<!-- //페이징 처리 -->
 						</div>
 						<!-- //blist -->

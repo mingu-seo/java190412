@@ -32,7 +32,8 @@ public class Room_resVO  extends Parameter{
 	private String paydate; //결제일
 	
 	private int category; //예약 내역 (1:지난 예약  2:다가오는 예약  3:신청된 예약  4:취소된 예약)
-	private String today;
+	private String scheckin; //검색조건 체크인
+	private String scheckout; //검색조건 체크아웃
 	
 	public Room_resVO() {
 		super.setPageRows(10);
@@ -180,11 +181,17 @@ public class Room_resVO  extends Parameter{
 	public void setCategory(int category) {
 		this.category = category;
 	}
-	public String getToday() {
-		return today;
+	public String getScheckin() {
+		return scheckin;
 	}
-	public void setToday(String today) {
-		this.today = today;
+	public String getScheckout() {
+		return scheckout;
+	}
+	public void setScheckin(String scheckin) {
+		this.scheckin = scheckin;
+	}
+	public void setScheckout(String scheckout) {
+		this.scheckout = scheckout;
 	}
 	
 }
