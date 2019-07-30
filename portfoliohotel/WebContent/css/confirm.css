@@ -1,0 +1,35 @@
+@charset "UTF-8";/* container */
+/* container */
+.notice-section {width:700px; margin:0 auto; padding-top:210px;}
+.notice-section h2 {text-align:center; color:#fff; font-size:34px; font-weight:500; position: relative; z-index:30; margin-bottom:5px;}
+.notice-section h3 {text-align:center; color:#fff; font-size:22px; font-weight:300; margin-bottom:55px; position: relative;  z-index:30; margin-top:10px;}
+
+/* 백그라운드 */
+.banner {
+        width:100%;
+        height:520px;
+         background-image: url("../img/mypage/bg_Membership.jpg");
+         background-size:cover;
+         background-repeat: no-repeat;}
+
+.section-edit {padding-top:80px; padding-bottom:80px; width:800px; margin:0 auto;}
+.section-edit h1 {font-size:30px; text-align: center; }
+
+/* 예약확정 폼 */
+.completion-form {border:1px solid #1d1d1d; border-radius:5px; padding:50px; margin-top:50px; text-align: center;}
+
+/* 고객 선택 사항란 */
+.completion-form ul li {float:left; text-align:left; width:50%; height:30px; line-height:30px; border-bottom:1px solid #eee;}
+.completion-form ul .second {float:right; text-align: right;}
+.completion-form > h3 {text-align:center; font-size:18px; color:#333; margin-bottom:30px;}
+
+/* 옵션 */
+.completion-form .option {padding-top:20px;}
+.option > h3 {text-align: left; font-size:18px; font-weight:500; margin-bottom:10px;}
+
+/* 총결재금액 */
+.payment {background-color:#eee; padding:20px; margin-top:20px; }
+.payment > h3 {text-align: left; font-size:18px; font-weight:500; margin-bottom:10px;}
+.payment li:last-child {color:#898989; font-size:13px;}
+
+

@@ -4,18 +4,29 @@
 
 	<sql id="searchSql">
 		<dynamic prepend="WHERE">
+		1=1
 			<isEqual property="category" compareValue="1">
-				<![CDATA[checkout < NOW()]]>
+				<![CDATA[AND checkout < NOW()]]>
 			</isEqual>
 			<isEqual property="category" compareValue="2">
-				<![CDATA[checkin >= NOW()]]>
+				<![CDATA[AND checkin >= NOW()]]>
 			</isEqual>
 			<isEqual property="category" compareValue="3">
-				res_state=1
+				AND res_state=1
 			</isEqual>
 			<isEqual property="category" compareValue="4">
-				res_state=0
+				AND res_state=0
 			</isEqual>
+			<isNotNull property="scheckin">
+				<isNotNull property="scheckout">
+					<isNotEqual property="scheckin" compareValue="">
+						<![CDATA[AND checkin >= #scheckin#]]>
+						<isNotEqual property="scheckout" compareValue="">
+							<![CDATA[AND checkout <= #scheckout#]]>
+						</isNotEqual>
+					</isNotEqual>
+				</isNotNull>
+			</isNotNull>
 		</dynamic>
 	</sql>
 	<typeAlias alias="room_resVO" type="room.res.Room_resVO"/>
