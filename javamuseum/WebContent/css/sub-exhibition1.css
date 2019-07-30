@@ -36,10 +36,10 @@
 .con3-top{border: 2px solid #000; width: 100%; height: 270px; padding: 10px 10px;}
 .con3-top li{float: left;}
 /* 상단-이미지 */
-.con3-top-img{width: 250px; height: 250px;}
+.con3-top-img{width: 30%; height: 250px;}
 .con3-top-img > img{ width: 100%; height: 100%;}
 /* 상단-텍스트 */
-.con3-top-text{margin-top: 40px; margin-left: 36px;}
+.con3-top-text{margin-top: 40px; margin-left: 36px; width:65%;}
 .con3-top-text h4{font-size: 14px;}
 .con3-top-text h3{font-size: 22px; margin-top: 18px; margin-bottom: 12px;}
 .con3-top-text p{font-size: 12px;}
@@ -48,9 +48,10 @@
 .con3-tb tr{width: 820px; border-bottom: 1px solid #fff;}
 .con3-tb th{width: 200px; height: 60px; background-color: #191919; color: #fff;}
 .con3-tb td{padding-left: 20px; border-bottom: 1px solid #191919;}
-.con3-tb input[type="text"]{width: 154px; height: 30px; border: 1px solid #191919; padding-left: 10px;}
-.con3-tb select{width: 164px; height: 30px; border: 1px solid #191919; padding-left: 10px;}
-.point-span{position: relative; right: 120px;}
+.con3-tb input[type="text"]{width: 100px; height: 30px; border: 1px solid #191919; padding-right: 10px; text-align: right;}
+#con3-day-start{text-align: center;}
+.con3-tb select{width: 80px; height: 30px; border: 1px solid #191919; padding-left: 10px;}
+.point-span{position: relative; right: 180px;}
 .chk-radio{width: 20px;}
 .chk-text{width: 250px;}
 #con3-glod{font-size: 24px; font-weight: bold;}

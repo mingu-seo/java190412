@@ -23,18 +23,7 @@ ExhibitionVO data = (ExhibitionVO)request.getAttribute("data");
 	});
 	
 	function goSave() {
-		var regex=/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i; 
-		var regex2=/[0-9]{4}[\-][0-1][0-9][\-][0-3][0-9]\s[0-2][0-9]:[0-6][0-9]:[0-6][0-9]$/i; 
-		if(!regex2.test($("#startdate").val())){
-			alert('잘못된 날짜 형식입니다.\\n올바로 입력해 주세요.\\n ex)2013-02-14 03:28:85');
-			$("#startdate").focus();
-			return false;
-		} 
-		if(!regex2.test($("#enddate").val())){
-			alert('잘못된 날짜 형식입니다.\\n올바로 입력해 주세요.\\n ex)2013-02-14 03:28:85');
-			$("#enddate").focus();
-			return false;
-		} 
+		
 		if ($("#title").val() == "") {
 			alert('제목을 입력하세요.');
 			$("#title").focus();
@@ -84,7 +73,7 @@ ExhibitionVO data = (ExhibitionVO)request.getAttribute("data");
 								<tbody>
 									<tr>
 										<th scope="row"><label for="">전시관</label></th>
-										<td>
+										<td colspan="3">
 											<select name="hallnumber">
 												<%=CodeUtil.getHallnum(data.getHallnumber())%>
 											</select>
@@ -109,7 +98,7 @@ ExhibitionVO data = (ExhibitionVO)request.getAttribute("data");
 											<input type="file" name="imagename_tmp" id="imagename_tmp" title="첨부파일" />
 											<% } else { %>
 												<div class="weidtFile">
-													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.EXHIBITION_UPLOAD_PATH, data.getImagename()) %>" target="_blank"></a><br />
+													<p>기존파일 : <a href="<%= Function.downloadUrl(SiteProperty.EXHIBITION_UPLOAD_PATH, data.getImagename()) %>" target="_blank"><%=data.getImagename()%></a><br />
 														<input type="checkbox" id="imagename_chk" name="imagename_chk" value="1" title="첨부파일을 삭제하시려면 체크해주세요" />
 														<label for="imagename_chk">기존파일삭제</label>
 													</p>
@@ -121,7 +110,7 @@ ExhibitionVO data = (ExhibitionVO)request.getAttribute("data");
 									<tr>
 										<th scope="row"><label for="">프리뷰</label></th>
 										<td colspan="3">
-											<textarea id="preview" name="preview" ><%=data.getPreview()%></textarea>
+											<textarea id="preview" name="preview" style="width:100%; height:100px;"><%=data.getPreview()%></textarea>
 										</td>
 									</tr>
 									<tr>
