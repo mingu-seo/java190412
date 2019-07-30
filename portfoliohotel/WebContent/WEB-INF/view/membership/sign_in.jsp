@@ -1,4 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="board.member.*"%>
+<%@ page import="util.*"%>
+<%
+	MemberVO param = (MemberVO) request.getAttribute("vo");
+	ArrayList<MemberVO> list = (ArrayList) request.getAttribute("list");
+	MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
+%>
+
+<script>
+//
+function loginCheck(){
+	if ( getObject("email").value.length < 1 ) {
+		alert("이메일을 입력해주세요.");
+		getObject("email").focus();
+		return false;
+	}
+	if ( getObject("password").value.length < 1 ) {
+		alert("비밀번호를 입력해주세요.");
+		getObject("password").focus();
+		return false;
+	}
+	var f = document.board;
+	if (f.reg.checked==true) {
+	   document.cookie = "cookie_userid=" + f.id.value + ";path=/;expires=Sat, 31 Dec 2050 23:59:59 GMT;";
+	} else {
+	   var now = new Date();	
+	   document.cookie = "cookie_userid=" + f.id.value + ";path=/;expires="+now.getTime();
+	}
+	return true;
+	
+	
+}
+
+function userid_chk() {
+	var f=document.member;
+	var useridname = CookieVal("cookie_userid");
+	
+	if (useridname=="null"){	
+		f.id.focus();
+		f.id.value="";
+	} else {
+		f.password.focus();
+		f.id.value=useridname;
+		f.reg.checked=true;
+	}
+}
+
+function CookieVal(cookieName) {
+	thisCookie = document.cookie.split("; ");
+	for (var i = 0; i < thisCookie.length;i++) {
+		if (cookieName == thisCookie[i].split("=")[0]) {
+			return thisCookie[i].split("=")[1];
+		}
+	}
+	return "null" ;
+}
+
+</script>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -18,7 +77,7 @@
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="/index.do"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="/index"><img src="../img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">Book</a>
@@ -136,7 +195,7 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="/membership/sign_in.do">Sign in</a>
+                <a href="/membership/sign_in">Sign in</a>
             </div>
         </div>
     </div>
@@ -147,23 +206,32 @@
             <h2>멤버십 로그인</h2>
             <h3>Log In</h3>
             <div class="login-box clear">
-                <form action="#" method="POST">
+                <!-- <form action="#" method="POST"> -->
+                <form name="mamber" id="member" method="post" action=" <%=request.getContextPath()%>/membership/login" onsubmit="return loginCheck();">
                     <div class="login-box-logo"><img src="../img/sign_in_img/login-logo.png"></div>
                     <div class="login-board clear">
                         <div class="login-box-left">
                             <!-- ID 구역 -->
-                            <input type="text" id="id" name="id" placeholder="아이디 또는 이메일">
+                            <!-- <input type="text" id="id" name="id" placeholder="아이디 또는 이메일"> -->
+                            <input type="text" id="email" name="email" placeholder="이메일">
                             <!-- 비밀번호 구역 -->
+                            <!-- <input type="password" id="password" name="password" placeholder="비밀번호"> -->
                             <input type="password" id="password" name="password" placeholder="비밀번호">
                         </div>
                         <div class="login-board-right">
-                            <input type="submit" id="submit" value="LOGIN">
+                            <!-- <input type="submit" id="submit" value="LOGIN"> -->
+                            <input type="submit" src="<%=request.getContextPath()%>" value ="로그인" class="loginBtn" title="" />
                         </div>
                         <div class="id-remember">
                             <input type="checkbox" id="login-chk" name="login-chk" >
                             <label for="login-chk">아이디 기억하기</label>
                         </div>
-                        <h4 class="find_id"><a href="#">· 아이디 / 비밀번호 찾기</a></h4>
+                        <!-- <h4 class="find_id"><a href="#">· 아이디 / 비밀번호 찾기</a></h4> -->
+                        <h4 class="find_id">
+							<a href="">이메일찾기 </a><a>/</a>
+							<a href=""> 비밀번호 찾기</a>
+						</h4>
+                        
                     </div> 
                 </form>    
 
@@ -194,7 +262,7 @@
                 <h5>아직 호텔 회원이 아니신가요?</h5>
                 <p>온라인 회원은 예약/결제 정보를 온라인에서 확인하실 수 있습니다.</p>
                 <div class="join-box">
-                    <a href="choice_join.do">호텔 멤버십 가입 </a>
+                    <a href="choice_join">호텔 멤버십 가입 </a>
                 </div>
                 <div class="error-text clear">
                     <h6>멤버십 가입 및 온라인 인증에 문제가 생기셨나요?</h6>

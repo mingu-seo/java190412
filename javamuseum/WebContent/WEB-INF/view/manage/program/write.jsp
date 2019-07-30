@@ -5,7 +5,7 @@
 <%@ page import="property.*"%>
 <%
 	ProgramVO param = (ProgramVO) request.getAttribute("param");
-	ArrayList<HashMap> olist = (ArrayList<HashMap>) request.getAttribute("olist");
+	ArrayList<ProgramVO> list = (ArrayList<ProgramVO>) request.getAttribute("list");
 	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

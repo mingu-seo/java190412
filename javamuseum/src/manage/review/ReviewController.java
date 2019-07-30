@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import manage.ticket.TicketVO;
 import util.Function;
 
 
@@ -64,6 +65,11 @@ public class ReviewController {
 		model.addAttribute("value", value);
 		
 		return "include/return";
+	}
+	
+	@RequestMapping("/manage/program/reservation/searchMemb")
+	public String search(Model model, TicketVO param) throws Exception {
+		return "manage/program/reservation/searchMemb";
 	}
 
 	@RequestMapping("/manage/review/process")

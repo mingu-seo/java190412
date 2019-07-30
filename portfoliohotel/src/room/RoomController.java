@@ -270,7 +270,7 @@ public class RoomController {
 
 	@RequestMapping("/room/detail_sub2")
 	public String room_detail_subpage2(Model model, RoomVO vo) throws Exception {
-		vo.setNo(31);		
+		vo.setNo(2);		
 		RoomVO read = roomService.read(vo);
 		ArrayList<HashMap> list_service = roomService.list_service(read.getNo());
 		ArrayList<HashMap> list_image = roomService.list_image(read.getNo());
@@ -283,7 +283,7 @@ public class RoomController {
 
 	@RequestMapping("/room/detail_sub3")
 	public String room_detail_subpage3(Model model, RoomVO vo) throws Exception {
-		vo.setNo(32);		
+		vo.setNo(3);		
 		RoomVO read = roomService.read(vo);
 		ArrayList<HashMap> list_service = roomService.list_service(read.getNo());
 		ArrayList<HashMap> list_image = roomService.list_image(read.getNo());
@@ -296,7 +296,7 @@ public class RoomController {
 
 	@RequestMapping("/room/detail_sub4")
 	public String room_detail_subpage4(Model model, RoomVO vo) throws Exception {
-		vo.setNo(33);		
+		vo.setNo(4);		
 		RoomVO read = roomService.read(vo);
 		ArrayList<HashMap> list_service = roomService.list_service(read.getNo());
 		ArrayList<HashMap> list_image = roomService.list_image(read.getNo());
@@ -309,7 +309,7 @@ public class RoomController {
 	
 	@RequestMapping("/room/detail_sub5")
 	public String room_detail_subpage5(Model model, RoomVO vo) throws Exception {
-		vo.setNo(34);		
+		vo.setNo(5);		
 		RoomVO read = roomService.read(vo);
 		ArrayList<HashMap> list_service = roomService.list_service(read.getNo());
 		ArrayList<HashMap> list_image = roomService.list_image(read.getNo());
@@ -340,4 +340,8 @@ public class RoomController {
 		return "book/price_room";
 	}
 
+	@RequestMapping("/book/confirm")
+	public String confirm_room(Model model, RoomVO vo) throws Exception {
+		return "book/confirm";
+	}
 }

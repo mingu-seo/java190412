@@ -12,10 +12,12 @@ $('#btn_reset1, .myinfo-back-arrow, .myinfo-head img').click(function(e){
 
 
 // 반려동물 수정 창
+/*
 $('.sub6-more').click(function(e){
     e.preventDefault();
     $('#mypet-area').stop().fadeIn(500);
 });
+*/
 $('.mypet-back-arrow, #btn_reset2, .mypet-head img').click(function(e){
     e.preventDefault();
     $('#mypet-area').stop().fadeOut(500);

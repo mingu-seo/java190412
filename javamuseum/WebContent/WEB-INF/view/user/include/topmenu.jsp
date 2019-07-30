@@ -42,7 +42,7 @@ MemberVO umembervo = (MemberVO)session.getAttribute("memberInfo");
                         <a href="#">EXHIBITION</a>
                         <div class="sub">
                             <ul class="sub-menu">
-                                <li><a href="sub-exhibition1.html">현재 전시</a></li>
+                                <li><a href="/user/exhibition/subExhibition1">현재 전시</a></li>
                                 <li><a href="sub-exhibition2.html">지난 전시</a></li>
                             </ul>
                         </div>

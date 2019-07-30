@@ -141,15 +141,16 @@ function goSave(){
 											<input type="radio" name="send_email" value="1">전송</input>
 										</td>
 										<td>
-											<textarea style="width:100%;" name="" rows="3" id="reply_contents"></textarea>
+											<textarea id="reply_contents" name="reply_contents" style="width:100%;" rows="3" ></textarea>
 										</td>
 										
 									</tr>
 								</tbody>
 							</table>
-								<input type="hidden" name="member_pk" value="<%=data.getNo() %>"/>
-								<input type="hidden" name="reply_title" value="re:"<%=data.getTitle() %>"/>
-								<input type="hidden" name="reply" value="0"/>
+								<input type="hidden" name="no" value="<%=data.getNo() %>"/>
+								<input type="hidden" name="reply_title" value="re:<%=data.getTitle() %>"/>
+								<input type="hidden" name="reply" value="1"/>
+								<input type="hidden" name="cmd" value="write_reply" />
 							</form>
 							<div class="btn">
 								<div class="btnLeft">

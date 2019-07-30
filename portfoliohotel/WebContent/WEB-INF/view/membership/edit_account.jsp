@@ -1,5 +1,80 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="board.member.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="util.*"%>
+<%
+MemberVO param = (MemberVO)request.getAttribute("vo");
+ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
+MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
+MemberVO data = (MemberVO)request.getAttribute("data");
+%>
 <!DOCTYPE html>
+<script>
+var oEditors; // 에디터 객체 담을 곳
+$(window).load(function() {
+	oEditors = setEditor("memo"); // 에디터 셋팅
+});
+
+ function goSave() {
+	// 비밀번호 유효성체크
+	if(!validPassword($("#password"))) return false;
+	
+	oEditors.getById["memo"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
+	$("#frm").submit();
+} 
+function goSave() {
+	if ($("#email").val() == "") {
+		alert("이메일 입력해주세요.");
+		$("#email").focus();
+		return false;
+	}
+	
+	if ($("#fname").val() == "") {
+		alert("성을 입력해주세요.");
+		$("#fname").focus();
+		return false;
+	}
+	if ($("#lname").val() == "") {
+		alert("이름을 입력해주세요.");
+		$("#lname").focus();
+		return false;
+	}
+	if ($("#tel").val() == "") {
+		alert("연락처를 입력해주세요.");
+		$("#tel").focus();
+		return false;
+	}
+	
+	// 비밀번호 유효성체크
+	// if(!validPassword($("#password"))) return false;
+	
+	$.ajax ({
+		type:'POST',
+		url:"/manage/member/emailcheck",
+		data:$("[name=frm]").serialize(), //serialize() 직렬로 정렬
+		async:false,
+		success:function(data) {
+			var val = data.trim();
+			if (val == "0") {
+				$("#emailcheck").val("1");
+			} else {
+				alert("존재하는 이메일입니다.");
+				$("#emailcheck").val("0");
+				return false;
+			}
+		}
+	});
+	if ($("#emailcheck").val() == "0") {
+		return false;
+	}
+
+
+	$("#frm").submit();  
+}
+
+
+</script>
+
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -18,7 +93,7 @@
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="/index.do"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="/index"><img src="../img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">BOOK</a>
@@ -136,7 +211,11 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="sign_in.do">SIGN IN</a>
+               <%if(sessionMember == null){ %>
+                <a href="/membership/sign_in">Sign in</a>
+                <%}else{ %>
+                <a href="/membership/mypage">My page</a>
+                <%} %>
             </div>
         </div>
     </div>
@@ -150,12 +229,12 @@
                     <h3>Edit Account</h3>
                 </div>
         </div>
-        <div class="notice">
+        <div class="member">
             <div class="support-list">
                 <ul class="support-list-center">
-                    <li class="on"><a href="edit_account.do">회원정보수정</a></li>
-                    <li><a href="edit_password.do">비밀번호변경</a></li>
-                    <li><a href="delete_account.do">회원탈퇴요청</a></li>
+                    <li class="on"><a href="edit_account">회원정보수정</a></li>
+                    <li><a href="edit_password">비밀번호변경</a></li>
+                    <li><a href="delete_account">회원탈퇴요청</a></li>
                 </ul>
             </div>
             <div class="section-edit">
@@ -163,14 +242,19 @@
                 <div class="edit-table">
                     <div class="edit-table-right">
                         <form method="POST">
+                        	<%
+								String[] nameArr = sessionMember.getName().split(",");
+								String[] birthdayArr = sessionMember.getBirthday().split(",");
+								String[] telArr = sessionMember.getTel().split(",");
+								%>
                             <div class="name clear">
                                 <div class="name1">
                                     <label for="first-name">성</label>
-                                    <input type="text" id="first-name" maxlength="2">
+                                    <input type="text" id="first-name" maxlength="2" value="<%=nameArr[0]%>">
                                 </div>
                                 <div class="name2">
                                     <label for="middle-name">이름</label>
-                                    <input type="text" id="middle-name" maxlenght="10">
+                                    <input type="text" id="middle-name" maxlenght="10" value="<%=nameArr[1]%>">
                                 </div>
                             </div>
                         
@@ -180,10 +264,10 @@
                                 <input type="text" id="birth-m" name="birth-m" placeholder="월" maxlength="2">
                                 <input type="text" id="birth-d" name="birth-d" placeholder="일" maxlength="2">
                             </div>
-                            <div class="email">
+                            <!-- <div class="email">
                                 <label for="email">이메일</label>
                                 <input type="text" id="email" name="email" placeholder="이메일을 입력하세요" maxlength="40">
-                            </div>
+                            </div> -->
                             <div class="email">
                                 <label for="account-contact">연락처</label>
                                 <input type="text" id="account-contact" name="account-contact" placeholder="연락처를 입력하세요" maxlength="40">
@@ -198,7 +282,7 @@
                             </div>
 
                             <div class="submit">
-                                    <input type="submit" value="수정하기" class="submit-button">
+                                    <input type="submit" value="수정하기" class="submit-button" onclick="goSave();">
                             </div>
                         </form>
                     </div>

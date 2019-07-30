@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Repository;
 
 import db.SqlMapClientDAOSupport;
-import manage.exhibition.ExhibitionVO;
+import manage.member.PointVO;
 
 @Repository
 public class TicketDAO extends SqlMapClientDAOSupport {
@@ -31,8 +31,32 @@ public class TicketDAO extends SqlMapClientDAOSupport {
 		return getSqlMapClient().update("ticket.update", param);
 	}
 	
+	public int reserveUpdate(TicketVO param) throws SQLException {
+		return getSqlMapClient().update("ticket.reserveUpdate", param);
+	}
+	
 	public int delete(int no) throws SQLException {
 		return getSqlMapClient().delete("ticket.delete", no);
+	}
+	
+	public int memberPoint(int member_pk) throws SQLException {
+		return (Integer)getSqlMapClient().queryForObject("ticket.memberpoint", member_pk);
+	}
+	
+	public void storePoint(TicketVO param) throws SQLException {
+		getSqlMapClient().update("ticket.storepoint", param);
+	}
+	
+	public void pointComment(PointVO param) throws SQLException {
+		getSqlMapClient().insert("ticket.pointcomment", param);
+	}
+	
+	public void commentUpdate(PointVO param) throws SQLException {
+		getSqlMapClient().update("ticket.commentupdate", param);
+	}
+	
+	public ArrayList pointRead(int display_pk) throws SQLException {
+		return (ArrayList)getSqlMapClient().queryForList("ticket.pointread", display_pk);
 	}
 	
 	public static void main(String[] args) throws Exception {

@@ -91,7 +91,7 @@ function groupDelete() {
 										<td <%=targetUrl%>><%=list.get(i).getNo()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getName()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getAge()%></td>
-										<td <%=targetUrl%>><%=list.get(i).getGender()%></td>
+										<td <%=targetUrl%>><%=list.get(i).getGender() !=1 ? "남아":"여아"%></td>
 										<td <%=targetUrl%>><%=list.get(i).getBreed()%></td>
 										<td <%=targetUrl%>><img src ="/upload/mypet/<%=list.get(i).getMypet_image()%>" width="70px" height="70px"></td>
 										<td <%=targetUrl%>><%=list.get(i).getVac()%></td>

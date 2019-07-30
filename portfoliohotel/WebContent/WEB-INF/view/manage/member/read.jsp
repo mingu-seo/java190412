@@ -58,7 +58,8 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 								<tbody>
 								<%
 								String[] nameArr = data.getName().split(",");
-								
+								String[] birthdayArr = data.getBirthday().split(",");
+								String[] telArr = data.getTel().split(",");
 								%>
 									<tr>
 										<th scope="row"><label for="">이름</label></th>
@@ -75,11 +76,15 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 									</tr>
 									<tr>
 										<th scope="row"><label for="">생년월일</label></th>
-										<td colspan="3"><%=data.getBirthday()%></td>
+										<%-- <td colspan="3"><%=data.getBirthday()%></td> --%>
+										<td colspan="3"><%=birthdayArr[0]%>년 <%=birthdayArr[1] %>월 <%=birthdayArr[2]%>일</td>
+									
 									</tr>
 									<tr>
 										<th scope="row"><label for="">연락처</label></th>
-										<td colspan="3"><%=data.getTel()%></td>
+										<%-- <td colspan="3"><%=data.getTel()%></td> --%>
+										<td colspan="3"><%=telArr[0]%> - <%=telArr[1] %> - <%=telArr[2]%></td>
+										
 									</tr>
 									<tr>
 										<th scope="row"><label for="">주소/우편번호</label></th>
@@ -106,6 +111,15 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 										<td colspan="3"><%=data.getLogindate()%></td>
 									</tr> 
 									
+									<tr>
+										<th scope="row"><label for="">탈퇴 여부</label></th>
+										<td colspan="3"><%=CodeUtil.getSecession(data.getSecession())%></td>
+									</tr> 
+									<tr>
+										<th scope="row"><label for="">탈퇴 사유</label></th>
+										<td colspan="3"><%=CodeUtil.getSecession_reason(data.getSecession_reason())%></td>
+									</tr> 
+									
 								
 								</tbody>
 							</table>
@@ -115,8 +129,10 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 								</div>
 								<div class="btnRight">
 									<a class="btns" href="<%=param.getTargetURLParam("edit", param, data.getNo())%>"><strong>수정</strong></a>
-									<a class="btns" href="#" id="delBtn"><!-- onClick="goDelete(); --><strong>회원탈퇴</strong></a>
-								</div>
+									<%-- <a class="btns" href="<%=param.getTargetURLParam("pwedit", param, data.getNo())%>"><strong>비밀번호 수정</strong></a> --%>
+									<!-- <a class="btns" href="#" id="delBtn">onClick="goDelete();<strong>회원탈퇴</strong></a> -->
+									<a class="btns" href="<%=param.getTargetURLParam("memberDelete", param, data.getNo())%>" ><strong>회원탈퇴</strong></a>
+								</div> 
 							</div>
 							<!--//btn-->
 						</div>

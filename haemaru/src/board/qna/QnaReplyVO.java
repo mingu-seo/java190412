@@ -7,16 +7,17 @@ import util.Parameter;
 public class QnaReplyVO extends Parameter {
 	
 	private int no;
-	private int score;
-	private String name;
+	private int qna_no;
+	private String title;
 	private String contents;
+	private int admin_pk;
+	private int member_pk;
+	private String filename;
+	private String filename_org;
+	private String filename_chk;
 	private Timestamp registdate;
-	private int product_pk;
-	
-	QnaReplyVO() {
-		super.setPageRows(10);
-	}
-	
+	private int display;
+	private int animal_pk;
 	
 	
 	public int getNo() {
@@ -25,17 +26,18 @@ public class QnaReplyVO extends Parameter {
 	public void setNo(int no) {
 		this.no = no;
 	}
-	public int getScore() {
-		return score;
+	
+	public int getQna_no() {
+		return qna_no;
 	}
-	public void setScore(int score) {
-		this.score = score;
+	public void setQna_no(int qna_no) {
+		this.qna_no = qna_no;
 	}
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getContents() {
 		return contents;
@@ -43,19 +45,54 @@ public class QnaReplyVO extends Parameter {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
+	public int getAdmin_pk() {
+		return admin_pk;
+	}
+	public void setAdmin_pk(int admin_pk) {
+		this.admin_pk = admin_pk;
+	}
+	public int getMember_pk() {
+		return member_pk;
+	}
+	public void setMember_pk(int member_pk) {
+		this.member_pk = member_pk;
+	}
+	public String getFilename() {
+		return filename;
+	}
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
+	public String getFilename_org() {
+		return filename_org;
+	}
+	public void setFilename_org(String filename_org) {
+		this.filename_org = filename_org;
+	}
 	public Timestamp getRegistdate() {
 		return registdate;
 	}
 	public void setRegistdate(Timestamp registdate) {
 		this.registdate = registdate;
 	}
-	public int getProduct_pk() {
-		return product_pk;
+	public int getDisplay() {
+		return display;
 	}
-	public void setProduct_pk(int product_pk) {
-		this.product_pk = product_pk;
+	public void setDisplay(int display) {
+		this.display = display;
 	}
-	
+	public int getAnimal_pk() {
+		return animal_pk;
+	}
+	public void setAnimal_pk(int animal_pk) {
+		this.animal_pk = animal_pk;
+	}
+	public String getFilename_chk() {
+		return filename_chk;
+	}
+	public void setFilename_chk(String filename_chk) {
+		this.filename_chk = filename_chk;
+	}
 	
 	
 

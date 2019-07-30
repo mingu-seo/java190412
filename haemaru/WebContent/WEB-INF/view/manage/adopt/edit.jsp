@@ -48,7 +48,7 @@ function goSave() {
 					<div id="bbs">
 						<div id="bread">
 							<h3>동물 기본 정보</h3>
-							<form name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" method="post">
+							<form name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" enctype="multipart/form-data" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="동물 관리 기본내용입니다.">
 								<colgroup>
 									<col width="15%" />

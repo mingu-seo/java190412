@@ -65,7 +65,7 @@ function goDelete() {
 								<tbody>
 									<tr>
 										<th>객실 종류</th>
-										<td colspan="5"><%=CodeUtil.getRoomName(read.getName())%> [<%=read.getName() %>]</td>
+										<td colspan="5"><%=read.getName()%></td>
 									</tr>
 									<tr>
 										<th>객실 가격</th>
@@ -102,20 +102,20 @@ function goDelete() {
 								</tbody>
 							</table>
 							<div class="btn">
-									<div class="btnLeft">
-										<a class="btns" href="<%=param.getTargetURLParam("index", param, 0)%>"><strong>목록</strong></a>
-									</div>
-									<div class="btnRight">
-										<a class="btns" href="<%=param.getTargetURLParam("edit", param, read.getNo())%>"><strong>수정</strong></a>
-									</div>
+								<div class="btnLeft">
+									<a class="btns" href="<%=param.getTargetURLParam("index", param, 0)%>"><strong>목록</strong></a>
 								</div>
+								<div class="btnRight">
+									<a class="btns" href="<%=param.getTargetURLParam("edit", param, read.getNo())%>"><strong>수정</strong></a>
+								</div>
+							</div>	
 							<!--//btn-->
 						</div>
 						<!-- //bread -->
 						
-							<div id="bbs">
+						<div id="bbs">
 								<div id="blist">
-									<h3><%=CodeUtil.getRoomName(read.getName())%>의 편의시설 목록</h3>
+									<h3><%=read.getName()%>의 편의시설 목록</h3>
 									<table style="width:275px;" border="0" cellspacing="0" cellpadding="0">
 										<colgroup>											
 											<col class="w10" />
@@ -147,12 +147,11 @@ function goDelete() {
 										</tbody>
 									</table>
 								</div>
-							</div>	
-							
+							</div>		
 							
 							<div id="bbs">
 								<div id="blist">
-									<h3><%=CodeUtil.getRoomName(read.getName())%>의 객실 이미지 목록</h3>
+									<h3><%=read.getName()%>의 객실 이미지 목록</h3>
 									<table style="width:275px;" border="0" cellspacing="0" cellpadding="0">
 										<colgroup>											
 											<col class="w10" />
@@ -164,67 +163,66 @@ function goDelete() {
 										</thead>
 										<tbody>
 											<%
-												if (list_i.size() == 0) {
+											if (list_i.size() == 0) {
 											%>
 											<tr>
 												<td class="first">등록된 자료가 없습니다.</td>
 											</tr>
 											<%
-												} else {
-													if(list_i.size() <= 5){
+											} else {
+												if(list_i.size() <= 5){
 											%>
 											<tr>
 											<%		
-														for (int i = 0; i < list_i.size(); i++) {
-															HashMap data = list_i.get(i);
+													for (int i = 0; i < list_i.size(); i++) {
+														HashMap data = list_i.get(i);
 											%>
 												<td><img src="/upload/room/<%=data.get("image")%>" width="270px" height="auto"/></td>
 											<%
-														}
+													}
 											%>
 											</tr>
 											<%
-													} else {
-														for(int i = 0; i < 5; i++) {
-															HashMap data = list_i.get(i);
+												} else {
+													for(int i = 0; i < 5; i++) {
+														HashMap data = list_i.get(i);
 											%>
 												<td><img src="/upload/room/<%=data.get("image")%>" width="270px" height="auto"/></td>
 											<%
-														}
+													}
 											%>
 											<tr>
 											<%
-														for(int i=5; i<list_i.size(); i++){
-															HashMap data = list_i.get(i);
+													for(int i=5; i<list_i.size(); i++){
+														HashMap data = list_i.get(i);
 											%>
 											
 												<td><img src="/upload/room/<%=data.get("image")%>" width="270px" height="auto"/></td>
 											<%
-														}
+													}
 											%>
 											</tr>
 											<%
-													}
 												}
+											}
 											%>
 										</tbody>
 									</table>
 								</div>
 							</div>	
+						</div>
+						<!-- //bbs --> 
+						<!-- 내용 : e -->
 					</div>
-					<!-- //bbs --> 
-					<!-- 내용 : e -->
+					<!--//con -->
 				</div>
-				<!--//con -->
+				<!--//content -->
 			</div>
-			<!--//content -->
+			<!--//container --> 
+			<!-- E N D :: containerArea-->
 		</div>
-		<!--//container --> 
-		<!-- E N D :: containerArea-->
+		<!--//canvas -->
 	</div>
-	<!--//canvas -->
-</div>
-<!--//wrap -->
-
+	<!--//wrap -->
 </body>
 </html>

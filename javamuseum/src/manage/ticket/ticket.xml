@@ -45,6 +45,9 @@
 					</isNotEqual>
 				</isNotNull>
 			</isNotNull>
+			<isNotEqual property="display_pk" compareValue="0">
+				and display_pk=#display_pk#
+			</isNotEqual>
 			<isNotEqual property="sval" compareValue="" prepend="and">
 				<isEqual property="stype" compareValue="all" prepend="and">
 					( (id like '%$sval$%') or (title like '%$sval$%') ) 
@@ -74,27 +77,33 @@
     	INSERT INTO ticket 
     	(member_pk, display_pk, pay_price, sale_price, displaydate, usepoint, storepoint, method, 
     	reservedate, canceldate, paydate, reservestate, paystate, number, old_number, 
-    	adult_number, student_number)
+    	adult_number, student_number,price, refundstate)
     	values
     	(#member_pk#, #display_pk#, #pay_price#, #sale_price#, #displaydate#, #usepoint#, 
     	#storepoint#, #method#, #reservedate#, #canceldate#, #paydate#, #reservestate#, #paystate#, 
-    	#number#, #old_number#, #adult_number#, #student_number#)
+    	#number#, #old_number#, #adult_number#, #student_number#, 10000, #refundstate#)
     	<selectKey keyProperty="no" resultClass="Integer">
     		SELECT LAST_INSERT_ID()
     	</selectKey>
     </insert>
     
     <select id="read" parameterClass="Integer" resultClass="ticketvo">
-    	SELECT *, (select title from display where ticket.display_pk=display.no) as title, (select id from member where ticket.member_pk=member.no) as id FROM ticket
+    	SELECT *, (select title from display where ticket.display_pk=display.no) as title, 
+    	(select id from member where ticket.member_pk=member.no) as id
+    	FROM ticket
     	WHERE no=#no#
     </select>
     
     <update id="update" parameterClass="ticketvo">
     	UPDATE ticket SET
-		old_number=#old_number#, adult_number=#adult_number#, student_number=#student_number#, usepoint=#usepoint#,
-		storepoint=#storepoint#, pay_price=#pay_price#, sale_price=#sale_price#, paydate=#paydate#,
-		reservedate=#reservedate#, canceldate=#canceldate#, displaydate=#displaydate#, paystate=#paystate#, reservestate=#reservestate#,
-		refundstate=#refundstate#
+		canceldate=#canceldate#, displaydate=#displaydate#, paystate=#paystate#, reservestate=#reservestate#,
+		refundstate=#refundstate#,display_pk=#display_pk#
+    	WHERE no=#no#
+    </update>
+    
+    <update id="reserveUpdate" parameterClass="ticketvo">
+    	UPDATE ticket SET
+    	reservestate=#reservestate#, canceldate=#canceldate#
     	WHERE no=#no#
     </update>
     
@@ -103,4 +112,33 @@
     	WHERE no=#no#
     </delete>
     
+    <!-- 회원 보유 포인트 -->
+    <select id="memberpoint" parameterClass="Integer" resultClass="Integer">
+    	SELECT point FROM member 
+    	WHERE no=#member_pk#
+    </select>
+    
+    <!-- 예매할 때 해당 회원의 포인트 적립, 사용 저장 -->
+    <update id="storepoint" parameterClass="ticketvo">
+    	UPDATE member SET
+    	point=#point#
+    	WHERE no=#member_pk#
+    </update>
+    
+    <!-- 포인트 테이블에 포인트 내역 저장 -->
+    <insert id="pointcomment" parameterClass="manage.member.PointVO">
+    	INSERT INTO point (member_pk, state, accum, memo, registdate, display_pk)
+    	VALUES (#member_pk#, #state#, #accum#, #memo#, now(), #display_pk#)
+    </insert>
+    
+    <!-- 예매 수정할 시 내역 변경 -->
+    <update id="commentupdate" parameterClass="manage.member.PointVO">
+    	UPDATE point SET
+    	state=#state#, memo=#memo#, accum=#accum#
+    	WHERE member_pk=#member_pk# AND display_pk=#display_pk#
+    </update>
+    
+    <select id="pointread" parameterClass="Integer" resultClass="manage.member.PointVO">
+    	SELECT * FROM point WHERE display_pk=#display_pk#
+    </select>
 </sqlMap>

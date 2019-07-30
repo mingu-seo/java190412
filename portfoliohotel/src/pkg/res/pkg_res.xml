@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="pkg_res">
+    
+    <typeAlias alias="pkg_res_vo" type="pkg.res.Pkg_resVO"/>
+    
+	<!-- 해당 테이블의 총 게시글 수 -->
+	<select id="count" parameterClass="pkg_res_vo" resultClass="Integer">
+        select count(*) from pkg_res	
+    </select>
+    
+	<select id="list" parameterClass="pkg_res_vo" resultClass="pkg_res_vo">
+        select *
+        from pkg_res
+		ORDER BY use_date DESC LIMIT $startPageNo$, $pageRows$
+    </select>
+    
+	<!-- 해당 테이블에 게시글 작성 -->
+    <insert id="insert" parameterClass="pkg_res_vo">
+        INSERT INTO pkg_res (
+        	pkg_name, use_date, guest_kname, guest_ename, 
+        	guest_tel, guest_email, pkg_price, pkg_count, total_price
+        ) VALUES (
+        	#pkg_name#, #use_date#, #guest_kname#, #guest_ename#, 
+        	#guest_tel#, #guest_email#, #pkg_price#, #pkg_count#, #total_price#
+        )
+        <selectKey keyProperty="no" resultClass="Integer">
+        	SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+    
+    <!-- <select id="read" parameterClass="Integer" resultClass="pkg_vo">
+        select * FROM pkg where no=#no#
+    </select> -->
+    
+    <!-- <update id="update" parameterClass="pkg_vo">
+        update pkg set
+        	name=#name#, startdate=#startdate#, enddate=#enddate#, pkg=#pkg#,  	
+        price=#price#, event=#event#, guide=#guide#
+        where no=#no#
+    </update> -->
+    
+    <!-- <delete id="delete" parameterClass="Integer">
+        delete from pkg where no=#no#
+    </delete> -->
+    
+</sqlMap>

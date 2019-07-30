@@ -8,7 +8,7 @@ $(function(){
         $(".header-sub").stop().fadeOut();
     });
     //login start
-    $('.login-box li:eq(3)').click(function(e){
+    $('.loginBtn').click(function(e){
         e.preventDefault();
         $('#login, #login-wrap').stop().fadeIn(500);
     });
@@ -18,7 +18,7 @@ $(function(){
     });
 
     //join start
-    $('.login-sub-btn li:eq(1), .login-box li:eq(4)').click(function(e){
+    $('.login-sub-btn li:eq(1), .joinBtn').click(function(e){
         e.preventDefault();
         $('#join-area, #login-wrap').stop().fadeIn(500);
     });
