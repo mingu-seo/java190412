@@ -24,29 +24,10 @@
 
 	function goSave() {
 		if ($("#name").val() == "") {
-			alert('제목을 입력하세요.');
+			alert('이름을 입력하세요.');
 			$("#name").focus();
 			return false;
 		}
-		var con = true;
-		$(".addTr").each(function(idx) {
-			if ($("input[name='title']").eq(idx).val() == "") {
-				alert("옵션명을 입력해주세요.")
-				i$("input[name='title']").eq(idx).focus();
-				con = false;
-				return false;
-			}
-
-			if ($("input[name='oprice']").eq(idx).val() == "") {
-				alert("옵션가격 입력해주세요.")
-				$("input[name='oprice']").eq(idx).focus();
-				con = false;
-				return false;
-			}
-		});
-		if (con == false)
-			return false;
-
 		var sHTML = oEditors.getById["info"].getIR();
 		if (sHTML == "" || sHTML == "<p><br></p>") {
 			alert('내용을 입력하세요.');

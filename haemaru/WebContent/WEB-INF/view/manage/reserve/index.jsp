@@ -7,7 +7,6 @@
 <%
 ReserveVO param = (ReserveVO) request.getAttribute("vo");
 ArrayList<ReserveVO> list = (ArrayList) request.getAttribute("list");
-ArrayList<MemberVO> mlist = (ArrayList) request.getAttribute("mlist");
 int totCount = (Integer) request.getAttribute("totCount");
 int totPage = (Integer) request.getAttribute("totPage");
 %>
@@ -49,7 +48,6 @@ int totPage = (Integer) request.getAttribute("totPage");
 						<!-- 내용 : s -->
 						<div id="bbs">
 							<div id="blist">
-						
 								<p>
 									<span><strong>총 <%=totCount%>개
 									</strong> | <%=param.getReqPageNo()%>/<%=totPage%>페이지</span>

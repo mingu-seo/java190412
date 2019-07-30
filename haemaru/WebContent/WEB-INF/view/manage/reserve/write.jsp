@@ -154,7 +154,7 @@
 													<th scope="row"><label for="">예약날짜</label></th>
 													<td><input type="text" id="res_date" name="res_date"
 														class="inputTitle" value="<%=DateUtil.getToday()%>"
-														title="예약일을 입력해주세요" />&nbsp; <span id="Calres_dateIcon">
+														/>&nbsp; <span id="Calres_dateIcon">
 															<img src="/manage/img/calendar_icon.png"
 															id="Calres_dateIconImg" style="cursor: pointer;" />
 													</span></td>

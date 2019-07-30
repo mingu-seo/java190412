@@ -39,6 +39,10 @@ public class SchedVO extends Parameter {
 	private int start_time;
 	private int end_time;
 	
+	private int department;
+	private int position;
+	
+	
 	public SchedVO() {
 		super.setPageRows(10);
 	}
@@ -297,6 +301,22 @@ public class SchedVO extends Parameter {
 
 	public void setEnd_time(int end_time) {
 		this.end_time = end_time;
+	}
+
+	public int getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(int department) {
+		this.department = department;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public void setPosition(int position) {
+		this.position = position;
 	}
 	
 	

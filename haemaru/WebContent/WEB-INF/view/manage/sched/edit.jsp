@@ -15,18 +15,6 @@
 <script>
 	function goSave() {
 
-		if ($("#name").val() == "") {
-			alert('상품명을 입력하세요.');
-			$("#name").focus();
-			return false;
-		}
-
-		if ($("").val() == "") {
-			alert('상품명을 입력하세요.');
-			$("").focus();
-			return false;
-		}
-
 		return true;
 	}
 
@@ -69,10 +57,9 @@
 											<tr>
 												<th scope="row"><label for="">이름</label></th>
 												<td colspan="3"><input type="text" id="name"
-													name="name" class="w50" title="제목을 입력해주세요"
-													value="<%=Function.checkNull(data.getName())%>" /></td>
+													name="name" class="w50" title="이름을 입력해주세요"
+													value="<%=Function.checkNull(data.getName())%>" readonly="readonly"/></td>
 											</tr>
-
 											<th scope="row"><label for="">월요일</label> <input
 												type="checkbox" name="mon_res" value="1"
 												<%=Function.getChecked(1, data.getMon_res())%> /></th>
@@ -141,8 +128,8 @@
 										</tbody>
 									</table>
 									</tr>
-									<input type="hidden" name="cmd" id="cmd" value="edit" /> <input
-										type="hidden" name="no" id="no" value="<%=data.getNo()%>" />
+									<input type="hidden" name="cmd" id="cmd" value="edit" /> 
+									<input type="hidden" name="no" id="no" value="<%=data.getNo()%>" />
 								</form>
 								<div class="btn">
 

@@ -82,7 +82,7 @@
 										</tr>
 										<tr>
 											<th scope="row"><label for="">예약시간</label></th>
-											<td colspan="2"><%=data.getRes_hour()%></td>
+											<td colspan="2"><%=CodeUtil.getDoctorScheduleName(data.getRes_hour())%></td>
 										</tr>
 										<tr>
 											<th scope="row"><label for="">참고내용</label></th>

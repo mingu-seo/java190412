@@ -32,7 +32,8 @@
 
 	<select id="list" parameterClass="schedvo"
 		resultClass="schedvo">
-		SELECT *
+		SELECT *, (SELECT department FROM doctor WHERE doctor.no = doc_schedule.doctor_pk) AS department, 
+				(SELECT position FROM doctor WHERE doctor.no = doc_schedule.doctor_pk) AS position
 		FROM doc_schedule
 		<include refid="searchSql" />
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$

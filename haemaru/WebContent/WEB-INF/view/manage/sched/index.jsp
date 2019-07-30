@@ -57,7 +57,9 @@
 										summary="제품 관리목록입니다.">
 										<colgroup>
 											<col class="w5" />
-											<col class="w15" />
+											<col class="w5" />
+											<col class="w7" />
+											<col class="w7" />
 											<col class="w5" />
 											<col class="w5" />
 											<col class="w5" />
@@ -78,6 +80,8 @@
 											<tr>
 												<th scope="col"class="first">번호</th>
 												<th scope="col">이름</th>
+												<th scope="col">부서</th>
+												<th scope="col">직급</th>
 												<th scope="col">일요일<br>시작시간 
 												</th>
 												<th scope="col">일요일<br>종료시간 
@@ -126,6 +130,8 @@
 											<tr>
 												<td class="first"><%=list.get(i).getNo()%></td>
 												<td><%=list.get(i).getName()%></td>
+												<td><%=CodeUtil.getDoctorDepartmentName(list.get(i).getDepartment())%></td>
+												<td><%=CodeUtil.getDoctorPositionName(list.get(i).getPosition())%></td>
 												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getSun_start())%></td>
 												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getSun_end())%></td>
 												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getMon_start())%></td>
