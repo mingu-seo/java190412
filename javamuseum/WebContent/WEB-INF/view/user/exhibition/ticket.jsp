@@ -16,6 +16,18 @@ function goSave() {
 		}
 };
 
+function sumPrice() {
+	var totalPrice = 0;
+	var num = parseInt($("#old_number").val()) + parseInt($("#adult_number").val()) + parseInt($("#student_number").val());
+	if(num >= 5){
+		 totalprice = (parseInt($("#old_number").val()) * 5000) + ((parseInt($("#adult_number").val()) + parseInt($("#student_number").val())) * 7000);
+	} else {
+		totalprice = (parseInt($("#old_number").val()) * 5000) + (parseInt($("#adult_number").val()) * 9000) + (parseInt($("#student_number").val()) * 8000);
+	}
+	$("#totnumber").val(num);
+	$("#totalPrice").text(totalprice);
+}
+
 $(function(){
 	// 대관 시작
 	$("#con3-day-start").datepicker({
@@ -66,41 +78,34 @@ $(function(){
 						</tr>
 						<tr>
 							<th>인원</th>
-							<td colspan="4">총 
-								<select id="number" name="number">
-									<option>0명</option>
-									<option>1명</option>
-									<option>2명</option>
-									<option>3명</option>
-									<option>4명</option>
-									<option>5명</option>
-								</select>
+							<td colspan="4">
+							<input type="text" id="totnumber" name="number" value="0" readonly>&nbsp;&nbsp;명 
 								&nbsp;|&nbsp;(노인: 
-								<select id="old_number" name="old_number">
-									<option>0명</option>
-									<option>1명</option>
-									<option>2명</option>
-									<option>3명</option>
-									<option>4명</option>
-									<option>5명</option>
+								<select id="old_number" name="old_number" onchange="sumPrice()">
+									<option value=0>0명</option>
+									<option value=1>1명</option>
+									<option value=2>2명</option>
+									<option value=3>3명</option>
+									<option value=4>4명</option>
+									<option value=5>5명</option>
 								</select>
 								&nbsp;성인: 
-								<select id="adult_number" name="adult_number">
-									<option>0명</option>
-									<option>1명</option>
-									<option>2명</option>
-									<option>3명</option>
-									<option>4명</option>
-									<option>5명</option>
+								<select id="adult_number" name="adult_number" onchange="sumPrice()">
+									<option value=0>0명</option>
+									<option value=1>1명</option>
+									<option value=2>2명</option>
+									<option value=3>3명</option>
+									<option value=4>4명</option>
+									<option value=5>5명</option>
 								</select>
 								&nbsp;학생: 
-								<select id="student_number" name="student_number">
-									<option>0명</option>
-									<option>1명</option>
-									<option>2명</option>
-									<option>3명</option>
-									<option>4명</option>
-									<option>5명</option>
+								<select id="student_number" name="student_number" onchange="sumPrice()">
+									<option value=0>0명</option>
+									<option value=1>1명</option>
+									<option value=2>2명</option>
+									<option value=3>3명</option>
+									<option value=4>4명</option>
+									<option value=5>5명</option>
 								</select>
 								)
 							</td>
@@ -119,17 +124,19 @@ $(function(){
 						</tr>
 						<tr>
 							<th>결제수단</th>
-							<td class="chk-radio"><input type="radio" id="chk01" name="chk01"></td>
+							<td class="chk-radio"><input type="radio" id="chk01" name="method" value="bank"></td>
 							<td class="chk-text"><label for="chk01">무통장입금</label></td>
-							<td class="chk-radio"><input type="radio" id="chk02" name="chk01"></td>
+							<td class="chk-radio"><input type="radio" id="chk02" name="method" value="card"></td>
 							<td class="chk-text"><label for="chk02">신용카드</label></td>
 						</tr>
 						<tr>
 							<th>결제금액</th>
-							<td colspan="4" id="con3-glod">10,000원</td>
+							<td colspan="4" id="con3-glod"><span id="totalPrice">0</span></td>
 						</tr>
 					</table>
 					<input type="hidden" name="cmd" value="reserve"/>
+					<input type="hidden" name="reservestate" value="1"/>
+					<input type="hidden" name="reservedate" value="<%=DateUtil.getToday()%>"/>
 					<div class="con3-btn clear">
 						<ul class="btn-group">
 							<li><input type="submit" id="submit-btn1" name="submit-btn1" value="예매하기" onclick="javascript:$('#frm').submit();"></li>
