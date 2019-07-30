@@ -1,5 +1,10 @@
 package util;
 
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * 각종 코드값 가져오기
  * 각 코드들의 option, select 값 구하기
@@ -7,7 +12,7 @@ package util;
  *
  */
 public class CodeUtil {
-
+	
 	/**
 	 * 관리자 등급
 	 * @param type int
@@ -925,14 +930,6 @@ public class CodeUtil {
 		return result.toString();
 	}
 
-
-
 	 	
 }
-
-
-
-
-
-
 
