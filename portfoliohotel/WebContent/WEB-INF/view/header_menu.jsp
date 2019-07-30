@@ -1,3 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="board.member.*" %>
+<%@ page import="util.*" %>
+<%
+MemberVO param = (MemberVO)request.getAttribute("vo");
+ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
+MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
+MemberVO data = (MemberVO)request.getAttribute("data");
+%>
 <div id="header">
         <div class="header-center">
             <div class="pc-header">
@@ -8,7 +18,7 @@
                             <div class="pc-sub">
                                     <div class="pc-sub-center">
                                         <div class="pc-sub-box">
-                                            <h2><a href="/pkg/special_promotion">Promotion</a></h2>
+	                                        <h2><a href="/pkg/special_promotion">Promotion</a></h2>
                                             <ul class="offer">
                                                 <li><a href="/pkg/room/room_offer">Room Package</a></li>
                                                 <li><a href="/pkg/dining/dining_offer">Dining Package</a></li>
@@ -120,7 +130,12 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="/membership/sign_in">Sign In</a>
+                <!-- <a href="/membership/sign_in">Sign In</a> -->
+                <%if(sessionMember == null){ %>
+                <a href="/membership/sign_in">Sign in</a>
+                <%}else{ %>
+                <a href="/membership/mypage">My page</a>
+                <%} %>
             </div>
         </div>
     </div>

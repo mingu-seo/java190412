@@ -104,6 +104,7 @@ public class SiteProperty {
 	public static final String DOCTOR_UPLOAD_PATH = "/upload/doctor/";
 	public static final String QNA_UPLOAD_PATH = "/upload/qna/";
 	public static final String ANIMAL_UPLOAD_PATH = "/upload/adopt/";
+	public static final String REVIEW_UPLOAD_PATH = "/upload/review/";
 	public static final String MYPET_UPLOAD_PATH = "/upload/mypet/";
 
 }

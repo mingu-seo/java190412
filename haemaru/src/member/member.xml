@@ -68,10 +68,18 @@
     
 	<select id="idcheck" parameterClass="String" resultClass="Integer">
     	select count(*) as cnt from member where email=#email#
+    </select>  
+    
+    <select id="loginCheck" parameterClass="membervo" resultClass="Integer">
+    	select count(*) as cnt from member where email=#email# and pw=md5(#pw#)
     </select>    
     
-    <select id="mypetList" parameterClass="Integer" resultClass="member.MypetVO">
+    <select id="mypetList" parameterClass="Integer" resultClass="member.MypettVO">
         select * from mypet where member_pk=#no# ORDER BY registdate DESC 
+    </select>
+    
+    <select id="loginSessionInfo" parameterClass="membervo" resultClass="membervo">
+        select * from member where email=#email# and pw=md5(#pw#)
     </select>
     
 </sqlMap>

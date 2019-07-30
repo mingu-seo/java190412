@@ -76,7 +76,7 @@
                                         <div class="pc-sub-box">
                                             <h2>Dining</h2>
                                             <ul class="Dining">
-                                                <li><a href="thefesta.do">The Festa</a></li>
+                                                <li><a href="thefesta">The Festa</a></li>
                                                 <li><a href="#">Granum Dining Lounge</a></li>
                                                 <li><a href="#">Moon Bar</a></li>
                                                 <li><a href="#">The Oasis Outdoor Kitchen</a></li>

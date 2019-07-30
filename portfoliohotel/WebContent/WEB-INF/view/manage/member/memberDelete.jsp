@@ -26,10 +26,63 @@ function goSave() {
 }
 </script>  -->
 
+
+<!-- <script>
+function loginCheck(){
+	if ( getObject("email").value.length < 1 ) {
+		alert("이메일을 입력해주세요.");
+		getObject("email").focus();
+		return false;
+	}
+	if ( getObject("password").value.length < 1 ) {
+		alert("비밀번호를 입력해주세요.");
+		getObject("password").focus();
+		return false;
+	}
+	var f = document.board;
+	if (f.reg.checked==true) {
+	   document.cookie = "cookie_userid=" + f.id.value + ";path=/;expires=Sat, 31 Dec 2050 23:59:59 GMT;";
+	} else {
+	   var now = new Date();	
+	   document.cookie = "cookie_userid=" + f.id.value + ";path=/;expires="+now.getTime();
+	}
+	return true;
+	
+	
+}
+
+function userid_chk() {
+	var f=document.member;
+	var useridname = CookieVal("cookie_userid");
+	
+	if (useridname=="null"){	
+		f.id.focus();
+		f.id.value="";
+	} else {
+		f.password.focus();
+		f.id.value=useridname;
+		f.reg.checked=true;
+	}
+}
+
+function CookieVal(cookieName) {
+	thisCookie = document.cookie.split("; ");
+	for (var i = 0; i < thisCookie.length;i++) {
+		if (cookieName == thisCookie[i].split("=")[0]) {
+			return thisCookie[i].split("=")[1];
+		}
+	}
+	return "null" ;
+}
+
+</script> -->
 <script type="text/javascript">
 	
 	function goDelete() {
-		if(!validPassword($("#password"))) return false;
+		 if(!validPassword($("#password")))
+			
+		 getObject("password").focus();
+			 return false; 
 		
 		
 		
@@ -92,11 +145,11 @@ function goSave() {
 									<td>									
                                		  <select>
                                     	<option>탈퇴사유</option>
-                                    	<option>더 이상 서비스를 사용하지 않음</option>
-                                    	<option>서비스가 불편함</option>
-                                    	<option>시스템 장애(속도 저조, 에러등)</option>
-                                    	<option>장기간 부재(군 입대, 유학등)</option>
-                                    	<option>기타사유</option>
+                                    	<option value="1">더 이상 서비스를 사용하지 않음</option>
+                                    	<option value="2">서비스가 불편함</option>
+                                    	<option value="3">시스템 장애(속도 저조, 에러등)</option>
+                                    	<option value="4">장기간 부재(군 입대, 유학등)</option>
+                                    	<option value="5">기타사유</option>
                                 	 </select>                                	 
                             		</td>
 								</tr>
@@ -116,7 +169,8 @@ function goSave() {
 								</div>
 								<div class="btnRight">
 									<!-- <a class="btns" href="#" onclick="goSave();"><strong>탈퇴하기</strong></a> -->
-									<a class="btns" href="#" id="delBtn" onclick="goDelete();"><!-- onClick="goDelete(); --><strong>회원탈퇴</strong></a>
+									<a class="btns" href="#" id="delBtn" onclick="goDelete();"><strong>회원탈퇴</strong></a>
+									
 								</div>
 							</div>
 							<!--//btn-->

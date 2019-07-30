@@ -13,7 +13,7 @@
 		1=1
 			<isNotEqual property="sval" compareValue="" prepend="and">
 				<isEqual property="stype" compareValue="all" prepend="and">
-					( (name like '%$sval$%' ) or (id like '%$sval$%' )) 					
+					( (name like '%$sval$%' ) or (email like '%$sval$%' ) or (secession like '%$sval$%' )) 					
 				</isEqual>
 				<isNotEqual property="stype" compareValue="all" prepend="and">
 					($stype$ like '%$sval$%' ) <!--  문자그대로 들어가야하기 떄문에 #사용x --> 
@@ -36,11 +36,11 @@
     <insert id="insert" parameterClass="membervo" >
         insert into member
         	(email, password, name, gender,tel,birthday,regdate,zipcode,addr,
-        	 addr_detail,logindate,point,grade,sns_type,sns_key,secession) 
+        	 addr_detail,logindate,point,grade,sns_type,sns_key,secession,secession_reason) 
         	 
         values
         	(#email#, md5(#password#), #name#, #gender#,#tel#, #birthday#,now(),#zipcode#,#addr#,
-        	 #addr_detail#,now(),#point#,#grade#,#sns_type#,#sns_key#,#secession#)
+        	 #addr_detail#,now(),#point#,#grade#,#sns_type#,#sns_key#,#secession#,#secession_reason#)
         	 
         <selectKey keyProperty="no" resultClass="Integer">
 			SELECT  LAST_INSERT_ID()
@@ -58,12 +58,12 @@
         where no=#no#
     </update>
     
-    <!-- <update id="update" parameterClass="membervo">
+      <!-- <update id="memberEdit" parameterClass="membervo">
         update member set
         	<isNotEqual property="password" compareValue="">
-        	    password = #password#
+        	    password = md5(#password#),
         	</isNotEqual>
-        	 
+        	 name=#name#, birthday=#birthday#,tel=#tel#, addr=#addr#, zipcode=#zipcode#, addr_detail=#addr_detail#
         where no=#no#
     </update> -->
     
@@ -89,12 +89,16 @@
         select count(*) as cnt from member where email=#email#
     </select>
     
-    <select id="loginCheck" parameterClass="membervo" resultClass="membervo">
+    <select id="loginCheck" parameterClass="membervo" resultClass="Integer">
         select count(*) as cnt from member where email=#email# and password=md5(#password#)
     </select>
     
     <select id="loginSessionInfo" parameterClass="membervo" resultClass="membervo">
         select * from member where email=#email# and password=md5(#password#)
+    </select>
+    
+     <select id="emailSrc" parameterClass="membervo" resultClass="Integer">
+        select count(*) as cnt from member where email=#email# and password=md5(#password#)
     </select>
     <!-- 
         관리자 로그인 접속 기록

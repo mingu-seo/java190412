@@ -76,7 +76,7 @@ AdoptVO data = (AdoptVO)request.getAttribute("data");
 									<tr>
 										<th scope="row"><label for="">이미지</label></th>
 										<td>
-											<img src="<%=data.getAnimal_image()%>"/>	
+											<img src="/upload/adopt/<%=data.getAnimal_image()%>" width="320px" height="320px"/>	
 										</td>
 										<th scope="row"><label for="">품종</label></th>
 										<td>

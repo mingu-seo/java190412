@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,11 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import board.qna.QnaVO;
-import board.notice.NoticeVO;
 import board.qna.QnaService;
-import manage.admin.AdminVO;
+import board.member.MemberVO;
 
-import room.Room_optVO;
 import util.Function;
 
 @Controller
@@ -39,10 +38,27 @@ public class QnaController {
 	}
 
 	@RequestMapping("/membership/qna_q")
-	public String qna_q(Model model, QnaVO param) throws Exception {
-
+	public String qna_q(Model model, QnaVO param, HttpSession session) throws Exception {
+		MemberVO vo = (MemberVO)session.getAttribute("memberInfo");
+		
+		model.addAttribute("vo", param);
+		
 		return "membership/qna_q";
 	}
+	
+	@RequestMapping("/membership/processU")
+	public String processU(Model model, QnaVO param, HttpServletRequest request) throws Exception {
+		model.addAttribute("param", param);
+		if ("write".equals(param.getCmd())) {
+			int r = qnaService.insert(param, request);
+			model.addAttribute("code", "alertMessageUrl");
+			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
+			model.addAttribute("url", "qna");
+		}
+		return "include/alert";
+	}
+
+
 
 	// ======================= 관리자 ===============================================
 
@@ -54,11 +70,13 @@ public class QnaController {
 		param.setTablename("qna");
 		int[] rowPageCount = qnaService.count(param);
 		ArrayList<QnaVO> list = qnaService.list(param);
-
+		
+		
 		model.addAttribute("totCount", rowPageCount[0]);
 		model.addAttribute("totPage", rowPageCount[1]);
 		model.addAttribute("list", list);
 		model.addAttribute("vo", param);
+	
 
 		return "manage/board/qna/index";
 	}

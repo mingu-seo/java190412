@@ -35,7 +35,7 @@ function goSave() {
 			<div id="container">
 				<div id="content">
 					<div class="con_tit">
-						<h2>다이닝 - [수정]</h2>
+						<h2>다이닝 예약 - [수정]</h2>
 					</div>
 					<!-- //con_tit -->
 					<div class="con">
@@ -63,39 +63,39 @@ function goSave() {
 												</td>
 											</tr>
 											<tr>
-												<th scope="row"><label for="">예약시간</label></th>
-												<td><input type="text" id="d_time" name="d_time" 
-													value="<%=data.getD_time()%>" title="예약시간을 입력해주세요" /></td>
+												<th scope="row"><label for="">회원명</label></th>
+												<td><input type="text" id="member_name" name="member_name" 
+													 class="w10" title="" /></td>
 											</tr>
 											<tr>
-												<th scope="row"><label for="">예약인원(성인)</label></th>
-												<td><input type="text" id="adult" name="adult" 
-													value="<%=data.getAdult()%>" title="예약인원을 입력해주세요" /></td>
+												<th scope="row"><label for="">회원 연락처</label></th>
+												<td><input type="text" id="guest_tel" name="guest_tel" 
+													 class="w10" title="" /></td>
 											</tr>
 											<tr>
-												<th scope="row"><label for="">예약인원(어린이)</label></th>
+												<th scope="row"><label for="">다이닝명</label></th>
+												<td><input type="text" id="dining_name" name="dining_name"
+													 class="w10"  /></td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">성인(예약인원)</label></th>
+												<td><input type="text" id="adult" name="adult"
+													 class="w10"  /></td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">어린이(예약인원)</label></th>
 												<td><input type="text" id="kid" name="kid"
-													value="<%=data.getKid()%>" title="예약인원을 입력해주세요" /></td>
+													 class="w10"  /></td>
 											</tr>
 											<tr>
-												<th scope="row"><label for="">투숙객 한글명</label></th>
-												<td><input type="text" id="guest_kname" name="guest_kname"
-													value="<%=data.getGuest_kname()%>" title="투숙객 한글명을 입력해주세요" /></td>
+												<th scope="row"><label for="">예약일</label></th>
+												<td><input type="text" id="regdate" name="regdate"
+													 class="w10"  /></td>
 											</tr>
 											<tr>
-												<th scope="row"><label for="">투숙객 영문명</label></th>
-												<td><input type="text" id="guest_ename" name="guest_ename"
-													value="<%=data.getGuest_ename()%>" title="투숙객 영문명을 입력해주세요" /></td>
-											</tr>
-											<tr>
-												<th scope="row"><label for="">투숙객 연락처</label></th>
-												<td><input type="text" id="guest_tel" name="guest_tel"
-													value="<%=data.getGuest_tel()%>" title="투숙객 연락처를 입력해주세요" /></td>
-											</tr>
-											<tr>
-												<th scope="row"><label for="">투숙객 이메일</label></th>
-												<td><input type="text" id="guest_email" name="guest_email"
-													value="<%=data.getGuest_email()%>" title="투숙객 연락처를 입력해주세요" /></td>
+												<th scope="row"><label for="">결제 금액</label></th>
+												<td><input type="text" id="price" name="price"
+													 class="w10"  /></td>
 											</tr>
 										</tbody>
 									</table>
