@@ -37,6 +37,24 @@ function goCancel() {
 	}
 }
 
+$(function() {
+	console.log('<%=read.getCheckin()%>');
+	console.log('<%=read.getCheckout()%>');
+	<%
+	String arri[] = read.getCheckin().split("-");
+	String arro[] = read.getCheckout().split("-");
+	%>
+	
+	var time_in = new Date(<%=arri[0]%>, <%=arri[1]%>, <%=arri[2]%>);
+	var time_out = new Date(<%=arro[0]%>, <%=arro[1]%>, <%=arro[2]%>);
+	day_stay = (time_out.getTime() - time_in.getTime())/(1000*60*60*24);
+	console.log(day_stay);
+	console.log(<%=arri[0]%>);
+	console.log(<%=arri[1]%>);
+	console.log(<%=arri[2]%>);
+	console.log(Date());
+});
+
 </script>
 <title>관리자 객실 예약 상세</title>
 </head>

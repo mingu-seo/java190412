@@ -4,7 +4,7 @@
 <%@ page import="util.*" %>
 <%
 MemberVO param = (MemberVO)request.getAttribute("vo");
-ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
+ArrayList<MemberVO> list = (ArrayList<MemberVO>)request.getAttribute("list");
 MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
 MemberVO data = (MemberVO)request.getAttribute("data");
 %>

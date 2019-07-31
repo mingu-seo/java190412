@@ -51,27 +51,11 @@ function goDelete(no) {
 }
 
 function goSearch() {
-	console.log("클릭");
-	//$("#searchForm").submit();
+	$("#searchForm").submit();
 }
 
-$(function(){
-	$(".submenu").hide();
-	$(".menu").mouseover(function(){
-        $(this).find(".submenu").stop().slideDown();
-    });
-    $(".menu").mouseleave(function(){
-        $(this).find(".submenu").stop().slideUp();
-    });
-    
-    $("#scheckin, #scheckout").change(function(){
-    	console.log($("#scheckin").val());
-    	console.log($("#scheckout").val());
-    });
-});
-
 </script>
-<title>관리자 객실 목록</title>
+<title>관리자 객실 예약 관리</title>
 </head>
 <body>
 <%@ include file="/WEB-INF/view/manage/include/common.jsp" %>
@@ -101,11 +85,11 @@ $(function(){
 								<col width="20%"/>
 							</colgroup>
 							<tr>
-								<th><a href="/manage/room/res/index">전체 예약</a></th>
-								<th><a href="/manage/room/res/index?category=1">지난 예약</a></th>
-								<th><a href="/manage/room/res/index?category=2">다가오는 예약</a></th>
-								<th><a href="/manage/room/res/index?category=3">신청된 예약</a></th>
-								<th><a href="/manage/room/res/index?category=4">취소된 예약</a></th>
+								<th <%=vo.getCategory() == 0 ? "style=\"background:#2D2F34;\"" : "" %>><a <%=vo.getCategory() == 0 ? "style=\"color:#ffffff;\"" : "" %> href="/manage/room/res/index">전체 예약</a></th>
+								<th <%=vo.getCategory() == 1 ? "style=\"background:#2D2F34;\"" : "" %>><a <%=vo.getCategory() == 1 ? "style=\"color:#ffffff;\"" : "" %> href="/manage/room/res/index?category=1">지난 예약</a></th>
+								<th <%=vo.getCategory() == 2 ? "style=\"background:#2D2F34;\"" : "" %>><a <%=vo.getCategory() == 2 ? "style=\"color:#ffffff;\"" : "" %> href="/manage/room/res/index?category=2">다가오는 예약</a></th>
+								<th <%=vo.getCategory() == 3 ? "style=\"background:#2D2F34;\"" : "" %>><a <%=vo.getCategory() == 3 ? "style=\"color:#ffffff;\"" : "" %> href="/manage/room/res/index?category=3">신청된 예약</a></th>
+								<th <%=vo.getCategory() == 4 ? "style=\"background:#2D2F34;\"" : "" %>><a <%=vo.getCategory() == 4 ? "style=\"color:#ffffff;\"" : "" %> href="/manage/room/res/index?category=4">취소된 예약</a></th>
 							</tr>
 						</table>
 						<br/>
@@ -157,8 +141,6 @@ $(function(){
 							</tr>
 						</table>
 						<input type="hidden" name="category" id="category" value="<%=vo.getCategory() %>"/>
-						<input type="hidden" name="stype" id="stype" value="<%=vo.getStype() %>"/>
-						<input type="hidden" name="sval" id="sval" value="<%=vo.getSval() %>"/>
 					</form>
 				</div>
 				<div class="con">
