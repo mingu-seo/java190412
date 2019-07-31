@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import manage.reservation.ReservationDAO;
+import manage.reservation.ReservationVO;
 import property.SiteProperty;
 import util.FileUtil;
 import util.Page;
@@ -21,6 +23,7 @@ public class ProgramService {
 	
 	@Autowired
 	private ProgramDAO programDao;
+	private ReservationDAO reservationDao;
 	
 	public int[] count(ProgramVO vo) throws Exception {
 		int rowCount = programDao.count(vo);
@@ -31,6 +34,7 @@ public class ProgramService {
 		return rowPageCount;
 	}
 
+	
 	public ArrayList list(ProgramVO vo) throws Exception {
 		ArrayList list = programDao.list(vo);
 		
@@ -95,6 +99,7 @@ public class ProgramService {
 	public void insertOption(HttpServletRequest request, int program_pk) throws SQLException {
 	      String[] date = request.getParameterValues("date");
 	      String[] time = request.getParameterValues("time");
+	      
 	      int optSize =	date.length;
 	      for (int i = 0; i < optSize; i++) {
 	         HashMap m = new HashMap();
@@ -105,8 +110,10 @@ public class ProgramService {
 	      }
 	   }
 	
-	public void deleteOption(int program_pk) throws SQLException{
-		
+	public int deleteOption(int program_pk) throws SQLException{
+			int cnt = programDao.deleteOption(program_pk);
+			return cnt;		
 	}
+	
 
 }
