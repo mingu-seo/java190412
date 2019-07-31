@@ -376,9 +376,7 @@ function pwdCkeck(){
 									<tr>
 									<th scope="row"><label for="">상세주소</label></th>
 										<td >
-											<input type ="text" id="addr_detail" name="addr_detail" style="width:400px; height:20px;"/>
-
-								
+											<input type ="text" id="addr_detail" name="addr_detail" style="width:400px; height:20px;"/>								
 										</td>
 										<td></td>
 										<td></td>

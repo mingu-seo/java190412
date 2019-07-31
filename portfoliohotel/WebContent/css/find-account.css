@@ -19,33 +19,16 @@
 /* notice list */
 .support-list {height:60px;}
 .support-list-center {width:900px; margin:0 auto;}
-.support-list-center li {width:33.333333%; float:left; text-align:center; line-height:60px; background-color:#fff; border:1px solid #eee;}
+.support-list-center li {width:50%; float:left; text-align:center; line-height:60px; background-color:#fff; border:1px solid #eee;}
 .support-list-center li.on {background-color:#1d1d1d;border:1px solid #1d1d1d;}
 .support-list-center li a {display:block; color:#1d1d1d;}
 .support-list-center li.on a {color:#fff;}
 
-/* notice 게시판
-.notice-table {width:1140px; margin:0 auto; padding-top:80px; padding-bottom:100px;}
-
-.table-box {width:100%;}
-.table-box table {width:100%;}
-.table-box table tr {width:100%; height:60px; border-bottom:1px solid #eee; line-height:60px; text-indent:30px; color:#454545;}
-.table-box table tr th {text-align:left; width:86%; font-weight:500;}
-.table-box table tr td a {color:#454545; display:block;}
-.table-date {font-weight:200; font-size:14px;}
-
-/* 테이블 페이지 넘버*/
-/* .table-page {margin-top:200px;}
-.page-number { width:15%; margin:0 auto;}
-.page-number li {float:left;}
-.page-number li a {color:#454545; padding:0 8px;}
-.page-number li.on a {color:#0e693f;}  */
-
 
 .section-edit {padding-top:80px; width:800px; margin:0 auto;}
-.section-edit > h2 {font-size:36px; text-align:center; margin-bottom:50px; }
-.section-edit > h3 {text-align:center; font-size:18px; color:#333;}
-.section-edit > p {text-align:center; font-size:16px; color:#666; margin-top:5px; margin-bottom:30px;}
+.edit-table > h2 {font-size:36px; text-align:center; margin-bottom:50px; }
+.edit-table > h3 {text-align:center; font-size:18px; color:#333;}
+.edit-table > p {text-align:center; font-size:16px; color:#666; margin-top:5px; margin-bottom:30px;}
 
 /* 회원정보수정 */
 .edit-table {width:800px; margin:0 auto; padding-top:60px; padding-bottom:60px; border:1px solid #898989; border-radius: 5px;}
@@ -60,30 +43,20 @@
 #id h6 {font-size:16px; font-weight:500; color:#1d1d1d;}
 #id p {color:#0e693f; line-height:40px;}
 
-.name input {width:100%;  height:46px;}
-.name > div {width:49.5%; float:left;}
-.name1 {margin-right:5px;}
-
+.name li {float:left; width:60%;}
+.name li:first-child {width:40%;}
+/* .name input[name="first_name"] {border-radius:5px 0px 0px 5px;}
+.name input[name="name"] {border-left:none; border-radius:0px 5px 5px 0px;} */
 
 /* 생년월일 */
-.birth {margin-top:20px;}
-.birth label {display:block;}
-.birth input[type="text"] {width:31.2%; height:46px; margin-right:2%; display:inline-block;}
-.birth input[type="text"]:last-child {margin-right:0;}
-
+.birth li {width:32.7%; float:left; margin-right:5px;}
+.birth li:last-child {margin-right:0;}
+.birth li select {width:100%; height:46px; margin-top:10px; border:1px solid #666; border-radius:5px;}
 /* 이메일 */
 .email {margin-top:20px;}
-
-/* 주소 */
-.adress {margin-top:20px;}
-.adress label {display:block;}
-.adress input[id="zipcode"] {width:67.8%; display:inline-block;}
-.adress input.zipcodeBtn {width:31.2%; height:47px;background-color:#0e693f; color:#fff; border:none; border-radius:5px; display:inline-block;}
 
 /* 수정하기버튼 */
 .edit-table .submit-button {width:100%;margin:0 auto; height:50px; background-color:#0e693f; color:#fff; 
                         font-weight:600; border:none; margin-top:35px; }
 .edit-table .submit-button:hover {background-color:rgba(14,105,63,0.8);}
 
-/* delete_account CSS 탈퇴서비스 영역 */
-.section02_del select {width:100%; height:46px; border-radius:5px; border:1px solid #666; padding-left:10px; }

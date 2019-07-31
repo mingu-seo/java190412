@@ -1,23 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="board.member.*" %>
 <%@ page import="java.util.*" %>
-<%@ page import="util.*"%>
 <%
 MemberVO param = (MemberVO)request.getAttribute("vo");
-ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
-MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
-MemberVO data = (MemberVO)request.getAttribute("data");
 %>
-
-<script>
-function goSave() {
-if($("#password").val()!=$("#passwordCheck").val()){
-	alert("비밀번호가 다릅니다.");
-	$("#password").focus();
-	return false;
-}
-}
-</script>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,19 +11,19 @@ if($("#password").val()!=$("#passwordCheck").val()){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/default.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/edit_account.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="/js/gnb.js"></script>
-    <title>비밀번호변경</title>
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/join_complete.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="../js/gnb.js"></script>
+    <title>Tree_로그인페이지</title>
 </head>
 <body>
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="/index"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="../index.html"><img src="../img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">BOOK</a>
@@ -155,60 +141,21 @@ if($("#password").val()!=$("#passwordCheck").val()){
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <%if(sessionMember == null){ %>
-                <a href="/membership/sign_in">Sign in</a>
-                <%}else{ %>
-                <a href="/membership/mypage">My page</a>
-                <%} %>
+                <a href="sign_in.html">SIGN IN</a>
             </div>
         </div>
     </div>
     
-    
     <div id="container">
-        
-        <div class="banner">
-            <div class="notice-section">
-                    <h2>개인정보수정</h2>
-                    <h3>Edit Account</h3>
-                </div>
-        </div>
-        <div class="notice">
-            <div class="support-list">
-                <ul class="support-list-center">
-                    <li><a href="edit_account.do">회원정보 수정</a></li>
-                    <li class="on"><a href="edit_password.do">비밀번호 설정 및 변경</a></li>
-                    <li><a href="delete_account.do">탈퇴요청</a></li>
-                </ul>
-            </div>
-            <div class="section-edit">
-                <h3>사용하실 비밀번호를 설정해주세요.</h3>
-                <p>SNS 인증으로 회원가입시 생성하신 이메일 아이디와 설정하신 비밀번호로 로그인이 가능합니다.</p>
-
-                <div class="edit-table">
-                    <div class="edit-table-right">
-                        <form method="POST">
-                            
-                            <div class="password">
-                                <label for="password">비밀번호</label>
-                                <input type="password" id="passowrd" name="passowrd" placeholder="영문 (소문자), 숫자, 특수문자 포함 8~12자리" maxlength="12">
-                            </div>
-                            <div class="email">
-                                <label for="password1">비밀번호 확인</label>
-                                <input type="password" id="passwordCheck" name="password2" placeholder="비밀번호를 확인해 주세요." maxlength="12">
-                            </div>
-
-                            <div class="submit">
-                                    <input type="submit" value="수정하기" class="submit-button" onclick="goSave();">
-                            </div> 
-                            
-                            
-                        </form>
-                        
-                    </div>
-                    
-                </div>
-            </div>
+        <!-- account section 영역 -->
+        <div class="account-section">
+            <h2>회원가입 완료</h2>
+            <h3>Join Complete</h3>
+        <!-- account section title 영역 끝 -->
+            <div class="account-box clear">
+                <h2>환영합니다 !</h2>
+                <h3>백앤드님, 회원가입을 축하합니다.</h3>
+            </div><!--acoount-box 끝-->
         </div>
     </div>
     <div id="footer">

@@ -54,7 +54,7 @@
         	<isNotEqual property="password" compareValue="">
         	    password = md5(#password#),
         	</isNotEqual>
-        	 name=#name#, tel=#tel#, addr=#addr#, zipcode=#zipcode#, addr_detail=#addr_detail#
+        	 name=#name#, birthday=#birthday#,tel=#tel#, addr=#addr#, zipcode=#zipcode#, addr_detail=#addr_detail#
         where no=#no#
     </update>
     

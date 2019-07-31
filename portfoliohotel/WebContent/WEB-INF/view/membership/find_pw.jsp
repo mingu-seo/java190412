@@ -1,23 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="board.member.*" %>
 <%@ page import="java.util.*" %>
-<%@ page import="util.*"%>
 <%
 MemberVO param = (MemberVO)request.getAttribute("vo");
-ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
-MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
-MemberVO data = (MemberVO)request.getAttribute("data");
 %>
-
-<script>
-function goSave() {
-if($("#password").val()!=$("#passwordCheck").val()){
-	alert("비밀번호가 다릅니다.");
-	$("#password").focus();
-	return false;
-}
-}
-</script>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -27,17 +13,17 @@ if($("#password").val()!=$("#passwordCheck").val()){
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/default.css">
     <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/edit_account.css">
+    <link rel="stylesheet" href="/css/find-account.css">
     <link rel="stylesheet" href="/css/footer.css">
     <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
     <script type="text/javascript" src="/js/gnb.js"></script>
-    <title>비밀번호변경</title>
+    <title>비밀번호찾기</title>
 </head>
 <body>
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="/index"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="../index.html"><img src="../img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">BOOK</a>
@@ -155,11 +141,7 @@ if($("#password").val()!=$("#passwordCheck").val()){
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <%if(sessionMember == null){ %>
-                <a href="/membership/sign_in">Sign in</a>
-                <%}else{ %>
-                <a href="/membership/mypage">My page</a>
-                <%} %>
+                <a href="sign_in.html">SIGN IN</a>
             </div>
         </div>
     </div>
@@ -169,42 +151,106 @@ if($("#password").val()!=$("#passwordCheck").val()){
         
         <div class="banner">
             <div class="notice-section">
-                    <h2>개인정보수정</h2>
-                    <h3>Edit Account</h3>
+                    <h2>아이디/비밀번호 찾기</h2>
+                    <h3>Account</h3>
                 </div>
         </div>
         <div class="notice">
             <div class="support-list">
                 <ul class="support-list-center">
-                    <li><a href="edit_account.do">회원정보 수정</a></li>
-                    <li class="on"><a href="edit_password.do">비밀번호 설정 및 변경</a></li>
-                    <li><a href="delete_account.do">탈퇴요청</a></li>
+                    <li><a href="find_id.html">아이디 찾기</a></li>
+                    <li class="on"><a href="find_pw.html">비밀번호 찾기</a></li>
                 </ul>
             </div>
             <div class="section-edit">
-                <h3>사용하실 비밀번호를 설정해주세요.</h3>
-                <p>SNS 인증으로 회원가입시 생성하신 이메일 아이디와 설정하신 비밀번호로 로그인이 가능합니다.</p>
 
                 <div class="edit-table">
+                        <h3>비밀번호를 잊으셨나요?</h3>
+                        <p>가입하신 이메일 인증을 통해 재설정 하실 수 있습니다.</p>
                     <div class="edit-table-right">
                         <form method="POST">
-                            
-                            <div class="password">
-                                <label for="password">비밀번호</label>
-                                <input type="password" id="passowrd" name="passowrd" placeholder="영문 (소문자), 숫자, 특수문자 포함 8~12자리" maxlength="12">
-                            </div>
                             <div class="email">
-                                <label for="password1">비밀번호 확인</label>
-                                <input type="password" id="passwordCheck" name="password2" placeholder="비밀번호를 확인해 주세요." maxlength="12">
+                                <input type="text" id="email" name="email" placeholder="이메일" maxlength="40">
+                            </div>
+
+                            <ul class="name clear">
+                                <li>
+                                    <input type="text" id="first_name" name="first_name" placeholder="성" maxlength="2">
+                                </li>
+
+                                <li>
+                                    <input type="text" id="name" name="name" placeholder="이름" maxlength="12">
+                                </li>
+                                
+                            </ul>
+                            <ul class="birth clear">
+                                    <li>
+                                        <input type="text" id="birth" name="birth" placeholder="●●●●(생년)" maxlength="4">
+                                    </li>
+    
+                                    <li>
+                                        <select>
+                                            <option>월</option>
+                                            <option>01</option>
+                                            <option>02</option>
+                                            <option>03</option>
+                                            <option>04</option>
+                                            <option>05</option>
+                                            <option>06</option>
+                                            <option>07</option>
+                                            <option>08</option>
+                                            <option>09</option>
+                                            <option>10</option>
+                                            <option>11</option>
+                                            <option>12</option>
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <select>
+                                            <option>일</option>
+                                            <option>01</option>
+                                            <option>02</option>
+                                            <option>03</option>
+                                            <option>04</option>
+                                            <option>05</option>
+                                            <option>06</option>
+                                            <option>07</option>
+                                            <option>08</option>
+                                            <option>09</option>
+                                            <option>10</option>
+                                            <option>11</option>
+                                            <option>12</option>
+                                            <option>13</option>
+                                            <option>14</option>
+                                            <option>15</option>
+                                            <option>16</option>
+                                            <option>17</option>
+                                            <option>18</option>
+                                            <option>19</option>
+                                            <option>20</option>
+                                            <option>21</option>
+                                            <option>22</option>
+                                            <option>23</option>
+                                            <option>24</option>
+                                            <option>25</option>
+                                            <option>26</option>
+                                            <option>27</option>
+                                            <option>28</option>
+                                            <option>29</option>
+                                            <option>30</option>
+                                            <option>31</option>
+                                        </select>
+                                    </li>
+                                    
+                            </ul>
+                            <div class="email">
+                                <input type="text" id="email" name="email" placeholder="연락처" maxlength="40">
                             </div>
 
                             <div class="submit">
-                                    <input type="submit" value="수정하기" class="submit-button" onclick="goSave();">
-                            </div> 
-                            
-                            
+                                    <input type="submit" value="비밀번호 찾기" class="submit-button">
+                            </div>
                         </form>
-                        
                     </div>
                     
                 </div>
