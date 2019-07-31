@@ -11,24 +11,6 @@ DiningVO data = (DiningVO) request.getAttribute("data");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp"%>
 <script type="text/javascript">
-	<%-- function goDelete() {
-		var del = confirm ('삭제하시겠습니까?');
-		if (del){
-			document.location.href = "process?no=<%=data.getNo()%>&cmd=delete";
-		} else {
-			return false;
-		}
-	} --%>
-
-	/* function goSave() {
-		var save = confirm ('등록하시겠습니까?');
-		if (save){
-			$("#frm").submit();
-			
-		} else {
-			return false;
-		}
-	} */
 
 	function goSave() {
 		if ($("#name").val() == "") {
@@ -70,20 +52,22 @@ DiningVO data = (DiningVO) request.getAttribute("data");
 									summary="관리자 관리 기본내용입니다.">
 									<colgroup>
 										<col width="15%" />
+										<col width="20%" />
 										<col width="15%" />
-										<col width="15%" />
-										<col width="15%" />
-										<col width="15%" />
-										<col width="15%" />
-										<col width="10%" />
+										<col width="20%" />
 									</colgroup>
 									<tbody>
 										<tr>
 											<th scope="row"><label for="">다이닝명</label></th>
-											<td colspan="2"><%=data.getName()%></td>
-											
+											<td colspan="4"><%=data.getName()%></td>
+										</tr>
+										<tr>	
 											<th scope="row"><label for="">가격</label></th>
-											<td colspan="2"><%=data.getPrice()%></td>
+											<td colspan="4"><%=data.getPrice()%></td>
+										</tr>
+										<tr>	
+											<th scope="row"><label for="">수량</label></th>
+											<td colspan="4"><%=data.getCount()%></td>
 										</tr>
 										<tr>
 											<th scope="row"><label for="">운영기간 시작일</label></th>
@@ -103,8 +87,6 @@ DiningVO data = (DiningVO) request.getAttribute("data");
 											<th scope="row"><label for="">안내</label></th>
 											<td colspan="5"><%=data.getInfo()%></td>
 										</tr>
-										<!-- <input type="hidden" name="product_pk" value="product_pk"> -->
-										<!-- value=서버로 넘길 값 -->
 									</tbody>
 									</table>
 								<div class="btn">

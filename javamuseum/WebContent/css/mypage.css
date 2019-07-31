@@ -8,7 +8,7 @@
 /* 텝메뉴 버튼 */
 .con2{margin-top: 90px;}
 .con2-center{width: 1200px; margin: 0 auto; border: 2px solid  #191919;}
-.con2-gr{float: left; width: 298px; height: 220px; text-align: center; padding: 20px 0;}
+.con2-gr{float: left; width: 298px; height: 220px; text-align: center; padding: 20px 0; cursor:pointer;}
 .con2-gr > img{width: 80px; height: 70px; margin-top: 10px;}
 .con2-gr h3{font-size: 24px; margin-top: 14px; margin-bottom: 8px;}
 /* div 간격 바 */

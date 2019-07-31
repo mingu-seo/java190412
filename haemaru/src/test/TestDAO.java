@@ -2,6 +2,7 @@ package test;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.springframework.stereotype.Repository;
 
@@ -16,12 +17,12 @@ public class TestDAO extends SqlMapClientDAOSupport {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		TestDAO dao = new TestDAO();
-		ArrayList<TestVO> list = dao.getList();
+		int[] res_hour = new int[3];
+		res_hour[0] = 0;
+		res_hour[1] = 2;
+		res_hour[2] = 1;
 		
-		for (int i=0; i<list.size(); i++) {
-			System.out.println(list.get(i).getNo() + " " + list.get(i).getId() + " " +list.get(i).getName());
-		}
+		System.out.println(Arrays.binarySearch(res_hour, 2));
 	}
 
 }

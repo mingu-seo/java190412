@@ -29,5 +29,5 @@
 .con3-iconbox > div >  a > img{width: 40px; height: 50px; }
 /* 전송하기버튼 */
 .con3-center{width: 1200px; margin: 0 auto;}
-#con3-btn{width: 150px; height: 50px; float: right; border: none; background-color: #191919; color: #fff; margin-bottom: 50px;}
+#con3-btn{width: 150px; height: 50px; float: right; border: none; background-color: #191919; color: #fff; margin-bottom: 50px; text-align: center;    padding: 12px 0px;}
 /* 대관신청 작성하기 끝 */

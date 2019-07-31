@@ -77,8 +77,8 @@
 /* 주소 */
 .adress {margin-top:20px;}
 .adress label {display:block;}
-.adress input[id="adress1"] {width:67.8%; display:inline-block;}
-.adress button {width:31.2%; height:47px;background-color:#0e693f; color:#fff; border:none; border-radius:5px; display:inline-block;}
+.adress input[id="zipcode"] {width:67.8%; display:inline-block;}
+.adress input.zipcodeBtn {width:31.2%; height:47px;background-color:#0e693f; color:#fff; border:none; border-radius:5px; display:inline-block;}
 
 /* 수정하기버튼 */
 .edit-table .submit-button {width:100%;margin:0 auto; height:50px; background-color:#0e693f; color:#fff; 

@@ -107,15 +107,15 @@ function goSearch() {
 								%>
 									<tr <%=topClass%>>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
-										<td <%=targetUrl%>><%=data.getNo()%></td>
-										<td <%=targetUrl%>><%=data.getName()%></td>
-										<td <%=targetUrl%>><%=CodeUtil.getCategory(data.getCategory())%></td>
-										<td <%=targetUrl%>><%=data.getTitle()%></td>
-										<td <%=targetUrl%>><%=data.getDate()%></td>
-										<td <%=targetUrl%>><%=data.getTime()%></td>
-										<td <%=targetUrl%>><%=data.getState()%></td>
-										<td <%=targetUrl%>><%=DateUtil.getDateTimeFormat(data.getRegistdate())%></td>
-										<td <%=targetUrl%>><%=DateUtil.getDateTimeFormat(data.getModifydate())%></td>
+										<td><%=data.getNo()%></td>
+										<td><%=data.getName()%></td>
+										<td><%=CodeUtil.getCategory(data.getCategory())%></td>
+										<td><%=data.getTitle()%></td>
+										<td><%=data.getDate()%></td>
+										<td><%=data.getTime()%></td>
+										<td><%=data.getState()%></td>
+										<td><%=DateUtil.getDateTimeFormat(data.getRegistdate())%></td>
+										<td><%=DateUtil.getDateTimeFormat(data.getModifydate())%></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
 								<%

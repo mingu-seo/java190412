@@ -4,7 +4,6 @@
 <%@ page import="util.*"%>
 <%@ page import="property.*"%>
 <%
-	ProgramVO param = (ProgramVO) request.getAttribute("param");
 	ProgramVO data = (ProgramVO) request.getAttribute("data");
 	ArrayList<HashMap> olist = (ArrayList<HashMap>) request.getAttribute("olist");
 %>
@@ -15,9 +14,12 @@
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp"%>
 <script>
 	var oEditors; // 에디터 객체 담을 곳
+	
 	jQuery(window).load(function() {
 		oEditors = setEditor("contents"); // 에디터 셋팅
-
+		for(var i=0; i<<%=olist.size()%>; i++){
+		initCal({id:'date'+i,type:"day",today:"y"});
+		}
 	});
 
 	function goSave() {
@@ -50,10 +52,10 @@
 		var sHTML = oEditors.getById["contents"].getIR();
 		if (sHTML == "" || sHTML == "<p><br></p>") {
 			alert('내용을 입력하세요.');
-			$("#contents").focus();
+			oEditors.getById["contents"].exec("FOCUS");
 			return false;
 		} else {
-			oEditors.getById["contents"].exec("UPDATE_INFO_FIELD", []); // 에디터의 내용이 textarea에 적용됩니다.
+			oEditors.getById["contents"].exec("UPDATE_CONTENTS_FIELD", []); // 에디터의 내용이 textarea에 적용됩니다.
 		}
 
 
@@ -62,26 +64,33 @@
 	}
 
 	$(function() {
-		var trIdx =
-<%=olist.size()%>
-	$(".addBtn").click(function() {
-    	var trObj ="<tr class='addTr"+trIdx+"'>";;
-		trObj += "<td><input type='text' id='date'";
-		trObj += "name='date"+ trIdx + "'"  ;
-		trObj += "class='inputTitle' value='<%=DateUtil.getToday()%>' title='등록일을 입력해주세요' /><span id='CaldateIcon' name='CaldateIcon'><img src='/manage/img/calendar_icon.png' id='CalregistdateIconImg' style='cursor:pointer;'/></span></td>";
-		trObj += "<td><select name='time'><%=CodeUtil.getP_timeType(0)%></select></td>";
-		trObj += "<td><input type=\"button\" value=\"삭제\" class=\"delBtn\"/></td>";
-		trObj += "</tr>";
+		var trIdx = <%=olist.size()%>;
+		$(".addBtn").click(function() {
+	    	var trObj ="<tr class='addTr'>";
+			trObj += "<td><input type='text' id='date"+trIdx+"'";
+			trObj += "name='date'"  ;
+			trObj += "class='inputDate' value='<%=DateUtil.getToday()%>' title='등록일을 입력해주세요' /><span id='Caldate"+trIdx+"Icon' name='Caldate"+trIdx+"Icon'><img src='/manage/img/calendar_icon.png' id='Caldate"+trIdx+"IconImg' style='cursor:pointer;'/></span></td>";
+			trObj += "<td><select name='time'><%=CodeUtil.getP_timeType(0)%></select></td>";
+			trObj += "<td><input type=\"button\" value=\"삭제\" class=\"delBtn\"/></td>";
+			trObj += "</tr>";
+			
+			$("#optionTable").append(trObj);
+			var calId = "date"+trIdx; 
+			initCal({id:calId ,type:"day",today:"y"});
+			trIdx++;
+			
+			$(".delBtn").off("click");
+			$(".delBtn").click(function() {
+				var idx = $(".delBtn").index(this);
+				$(".addTr").eq(idx).remove();
+			});
 		
-		initCal({id:"date" ,type:"day",today:"y"});
-		$("#optionTable").append(trObj);
-		trIdx++;
 		});
 	});
-
-	function delTr(addTr) {
+	function delBtn(addTr) {
 		$("." + addTr).remove();
 	}
+
 </script>
 </head>
 <body>
@@ -135,7 +144,7 @@
 											</tr>
 											<tr>
 												<th scope="row"><label for="">대상</label></th>
-												<td><input type="text" id="target" name="target" class="w50" title="프로그램 대상을 입력해주세요" /></td>
+												<td><input type="text" id="target" name="target" class="w50" title="프로그램 대상을 입력해주세요" value="<%=data.getTarget()%>"/></td>
 												<th scope="row"><label for="">노출여부</label></th>
 												<td><select name="display">
 													<%=CodeUtil.getDisplayOp(data.getDisplay())%>
@@ -169,11 +178,17 @@
 															for (int i = 0; i < olist.size(); i++) {
 														%>
 														<tr class="addTr<%=i%>">
-															<td><input type='text' id='date' name='date' class='inputTitle' value='<%=DateUtil.getToday()%>'/><span id='CaldateIcon<%=i%>' name='CaldateIcon<%=i%>'><img src='/manage/img/calendar_icon.png' id='CalregistdateIconImg' style='cursor:pointer;'/></span></td>
-															<td><select type="text" name="time" ><%=CodeUtil.getP_timeType(1)%></select>
+															<td>
+																<input type='text' id='date<%=i%>' name="date" class='inputDate' value='<%=olist.get(i).get("date")%>'/>
+																<span id='Caldate<%=i%>Icon' name='Caldate<%=i%>Icon'><img src='/manage/img/calendar_icon.png' id='Caldate<%=i%>IconImg' style='cursor:pointer;'/></span></td>
+															<td>
+																<select name="time" >
+																	<%=CodeUtil.getP_timeType((Integer)olist.get(i).get("time"))%>
+																</select>
 															</td>
-															<td><input type="button" value="삭제"
-																onclick="delTr('addTr<%=i%>')" /></td>
+															<td>
+																<input type="button" value="삭제" onclick="delBtn('addTr<%=i%>')" />
+															</td>
 														</tr>
 														<%
 															}
@@ -214,8 +229,9 @@
 											</tr>
 											<tr>
 												 <th scope="row"><label for="">내용</label></th>
-												<td colspan="5"><textarea id="contents" name="contents"
-														title="내용을 입력해주세요" style="width: 100%;"><%=Function.checkNull(data.getContents())%></textarea>
+												<td colspan="5">
+												<textarea id="contents" name="contents"
+														  title="내용을 입력해주세요" style="width: 100%;"><%=Function.checkNull(data.getContents())%></textarea>
 												</td>
 											</tr>
 

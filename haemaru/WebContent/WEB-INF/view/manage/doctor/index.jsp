@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="manage.doctor.*"%>
+<%@ page import="manage.doctor.sched.*"%>
 <%@ page import="util.*"%>
 <%@ page import="java.util.*"%>
 <%
@@ -41,18 +42,18 @@
 					<div class="con_tit">
 						<h2>의료진관리 - [목록]</h2>
 					</div>
-					
+
 					<!-- //con_tit -->
 					<div class="con">
 						<!-- 내용 : s -->
 						<div id="bbs">
 							<div id="blist">
-						
+
 								<p>
 									<span><strong>총 <%=totCount%>개
 									</strong> | <%=param.getReqPageNo()%>/<%=totPage%>페이지</span>
 								</p>
-								<form name="frm" id="frm" action="process.do" method="post" >
+								<form name="frm" id="frm" action="process.do" method="post">
 									<table width="100%" border="0" cellspacing="0" cellpadding="0"
 										summary="제품 관리목록입니다.">
 										<colgroup>
@@ -94,13 +95,20 @@
 											<tr>
 												<td class="first"><input type="checkbox" name="no"
 													id="no" value="<%=list.get(i).getNo()%>" /></td>
-													<td <%=targetUrl%>><%=list.get(i).getNo()%></td>
+												<td <%=targetUrl%>><%=list.get(i).getNo()%></td>
 												<td <%=targetUrl%>><%=list.get(i).getName()%></td>
 												<td <%=targetUrl%>><%=list.get(i).getTel()%></td>
-												<td <%=targetUrl%>><%=CodeUtil.getDoctorDepartmentName(list.get(i).getDepartment())%> </td>
-												<td <%=targetUrl%>><%=CodeUtil.getDoctorPositionName(list.get(i).getPosition())%> </td>
-												
-												<td><input type="button" value="일정관리" onclick=""/></td>
+												<td <%=targetUrl%>><%=CodeUtil.getDoctorDepartmentName(list.get(i).getDepartment())%>
+												</td>
+												<td <%=targetUrl%>><%=CodeUtil.getDoctorPositionName(list.get(i).getPosition())%>
+												</td>
+
+												<td>
+													<div class="btnRight">
+														<a class="btns"
+															href="/manage/sched/edit?reqPageNo=<%=list.get(i).getReqPageNo()%>&no=<%=list.get(i).getNo()%>&noType=doctor"><strong>일정관리</strong></a>
+													</div>
+												</td>
 											</tr>
 											<%
 												}
@@ -126,24 +134,33 @@
 								<!-- 페이징 처리 -->
 								<%=Page.indexList(param.getReqPageNo(), totPage, request)%>
 								<!-- //페이징 처리 -->
-								<form name="searchForm" id="searchForm" action="index" method="post">
-								<div class="search">
-									<select name="department" onchange="$('#searchForm').submit();">
-										<option value="0" <%=Function.getSelected(param.getDepartment(), 0)%>>전체</option>
-										<option value="1" <%=Function.getSelected(param.getDepartment(), 1)%>>외과</option>
-										<option value="2" <%=Function.getSelected(param.getDepartment(), 2)%>>내과</option>
-										<option value="3" <%=Function.getSelected(param.getDepartment(), 2)%>>영상의학과</option>
-										<option value="4" <%=Function.getSelected(param.getDepartment(), 2)%>>응급중환자센터</option>
-									</select>
-									<select name="stype" title="검색을 선택해주세요">
-										<option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>
-										<option value="name" <%=Function.getSelected(param.getStype(), "name") %>>이름</option>
-										<option value="tel" <%=Function.getSelected(param.getStype(), "tel") %>>연락처</option>
-									</select>
-									<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />
-									<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />
-								</div>
-							</form>
+								<form name="searchForm" id="searchForm" action="index"
+									method="post">
+									<div class="search">
+										<select name="department"
+											onchange="$('#searchForm').submit();">
+											<option value="0"
+												<%=Function.getSelected(param.getDepartment(), 0)%>>전체</option>
+											<option value="1"
+												<%=Function.getSelected(param.getDepartment(), 1)%>>외과</option>
+											<option value="2"
+												<%=Function.getSelected(param.getDepartment(), 2)%>>내과</option>
+											<option value="3"
+												<%=Function.getSelected(param.getDepartment(), 2)%>>영상의학과</option>
+											<option value="4"
+												<%=Function.getSelected(param.getDepartment(), 2)%>>응급중환자센터</option>
+										</select> <select name="stype" title="검색을 선택해주세요">
+											<option value="all"
+												<%=Function.getSelected(param.getStype(), "all")%>>전체</option>
+											<option value="name"
+												<%=Function.getSelected(param.getStype(), "name")%>>이름</option>
+											<option value="tel"
+												<%=Function.getSelected(param.getStype(), "tel")%>>연락처</option>
+										</select> <input type="text" name="sval" value="<%=param.getSval()%>"
+											title="검색할 내용을 입력해주세요" /> <input type="image"
+											src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />
+									</div>
+								</form>
 								<!-- //search -->
 							</div>
 							<!-- //blist -->

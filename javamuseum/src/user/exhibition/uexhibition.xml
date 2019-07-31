@@ -14,8 +14,18 @@
 		SELECT COUNT(*) FROM display
 	</select>
 	
-	<select id="ticket" parameterClass="Integer" resultClass="uexhibitionvo">
+	<select id="display" parameterClass="Integer" resultClass="uexhibitionvo">
 		SELECT * FROM display
 		WHERE no=#no#
+	</select>
+	
+	<!--  AND startdate like '$startdate$%' -->
+	<select id="edList" parameterClass="uexhibitionvo" resultClass="uexhibitionvo">
+		SELECT * FROM display
+		WHERE state=3
+		<isNotEqual property="stype" compareValue="all">
+			AND ( startdate like '$startdate$%' ) 
+		</isNotEqual>
+		ORDER BY startdate DESC
 	</select>
 </sqlMap>

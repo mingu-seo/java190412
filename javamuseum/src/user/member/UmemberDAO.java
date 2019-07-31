@@ -15,6 +15,6 @@ public class UmemberDAO extends SqlMapClientDAOSupport {
 	}
 	
 	public MemberVO getLoginSessionInfo(MemberVO param) throws SQLException {
-		return (MemberVO) getSqlMapClient().queryForObject("member.loginSessionInfo", param);
+		return (MemberVO) getSqlMapClient().queryForObject("umember.loginSessionInfo", param);
 	}
 }

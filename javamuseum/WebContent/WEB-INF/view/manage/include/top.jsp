@@ -72,7 +72,7 @@ $(window).load(function(){
   				<li><a href="<%=request.getContextPath()%>/manage/member/index" class="parent"><span>회원관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/ticket/index" class="parent"><span>예매 관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/exhibition/index" class="parent"><span>전시 관리</span></a></li>
-				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>대관 관리</span></a></li>
+				<li><a href="<%=request.getContextPath()%>/manage/rental/index" class="parent"><span>대관 관리</span></a></li>
 				<li><a href="<%=request.getContextPath()%>/manage/" class="parent"><span>프로그램</span></a>
 					<div>
 						<ul>

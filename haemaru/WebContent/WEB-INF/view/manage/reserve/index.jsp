@@ -7,7 +7,6 @@
 <%
 ReserveVO param = (ReserveVO) request.getAttribute("vo");
 ArrayList<ReserveVO> list = (ArrayList) request.getAttribute("list");
-ArrayList<MemberVO> mlist = (ArrayList) request.getAttribute("mlist");
 int totCount = (Integer) request.getAttribute("totCount");
 int totPage = (Integer) request.getAttribute("totPage");
 %>
@@ -49,7 +48,6 @@ int totPage = (Integer) request.getAttribute("totPage");
 						<!-- 내용 : s -->
 						<div id="bbs">
 							<div id="blist">
-						
 								<p>
 									<span><strong>총 <%=totCount%>개
 									</strong> | <%=param.getReqPageNo()%>/<%=totPage%>페이지</span>
@@ -58,11 +56,16 @@ int totPage = (Integer) request.getAttribute("totPage");
 									<table width="100%" border="0" cellspacing="0" cellpadding="0"
 										summary="예약 관리목록입니다.">
 										<colgroup>
-											<col class="w3" />
+											<col class="w5" />
 											<col class="w5" />
 											<col class="w10" />
-											<col class="" />
-											<col class="w20" />
+											<col class="w10" />
+											<col class="w10" />
+											<col class="w10" />
+											<col class="w10" />
+											<col class="w10" />
+											<col class="w10" />
+											<col class="w10" />
 										</colgroup>
 										<thead>
 											<tr>
@@ -77,6 +80,7 @@ int totPage = (Integer) request.getAttribute("totPage");
 												<th scope="col">예약날짜</th>
 												<th scope="col">예약시간</th>
 												<th scope="col">예약경로</th>
+												<th scope="col" class="last">예약관리</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -84,7 +88,7 @@ int totPage = (Integer) request.getAttribute("totPage");
 												if (list.size() == 0) {
 											%>
 											<tr>
-												<td class="first" colspan="9">등록된 예약이 없습니다.</td>
+												<td class="first" colspan="10">등록된 예약이 없습니다.</td>
 											</tr>
 											<%
 												} else {
@@ -97,14 +101,19 @@ int totPage = (Integer) request.getAttribute("totPage");
 												<td class="first"><input type="checkbox" name="no"
 													id="no" value="<%=list.get(i).getNo()%>" /></td>
 													<td><%=list.get(i).getNo()%></td>
-													<td><%=list.get(i).getName() %></td>
+													<td <%=targetUrl%> ><%=list.get(i).getName() %></td>
 													<td><%=list.get(i).getTel() %></td>
 													<td><%=CodeUtil.getDoctorDepartmentName(list.get(i).getDoctor_department())%> </td>
 													<td><%=list.get(i).getDoctor_name()%> </td>
 													<td><%=list.get(i).getRes_date() %></td> 
 													<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getRes_hour())%></td>
 													<td ><%=CodeUtil.getReserveRouteName(list.get(i).getRoute())%> </td>
-													
+													<td>
+														<div class="btnRight">
+															<a class="btns"
+																href="<%=param.getTargetURLParam("edit", param, list.get(i).getNo())%>"><strong>예약관리</strong></a>
+														</div>
+													</td>
 											</tr>
 											<%
 												}
@@ -130,23 +139,22 @@ int totPage = (Integer) request.getAttribute("totPage");
 								<!-- 페이징 처리 -->
 								<%=Page.indexList(param.getReqPageNo(), totPage, request)%>
 								<!-- //페이징 처리 -->
-								<%-- <form name="searchForm" id="searchForm" action="index" method="post">
+								<form name="searchForm" id="searchForm" action="index" method="post">
 								<div class="search">
-									<select name="category" onchange="$('#searchForm').submit();">
-										<option value="0" <%=Function.getSelected(param.getCategory(), 0)%>>전체</option>
-										<option value="1" <%=Function.getSelected(param.getCategory(), 1)%>>남성의류</option>
-										<option value="2" <%=Function.getSelected(param.getCategory(), 2)%>>여성의류</option>
-										<option value="3" <%=Function.getSelected(param.getCategory(), 3)%>>아동의류</option>
-									</select>
+									<select name=route onchange="$('#searchForm').submit();">
+											<option value="0" <%=Function.getSelected(param.getRoute(), 0)%>>전체</option>
+											<option value="1" <%=Function.getSelected(param.getRoute(), 1)%>>온라인</option>
+											<option value="2" <%=Function.getSelected(param.getRoute(), 2)%>>오프라인</option>
+											</select>
 									<select name="stype" title="검색을 선택해주세요">
 										<option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>
-										<option value="name" <%=Function.getSelected(param.getStype(), "name") %>>상품명</option>
-										<option value="info" <%=Function.getSelected(param.getStype(), "info") %>>상세정보</option>
+										<option value="name" <%=Function.getSelected(param.getStype(), "name") %>>이름</option>
+										<option value="tel" <%=Function.getSelected(param.getStype(), "tel") %>>연락처</option>
 									</select>
 									<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />
 									<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />
 								</div>
-							</form> --%>
+							</form> 
 								<!-- //search -->
 							</div>
 							<!-- //blist -->

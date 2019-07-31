@@ -3,16 +3,37 @@
 <sqlMap namespace="reservation">
 
    <typeAlias alias="reservationvo" type="manage.reservation.ReservationVO" />
-   <typeAlias alias="programvo" type="manage.program.ProgramVO" />
+   
+   
+      
+   <!-- 공통조건 -->
+   <sql id="searchSql">
+      <!-- WHERE 절 검색 -->
+      <dynamic prepend="where">
+         <!-- 검색어 검색 -->
+         <isNotEqual property="sval" compareValue="" prepend="and">
+            <!-- 검색 타입이 all일 때 -->
+            <isEqual property="stype" compareValue="all" >
+               ((title like '%$sval$%' ) or (instructor like '%$sval$%' ) or (contents like '%$sval$%' ))
+            </isEqual>
+            <!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
+            <isNotEqual property="stype" compareValue="all">
+               ($stype$ like '%$sval$%' )
+            </isNotEqual>
+         </isNotEqual>
+      </dynamic>
+   </sql>
    
 
    <select id="count" parameterClass="reservationvo" resultClass="Integer">
       SELECT count(*) FROM program_res
+      <include refid="searchSql" />
    </select>
 
 	<select id="list" parameterClass="reservationvo" resultClass="reservationvo">
-		SELECT *, (select title from program where no= program_res.program_pk) title ,(select category from program where no= program_res.program_pk) category , (select name from member where no = program_res.member_pk) name
+		SELECT program_res.*, (select title from program where no= program_res.program_pk) title ,(select category from program ) category , (select name from member where no = program_res.member_pk) name, (select id from member where no = program_res.member_pk) id
 		FROM program_res 
+		<include refid="searchSql" />
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
 	</select>
 

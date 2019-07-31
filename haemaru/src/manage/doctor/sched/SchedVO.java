@@ -33,7 +33,16 @@ public class SchedVO extends Parameter {
 	private int fri_res;
 	private int sat_res;
 	private int sun_res;
-
+	
+	private int yoil;
+	private String date;
+	private int start_time;
+	private int end_time;
+	
+	private int department;
+	private int position;
+	
+	
 	public SchedVO() {
 		super.setPageRows(10);
 	}
@@ -260,6 +269,54 @@ public class SchedVO extends Parameter {
 
 	public void setSun_res(int sun_res) {
 		this.sun_res = sun_res;
+	}
+
+	public int getYoil() {
+		return yoil;
+	}
+
+	public void setYoil(int yoil) {
+		this.yoil = yoil;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public int getStart_time() {
+		return start_time;
+	}
+
+	public void setStart_time(int start_time) {
+		this.start_time = start_time;
+	}
+
+	public int getEnd_time() {
+		return end_time;
+	}
+
+	public void setEnd_time(int end_time) {
+		this.end_time = end_time;
+	}
+
+	public int getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(int department) {
+		this.department = department;
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public void setPosition(int position) {
+		this.position = position;
 	}
 	
 	

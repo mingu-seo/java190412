@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="dining.*"%>
+<%@ page import="java.util.*"%>
+<%
+DiningVO param = (DiningVO) request.getAttribute("vo");
+DiningVO data = (DiningVO) request.getAttribute("data");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -177,13 +183,11 @@
         <div class="banner granum-dining">
             <div class="banner-center">
                 <div class="banner-text">
-                    <h2>그라넘 다이닝 라운지
-                        <span>Granum Dining Lounge</span>
-                    </h2>
+                    <h2><span><%=data.getName()%></span></h2>
                     <h3>호텔 1층에 위치한 그라넘 다이닝 라운지는 ‘리프레싱 & 헬시’ 콘셉트의 모던 유러피안 퀴진 입니다.  
                     </h3>
                     <p>
-                        아침에는 투숙 고객과 회원을 위한 건강한 조식 뷔페가 준비되며, 점심은 계절에 따라 테마를 달리한 메인 디시와 다채로운 안티파스토 및 디저트로 구성된 ‘그라넘 런치 테이블’ 세미 뷔페가 펼쳐집니다. 
+                                             아침에는 투숙 고객과 회원을 위한 건강한 조식 뷔페가 준비되며, 점심은 계절에 따라 테마를 달리한 메인 디시와 다채로운 안티파스토 및 디저트로 구성된 ‘그라넘 런치 테이블’ 세미 뷔페가 펼쳐집니다. 
                     </p>
                 </div>
             </div>
@@ -193,29 +197,34 @@
             <div class="contents-info clear">
                 <div class="contents-left">
                     <table>
-                        <tr>
-                            <td class="table-list">위치</td>
-                            <td>더 호텔 1F</td>
+                    	<tr>
+                            <td class="table-list">운영기간 시작일</td>
+                            <td><h2><%=data.getStartdate()%></h2></td>
+                        </tr>
+                       	<tr>
+                            <td class="table-list">운영기간 종료일</td>
+                            <td><h2><%=data.getEnddate()%></h2></td>
                         </tr>
                         <tr>
-                            <td class="table-list time">좌석수</td>
-                            <td>50석</td>
+                            <td class="table-list">예약 가능기간</td>
+                            <td><h2><%=data.getBook_period()%></h2></td>
                         </tr>
                         <tr>
-                            <td class="table-list info">주요사항</td>
-                            <td class="td-lh">금연, 사전예약
+                            <td class="table-list price">가격</td>
+                            <td><h2><%=data.getPrice() %></h2></td>
+                        </tr>
+                       	<tr>
+                            <td class="table-list info">안내</td>
+                            <td class="td-lh">
+                                <h2><%=data.getInfo()%></h2>
                             </td>
-                        </tr>
-                        <tr>
-                            <td class="table-list place">운영시간</td>
-                            <td>06:30 ~ 22:00 (Last Order: 21:30)</td>
                         </tr>
                     </table>
                 </div>
                 <div class="contents-right">
                     <h3>예약 및 이용문의</h3>
                     <h4>전화</h4>
-                    <h4>02 2250 8000</h4>
+                    <h4>02 0000 0000</h4>
                     <a href="/dining/dining_origin_book.do">온라인 예약</a>
                 </div>
             </div>
