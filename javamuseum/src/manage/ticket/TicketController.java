@@ -25,6 +25,7 @@ public class TicketController {
 	@Autowired
 	private MemberService memberService;
 	
+	//예매 메인 페이지
 	@RequestMapping("/manage/ticket/index")
 	public String index(Model model, TicketVO param, ExhibitionVO exparam) throws Exception {
 		int[] rowPageCount = ticketService.count(param);
@@ -41,7 +42,7 @@ public class TicketController {
 		
 		return "manage/ticket/index";
 	}
-	
+	//예매 등록 페이지
 	@RequestMapping("/manage/ticket/write")
 	public String write(Model model, TicketVO param, ExhibitionVO dparam) throws Exception {
 		ArrayList<ExhibitionVO> list = exhibitionService.ingList(dparam);
@@ -51,6 +52,7 @@ public class TicketController {
 		return "manage/ticket/write";
 	}
 	
+	//예매 상세 페이지
 	@RequestMapping("/manage/ticket/read")
 	public String read(Model model, TicketVO param) throws Exception {
 		TicketVO vo = ticketService.read(param.getNo());
@@ -60,16 +62,19 @@ public class TicketController {
 		return "manage/ticket/read";
 	}
 	
+	//예매 수정 페이지
 	@RequestMapping("/manage/ticket/edit")
 	public String edit(Model model, TicketVO param, ExhibitionVO exparam) throws Exception {
 		TicketVO vo = ticketService.read(param.getNo());
 		ArrayList<ExhibitionVO> list = exhibitionService.ingList(exparam);
 		model.addAttribute("vo", vo);
 		model.addAttribute("param", param);
+		model.addAttribute("list", list);
 		
 		return "manage/ticket/edit";
 	}
 	
+	//예매 회원 검색 페이지
 	@RequestMapping("/manage/ticket/searchMemb")
 	public String search(Model model, TicketVO param, MemberVO mparam) throws Exception {
 		int[] rowPageCount = memberService.count(mparam);
@@ -83,13 +88,14 @@ public class TicketController {
 		return "manage/ticket/searchMemb";
 	}
 	
+	//예매 메인 페이지 ajax
 	@RequestMapping("/reserve/update")
 	public String reserveUpdate(Model model, TicketVO param) throws Exception {
 		ticketService.reserveUpdate(param);
-		
 		return "include/return";
 	}
 
+	//예매 등록, 수정, 삭제 실행
 	@RequestMapping("/manage/ticket/process")
 	public String process(Model model, TicketVO param, HttpServletRequest request) throws Exception{
 		model.addAttribute("vo", param);
@@ -99,7 +105,7 @@ public class TicketController {
 			model.addAttribute("message", Function.message(r,  "정상적으로 등록되었습니다.", "등록 실패"));
 			model.addAttribute("url", "index");
 		} else if("edit".equals(param.getCmd())) {
-			int r = ticketService.update(param, request);
+			int r = ticketService.update(param);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r,  "정상적으로 수정되었습니다.", "수정 실패"));
 			model.addAttribute("url", param.getTargetURLParam("read", param, param.getNo()));

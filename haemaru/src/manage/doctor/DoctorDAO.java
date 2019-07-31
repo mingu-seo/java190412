@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import db.SqlMapClientDAOSupport;
 import manage.doctor.DoctorVO;
+import mypet.MypetVO;
 
 
 @Repository
@@ -69,6 +70,10 @@ public class DoctorDAO extends SqlMapClientDAOSupport {
 		 		
 	}
 	
+	public ArrayList<DoctorVO> Intro(DoctorVO param) throws SQLException {
+		return (ArrayList<DoctorVO>)getSqlMapClient().queryForList("doctor.Intro", param);
+	}
+	
 	
 	public static void main(String[] args) throws SQLException {
 		DoctorDAO dd = new DoctorDAO();
@@ -99,4 +104,6 @@ public class DoctorDAO extends SqlMapClientDAOSupport {
 //		pd.reviewList(1);
 		
 	}
+
+
 }

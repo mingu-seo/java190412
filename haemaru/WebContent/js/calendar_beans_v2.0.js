@@ -151,6 +151,11 @@ function calClickEvent(id){
 	jQuery("#" + id + " .calOtherDay,.calDay,.calSunDay,.calSatDay,.MonToday,.selMon,.dayEvMon").click(function(event) {
         jQuery("#" + id.substring(3)).val(this.id.replace(id,""));
 		jQuery("#" + id).hide();
+		
+		jQuery("#" + id.substring(3)).trigger('change');
+		console.log(jQuery("#" + id.substring(3)).val());
+//		jQuery("#" + id.substring(3)).chanage();
+		console.log(id.substring(3));
 	}).mouseover(function(){
 		jQuery(this).addClass("calOnDay");
 	}).mouseout(function(){

@@ -42,7 +42,7 @@
 			<td><img src ="/upload/mypet/<%=list.get(i).getMypet_image()%>" width="40px" height="40px"></td>
 			<td><%=list.get(i).getName() %></td>
 			<td><%=list.get(i).getAge() %></td>
-			<td><%=list.get(i).getGender() %></td>
+			<td><%=list.get(i).getGender() !=1 ? "남아":"여아" %></td>
 			<td><%=list.get(i).getBreed() %></td>
 			<td><%=list.get(i).getVac() %></td>
 			<td><%=list.get(i).getMemo() %></td>

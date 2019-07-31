@@ -1,4 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="board.member.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="util.*"%>
+<%
+MemberVO param = (MemberVO)request.getAttribute("vo");
+ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
+MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
+MemberVO data = (MemberVO)request.getAttribute("data");
+%>
+
+<script>
+function goSave() {
+if($("#password").val()!=$("#passwordCheck").val()){
+	alert("비밀번호가 다릅니다.");
+	$("#password").focus();
+	return false;
+}
+}
+</script>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -18,7 +37,7 @@
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="/index.do"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="/index"><img src="../img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">BOOK</a>
@@ -136,7 +155,11 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="sign_in.do">SIGN IN</a>
+                <%if(sessionMember == null){ %>
+                <a href="/membership/sign_in">Sign in</a>
+                <%}else{ %>
+                <a href="/membership/mypage">My page</a>
+                <%} %>
             </div>
         </div>
     </div>
@@ -168,17 +191,20 @@
                             
                             <div class="password">
                                 <label for="password">비밀번호</label>
-                                <input type="text" id="passowrd" name="passowrd" placeholder="영문 (소문자), 숫자, 특수문자 포함 8~12자리" maxlength="12">
+                                <input type="password" id="passowrd" name="passowrd" placeholder="영문 (소문자), 숫자, 특수문자 포함 8~12자리" maxlength="12">
                             </div>
                             <div class="email">
                                 <label for="password1">비밀번호 확인</label>
-                                <input type="text" id="password1" name="password1" placeholder="비밀번호를 확인해 주세요." maxlength="12">
+                                <input type="password" id="passwordCheck" name="password2" placeholder="비밀번호를 확인해 주세요." maxlength="12">
                             </div>
 
                             <div class="submit">
-                                    <input type="submit" value="수정하기" class="submit-button">
-                            </div>
+                                    <input type="submit" value="수정하기" class="submit-button" onclick="goSave();">
+                            </div> 
+                            
+                            
                         </form>
+                        
                     </div>
                     
                 </div>

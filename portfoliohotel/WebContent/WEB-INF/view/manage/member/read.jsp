@@ -115,6 +115,10 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 										<th scope="row"><label for="">탈퇴 여부</label></th>
 										<td colspan="3"><%=CodeUtil.getSecession(data.getSecession())%></td>
 									</tr> 
+									<tr>
+										<th scope="row"><label for="">탈퇴 사유</label></th>
+										<td colspan="3"><%=CodeUtil.getSecession_reason(data.getSecession_reason())%></td>
+									</tr> 
 									
 								
 								</tbody>

@@ -2,6 +2,7 @@ package room.res;
 
 import java.sql.Timestamp;
 
+import util.DateUtil;
 import util.Parameter;
 
 public class Room_resVO  extends Parameter{
@@ -22,16 +23,23 @@ public class Room_resVO  extends Parameter{
 	private int total_price; //총 금액
 	private String guest_kname; //숙박 고객 한글명
 	private String guest_ename; //숙박 고객 영문명
-	private int guest_tel; //숙박 고객 연락처
+	private String guest_tel; //숙박 고객 연락처
 	private String guest_email; //숙박 고객 이메일
 	private int pay_method; //결제 방법 (0:무통장입금  1:신용카드)
 	private int pay_state; //결제 상태 (0:미결제  1:결제)
 	private int res_state; //예약 상태 (0:취소  1:예약)
 	
-	private Timestamp paydate; //결제일
+	private String paydate; //결제일
+	
+	private int category; //예약 내역 (1:지난 예약  2:다가오는 예약  3:신청된 예약  4:취소된 예약)
+	private String scheckin; //검색조건 체크인
+	private String scheckout; //검색조건 체크아웃
 	
 	public Room_resVO() {
 		super.setPageRows(10);
+	}	
+	public Room_resVO(int pageRows) {
+		super.setPageRows(pageRows);
 	}
 	
 	public int getNo() {
@@ -82,7 +90,7 @@ public class Room_resVO  extends Parameter{
 	public String getGuest_ename() {
 		return guest_ename;
 	}
-	public int getGuest_tel() {
+	public String getGuest_tel() {
 		return guest_tel;
 	}
 	public String getGuest_email() {
@@ -145,7 +153,7 @@ public class Room_resVO  extends Parameter{
 	public void setGuest_ename(String guest_ename) {
 		this.guest_ename = guest_ename;
 	}
-	public void setGuest_tel(int guest_tel) {
+	public void setGuest_tel(String guest_tel) {
 		this.guest_tel = guest_tel;
 	}
 	public void setGuest_email(String guest_email) {
@@ -161,12 +169,29 @@ public class Room_resVO  extends Parameter{
 		this.res_state = res_state;
 	}
 
-	public Timestamp getPaydate() {
+	public String getPaydate() {
 		return paydate;
 	}
-	public void setPaydate(Timestamp paydate) {
+	public void setPaydate(String paydate) {
 		this.paydate = paydate;
 	}
-	
+	public int getCategory() {
+		return category;
+	}
+	public void setCategory(int category) {
+		this.category = category;
+	}
+	public String getScheckin() {
+		return scheckin;
+	}
+	public String getScheckout() {
+		return scheckout;
+	}
+	public void setScheckin(String scheckin) {
+		this.scheckin = scheckin;
+	}
+	public void setScheckout(String scheckout) {
+		this.scheckout = scheckout;
+	}
 	
 }

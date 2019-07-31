@@ -90,6 +90,12 @@ CHANGE COLUMN `chechout` `checkout` CHAR(10) NULL DEFAULT NULL ;
 ALTER TABLE `portfoliohotel`.`room_res` 
 ADD COLUMN `paydate` TIMESTAMP NULL AFTER `res_state`;
 
+ALTER TABLE `portfoliohotel`.`room_res` 
+CHANGE COLUMN `paydate` `paydate` CHAR(10) NULL DEFAULT NULL ;
+
+ALTER TABLE `portfoliohotel`.`room_res` 
+CHANGE COLUMN `guest_tel` `guest_tel` VARCHAR(11) NULL DEFAULT NULL ;
+
 
 CREATE TABLE `room_service` (
   `no` int(11) NOT NULL AUTO_INCREMENT,
@@ -199,5 +205,6 @@ CREATE TABLE `qna` (
   `send_email` int(11) DEFAULT NULL,
   `name` varchar(45) DEFAULT NULL,
   `filesize` mediumtext,
+  `file_chk` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8

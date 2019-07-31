@@ -19,13 +19,13 @@ public class MainController {
 	@Autowired
 	private MemberService memberService;
 
-	@RequestMapping("/manage/member")
+	@RequestMapping("/membership")
 	public String main(Model model) throws Exception {
 
-		return "manage/member";
+		return "membership";
 	}
 	
-	@RequestMapping("/manage/member/login")
+	@RequestMapping("/membership/login")
 	public String login(Model model, @RequestParam(value="login_url", required=false) String login_url, @RequestParam(value="login_param", required=false) String login_param, MemberVO vo, HttpSession session) throws Exception {
 		if (memberService.loginCheck(vo)) {
 			
@@ -47,7 +47,7 @@ public class MainController {
 			return "redirect:"+redirectUrl;
 		} else {
 			model.addAttribute("code", "alertMessageBack");
-			model.addAttribute("message", "이메일, 비밀번호가 올바르지 않습니다.");
+			model.addAttribute("message", "이메일 또는 비밀번호가 올바르지 않습니다.");
 			return "include/alert";
 		}
 	}
@@ -57,13 +57,13 @@ public class MainController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/manage/member/logout")
-	public String logout(Model model) {
+	@RequestMapping("/membership/logout")
+	public String logout(Model model , HttpSession session) {
 		//loginInfoProvider.get().remove();
-		
+		session.invalidate();
 		model.addAttribute("code", "alertMessageUrl");
 		model.addAttribute("message", "정상적으로 로그아웃 되었습니다.");
-		model.addAttribute("url", "/manage");
+		model.addAttribute("url", "/index");
 		
 		return "include/alert";		
 	}

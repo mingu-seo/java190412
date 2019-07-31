@@ -718,25 +718,6 @@ public class CodeUtil {
 	    return result;
 	}
 	 
-	 
-	 // 룸 카테고리
-	 public static String getRoomName(int room) {
-			String result = "";
-			if (room == 1) {
-				result = "Namsan Pool Deluxe Room";
-			} else if (room == 2) {
-				result = "Namsan Pool Premier Suite";
-			} else if (room == 3) {
-				result = "Namsan Presidential Suite";
-			} else if (room == 4) {
-				result = "Spa Sanctuary Suite";
-			} else if (room == 5) {
-				result = "Portfolio Pool Presidential Suite";
-			}
-			
-			return result;
-		}	
-	 
 	 // 객실 예약 결제 방법
 	 public static String getPayMethod(int pay_method) {
 		 String result = "";
@@ -746,6 +727,14 @@ public class CodeUtil {
 			 result = "신용카드";
 		 }
 		 return result;
+	 }	 
+	 
+	 //저장된 예약 결제 상태
+	 public static String getPayMethodOption(int arg){
+	        StringBuffer result = new StringBuffer();
+	        	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getPayMethod(0)+"</option>");
+	        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getPayMethod(1)+"</option>");
+	        return result.toString();
 	 }
 	 
 	 // 객실 예약 결제 상태
@@ -759,6 +748,14 @@ public class CodeUtil {
 		 return result;
 	 }
 	 
+	 //저장된 예약 결제 상태
+	 public static String getPayStateOption(int arg){
+	        StringBuffer result = new StringBuffer();
+	        	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getPayState(0)+"</option>");
+	        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getPayState(1)+"</option>");
+	        return result.toString();
+	 }
+	 
 	 // 객실 예약 상태
 	 public static String getResState(int res_state) {
 			 String result = "";
@@ -769,6 +766,14 @@ public class CodeUtil {
 			 }
 			 return result;
 		 }
+	 
+	 //저장된 예약 상태
+	 public static String getResStateOption(int arg){
+	        StringBuffer result = new StringBuffer();
+	        	result.append("<option value='0'"+Function.getSelected(0,arg)+">"+getResState(0)+"</option>");
+	        	result.append("<option value='1'"+Function.getSelected(1,arg)+">"+getResState(1)+"</option>");
+	        return result.toString();
+	 }
 	 
 	 public static String getGender(int gender) {
 			String result = "";
@@ -813,14 +818,34 @@ public class CodeUtil {
 	 
 	 public static String getSecession(int secession) {
 			String result = "";
-			if (secession == 1) {
+			if (secession == 0) {
 				result = "";
-			} else if (secession == 2) {
-				result = "탈퇴한 회원";
+			} else if (secession == 1) {
+				result = "탈퇴요청";
 			}
 			
 			return result;
 		}
+	 
+	 public static String getSecession_reason(int secession) {
+			String result = "";
+			if(secession == 0) {
+				result="";
+			} else if (secession == 1) {
+				result = "더 이상 서비스를 사용하지 않음";
+			} else if (secession == 2) {
+				result = "서비스가 불편함";
+			}else if (secession == 3) {
+				result = "시스템 장애(속도 저조, 에러등)";
+			}else if (secession == 4) {
+				result = "장기간 부재(군 입대, 유학등)";
+			}else if (secession == 5) {
+				result = "기타사유";
+			}
+			
+			return result;
+		}
+	 
 
 	 public static String getTopName(int top) {
 		 String result = "";

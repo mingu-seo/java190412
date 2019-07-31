@@ -8,8 +8,8 @@ public class Dining_resVO extends Parameter {
 
 	private int no; // pk
 	private int price; // 결제 금액
-	private int member_pk; // member_pk
-	private int dining_pk; // dining_pk
+	private int member_pk; 
+	private int dining_pk; 
 	private String member_name; // 회원명
 	private String dining_name; // 다이닝명
 	private String d_day; // 예약날짜
@@ -21,7 +21,6 @@ public class Dining_resVO extends Parameter {
 	private int guest_tel; // 투숙객 연락처
 	private String guest_email; // 투숙객 이메일
 	private Timestamp regdate; // 예약신청일
-	
 	private String orderCond; // 정렬조건
 	
 	public Dining_resVO() {

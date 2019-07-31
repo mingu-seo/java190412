@@ -168,7 +168,7 @@ int totPage = (Integer)request.getAttribute("totPage");
                 <ul class="support-list-center">
                     <li><a href="notice.html">공지사항</a></li>
                     <li><a href="faq.html">FAQ</a></li>
-                    <li class="on"><a href="qna.do">Q&A</a></li>
+                    <li class="on"><a href="qna">Q&A</a></li>
                 </ul>
             </div>
             <div class="qna-table">
@@ -176,48 +176,80 @@ int totPage = (Integer)request.getAttribute("totPage");
                     <!-- qna 제목 table 구역 -->
                     <table>
                         <tr class="table-head">
-                            <th>내용</th>
-                            <th>작성자</th>
-                            <th>등록일</th>
-                            <th>답글여부</th>
+                            <th>제목</th>
+                            <th class="w10">답변여부</th>
+                            <th class="w10">작성자</th>
+                            <th class="w10">작성일</th>
+                            
                         </tr>
+                       	 <%
+							if (totCount == 0) {
+						 %>
+							<tr>
+								<td class="first" colspan="8">등록된 글이 없습니다.</td>
+							</tr>
+						<%
+							} else {
+									String targetUrl = "";
+									String topClass = "";
+									QnaVO data;
+									String bgColor ="";
+																
+									for (int i=0; i<list.size(); i++) {
+												data = list.get(i);
+												targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, data.getNo())+"'\"";
+												bgColor = (data.getReply()==0)?"#ffffff":"#e8e8e8";
+																	
+								%>
                         <tr>
-                            <td><a href="#">┌ 회원탈퇴에 대한 답변입니다.</a></td>
-                            <td class="table-date">2019-06-20</td>
-                            <td></td>
-                            <td></td>
+                        	<% 
+                        	
+							String[] nameArr= data.getName().split(",");		
+							%>
+                            <td <%=targetUrl%> class="title"><a href="#"><%=data.getTitle() %></a></td>
+                            <td <%=targetUrl%> class="table-date"><%=CodeUtil.getReplyExist(data.getReply())%></td>
+                            <td <%=targetUrl%> class="name"><a href="#"><%=nameArr[0]%><%=nameArr[1]%></a></td>
+                            <td><a href="#"><%=DateUtil.getDateFormat(data.getRegdate())%></a></td>
+                            
+                            
+                            
                         </tr>
-                        <tr>
-                            <td><a href="#">회원탈퇴를 하고싶어요.</a></td>
-                            <td class="table-date">2019-06-19</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                       
+                        <%
+									}
+								 }
+						%>
                     </table>
-
+                    	<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
+						<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
+						<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
+						<input type="hidden" name="no" id="no" value="<%=param.getNo() %>"/>
+						<input type="hidden" name="email" id="email" value="<%=param.getEmail() %>"/>
+						
                     <!-- 검색창 구역 -->
+                    <form name="searchForm" id="searchForm" action="qna" method="post">
                     <div class="search">
-                            <select>
-                                <option>분류</option>
-                                <option selected>제목</option>
-                                <option>이름</option>
-                                <option>내용</option>
+                            <select name="stype">
+                                <option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>
+								<option value="name" <%=Function.getSelected(param.getStype(), "name") %>>작성자</option>
+								<option value="email" <%=Function.getSelected(param.getStype(), "email") %>>이메일</option>
+								<option value="title" <%=Function.getSelected(param.getStype(), "title") %>>제목</option>
                             </select>
-                            <input type="text" id="text" placeholder="text">
-                            <button>검색</button>
+                            <input type="text" name="sval" value="<%=param.getSval()%>" id="text" placeholder="text">
+                            <button class="sbtn" alt="검색" >검색</button>
+                            
                     </div>
+                    </form>
                 </div>
+                
 
                 <!-- 글쓰기 버튼 구역 -->
                 <div class="qna-q-btn">
-                    <p><a href="qna_q.do">글 쓰기</a></p>
+                    <p><a href="qna_q">글 쓰기</a></p>
                 </div>
                 <div class="table-page">
                     <ul class="page-number clear">
-                        <li class="on"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
+                        <%=Page.indexList(param.getReqPageNo(), totPage, request)%>
                     </ul>
                 </div>
             </div>

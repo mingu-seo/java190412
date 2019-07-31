@@ -32,6 +32,7 @@ public class TicketVO extends Parameter{
 	private int point_pk;				//포인트pk
 	private int usepoint;				//사용포인트
 	private int storepoint;				//적립포인트
+	private int point;
 	
 	private String displaydate;			//구경 일자
 	private String reservedate;			//예매 일자
@@ -55,6 +56,14 @@ public class TicketVO extends Parameter{
 	
 	public TicketVO() {
 		super.setPageRows(10);
+	}
+	
+	public int getPoint() {
+		return point;
+	}
+	
+	public void setPoint(int point) {
+		this.point = point;
 	}
 	
 	public int getState() {

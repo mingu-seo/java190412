@@ -19,6 +19,7 @@ ExhibitionVO data = (ExhibitionVO)request.getAttribute("data");
 			return false;
 		}
 	}
+	
 </script>
 </head>
 <body> 
@@ -54,7 +55,7 @@ ExhibitionVO data = (ExhibitionVO)request.getAttribute("data");
 										<td colspan="2"height="0" width="0">
 										<div style="height:100%; width:100%"><img src="/upload/exhibition/<%=data.getImagename()%>" width="100%" height="auto" /></div></td>
 										<th scope="row"><label for="">프리뷰</label></th>
-										<td><%=data.getPreview()%></td>
+										<td><%=data.getPreview().replaceAll("\n","<br>")%></td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">전시관</label></th>

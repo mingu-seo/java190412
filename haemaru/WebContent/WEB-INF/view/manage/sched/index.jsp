@@ -58,8 +58,8 @@
 										<colgroup>
 											<col class="w5" />
 											<col class="w5" />
-											<col class="w5" />
-											<col class="w5" />
+											<col class="w7" />
+											<col class="w7" />
 											<col class="w5" />
 											<col class="w5" />
 											<col class="w5" />
@@ -78,11 +78,14 @@
 										</colgroup>
 										<thead>
 											<tr>
-												<th scope="col" class="first"><input type="checkbox"
-													name="allChk" id="allChk"
-													onClick="check(this, document.frm.no)" /></th>
-												<th scope="col">번호</th>
+												<th scope="col"class="first">번호</th>
 												<th scope="col">이름</th>
+												<th scope="col">부서</th>
+												<th scope="col">직급</th>
+												<th scope="col">일요일<br>시작시간 
+												</th>
+												<th scope="col">일요일<br>종료시간 
+												</th>
 												<th scope="col">월요일<br>시작시간
 												</th>
 												<th scope="col">월요일<br>종료시간
@@ -107,15 +110,7 @@
 												</th>
 												<th scope="col">토요일<br>종료시간
 												</th>
-												<th scope="col">일요일<br>시작시간
-												</th>
-												<th scope="col">일요일<br>종료시간
-												</th>
-												<th scope="col">공휴일<br>시작시간
-												</th>
-												<th scope="col">공휴일<br>종료시간
-												</th>
-												<th scope="col"></th>
+												<th scope="col" class="last"></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -123,7 +118,7 @@
 												if (list.size() == 0) {
 											%>
 											<tr>
-												<td class="first" colspan="20">등록된 회원이 없습니다.</td>
+												<td class="first" colspan="17">등록된 회원이 없습니다.</td>
 											</tr>
 											<%
 												} else {
@@ -133,10 +128,12 @@
 																+ param.getTargetURLParam("read", param, list.get(i).getNo()) + "'\"";
 											%>
 											<tr>
-												<td class="first"><input type="checkbox" name="no"
-													id="no" value="<%=list.get(i).getNo()%>" /></td>
-												<td><%=list.get(i).getNo()%></td>
+												<td class="first"><%=list.get(i).getNo()%></td>
 												<td><%=list.get(i).getName()%></td>
+												<td><%=CodeUtil.getDoctorDepartmentName(list.get(i).getDepartment())%></td>
+												<td><%=CodeUtil.getDoctorPositionName(list.get(i).getPosition())%></td>
+												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getSun_start())%></td>
+												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getSun_end())%></td>
 												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getMon_start())%></td>
 												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getMon_end())%></td>
 												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getTue_start())%></td>
@@ -147,10 +144,6 @@
 												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getThu_end())%></td>
 												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getFri_start())%></td>
 												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getFri_end())%></td>
-												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getSat_start())%></td>
-												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getSat_end())%></td>
-												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getSun_start())%></td>
-												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getSun_end())%></td>
 												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getSat_start())%></td>
 												<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getSat_end())%></td>
 												<td>
@@ -171,12 +164,6 @@
 										value="<%=param.getStype()%>" /> <input type="hidden"
 										name="sval" id="sval" value="<%=param.getSval()%>" />
 								</form>
-								<div class="btn">
-									<div class="btnLeft">
-										<a class="btns" href="#" onclick="groupDelete();"><strong>삭제</strong>
-										</a>
-									</div>
-								</div>
 								<!--//btn-->
 								<!-- 페이징 처리 -->
 								<%=Page.indexList(param.getReqPageNo(), totPage, request)%>

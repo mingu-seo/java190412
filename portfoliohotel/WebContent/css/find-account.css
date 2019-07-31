@@ -1,0 +1,62 @@
+@charset "UTF-8";/* container */
+/* container */
+.notice-section {width:700px; margin:0 auto; padding-top:160px;}
+.notice-section h2 {text-align:center; color:#fff; font-size:34px; font-weight:500; position: relative; z-index:30; margin-bottom:5px;}
+.notice-section h3 {text-align:center; color:#fff; font-size:22px; font-weight:300; margin-bottom:55px; position: relative;  z-index:30; margin-top:10px;}
+
+/* 백그라운드 */
+#container {}
+.banner {
+        width:100%;
+        height:520px;
+         background-image: url("../img/mypage/bg_Membership.jpg");
+         background-size:cover;
+         background-repeat: no-repeat;}
+
+/* notice */
+.notice {position: relative; top:-60px;}
+
+/* notice list */
+.support-list {height:60px;}
+.support-list-center {width:900px; margin:0 auto;}
+.support-list-center li {width:50%; float:left; text-align:center; line-height:60px; background-color:#fff; border:1px solid #eee;}
+.support-list-center li.on {background-color:#1d1d1d;border:1px solid #1d1d1d;}
+.support-list-center li a {display:block; color:#1d1d1d;}
+.support-list-center li.on a {color:#fff;}
+
+
+.section-edit {padding-top:80px; width:800px; margin:0 auto;}
+.edit-table > h2 {font-size:36px; text-align:center; margin-bottom:50px; }
+.edit-table > h3 {text-align:center; font-size:18px; color:#333;}
+.edit-table > p {text-align:center; font-size:16px; color:#666; margin-top:5px; margin-bottom:30px;}
+
+/* 회원정보수정 */
+.edit-table {width:800px; margin:0 auto; padding-top:60px; padding-bottom:60px; border:1px solid #898989; border-radius: 5px;}
+
+.edit-table > div {width:600px; margin:0 auto; padding-right:30px;}
+.edit-table > div:last-child {border-right:none; padding-left:30px;}
+.edit-table input {width:100%; height:46px; display:block; border:1px solid #666; line-height:30px; margin:10px 0; text-indent:10px; background:none;  border-radius:5px; color:#1d1d1d;}
+.edit-table input::placeholder {font-size:12px;}
+.edit-table label {color:#1d1d1d; font-weight:500;}
+
+#id {margin-bottom:30px;}
+#id h6 {font-size:16px; font-weight:500; color:#1d1d1d;}
+#id p {color:#0e693f; line-height:40px;}
+
+.name li {float:left; width:60%;}
+.name li:first-child {width:40%;}
+/* .name input[name="first_name"] {border-radius:5px 0px 0px 5px;}
+.name input[name="name"] {border-left:none; border-radius:0px 5px 5px 0px;} */
+
+/* 생년월일 */
+.birth li {width:32.7%; float:left; margin-right:5px;}
+.birth li:last-child {margin-right:0;}
+.birth li select {width:100%; height:46px; margin-top:10px; border:1px solid #666; border-radius:5px;}
+/* 이메일 */
+.email {margin-top:20px;}
+
+/* 수정하기버튼 */
+.edit-table .submit-button {width:100%;margin:0 auto; height:50px; background-color:#0e693f; color:#fff; 
+                        font-weight:600; border:none; margin-top:35px; }
+.edit-table .submit-button:hover {background-color:rgba(14,105,63,0.8);}
+
