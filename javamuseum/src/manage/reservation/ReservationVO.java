@@ -19,9 +19,20 @@ public class ReservationVO extends Parameter {
 	
 	private String title;
 	private String name;
+	private String id;
 	private int category;
 	
 	
+	
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public int getCategory() {
 		return category;
 	}

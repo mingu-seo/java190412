@@ -220,7 +220,7 @@ function CookieVal(cookieName) {
                         </div>
                         <div class="login-board-right">
                             <!-- <input type="submit" id="submit" value="LOGIN"> -->
-                            <input type="submit" src="<%=request.getContextPath()%>" value ="로그인" class="loginBtn" title="" />
+                            <input type="submit" <%-- src="<%=request.getContextPath()%>" --%> value ="로그인" class="loginBtn" title=""/>
                         </div>
                         <div class="id-remember">
                             <input type="checkbox" id="login-chk" name="login-chk" >
@@ -228,8 +228,8 @@ function CookieVal(cookieName) {
                         </div>
                         <!-- <h4 class="find_id"><a href="#">· 아이디 / 비밀번호 찾기</a></h4> -->
                         <h4 class="find_id">
-							<a href="">이메일찾기 </a><a>/</a>
-							<a href=""> 비밀번호 찾기</a>
+							<a href="find_id">이메일찾기 </a><a>/</a>
+							<a href="find_pw"> 비밀번호 찾기</a>
 						</h4>
                         
                     </div> 

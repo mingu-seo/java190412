@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import dining.DiningVO;
 import util.Function;
 
 @Controller
@@ -57,6 +58,15 @@ public class Dining_resController {
 
 		return "manage/dining_res/write";
 	}
+	
+	@RequestMapping("/dining/dining_origin_book")
+	public String dining_origin_book(Model model, Dining_resVO param) throws Exception {
+		Dining_resVO data = dining_resService.read(6);
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+		return "dining/dining_origin_book";
+	}
+	
 
 	@RequestMapping("/manage/dining_res/process.do")
 	public String process(Model model, Dining_resVO param, HttpServletRequest request) throws Exception {

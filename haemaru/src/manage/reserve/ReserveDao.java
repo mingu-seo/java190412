@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import db.SqlMapClientDAOSupport;
 import manage.doctor.DoctorVO;
+import manage.doctor.sched.SchedVO;
+import util.CodeUtil;
 import util.DateUtil;
 
 
@@ -74,18 +76,24 @@ public class ReserveDao extends SqlMapClientDAOSupport {
 		return (ArrayList)getSqlMapClient().queryForList("reserve.doctorList", hm);
 	}
 	
+	public SchedVO schedList(SchedVO param) throws SQLException {
+		return (SchedVO)getSqlMapClient().queryForObject("reserve.sched", param);
+	}
+	
+	public ArrayList reservedTime(ReserveVO param) throws SQLException {
+		return (ArrayList)getSqlMapClient().queryForList("reserve.reservedTime", param);
+	}
 	
 	public static void main(String[] args) throws Exception {
 		ReserveDao dao = new ReserveDao();
 		ReserveVO vo = new ReserveVO();
 		
 		// 진료과목이 외과, 예약일자 2019-07-24
-		HashMap hm = new HashMap();
-		hm.put("department", 1);
-		hm.put("yoil", DateUtil.getYoil("2019-07-24"));
-		ArrayList<DoctorVO> list = dao.doctorList(hm);
+		vo.setDoctor_pk(31);
+		vo.setRes_date("2019-07-25");
+		ArrayList<Integer> list = dao.reservedTime(vo);
 		for (int i=0; i<list.size(); i++) {
-			System.out.println(list.get(i).getName());
+			System.out.println(list.get(i));
 		}
 //		ad.count(av);
 //		ad.list(av);

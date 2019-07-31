@@ -12,13 +12,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import property.SiteProperty;
+import util.DateUtil;
 import util.Function;
 import util.Page;
 import manage.doctor.sched.*;
 
 @Service
 public class SchedService {
-
+	
+	
 	@Autowired
 	private SchedDAO schedDao;
 
@@ -41,13 +43,19 @@ public class SchedService {
 		return lastNo;
 	}
 
-	public SchedVO read(int no) throws SQLException {
-		SchedVO vo = schedDao.read(no);
+	public SchedVO read(int no, String noType) throws SQLException {
+		SchedVO vo = new SchedVO();
+		if ("doctor".equals(noType)) {
+			vo = schedDao.readByDoctor(no);
+		} else {
+			vo = schedDao.read(no);
+		}
 		return vo;
 	}
 
-	public int update(SchedVO vo, HttpServletRequest request) throws Exception {
+	public int update(SchedVO vo, HttpServletRequest request, String date) throws Exception {
 		SchedVO data = schedDao.read(vo.getNo());
+//		int yoil = DateUtil.getYoil(date);
 		int r = (Integer) schedDao.update(vo);
 		return r;
 	}

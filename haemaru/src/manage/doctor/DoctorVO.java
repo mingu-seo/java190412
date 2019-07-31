@@ -19,7 +19,7 @@ public class DoctorVO extends Parameter {
 	private String doc_imagename_chk; //의료진 이미지 이름 체크 : DB에 존재X : VO에만 존재
 	private Timestamp registdate; //의료진 등록일
 	private int gender; //의료진 성별 남, 여
-	
+
 	public DoctorVO() {
 		super.setPageRows(10);
 	}
@@ -110,8 +110,6 @@ public class DoctorVO extends Parameter {
 	public void setDoc_image_org(String doc_image_org) {
 		this.doc_image_org = doc_image_org;
 	}
-	
-	
 	public String getDoc_imagename_chk() {
 		return doc_imagename_chk;
 	}
@@ -129,9 +127,6 @@ public class DoctorVO extends Parameter {
 	}
 	public void setGender(int gender) {
 		this.gender = gender;
-	}
-	
-	
-	
+	}	
 
 }
