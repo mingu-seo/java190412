@@ -32,7 +32,8 @@
 
 	<select id="list" parameterClass="schedvo"
 		resultClass="schedvo">
-		SELECT *
+		SELECT *, (SELECT department FROM doctor WHERE doctor.no = doc_schedule.doctor_pk) AS department, 
+				(SELECT position FROM doctor WHERE doctor.no = doc_schedule.doctor_pk) AS position
 		FROM doc_schedule
 		<include refid="searchSql" />
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
@@ -66,13 +67,19 @@
 
 	<delete id="delete" parameterClass="Integer">
 		DELETE FROM doc_schedule 
-		WHERE no=#no#
+		WHERE doctor_pk=#no#
 	</delete>
 
 	<select id="read" parameterClass="Integer"
 		resultClass="schedvo">
 		SELECT *
-		FROM doc_schedule WHERE no>1 and no=#no#
+		FROM doc_schedule WHERE no=#no#
+	</select>
+	
+	<select id="readByDoctor" parameterClass="Integer"
+		resultClass="schedvo">
+		SELECT *
+		FROM doc_schedule WHERE doctor_pk=#doctor_pk#
 	</select>
 
 </sqlMap>

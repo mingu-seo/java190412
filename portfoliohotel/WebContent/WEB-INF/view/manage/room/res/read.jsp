@@ -18,20 +18,25 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp" %>
 <script>
-$(function() {	
-	$("#cancelBtn").click(function() {
-		goCancel();
-	});
-});
-
 function goCancel() {
 	var cancel = confirm('예약을 취소하시겠습니까?');
 	if(cancel) {
-		document.location.href = "/manage/room/res/process?no=<%=read.getNo()%>$cmd=cancel";
+		<%-- document.location.href = "/manage/room/res/process?no=<%=read.getNo()%>&cmd=cancel"; --%>
+		$.ajax({
+			type : "GET",
+			url : "/manage/room/res/cancel?no=<%=read.getNo()%>",
+			async : false,
+			success : function(data) {
+				if (data.trim() == "1") {
+					$("#res_state").text("취소");
+				}
+			}
+		});
 	} else {
 		return false;
 	}
 }
+
 </script>
 <title>관리자 객실 예약 상세</title>
 </head>
@@ -55,7 +60,7 @@ function goCancel() {
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="bread">
-							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" enctype="multipart/form-data" onsubmit="return goSave();">
+							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" onsubmit="return goSave();">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
 									<col width="10%"/>
@@ -136,9 +141,9 @@ function goCancel() {
 										<th>총 결제 금액</th>
 										<td style="color:#4C9A2A;"><b><%=read.getTotal_price() %></span></b></td>
 									</tr>
-									<tr>
+									<tr id="res_state_tr">
 										<th>예약 상태</th>
-										<td><%=CodeUtil.getResState(read.getRes_state()) %></td>
+										<td><span id="res_state"><%=CodeUtil.getResState(read.getRes_state()) %></span></td>
 										<th>예약일</th>
 										<td><%=sdf.format(read.getBookdate())%></td>
 										<th>결제 방법</th>
@@ -178,7 +183,13 @@ function goCancel() {
 									
 								</div>
 								<div class="btnRight">
-									<input type="button" class="btns" id="#cancelBtn"><strong>예약 취소</strong></a>
+									<%
+									if(read.getRes_state() == 1) {
+									%>
+									<a class="btns" onclick="goCancel()"><strong>예약 취소</strong></a>
+									<%
+									}
+									%>
 									<a class="btns" href="<%=vo.getTargetURLParam("edit", vo, read.getNo())%>"><strong>수정</strong></a>
 								</div>
 							</div>

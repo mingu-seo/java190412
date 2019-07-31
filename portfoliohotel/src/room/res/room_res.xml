@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="room_res">
+
+	<sql id="searchSql">
+		<dynamic prepend="WHERE">
+		1=1
+			<isEqual property="category" compareValue="1">
+				<![CDATA[AND checkout < NOW()]]>
+			</isEqual>
+			<isEqual property="category" compareValue="2">
+				<![CDATA[AND checkin >= NOW()]]>
+			</isEqual>
+			<isEqual property="category" compareValue="3">
+				AND res_state=1
+			</isEqual>
+			<isEqual property="category" compareValue="4">
+				AND res_state=0
+			</isEqual>
+			<isNotNull property="scheckin">
+				<isNotNull property="scheckout">
+					<isNotEqual property="scheckin" compareValue="">
+						<![CDATA[AND checkin >= #scheckin#]]>
+						<isNotEqual property="scheckout" compareValue="">
+							<![CDATA[AND checkout <= #scheckout#]]>
+						</isNotEqual>
+					</isNotEqual>
+				</isNotNull>
+			</isNotNull>
+		</dynamic>
+	</sql>
 	<typeAlias alias="room_resVO" type="room.res.Room_resVO"/>
 	
 	<select id="list" parameterClass="room_resVO" resultClass="room_resVO">
 		SELECT * FROM room_res
+		<include refid="searchSql" />
+		ORDER BY checkin asc, checkout asc
+		LIMIT $startPageNo$, $pageRows$
 	</select>
 	
 	<insert id="insert" parameterClass="room_resVO">
@@ -41,6 +72,15 @@
 		WHERE no=#no#
 	</update>
 	
+	<delete id="delete" parameterClass="Integer">
+		DELETE FROM room_res
+		WHERE no=#no#
+	</delete>
+	
+	<select id="count" parameterClass="room_resVO" resultClass="Integer">
+		SELECT COUNT(*) FROM room_res
+		<include refid="searchSql" />
+	</select>
 	
 	<typeAlias alias="room_opt_resVO" type="room.res.Room_opt_resVO"/>
 	

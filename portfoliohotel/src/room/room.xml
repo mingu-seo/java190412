@@ -32,9 +32,7 @@
 	
 	<delete id="delete" parameterClass="roomVO">
 		DELETE FROM room WHERE no=#no#
-	</delete>
-	
-	
+	</delete>	
 	
 	<insert id="insert_image" parameterClass="java.util.HashMap">
 		INSERT INTO room_img (image, room_pk) VALUES (#image#, #room_pk#)

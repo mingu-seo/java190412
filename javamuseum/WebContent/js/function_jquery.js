@@ -171,6 +171,7 @@ function validPassword(password) {
 		check = true;
 	}
 	return check;
+	
 }
 
 // 비밀번호 유효성체크(비밀번호확인)
@@ -280,3 +281,26 @@ function validEditPassword(password) {
 	return check;
 }
 
+function validDateFormat(date) {
+	var jQueryDate = date.val();
+	var date_pattern = /^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/;
+	var check = false;
+	if(!date_pattern.test(jQueryDate) && jQueryDate != ""){
+		alert("올바른 날짜 형식을 입력하세요.(yy-MM-dd)")
+		date.focus();
+	} else {
+		check = true;
+	}
+	return check;
+}
+
+function validEnterDateFormat(date) {
+	var jQueryDate = date.val();
+	var date_pattern = /^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/;
+	var check = false;
+	if(!date_pattern.test(jQueryDate) && jQueryDate != ""){
+	} else {
+		check = true;
+	}
+	return check;
+}

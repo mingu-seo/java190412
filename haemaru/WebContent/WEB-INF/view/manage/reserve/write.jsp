@@ -59,32 +59,23 @@
 
 	$(function() {
 		getDoctorList();
-		var trIdx = 0;
-		$(".addBtn")
-				.click(
-						function() {
-							var trObj = "<tr class='addTr'>";
-							trObj += '<td><input type="text" name="title"/></td>';
-							trObj += "<td><input type=\"text\" name=\"oprice\"/></td>";
-							trObj += "<td><input type=\"button\" value=\"삭제\" class=\"delBtn\"/></td>";
-							trObj += "</tr>";
-							$("#optionTable").append(trObj);
-							trIdx++;
-
-							$(".delBtn").off("click");
-							$(".delBtn").click(function() {
-								var idx = $(".delBtn").index(this);
-								$(".addTr").eq(idx).remove();
-							});
-						});
+		getSchedList();
 		
 		$("#doctor_department").change(function() {
 			getDoctorList();
+			getSchedList();
+		});
+		
+		$("#res_date").change(function() {
+			console.log(0);
+			getDoctorList();
+			getSchedList();
 		});
 	});
 	
 	
-	
+
+
 	function getDoctorList(){
 		$.ajax({
 			type :"GET",
@@ -92,6 +83,20 @@
 			async : false,
 			success : function(data) {
 				$(".doctorListArea").html(data);
+				$("#doctor_pk").change(function() {
+					getSchedList();
+				});
+			}
+		});
+	}
+	
+	function getSchedList(){
+		$.ajax({
+			type :"GET",
+			url : "/manage/reserve/schedList?date="+$("#res_date").val()+"&doctor_pk="+$("#doctor_pk").val(),
+			async : false,
+			success : function(data) {
+				$(".schedListArea").html(data);
 			}
 		});
 	}
@@ -149,7 +154,7 @@
 													<th scope="row"><label for="">예약날짜</label></th>
 													<td><input type="text" id="res_date" name="res_date"
 														class="inputTitle" value="<%=DateUtil.getToday()%>"
-														title="예약일을 입력해주세요" />&nbsp; <span id="Calres_dateIcon">
+														/>&nbsp; <span id="Calres_dateIcon">
 															<img src="/manage/img/calendar_icon.png"
 															id="Calres_dateIconImg" style="cursor: pointer;" />
 													</span></td>
@@ -163,15 +168,13 @@
 												<tr>
 												
 													<th scope="row"><label for="">의료진</label></th>
-													<td><div class="doctorListArea"></div></td>
+													<td ><div class="doctorListArea" ></div></td>
 											<!-- 		<td colspan="3"><input type="text" id="doctor_name"
 														name="doctor_name" class="w50" title="이름을 입력해주세요" /></td>  -->
 												</tr>
 
 												<th scope="row"><label for="">예약시간</label></th>
-												<td><select name="res_hour">
-														<%=CodeUtil.getDoctorScheduleOption(0)%>
-												</select></td>
+												<td ><div class="schedListArea" ></div></td>
 
 												<tr>
 
@@ -179,6 +182,7 @@
 															name="res_contents" title="내용을 입력해주세요"
 															style="width: 100%;"></textarea></td>
 												</tr>
+											</tr>
 										</tbody>
 									</table>
 									<input type="hidden" name="member_pk" id="member_pk"

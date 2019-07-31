@@ -25,7 +25,7 @@
     <div class="footer-basic">
         <div class="footer-center clear">
             <div class="fot-left">
-                <h1 class="fot-logo"><a href="#"><img src="icon/logo_lightgreen.png"></a></h1>
+                <h1 class="fot-logo"><a href="#"><img src="/img/icon/logo_lightgreen.png"></a></h1>
                 <p>© 2016 HAEMARU Referral Animal Hospital All rights Reserved.</p>
             </div>
             <div class="fot-right clear">
@@ -50,6 +50,6 @@
                     </ul>
                 </div>
             </div>
-            <img class="fot-icon" src="icon/footer-icon.png">
+            <img class="fot-icon" src="/img/icon/footer-icon.png">
         </div>
     </div>

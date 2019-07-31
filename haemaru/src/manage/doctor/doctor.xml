@@ -47,8 +47,8 @@
 
 	<select id="list" parameterClass="doctorvo"
 		resultClass="doctorvo">
-		select *
-		from doctor
+		SELECT *
+		FROM doctor
 		<include refid="searchSql" />
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
 	</select>
@@ -91,4 +91,8 @@
 		resultClass="doctorvo">
 		SELECT * FROM doctor WHERE no>1 and no=#no#
 	</select>
+	
+	<select id="Intro" parameterClass="doctorvo" resultClass="doctorvo">
+        select * from doctor ORDER BY position 
+    </select>
 </sqlMap>

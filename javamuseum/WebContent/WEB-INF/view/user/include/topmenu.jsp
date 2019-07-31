@@ -1,17 +1,32 @@
 <%@ page contentType="text/html; charset=utf-8" %>
+<%@ page import="util.*" %>
+<%@ page import="manage.member.*" %>
+<%
+MemberVO umembervo = (MemberVO)session.getAttribute("memberInfo");
+%>
 <!-- 헤더 구역 -->
     <div id="header">
         <div class="h-top clear">
             <ul class="login">
-                <li><a href="login.html">LOGIN</a></li>
+            <%
+            if(umembervo != null) {
+            %>
+	            <li><%= umembervo.getName() %>님</li>
+	            <li><a href="mypage.html">MY PAGE</a></li>
+	            <li><a href="/user/logout">LOGOUT</a></li>
+            <%
+            } else {
+            %>
+                <li><a href="/user">LOGIN</a></li>
                 <li><a href="membership.html">JOIN</a></li>
-                <li><a href="mypage.html">MY PAGE</a></li>
+            <% } %>
             </ul>
+            
         </div>
         <div class="h-bot">
             <div class="h-bot-line"></div>
             <div class="h-bot-in clear">
-                <div class="logo"><a href="/user/index.jsp">자바미술관</a></div>
+                <div class="logo"><a href="/user/index">자바미술관</a></div>
                 <ul class="h-menu">
                     <li>
                         <a href="#">VISIT</a>
@@ -27,7 +42,7 @@
                         <a href="#">EXHIBITION</a>
                         <div class="sub">
                             <ul class="sub-menu">
-                                <li><a href="sub-exhibition1.html">현재 전시</a></li>
+                                <li><a href="/user/exhibition/subExhibition1">현재 전시</a></li>
                                 <li><a href="sub-exhibition2.html">지난 전시</a></li>
                             </ul>
                         </div>
@@ -37,7 +52,7 @@
                         <div class="sub">
                             <ul class="sub-menu">
                                 <li><a href="hall.html">대관안내</a></li>
-                                <li><a href="hall.html2">대관신청</a></li>
+                                <li><a href="hall2">대관신청</a></li>
                             </ul>
                         </div>
                     </li>

@@ -59,7 +59,7 @@ public class SchedDAO extends SqlMapClientDAOSupport {
 	}
 
 	/**
-	 * 관리자 상세
+	 * 일정관리에서 no로 넘어오는 경우
 	 * @param i
 	 * @return
 	 * @throws SQLException
@@ -68,6 +68,10 @@ public class SchedDAO extends SqlMapClientDAOSupport {
 		return (SchedVO)getSqlMapClient().queryForObject("sched.read", i);
 		 		
 		
+	}
+	// 의료진관리에서 의료진pk로 넘어오는 경우
+	public SchedVO readByDoctor(int i) throws SQLException {
+		return (SchedVO)getSqlMapClient().queryForObject("sched.readByDoctor", i);
 	}
 	
 	
