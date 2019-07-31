@@ -126,6 +126,8 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 		return (MemberVO) getSqlMapClient().queryForObject("member.loginSessionInfo", param);
 	}
 	
+	/*-------------------------------------------------------------------------*/
+	
 	
 
 	

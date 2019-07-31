@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8"%>
+<%@page import="manage.reserve.ReserveVO"%>
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="manage.doctor.*"%>
@@ -6,35 +6,11 @@
 <%@ page import="util.*"%>
 <%@ page import="java.util.*"%>
 <%
-	ArrayList<SchedVO> list = (ArrayList<SchedVO>) request.getAttribute("list");
+SchedVO sched = (SchedVO) request.getAttribute("slist");
+ArrayList<ReserveVO> tlist = (ArrayList) request.getAttribute("tlist");
+String arg = (String) request.getAttribute("arg");
+int argInt = Function.getIntParameter(arg);
 %>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-	<colgroup>
-		<col class="w5" />
-	</colgroup>
-	<thead>
-		<tr>
-			<th scope="col">예약가능시간</th>
-		</tr>
-	</thead>
-	<tbody>
-		<%
-			if (list.size() == 0) {
-		%>
-		<tr>
-			<td colspan="1">등록된 의료진이 없습니다</td>
-		</tr>
-		<%
-			} else {
-				for (int i = 0; i < list.size(); i++) {
-		%>
-		<tr>
-			<td><%=list.get(i).getTime()%></td>
-		</tr>
-		<%
-			}
-			}
-		%>
-
-	</tbody>
-</table>
+<select name="res_hour" >
+	<%=CodeUtil.getDoctorScheduleOptionForReserve(argInt, sched.getStart_time(), sched.getEnd_time(), tlist) %>
+</select>

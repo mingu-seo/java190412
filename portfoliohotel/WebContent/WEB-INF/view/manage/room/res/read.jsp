@@ -21,11 +21,40 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 function goCancel() {
 	var cancel = confirm('예약을 취소하시겠습니까?');
 	if(cancel) {
-		document.location.href = "/manage/room/res/process?no=<%=read.getNo()%>&cmd=cancel";
+		<%-- document.location.href = "/manage/room/res/process?no=<%=read.getNo()%>&cmd=cancel"; --%>
+		$.ajax({
+			type : "GET",
+			url : "/manage/room/res/cancel?no=<%=read.getNo()%>",
+			async : false,
+			success : function(data) {
+				if (data.trim() == "1") {
+					$("#res_state").text("취소");
+				}
+			}
+		});
 	} else {
 		return false;
 	}
 }
+
+$(function() {
+	console.log('<%=read.getCheckin()%>');
+	console.log('<%=read.getCheckout()%>');
+	<%
+	String arri[] = read.getCheckin().split("-");
+	String arro[] = read.getCheckout().split("-");
+	%>
+	
+	var time_in = new Date(<%=arri[0]%>, <%=arri[1]%>, <%=arri[2]%>);
+	var time_out = new Date(<%=arro[0]%>, <%=arro[1]%>, <%=arro[2]%>);
+	day_stay = (time_out.getTime() - time_in.getTime())/(1000*60*60*24);
+	console.log(day_stay);
+	console.log(<%=arri[0]%>);
+	console.log(<%=arri[1]%>);
+	console.log(<%=arri[2]%>);
+	console.log(Date());
+});
+
 </script>
 <title>관리자 객실 예약 상세</title>
 </head>
@@ -130,19 +159,9 @@ function goCancel() {
 										<th>총 결제 금액</th>
 										<td style="color:#4C9A2A;"><b><%=read.getTotal_price() %></span></b></td>
 									</tr>
-									<tr>
+									<tr id="res_state_tr">
 										<th>예약 상태</th>
-										<%
-										if(read.getRes_state() == 0) {
-										%>
-										<td style="color:#FF0000;"><b><%=CodeUtil.getResState(read.getRes_state()) %></b></td>
-										<%
-										} else {
-										%>
-										<td><%=CodeUtil.getResState(read.getRes_state()) %></td>
-										<%
-										}
-										%>
+										<td><span id="res_state"><%=CodeUtil.getResState(read.getRes_state()) %></span></td>
 										<th>예약일</th>
 										<td><%=sdf.format(read.getBookdate())%></td>
 										<th>결제 방법</th>
@@ -182,7 +201,13 @@ function goCancel() {
 									
 								</div>
 								<div class="btnRight">
+									<%
+									if(read.getRes_state() == 1) {
+									%>
 									<a class="btns" onclick="goCancel()"><strong>예약 취소</strong></a>
+									<%
+									}
+									%>
 									<a class="btns" href="<%=vo.getTargetURLParam("edit", vo, read.getNo())%>"><strong>수정</strong></a>
 								</div>
 							</div>

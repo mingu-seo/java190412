@@ -1,12 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="room_res">
+
+	<sql id="searchSql">
+		<dynamic prepend="WHERE">
+		1=1
+			<isEqual property="category" compareValue="1">
+				<![CDATA[AND checkout < NOW()]]>
+			</isEqual>
+			<isEqual property="category" compareValue="2">
+				<![CDATA[AND checkin >= NOW()]]>
+			</isEqual>
+			<isEqual property="category" compareValue="3">
+				AND res_state=1
+			</isEqual>
+			<isEqual property="category" compareValue="4">
+				AND res_state=0
+			</isEqual>
+			<isNotNull property="scheckin">
+				<isNotNull property="scheckout">
+					<isNotEqual property="scheckin" compareValue="">
+						<![CDATA[AND checkin >= #scheckin#]]>
+						<isNotEqual property="scheckout" compareValue="">
+							<![CDATA[AND checkout <= #scheckout#]]>
+						</isNotEqual>
+					</isNotEqual>
+				</isNotNull>
+			</isNotNull>
+			<isNotNull property="sval">
+				<isNotEqual property="sval" compareValue="">
+					<isEqual property="stype" compareValue="all">
+						AND ((guest_kname like '%$sval$%') or (guest_ename like '%$sval$%')
+						    or (guest_email like '%$sval$%') or (room_name like '%$sval$%'))
+					</isEqual>
+					<isNotEqual property="stype" compareValue="all">
+						AND ($stype$ like '%$sval$%')
+					</isNotEqual> 
+				</isNotEqual>
+			</isNotNull>
+		</dynamic>
+	</sql>
+	
+	
+	
+	
 	<typeAlias alias="room_resVO" type="room.res.Room_resVO"/>
 	
-	<select id="list" parameterClass="room_resVO" resultClass="room_resVO">
+	<select id="index" parameterClass="room_resVO" resultClass="room_resVO">
 		SELECT * FROM room_res
+		<include refid="searchSql" />
+		ORDER BY checkin asc, checkout asc
+		LIMIT $startPageNo$, $pageRows$
 	</select>
 	
+	<select id="list" parameterClass="String" resultClass="java.util.HashMap">
+		SELECT 
+			today, 
+   			<![CDATA[(SELECT COUNT(*) FROM room_res WHERE room_pk=1 AND checkin <= c.today AND checkout > c.today) as room1,
+					 (SELECT COUNT(*) FROM room_res WHERE room_pk=2 AND checkin <= c.today AND checkout > c.today) as room2,
+					 (SELECT COUNT(*) FROM room_res WHERE room_pk=3 AND checkin <= c.today AND checkout > c.today) as room3,
+					 (SELECT COUNT(*) FROM room_res WHERE room_pk=4 AND checkin <= c.today AND checkout > c.today) as room4,
+				 	 (SELECT COUNT(*) FROM room_res WHERE room_pk=5 AND checkin <= c.today AND checkout > c.today) as room5]]>
+		FROM calendar AS c
+		WHERE today LIKE '$yearMonth$%'
+	</select>
+		
 	<insert id="insert" parameterClass="room_resVO">
 		INSERT INTO room_res 
 			(room_pk, room_name, member_pk, checkin, checkout, bookdate, adult, kid,
@@ -48,7 +106,11 @@
 	
 	<select id="count" parameterClass="room_resVO" resultClass="Integer">
 		SELECT COUNT(*) FROM room_res
+		<include refid="searchSql" />
 	</select>
+	
+	
+	
 	
 	<typeAlias alias="room_opt_resVO" type="room.res.Room_opt_resVO"/>
 	

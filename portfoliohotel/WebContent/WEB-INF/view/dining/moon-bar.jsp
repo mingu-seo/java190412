@@ -1,4 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="dining.*"%>
+<%@ page import="java.util.*"%>
+<%
+DiningVO param = (DiningVO) request.getAttribute("vo");
+DiningVO data = (DiningVO) request.getAttribute("data");
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -177,9 +184,7 @@
         <div class="banner moon-bar">
             <div class="banner-center">
                 <div class="banner-text">
-                    <h2>문 바
-                        <span>Moon Bar</span>
-                    </h2>
+                    <h2><span><%=data.getName() %></span></h2>
                     <h3>호텔 최고층인 20층과 21층에 위치한 문 바(Moon Bar)에서는 남산의 전경과 서울의 아름다운 야경이 파노라마처럼 펼쳐집니다. 
                         
                     </h3>
@@ -194,29 +199,34 @@
             <div class="contents-info clear">
                 <div class="contents-left">
                     <table>
-                        <tr>
-                            <td class="table-list">위치</td>
-                            <td>더 호텔 20F~21F</td>
+                       	<tr>
+                            <td class="table-list">운영기간 시작일</td>
+                            <td><h2><%=data.getStartdate()%></h2></td>
+                        </tr>
+                       	<tr>
+                            <td class="table-list">운영기간 종료일</td>
+                            <td><h2><%=data.getEnddate()%></h2></td>
                         </tr>
                         <tr>
-                            <td class="table-list time">좌석수</td>
-                            <td>35석 (야외22석)</td>
+                            <td class="table-list">예약 가능기간</td>
+                            <td><h2><%=data.getBook_period()%></h2></td>
                         </tr>
                         <tr>
-                            <td class="table-list info">주요사항</td>
-                            <td class="td-lh">성인 전용 공간
+                            <td class="table-list price">가격</td>
+                            <td><h2><%=data.getPrice() %></h2></td>
+                        </tr>
+                        <tr>
+                            <td class="table-list info">안내</td>
+                            <td class="td-lh">
+                                <h2><%=data.getInfo()%></h2>
                             </td>
-                        </tr>
-                        <tr>
-                            <td class="table-list place">운영시간</td>
-                            <td>18:00~02:00</td>
                         </tr>
                     </table>
                 </div>
                 <div class="contents-right">
                     <h3>예약 및 이용문의</h3>
                     <h4>전화</h4>
-                    <h4>02 2250 8000</h4>
+                    <h4>02 0000 0000</h4>
                     <a href=/dining/dining_origin_book.do>온라인 예약</a>
                 </div>
             </div>

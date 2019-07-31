@@ -15,6 +15,13 @@
     <title>Tree_회원가입</title>
 </head>
 <script>
+function goJoin() {
+	if ($("#email").val() == "") {
+		alert("이메일 입력해주세요.");
+		$("#email").focus();
+		return false;
+	}
+	
 $(function(){
 	$("#emailCheckBtn").click(function(){
 		if ($("#email").val()==""){
@@ -22,30 +29,24 @@ $(function(){
 		}else{
 		$.ajax ({
 			type:'POST',
-			url:"/manage/member/emailcheck",
+			url:"/membership/choice_join",
 			data:$("[name=frm]").serialize(), //serialize() 직렬로 정렬
 			async:false,
 			success:function(data) {
 				var val = data.trim();
-				if (val == "0") {
-					alert("사용가능한 이메일입니다.");
-					$("#emailcheck").val("1");
-					$("#email").attr("readonly","readonly");
-				} else {
+				if (val == "1") {
 					alert("존재하는 이메일입니다.");
 					$("#email").val("");
 					$("#emailcheck").val("0");
-					return false;
-				}
+					return false;					
+				} 
 			}
 		
 		});
 	  }
 	});
-
-
-	
-});
+  });
+}
 </script>
 <body>
     <div id="header">
@@ -191,8 +192,8 @@ $(function(){
                     </div> 
                 </form>    
             
-                <div class="join-btn" onclick="">
-                    <a href="join">호텔 멤버십 가입 </a>
+                <div class="join-btn" >
+                    <a href="join" onclick="goJoin">호텔 멤버십 가입 </a>
                 </div>
                 
             </div>    

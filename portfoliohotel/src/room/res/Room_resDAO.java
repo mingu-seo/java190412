@@ -2,6 +2,7 @@ package room.res;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.stereotype.Repository;
 
@@ -16,8 +17,12 @@ public class Room_resDAO extends SqlMapClientDAOSupport {
 	 * @return
 	 * @throws SQLException
 	 */
-	public ArrayList list(Room_resVO vo) throws SQLException {
-		return (ArrayList)getSqlMapClient().queryForList("room_res.list", vo);
+	public ArrayList index(Room_resVO vo) throws SQLException {
+		return (ArrayList)getSqlMapClient().queryForList("room_res.index", vo);
+	}
+	
+	public ArrayList<HashMap> list(String yearMonth) throws SQLException {
+		return (ArrayList<HashMap>)getSqlMapClient().queryForList("room_res.list", yearMonth);
 	}
 	
 	/**
@@ -98,5 +103,11 @@ public class Room_resDAO extends SqlMapClientDAOSupport {
 	 */
 	public ArrayList list_opt(int room_res_pk) throws SQLException {
 		return (ArrayList)getSqlMapClient().queryForList("room_res.list_opt", room_res_pk);
+	}
+	
+	public static void main(String[] args) throws Exception {
+		Room_resDAO dao = new Room_resDAO();
+		Room_resVO vo = new Room_resVO();
+//		vo.setCategory(1);
 	}
 }

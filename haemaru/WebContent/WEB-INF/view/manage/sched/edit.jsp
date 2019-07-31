@@ -15,18 +15,6 @@
 <script>
 	function goSave() {
 
-		if ($("#name").val() == "") {
-			alert('상품명을 입력하세요.');
-			$("#name").focus();
-			return false;
-		}
-
-		if ($("").val() == "") {
-			alert('상품명을 입력하세요.');
-			$("").focus();
-			return false;
-		}
-
 		return true;
 	}
 
@@ -69,101 +57,79 @@
 											<tr>
 												<th scope="row"><label for="">이름</label></th>
 												<td colspan="3"><input type="text" id="name"
-													name="name" class="w50" title="제목을 입력해주세요"
-													value="<%=Function.checkNull(data.getName())%>" /></td>
+													name="name" class="w50" title="이름을 입력해주세요"
+													value="<%=Function.checkNull(data.getName())%>" readonly="readonly"/></td>
 											</tr>
+											<th scope="row"><label for="">월요일</label> <input
+												type="checkbox" name="mon_res" value="1"
+												<%=Function.getChecked(1, data.getMon_res())%> /></th>
+											<td><select name="mon_start">
+													<%=CodeUtil.getDoctorScheduleOption(data.getMon_start())%>
+											</select> <strong> - </strong> <select name="mon_end">
+													<%=CodeUtil.getDoctorScheduleOption(data.getMon_end())%></td>
+											<tr>
+												<th scope="row"><label for="">화요일</label> <input
+													type="checkbox" name="tue_res" value="1"
+													<%=Function.getChecked(1, data.getTue_res())%> /></th>
+												<td><select name="tue_start">
+														<%=CodeUtil.getDoctorScheduleOption(data.getTue_start())%>
+												</select> <strong> - </strong> <select name="tue_end">
+														<%=CodeUtil.getDoctorScheduleOption(data.getTue_end())%></td>
 
-											<th scope="row"><label for="">일정등록</label></th>
-											<td>
-												<table id="schedTable">
-													<tr>
-														<th></th>
-														<th>시작 - 종료</th>
-													</tr>
-													<tr>
-														<th scope="row"><label for="">월요일</label>
-															<input type="checkbox" name="mon_res" value="1" <%=Function.getChecked(1, data.getMon_res())%>/>
-														</th>
-														<td><select name="mon_start">
-																<%=CodeUtil.getDoctorScheduleOption(data.getMon_start())%>
-														</select> <strong> - </strong> <select name="mon_end">
-																<%=CodeUtil.getDoctorScheduleOption(data.getMon_end())%></td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">수요일</label> <input
+													type="checkbox" name="wed_res" value="1"
+													<%=Function.getChecked(1, data.getWed_res())%> /></th>
+												<td><select name="wed_start">
+														<%=CodeUtil.getDoctorScheduleOption(data.getWed_start())%>
+												</select> <strong> - </strong> <select name="wed_end">
+														<%=CodeUtil.getDoctorScheduleOption(data.getWed_end())%></td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">목요일</label> <input
+													type="checkbox" name="thu_res" value="1"
+													<%=Function.getChecked(1, data.getThu_res())%> /></th>
+												<td><select name="thu_start">
+														<%=CodeUtil.getDoctorScheduleOption(data.getThu_start())%>
+												</select> <strong> - </strong> <select name="thu_end">
+														<%=CodeUtil.getDoctorScheduleOption(data.getThu_end())%></td>
 
-													</tr>
-													<tr>
-														<th scope="row"><label for="">화요일</label>
-															<input type="checkbox" name="tue_res" value="1" <%=Function.getChecked(1, data.getTue_res())%>/>
-														</th>
-														<td><select name="tue_start">
-																<%=CodeUtil.getDoctorScheduleOption(data.getTue_start())%>
-														</select> <strong> - </strong> <select name="tue_end">
-																<%=CodeUtil.getDoctorScheduleOption(data.getTue_end())%></td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">금요일</label> <input
+													type="checkbox" name="fri_res" value="1"
+													<%=Function.getChecked(1, data.getFri_res())%> /></th>
+												<td><select name="fri_start">
+														<%=CodeUtil.getDoctorScheduleOption(data.getFri_start())%>
+												</select> <strong> - </strong> <select name="fri_end">
+														<%=CodeUtil.getDoctorScheduleOption(data.getFri_end())%></td>
 
-													</tr>
-													<tr>
-														<th scope="row"><label for="">수요일</label>
-															<input type="checkbox" name="wed_res" value="1" <%=Function.getChecked(1, data.getWed_res())%>/>
-														</th>
-														<td><select name="wed_start">
-																<%=CodeUtil.getDoctorScheduleOption(data.getWed_start())%>
-														</select> <strong> - </strong> <select name="wed_end">
-																<%=CodeUtil.getDoctorScheduleOption(data.getWed_end())%></td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">토요일</label> <input
+													type="checkbox" name="sat_res" value="1"
+													<%=Function.getChecked(1, data.getSat_res())%> /></th>
+												<td><select name="sat_start">
+														<%=CodeUtil.getDoctorScheduleOption(data.getSat_start())%>
+												</select> <strong> - </strong> <select name="sat_end">
+														<%=CodeUtil.getDoctorScheduleOption(data.getSat_end())%></td>
 
-													</tr>
-													<tr>
-														<th scope="row"><label for="">목요일</label>
-															<input type="checkbox" name="thu_res" value="1" <%=Function.getChecked(1, data.getThu_res())%>/>
-														</th>
-														<td><select name="thu_start">
-																<%=CodeUtil.getDoctorScheduleOption(data.getThu_start())%>
-														</select> <strong> - </strong> <select name="thu_end">
-																<%=CodeUtil.getDoctorScheduleOption(data.getThu_end())%></td>
-
-													</tr>
-													<tr>
-														<th scope="row"><label for="">금요일</label>
-															<input type="checkbox" name="fri_res" value="1" <%=Function.getChecked(1, data.getFri_res())%>/>
-														</th>
-														<td><select name="fri_start">
-																<%=CodeUtil.getDoctorScheduleOption(data.getFri_start())%>
-														</select> <strong> - </strong> <select name="fri_end">
-																<%=CodeUtil.getDoctorScheduleOption(data.getFri_end())%></td>
-
-													</tr>
-													<tr>
-														<th scope="row"><label for="">토요일</label>
-															<input type="checkbox" name="sat_res" value="1" <%=Function.getChecked(1, data.getSat_res())%>/>
-														</th>
-														<td><select name="sat_start">
-																<%=CodeUtil.getDoctorScheduleOption(data.getSat_start())%>
-														</select> <strong> - </strong> <select name="sat_end">
-																<%=CodeUtil.getDoctorScheduleOption(data.getSat_end())%></td>
-
-													</tr>
-													<tr>
-														<th scope="row"><label for="">일요일</label>
-															<input type="checkbox" name="sun_res" value="1" <%=Function.getChecked(1, data.getSun_res())%>/>
-														</th>
-														<td><select name="sun_start">
-																<%=CodeUtil.getDoctorScheduleOption(data.getSun_start())%>
-														</select> <strong> - </strong> <select name="sun_end">
-																<%=CodeUtil.getDoctorScheduleOption(data.getSun_end())%></td>
-
-													</tr>
-													<tr>
-														<th scope="row"><label for="">공휴일</label></th>
-														<td><select name="hol_start">
-																<%=CodeUtil.getDoctorScheduleOption(data.getHol_start())%>
-														</select> <strong> - </strong> <select name="holn_end">
-																<%=CodeUtil.getDoctorScheduleOption(data.getHol_end())%></td>
-
-													</tr>
-												</table>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">일요일</label> <input
+													type="checkbox" name="sun_res" value="1"
+													<%=Function.getChecked(1, data.getSun_res())%> /></th>
+												<td><select name="sun_start">
+														<%=CodeUtil.getDoctorScheduleOption(data.getSun_start())%>
+												</select> <strong> - </strong> <select name="sun_end">
+														<%=CodeUtil.getDoctorScheduleOption(data.getSun_end())%></td>
+											</tr>
 										</tbody>
 									</table>
 									</tr>
-									<input type="hidden" name="cmd" id="cmd" value="edit" /> <input
-										type="hidden" name="no" id="no" value="<%=data.getNo()%>" />
+									<input type="hidden" name="cmd" id="cmd" value="edit" /> 
+									<input type="hidden" name="no" id="no" value="<%=data.getNo()%>" />
 								</form>
 								<div class="btn">
 

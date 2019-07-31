@@ -314,7 +314,7 @@ $(function(){
 										<td>
 											<select name="pay_state" id="pay_state">
 												<option value="0"><%=CodeUtil.getPayState(0) %></option>
-												<option value="1" selected><%=CodeUtil.getPayState(1) %></option>
+												<option value="1"><%=CodeUtil.getPayState(1) %></option>
 											</select>
 										</td>
 										<th>결제일</th>

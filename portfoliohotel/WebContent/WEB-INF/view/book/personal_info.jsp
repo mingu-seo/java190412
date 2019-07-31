@@ -45,7 +45,7 @@
     <title>정보입력</title>
 </head>
 <body>
-    <div id="header">
+<!--     <div id="header">
         <div class="header-center">
             <div class="pc-header">
                 <h1 class="logo"><a href="../index.html"><img src="../img/header-logo.png"></a></h1>
@@ -164,12 +164,14 @@
                                         </div>
                             </div>
                     </li>
-                    <!-- <li><a href="#">SIGN IN</a></li> -->
+                    <li><a href="#">SIGN IN</a></li>
                 </ul>
                 <a href="../membership/sign_in.html">Sign in</a>
             </div>
         </div>
-    </div>
+    </div> -->
+    <%@ include file="../header_menu.jsp" %>
+    
     <div id="container">
         <div class="option_channel clear">
             <h1 class="head-title">객실예약</h1>
@@ -177,7 +179,7 @@
             <!-- 상단 제목 아래 객실예약 진행 순서 -->
             <ul class="cha_index clear">
                 <li><a href="#">객실검색 <span>></span> </a></li>
-                <li><a href="add_option.html">객실예약</a></li>
+                <li><a href="add_option">객실예약</a></li>
                 <li class="current-page"><a href="#"><span>></span>정보입력</a></li>
                 <li><a href="#"><span>></span> 예약완료</a></li>
             </ul>
@@ -334,7 +336,7 @@
                                     <p>(투숙기간. 객실 수. 옵션 포함, 세금 및 수수료 각 10%포함)</p>
 
                                     <div class="next-but">
-                                        <input id="countsubmit" type="submit" value="예약 완료">
+                                        <input id="countsubmit" type="submit" value="예약 완료" href="confirm_room">
                                     </div>
 
                                     <h4><span></span>예약 안내</h4>

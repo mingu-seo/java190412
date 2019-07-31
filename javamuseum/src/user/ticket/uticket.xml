@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="uticket">
+    
+    <typeAlias alias="uticketvo" type="user.ticket.UTicketVO"/>
+    
+    <insert id="insert" parameterClass="uticketvo">
+    	INSERT INTO ticket 
+    	(member_pk, display_pk, pay_price, sale_price, displaydate, usepoint, storepoint, method, 
+    	reservedate, canceldate, paydate, reservestate, paystate, number, old_number, 
+    	adult_number, student_number,price, refundstate)
+    	values
+    	(#member_pk#, #display_pk#, #pay_price#, #sale_price#, #displaydate#, #usepoint#, 
+    	#storepoint#, #method#, #reservedate#, #canceldate#, #paydate#, #reservestate#, #paystate#, 
+    	#number#, #old_number#, #adult_number#, #student_number#, 10000, #refundstate#)
+    	<selectKey keyProperty="no" resultClass="Integer">
+    		SELECT LAST_INSERT_ID()
+    	</selectKey>
+    </insert>
+    
+    <select id="read" parameterClass="Integer" resultClass="uticketvo">
+    	SELECT *, (select title from display where ticket.display_pk=display.no) as title, 
+    	(select id from member where ticket.member_pk=member.no) as id
+    	FROM ticket
+    	WHERE no=#no#
+    </select>
+    
+    <update id="update" parameterClass="uticketvo">
+    	UPDATE ticket SET
+		canceldate=#canceldate#, displaydate=#displaydate#, paystate=#paystate#, reservestate=#reservestate#,
+		refundstate=#refundstate#,display_pk=#display_pk#
+    	WHERE no=#no#
+    </update>
+    
+</sqlMap>
