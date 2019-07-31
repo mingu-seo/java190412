@@ -109,18 +109,17 @@ jQuery(window).load(function(){
 											</tr>
 											<tr>
 												<th scope="row"><label for="">예약 가능기간</label></th>
-												<td><input type="text" id="book_period"
-													name="book_period" value="<%=data.getBook_period()%>"
-													title="예약기간을 입력해주세요." /></td>
+												<td><input type="text" id="book_period" name="book_period" 
+													value="<%=data.getBook_period()%>"/></td>
 											
 												<th scope="row"><label for="">포함내역</label></th>
 												<td><input type="text" id="inclusion" name="inclusion"
-													value="<%=data.getInclusion()%>" title="포함내역을 입력해주세요." /></td>
+													value="<%=data.getInclusion()%>" /></td>
 											</tr>
 											<tr>
 												<th scope="row"><label for="">안내</label></th>
 												<td colspan="4">
-												<textarea id="info" name="info" title="정보를 입력해주세요" style="width: 100%">
+												<textarea id="info" name="info" style="width: 100%">
 												<%=data.getInfo()%>
 												</textarea></td>
 											</tr>

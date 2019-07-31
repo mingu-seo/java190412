@@ -11,24 +11,6 @@ DiningVO data = (DiningVO) request.getAttribute("data");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp"%>
 <script type="text/javascript">
-	<%-- function goDelete() {
-		var del = confirm ('삭제하시겠습니까?');
-		if (del){
-			document.location.href = "process?no=<%=data.getNo()%>&cmd=delete";
-		} else {
-			return false;
-		}
-	} --%>
-
-	/* function goSave() {
-		var save = confirm ('등록하시겠습니까?');
-		if (save){
-			$("#frm").submit();
-			
-		} else {
-			return false;
-		}
-	} */
 
 	function goSave() {
 		if ($("#name").val() == "") {
@@ -105,8 +87,6 @@ DiningVO data = (DiningVO) request.getAttribute("data");
 											<th scope="row"><label for="">안내</label></th>
 											<td colspan="5"><%=data.getInfo()%></td>
 										</tr>
-										<!-- <input type="hidden" name="product_pk" value="product_pk"> -->
-										<!-- value=서버로 넘길 값 -->
 									</tbody>
 									</table>
 								<div class="btn">

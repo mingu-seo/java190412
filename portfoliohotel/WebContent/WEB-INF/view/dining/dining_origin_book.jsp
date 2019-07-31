@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="dining_res.*"%>
+<%@ page import="java.util.*"%>
+<%
+Dining_resVO param = (Dining_resVO) request.getAttribute("vo");
+Dining_resVO data = (Dining_resVO) request.getAttribute("data");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -170,7 +176,7 @@
 
                             <div class="name_ko">
                                     <label for="name_ko">성명 (한글)＊</label>
-                                    <input type="text" id="name_ko" placeholder="성">
+                                    <input type="text" id="name_ko" placeholder="<%=data.getMember_name() %>">
                                     <input type="text" id="name_ko" placeholder="이름">
                             </div>
 
