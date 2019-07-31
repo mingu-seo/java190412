@@ -17,10 +17,14 @@ public class ReserveVO extends Parameter {
 	private String tel;
 	private String doctor_name;
 	private int doctor_department;
+	private String doctor_image;
+	private int doctor_position;
+	private int doctor_gender;
 	
 	public ReserveVO() {
 		super.setPageRows(10);
 	}
+
 
 	public int getNo() {
 		return no;
@@ -118,7 +122,30 @@ public class ReserveVO extends Parameter {
 		this.doctor_department = doctor_department;
 	}
 
-	
+	public String getDoctor_image() {
+		return doctor_image;
+	}
+
+	public void setDoctor_image(String doctor_image) {
+		this.doctor_image = doctor_image;
+	}
+
+	public int getDoctor_position() {
+		return doctor_position;
+	}
+
+	public void setDoctor_position(int doctor_position) {
+		this.doctor_position = doctor_position;
+	}
+
+	public int getDoctor_gender() {
+		return doctor_gender;
+	}
+
+	public void setDoctor_gender(int doctor_gender) {
+		this.doctor_gender = doctor_gender;
+	}
+
 	
 
 }

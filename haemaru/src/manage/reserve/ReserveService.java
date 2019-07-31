@@ -113,6 +113,15 @@ public class ReserveService {
 		vo.setRes_date(date);
 		return reserveDao.reservedTime(vo);
 	}
+	
+	public ArrayList<ReserveVO> Reservation(ReserveVO param) throws Exception {
+		return reserveDao.Reservation(param);
+	}
+	
+	public int reserveInsert(ReserveVO vo) throws SQLException {
+		int no = reserveDao.reserveInsert(vo);
+		return no;
+	}
 
 	
 }

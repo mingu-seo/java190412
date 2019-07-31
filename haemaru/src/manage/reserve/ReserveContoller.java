@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import manage.doctor.DoctorVO;
 import manage.doctor.sched.*;
+import member.MemberService;
+import member.MemberVO;
 import util.Function;
 
 @Controller
@@ -19,6 +21,8 @@ public class ReserveContoller {
 
 	@Autowired
 	private ReserveService reserveService;
+	@Autowired
+	private MemberService memberService;
 	
 	
 	@RequestMapping("/manage/reserve/index")
@@ -81,14 +85,28 @@ public class ReserveContoller {
 
 		return "manage/reserve/schedList";
 	}
+	
+	@RequestMapping("/reservation/index")
+	public String Reservation(Model model, ReserveVO param) throws Exception {
+		ArrayList list = reserveService.Reservation(param);
+		MemberVO mvo = memberService.read(param.getMember_pk());
+		ReserveVO data = reserveService.read(param.getNo());	
+		model.addAttribute("data", data);
+		model.addAttribute("list", list);
+		model.addAttribute("mvo", mvo);
+		return "reservation/index";
+	}
+	
+	
 
 	@RequestMapping("/manage/reserve/process")
 	public String process(Model model, ReserveVO param,  HttpServletRequest request) throws Exception {
 		model.addAttribute("productvo", param);
 		if ("write".equals(param.getCmd())) {
 			int r = reserveService.insert(param, request);
+			reserveService.reserveInsert(param);
 			model.addAttribute("code", "alertMessageUrl");
-			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
+			model.addAttribute("message", Function.message(r, "정상적으로 예약되었습니다.", "예약실패"));
 			model.addAttribute("url", "index");
 		} else if ("edit".equals(param.getCmd())) {
 			int r = reserveService.update(param, request);

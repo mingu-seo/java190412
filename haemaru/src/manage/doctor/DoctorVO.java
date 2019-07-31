@@ -1,7 +1,10 @@
 package manage.doctor;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
+import manage.doctor.sched.SchedVO;
+import manage.reserve.ReserveVO;
 import util.Parameter;
 
 public class DoctorVO extends Parameter {
@@ -19,9 +22,15 @@ public class DoctorVO extends Parameter {
 	private String doc_imagename_chk; //의료진 이미지 이름 체크 : DB에 존재X : VO에만 존재
 	private Timestamp registdate; //의료진 등록일
 	private int gender; //의료진 성별 남, 여
+	
+	private int isDoctor;
+	
+	private SchedVO slist;
+	ArrayList<ReserveVO> tlist;
 
 	public DoctorVO() {
 		super.setPageRows(10);
+		this.isDoctor=0;
 	}
 	/**
 	 * 생성자 페이지로우수 세팅
@@ -127,6 +136,24 @@ public class DoctorVO extends Parameter {
 	}
 	public void setGender(int gender) {
 		this.gender = gender;
+	}
+	public SchedVO getSlist() {
+		return slist;
+	}
+	public void setSlist(SchedVO slist) {
+		this.slist = slist;
+	}
+	public ArrayList<ReserveVO> getTlist() {
+		return tlist;
+	}
+	public void setTlist(ArrayList<ReserveVO> tlist) {
+		this.tlist = tlist;
+	}
+	public int getIsDoctor() {
+		return isDoctor;
+	}
+	public void setIsDoctor(int isDoctor) {
+		this.isDoctor = isDoctor;
 	}	
 
 }

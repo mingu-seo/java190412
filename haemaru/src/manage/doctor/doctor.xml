@@ -9,6 +9,10 @@
 	<sql id="searchSql">
 		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where">
+			<isEqual property="isDoctor" compareValue="1"
+				prepend="and">
+				(position = 1 OR position = 2) 
+			</isEqual>
 			<isNotEqual property="department" compareValue="0"
 				prepend="and">
 				department = #department#

@@ -1,5 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="manage.reserve.*"%>
+<%@ page import="member.*"%>
+<%@ page import="util.*"%>
+<%@ page import="java.util.*"%>
+<%
+	ArrayList<ReserveVO> list = (ArrayList) request.getAttribute("list");
+	MemberVO mvo = (MemberVO) request.getAttribute("mvo");
+	ReserveVO data = (ReserveVO) request.getAttribute("data");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,6 +28,64 @@
 <link rel="stylesheet" href="/css/footer.css">
 <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="/js/custom.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+$(function() {
+	getReservationDoctorList();
+	getSchedList();
+	
+	$("#doctor_department").change(function() {
+		getReservationDoctorList();
+		getSchedList();
+	});
+	
+	$("#res_date").change(function() {
+		console.log(0);
+		getReservationDoctorList();
+		getSchedList();
+	});
+});
+
+
+function getReservationDoctorList(){
+	$.ajax({
+		type :"GET",
+		url : "/reservation/reservationDoctorList.do?date="+$("#res_date").val()+"&department="+$("#doctor_department").val(),
+		async : false,
+		success : function(data) {
+			$(".doctor").html(data);
+			$('.doc-btn').click(function(e){
+		        e.preventDefault();
+		        $('.reservation-ck-page').stop().fadeIn(500);
+		    });
+		}
+	});
+}
+
+function getSchedList(){
+	$.ajax({
+		type :"GET",
+		url : "/manage/reserve/schedList?date="+$("#res_date").val()+"&doctor_pk="+$("#doctor_pk").val(),
+		async : false,
+		success : function(data) {
+			$(".schedListArea").html(data);
+		}
+	});
+}
+$(function() {
+    $( "#res_date" ).datepicker({
+         dayNames: ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'],
+         dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'], 
+         monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+         monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+         nextText: '다음 달',
+         prevText: '이전 달' ,
+         dateFormat: 'yy-mm-dd' 
+  });
+});
+</script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/view/include/headHtml.jsp"%>
@@ -27,24 +94,27 @@
 		<div class="con1"></div>
 		<!-- con2 : 메인 부분 -->
 		<div class="con2">
+		
+		<%if(mvo != null){ %>
 			<!-- 예약확인창 부분 -->
 			<div class="reservation-ck-page">
 				<div class="headline">
 					<p>예약확인</p>
-					<img src="/icon/footer-icon.png">
+					<img src="/img/icon/footer-icon.png">
 				</div>
 				<div class="re-page-ck-text">
 					<img src="/img/con2-4.png">
 					<h2>Reservation</h2>
 					<p>
-						2019년 06월 20일 13:05분<br />
-						<span>남정우 </span>님 예약 하시겠습니까?
+						<%=data.getRes_date() %> <%=data.getRes_hour() %><br/>
+						<span><%= mvo.getName() %> </span>님 예약 하시겠습니까?
 					</p>
 				</div>
 				<div class="re-page-ck-form">
 					<form method="GET" action="text.php">
 						<input type="text" id="re-page-ck-input" name="re-page-ck-input"
 							placeholder="예약 관련 참고사항을 작성해주세요." maxlength="30">
+							<input type="hidden" name="member_pk" id="member_pk" value="<%=mvo.getNo()%>"/>
 					</form>
 				</div>
 				<div class="checkbox-ck-page">
@@ -53,23 +123,26 @@
 				</div>
 			</div>
 			<!-- 예약 확인 마지막창 부분 -->
+			
 			<div class="reservation-page">
 				<div class="headline">
 					<p>예약확인</p>
-					<img src="/icon/footer-icon.png">
+					<img src="/img/icon/footer-icon.png">
 				</div>
 				<div class="re-page-text">
 					<img src="/img/con2-4.png">
 					<h2>Reservation</h2>
 					<p>
-						2019년 06월 20일 13:05분<br />
-						<span>남정우 </span>님의 예약이 확정 되었습니다.
+						<%= data.getRes_date()%> <%=data.getRes_hour() %><br/>
+						<span><%=mvo.getName() %> </span>님의 예약이 확정 되었습니다.
 					</p>
 				</div>
 				<div class="checkbox-page">
+				<input type="hidden" name="member_pk" id="member_pk" value="<%=mvo.getNo()%>"/>
 					<a class="re-check-in" href="#">확인</a>
 				</div>
 			</div>
+			<% } %>
 			<!-- sub bar 부분 (고정) -->
 			<div class="fixed-sub">
 				<div class="title-area">
@@ -81,114 +154,33 @@
 					<!-- <li><a href="sub6-3.html">예약확인</a></li> -->
 				</ul>
 			</div>
+			
 			<!-- main 부분 (여기다가 하면 됨) -->
 			<div class="main">
 				<h3>예약</h3>
 				<p>Reservation</p>
-				<div class="search-btn">
-					<a href="#">검색</a>
-				</div>
+				
 				<form class="reservation-check clear">
 					<div class="re-day-box">
 						<th><span><label for="id_day" class="re-day">예약 날짜</label></span></th>
 						<tr>
-							<td><input type="text" class="inputTitle" />&nbsp;
-								<span id="Calres_dateIcon"> 
-								<img src="/manage/img/calendar_icon.png" id="Calres_dateIconImg" style="cursor: pointer;" />
-							</span></td>
+							<td>
+								<input type="text" class="inputTitle" id="res_date"  name="res_date" value="<%=DateUtil.getToday()%>"/>&nbsp;
+							</td>
 						</tr>
 					</div>
 					<div class="major-box">
-						<span><label for="id_major" class="major">진료 과목</label></span> <select
-							class="major-select">
-							<option>선택하기</option>
-							<option>내과</option>
-							<option>외과</option>
-							<option>영상의학과</option>
-							<option>응급의료센터</option>
+						<span><label for="id_major" class="major">진료 과목</label></span> 
+						<select class="major-select"  name="doctor_department" id="doctor_department">
+							<%=CodeUtil.getDoctorDepartmentOption(0)%>
 						</select>
-					</div>
+					</div>					
 				</form>
-				<div class="doctor">
-					<div class="doctor-box clear">
-						<div>
-							<img src="/img/sub7.png">
-						</div>
-						<div>
-							<p>
-								<span>담당의사</span>최 경 욱 / 진료수의사
-							</p>
-							<p>
-								<span>진료과목</span>외과
-							</p>
-							<form>
-								<p>
-									<span>예약가능시간</span><input type="radio" id="doc_radio"
-										name="radio_doc"><label for="doc_radio">월 오전
-										10시</label> <input type="radio" id="doc_radio2" name="radio_doc"><label
-										for="doc_radio2">수 오전 10시</label>
-								</p>
-							</form>
-							<div class="doc-btn">
-								<a href="#">예약하기</a>
-							</div>
-							<img src="/icon/doctor1.jpg">
-						</div>
-					</div>
-					<div class="doctor-box clear">
-						<div>
-							<img src="/img/sub11.png">
-						</div>
-						<div>
-							<p>
-								<span>담당의사</span>김 하 나 / 팀장
-							</p>
-							<p>
-								<span>진료과목</span>응급중환자센터
-							</p>
-							<form>
-								<p>
-									<span>예약가능시간</span><input type="radio" id="doc_radio3"
-										name="radio_doc"><label for="doc_radio3">월 오후
-										2시</label> <input type="radio" id="doc_radio4" name="radio_doc"><label
-										for="doc_radio4">수 오후 3시</label>
-								</p>
-							</form>
-							<div class="doc-btn">
-								<a href="#">예약하기</a>
-							</div>
-							<img src="/icon/doctor2.jpg">
-						</div>
-					</div>
-					<div class="doctor-box clear">
-						<div>
-							<img src="/img/sub16.png">
-						</div>
-						<div>
-							<p>
-								<span>담당의사</span>양 재 원 / 진료수의사
-							</p>
-							<p>
-								<span>진료과목</span>응급중환자센터
-							</p>
-							<form>
-								<p>
-									<span>예약가능시간</span><input type="radio" id="doc_radio5"
-										name="radio_doc"><label for="doc_radio5">목 오후
-										2시</label> <input type="radio" id="doc_radio6" name="radio_doc"><label
-										for="doc_radio6">금 오전 11시</label>
-								</p>
-							</form>
-							<div class="doc-btn">
-								<a href="#">예약하기</a>
-							</div>
-							<img src="/icon/doctor1.jpg">
-						</div>
+					<div class="doctor">
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	<%@ include file="/WEB-INF/view/include/footer.jsp"%>
 	</div>
 </body>

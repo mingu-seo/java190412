@@ -68,8 +68,7 @@ public class ReserveDao extends SqlMapClientDAOSupport {
 	 */
 	public ReserveVO read(int i) throws SQLException {
 		return (ReserveVO)getSqlMapClient().queryForObject("reserve.read", i);
-		 		
-		
+		 				
 	}
 	
 	public ArrayList doctorList(HashMap hm) throws SQLException {
@@ -83,6 +82,16 @@ public class ReserveDao extends SqlMapClientDAOSupport {
 	public ArrayList reservedTime(ReserveVO param) throws SQLException {
 		return (ArrayList)getSqlMapClient().queryForList("reserve.reservedTime", param);
 	}
+	
+	public ArrayList<ReserveVO> Reservation(ReserveVO param) throws SQLException{
+		return (ArrayList<ReserveVO>)getSqlMapClient().queryForList("reserve.Reservation", param);
+	}
+	
+	public int reserveInsert(ReserveVO vo) throws SQLException {
+		return (Integer) getSqlMapClient().insert("reserve.reserveInsert", vo);
+		
+	}
+	
 	
 	public static void main(String[] args) throws Exception {
 		ReserveDao dao = new ReserveDao();

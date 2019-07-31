@@ -12,6 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import manage.doctor.DoctorVO;
+import manage.doctor.sched.SchedVO;
+import manage.reserve.ReserveService;
+import manage.reserve.ReserveVO;
 import member.MemberVO;
 import mypet.MypetVO;
 import util.Function;
@@ -21,6 +24,9 @@ public class DoctorController {
 
 	@Autowired
 	private DoctorService doctorService;
+	
+	@Autowired
+	private ReserveService reserveService;
 
 	@RequestMapping("/manage/doctor/index")
 	public String index(Model model, DoctorVO param) throws Exception {
@@ -33,6 +39,24 @@ public class DoctorController {
 		model.addAttribute("vo", param);
 
 		return "manage/doctor/index";
+	}
+	
+	@RequestMapping("/reservation/reservationDoctorList.do")
+	public String doctorList(Model model, DoctorVO param, SchedVO svo) throws Exception {
+		param.setPageRows(99999);
+		param.setIsDoctor(1);
+		ArrayList<DoctorVO> list = doctorService.list(param);
+		model.addAttribute("list", list);
+		
+		// 예약시간
+		for (int i=0; i<list.size(); i++) {
+			svo.setDoctor_pk(list.get(i).getNo());
+			SchedVO slist = reserveService.schedList(svo);
+			ArrayList<ReserveVO> tlist = reserveService.reservedTime(svo.getDate(), svo.getDoctor_pk());
+			list.get(i).setSlist(slist);
+			list.get(i).setTlist(tlist);
+		}
+		return "reservation/reservationDoctorList";
 	}
 
 	@RequestMapping("/manage/doctor/read")

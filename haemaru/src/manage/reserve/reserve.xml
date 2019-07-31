@@ -17,11 +17,13 @@
 			<isNotEqual property="sval" compareValue="" prepend="and">
 				<!-- 검색 타입이 all일 때 -->
 				<isEqual property="stype" compareValue="all">
-					((name like '%$sval$%' ) or (tel like '%$sval$%' ))
+					((name like
+					'%$sval$%' ) or (tel like '%$sval$%' ))
 				</isEqual>
 				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
 				<isNotEqual property="stype" compareValue="all">
-					($stype$ like '%$sval$%' )
+					($stype$ like
+					'%$sval$%' )
 				</isNotEqual>
 			</isNotEqual>
 		</dynamic>
@@ -38,9 +40,11 @@
 		resultClass="reservevo">
 		SELECT *, ifnull((select department from doctor where
 		no=reserve.doctor_pk),0) as doctor_department,
-		ifnull((select name from doctor where
+		ifnull((select name from
+		doctor where
 		no=reserve.doctor_pk and
-		department=doctor_department),0) as doctor_name
+		department=doctor_department),0)
+		as doctor_name
 		FROM reserve
 		<include refid="searchSql" />
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
@@ -66,8 +70,9 @@
 
 	<update id="update" parameterClass="reservevo">
 		UPDATE reserve SET
-			name=#name#, tel=#tel#, res_date=#res_date#, member_pk=#member_pk#,
-			doctor_pk=#doctor_pk#, route=#route#, res_contents=#res_contents#, res_hour=#res_hour#
+		name=#name#, tel=#tel#, res_date=#res_date#, member_pk=#member_pk#,
+		doctor_pk=#doctor_pk#, route=#route#, res_contents=#res_contents#,
+		res_hour=#res_hour#
 		WHERE no = #no#
 	</update>
 
@@ -81,9 +86,11 @@
 		resultClass="reservevo">
 		SELECT *, ifnull((select department from doctor where
 		no=reserve.doctor_pk),0) as doctor_department,
-		ifnull((select name from doctor where
+		ifnull((select name from
+		doctor where
 		no=reserve.doctor_pk and
-		department=doctor_department),0) as doctor_name
+		department=doctor_department),0)
+		as doctor_name
 		FROM reserve WHERE no>1 and no=#no#
 	</select>
 
@@ -93,59 +100,101 @@
 		SELECT * FROM doctor
 		WHERE department = #department#
 		<isEqual property="yoil" compareValue="1">
-			and no IN (select doctor_pk from doc_schedule where sun_res=1)
+			and no IN (select
+			doctor_pk from doc_schedule where sun_res=1)
 		</isEqual>
 		<isEqual property="yoil" compareValue="2">
-			and no IN (select doctor_pk from doc_schedule where mon_res=1)
+			and no IN (select
+			doctor_pk from doc_schedule where mon_res=1)
 		</isEqual>
 		<isEqual property="yoil" compareValue="3">
-			and no IN (select doctor_pk from doc_schedule where tue_res=1)
+			and no IN (select
+			doctor_pk from doc_schedule where tue_res=1)
 		</isEqual>
 		<isEqual property="yoil" compareValue="4">
-			and no IN (select doctor_pk from doc_schedule where wed_res=1)
+			and no IN (select
+			doctor_pk from doc_schedule where wed_res=1)
 		</isEqual>
 		<isEqual property="yoil" compareValue="5">
-			and no IN (select doctor_pk from doc_schedule where thu_res=1)
+			and no IN (select
+			doctor_pk from doc_schedule where thu_res=1)
 		</isEqual>
 		<isEqual property="yoil" compareValue="6">
-			and no IN (select doctor_pk from doc_schedule where fri_res=1)
+			and no IN (select
+			doctor_pk from doc_schedule where fri_res=1)
 		</isEqual>
 		<isEqual property="yoil" compareValue="7">
-			and no IN (select doctor_pk from doc_schedule where sat_res=1)
+			and no IN (select
+			doctor_pk from doc_schedule where sat_res=1)
 		</isEqual>
-	</select>
-	
-	<select id="sched" parameterClass="manage.doctor.sched.SchedVO"
-		resultClass="manage.doctor.sched.SchedVO">
-		SELECT no, 
-		<isEqual property="yoil" compareValue="1">
-			sun_start as start_time, sun_end as end_time,
-		</isEqual>
-		<isEqual property="yoil" compareValue="2">
-			mon_start as start_time, mon_end as end_time,
-		</isEqual>
-		<isEqual property="yoil" compareValue="3">
-			tue_start as start_time, tue_end as end_time,
-		</isEqual>
-		<isEqual property="yoil" compareValue="4">
-			wed_start as start_time, wed_end as end_time,
-		</isEqual>
-		<isEqual property="yoil" compareValue="5">
-			thu_start as start_time, thu_end as end_time,
-		</isEqual>
-		<isEqual property="yoil" compareValue="6">
-			fri_start as start_time, fri_end as end_time,
-		</isEqual>
-		<isEqual property="yoil" compareValue="7">
-			sat_start as start_time, sat_end as end_time,
-		</isEqual>
-		name  FROM doc_schedule
-		WHERE doctor_pk = #doctor_pk# 
-		
-	</select>
-	
-	<select id="reservedTime" parameterClass="manage.reserve.ReserveVO" resultClass="manage.reserve.ReserveVO">
-		select res_hour, res_date from reserve where doctor_pk = #doctor_pk#  and res_date = #res_date# 
 	</select>
 
+	<select id="sched" parameterClass="manage.doctor.sched.SchedVO"
+		resultClass="manage.doctor.sched.SchedVO">
+		SELECT no,
+		<isEqual property="yoil" compareValue="1">
+			sun_start as start_time,
+			sun_end as end_time,
+		</isEqual>
+		<isEqual property="yoil" compareValue="2">
+			mon_start as start_time,
+			mon_end as end_time,
+		</isEqual>
+		<isEqual property="yoil" compareValue="3">
+			tue_start as start_time,
+			tue_end as end_time,
+		</isEqual>
+		<isEqual property="yoil" compareValue="4">
+			wed_start as start_time,
+			wed_end as end_time,
+		</isEqual>
+		<isEqual property="yoil" compareValue="5">
+			thu_start as start_time,
+			thu_end as end_time,
+		</isEqual>
+		<isEqual property="yoil" compareValue="6">
+			fri_start as start_time,
+			fri_end as end_time,
+		</isEqual>
+		<isEqual property="yoil" compareValue="7">
+			sat_start as start_time,
+			sat_end as end_time,
+		</isEqual>
+		name FROM doc_schedule
+		WHERE doctor_pk = #doctor_pk#
+
+	</select>
+
+	<select id="reservedTime"
+		parameterClass="manage.reserve.ReserveVO"
+		resultClass="manage.reserve.ReserveVO">
+		select res_hour, res_date from reserve where doctor_pk =
+		#doctor_pk# and res_date = #res_date#
+	</select>
+
+	<select id="Reservation" parameterClass="reservevo"
+		resultClass="reservevo">
+		SELECT *, 
+			ifnull((SELECT department FROM doctor 
+				WHERE no=reserve.doctor_pk),0) AS doctor_department,
+			ifnull((SELECT name FROM doctor 
+				WHERE no=reserve.doctor_pk and
+					  department=doctor_department),0) AS doctor_name,
+				(SELECT doc_image FROM doctor
+				WHERE no=reserve.doctor_pk) AS doctor_image,
+			ifnull((SELECT position FROM doctor
+				WHERE no=reserve.doctor_pk),0) AS doctor_position,
+			ifnull((SELECT gender FROM doctor
+				WHERE no=reserve.doctor_pk),0) AS doctor_gender
+		FROM reserve ORDER BY doctor_position
+	</select>
+
+	<insert id="reserveInsert" parameterClass="reservevo">
+		INSERT INTO reserve
+			(name, tel, res_date, res_hour,  member_pk,
+			doctor_pk, route, res_contents)
+		VALUES
+			(#name#, #tel#, #res_date#, #res_hour#,
+			#member_pk#, #doctor_pk#, #route#, #res_contents#)
+	</insert>
 </sqlMap>
