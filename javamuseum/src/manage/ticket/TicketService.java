@@ -61,7 +61,7 @@ public class TicketService {
 		//회원 포인트 적립, 사용
 		if(param.getReservestate() == 1) {
 			int point = ticketDao.memberPoint(param.getMember_pk());		//해당 회원 포인트 불러오기
-			int usepoint = param.getUsepoint();;												//예매시 사용 포인트
+			int usepoint = param.getUsepoint();;							//예매시 사용 포인트
 			int storepoint = param.getStorepoint();							//예매시 적립 포인트
 			
 			
@@ -70,10 +70,10 @@ public class TicketService {
 			ticketDao.storePoint(param);
 		}
 		
-		int lastNo = (Integer)ticketDao.insert(param);					//전시 등록
+		int lastNo = (Integer)ticketDao.insert(param);						//전시 등록
 		
+		//point table에 포인트 코멘트 넣기(적립 포인트)
 		if(param.getReservestate() == 1) {
-			//point table에 포인트 코멘트 넣기(적립 포인트)
 			PointVO vo = new PointVO();
 			vo.setMember_pk(param.getMember_pk());
 			vo.setMemo("예매 포인트 적립");

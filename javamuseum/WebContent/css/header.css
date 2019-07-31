@@ -10,6 +10,7 @@
 .login li:after {content:"|"; margin:0 10px; color:white;}
 .login li:last-child:after {display:none;}
 .login li a {color:white; font-size:14px;}
+.login li {color:white; font-size:14px;}
 /* login 메뉴 부분 */
 
 /* 헤더 메뉴 부분 */

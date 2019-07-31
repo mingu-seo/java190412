@@ -11,7 +11,6 @@ MemberVO param = (MemberVO)request.getAttribute("vo");
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp" %>
 <script>
 $(function() {
-	
 	$("#idCheckBtn").click(function(){
 		if($("#id").val() == "") {
 			alert("아이디를 입력하세요.");
@@ -65,6 +64,7 @@ $(function() {
 	$("input").keyup(function(){
             var pwd1=$("#password").val();
             var pwd2=$("#pwdconfirm").val();
+            console.log(pwd1);
             if(pwd1 != "" || pwd2 != ""){
                 if(pwd1 == pwd2){
                 	$("#pwdconfirmText").text("비밀번호가 일치합니다");
@@ -213,7 +213,7 @@ function goSave() {
 											
 											<select style="width:100px;margin-right:10px" name="month" id="month"> 
 												 <option value="0">월</option> 
-												<option value="01">1</option>
+												<option value="01" id="1">1</option>
 												<option value="02">2</option>
 												<option value="03">3</option>
 												<option value="04">4</option>
@@ -319,8 +319,7 @@ function goSave() {
 <!--//wrap -->
 </body>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script> 
-<script type="text/javascript"> 
+<script> 
 //이메일 입력방식 선택
 $('#selectEmail').change(function(){ 
 	$("#selectEmail option:selected").each(function () { 
