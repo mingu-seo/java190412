@@ -39,10 +39,10 @@ public class NoticeController {
 		int[] rowPageCount = noticeService.count(param);
 		ArrayList<NoticeVO> list = noticeService.list(param);
 		
-		model.addAttribute("totCount", rowPageCount[0]);
-		model.addAttribute("totPage", rowPageCount[1]);
-		model.addAttribute("list", list);
-		model.addAttribute("vo", param);
+		model.addAttribute("notice_totCount", rowPageCount[0]);
+		model.addAttribute("notice_totPage", rowPageCount[1]);
+		model.addAttribute("nlist", list);
+		model.addAttribute("nvo", param);
 		
 		return "membership/notice";
 	}	
@@ -58,22 +58,22 @@ public class NoticeController {
 	}
 	
 	/* [사용자] 공지사항 상세페이지 */
-	@RequestMapping("/membership/notice_form")
+	@RequestMapping("/membership/notice_watchonly")
 	public String Nread(Model model, NoticeVO param) throws Exception {
 		NoticeVO data = noticeService.read(param.getNo(), true);
-		model.addAttribute("data", data);
-		model.addAttribute("param", param);
+		model.addAttribute("notice_data", data);
+		model.addAttribute("notice_vo", param);
 		
-		return "membership/notice_form";
+		return "membership/notice_watchonly";
 	}
 	
-	@RequestMapping("/membership/notice_read")
+	@RequestMapping("/membership/notice_form")
 	public String Ndread(Model model, NoticeVO param) throws Exception {
 		NoticeVO data = noticeService.read(param.getNo(), true);
 		model.addAttribute("data", data);
 		model.addAttribute("param", param);
 		
-		return "membership/notice_read";
+		return "membership/notice_form";
 	}
 	
 	/* [관리자] 공지사항 수정 */

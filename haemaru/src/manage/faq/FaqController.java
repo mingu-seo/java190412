@@ -31,6 +31,19 @@ public class FaqController {
 		return "manage/faq/index";
 	}
 	
+	@RequestMapping("/cscenter/faq/faq")
+	public String faq(Model model, FaqVO param) throws Exception {
+		int[] rowPageCount = faqService.count(param);
+		ArrayList<FaqVO> list = faqService.list(param);
+		
+		model.addAttribute("totCount", rowPageCount[0]);
+		model.addAttribute("totPage", rowPageCount[1]);
+		model.addAttribute("list", list);
+		model.addAttribute("vo", param);
+		
+		return "cscenter/faq/faq";
+	}
+	
 	@RequestMapping("/manage/faq/read")
 	public String read(Model model, FaqVO param) throws Exception {
 		FaqVO data = faqService.read(param.getNo());

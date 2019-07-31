@@ -30,7 +30,7 @@ public class RoomService {
 	 * @return
 	 * @throws Exception
 	 */
-	public ArrayList list(RoomVO vo) throws Exception{
+	public ArrayList list(RoomVO vo) throws Exception {
 		ArrayList list = roomDAO.list(vo);
 		return list;
 	}
@@ -77,7 +77,7 @@ public class RoomService {
 	 * @return
 	 * @throws SQLException
 	 */
-	public ArrayList<HashMap> list_image(int room_pk) throws SQLException {
+	public ArrayList<HashMap> list_image(int room_pk) throws Exception {
 		return roomDAO.list_image(room_pk);
 	}
 	
@@ -87,7 +87,7 @@ public class RoomService {
 	 * @return
 	 * @throws SQLException
 	 */
-	public RoomVO read(RoomVO vo) throws SQLException {
+	public RoomVO read(RoomVO vo) throws Exception {
 		RoomVO read = roomDAO.read(vo);
 		return read;
 	}

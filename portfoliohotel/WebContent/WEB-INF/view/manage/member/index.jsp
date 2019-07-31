@@ -48,6 +48,13 @@ function groupDelete() {
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="blist">
+						<div class="btn">
+								
+								<div class="btnRight">
+									<a class="btns" href="loginForm"><strong>로그인</strong> </a>
+								</div>
+							</div>
+							
 							<p><span><strong>총 <%=totCount%>개</strong>  |  <%=param.getReqPageNo()%>/<%=totPage%>페이지</span></p>
 							<form name="frm" id="frm" action="process.do" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
@@ -58,7 +65,9 @@ function groupDelete() {
 									<col class="w10" />							
 									<col class="w8" />
 									<col class="w10" />
-									<col class="w20" />
+									<col class="w8" />
+									<col class="w8" />
+									<col class="w8" />
 								</colgroup>
 								<thead>
 									<tr>
@@ -69,8 +78,10 @@ function groupDelete() {
 										<th scope="col">성별</th>		
 										<th scope="col">등급</th>	 																
 										<th scope="col">최근 로그인</th> 
+										 
 										
-										<th scope="col" class="last">등록일</th>
+										<th scope="col">등록일</th>
+										<th scope="col">탈퇴 여부</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -100,6 +111,7 @@ function groupDelete() {
 										<td <%=targetUrl%>><%=CodeUtil.getMgrade(list.get(i).getGrade())%></td>	 
 										<td <%=targetUrl%>><%=list.get(i).getLogindate()%></td>																		
 										<td <%=targetUrl%>><%=DateUtil.getDateTimeFormat(list.get(i).getRegdate())%></td>
+										<td <%=targetUrl%>><%=CodeUtil.getSecession(list.get(i).getSecession())%></td>
 									</tr>
 								<%
 										}
@@ -128,7 +140,8 @@ function groupDelete() {
 									<select name="stype" title="검색을 선택해주세요">
 										<option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>
 										<option value="email" <%=Function.getSelected(param.getStype(), "email") %>>이메일</option>
-										<option value="name" <%=Function.getSelected(param.getStype(), "name") %>>이름</option>										
+										<option value="name" <%=Function.getSelected(param.getStype(), "name") %>>이름</option>
+										<option value="secession" <%=Function.getSelected(param.getStype(), "secession") %>>탈퇴여부</option>										
 									</select>
 									<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />
 									<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />

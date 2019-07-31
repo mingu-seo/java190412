@@ -37,7 +37,6 @@ DiningVO param = (DiningVO)request.getAttribute("vo");
 	
 	
 </script>
-</head>
 <body> 
 <%@ include file="/WEB-INF/view/manage/include/common.jsp" %>
 <div id="wrap">
@@ -105,7 +104,7 @@ DiningVO param = (DiningVO)request.getAttribute("vo");
 										</td>
 									</tr>
 									<tr>
-										<th scope="row"><label for="">예약기간</label></th>
+										<th scope="row"><label for="">예약 가능기간</label></th>
 										<td colspan="3">
 											<input type="text" id="book_period" name="book_period" class="w20" title="예약기간을 입력해주세요" />	
 										</td>

@@ -3,8 +3,10 @@
 <%@ page import="property.SiteProperty" %>
 <%@ page import="util.*" %>
 <%@ page import="java.util.*" %>
+<%@ page import="manage.admin.*" %>
 <%
 QnaVO param = (QnaVO)request.getAttribute("vo");
+AdminVO admin_vo = (AdminVO)request.getAttribute("admin_vo");
 ArrayList<QnaVO> list = (ArrayList)request.getAttribute("list");
 int totCount = (Integer)request.getAttribute("totCount");
 int totPage = (Integer)request.getAttribute("totPage");
@@ -86,6 +88,8 @@ function goSearch() {
 									</tr>
 								</thead>
 								<tbody>
+								
+								
 								
 								<%
 									if (totCount == 0) {

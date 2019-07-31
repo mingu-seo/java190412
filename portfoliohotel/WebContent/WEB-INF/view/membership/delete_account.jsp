@@ -1,4 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="board.member.*"%>
+<%@ page import="util.*"%>
+<%
+MemberVO param = (MemberVO)request.getAttribute("vo");
+ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
+MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
+MemberVO data = (MemberVO)request.getAttribute("data");
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -18,7 +28,7 @@
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="/index.do"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="/index"><img src="../img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">BOOK</a>
@@ -136,7 +146,11 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="sign_in.do">SIGN IN</a>
+                <%if(sessionMember == null){ %>
+                <a href="/membership/sign_in">Sign in</a>
+                <%}else{ %>
+                <a href="/membership/mypage">My page</a>
+                <%} %>
             </div>
         </div>
     </div>

@@ -14,11 +14,44 @@
     <script type="text/javascript" src="/js/gnb.js"></script>
     <title>Tree_회원가입</title>
 </head>
+<script>
+$(function(){
+	$("#emailCheckBtn").click(function(){
+		if ($("#email").val()==""){
+			alert("이메일을 입력하세요");
+		}else{
+		$.ajax ({
+			type:'POST',
+			url:"/manage/member/emailcheck",
+			data:$("[name=frm]").serialize(), //serialize() 직렬로 정렬
+			async:false,
+			success:function(data) {
+				var val = data.trim();
+				if (val == "0") {
+					alert("사용가능한 이메일입니다.");
+					$("#emailcheck").val("1");
+					$("#email").attr("readonly","readonly");
+				} else {
+					alert("존재하는 이메일입니다.");
+					$("#email").val("");
+					$("#emailcheck").val("0");
+					return false;
+				}
+			}
+		
+		});
+	  }
+	});
+
+
+	
+});
+</script>
 <body>
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="/index.do"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="/index"><img src="../img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">BOOK</a>
@@ -136,7 +169,7 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="sign_in.do">SIGN IN</a>
+                <a href="sign_in">SIGN IN</a>
             </div>
         </div>
     </div>
@@ -154,12 +187,12 @@
                     <div class="join-box-logo"><img src="../img/sign_in_img/login-logo.png"></div>
 
                     <div class="join-board clear">
-                            <input type="text" id="id" name="id" placeholder="이메일 입력">
+                            <input type="text" id="email" name="email" placeholder="이메일 입력">
                     </div> 
                 </form>    
             
-                <div class="join-btn">
-                    <a href="join.do">호텔 멤버십 가입 </a>
+                <div class="join-btn" onclick="">
+                    <a href="join">호텔 멤버십 가입 </a>
                 </div>
                 
             </div>    

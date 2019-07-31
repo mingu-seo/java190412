@@ -21,6 +21,31 @@ public class NoticeController {
 	@Autowired
 	NoticeService noticeService;
 	
+	@RequestMapping("/cscenter/notice/notice")
+	public String notice(Model model, NoticeVO param) throws Exception {
+		param.setTablename("notice");
+		int[] rowPageCount = noticeService.count(param);
+		ArrayList<AdminVO> list = noticeService.list(param);
+		
+		model.addAttribute("totCount", rowPageCount[0]);
+		model.addAttribute("totPage", rowPageCount[1]);
+		model.addAttribute("list", list);
+		model.addAttribute("vo", param);
+		
+		return "cscenter/notice/notice";
+	}	
+	
+	
+	@RequestMapping("/cscenter/notice/viewnotice")
+	public String viewnotice(Model model, NoticeVO param) throws Exception {
+		param.setTablename("notice");
+		NoticeVO data = noticeService.read(param, false);
+		model.addAttribute("data", data);
+		model.addAttribute("param", param);
+		
+		return "cscenter/notice/viewnotice";
+	}	
+	
 	@RequestMapping("/manage/board/notice/index")
 	public String index(Model model, NoticeVO param) throws Exception {
 		param.setTablename("notice");

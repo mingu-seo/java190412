@@ -8,6 +8,8 @@
 ArrayList<Room_resVO> list = (ArrayList)request.getAttribute("list");
 Room_resVO param = (Room_resVO)request.getAttribute("vo");
 RoomVO rvo = (RoomVO)request.getAttribute("rvo");
+int totCount = (Integer)request.getAttribute("totCount");
+int totPage = (Integer)request.getAttribute("totPage");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -21,13 +23,13 @@ function groupDelete() {
 			$("#frm").submit();
 		}
 	} else {
-		alert("삭제할 항목을 하나 이상 선택해 주세요.");
+		alert("삭제할 항목을 하나 이상 선택해주세요.");
 	}
 }
 
 function goDelete(no) {	
 	if (confirm ('삭제하시겠습니까?')) {
-		document.location.href = "/manage/room/process_del?no="+no+"&cmd=delete";
+		document.location.href = "/manage/room/res/process?no="+no+"&cmd=delete";
 	}
 }
 
@@ -58,7 +60,8 @@ function goSearch() {
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="blist">
-							<form name="frm" id="frm" action="process_del" method="post">
+							<p><span><strong>총 <%=totCount%>개</strong>  |  <%=param.getReqPageNo()%>/<%=totPage%>페이지</span></p>
+							<form name="frm" id="frm" action="/manage/room/res/process" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<colgroup>
 									<col class="w3" />
@@ -101,11 +104,11 @@ function goSearch() {
 										<td><%=data.getNo()%></td>
 										<td><%=data.getCheckin() %></td>
 										<td><%=data.getCheckout() %></td>
-										<td><%=data.getGuest_kname() %></td>
+										<td <%=targetUrl%>><%=data.getGuest_kname() %></td>
 										<td><%=data.getRoom_name() %></td>
 										<td><%=data.getAdult() %></td>
 										<td><%=data.getKid() %></td>
-										<td><%=data.getBookdate() %></td>
+										<td <%=targetUrl%>><%=data.getBookdate() %></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
 								<%
@@ -124,6 +127,9 @@ function goSearch() {
 								</div>
 							</div>
 							<!--//btn-->
+							<!-- 페이징 처리 -->
+							<%=Page.indexList(param.getReqPageNo(), totPage, request)%>
+							<!-- //페이징 처리 -->
 						</div>
 						<!-- //blist -->
 					</div>

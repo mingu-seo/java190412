@@ -1,4 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="board.member.*" %>
+<%@ page import="util.*" %>
+<%@ page import="java.util.*" %>
+<%
+MemberVO param = (MemberVO)request.getAttribute("vo");
+MemberVO data = (MemberVO)request.getAttribute("data");
+MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -18,7 +27,7 @@
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="/index.do"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="/index"><img src="../img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">BOOK</a>
@@ -136,7 +145,11 @@
                     </li>
                     <!-- <li><a href="#">SIGN IN</a></li> -->
                 </ul>
-                <a href="sign_in.do">SIGN IN</a>
+              <%if(sessionMember == null){ %>
+                <a href="/membership/sign_in">Sign in</a>
+                <%}else{ %>
+                <a href="/membership/mypage">My page</a>
+                <%} %>
             </div>
         </div>
     </div>
@@ -183,24 +196,33 @@
             <div class="reservation-status-right">
                 <div class="my-info">
                     <h4>
-                        배경민 님<br/>
-                        환영합니다 !
+                    <%
+                 String[] nameArr = sessionMember.getName().split(",");
+                 %>
+  
+	<%=nameArr[0]%> <%=nameArr[1]%> 님<br/>
+                        		환영합니다 !
                     </h4>
                     <table>
                         <tr>
                             <td>회원등급</td>
-                            <td>VIP</td>
-                        </tr>
+                            
+                            <td><%=CodeUtil.getMgrade(sessionMember.getGrade())%></td>
+                        </tr> 
+                   
                         <tr>
                             <td>포인트</td>
-                            <td>10,000P</td>
+                            <td><%=sessionMember.getPoint()%> P</td>
+                            <%-- <th scope="row"><label for="">포인트</label></th>
+							<td colspan="3"><%=data.getPoint()%></td> --%>
                         </tr>
                     </table>
                 </div>
                 <ul class="my-info-list">
-                    <li><a href="edit_account.do">개인정보 수정</a></li>
-                    <li><a href="delete_account.do">회원탈퇴</a></li>
-                    <li><a href="#">로그아웃</a></li>
+                    <li><a href="edit_account">개인정보 수정</a></li>
+                    <li><a href="delete_account">회원탈퇴</a></li>
+                    
+                    <li><a href="/membership/logout">로그아웃</a></li>
                 </ul>
             </div>
         </div>
@@ -239,15 +261,32 @@
                 <h3>멤버십 등급별 특전<span class="title-sub">MEMBERSHIP CLASS BENEFIT</span></h3>
             <div class="membership-benefit-box clear">
                 <div class="membership-benefit-box-center clear">
-                    <div class="classic">
-                        <div class="benefit-img">
+                
+                <%if(sessionMember.getGrade() == 1) {%>
+                    <div class="classic on">   
+                    <div class="benefit-img">                 
                             <p>CLASSIC</p>
                         </div>
                         <div class="benefit-text">
-                            <p>3번 투숙 또는 6박 이상 이용</p>
-                            <p>객실이용 금액 5% 적립</p>
+                            <p>1번 투숙 또는 3박 이상 이용</p>
+                            <p>객실이용 금액 2% 적립</p>
                         </div>
                     </div>
+                    <%}else { %>                 
+                    <div class="classic"> 
+                        <div class="benefit-img">
+                        
+                                                
+                            <p>CLASSIC</p>
+                        </div>
+                        <div class="benefit-text">
+                            <p>1번 투숙 또는 3박 이상 이용</p>
+                            <p>객실이용 금액 2% 적립</p>
+                        </div>
+                    </div>
+                    <%} %>
+                    
+                    <%if(sessionMember.getGrade() == 2) {%>
                     <div class="vip on">
                             <div class="benefit-img">
                                 <p>VIP</p>
@@ -257,6 +296,29 @@
                                 <p>객실이용 금액 5% 적립</p>
                             </div>
                     </div>
+                    <%}else { %> 
+                    <div class="vip">
+                            <div class="benefit-img">
+                                <p>VIP</p>
+                            </div>
+                            <div class="benefit-text">
+                                <p>3번 투숙 또는 6박 이상 이용</p>
+                                <p>객실이용 금액 5% 적립</p>
+                            </div>
+                    </div>
+                    <%} %>
+                    
+                    <%if(sessionMember.getGrade() == 3) {%>
+                    <div class="vvip on">
+                            <div class="benefit-img">
+                                <p>VVIP</p>
+                            </div>
+                            <div class="benefit-text">
+                                <p>7번 투숙 또는 12박 이상 이용</p>
+                                <p>객실이용 금액 7% 적립</p>
+                            </div>
+                    </div>
+                    <%}else{ %>
                     <div class="vvip">
                             <div class="benefit-img">
                                 <p>VVIP</p>
@@ -266,6 +328,8 @@
                                 <p>객실이용 금액 7% 적립</p>
                             </div>
                     </div>
+                    <%} %>
+                    
                 </div>
             </div>
         </div>

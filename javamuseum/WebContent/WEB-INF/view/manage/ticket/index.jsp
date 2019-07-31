@@ -6,6 +6,8 @@
 <%
 TicketVO param = (TicketVO)request.getAttribute("param");
 ArrayList<TicketVO> list = (ArrayList)request.getAttribute("list");
+ArrayList<ExhibitionVO> ingList = (ArrayList)request.getAttribute("ingList");
+ArrayList<ExhibitionVO> exList = (ArrayList)request.getAttribute("exList");
 int totCount = (Integer)request.getAttribute("totCount");
 int totPage = (Integer)request.getAttribute("totPage");
 %>
@@ -36,6 +38,26 @@ function disState() {
 	var disFrm = document.getElementById('dis_state');
 	disFrm.submit();
 }
+
+$(function() {
+	$("#reserve_can").click(function(){
+		if(conform("예매를 취소하시겠습니까?") == true){
+			$.ajax({
+				type : "post",
+				url : "/reserve/update",
+				data : 
+					{
+						no : <%=param.getNo()%>,
+						reservestate : 2
+					},
+				async : false,
+				success : function(data) {
+					alert("예매가 취소되었습니다.")
+				}
+			});
+		}
+	});
+});
 
 </script>
 </head>
@@ -104,8 +126,16 @@ function disState() {
 									<tr>
 										<th style="width:15%; background-color:#eeeff0; border:1px solid #cccdd0;">관람 작품</th>
 										<td>
-											<select name="title" style="width:300px">
-												<option value="" selected="selected"></option>
+											<select name="display_pk" style="width:300px">
+												<option value="0">전체</option>
+												<option value="0">----------------------전시중인 작품----------------------</option>
+												<%for(int i = 0; i < ingList.size(); i++){ %>
+												<option value="<%=ingList.get(i).getNo()%>" <%=Function.getSelected(param.getDisplay_pk(), ingList.get(i).getNo())%>>[<%=i+1%>관] <%=ingList.get(i).getTitle()%></option>
+												<%} %>
+												<option value="0">-------------------지난 작품, 대기 작품------------------</option>
+												<%for(int i = 0; i < exList.size(); i++){%>
+												<option value="<%=exList.get(i).getNo()%>" <%=Function.getSelected(param.getDisplay_pk(), exList.get(i).getNo())%>><%=exList.get(i).getTitle()%></option>
+												<%} %>
 											</select>
 										</td>
 										<th style="width:15%; background-color:#eeeff0; border:1px solid #cccdd0;">결제 방식</th>
@@ -123,6 +153,7 @@ function disState() {
 											</select>
 											<input type="text" name="sval" value="<%=param.getSval()%>" title="검색할 내용을 입력해주세요" />
 											<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />
+											<input type="button" value="초기화" style="width:60px; height:23px; float:right;" onclick="location.href='/manage/ticket/index'"/>
 										</td>
 									</tr>
 								</table>
@@ -184,7 +215,7 @@ function disState() {
 										<td <%=targetUrl%>><%=CodeUtil.getPayStateSave(list.get(i).getPaystate())%></td>
 										<td>
 											<%if(list.get(i).getReservestate() == 1){ %>
-											<input type="button" name="reserve_can" value="예매취소" onclick="confirm('예매를 취소하시겠습니까?')" style="cursor:pointer"/>
+											<input type="button" id="reserve_can" name="reserve_can" value="예매취소" style="cursor:pointer"/>
 											<%} else { %>
 											-
 											<%} %>
