@@ -3,9 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-				http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+				http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
 	<context:component-scan base-package="test" />
 	<context:component-scan base-package="manage.admin" />
@@ -16,6 +18,7 @@
 	<context:component-scan base-package="dining_res" />
 	<context:component-scan base-package="membership" />
 	<context:component-scan base-package="pkg" />
+	<context:component-scan base-package="aop" />
 	<mvc:annotation-driven/>
 	
 
@@ -43,5 +46,5 @@
 		<property name="defaultEncoding" value="utf-8"/>
 		<property name="maxUploadSize" value="10000000"/>	
 	</bean>
-	
+	<aop:aspectj-autoproxy/>
 </beans>

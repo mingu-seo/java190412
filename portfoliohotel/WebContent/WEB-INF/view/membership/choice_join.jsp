@@ -187,9 +187,9 @@ $(function(){
 
                     <div class="join-box-logo"><img src="../img/sign_in_img/login-logo.png"></div>
 
-                    <div class="join-board clear">
+                    <!-- <div class="join-board clear">
                             <input type="text" id="email" name="email" placeholder="이메일 입력">
-                    </div> 
+                    </div>  -->
                 </form>    
             
                 <div class="join-btn" >

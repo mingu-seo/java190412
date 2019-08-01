@@ -3,6 +3,8 @@
 <%@ page import="java.util.*" %>
 <%
 MemberVO param = (MemberVO)request.getAttribute("vo");
+MemberVO data = (MemberVO)request.getAttribute("data");
+MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
 %>
 
 <!DOCTYPE html>
@@ -21,42 +23,43 @@ MemberVO param = (MemberVO)request.getAttribute("vo");
     <title>Tree_로그인페이지</title>
 	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     <script>
+    $(function(){
+    	$("#emailCheckBtn").click(function(){
+    		if ($("#email").val()==""){
+    			alert("이메일을 입력하세요");
+    		}else{
+    		$.ajax ({
+    			type:'POST',
+    			url:"/membership/emailcheck",
+    			data:$("[name=frm]").serialize(), //serialize() 직렬로 정렬
+    			async:false,
+    			success:function(data) {
+    				var val = data.trim();
+    				if (val == "0") {
+    					alert("사용가능한 이메일입니다.");
+    					$("#emailcheck").val("1");
+    					$("#email").attr("readonly","readonly");
+    				} else {
+    					alert("존재하는 이메일입니다.");
+    					$("#email").val("");
+    					$("#emailcheck").val("0");
+    					return false;
+    				}
+    			}
+    		
+    		});
+    		}
+    	});
+    });
+    
 function goSave() {
 	if ($("#email").val() == "") {
 		alert("이메일을 입력해주세요.");
 		$("#email").focus();
 		return false;
 	}
-	/* $(function(){
-		$("#emailCheckBtn").click(function(){
-			if ($("#email").val()==""){
-				alert("이메일을 입력하세요");
-			}else{
-			$.ajax ({
-				type:'POST',
-				url:"/membership/emailcheck",
-				data:$("[name=frm]").serialize(), //serialize() 직렬로 정렬
-				async:false,
-				success:function(data) {
-					var val = data.trim();
-					if (val == "0") {
-						alert("사용가능한 이메일입니다.");
-						$("#emailcheck").val("1");
-						$("#email").attr("readonly","readonly");
-					} else {
-						alert("존재하는 이메일입니다.");
-						$("#email").val("");
-						$("#emailcheck").val("0");
-						return false;
-					}
-				}
-			
-			});
-			}
-		});
-	 */
 	 
-	 /* if(!validPassword($("#password"))) return false; */
+	  /* if(!validPassword($("#password"))) return false; */ 
 	 
 	if ($("#password").val() == "") {
 		alert("비밀번호를 입력해주세요.");
@@ -111,15 +114,13 @@ function goSave() {
 		$("#addr_detail").focus();
 		return false;		
 	}
-	 
-	
-	
 	
 	if($("#password").val()!=$("#passwordCheck").val()){
 		alert("비밀번호가 다릅니다.");
 		$("#password").focus();
 		return false;
 	}
+	
 	$.ajax ({
 		type:'POST',
 		url:"/manage/member/emailcheck",
@@ -140,8 +141,23 @@ function goSave() {
 		return false;
 	}
 	
-
-	$("#frm").submit();  
+	/* $.post("/membership/idcheck",$("[name=frm]").serialize(), function (data, status) {
+		var val = data.trim();
+		if (val == "0") {
+			$("#idcheck").val("1");
+			r = true;
+		} else {
+			alert("존재하는 아이디입니다.");
+			r = false;
+		}
+		$("#idcheck").val(data.trim());
+	}).fail(function() {   
+		alert('아이디체크실패');
+		r = false;
+	}); */
+	
+	return true;
+	//$("#frm").submit();  
 }
 
 	</script>
@@ -288,12 +304,12 @@ function goSave() {
             <div class="account-box clear">
                 <div class="account-box-logo"><img src="../img/sign_in_img/login-logo.png"></div>
                 <div class="account-form">
-                    <form action="" method="post" onsubmit="return goSave();">
+                    <form name="frm" id="frm" action="join_insert" method="post" onsubmit="return goSave();">
                         <div class="account-form1">
                         <div class="email">
                                 <label for="account-email">이메일</label>
                                 <input type="text" name="email" id="email" placeholder="이메일을 입력하세요.">                                
-                                <input type="button" value="중복체크"  style="height:35px; border:none; border-radius: 5px; background-color:#0e693f; color:#fff; width:60px; padding:0;"/>
+                                <input type="button" value="중복체크"  id="emailCheckBtn" style="height:35px; border:none; border-radius: 5px; background-color:#0e693f; color:#fff; width:60px; padding:0;"/>
                             </div>
                             <!-- <label for="account-id">아이디</label>
                             <input type="text" name="account-id" id="account-id" placeholder="ID를 입력하세요.">
@@ -316,9 +332,9 @@ function goSave() {
                             </div>
                             <div class="account-sex">
                                 <label for="male">남성</label>
-                                <input type="radio" name="gender" id="male">
+                                <input type="radio" name="gender" id="male" value="1">
                                 <label for="male" class="female">여성</label>
-                                <input type="radio" name="gender" id="female">
+                                <input type="radio" name="gender" id="female" value="2">
                             </div>
                             <div class="account-birthday clear">
                                 <div class="birth-form">
@@ -337,17 +353,22 @@ function goSave() {
                             
                             <div class="account-contact">
                                 <label for="account-contact">연락처</label>
-                                <input type="text" name="tel" id="tel" placeholder="연락처를 입력하세요.">
+                                <input type="text" name="tel" id="tel" placeholder="연락처를 입력하세요. (-제외)">
                             </div>
 
                             <div class="adress clear">
                                 <label for="adress">주소</label>
-                                <input type="text" id="zipcode" name="zipcode" placeholder="우편번호">
+                                <input type="text" id="zipcode" name="zipcode" placeholder="우편번호" disabled>
                                 <input type='button' class="ad-button zipcodeBtn" onclick="sample2_execDaumPostcode()" value="우편번호">                              
-                                <input type="text" id="addr" name="addr" placeholder="기본주소">
+                                <input type="text" id="addr" name="addr" placeholder="기본주소" disabled >
                                 <input type="text" id="addr_detail" name="addr_detail" placeholder="상세주소">
                             </div>
                             <input type="submit" href="#" value="가입하기">
+                            <input type="hidden" name="cmd" value="join">
+                            <%-- <input type="hidden" name="ip" id="ip" value="<%=request.getRemoteAddr()%>"/>
+							<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
+							<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
+							<input type="hidden" name="idcheck" id="idcheck" value="0"/> --%>
                             
                         </div>
                     </form>
