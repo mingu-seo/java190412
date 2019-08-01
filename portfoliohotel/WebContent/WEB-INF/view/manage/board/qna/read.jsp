@@ -99,7 +99,7 @@ function goSave() {
 									<tr>
 										<th scope="row"><label for="">공개여부</label></th>
 										<td>
-												<%=CodeUtil.getOpenName(data.getOpen()) %>
+											<%=CodeUtil.getOpenName(data.getOpen()) %>
 										</td>
 										<th scope="row"><label for="">카테고리</label></th>
 										<td colspan="3">
@@ -160,8 +160,8 @@ function goSave() {
 										<td colspan="5"><%=data.getFile_org()%></td>
 									</tr>
 									
-								</tbody>
-									</table>
+									</tbody>
+								</table>
 								<div class="btn">
 									<div class="btnLeft">
 										<a class="btns"
