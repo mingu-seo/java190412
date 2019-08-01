@@ -25,7 +25,14 @@
          document.location.href = "process?no=<%=data.getNo()%>&cmd=delete";
       }
    }
-   
+
+   function reserve(date, time) {
+	      var res = confirm ('프로그램을 신청하시겠습니까?');
+	      if (res){
+	         document.location.href = "reserve?no=<%=data.getNo()%>&title=<%=data.getTitle()%>&date="+date+"&time="+time;
+	      }
+	   }
+
 
 </script>
 </head>
@@ -55,12 +62,13 @@
 									<colgroup>
 										<col width="35%" />
 										<col width="25%" />
-										<col width="20%" />
-										<col width="20%" />
+										<col width="10%" />
+										<col width="10%" />
+										<col width="10%" />
 										<col width="10%" />
 									</colgroup>
 									<tbody>
-									<td rowspan="9">
+									<td rowspan="<%=olist.size()+10 %>">
 									<img src="/upload/program/<%=data.getImagename()%>" width="500" height="500">
 									</td>
 										<tr>
@@ -88,18 +96,15 @@
 											<td colspan="4"><%=data.getLocation()%></td>
 										</tr>
 										<tr>
-											<th scope="row"><label for="">신청인원</label></th>
-											<td colspan="4">신청인원/<%=data.getMax_mem()%></td>
-										</tr>
-										<tr>
 											<th scope="row"><label for="">등록일</label></th>
 											<td colspan="4"><%=DateUtil.getDateTimeFormat(data.getRegistdate())%></td>
 										</tr>
 										<tr>
 											<th>프로그램 기간</th>
-											<th>프로그램 날짜</th>
-											<th>프로그램 시간</th>
-											<th>프로그램 신청인원</th>
+											<td>프로그램 날짜</td>
+											<td>프로그램 시간</td>
+											<td>프로그램 신청인원</td>
+											<td>프로그램 신청하기</td>
 											
 										</tr>
 										
@@ -111,21 +116,31 @@
 												<td><input type="checkbox" name="no" id="no"
 													value="<%=olist.get(i).get("no")%>" /></td>
 												<td><%=olist.get(i).get("date")%></td>
-												<td><%=olist.get(i).get("time")%></td>
-												<td><%=olist.get(i).get("join_mem")%>명</td>
-											</tr>
-											<%
+												<td><%=CodeUtil.getP_timeName((Integer)olist.get(i).get("time"))%></td>
+												<td><%=olist.get(i).get("member_cnt") %> 명 / <%=data.getMax_mem() %> 명</td>
+												<td>
+												<%
+												if(data.getMax_mem() > Integer.parseInt(String.valueOf(olist.get(i).get("member_cnt")))){ 
+													String a = "'"+olist.get(i).get("date")+"'";
+													
+												%>	
+												
+												<input type="button" value="신청" onclick="reserve(<%=a%>, <%=olist.get(i).get("time")%>)"/>
+												<%
 												}
 											%>
+											</td>
+											</tr>
+											<%} %>
 											<td></td>
 										</tr>
 
 
 										<tr>
-											<th scope="row"colspan="4" ><label for="">상세정보</label></th>
+											<th scope="row"colspan="6" ><label for="">상세정보</label></th>
 										</tr>
 										<tr>
-										<td colspan="4"><%=data.getContents()%></td>
+										<td colspan="6"><%=data.getContents()%></td>
 										</tr>
 
 									</tbody>
@@ -135,6 +150,7 @@
 
 
 								<input type="hidden" name="program_pk" id="program_pk" value="<%=data.getNo()%>" />
+								
 								<div class="btn">
 									<div class="btnLeft">
 										<a class="btns"

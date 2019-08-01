@@ -74,6 +74,13 @@ public class MemberController {
 			param.setTel(param.getfTel() + "-" + param.getmTel() + "-" + param.geteTel());
 			param.setBirthday(param.getYear() + "-" + param.getMonth() + "-" + param.getDay());
 			int r = memberService.insert(param);
+			pntparam.setMember_pk(r);
+			pntparam.setAccum(1000);
+			pntparam.setMemo("회원가입 적립금");
+			pntparam.setState(0);
+			int p = memberService.pointinsert(pntparam);
+			model.addAttribute(p);
+			memberService.pointupdate(pntparam);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
 			model.addAttribute("url", "index");

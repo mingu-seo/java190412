@@ -2,6 +2,7 @@ package room.res;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.stereotype.Repository;
 
@@ -16,8 +17,12 @@ public class Room_resDAO extends SqlMapClientDAOSupport {
 	 * @return
 	 * @throws SQLException
 	 */
-	public ArrayList list(Room_resVO vo) throws SQLException {
-		return (ArrayList)getSqlMapClient().queryForList("room_res.list", vo);
+	public ArrayList index(Room_resVO vo) throws SQLException {
+		return (ArrayList)getSqlMapClient().queryForList("room_res.index", vo);
+	}
+	
+	public ArrayList<HashMap> list(String yearMonth) throws SQLException {
+		return (ArrayList<HashMap>)getSqlMapClient().queryForList("room_res.list", yearMonth);
 	}
 	
 	/**
@@ -40,12 +45,44 @@ public class Room_resDAO extends SqlMapClientDAOSupport {
 		return (Room_resVO)getSqlMapClient().queryForObject("room_res.read", vo);
 	}
 	
+	/**
+	 * 객실 예약 수정
+	 * @param vo
+	 * @return
+	 * @throws SQLException
+	 */
 	public int update(Room_resVO vo) throws SQLException {
 		return getSqlMapClient().update("room_res.edit", vo);
 	}
 	
+	/**
+	 * 객실 예약 취소
+	 * @param no
+	 * @return
+	 * @throws SQLException
+	 */
 	public int cancel(int no) throws SQLException {
 		return getSqlMapClient().update("room_res.cancel", no);
+	}
+	
+	/**
+	 * 객실 예약 삭제
+	 * @param no
+	 * @return
+	 * @throws SQLException
+	 */
+	public int delete(int no) throws SQLException {
+		return getSqlMapClient().delete("room_res.delete", no);
+	}
+	
+	/**
+	 * 객실 예약 개수 카운트
+	 * @param vo
+	 * @return
+	 * @throws SQLException
+	 */
+	public int count(Room_resVO vo) throws SQLException {
+		return (Integer)getSqlMapClient().queryForObject("room_res.count", vo);
 	}
 	
 	/**
@@ -58,7 +95,19 @@ public class Room_resDAO extends SqlMapClientDAOSupport {
 		getSqlMapClient().insert("room_res.insert_opt", vo);
 	}
 	
+	/**
+	 * 객실 추가 옵션 목록
+	 * @param room_res_pk
+	 * @return
+	 * @throws SQLException
+	 */
 	public ArrayList list_opt(int room_res_pk) throws SQLException {
 		return (ArrayList)getSqlMapClient().queryForList("room_res.list_opt", room_res_pk);
+	}
+	
+	public static void main(String[] args) throws Exception {
+		Room_resDAO dao = new Room_resDAO();
+		Room_resVO vo = new Room_resVO();
+//		vo.setCategory(1);
 	}
 }

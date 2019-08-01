@@ -15,35 +15,37 @@
     <title>Tree_회원가입</title>
 </head>
 <script>
-function goSave() {
+function goJoin() {
 	if ($("#email").val() == "") {
 		alert("이메일 입력해주세요.");
 		$("#email").focus();
 		return false;
 	}
 	
-$.ajax ({
-	type:'POST',
-	url:"/manage/member/emailcheck",
-	data:$("[name=frm]").serialize(), //serialize() 직렬로 정렬
-	async:false,
-	success:function(data) {
-		var val = data.trim();
-		if (val == "0") {
-			$("#emailcheck").val("1");
-		} else {
-			alert("존재하는 이메일입니다.");
-			$("#emailcheck").val("0");
-			return false;
-		}
-	}
-});
-if ($("#emailcheck").val() == "0") {
-	return false;
-}
-
-
-$("#frm").submit();  
+$(function(){
+	$("#emailCheckBtn").click(function(){
+		if ($("#email").val()==""){
+			alert("이메일을 입력하세요");
+		}else{
+		$.ajax ({
+			type:'POST',
+			url:"/membership/choice_join",
+			data:$("[name=frm]").serialize(), //serialize() 직렬로 정렬
+			async:false,
+			success:function(data) {
+				var val = data.trim();
+				if (val == "1") {
+					alert("존재하는 이메일입니다.");
+					$("#email").val("");
+					$("#emailcheck").val("0");
+					return false;					
+				} 
+			}
+		
+		});
+	  }
+	});
+  });
 }
 </script>
 <body>
@@ -186,12 +188,12 @@ $("#frm").submit();
                     <div class="join-box-logo"><img src="../img/sign_in_img/login-logo.png"></div>
 
                     <div class="join-board clear">
-                            <input type="text" id="id" name="id" placeholder="이메일 입력">
+                            <input type="text" id="email" name="email" placeholder="이메일 입력">
                     </div> 
                 </form>    
             
-                <div class="join-btn" onclick="goSave();">
-                    <a href="join">호텔 멤버십 가입 </a>
+                <div class="join-btn" >
+                    <a href="join" onclick="goJoin">호텔 멤버십 가입 </a>
                 </div>
                 
             </div>    

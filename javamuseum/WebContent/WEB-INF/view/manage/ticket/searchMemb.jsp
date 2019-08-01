@@ -63,7 +63,7 @@ int totPage = (Integer)request.getAttribute("totPage");
 									<col class="w30" />
 								</colgroup>
 								<thead>
-									<tr>
+									<tr style="background-color:#eeeff0;">
 										<th scope="col"></th>
 										<th scope="col">회원 아이디</th>
 										<th scope="col">회원 이름</th>

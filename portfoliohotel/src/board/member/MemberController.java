@@ -228,6 +228,20 @@ public class MemberController {
 
 		return "membership/sign_in";
 	}
+	
+	@RequestMapping("/membership/find_id")  //로그인 페이지
+	public String find_id(Model model, MemberVO param) throws Exception {
+		model.addAttribute("vo", param);
+
+		return "membership/find_id";
+	}
+	
+	@RequestMapping("/membership/find_pw")  //로그인 페이지
+	public String find_pw(Model model, MemberVO param) throws Exception {
+		model.addAttribute("vo", param);
+
+		return "membership/find_pw";
+	}
 
 	
 	@RequestMapping("/membership/mypage")

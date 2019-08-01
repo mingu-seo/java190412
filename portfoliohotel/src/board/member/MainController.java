@@ -47,7 +47,7 @@ public class MainController {
 			return "redirect:"+redirectUrl;
 		} else {
 			model.addAttribute("code", "alertMessageBack");
-			model.addAttribute("message", "이메일, 비밀번호가 올바르지 않습니다.");
+			model.addAttribute("message", "이메일 또는 비밀번호가 올바르지 않습니다.");
 			return "include/alert";
 		}
 	}

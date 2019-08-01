@@ -39,26 +39,23 @@ function disState() {
 	disFrm.submit();
 }
 
-$(function() {
-	$("#reserve_can").click(function(){
-		if(conform("예매를 취소하시겠습니까?") == true){
-			$.ajax({
-				type : "post",
-				url : "/reserve/update",
-				data : 
-					{
-						no : <%=param.getNo()%>,
-						reservestate : 2
-					},
-				async : false,
-				success : function(data) {
-					alert("예매가 취소되었습니다.")
-				}
-			});
-		}
-	});
-});
-
+function reserveCan(no, member_pk, idx) {
+	if(confirm("예매를 취소하시겠습니까?") == true){
+		$.ajax({
+			type : "post",
+			url : "/reserve/update?no="+no+"&member_pk="+member_pk,
+			data : {
+				reservestate : 2
+				},
+			async : false,
+			success : function(data) {
+				alert("예매가 취소되었습니다.");
+				$("#reserve_can").remove();
+				$(".cancel_date").eq(idx).text("<%=DateUtil.getToday()%>");
+			}
+		});
+	}
+}
 </script>
 </head>
 <body> 
@@ -128,11 +125,11 @@ $(function() {
 										<td>
 											<select name="display_pk" style="width:300px">
 												<option value="0">전체</option>
-												<option value="0">----------------------전시중인 작품----------------------</option>
+												<option value="0" disabled>----------------------전시중인 작품----------------------</option>
 												<%for(int i = 0; i < ingList.size(); i++){ %>
 												<option value="<%=ingList.get(i).getNo()%>" <%=Function.getSelected(param.getDisplay_pk(), ingList.get(i).getNo())%>>[<%=i+1%>관] <%=ingList.get(i).getTitle()%></option>
 												<%} %>
-												<option value="0">-------------------지난 작품, 대기 작품------------------</option>
+												<option value="0" disabled>-------------------지난 작품, 대기 작품------------------</option>
 												<%for(int i = 0; i < exList.size(); i++){%>
 												<option value="<%=exList.get(i).getNo()%>" <%=Function.getSelected(param.getDisplay_pk(), exList.get(i).getNo())%>><%=exList.get(i).getTitle()%></option>
 												<%} %>
@@ -209,13 +206,13 @@ $(function() {
 										<td <%=targetUrl%>><%=list.get(i).getTitle()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getDisplaydate()%></td>
 										<td <%=targetUrl%>><%=list.get(i).getPaydate()%></td>
-										<td <%=targetUrl%>><%=list.get(i).getCanceldate()%></td>
+										<td <%=targetUrl%> class="cancel_date"><%=list.get(i).getCanceldate()%></td>
 										<td <%=targetUrl%>><%=CodeUtil.getResStateSave(list.get(i).getReservestate())%></td>
 										<td <%=targetUrl%>><%=CodeUtil.getPaymentName(list.get(i).getMethod())%></td>
 										<td <%=targetUrl%>><%=CodeUtil.getPayStateSave(list.get(i).getPaystate())%></td>
 										<td>
 											<%if(list.get(i).getReservestate() == 1){ %>
-											<input type="button" id="reserve_can" name="reserve_can" value="예매취소" style="cursor:pointer"/>
+											<input type="button" id="reserve_can" name="reserve_can" value="예매취소" onclick="reserveCan(<%=list.get(i).getNo()%>, <%=list.get(i).getMember_pk()%>, <%=i %>)" style="cursor:pointer"/>
 											<%} else { %>
 											-
 											<%} %>

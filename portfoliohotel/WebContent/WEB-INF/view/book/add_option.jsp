@@ -2,7 +2,7 @@
 <%@ page import="room.*" %>
 <%@ page import="java.util.*"%>
 <%
-ArrayList<Room_optVO> list = (ArrayList<Room_optVO>)request.getAttribute("list");
+ArrayList<Room_optVO> list_o = (ArrayList<Room_optVO>)request.getAttribute("list_o");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,10 +56,10 @@ ArrayList<Room_optVO> list = (ArrayList<Room_optVO>)request.getAttribute("list")
         <div class="option_channel clear">
             <h1 class="head-title">객실예약</h1>
             <ul class="cha_index clear">
-                <li><a href="check_room.html">객실검색 <span>></span> </a></li>
+                <li><a href="/book/check_room">객실검색 <span>></span> </a></li>
                 <li class="current-page"><a href="#">객실예약</a></li>
-                <li><a href="/book/personal_info.do"><span>></span>정보입력</a></li>
-                <li><a href="#"><span>></span> 예약완료</a></li>
+                <li><a href="/book/personal_info"><span>></span>정보입력</a></li>
+                <li><a href="/book/confirm_room"><span>></span> 예약완료</a></li>
             </ul>
             <!-- 폼태그 / summit 입력버튼 311번 -->
             <form action="#" method="GET">
@@ -70,32 +70,32 @@ ArrayList<Room_optVO> list = (ArrayList<Room_optVO>)request.getAttribute("list")
                         </div>
 
 						<%
-						if(list.size() > 0) {
-							for(int i=0; i<list.size(); i++) {
+						if(list_o.size() > 0) {
+							for(int i=0; i<list_o.size(); i++) {
 						%>
 							<div class="add0<%=i==0 ? "1":"2"%>">
 								<div class="add-detail">
-									<h3><%=list.get(i).getName() %></h3>
-									<p><%=list.get(i).getInstruction() %></p>
-									<div class="detail-pic"><img src="/upload/room_opt/<%=list.get(i).getImage() %>"/></div>
+									<h3><%=list_o.get(i).getName() %></h3>
+									<p><%=list_o.get(i).getInstruction() %></p>
+									<div class="detail-pic"><img src="/upload/room_opt/<%=list_o.get(i).getImage() %>"/></div>
 								</div>
 								<div class="option-box">
 									<ul class="option-detail">
 									<%
-									if(!list.get(i).getInfo_1().equals("")) {
+									if(!list_o.get(i).getInfo_1().equals("")) {
 									%>
-										<li>· <%=list.get(i).getInfo_1() %></li>
+										<li>· <%=list_o.get(i).getInfo_1() %></li>
 									<%
 									}
-									if(!list.get(i).getInfo_2().equals("")) {
+									if(!list_o.get(i).getInfo_2().equals("")) {
 									%>
-										<li>· <%=list.get(i).getInfo_2() %></li>
+										<li>· <%=list_o.get(i).getInfo_2() %></li>
 									<%
 									}
 									%>
 									</ul>
 									<div class="chk-box">
-										<p><%=list.get(i).getInfo() %></p>
+										<p><%=list_o.get(i).getInfo() %></p>
 										<div class="number-chk">
 											<select>
                                                 <option>0</option>
@@ -147,7 +147,7 @@ ArrayList<Room_optVO> list = (ArrayList<Room_optVO>)request.getAttribute("list")
                                     <p>(투숙기간. 객실 수. 옵션 포함, 세금 및 수수료 각 10%포함)</p>
 
                                     <div class="next-but">
-                                        <input id="countsubmit" type="submit" value="다음">
+                                        <input id="countsubmit" type="submit" value="다음" href="personal_info">
                                     </div>
 
                                     <h4><span></span>예약 안내</h4>
@@ -178,10 +178,10 @@ ArrayList<Room_optVO> list = (ArrayList<Room_optVO>)request.getAttribute("list")
                         <li><a href="#">개인정보처리방침</a></li>
                     </ul>
                     <ul class="sns clear">
-                        <li><a href="#"><img src="../img/sns1.png"></a></li>
-                        <li><a href="#"><img src="../img/sns2.png"></a></li>
-                        <li><a href="#"><img src="../img/sns3.png"></a></li>
-                        <li><a href="#"><img src="../img/sns4.png"></a></li>
+                        <li><a href="#"><img src="/img/sns1.png"></a></li>
+                        <li><a href="#"><img src="/img/sns2.png"></a></li>
+                        <li><a href="#"><img src="/img/sns3.png"></a></li>
+                        <li><a href="#"><img src="/img/sns4.png"></a></li>
                     </ul>
                 </div>
                 <div class="footer-bottom">
@@ -190,10 +190,10 @@ ArrayList<Room_optVO> list = (ArrayList<Room_optVO>)request.getAttribute("list")
                     </h5>
                     <h6>Copyright 2018 Banyan Tree Club & Spa. All Rights Reserved</h6>
                     <ul class="support-logo clear">
-                        <li><img src="../img/footericon1.png"></li>
-                        <li><img src="../img/footericon2.png"></li>
-                        <li><img src="../img/footericon3.png"></li>
-                        <li><img src="../img/footericon4.png"></li>
+                        <li><img src="/img/footericon1.png"></li>
+                        <li><img src="/img/footericon2.png"></li>
+                        <li><img src="/img/footericon3.png"></li>
+                        <li><img src="/img/footericon4.png"></li>
                     </ul>
                 </div>
             </div>

@@ -76,5 +76,6 @@
 .membership-benefit-box > div > div {float:left; margin-right:110px;}
 .membership-benefit-box .benefit-img { width:150px; height:150px; border:5px solid #454545; border-radius: 50%; text-align:center; line-height:150px; font-size:32px; color:#454545; margin:0 auto;}
 .membership-benefit-box .vip.on .benefit-img {border:none; background-color:#0e693f; color:#fff;}
+
 .membership-benefit-box .benefit-text {line-height:30px; margin-top:20px;}
 

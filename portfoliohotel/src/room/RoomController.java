@@ -322,10 +322,22 @@ public class RoomController {
 
 	@RequestMapping("/book/add_option")
 	public String add_option(Model model, Room_optVO vo) throws Exception {
-		ArrayList<Room_optVO> list = roomService.list_opt(vo);
-		model.addAttribute("list", list);
+		ArrayList<Room_optVO> list_o = roomService.list_opt(vo);
+		model.addAttribute("list_o", list_o);
 
 		return "book/add_option";
+	}
+	
+	@RequestMapping("/book/personal_info")
+	public String personal_info(Model model, Room_optVO vo) throws Exception {
+
+		return "book/personal_info";
+	}
+	
+	@RequestMapping("/book/confirm_room")
+	public String confirm_room(Model model, Room_optVO vo) throws Exception {
+
+		return "book/confirm_room";
 	}
 
 	@RequestMapping("/book/check_room")
@@ -340,4 +352,8 @@ public class RoomController {
 		return "book/price_room";
 	}
 
+	@RequestMapping("/book/confirm")
+	public String confirm_room(Model model, RoomVO vo) throws Exception {
+		return "book/confirm";
+	}
 }

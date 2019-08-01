@@ -261,8 +261,10 @@ MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
                 <h3>멤버십 등급별 특전<span class="title-sub">MEMBERSHIP CLASS BENEFIT</span></h3>
             <div class="membership-benefit-box clear">
                 <div class="membership-benefit-box-center clear">
-                    <div class="classic">
-                        <div class="benefit-img">
+                
+                <%if(sessionMember.getGrade() == 1) {%>
+                    <div class="classic on">   
+                    <div class="benefit-img">                 
                             <p>CLASSIC</p>
                         </div>
                         <div class="benefit-text">
@@ -270,6 +272,21 @@ MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
                             <p>객실이용 금액 2% 적립</p>
                         </div>
                     </div>
+                    <%}else { %>                 
+                    <div class="classic"> 
+                        <div class="benefit-img">
+                        
+                                                
+                            <p>CLASSIC</p>
+                        </div>
+                        <div class="benefit-text">
+                            <p>1번 투숙 또는 3박 이상 이용</p>
+                            <p>객실이용 금액 2% 적립</p>
+                        </div>
+                    </div>
+                    <%} %>
+                    
+                    <%if(sessionMember.getGrade() == 2) {%>
                     <div class="vip on">
                             <div class="benefit-img">
                                 <p>VIP</p>
@@ -279,6 +296,29 @@ MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
                                 <p>객실이용 금액 5% 적립</p>
                             </div>
                     </div>
+                    <%}else { %> 
+                    <div class="vip">
+                            <div class="benefit-img">
+                                <p>VIP</p>
+                            </div>
+                            <div class="benefit-text">
+                                <p>3번 투숙 또는 6박 이상 이용</p>
+                                <p>객실이용 금액 5% 적립</p>
+                            </div>
+                    </div>
+                    <%} %>
+                    
+                    <%if(sessionMember.getGrade() == 3) {%>
+                    <div class="vvip on">
+                            <div class="benefit-img">
+                                <p>VVIP</p>
+                            </div>
+                            <div class="benefit-text">
+                                <p>7번 투숙 또는 12박 이상 이용</p>
+                                <p>객실이용 금액 7% 적립</p>
+                            </div>
+                    </div>
+                    <%}else{ %>
                     <div class="vvip">
                             <div class="benefit-img">
                                 <p>VVIP</p>
@@ -288,6 +328,8 @@ MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
                                 <p>객실이용 금액 7% 적립</p>
                             </div>
                     </div>
+                    <%} %>
+                    
                 </div>
             </div>
         </div>

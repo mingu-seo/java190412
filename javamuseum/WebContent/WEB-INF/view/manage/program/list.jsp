@@ -1,10 +1,13 @@
+<%@page import="com.sun.org.apache.bcel.internal.classfile.Code"%>
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="manage.program.*" %>
+<%@ page import="manage.reservation.*" %>
+
 <%@ page import="property.SiteProperty" %>
 <%@ page import="util.*" %>
 <%@ page import="java.util.*" %>
 <%
-ProgramVO param = (ProgramVO)request.getAttribute("vo");
+ProgramVO param = (ProgramVO)request.getAttribute("param");
 ArrayList<ProgramVO> list = (ArrayList)request.getAttribute("list");
 ArrayList<ArrayList<HashMap>> olist = (ArrayList<ArrayList<HashMap>>) request.getAttribute("olist");
 
@@ -64,37 +67,37 @@ function goSearch() {
 							<form name="frm" id="frm" action="process.do" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리목록입니다.">
 								<colgroup>
-									<col class="w3" />
-									<col class="w3" />
-									<col class="w3" />
-									<col class="w10" />
-									<col class="w10" />
-									<col class="w15" />
-									<col class="w9" />
-									<col class="w9" />
-									<col class="w9" />
-									<col class="w9" />
-									<col class="w9" />
-									<col class="w9" />
-									<col class="w10" />
-									<col class="w4" />
+									<col class="w3" /> <!-- checkbox -->
+									<col class="w3" /> <!-- 번호 -->
+									<col class="w6" /> <!-- 카테고리 -->
+									<col class="w10" /><!-- 포스터 -->
+									<col class="w19" /><!-- 프로그램명 -->
+									<col class="w5" /><!-- 강사 -->
+									<col class="w5" /><!-- 가격 -->
+									<col class="w5" /><!-- 상태 -->
+									<col class="w5" /><!-- 등록일-->
+									<col class="w5" /><!-- 삭제 -->
+									<col class="w10" /><!-- 기간 -->
+									<col class="w9" /><!-- 프로그램일자 -->
+									<col class="w5" /><!-- 프로그램시간 -->
+									<col class="w10" /><!-- 프로그램인원 -->
 								</colgroup>
 								<thead>
 									<tr>
 										<th scope="col" class="first"><input type="checkbox" name="allChk" id="allChk" onClick="check(this, document.frm.no)"/></th>
 										<th scope="col">번호</th>
 										<th scope="col">카테고리</th> 
-										<th scope="col">제 목</th> 
-										<th scope="col">강 사</th>
-										<th scope="col">기 간</th>
-										<th scope="col">신청인원</th>
-										<th scope="col">가격</th>
 										<th scope="col">포스터</th>
+										<th scope="col">프로그램명</th> 
+										<th scope="col">강 사</th>
+										<th scope="col">가격</th>
 										<th scope="col">상태</th>
 										<th scope="col">등록일</th>
+										<th scope="col" >삭제</th>
+										<th scope="col">기 간</th>
 										<th scope="col">프로그램일자</th>
 										<th scope="col">프로그램시간</th>
-										<th scope="col" class="last">삭제</th>
+										<th scope="col"class="last">신청인원</th>
 										
 									</tr>
 								</thead>
@@ -114,42 +117,27 @@ function goSearch() {
 								
 								
 									<tr>
-										<td class="first"rowspan=""><input type="checkbox" name="no" id="no" value="<%=list.get(i).getNo()%>"/></td>
-										<td <%=targetUrl%>rowspan=""><%=data.getNo()%></td>
-										<td <%=targetUrl%>rowspan=""><%=CodeUtil.getCategory(data.getCategory())%></td>
-										<td <%=targetUrl%>rowspan=""><%=data.getTitle()%></td>
-										<td <%=targetUrl%>rowspan="" ><%=data.getInstructor()%></td>
-										<td <%=targetUrl%>rowspan=""><%=data.getP_time()%></td>
-										<td <%=targetUrl%>rowspan="" >신청인원/<%=data.getMax_mem()%></td>
-										<td <%=targetUrl%>rowspan=""><%=data.getPrice()%></td>
-										<td <%=targetUrl%>rowspan=""><img src="/upload/program/<%=data.getImagename()%>" width="100" height="100"></td>
-										<td <%=targetUrl%>rowspan=""><%=data.getState()%></td>
-										<td <%=targetUrl%>rowspan=""><%=DateUtil.getDateTimeFormat(data.getRegistdate())%></td>
-										<td>
-										<table>
-													<% for (int j=0; j<olist.get(i).size(); j++) { %>
+										<td class="first"rowspan="<%=olist.get(i).size()%>"><input type="checkbox" name="no" id="no" value="<%=list.get(i).getNo()%>"/></td>
+										<td <%=targetUrl%>rowspan="<%=olist.get(i).size()%>"><%=data.getNo()%></td>
+										<td <%=targetUrl%>rowspan="<%=olist.get(i).size()%>"><%=CodeUtil.getCategory(data.getCategory())%></td>
+										<td <%=targetUrl%>rowspan="<%=olist.get(i).size()%>"><img src="/upload/program/<%=data.getImagename()%>" width="100" height="100"></td>
+										<td <%=targetUrl%>rowspan="<%=olist.get(i).size()%>"><%=data.getTitle()%></td>
+										<td <%=targetUrl%>rowspan="<%=olist.get(i).size()%>" ><%=data.getInstructor()%></td>
 										
-													<tr>
-														<td><%=olist.get(i).get(j).get("date") %></td>
-														
-													</tr>
 	
-													<% } %>
-										</table>
-										</td>
-										<td>
-										<table>
-													<% for (int j=0; j<olist.get(i).size(); j++) { %>
 										
-													<tr>
-														<td><%=olist.get(i).get(j).get("time") %></td>
-														
-													</tr>
-	
+										<td <%=targetUrl%>rowspan="<%=olist.get(i).size()%>"><%=data.getPrice()%></td>
+										<td <%=targetUrl%>rowspan="<%=olist.get(i).size()%>"><%=data.getState()%></td>
+										<td <%=targetUrl%>rowspan="<%=olist.get(i).size()%>"><%=DateUtil.getDateTimeFormat(data.getRegistdate())%></td>
+										<td rowspan="<%=olist.get(i).size()%>"><input type = "button" value="삭제" onclick="goDelete(<%=list.get(i).getNo()%>);"/></td>
+										<td <%=targetUrl%>rowspan="<%=olist.get(i).size()%>"><%=data.getP_time()%></td>
+												<% for (int j=0; j<olist.get(i).size(); j++) { %>
+														<td <%=targetUrl%>rowspan="1"><%=olist.get(i).get(j).get("date") %></td>
+														<td <%=targetUrl%>rowspan="1"><%=CodeUtil.getP_timeName((Integer)olist.get(i).get(j).get("time")) %></td>
+														<td class = "last"<%=targetUrl%>rowspan="1" ><%=olist.get(i).get(j).get("member_cnt") %> 명/<%=data.getMax_mem()%> 명</td>
+														</tr>
 													<% } %>
-										</table>											
-											</td>
-										<td class = "last"rowspan=""><input type = "button" value="삭제" onclick="goDelete(<%=list.get(i).getNo()%>);"/></td>
+									
 									</tr>
 								<%
 									}
@@ -157,10 +145,10 @@ function goSearch() {
 								%>
 								</tbody>
 							</table>
-							<input type="hidden" name="state" id="state" value="<%=param.getState()%>"/>
 							<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
 							<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
 							<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
+							
 							</form>
 							<div class="btn">
 								<div class="btnLeft">
@@ -176,17 +164,6 @@ function goSearch() {
 							<!-- //페이징 처리 -->
  							<form name="searchForm" id="searchForm" action="list" method="post">
 								<div class="search">
-									<select name="display" onchange="$('#searchForm').submit();">
-										<option value="-1" <%=Function.getSelected(param.getDisplay(), -1)%>>노출여부전체</option>
-										<option value="0" <%=Function.getSelected(param.getDisplay(), 0)%>>숨김</option>
-										<option value="1" <%=Function.getSelected(param.getDisplay(), 1)%>>노출</option>
-									</select>
-									<select name="state" onchange="$('#searchForm').submit();">
-										<option value="-1" <%=Function.getSelected(param.getCategory(), -1)%>>카테고리 전체</option>
-										<option value="0" <%=Function.getSelected(param.getCategory(), 0)%>>아동</option>
-										<option value="1" <%=Function.getSelected(param.getCategory(), 1)%>>청소년</option>
-										<option value="2" <%=Function.getSelected(param.getCategory(), 2)%>>성인</option>
-									</select>
 
 									<select name="stype" title="검색을 선택해주세요">
 										<option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>

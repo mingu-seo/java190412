@@ -3,10 +3,10 @@
 <%@ page import="board.notice.*"%>
 <%@ page import="util.*"%>
 <%
-NoticeVO param = (NoticeVO)request.getAttribute("vo");
-ArrayList<NoticeVO> list = (ArrayList)request.getAttribute("list");
-int totCount = (Integer)request.getAttribute("totCount");
-int totPage = (Integer)request.getAttribute("totPage");
+NoticeVO nparam = (NoticeVO)request.getAttribute("nvo");
+ArrayList<NoticeVO> nlist = (ArrayList)request.getAttribute("nlist");
+int notice_totCount = (Integer)request.getAttribute("notice_totCount");
+int notice_totPage = (Integer)request.getAttribute("notice_totPage");
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -183,7 +183,7 @@ function goSearch() {
                             <th scope="col" class="last">등록일</th>
                         </tr>
                         <%
-                        	if (totCount == 0) {
+                        	if (notice_totCount == 0) {
                         %>
                         	<tr>
                         		<td colspan="2">등록된 공지사항이 없습니다.</td>
@@ -192,17 +192,17 @@ function goSearch() {
                         	} else {
                         		String targetUrl = "";
                         		NoticeVO data;
-								for (int i=0; i<list.size(); i++) {
-									targetUrl = "style='cusor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("notice_read", param, list.get(i).getNo())+"'\"";
+								for (int i=0; i<nlist.size(); i++) {
+									targetUrl = "style='cusor:pointer;' onclick=\"location.href='"+nparam.getTargetURLParam("notice_watchonly", nparam, nlist.get(i).getNo())+"'\"";
                         %>
                         <%
-                        	if (list.get(i).getTop() == 2) {
-                        		targetUrl = "style='cursor:pointer; background-color:#bebebe', onclick=\"location.href='"+param.getTargetURLParam("notice_read", param, list.get(i).getNo())+"'\"";
+                        	if (nlist.get(i).getTop() == 2) {
+                        		targetUrl = "style='cursor:pointer; background-color:#bebebe', onclick=\"location.href='"+nparam.getTargetURLParam("notice_watchonly", nparam, nlist.get(i).getNo())+"'\"";
                         	}
                         %>
                         	<tr>
-								<td <%=targetUrl%>> <a href="#"><%=list.get(i).getTitle() %></a></td>
-								<td <%=targetUrl%> class="table-date"><%=DateUtil.getDateFormat(list.get(i).getRegdate()) %></td>
+								<td <%=targetUrl%>> <a href="#"><%=nlist.get(i).getTitle() %></a></td>
+								<td <%=targetUrl%> class="table-date"><%=DateUtil.getDateFormat(nlist.get(i).getRegdate()) %></td>
 							</tr>
 						<%
 								}
@@ -210,7 +210,7 @@ function goSearch() {
 						%>
                     </table>
                 </div>
-                       <%=Page.userIndexList(param.getReqPageNo(), totPage, request)%>
+                       <%=Page.userIndexList(nparam.getReqPageNo(), notice_totPage, request)%>
                 </div>
         </div>
     </div>

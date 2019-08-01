@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="rental">
+    
+    <typeAlias alias="rentalvo" type="manage.rental.RentalVO"/>
+    
+	
+	<select id="count" parameterClass="rentalvo" resultClass="Integer">
+        select count(*) from rental
+    </select>
+	
+	<select id="list" parameterClass="rentalvo" resultClass="rentalvo">
+		SELECT r.*, m.name as member_name, m.id as member_id FROM rental AS r LEFT OUTER JOIN member AS m ON r.member_pk = m.no
+		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$	
+	</select>
+
+	 <select id="read" parameterClass="Integer" resultClass="rentalvo">
+       SELECT r.*, m.name as member_name, m.id as member_id FROM rental AS r LEFT OUTER JOIN member AS m ON r.member_pk = m.no WHERE r.no = #no#
+    </select>
+    
+    <insert id="rentalinsert" parameterClass="rentalvo" >
+        INSERT INTO rental
+        	(member_pk, hallnumber, startdate, enddate, price, filename, filename_org, filesize, registdate, confirm, tel, contents, email)
+        values
+        	(#member_pk#, #hallnumber#, #startdate#, #enddate#, #price#, #filename#, #filename_org#, 0, now(), 0, #tel#, #contents#, #email#)
+       	<selectKey keyProperty="no" resultClass="Integer">
+			SELECT  LAST_INSERT_ID()
+		</selectKey>
+    </insert>
+    
+    <update id="sendMail" parameterClass="rentalvo">
+    	UPDATE rental SET
+        	confirm = 1
+        where no=#no#
+    </update>
+</sqlMap>
+

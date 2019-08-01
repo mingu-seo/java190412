@@ -74,7 +74,7 @@ ArrayList<ExhibitionVO> list = (ArrayList)request.getAttribute("list");
 								<tbody>
 									<tr>
 										<th scope="row"><label for="">회원 아이디</label></th>
-										<td colspan="3"><input type="text" id="id" name="id" value=""/>&nbsp;&nbsp;<input type="button" value="아이디 찾기" onclick="searchMemb()"/></td>
+										<td colspan=""><input type="text" id="id" name="id" value=""/>&nbsp;&nbsp;<input type="button" value="아이디 찾기" onclick="searchMemb()"/></td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">전시관</label></th>
@@ -149,7 +149,7 @@ ArrayList<ExhibitionVO> list = (ArrayList)request.getAttribute("list");
 									<tr>
 										<th scope="row"><label for="">예매취소일</label></th>
 										<td>
-											<input type="text" id="canceldate" name="canceldate" class="inputTitle" value="<%=DateUtil.getToday()%>" readonly/>&nbsp;
+											<input type="text" id="canceldate" name="canceldate" class="inputTitle" value="" readonly/>&nbsp;
 											<span id="CalcanceldateIcon">
 												<img src="/manage/img/calendar_icon.png" id="CalcanceldateIconImg" style="cursor:pointer;"/>
 											</span>
