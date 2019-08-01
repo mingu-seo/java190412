@@ -13,12 +13,21 @@ int totPage = (Integer)request.getAttribute("totPage");
 <!DOCTYPE html>
 <html lang="ko">
 <script type="text/javascript">
-function goIdentification() {
-	var url = "popup";
-	var name = "popup";
-	window.open(url,name,"width=500,height=200,toolbar=no,location=no,scrollbars=yes,menubar=no,resixable=yes,left=500,right=500");
-	
-	}
+function goPassword(){
+	$("#editBtn1").click(function(){
+		$("#PwCheckBtn").show()
+		$("#editBtn2").show()
+		$("#editBtn1").hide()
+		$("#password").focus();
+	});	
+}
+function goEdit(){
+	if($("#password").val()==""){
+		alert("비밀번호를 입력해주세요")
+		$("#password").focus();
+		return false;
+	} 
+}
 
 </script>
 <head>
