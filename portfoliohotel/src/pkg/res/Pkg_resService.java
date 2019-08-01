@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import board.notice.NoticeVO;
+import pkg.PkgVO;
 import property.SiteProperty;
 import util.FileUtil;
 import util.Function;
@@ -38,36 +39,37 @@ public class Pkg_resService {
 	}	
 	
 	
-	  public int insert(Pkg_resVO vo, HttpServletRequest request) throws SQLException, IOException { 
-		  int no = pkg_resDao.insert(vo); 
+	public int insert(Pkg_resVO vo, HttpServletRequest request) throws SQLException, IOException { 
+		int no = pkg_resDao.insert(vo); 
 		  
-		  return no; 
-	  }
+		return no; 
+	}
+	
+	public Pkg_resVO read(int no) throws SQLException {
+		Pkg_resVO vo = pkg_resDao.read(no);
+		return vo;
+	}	
+	
+	public int update(Pkg_resVO vo, HttpServletRequest request) throws SQLException, IOException {
+		Pkg_resVO data = pkg_resDao.read(vo.getNo());
+		int cnt = pkg_resDao.update(vo);
+		
+		return cnt;
+	}	
 	 
-	
-	/*
-	 * public Pkg_resVO read(int no) throws SQLException { Pkg_resVO vo =
-	 * pkgDao.read(no); return vo; }
-	 */
-	
-	/*
-	 * public int update(Pkg_resVO vo, HttpServletRequest request) throws
-	 * SQLException, IOException { Pkg_resVO data = pkgDao.read(vo.getNo()); int cnt
-	 * = pkgDao.update(vo);
-	 * 
-	 * return cnt; }
-	 */
-	
-	/*
-	 * public int delete(int no) throws SQLException { int cnt = pkgDao.delete(no);
-	 * return cnt; }
-	 */
-	
-	/*
-	 * public int groupDelete(HttpServletRequest request) throws SQLException {
-	 * String[] no = request.getParameterValues("no"); int r = 0; for (int i=0;
-	 * i<no.length; i++) { int nos = Integer.parseInt(no[i]); r +=
-	 * pkgDao.delete(nos); } return r; }
-	 */
+	public int delete(int no) throws SQLException {
+		int cnt = pkg_resDao.delete(no);
+		return cnt;
+	}
+		
+	public int groupDelete(HttpServletRequest request) throws SQLException {
+		String[] no = request.getParameterValues("no");
+		int r = 0;
+		for (int i=0; i<no.length; i++) {
+			int nos = Integer.parseInt(no[i]);
+			r += pkg_resDao.delete(nos);
+		}
+		return r;
+	}
 
 }
