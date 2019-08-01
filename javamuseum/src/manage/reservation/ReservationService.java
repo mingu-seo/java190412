@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import manage.program.ProgramVO;
 import property.SiteProperty;
 import util.FileUtil;
 import util.Page;
@@ -37,14 +38,7 @@ public class ReservationService {
 		
 		return list;
 	}
-	
-	public int insert(ReservationVO vo, HttpServletRequest request) throws Exception {
-		FileUtil fu = new FileUtil();
-		
-		int lastNo = (Integer)reservationDao.insert(vo);
-		
-		return lastNo;
-	}
+
 	
 	public int update(ReservationVO vo, HttpServletRequest request) throws SQLException, IOException {
 		FileUtil fu = new FileUtil();
@@ -75,4 +69,8 @@ public class ReservationService {
 		return delCount;
 	}
 
+	public int insert(ReservationVO vo) throws Exception{
+		int no = (Integer)reservationDao.insert(vo);
+		return no;
+	}
 }

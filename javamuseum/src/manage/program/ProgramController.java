@@ -20,6 +20,7 @@ public class ProgramController {
 
 	@Autowired
 	private ProgramService programService;
+	@Autowired
 	private MemberService memberService;
 	
    

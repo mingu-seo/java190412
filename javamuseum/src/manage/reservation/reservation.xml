@@ -31,7 +31,7 @@
    </select>
 
 	<select id="list" parameterClass="reservationvo" resultClass="reservationvo">
-		SELECT program_res.*, (select title from program where no= program_res.program_pk) title ,(select category from program ) category , (select name from member where no = program_res.member_pk) name, (select id from member where no = program_res.member_pk) id
+		SELECT *, (select title from program where no= program_res.program_pk) title ,(select category from program where no= program_res.program_pk ) category , (select name from member where no = program_res.member_pk) name, (select id from member where no = program_res.member_pk) id
 		FROM program_res 
 		<include refid="searchSql" />
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
@@ -39,9 +39,9 @@
 
 	<insert id="insert" parameterClass="reservationvo">
 		INSERT INTO program_res
-		(member_pk, program_pk, date, time, state, registdate)
+		(member_pk, program_pk, date, time, registdate)
 		VALUES
-		(#member_pk#, #program_pk#, #date#, #time#, #state#, now())
+		(#member_pk#, #program_pk#, #date#, #time#, now())
 		<selectKey keyProperty="no" resultClass="Integer">
 			SELECT
 			LAST_INSERT_ID()
@@ -59,6 +59,84 @@
 		DELETE FROM program_res 
 		WHERE no=#no#
 	</delete>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	<select id="read" parameterClass="Integer" resultClass="reservationvo">
 		SELECT *

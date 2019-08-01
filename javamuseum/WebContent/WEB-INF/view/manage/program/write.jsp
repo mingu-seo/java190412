@@ -67,7 +67,7 @@ $(function(){
     	var trObj ="<tr class='addTr'>";
 		trObj += "<td><input type='text' id='date"+trIdx+"'";
 		trObj += "name='date'"  ;
-		trObj += "class='inputDate' value='<%=DateUtil.getToday()%>' title='등록일을 입력해주세요' /><span id='Caldate"+trIdx+"Icon' name='Caldate"+trIdx+"Icon'><img src='/manage/img/calendar_icon.png' id='Caldate"+trIdx+"IconImg' style='cursor:pointer;'/></span></td>";
+		trObj += "class='inputDate' value='<%=DateUtil.getToday()%>' title='등록일을 입력해주세요' /><span id='Caldate"+trIdx+"Icon' name='Caldate"+trIdx+"Icon'> <img src='/manage/img/calendar_icon.png' id='Caldate"+trIdx+"IconImg' style='cursor:pointer;'/></span></td>";
 		trObj += "<td><select name='time'><%=CodeUtil.getP_timeType(0)%></select></td>";
 		trObj += "<td><input type=\"button\" value=\"삭제\" class=\"delBtn\"/></td>";
 		trObj += "</tr>";
