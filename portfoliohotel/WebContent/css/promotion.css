@@ -22,7 +22,7 @@
 .contents-info {}
 .contents-info > div {float:left; width:50%;}
 .contents-center .contents-left {padding-left:40px; border-right:1px solid #eee;}
-.contents-info table .table-list {color:#0e693f; width:80px; line-height:30px; font-weight:400;}
+.contents-info table .table-list {color:#0e693f; width:120px; line-height:30px; font-weight:400;}
 .contents-info table .table-list.price { line-height:80px;}
 .contents-info table .table-list.time { line-height:80px;}
 .contents-info table .table-list.event { line-height:80px;}

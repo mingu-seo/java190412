@@ -74,12 +74,17 @@ jQuery(window).load(function(){
 											<tr>
 												<th scope="row"><label for="">다이닝명</label></th>
 												<td colspan="3"><input type="text" id="name" name="name"
-													value="<%=data.getName()%>" title="상품명을 입력해주세요."  /></td>
+													value="<%=data.getName()%>"  /></td>
 											</tr>
 											<tr>
 												<th scope="row"><label for="">가격</label></th>
-												<td><input type="text" id="price" name="price"
-													value="<%=data.getPrice()%>" title="가격을 입력해주세요." /></td>
+												<td colspan="3"><input type="text" id="price" name="price"
+													value="<%=data.getPrice()%>" /></td>
+											</tr>
+											<tr>
+												<th scope="row"><label for="">수량</label></th>
+												<td colspan="3"><input type="text" id="count" name="count"
+													value="<%=data.getCount()%>"   /></td>
 											</tr>
 											<tr>
 												<th scope="row"><label for="">이미지명</label></th>
@@ -88,7 +93,7 @@ jQuery(window).load(function(){
 											<tr>
 												<th scope="row"><label for="">운영기간 시작일</label></th>
 												<td>
-												<input type="text" id="startdate" name="startdate" class="inputTitle" value="" title="운영기간 시작일을 입력해주세요" />&nbsp;
+												<input type="text" id="startdate" name="startdate" class="inputTitle" value="" />&nbsp;
 													<span id="CalstartdateIcon">
 												<img src="/manage/img/calendar_icon.png" id="CalstartdateIconImg" style="cursor:pointer;"/>
 													</span>
@@ -96,7 +101,7 @@ jQuery(window).load(function(){
 												
 												<th scope="row"><label for="">운영기간 종료일</label></th>
 												<td>
-											<input type="text" id="enddate" name="enddate" class="inputTitle" value="" title="운영기간 시작일을 입력해주세요" />&nbsp;
+											<input type="text" id="enddate" name="enddate" class="inputTitle" value="" />&nbsp;
 													<span id="CalenddateIcon">
 											<img src="/manage/img/calendar_icon.png" id="CalenddateIconImg" style="cursor:pointer;"/>
 													</span>
@@ -104,18 +109,17 @@ jQuery(window).load(function(){
 											</tr>
 											<tr>
 												<th scope="row"><label for="">예약 가능기간</label></th>
-												<td><input type="text" id="book_period"
-													name="book_period" value="<%=data.getBook_period()%>"
-													title="예약기간을 입력해주세요." /></td>
+												<td><input type="text" id="book_period" name="book_period" 
+													value="<%=data.getBook_period()%>"/></td>
 											
 												<th scope="row"><label for="">포함내역</label></th>
 												<td><input type="text" id="inclusion" name="inclusion"
-													value="<%=data.getInclusion()%>" title="포함내역을 입력해주세요." /></td>
+													value="<%=data.getInclusion()%>" /></td>
 											</tr>
 											<tr>
 												<th scope="row"><label for="">안내</label></th>
 												<td colspan="4">
-												<textarea id="info" name="info" title="정보를 입력해주세요" style="width: 100%">
+												<textarea id="info" name="info" style="width: 100%">
 												<%=data.getInfo()%>
 												</textarea></td>
 											</tr>

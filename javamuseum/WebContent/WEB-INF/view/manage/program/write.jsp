@@ -4,7 +4,7 @@
 <%@ page import="util.*"%>
 <%@ page import="property.*"%>
 <%
-	ProgramVO param = (ProgramVO) request.getAttribute("param");
+	ProgramVO param = (ProgramVO) request.getAttribute("vo");
 	ArrayList<ProgramVO> list = (ArrayList<ProgramVO>) request.getAttribute("list");
 	
 %>
@@ -21,7 +21,7 @@ jQuery(window).load(function(){
 
 
 function goSave() {
-/* 	if ($("#instructor").val() == "") {
+ 	if ($("#instructor").val() == "") {
 		alert('강사명을 입력하세요.');
 		$("#instructor").focus();
 		return false;
@@ -46,14 +46,14 @@ function goSave() {
 		alert('대상을 입력하세요.');
 		$("#target").focus();
 		return false;
-	} */
+	} 
 	var sHTML = oEditors.getById["contents"].getIR();
 	if (sHTML == "" || sHTML == "<p><br></p>") {
 		alert('내용을 입력하세요.');
-		$("#contents").focus();
+		oEditors.getById["contents"].exec("FOCUS");
 		return false;
 	} else {
-		oEditors.getById["contents"].exec("UPDATE_INFO_FIELD", []); // 에디터의 내용이 textarea에 적용됩니다.
+		oEditors.getById["contents"].exec("UPDATE_CONTENTS_FIELD", []); // 에디터의 내용이 textarea에 적용됩니다.
 	}
 	
 
@@ -63,11 +63,11 @@ function goSave() {
 $(function(){
     var trIdx = 0;
     $(".addBtn").click(function(){
-		
+    	var trIdx = 1;
     	var trObj ="<tr class='addTr'>";
 		trObj += "<td><input type='text' id='date"+trIdx+"'";
-		trObj += "name='date"+ trIdx + "'"  ;
-		trObj += "class='inputDate' value='<%=DateUtil.getToday()%>' title='등록일을 입력해주세요' /><span id='Caldate"+trIdx+"Icon' name='Caldate"+trIdx+"Icon'><img src='/manage/img/calendar_icon.png' id='Caldate"+trIdx+"IconImg' style='cursor:pointer;'/></span></td>";
+		trObj += "name='date'"  ;
+		trObj += "class='inputDate' value='<%=DateUtil.getToday()%>' title='등록일을 입력해주세요' /><span id='Caldate"+trIdx+"Icon' name='Caldate"+trIdx+"Icon'> <img src='/manage/img/calendar_icon.png' id='Caldate"+trIdx+"IconImg' style='cursor:pointer;'/></span></td>";
 		trObj += "<td><select name='time'><%=CodeUtil.getP_timeType(0)%></select></td>";
 		trObj += "<td><input type=\"button\" value=\"삭제\" class=\"delBtn\"/></td>";
 		trObj += "</tr>";
@@ -175,6 +175,12 @@ $(function(){
 											<td>프로그램 날짜</td>
 											<td>프로그램 시간</td>
 										</tr>
+										<tr class='addTr'>
+											<td><input type='text' id='date'name='date' class='inputDate' value='<%=DateUtil.getToday()%>' title='등록일을 입력해주세요' />
+											<span id='CaldateIcon' name='CaldateIcon'><img src='/manage/img/calendar_icon.png' id='CaldateIconImg' style='cursor:pointer;'/></span></td>
+											<td><select name='time'><%=CodeUtil.getP_timeType(0)%></select></td>
+											<td><input type="button" value="삭제" class="delBtn"/></td>
+										</tr>
 									</table>
 								</td>
 								 <tr>
@@ -186,7 +192,8 @@ $(function(){
 								   <tr>
 								       <th scope="row"><label for="">내용</label></th>
 								      <td colspan="5"><textarea id="contents" name="contents"
-								            title="내용을 입력해주세요" style="width: 100%;"></textarea></td>
+								            title="내용을 입력해주세요" style="width: 100%;"></textarea>
+						            </td>
 								</tr>
                                  
                               </tbody>

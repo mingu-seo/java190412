@@ -12,6 +12,15 @@ int totPage = (Integer)request.getAttribute("totPage");
 %>
 <!DOCTYPE html>
 <html lang="ko">
+<script type="text/javascript">
+function goIdentification() {
+	var url = "popup";
+	var name = "popup";
+	window.open(url,name,"width=500,height=200,toolbar=no,location=no,scrollbars=yes,menubar=no,resixable=yes,left=500,right=500");
+	
+	}
+
+</script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -197,7 +206,7 @@ int totPage = (Integer)request.getAttribute("totPage");
 																
 									for (int i=0; i<list.size(); i++) {
 												data = list.get(i);
-												targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, data.getNo())+"'\"";
+												targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("qna_read", param, data.getNo())+"'\"";
 												bgColor = (data.getReply()==0)?"#ffffff":"#e8e8e8";
 																	
 								%>
@@ -206,7 +215,7 @@ int totPage = (Integer)request.getAttribute("totPage");
                         	
 							String[] nameArr= data.getName().split(",");		
 							%>
-                            <td <%=targetUrl%> class="title"><a href="#"><%=data.getTitle() %></a></td>
+                            <td <%=targetUrl%>class="title"><a href="#"><%=data.getTitle() %></a></td>
                             <td <%=targetUrl%> class="table-date"><%=CodeUtil.getReplyExist(data.getReply())%></td>
                             <td <%=targetUrl%> class="name"><a href="#"><%=nameArr[0]%><%=nameArr[1]%></a></td>
                             <td><a href="#"><%=DateUtil.getDateFormat(data.getRegdate())%></a></td>
@@ -237,7 +246,7 @@ int totPage = (Integer)request.getAttribute("totPage");
                             </select>
                             <input type="text" name="sval" value="<%=param.getSval()%>" id="text" placeholder="text">
                             <button class="sbtn" alt="검색" >검색</button>
-                            
+                            <input onclick="goIdentification()" type="button" value="팝업">
                     </div>
                     </form>
                 </div>

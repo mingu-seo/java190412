@@ -46,15 +46,77 @@ public class QnaController {
 		return "membership/qna_q";
 	}
 	
+	@RequestMapping("/membership/qna_read")
+	public String qna_read(Model model, QnaVO param, HttpSession session) throws Exception {
+		QnaVO data = qnaService.read(param);
+		MemberVO vo = (MemberVO)session.getAttribute("memberInfo");
+		
+		
+		model.addAttribute("data", data);
+		model.addAttribute("param", param);
+		
+		if(data.getNo() == param.getNo() && data.getPassword() == param.getPassword()) {
+		return "/membership/qna_edit";	
+		}
+		
+		return "/membership/qna_read";
+	}
+	
+	@RequestMapping("/membership/qna_edit")
+	public String qna_edit(Model model, QnaVO param) throws Exception {
+		QnaVO data = qnaService.read(param);
+		
+		model.addAttribute("data", data);
+		model.addAttribute("param", param);
+
+		return "/membership/qna_edit";
+	}
+	
+	///
+	@RequestMapping("/membership/popup")
+	public String popup(Model model, QnaVO param, HttpSession session) throws Exception {
+		QnaVO data = qnaService.read(param);
+		MemberVO vo = (MemberVO)session.getAttribute("memberInfo");
+		
+		model.addAttribute("data", data);
+		model.addAttribute("param", param);
+		if(data.getNo() == param.getNo() && data.getPassword() == param.getPassword()) {
+		return "/membership/qna_read";	
+		}
+		return "/membership/qna_read";
+		/* return "/membership/popup"; */
+	}
+	
 	@RequestMapping("/membership/processU")
 	public String processU(Model model, QnaVO param, HttpServletRequest request) throws Exception {
 		model.addAttribute("param", param);
+		QnaVO data = qnaService.read(param);
+		System.out.println(param.getCmd());
 		if ("write".equals(param.getCmd())) {
 			int r = qnaService.insert(param, request);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
 			model.addAttribute("url", "qna");
+		} else if ("checkPW".equals(param.getCmd())) {
+			System.out.println(data.getPassword());
+			System.out.println(param.getPassword());
+			if(data.getPassword().equals(param.getPassword())) {
+				model.addAttribute("code", "alertMessageUrl");
+				model.addAttribute("message", "성공!");
+				model.addAttribute("url", "/membership/qna_edit?no=" + param.getNo());
+			}else {
+				model.addAttribute("code", "alertMessageUrl");
+				model.addAttribute("message", "비밀번호가 올바르지 않습니다.");
+				model.addAttribute("url", "/membership/qna_read?no=" + param.getNo());
+			}
+		}else if ("edit".equals(param.getCmd())) {
+			int r = qnaService.update(param);
+			model.addAttribute("code", "alertMessageUrl");
+			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));
+			model.addAttribute("url", "/membership/qna_read?no=" + param.getNo());
 		}
+		
+		
 		return "include/alert";
 	}
 

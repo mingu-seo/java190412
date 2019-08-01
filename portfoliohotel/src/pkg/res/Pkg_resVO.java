@@ -15,7 +15,7 @@ public class Pkg_resVO extends Parameter {
 	private String guest_kname; // 고객 한글명
 	private String guest_ename; // 고객 영문명
 	private int guest_tel; // 고객 연락처
-	private String geust_email; // 고객 이메일
+	private String guest_email; // 고객 이메일
 	private int pkg_price; // 패키지 가격
 	private int pkg_count; // 패키지 수량
 	private int total_price; // 총 가격
@@ -81,11 +81,11 @@ public class Pkg_resVO extends Parameter {
 	public void setGuest_tel(int guest_tel) {
 		this.guest_tel = guest_tel;
 	}
-	public String getGeust_email() {
-		return geust_email;
+	public String getGuest_email() {
+		return guest_email;
 	}
-	public void setGeust_email(String geust_email) {
-		this.geust_email = geust_email;
+	public void setGuest_email(String guest_email) {
+		this.guest_email = guest_email;
 	}
 	public int getPkg_price() {
 		return pkg_price;

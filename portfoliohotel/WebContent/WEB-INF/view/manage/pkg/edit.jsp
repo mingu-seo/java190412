@@ -21,7 +21,7 @@ $(window).load(function() {
 
 function goSave() {
 	if ($("#name").val() == "") {
-		alert("이름을 입력해 주세요.");
+		alert("패키지이름을 입력해 주세요.");
 		$("#name").focus();
 		return false;
 	}
@@ -128,7 +128,7 @@ function goSave() {
 									<tr>										
 										<th scope="row"><label for="">포함내역</label></th>
 										<td colspan="3">
-											<input type="text" id="pkg" name="pkg" value="<%=data.getPkg() %>" style="width:100%"/>
+											<textarea id="pkg" name="pkg" style="width:100%"><%=data.getPkg() %></textarea>
 										</td>
 									</tr>
 									<tr>										
