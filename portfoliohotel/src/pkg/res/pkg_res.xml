@@ -19,29 +19,29 @@
     <insert id="insert" parameterClass="pkg_res_vo">
         INSERT INTO pkg_res (
         	pkg_name, use_date, guest_kname, guest_ename, 
-        	guest_tel, guest_email, pkg_price, pkg_count, total_price
+        	guest_tel, email_id, email_adress, pkg_price, pkg_count, total_price
         ) VALUES (
         	#pkg_name#, #use_date#, #guest_kname#, #guest_ename#, 
-        	#guest_tel#, #guest_email#, #pkg_price#, #pkg_count#, #total_price#
+        	#guest_tel#, #email_id#, #email_adress#, #pkg_price#, #pkg_count#, #total_price#
         )
         <selectKey keyProperty="no" resultClass="Integer">
         	SELECT LAST_INSERT_ID()
         </selectKey>
     </insert>
     
-    <!-- <select id="read" parameterClass="Integer" resultClass="pkg_vo">
-        select * FROM pkg where no=#no#
-    </select> -->
+    <select id="read" parameterClass="Integer" resultClass="pkg_res_vo">
+        select * FROM pkg_res where no=#no#
+    </select>
     
-    <!-- <update id="update" parameterClass="pkg_vo">
-        update pkg set
-        	name=#name#, startdate=#startdate#, enddate=#enddate#, pkg=#pkg#,  	
-        price=#price#, event=#event#, guide=#guide#
+    <update id="update" parameterClass="pkg_res_vo">
+        update pkg_res set
+        	pkg_name=#pkg_name#, use_date=#use_date#, guest_kname=#guest_kname#, guest_ename=#guest_ename#, guest_tel=#guest_tel#, 
+        	email_id=#email_id#, email_adress=#email_adress#, pkg_price=#pkg_price#, pkg_count=#pkg_count#, total_price=#total_price#
         where no=#no#
-    </update> -->
+    </update>
     
-    <!-- <delete id="delete" parameterClass="Integer">
-        delete from pkg where no=#no#
-    </delete> -->
+    <delete id="delete" parameterClass="Integer">
+        delete from pkg_res where no=#no#
+    </delete>
     
 </sqlMap>
