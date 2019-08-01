@@ -78,8 +78,10 @@ PkgVO data = (PkgVO) request.getAttribute("data");
 									</colgroup>
 									<tbody>
 										<tr>
-											<th scope="row"><label for="">이름</label></th>
-											<td colspan="3"><%=data.getName()%></td>
+											<th scope="row"><label for="">패키지 한글이름</label></th>
+											<td><%=data.getKname()%></td>
+											<th scope="row"><label for="">패키지 영어이름</label></th>
+											<td><%=data.getEname()%></td>
 										</tr>
 										<tr>
 											<th scope="row"><label for="">운영기간 시작일</label></th>

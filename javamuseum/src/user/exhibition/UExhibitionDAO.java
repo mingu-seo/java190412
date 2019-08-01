@@ -19,7 +19,12 @@ public class UExhibitionDAO extends SqlMapClientDAOSupport{
 		return (Integer)getSqlMapClient().queryForObject("uexhibition.count", param);
 	}
 	
-	public UExhibitionVO ticket(int no) throws SQLException {
-		return (UExhibitionVO)getSqlMapClient().queryForObject("uexhibition.ticket", no);
+	public UExhibitionVO display(int no) throws SQLException {
+		return (UExhibitionVO)getSqlMapClient().queryForObject("uexhibition.display", no);
 	}
+	
+	public ArrayList edList(UExhibitionVO param) throws SQLException {
+		return (ArrayList)getSqlMapClient().queryForList("uexhibition.edList", param);
+	}
+	
 }

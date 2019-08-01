@@ -35,6 +35,8 @@ public class Room_resVO  extends Parameter{
 	private String scheckin; //검색조건 체크인
 	private String scheckout; //검색조건 체크아웃
 	
+	private int month_want;
+	
 	public Room_resVO() {
 		super.setPageRows(10);
 	}	
@@ -193,5 +195,13 @@ public class Room_resVO  extends Parameter{
 	public void setScheckout(String scheckout) {
 		this.scheckout = scheckout;
 	}
+	public int getMonth_want() {
+		return month_want;
+	}
+	public void setMonth_want(int month_want) {
+		this.month_want = month_want;
+	}
+	
+	
 	
 }

@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 
 import board.notice.NoticeVO;
 import db.SqlMapClientDAOSupport;
+import manage.admin.AdminDAO;
+import manage.admin.AdminVO;
 
 @Repository
 public class PkgDAO extends SqlMapClientDAOSupport{
@@ -62,5 +64,13 @@ public class PkgDAO extends SqlMapClientDAOSupport{
 	public int delete(int no) throws SQLException {
 		return getSqlMapClient().delete("pkg.delete", no);
 	}
+	
+	public static void main(String[] args) throws Exception {
+		AdminDAO ad = new AdminDAO();
+		AdminVO av = new AdminVO(10);
+		av.setId("test");
+		int a = ad.idcheck(av);
+		System.out.println(a);
+	}	
 
 }

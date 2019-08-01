@@ -9,7 +9,10 @@ import util.Parameter;
 public class PkgVO extends Parameter {
 
 	private int no; // 번호
-	private String name; // 이름
+	private String kname; // 패키지 한글이름
+	private String ename; //패키지 영어이름
+	private String intro; // 패키지 소개
+	private String intro_detail; // 패키지 상세 소개
 	private String startdate; // 시작일
 	private String enddate; // 종료일
 	private int price; // 가격
@@ -30,15 +33,27 @@ public class PkgVO extends Parameter {
 	public int getNo() {
 		return no;
 	}
+	
 	public void setNo(int no) {
 		this.no = no;
 	}
-	public String getName() {
-		return name;
+	
+	public String getKname() {
+		return kname;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setKname(String kname) {
+		this.kname = kname;
 	}
+
+	public String getEname() {
+		return ename;
+	}
+
+	public void setEname(String ename) {
+		this.ename = ename;
+	}
+
 	public String getStartdate() {
 		return startdate;
 	}
@@ -83,8 +98,21 @@ public class PkgVO extends Parameter {
 	public void setRegdate(Timestamp regdate) {
 		this.regdate = regdate;
 	}
-	
-	
-	
+
+	public String getIntro() {
+		return intro;
+	}
+
+	public void setIntro(String intro) {
+		this.intro = intro;
+	}
+
+	public String getIntro_detail() {
+		return intro_detail;
+	}
+
+	public void setIntro_detail(String intro_detail) {
+		this.intro_detail = intro_detail;
+	}
 	
 }

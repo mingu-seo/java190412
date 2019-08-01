@@ -22,6 +22,7 @@
 .sub01-btn{  margin-top: 20px; width:320px;}
 .sub01-btn li {background-color:black;float:left; width: 150px; height: 50px; margin-right:10px;}
 .sub01-btn li a {color: #fff; text-align: center; line-height: 50px;display: block; font-size: 16px; font-weight: bold;}
+#like{ background-color:red;}
 /* 닫기 버튼 */
 .sub01-close {width: 70px; position: absolute; top: 10px; right: 10px;}
 .sub01-close img { width:100%;}
@@ -71,11 +72,11 @@
 .con4-center{width: 820px; margin: 0 auto; margin-top: 20px;}
 .con4-top{border: 2px solid #000; width: 100%; height: 270px; padding: 10px 10px;}
 .con4-top li{float: left;}
-.con4-top-img{width: 250px; height: 250px;}
+.con4-top-img{width: 30%; height: 250px;}
 .con4-top-img > img{ width: 100%; height: 100%;}
 /* 작품 소개 끝 */
 /* BEST 한줄평/후기 시작 */
-.con4-top-text{margin-top: 40px; margin-left: 36px;}
+.con4-top-text{margin-top: 5px; margin-left: 36px; width:65%;}
 .con4-bot-title {width:100%; background-color:#191919; height:50px; line-height:50px; text-align:center; color:white; font-size:18px;}
 .con4-top-text h4{font-size: 14px;}
 .con4-top-text h3{font-size: 22px; margin-top: 18px; margin-bottom: 12px;}
@@ -97,5 +98,14 @@
 .con4 input[type="text"] {width:696px; margin-right:20px; border:2px solid black; height:35px;}
 #write-submit {width:100px; height:40px; border:none; border:2px solid black; background-color:transparent;}
 /* BEST 한줄평/후기 끝 */
+/* 상세 페이지 */
+.con5-btn { width:100%;}
+.con5-btn li { background-color:white;float:left; width: 100%; height: 50px; color: black; text-align: center; line-height: 50px;display: block; font-size: 16px; font-weight: bold;}
+.con5-btn li.on{ background-color:black; color:white;}
+.con5-top { border: 2px solid #000; width: 100%; height: 450px; padding: 10px 10px;}
+.con5-top li { float: left;}
+.con5-top .detail { width:50%;}
+.con5-top .review { width:50%;}
+/* 상세 페이지 종료*/
 /* 풋터 */
 #footer{margin-top: 120px;}

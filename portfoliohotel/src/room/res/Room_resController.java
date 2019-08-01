@@ -1,6 +1,7 @@
 package room.res;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import room.RoomService;
 import room.RoomVO;
@@ -24,6 +26,15 @@ public class Room_resController {
 	@Autowired
 	RoomService roomService;
 	
+	/**
+	 * 관리자 객실 예약 목록
+	 * @param model
+	 * @param vo
+	 * @param rvo
+	 * @param req
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/manage/room/res/index")
 	public String index(Model model, Room_resVO vo, RoomVO rvo, HttpServletRequest req) throws Exception {
 		int[] rowPageCount = room_resService.count(vo);
@@ -32,7 +43,7 @@ public class Room_resController {
 		} else {
 			vo.setCategory(Integer.parseInt(req.getParameter("category")));
 		}
-		ArrayList<Room_resVO> list = room_resService.list(vo);
+		ArrayList<Room_resVO> list = room_resService.index(vo);
 		
 		model.addAttribute("totCount", rowPageCount[0]);
 		model.addAttribute("totPage", rowPageCount[1]);
@@ -43,6 +54,42 @@ public class Room_resController {
 		return "manage/room/res/index";
 	}
 	
+	/**
+	 * 관리자 객실 예약 목록_일자별
+	 * @param model
+	 * @param vo
+	 * @param rvo
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/manage/room/res/list")
+	public String list(Model model, Room_resVO vo, @RequestParam(value="yearMonth", required = false) String yearMonth) throws Exception {
+		if ("".equals(yearMonth) || yearMonth == null) {
+			yearMonth = DateUtil.getFullToday().substring(0,7);
+		}
+		String nextMonth = DateUtil.getYearMonth(yearMonth, 1);
+		String prevMonth = DateUtil.getYearMonth(yearMonth, -1);
+		
+		ArrayList<HashMap> map = room_resService.list(yearMonth);
+		
+		model.addAttribute("vo", vo);
+		model.addAttribute("map", map);
+		model.addAttribute("yearMonth", yearMonth);
+		model.addAttribute("nextMonth", nextMonth);
+		model.addAttribute("prevMonth", prevMonth);
+		
+		return "manage/room/res/list";
+	}
+	
+	/**
+	 * 관리자 객실 예약 등록
+	 * @param model
+	 * @param vo
+	 * @param rvo
+	 * @param ovo
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/manage/room/res/write")
 	public String write(Model model, Room_resVO vo, RoomVO rvo, Room_optVO ovo) throws Exception {
 		ArrayList<RoomVO> list = roomService.list(rvo);
@@ -57,6 +104,13 @@ public class Room_resController {
 		return "manage/room/res/write";
 	}
 	
+	/**
+	 * 관리자 객실 예약 상세
+	 * @param model
+	 * @param vo
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/manage/room/res/read")
 	public String read(Model model, Room_resVO vo) throws Exception {
 		Room_resVO read = room_resService.read(vo);
@@ -69,6 +123,13 @@ public class Room_resController {
 		return "manage/room/res/read";
 	}
 	
+	/**
+	 * 관리자 객실 예약 수정
+	 * @param model
+	 * @param vo
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/manage/room/res/edit")
 	public String edit(Model model, Room_resVO vo) throws Exception {
 		Room_resVO read = room_resService.read(vo);
@@ -81,6 +142,13 @@ public class Room_resController {
 		return "manage/room/res/edit";
 	}
 	
+	/**
+	 * 관리자 객실 예약 취소
+	 * @param model
+	 * @param vo
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/manage/room/res/cancel")
 	public String cancel(Model model, Room_resVO vo) throws Exception {
 		int r = room_resService.cancel(vo.getNo());
@@ -88,7 +156,15 @@ public class Room_resController {
 		return "include/return";
 	}
 	
-	
+	/**
+	 * 등록, 수정, 예약 취소, 개별 삭제, 단체 삭제
+	 * @param model
+	 * @param vo
+	 * @param request
+	 * @param ovo
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/manage/room/res/process")
 	public String process(Model model, Room_resVO vo, HttpServletRequest request, Room_opt_resVO ovo) throws Exception {
 		model.addAttribute("vo", vo);
@@ -122,4 +198,7 @@ public class Room_resController {
 		}
 		return "include/alert";
 	}
+	
+	
+	
 }

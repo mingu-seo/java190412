@@ -2,8 +2,8 @@
 <%@ page import="pkg.*" %>
 <%@ page import="java.util.*" %>
 <%
-PkgVO pparam = (PkgVO) request.getAttribute("param");
-PkgVO pdata = (PkgVO) request.getAttribute("data");
+PkgVO pkg_param = (PkgVO) request.getAttribute("pkg_param");
+PkgVO pkg_data = (PkgVO) request.getAttribute("pkg_data");
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -55,7 +55,7 @@ PkgVO pdata = (PkgVO) request.getAttribute("data");
     <title>테스트</title>
 </head>
 <body>
-    <%@ include file="../../header_menu.jsp" %>
+    <jsp:include page="/header_menu" flush="true"/>
     
     <div id="container">
         <div class="banner senseof">
@@ -88,11 +88,11 @@ PkgVO pdata = (PkgVO) request.getAttribute("data");
                         
                         <tr>
                             <td class="table-list price">가격</td>
-                            <td>78000</td>
+                            <td><%=pkg_data.getPrice() %>원</td>
                         </tr>
                         <tr>
                             <td class="table-list">포함내역</td>
-                            <td class="td-lh">· 객실 투숙 1박 <br/>
+                            <td class="td-lh"><%=pkg_data.getPkg() %> <br/>
                             </td>
                         </tr>
                         <tr>

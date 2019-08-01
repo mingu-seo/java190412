@@ -48,4 +48,5 @@
 	<sqlMap resource="user/member/umember.xml"/>		
 	<sqlMap resource="manage/member/member.xml"/>	
 	<sqlMap resource="user/exhibition/uexhibition.xml"/>
+	<sqlMap resource="user/ticket/uticket.xml"/>
 </sqlMapConfig>
