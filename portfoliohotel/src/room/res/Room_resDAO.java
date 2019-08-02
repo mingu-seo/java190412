@@ -25,6 +25,10 @@ public class Room_resDAO extends SqlMapClientDAOSupport {
 		return (ArrayList<HashMap>)getSqlMapClient().queryForList("room_res.list", yearMonth);
 	}
 	
+	public ArrayList<HashMap> check(HashMap map) throws SQLException {
+		return (ArrayList<HashMap>)getSqlMapClient().queryForList("room_res.check", map);
+	}
+	
 	/**
 	 * 객실 예약 등록
 	 * @param vo
@@ -108,6 +112,10 @@ public class Room_resDAO extends SqlMapClientDAOSupport {
 	public static void main(String[] args) throws Exception {
 		Room_resDAO dao = new Room_resDAO();
 		Room_resVO vo = new Room_resVO();
+		HashMap hm = new HashMap();
+		hm.put("checkin", "2019-07-01");
+		hm.put("checkout", "2019-07-04");
+		dao.check(hm);
 //		vo.setCategory(1);
 	}
 }

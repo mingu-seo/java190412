@@ -17,6 +17,9 @@ ArrayList<Room_optVO> list_o = (ArrayList<Room_optVO>)request.getAttribute("list
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <%@ include file="/WEB-INF/view/manage/include/headHtml.jsp" %>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 function goSave() {
 	if($("#checkin").val() == ""){
@@ -85,12 +88,14 @@ function calculate() {
 }
 
 $(function(){	
-	$("#room_pk").change(function() {
-		price_stay = $("#room_pk option:selected").data("price") * day_stay;
-		$("#room_price_span").text(price_stay); // span 태그에 표시
-		calculate();
-		$("#room_price").val(Number(price_stay)); // hidden에 value 넣기
-		$("#room_name").val($("#room_pk option:selected").data("name")); // hidden에 value 넣기
+	$("#checkin, #checkout").datepicker({
+		dayNames: ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일'],
+        dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'], 
+        monthNamesShort: ['1','2','3','4','5','6','7','8','9','10','11','12'],
+        monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+        nextText: '다음달',
+        prevText: '이전달' ,
+        dateFormat: 'yy-mm-dd'  
 	});
 	
 	$(".price_opt").change(function() {
@@ -133,6 +138,7 @@ $(function(){
 		var time_in = new Date(arr_in[0], arr_in[1], arr_in[2]);
 		var time_out = new Date(arr_out[0], arr_out[1], arr_out[2]);
 		day_stay = (time_out.getTime() - time_in.getTime())/(1000*60*60*24);
+		checkDate($("#checkin").val(), $("#checkout").val());
 	});
 	
 	$("#pay_state").change(function() {
@@ -143,10 +149,28 @@ $(function(){
 			$("#paydate_span").text(" - ");
 			$("#paydate").val("");
 		}
-	})
+	});
 	
 });
 
+function checkDate(checkin, checkout) {
+	$.ajax({
+		type : "GET",
+		url : "/manage/room/res/check?checkin="+checkin+"&checkout="+checkout, 
+		async : false,
+		success : function(data){
+			$("#room_select_area").html(data);
+		}
+	});
+	
+	$("#room_pk").change(function() {
+		price_stay = $("#room_pk option:selected").data("price") * day_stay;
+		$("#room_price_span").text(price_stay); // span 태그에 표시
+		calculate();
+		$("#room_price").val(Number(price_stay)); // hidden에 value 넣기
+		$("#room_name").val($("#room_pk option:selected").data("name")); // hidden에 value 넣기
+	});
+}
 </script>
 <title>관리자 객실 예약 등록</title>
 </head>
@@ -187,13 +211,15 @@ $(function(){
 								<tbody>
 									<tr>
 										<th colspan="2">체크인</th>
-										<td colspan="3"><input type="date" id="checkin" name="checkin"/></td>
+										<td colspan="3"><input type="text" id="checkin" name="checkin" value="<%=DateUtil.getToday()%>"/></td>
 										<th colspan="2">체크아웃</th>
-										<td colspan="3"><input type="date" id="checkout" name="checkout"/></td>
+										<td colspan="3"><input type="text" id="checkout" name="checkout"/></td>
 									</tr>
 									<tr>	
 										<th colspan="2">객실 종류</th>
 										<td colspan="3">
+											<span id="room_select_area"></span>
+										<!-- 
 											<select name="room_pk" id="room_pk">
 												<option value="">객실 선택</option>
 												<%
@@ -208,6 +234,7 @@ $(function(){
 												}
 												%>
 											</select>
+										 -->
 										</td>
 										<th>숙박 인원</th>
 										<th>성인</th>
@@ -277,8 +304,7 @@ $(function(){
 									<tr>
 										<th colspan="2">숙박 고객 한글명</th>
 										<td colspan="3"><input type="text" id="guest_kname" name="guest_kname" class="w90"/></td>
-										<th colspan="2">숙박 고객 영문명</th>
-										<td colspan="3"><input type="text" id="guest_ename" name="guest_ename" class="w90"/></td>
+										<td colspan="5"></td>
 									</tr>
 									<tr>	
 										<th colspan="2">숙박 고객 연락처</th>

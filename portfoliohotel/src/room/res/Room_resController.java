@@ -2,6 +2,7 @@ package room.res;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import manage.admin.AdminVO;
 import room.RoomService;
 import room.RoomVO;
 import room.Room_optVO;
@@ -39,7 +41,7 @@ public class Room_resController {
 	public String index(Model model, Room_resVO vo, RoomVO rvo, HttpServletRequest req) throws Exception {
 		int[] rowPageCount = room_resService.count(vo);
 		if (req.getParameter("category") == null) {
-			vo.setCategory(0);
+			vo.setCategory(2);
 		} else {
 			vo.setCategory(Integer.parseInt(req.getParameter("category")));
 		}
@@ -79,6 +81,19 @@ public class Room_resController {
 		model.addAttribute("prevMonth", prevMonth);
 		
 		return "manage/room/res/list";
+	}
+	
+	@RequestMapping("/manage/room/res/check")
+	public String check(Model model, Room_resVO vo, HttpServletRequest req, RoomVO rvo) throws Exception {
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("checkin", (String)req.getParameter("checkin"));
+		map.put("checkout", (String)req.getParameter("checkout"));
+		
+		ArrayList<HashMap> map_c = room_resService.check(map);
+		ArrayList<RoomVO> list_r = roomService.list(rvo);
+		model.addAttribute("map_c", map_c);
+		model.addAttribute("list_r", list_r);
+		return "manage/room/res/check";
 	}
 	
 	/**
@@ -200,5 +215,40 @@ public class Room_resController {
 	}
 	
 	
+	@RequestMapping("/book/add_option")
+	public String add_option(Model model, Room_optVO vo) throws Exception {
+		ArrayList<Room_optVO> list_o = roomService.list_opt(vo);
+		model.addAttribute("list_o", list_o);
+
+		return "book/add_option";
+	}
 	
+	@RequestMapping("/book/personal_info")
+	public String personal_info(Model model, Room_optVO vo) throws Exception {
+
+		return "book/personal_info";
+	}
+	
+	@RequestMapping("/book/confirm_room")
+	public String confirm_room(Model model, Room_optVO vo) throws Exception {
+
+		return "book/confirm_room";
+	}
+
+	@RequestMapping("/book/check_room")
+	public String check_room(Model model, AdminVO vo) throws Exception {
+
+		return "book/check_room";
+	}
+
+	@RequestMapping("/book/price_room")
+	public String price_room(Model model, AdminVO vo) throws Exception {
+
+		return "book/price_room";
+	}
+
+	@RequestMapping("/book/confirm")
+	public String confirm_room(Model model, RoomVO vo) throws Exception {
+		return "book/confirm";
+	}
 }
