@@ -96,6 +96,9 @@ CHANGE COLUMN `paydate` `paydate` CHAR(10) NULL DEFAULT NULL ;
 ALTER TABLE `portfoliohotel`.`room_res` 
 CHANGE COLUMN `guest_tel` `guest_tel` VARCHAR(11) NULL DEFAULT NULL ;
 
+ALTER TABLE `portfoliohotel`.`room_res` 
+DROP COLUMN `guest_ename`;
+
 
 CREATE TABLE `room_service` (
   `no` int(11) NOT NULL AUTO_INCREMENT,
