@@ -138,8 +138,7 @@ $(function() {
 									<tr>
 										<th colspan="2">숙박 고객 한글명</th>
 										<td colspan="3"><%=read.getGuest_kname() %></td>
-										<th colspan="2">숙박 고객 영문명</th>
-										<td colspan="3"><%=read.getGuest_ename() %></td>
+										<td colspan="5"></td>
 									</tr>
 									<tr>	
 										<th colspan="2">숙박 고객 연락처</th>

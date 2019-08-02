@@ -98,9 +98,9 @@ ArrayList<HashMap> list_i = (ArrayList<HashMap>)request.getAttribute("list_image
                         <div class="d-r-input clear">
                             <form>
                                 <div class="d-r-input1">
-                                    <input type="text" id="book-start">
+                                    <input type="text" id="checkin">
                                     <p>~</p>
-                                    <input type="text" id="book-end"> 
+                                    <input type="text" id="checkout"> 
                                     <select name="adult">
                                         <option>성인</option>
                                         <option value="1">1</option>
@@ -108,8 +108,6 @@ ArrayList<HashMap> list_i = (ArrayList<HashMap>)request.getAttribute("list_image
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-                                        <!-- <option value="6">6</option>
-                                        <option value="7">7</option> -->
                                     </select> 
                                     <select name="child">
                                         <option>어린이</option>
@@ -118,8 +116,6 @@ ArrayList<HashMap> list_i = (ArrayList<HashMap>)request.getAttribute("list_image
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
-                                        <!-- <option value="6">6</option>
-                                        <option value="7">7</option> -->
                                     </select>     
                                 </div>
                                 <div class="d-r-input2">

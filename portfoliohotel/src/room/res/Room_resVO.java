@@ -22,7 +22,6 @@ public class Room_resVO  extends Parameter{
 	private int charge_price; //세금 및 수수료 금액
 	private int total_price; //총 금액
 	private String guest_kname; //숙박 고객 한글명
-	private String guest_ename; //숙박 고객 영문명
 	private String guest_tel; //숙박 고객 연락처
 	private String guest_email; //숙박 고객 이메일
 	private int pay_method; //결제 방법 (0:무통장입금  1:신용카드)
@@ -89,9 +88,6 @@ public class Room_resVO  extends Parameter{
 	public String getGuest_kname() {
 		return guest_kname;
 	}
-	public String getGuest_ename() {
-		return guest_ename;
-	}
 	public String getGuest_tel() {
 		return guest_tel;
 	}
@@ -151,9 +147,6 @@ public class Room_resVO  extends Parameter{
 	}
 	public void setGuest_kname(String guest_kname) {
 		this.guest_kname = guest_kname;
-	}
-	public void setGuest_ename(String guest_ename) {
-		this.guest_ename = guest_ename;
 	}
 	public void setGuest_tel(String guest_tel) {
 		this.guest_tel = guest_tel;
