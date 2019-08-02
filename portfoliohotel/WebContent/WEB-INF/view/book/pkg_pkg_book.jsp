@@ -6,6 +6,9 @@
 PkgVO pkg_param = (PkgVO) request.getAttribute("pkg_param");
 PkgVO prdata = (PkgVO) request.getAttribute("prdata");
 %>
+<%
+Pkg_resVO res_data = (Pkg_resVO) request.getAttribute("res_data");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,12 +31,12 @@ PkgVO prdata = (PkgVO) request.getAttribute("prdata");
 <script>
 function goSave() {
 	if ($("#guest_kname").val() == "") {
-		alert('한글명을 입력하세요.')
+		alert('이름을 입력하세요.')
 		$("#guest_kname").focus();
 		return false;
 	} 
-	}
 	$("#frm").submit();
+	}
 
 </script>
 <body>
@@ -63,8 +66,8 @@ function goSave() {
 
                             <div class="name_ko">
                                     <label for="name_ko">성명 (한글)＊</label>
-                                    <input type="text" id="guest_kname" placeholder="성">
-                                    <input type="text" id="guest_kname" placeholder="이름">
+                                    <input type="text" id="guest_kname" name="guest_kname" placeholder="성">
+                                    <input type="text" id="guest_kname" name="guest_kname" placeholder="이름">
                             </div>
 
                             <!-- <div class="name_en clear">
@@ -91,7 +94,7 @@ function goSave() {
                                         <option>011</option>
                                         <option>017</option>
                                     </select>
-                                    <input type="text" id="guest_tel" placeholder="숫자만 입력가능">
+                                    <input type="text" id="guest_tel" name="guest_tel" placeholder="숫자만 입력가능">
                             </div>
 
                             <div class="email">
@@ -101,13 +104,13 @@ function goSave() {
                                         </li>
                                     
                                         <li>
-                                            <input type="text" id=guest_email value title="이메일 아이디 입력" maxlength="40">
+                                            <input type="text" id="email" name="email" value title="이메일 아이디 입력" maxlength="40">
                                         </li>
 
                                         <li class="at">@</li>
 
                                         <li>
-                                            <input type="text" id="emailAdress" value title="이메일 주소 입력" maxlength="40">
+                                            <input type="text" id="email" name="email" value title="이메일 주소 입력" maxlength="40">
                                         </li>
                                         <li class="adress">
                                                 <select>
@@ -128,35 +131,42 @@ function goSave() {
 
                             <div class="cardType">
                                     <label for="name_ko">예약 상품<span>＊</span></label>
-                                    <input type="text" value="<%=prdata.getKname() %>" readonly>
+                                    <input type="text" id="pkg_name" name="pkg_name" value="<%=prdata.getEname() %>" style="color:#000000;" readonly>
                             </div>
                             
                             <div class="cardType">
+                                    <label for="name_ko">가격 &nbsp &nbsp &nbsp &nbsp <span>＊</span></label>
+                                    <input type="text" id="pkg_price" name="pkg_price" value="<%=prdata.getPrice() %>" style="color:#000000;" readonly>
+                            </div>                             
+                            
+                            <div class="cardType">
                                     <label for="name_ko">예약 날짜<span>＊</span></label>
-                                    <input type="text" id="start-date" placeholder="클릭하시면 날짜를 선택할 수 있습니다.">
+                                    <input type="text" id="start-date" name="use_date" placeholder="클릭하시면 날짜를 선택할 수 있습니다." style="color:#000000;">
                                    
                             </div>
 
                             <div class="cardType">
-                                <label for="name_ko">예약 시간<span>＊</span></label>
-                                <select>
-                                    <option>시간대를 선택해 주세요.</option>
-                                    <option>12:00</option>
-                                    <option>12:30</option>
-                                    <option>13:00</option>
-                                    <option>13:30</option>
-                                    <option>14:00</option>
-                                    <option>17:00</option>
-                                    <option>17:30</option>
-                                    <option>18:00</option>
-                                    <option>18:30</option>
-                                    <option>19:00</option>
-                                    <option>19:30</option>
-                                    <option>20:00</option>
+                                <label for="name_ko">예약 수량<span>＊</span></label>
+                                <select name="pkg_count">
+                                    <option>구매하시려는 패키지의 수량을 선택해주세요</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
                                 </select>
                             </div>
+                            
+                            <!-- <div class="cardType">
+                                    <label for="name_ko">총 가격 &nbsp &nbsp<span>＊</span></label>
+                                    <input type="text" id="total_price" name="total_price" value="" style="color:#000000;" readonly>
+                            </div>   -->                         
 
-                            <div class="person clear">
+                            <!-- <div class="person clear">
                                     <label for="name_ko">인원<span>＊</span></label>
                                     <ul class="adult clear">
                                        <li class="per">어른</li>
@@ -194,8 +204,7 @@ function goSave() {
                                              <p>(36개월 ~ 12세 미만)</p>        
                                     </ul>
                                     
-                            </div>
-
+                            </div> -->
                             
                         </div>
                                                      
@@ -223,7 +232,9 @@ function goSave() {
                         </div>
                     </div>
                 </div>
-                <input type="hidden" name="cmd" value="write" />   
+                <input type="hidden" name="cmd" value="write" />
+                <input type="hidden" name="pkg_pk" value="<%=prdata.getNo() %>"/>
+                <%-- <input type="hidden" name="total_price" value="<%=res_data.getPkg_count()*res_data.getPkg_price() %>"/> --%>
             </form> 
         </div>
     </div>
