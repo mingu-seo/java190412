@@ -109,16 +109,16 @@ int ptotPage = (Integer)request.getAttribute("ptotPage");
                                             <div class="pc-sub-box facil-left">
                                                 <h2 class="no-line">Facilities</h2>
                                                 <ul>
-                                                    <li><a href="../facilities.html#f1">The Oasis</a></li>
-                                                    <li><a href="../facilities.html#f2">Indoor Swimming Pool</a></li>
+                                                    <li><a href="/facilities.html#f1">The Oasis</a></li>
+                                                    <li><a href="/facilities.html#f2">Indoor Swimming Pool</a></li>
                                                     
                                                 </ul>
                                             </div>
                                             <div class="pc-sub-box mtop">
                 
                                                 <ul class="Rooms">
-                                                	<li><a href="../facilities.html#f3">Fitness Centre</a></li>
-                                                    <li><a href="../facilities.html#f4">Sauna</a></li>
+                                                	<li><a href="/facilities.html#f3">Fitness Centre</a></li>
+                                                    <li><a href="/facilities.html#f4">Sauna</a></li>
                                                 </ul>
                                             </div>
                                             <div class="pc-sub-box mtop facil-right">
@@ -162,7 +162,7 @@ int ptotPage = (Integer)request.getAttribute("ptotPage");
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="/membership/qna">
+                                                <a href="/support/qna/qna">
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">
