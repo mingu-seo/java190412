@@ -73,7 +73,6 @@ function goSearch() {
 									<col class="w10" />
 									<col class="w8" />
 									<col class="w8" />
-									<col class="w8" />
 									<col class="w5" />
 								</colgroup>
 								<thead>
@@ -85,9 +84,7 @@ function goSearch() {
 										<th scope="col">프로그램명</th> 
 										<th scope="col">프로그램 일자</th>
 										<th scope="col">프로그램 시간</th> 
-										<th scope="col">상태</th>
 										<th scope="col">신청일</th>
-										<th scope="col">수정일</th>
 										<th scope="col" class="last">삭제</th>
 									</tr>
 								</thead>
@@ -113,9 +110,7 @@ function goSearch() {
 										<td><%=data.getTitle()%></td>
 										<td><%=data.getDate()%></td>
 										<td><%=data.getTime()%></td>
-										<td><%=data.getState()%></td>
 										<td><%=DateUtil.getDateTimeFormat(data.getRegistdate())%></td>
-										<td><%=DateUtil.getDateTimeFormat(data.getModifydate())%></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
 								<%

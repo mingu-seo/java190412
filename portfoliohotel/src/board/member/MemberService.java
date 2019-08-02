@@ -79,6 +79,10 @@ public class MemberService {
 	public int idcheck(MemberVO param) throws SQLException {
 		return memberDao.idcheck(param);
 	}
+	
+//	public int join(MemberVO param) throws SQLException {
+//		return memberDao.insert(param);
+//	}
 
 	public MemberVO getLoginSessionInfo(MemberVO param) throws SQLException {
 		MemberVO vo = memberDao.getLoginSessionInfo(param);

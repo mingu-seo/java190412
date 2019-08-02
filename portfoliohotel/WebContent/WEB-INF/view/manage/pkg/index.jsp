@@ -71,7 +71,7 @@ function goSearch() {
 									<tr>
 										<th scope="col" class="first"><input type="checkbox" name="allChk" id="allChk" onClick="check(this, document.frm.no)"/></th>
 										<th scope="col">번호</th>
-										<th scope="col">제목</th>
+										<th scope="col">패키지 이름</th>
 										<th scope="col">가격</th> 
 										<th scope="col" class="last">삭제</th>
 									</tr>
@@ -95,7 +95,7 @@ function goSearch() {
 									<tr <%=topClass%>>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
 										<td <%=targetUrl%>><%=totCount - ((param.getReqPageNo()-1)*param.getPageRows()) - i%></td>
-										<td <%=targetUrl%> class="name"><%=data.getName() %></td>
+										<td <%=targetUrl%> class="name"><%=data.getEname() %></td>
 										<td <%=targetUrl%>><%=data.getPrice()%></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>

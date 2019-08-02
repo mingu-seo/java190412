@@ -238,4 +238,5 @@ MemberVO data = (MemberVO)request.getAttribute("data");
         </div>
     </div>
 </body>
+
 </html>
