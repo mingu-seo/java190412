@@ -1306,4 +1306,9 @@ public class Function {
 //		System.out.println(strCut("한글은 어떻게 나올까 이렇게 저렇게", "", 30, 0, true, true));
 		System.out.println(message(1, "참", "거짓"));
 	}
+	
+	public static String toPriceComma(int num) {
+		  DecimalFormat df = new DecimalFormat("#,###");
+		  return df.format(num);
+	} 
 }

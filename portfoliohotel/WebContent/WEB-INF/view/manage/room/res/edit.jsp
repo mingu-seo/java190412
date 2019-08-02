@@ -59,7 +59,7 @@ $(function() {
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="bread">
-							<form method="post" name="frm" id="frm" action="/manage/room/res/process?no=<%=read.getNo() %>" onsubmit="return goSave();">
+							<form method="post" name="frm" id="frm" action="/room/res/process?no=<%=read.getNo() %>" onsubmit="return goSave();">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
 									<col width="10%"/>

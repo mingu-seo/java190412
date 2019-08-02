@@ -99,6 +99,10 @@ CHANGE COLUMN `guest_tel` `guest_tel` VARCHAR(11) NULL DEFAULT NULL ;
 ALTER TABLE `portfoliohotel`.`room_res` 
 DROP COLUMN `guest_ename`;
 
+ALTER TABLE `portfoliohotel`.`room_res` 
+CHANGE COLUMN `member_pk` `member_pk` INT(11) NULL DEFAULT 0 ;
+
+
 
 CREATE TABLE `room_service` (
   `no` int(11) NOT NULL AUTO_INCREMENT,

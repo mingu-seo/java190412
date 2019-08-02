@@ -180,11 +180,11 @@ public class Room_resController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping("/manage/room/res/process")
+	@RequestMapping("/room/res/process")
 	public String process(Model model, Room_resVO vo, HttpServletRequest request, Room_opt_resVO ovo) throws Exception {
 		model.addAttribute("vo", vo);
 		model.addAttribute("ovo", ovo);
-		System.out.println(vo.getCmd());
+		
 		if ("write".equals(vo.getCmd())) {
 			int r = room_resService.insert(vo, ovo, request);
 			model.addAttribute("code", "alertMessageUrl");
