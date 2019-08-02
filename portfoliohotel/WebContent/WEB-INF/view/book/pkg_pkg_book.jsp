@@ -34,7 +34,7 @@ function goSave() {
 	} 
 	}
 	$("#frm").submit();
-}
+
 </script>
 <body>
     <jsp:include page="/header_menu" flush="true"/>
@@ -67,7 +67,7 @@ function goSave() {
                                     <input type="text" id="guest_kname" placeholder="이름">
                             </div>
 
-                            <div class="name_en clear">
+                            <!-- <div class="name_en clear">
                                     <div class="name_en_title">
                                         <label for="name_en">성명 (영문)＊</label>
                                     </div>
@@ -81,7 +81,7 @@ function goSave() {
                                         <input type="text" id="guest_ename" placeholder="First Name">
                                         <p>* 여권에 기재된 영문 성명과 동일하게 기입해 주십시오.</p>
                                     </div>
-                            </div>
+                            </div> -->
 
                             <div class="phoneNumber">
                                     <label for="phoneNumber">연락처＊</label>
