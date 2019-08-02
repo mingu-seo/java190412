@@ -46,5 +46,6 @@
 	<sqlMap resource="board/faq/faq.xml"/>
 	<sqlMap resource="pkg/pkg.xml"/>
 	<sqlMap resource="pkg/res/pkg_res.xml"/>
+	
 
 </sqlMapConfig>

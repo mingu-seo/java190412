@@ -70,7 +70,7 @@ function goSave() {
 	return true;
 }
 
-var day_stay = 0;
+var day_stay = 0; //숙박일수
 var price_stay = 0; //숙박일수 금액
 var price_opt = 0; //추가옵션 금액
 var price_person = 0; //추가인원 금액
@@ -84,7 +84,6 @@ function calculate() {
 	$("#charge_price").val(Number(price_charge));
 	$("#total_price_span").text(price_total);
 	$("#total_price").val(Number(price_total));
-	
 }
 
 $(function(){	
@@ -194,7 +193,7 @@ function checkDate(checkin, checkout) {
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="bread">
-							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" onsubmit="return goSave();">
+							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process" onsubmit="return goSave();">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
 									<col width="10%"/>

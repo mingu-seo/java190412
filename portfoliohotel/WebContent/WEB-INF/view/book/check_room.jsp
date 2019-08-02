@@ -19,7 +19,7 @@
     <title>객실검색</title>
 </head>
 <body>
-    <%@ include file="../header_menu.jsp" %>
+<jsp:include page="/header_menu" flush="true"/>
 
         <div id="container">
             <div class="chk-section">

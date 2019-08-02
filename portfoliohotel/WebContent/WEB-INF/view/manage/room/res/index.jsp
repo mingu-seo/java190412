@@ -46,7 +46,7 @@ function groupDelete() {
 
 function goDelete(no) {	
 	if (confirm ('삭제하시겠습니까?')) {
-		document.location.href = "/manage/room/res/process?no="+no+"&cmd=delete";
+		document.location.href = "/room/res/process?no="+no+"&cmd=delete";
 	}
 }
 
@@ -148,7 +148,7 @@ function goSearch() {
 					<div id="bbs">
 						<div id="blist">
 							<p><span><strong>총 <%=totCount%>개</strong>  |  <%=vo.getReqPageNo()%>/<%=totPage%>페이지</span></p>
-							<form name="frm" id="frm" action="/manage/room/res/process" method="post">
+							<form name="frm" id="frm" action="/room/res/process" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<colgroup>
 									<col class="w3" />

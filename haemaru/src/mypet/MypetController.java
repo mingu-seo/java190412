@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import manage.admin.AdminVO;
 import member.MemberVO;
 import mypet.MypetVO;
+import property.SiteProperty;
 import util.Function;
 
 @Controller
@@ -72,12 +73,11 @@ public class MypetController {
 	}
 	
 	@RequestMapping("/my/my-pet-edit.do")
-	public String myPetEdit(Model model, MypetVO param) throws Exception {
-		MypetVO data = mypetService.read(param);
-		model.addAttribute("data", data);
+	public String myPetEdit(Model model, MypetVO param, HttpServletRequest request) throws Exception {
+		mypetService.update(param, request);
 		model.addAttribute("vo", param);
 		
-		return "my/my-pet-edit";
+		return "redirect:my-pet.do";
 	}
 	
 	@RequestMapping("/my/my-pet-editJson.do")
@@ -89,13 +89,12 @@ public class MypetController {
 		return "my/my-pet-editJson";
 	}
 	
-	@RequestMapping("/my/myEdit.do")
-	public String myEdit(Model model, MypetVO param) throws Exception {
-		MypetVO data = mypetService.read(param);
-		model.addAttribute("data", data);
+	@RequestMapping("/my/my-pet-add.do")
+	public String myPetAdd(Model model, MypetVO param, HttpServletRequest request) throws Exception {
+		mypetService.insert(param, request);
 		model.addAttribute("vo", param);
 		
-		return "my/myEdit";
+		return "redirect:my-pet.do";
 	}
 	
 	@RequestMapping("/manage/mypet/process")
@@ -109,7 +108,7 @@ public class MypetController {
 			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
 			model.addAttribute("url", "/manage/mypet/read?no="+param.getNo());
 		} else if ("edit".equals(param.getCmd())) {
-			int r = mypetService.update(param);
+			int r = mypetService.update(param, request);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
@@ -123,8 +122,14 @@ public class MypetController {
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
+		} else if ("myedit".equals(param.getCmd())) {
+			int r = mypetService.update(param, request);
+			model.addAttribute("code", "alertMessageUrl");
+			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));
+			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		}
-		
 		return "include/alert";
+	
 	}
+	
 }

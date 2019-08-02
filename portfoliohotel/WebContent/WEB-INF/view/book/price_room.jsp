@@ -28,7 +28,7 @@
     </script>
 </head>
 <body>
-    <div id="header">
+<!--     <div id="header">
         <div class="header-center">
             <div class="pc-header">
                 <h1 class="logo"><a href="../index.html"><img src="../img/header-logo.png"></a></h1>
@@ -147,13 +147,13 @@
                                         </div>
                             </div>
                     </li>
-                    <!-- <li><a href="#">SIGN IN</a></li> -->
+                    <li><a href="#">SIGN IN</a></li>
                 </ul>
                 <a href="../membership/sign_in.html">Sign in</a>
             </div>
         </div>
-    </div>
-
+    </div> -->
+	<jsp:include page="/header_menu" flush="true"/>
 
         <div id="container">
                     <div class="chk-section">

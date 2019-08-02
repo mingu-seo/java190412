@@ -24,7 +24,7 @@ public class QnaController {
 	QnaService qnaService;
 	
 	/*	[사용자]  QnA 목록	 */
-	@RequestMapping("/membership/qna")
+	@RequestMapping("/support/qna/qna")
 	public String qna(Model model, QnaVO param) throws Exception {
 		int[] rowPageCount = qnaService.count(param);
 		ArrayList<QnaVO> list = qnaService.list(param);
@@ -34,19 +34,19 @@ public class QnaController {
 		model.addAttribute("list", list);
 		model.addAttribute("vo", param);
 		
-		return "membership/qna";
+		return "support/qna/qna";
 	}
 
-	@RequestMapping("/membership/qna_q")
+	@RequestMapping("/support/qna/qna_q")
 	public String qna_q(Model model, QnaVO param, HttpSession session) throws Exception {
 		MemberVO vo = (MemberVO)session.getAttribute("memberInfo");
 		
 		model.addAttribute("vo", param);
 		
-		return "membership/qna_q";
+		return "support/qna/qna_q";
 	}
 	
-	@RequestMapping("/membership/qna_read")
+	@RequestMapping("/support/qna/qna_read")
 	public String qna_read(Model model, QnaVO param, HttpSession session) throws Exception {
 		QnaVO data = qnaService.read(param);
 		MemberVO vo = (MemberVO)session.getAttribute("memberInfo");
@@ -56,24 +56,24 @@ public class QnaController {
 		model.addAttribute("param", param);
 		
 		if(data.getNo() == param.getNo() && data.getPassword() == param.getPassword()) {
-		return "/membership/qna_edit";	
+		return "support/qna/qna_edit";	
 		}
 		
-		return "/membership/qna_read";
+		return "support/qna/qna_read";
 	}
 	
-	@RequestMapping("/membership/qna_edit")
+	@RequestMapping("/support/qna/qna_edit")
 	public String qna_edit(Model model, QnaVO param) throws Exception {
 		QnaVO data = qnaService.read(param);
 		
 		model.addAttribute("data", data);
 		model.addAttribute("param", param);
 
-		return "/membership/qna_edit";
+		return "support/qna/qna_edit";
 	}
 	
 	///
-	@RequestMapping("/membership/popup")
+	@RequestMapping("/support/qna/popup")
 	public String popup(Model model, QnaVO param, HttpSession session) throws Exception {
 		QnaVO data = qnaService.read(param);
 		MemberVO vo = (MemberVO)session.getAttribute("memberInfo");
@@ -81,13 +81,13 @@ public class QnaController {
 		model.addAttribute("data", data);
 		model.addAttribute("param", param);
 		if(data.getNo() == param.getNo() && data.getPassword() == param.getPassword()) {
-		return "/membership/qna_read";	
+		return "support/qna/qna_read";	
 		}
-		return "/membership/qna_read";
+		return "support/qna/qna_read";
 		/* return "/membership/popup"; */
 	}
 	
-	@RequestMapping("/membership/processU")
+	@RequestMapping("/support/qna/processU")
 	public String processU(Model model, QnaVO param, HttpServletRequest request) throws Exception {
 		model.addAttribute("param", param);
 		QnaVO data = qnaService.read(param);
@@ -103,17 +103,17 @@ public class QnaController {
 			if(data.getPassword().equals(param.getPassword())) {
 				model.addAttribute("code", "alertMessageUrl");
 				model.addAttribute("message", "성공!");
-				model.addAttribute("url", "/membership/qna_edit?no=" + param.getNo());
+				model.addAttribute("url", "/support/qna/qna_edit?no=" + param.getNo());
 			}else {
 				model.addAttribute("code", "alertMessageUrl");
 				model.addAttribute("message", "비밀번호가 올바르지 않습니다.");
-				model.addAttribute("url", "/membership/qna_read?no=" + param.getNo());
+				model.addAttribute("url", "/support/qna/qna_read?no=" + param.getNo());
 			}
 		}else if ("edit".equals(param.getCmd())) {
 			int r = qnaService.update(param);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));
-			model.addAttribute("url", "/membership/qna_read?no=" + param.getNo());
+			model.addAttribute("url", "/support/qna/qna_read?no=" + param.getNo());
 		}
 		
 		

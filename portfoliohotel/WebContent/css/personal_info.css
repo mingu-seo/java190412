@@ -34,15 +34,15 @@ body {color:#1d1d1d; }
 .add01 label span {display:inline-block; font-size:8px; margin-top:-15px;}
 .add01 .phoneNumber label {margin-right:46px;}
 .add01 .phoneNumber input[type="text"] {width:322px;}
-.add01 input[type="text"] {width:160px; height:45px; padding-left:10px; border:1px solid #898989; color:#898989; font-size:14px;}
+.add01 input[type="text"] {width:445px; height:45px; padding-left:10px; border:1px solid #898989; color:#898989; font-size:14px;}
 .add01 select {width:120px; height:45px; border:1px solid #898989; font-size:14px;}
 
 .name_en > div {float:left;}
 .name_en_area {margin-left:3px;}
 .name_en_area > p {font-size:14px; font-weight:300; margin-top:10px;}
-.name_ko input[type="text"] {width:222px;}
+.name_ko input[type="text"] {width:445px;}
 
-.email-title {margin-right:30px;}
+.email-title {margin-right:30px; margin-top:10px;}
 .email_adress li {float:left;}
 .email_adress .at {width:12px; margin:10px;}
 .adress select {border-left:none; width:93px;}
@@ -69,7 +69,7 @@ body {color:#1d1d1d; }
 /* 오른쪽 확정 요금 영역 */
 .right-section { position: relative; width:35%;}
 
-.confirmation-box {position:relative;  right:0; width:416px; height:745px; background-color:#f7f7f7;
+.confirmation-box {position:relative;  right:0; width:416px; height:780px; background-color:#f7f7f7;
                 border:1px solid #d2d2d2; border-left:none;}
 
 /* 박스 움직임 (자바스크립트 사용) */
@@ -91,10 +91,10 @@ body {color:#1d1d1d; }
 .content-area > ul h3 {font-weight:400;} */
 
 /* 오른쪽 두번째 구역 */
-.content-area02 ul {float:left;}
+.content-area02 ul {}
 .content-area02 ul li h3 {font-size:14px; font-weight:400;}
 
-.title01 {width:250px;}
+.title01 {float:left; width:200px;}
 .price01 {float:right; color:#1a7149; text-align:right;  }
 
 .title02 {margin-bottom:16px;}
