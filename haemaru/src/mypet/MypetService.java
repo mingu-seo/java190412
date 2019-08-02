@@ -36,7 +36,6 @@ public class MypetService {
 	}
 
 	public int insert(MypetVO vo, HttpServletRequest request) throws Exception {
-		
 		FileUtil fu = new FileUtil();
 		Map fileMap = fu.getFileMap(request);
 		MultipartFile file= (MultipartFile)fileMap.get("image_tmp");
@@ -57,8 +56,16 @@ public class MypetService {
 		return data;
 	}
 
-	public int update(MypetVO vo) throws Exception {
+	public int update(MypetVO vo, HttpServletRequest request) throws Exception {
 		MypetVO data = mypetDAO.read(vo);
+		FileUtil fu = new FileUtil();
+		Map fileMap = fu.getFileMap(request);
+		MultipartFile file= (MultipartFile)fileMap.get("image_tmp");
+		if (!file.isEmpty()) {
+			fu.upload(file, SiteProperty.MYPET_UPLOAD_PATH, SiteProperty.REAL_PATH, "mypet");
+			vo.setMypet_image(fu.getName());
+			vo.setMypet_image_org(fu.getSrcName());
+		}
 		int r = (Integer)mypetDAO.update(vo);
 		if(r > 0){
 			if("1".equals(vo.getMypet_image_chk()) || !"".equals(Function.checkNull(vo.getMypet_image()))){

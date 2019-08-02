@@ -5,7 +5,8 @@
 <%@ page import="util.*" %>
 <%
 QnaVO param = (QnaVO)request.getAttribute("vo");
-MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
+MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo"); 
+QnaVO data = (QnaVO) request.getAttribute("data");
 %>
 <!DOCTYPE html>
 
@@ -21,7 +22,7 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
 		oEditors = setEditor("contents"); // 에디터 셋팅
 		initCal({id:"regdate",type:"day",today:"y",timeYN:"y"});
 	}); */
-	
+	 
 	function goSave() {
 		if ($("#familyname").val() ==""){
 			alert("성을 입력해 주세요");
@@ -99,15 +100,6 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
 	
 	$(function() {
 		
-		if($("#hideEmailOpt").val() == "@") {
-		$("#hideEmailOpt").hide();
-		var pass = $("#1234").val();
-		 console.log(pass);
-		 $("#email2").attr("disabled",false);
-		 $("#selectEmail").val("1").prop("selected", true);
-		}
-			
-			
 		$('#selectEmail').change(function(){ 
 			   $("#selectEmail option:selected").each(function () { 
 			      if($(this).val()== '1'){ //직접입력일 경우
@@ -120,7 +112,7 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
 			    }); 
 		});
 	});
-	
+		
 	
 	
 </script>
@@ -130,30 +122,30 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/default.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/qna_q.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="../js/gnb.js"></script>
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/qna_q.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="/js/gnb.js"></script>
     <title>Tree_qna</title>
 </head>
 <body>
     <div id="header">
         <div class="header-center">
             <div class="pc-header">
-                <h1 class="logo"><a href="../index.html"><img src="../img/header-logo.png"></a></h1>
+                <h1 class="logo"><a href="/index.html"><img src="/img/header-logo.png"></a></h1>
                 <ul class="pc-gnb">
                     <li>
                         <a href="#">BOOK</a>
                             <div class="pc-sub">
                                     <div class="pc-sub-center">
                                         <div class="pc-sub-box">
-                                            <h2><a href="../special_promotion.html">Promotion</a></h2>
+                                            <h2><a href="/special_promotion.html">Promotion</a></h2>
                                             <ul class="offer">
-                                                <li><a href="../room_offer.html">Room Package</a></li>
-                                                <li><a href="../room_offer.html">Dining Package</a></li>
-                                                <li><a href="../room_offer.html">Events & Gift</a></li>
+                                                <li><a href="/room_offer.html">Room Package</a></li>
+                                                <li><a href="/room_offer.html">Dining Package</a></li>
+                                                <li><a href="/room_offer.html">Events & Gift</a></li>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -192,16 +184,16 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
                                             <div class="pc-sub-box facil-left">
                                                 <h2 class="no-line">Facilities</h2>
                                                 <ul>
-                                                    <li><a href="../facilities.html#f1">The Oasis</a></li>
-                                                    <li><a href="../facilities.html#f2">Indoor Swimming Pool</a></li>
+                                                    <li><a href="/facilities.html#f1">The Oasis</a></li>
+                                                    <li><a href="/facilities.html#f2">Indoor Swimming Pool</a></li>
                                                     
                                                 </ul>
                                             </div>
                                             <div class="pc-sub-box mtop">
                 
                                                 <ul class="Rooms">
-                                                        <li><a href="../facilities.html#f3">Fitness Centre</a></li>
-                                                        <li><a href="../facilities.html#f4">Sauna</a></li>
+                                                        <li><a href="/facilities.html#f3">Fitness Centre</a></li>
+                                                        <li><a href="/facilities.html#f4">Sauna</a></li>
                                                 </ul>
                                             </div>
                                             <div class="pc-sub-box mtop facil-right">
@@ -221,26 +213,26 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Support</h2>
-                                                <a href="../notice.html" class="notice-a">
+                                                <a href="/notice.html" class="notice-a">
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
                                                         반얀트리 공지사항과<br/>
                                                         놓칠 수 없는 이벤트 정보를 알려드립니다.
                                                     </li>
-                                                    <li class="support-icon"><img src="../img/notice-icon.png"></li>
+                                                    <li class="support-icon"><img src="/img/notice-icon.png"></li>
                                                 </ul>
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="../faq.html">
+                                                <a href="/faq.html">
                                                 <ul>
                                                     <li>FAQ</li>
                                                     <li class="support-text">
                                                         반얀트리에 대한<br/>
                                                         자주 묻는 질문입니다.
                                                     </li>
-                                                    <li class="support-icon"><img src="../img/faq-icon.png"></li>
+                                                    <li class="support-icon"><img src="/img/faq-icon.png"></li>
                                                 </ul>
                                                 </a>
                                             </div>
@@ -252,7 +244,7 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
                                                         반얀트리에 관한질문 사항이나 궁금한 점을<br/> 
                                                         남겨 주시면 신속하게 답변을 드리겠습니다.
                                                     </li>
-                                                    <li class="support-icon"><img src="../img/qna-icon.png"></li>
+                                                    <li class="support-icon"><img src="/img/qna-icon.png"></li>
                                                 </ul>
                                                 </a>
                                         </div>
@@ -286,7 +278,7 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
             </div>
             <div class="qna_q-table">
                 <div class="qna_q-box">
-                	<% 
+            <%--     	<% 
                 	String name1 = "";
                 	String name2 = "";
                 	String email1 = "";
@@ -307,16 +299,22 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
 						tel2 = telArr[1];
 						tel3 = telArr[2];
                 	}
-                	%>
+                	%> --%>
+                	<% 
+						String[] emailArr= data.getEmail().split(",");
+						String[] nameArr= data.getName().split(",");
+						String[] telArr=data.getTel().split(",");
+						
+					%>
 						<form method="POST"name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/processU" enctype="multipart/form-data" onsubmit="return goSave();" >
                    
                     	<ul class="base_info clear">
                             <li>
                                 <label for="">카테고리</label>
-                               	<select name="category" style="height:30px;">
-									<option value="1"> 예약 </option>
-									<option value="2"> 멤버쉽 </option>
-									<option value="3"> 기타 </option>
+                               	<select name="category" style="height:30px;" value="<%=CodeUtil.getCategory_name(data.getCategory()) %>">
+									<option value="1" ${data.category == 1 ? "selected" : "" }> 예약 </option>
+									<option value="2" ${data.category == 2 ? "selected" : "" }> 멤버쉽 </option>
+									<option value="3" ${data.category == 3 ? "selected" : "" }> 기타 </option>
 								</select>
                             </li>
                             <li>
@@ -329,46 +327,44 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
                         <ul class="base_info clear">
                             <li>
                                 <label for="qna-title">이름</label>
-                               		<input type="text" style="width:100px;height:45px;" id="familyname" name="name" value="<%=name1%>" title="성을 입력해주세요" placeholder="성"></input>	
-									<input type="text" style="width:150px;height:45px;" id="firstname" name="name" value="<%=name2 %>" title="이름을 입력해주세요" placeholder="이름"></input>
+                               		<input type="text" style="width:100px;height:45px;" id="familyname" name="name" value="<%=nameArr[0]%>" title="성을 입력해주세요" placeholder="성"></input>	
+									<input type="text" style="width:150px;height:45px;" id="firstname" name="name" value="<%=nameArr[1]%>" title="이름을 입력해주세요" placeholder="이름"></input>
                                  
                             </li>
                             <li>
                                 <label for="qna-title">연락처</label>
-                                <input type="text" style="width:100px;height:45px;" id="tel1" name="tel"  title="연락처를 입력해주세요" value="<%=tel1%>"/>	
-								<input type="text" style="width:100px;height:45px;" id="tel2" name="tel"  title="연락처를 입력해주세요" value="<%=tel2%>"/>	
-								<input type="text" style="width:100px;height:45px;" id="tel3" name="tel"  title="연락처를 입력해주세요" value="<%=tel3%>"/>	
+                                <input type="text" style="width:100px;height:45px;" id="tel1" name="tel"  title="연락처를 입력해주세요" value="<%=telArr[0]%>"/>	
+								<input type="text" style="width:100px;height:45px;" id="tel2" name="tel"  title="연락처를 입력해주세요" value="<%=telArr[1]%>"/>	
+								<input type="text" style="width:100px;height:45px;" id="tel3" name="tel"  title="연락처를 입력해주세요" value="<%=telArr[2]%>"/>	
                             </li>
                         </ul>
                         <label for="">이메일</label>
-                       		<input type="text" name="email" id="email" style="width:200px" value="<%=email1%>"> @ 
-							<input type="text" name="email" id="email2" style="width:100px;" disabled value="<%=email2%>">
+                       		<input type="text" name="email" id="email" style="width:200px" value="<%=emailArr[0]%>" >@
+							<input type="text" name="email" id="email2" style="width:100px;" disabled value="<%=emailArr[1]%>">
 							<select style="width:100px;height:30px;" name="email" id="selectEmail"> 
-								
-								<option value="@<%=email2%>" id="hideEmailOpt"><%=email2%></option>
-								<option value="1" >직접입력</option> 
-								<option value="@naver.com" <%="@naver.com".equals(email2) ? "selected":""%>>naver.com</option> 
-								<option value="@daum.net" <%="@daum.net".equals(email2) ? "selected":""%>>hanmail.net</option>
-								<option value="@hanmail.net" <%="@hanmail.net".equals(email2) ? "selected":""%>>hanmail.net</option>
-								<option value="@gmail.com" <%="@gmail.com".equals(email2) ? "selected":""%>>gmail.com</option>  
-								<option value="@hotmail.com" <%="@hotmail.com".equals(email2) ? "selected":""%>>hotmail.com</option> 
-								<option value="@nate.com" <%="@nate.com".equals(email2) ? "selected":""%>>nate.com</option> 
-								<option value="@dreamwiz.com" <%="@dreamwiz.com".equals(email2) ? "selected":""%>>dreamwiz.com</option> 
+								<option value="<%=emailArr[1]%>"><%=emailArr[1]%></option>
+								<option value="1">직접입력</option> 
+								<option value="@naver.com" >naver.com</option> 
+								<option value="@daum.net">hanmail.net</option>
+								<option value="@hanmail.net">hanmail.net</option>
+								<option value="@gmail.com" >gmail.com</option>  
+								<option value="@hotmail.com">hotmail.com</option> 
+								<option value="@nate.com" >nate.com</option> 
+								<option value="@dreamwiz.com">dreamwiz.com</option> 
 											
 							</select> 
-							
 						<label for="">게시글 비밀번호</label>
 							<input type="password" id="password" name="password" style="width:150px;height:45px;border: 2px solid #eee;" maxlength="12" title="비밀번호를 입력해주세요" />
 							
 						<label for="">제목</label>
-                       		<input type="text" id="title" name="title" style="width:894px;height:45px;border: 2px solid #eee;" title="제목을 입력해주세요" />	
+                       		<input type="text" id="title" name="title" style="width:894px;height:45px;border: 2px solid #eee;" title="제목을 입력해주세요" value="<%=data.getTitle()%>"/>	
 								
                         <label for="">내용</label>
                        		<!-- <textarea name="qna-cont" id="qna-cont"></textarea> -->
                         	<!-- <textarea id="contents" name="contents" title="내용을 입력해주세요" style="width:100%; height:300px;"></textarea> -->
                         	<textarea name="contents" id="contents" 
                         			style="resize: none; width: 100%;height: 400px;padding: 10px 10px; border: 2px solid #eee;font-size: 14px;
-    								color: #454545;font-family: 'Noto Sans KR', sans-serif;font-weight: 300;letter-spacing: 0.5px;"></textarea>
+    								color: #454545;font-family: 'Noto Sans KR', sans-serif;font-weight: 300;letter-spacing: 0.5px;"><%=data.getContents()%></textarea>
                         <label for="">첨부파일</label>
                         	<input type="file" id="filename_tmp" name="filename_tmp" style="width:894px;height:45px;border: 2px solid #eee;" title="첨부파일을 업로드 해주세요." />
                         		
@@ -385,16 +381,18 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
                         <label for="qna-title">이메일</label>
                         <input type="text" id="email" name="email" placeholder="회원님의 질문을 이메일로 발송해드립니다.">-->
                         <!-- <input type="submit" value="질문하기" class="btns" href="javascript:$('#frm').submit();"> --> 
-                        
-                       		<div>
-								<input type="submit" class="btns" href="javascript:$('#frm').submit();"></a> 
+                        <div class="btn">
+                       		<div class="btnRight">
+								<input type="submit" class="btns" href="javascript:$('#frm').submit();"/> 
 								<!-- <a class="btns" href="#" onclick="goSave();"><strong>저장</strong></a> -->
 							</div>
-						
+						</div>
                         <!--======== 필요값 히든처리================ -->
-                        <input type="hidden" name="cmd" value="write" />
+                        <input type="hidden" name="cmd" value="edit" />
 						<input type="hidden" name="reply" value="0" />
+						<input type="hidden" id="regdate" name="regdate" value="<%=data.getRegdate() %>" />
 						<input type="hidden" name="send_email" value="0" />
+						<input type="hidden" name="no" value="<%=data.getNo() %>" />
 						
                     </form>
                 </div>
@@ -415,10 +413,10 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
                     <li><a href="#">개인정보처리방침</a></li>
                 </ul>
                 <ul class="sns clear">
-                    <li><a href="#"><img src="../img/sns1.png"></a></li>
-                    <li><a href="#"><img src="../img/sns2.png"></a></li>
-                    <li><a href="#"><img src="../img/sns3.png"></a></li>
-                    <li><a href="#"><img src="../img/sns4.png"></a></li>
+                    <li><a href="#"><img src="/img/sns1.png"></a></li>
+                    <li><a href="#"><img src="/img/sns2.png"></a></li>
+                    <li><a href="#"><img src="/img/sns3.png"></a></li>
+                    <li><a href="#"><img src="/img/sns4.png"></a></li>
                 </ul>
             </div>
             <div class="footer-bottom">
@@ -427,10 +425,10 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
                 </h5>
                 <h6>Copyright 2018 Banyan Tree Club & Spa. All Rights Reserved</h6>
                 <ul class="support-logo clear">
-                    <li><img src="../img/footericon1.png"></li>
-                    <li><img src="../img/footericon2.png"></li>
-                    <li><img src="../img/footericon3.png"></li>
-                    <li><img src="../img/footericon4.png"></li>
+                    <li><img src="/img/footericon1.png"></li>
+                    <li><img src="/img/footericon2.png"></li>
+                    <li><img src="/img/footericon3.png"></li>
+                    <li><img src="/img/footericon4.png"></li>
                 </ul>
             </div>
         </div>

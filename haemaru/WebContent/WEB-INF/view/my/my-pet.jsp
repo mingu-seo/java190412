@@ -26,6 +26,11 @@
 <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="/js/custom.js"></script>
 <script type="text/javascript" src='/js/sub6-1.js'></script>
+<script>
+function goSave() {
+	$("#frm").submit();
+}
+</script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/view/include/headHtml.jsp"%>
@@ -36,58 +41,122 @@
 		<div class="con2">
 			<!-- 정보수정 반려동물 부분 -->
 			<div id="mypet-area">
-<div class="mypet-box">
-		<div class="mypet-head">
-			<p>반려동물 정보 수정</p>
-			<img src="/icon/footer-icon.png">
-		</div>
-		<div class="mypet-page">
-			<div class="mypet-back-arrow">
-				<a href="#"><img src="/icon/backarrow.png">
-					<P>뒤로가기</P></a>
-			</div>
-			<h1 class="mypet-logo">
-				<a href="#"><img src="/icon/logo_lightgreen.png"></a>
-			</h1>
-			<form class="mypet-form" method="POST" action="/my/my-pet-edit">
-				<div class="petname_box">
-					<span><label for="pet_name" class="label">My pet 이름</label></span>
-					<input type="text" maxlength="20" id="pet_name" name="name" class="cover-size" value="">
-				</div>
-				<div class="petage_box">
-					<span><label for="pet_old" class="label">My pet 나이</label></span> <input
-						type="text" maxlength="20" id="pet_old" name="age" value=""
-						class="cover-size">
-				</div>
-				<div class="petgender_box">
-					<span>My Pet 성별</span> 
-					<input type="radio" id="radio01" name="gender" value="2" ><label for="radio01" class="label">남아</label>
-					<input type="radio" id="radio02" name="gender" value="1" ><label for="radio02" class="label">여아</label>
-				</div>
-				<div class="petlist_box">
-					<span><label for="pet_class" class="label">My Pet 품종</label></span>
-					<input type="text" maxlength="5" id="pet_class" name="breed" value=""
-						class="cover-size">
-				</div>
-				<div class="petdoc_box">
-					<span><label for="pet_helth" class="label">최근 접종 현황</label></span>
-					<input type="text" maxlength="5" id="pet_helth" name="vac" value=""
-						class="cover-size">
-				</div>
-				<div class="mypet-btn clear">
-					<input type="reset" value="취소" id="btn_reset2"> 
-					<input type="submit" value="수정" id="btn_submit2">
-				</div>
-			</form>
-			<ul class="mypet-bot clear">
-				<li><a href="#">개인정보처리방침</a></li>
-				<li><a href="#">이메일무단수집거부</a></li>
-			</ul>
-		</div>
-	</div>
-			</div>
+                <div class="mypet-box">
+                    <div class="mypet-head">
+                        <p>반려동물 정보 수정</p>
+                        <img src="/icon/footer-icon.png">
+                    </div>
+                    <div class="mypet-page">
+                        <div class="mypet-back-arrow">
+                            <a href="#"><img src="/icon/backarrow.png"><P>뒤로가기</P></a>
+                        </div>
+                        <form class="mypet-form" method="POST" action="/my/my-pet-edit.do" enctype="multipart/form-data">
+                        	<h1 class="mypet-logo">
+                            	<a href="#"><img src="/icon/logo_lightgreen.png"></a>
+                        	</h1>
+                            <div class="petname_box">
+                                <span><label for="pet_name" class="label">My pet 이름</label></span>
+                                <input type="text" maxlength="20" id="pet_name" name="name" value="" class="cover-size" placeholder="이름을 입력하세요.">
+                            </div>
+                            <div class="petage_box">
+                                <span><label for="pet_old" class="label">My pet 나이</label></span>
+                                <input type="text" maxlength="20" id="pet_old" name="age" class="cover-size" value="" placeholder="나이를 입력하세요.">
+                            </div>
+                            <div class="petimage_box">
+                                <span><label for="pet_image" class="label">My pet 사진</label></span>
+                                <input type="file" id="pet_image" name="image_tmp" class="cover-size" value="" >
+                            </div>
+                            <div class="petgender_box"><span>My Pet 성별</span> 
+								<input type="radio" id="radio01" name="gender" value="2" ><label for="radio01" class="label">남아</label>
+								<input type="radio" id="radio02" name="gender" value="1" ><label for="radio02" class="label">여아</label>
+							</div>
+                            <div class="petlist_box">
+                                    <span><label for="pet_class"  class="label">My Pet 품종</label></span>
+                                    <input type="text" maxlength="5" id="pet_class" name="breed" value="" class="cover-size">
+                            </div>
+                            <div class="petdoc_box">
+                                <span><label for="pet_helth"  class="label">최근 접종 현황</label></span>
+                                <input type="text" maxlength="5" id="pet_helth" name="vac" value="" class="cover-size">
+                            </div>
+                            <div class="mypet-btn clear">
+                                <input type="reset" value="취소" id="btn_reset2">
+                                <input type="submit" value="수정" id="btn_submit2" href="#" onclick="goSave();">
+                            </div>
+                        <input type="hidden" id="pet_no" name="no" value=""/>
+                        </form>
+                        <ul class="mypet-bot clear">
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">이메일무단수집거부</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 			<!-- 반려동물 추가부분 -->
-			<%@ include file="/WEB-INF/view/my/my-pet-add.jsp"%>
+			<div id="pet-plus">
+            <div class="pet-plus-area">
+                <div class="petplus-head">
+                    <p>반려동물 추가</p>
+                    <img src="/icon/footer-icon.png">
+                </div>
+                <div class="petplus-page">
+                    <div class="petplus-back-arrow">
+                        <a href="#"><img src="/icon/backarrow.png">
+                        <P>뒤로가기</P></a>
+                    </div>
+                    <h1 class="petplus-logo">
+                        <a href="#"><img src="/icon/logo_lightgreen.png"></a>
+                    </h1>
+                    <form name="frm" id="frm" method="POST" action="/my/my-pet-add.do" enctype="multipart/form-data">
+                    <div class="pet-plus-box clear">
+                        <div class="petplus-img">
+                            <div>
+                                <img src="/img/sub6-2-petimg.jpg">
+                            </div>
+                            <div><a href="#"><input type="file" id="image_tmp" name="image_tmp"/>파일찾기</a></div>
+                        </div>
+                        <div class="petplus-text">
+                            <div class="petplus-form">
+                                <div class="petplus_name_box">
+                                    <span><label for="id_input" class="label">이름</label></span>
+                                    <input type="text" maxlength="20" id="id_input" name="name" class="cover-size2" placeholder="이름을 입력하세요.">
+                                </div>
+                                <div class="petplus_age_box">
+                                    <span><label for="id_input" class="label">나이</label></span>
+                                    <input type="text" maxlength="20" id="id_input" name="age" class="cover-size2" placeholder="나이를 입력하세요.">
+                                </div>
+                                <div class="petplus_gender_box"><span><label for="id_input" class="label">성별</label></span>
+									<input type="radio" id="radio01" name="gender" value="2" ><label for="radio01" class="label">남아</label>
+									<input type="radio" id="radio02" name="gender" value="1" ><label for="radio02" class="label">여아</label>
+								</div><br>
+                                <div class="petplus_list_box">
+                                    <span><label for="id_input" class="label">품종</label></span>
+                                    <input type="text" maxlength="20" id="id_input" name="breed" class="cover-size2" placeholder="ex ) 도베르만">
+                                </div>
+                                <div class="petplus_doc_box">
+                                    <span><label for="id_input" class="label">최근 접종 현황</label></span>
+                                    <input type="text" maxlength="20" id="id_input" name="vac" class="cover-size2">
+                                </div>
+                            </div>
+                               </div>
+                    </div>
+                    <input type="hidden" id="no" name="member_pk" value="<%=memberInfo.getNo()%>"/>
+                            </form>
+                     
+                    <div class="bot-plus">
+                        <div class="petplus-form-btn">
+                            <div class="petplus-btn clear">
+                                <input type="reset" value="취소" id="btn_reset3">
+                                <input type="button" value="반려동물 추가" id="btn_submit3" onclick="goSave();">
+                            </div>
+                        </div>
+                        <ul class="petplus-bot clear">
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">이메일무단수집거부</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 			<!-- sub bar 부분 (고정) -->
 			<div class="fixed-sub">
 				<div class="title-area">
@@ -145,26 +214,6 @@
 		</div>
 	</div>
 	<script>
-function getMypet() {
-	$.ajax({
-		type : "GET",
-		url : "/my/myEdit?no=<%=param.getNo()%>",
-		async:false
-	});
-}
-$(function(){
-	$("#mypetEditBtn").click(function() {
-		$.ajax({
-			type : "POST",
-			url : "/my/my-pet-edit",
-			data : $("#editFrm").serialize(),
-			async : false,
-			success : function(data) {
-				alert("정상적으로 수정되었습니다.");
-			}
-		});
-	});
-});
 
 function getPetEdit(no) {
 	$.ajax({
@@ -194,6 +243,7 @@ function getPetEditAjax(no) {
 			$("#pet_old").val(data.age);
 			$("#pet_class").val(data.breed);
 			$("#pet_helth").val(data.vac);
+			$("#pet_no").val(data.no);
 			
 			// 성별
 			if (data.gender == '2') {

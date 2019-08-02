@@ -4,6 +4,41 @@
   <%
   MemberVO memberInfo = (MemberVO)session.getAttribute("memberInfo"); 
   %>
+  <script>
+  function goJoin() {
+	  
+	  
+	  
+		var tel1 = $("#tel1").val();
+		var tel2 = $("#tel2").val();
+		var tel3 = $("#tel3").val();
+		var email1 = $("#email1").val();
+		var email2 = $("#email2").val();
+		$("#email").val(email1+email2);
+		$("#tel").val(tel1+ tel2 +tel3);
+		return true;
+	}
+  <!--
+  $("#email").keyup(function(){
+		$.ajax({
+			type:'POST',
+			url:"/manage/member/idcheck",
+			data:$("#frm").serialize(),
+			async:false,
+			success:function(data) {
+				var val = data.trim();
+				if (val == "0") {
+					$("#idText").text("사용가능");
+					$("#idText").css("color","#68A7C7");
+				} else {
+					$("#idText").text("사용불가");
+					$("#idText").css("color","#E89393");
+				}
+			}
+		});
+	});
+  -->
+  </script>
     <div id="header">
         <%@ include file="/WEB-INF/view/include/login.jsp" %>
         <%@ include file="/WEB-INF/view/include/join.jsp" %>
@@ -20,7 +55,7 @@
             </ul>
             <!-- <div class="fix-menu-text">오시는 길</div> -->
         </div>
-        <h1 class="header-logo"><a href="/index.do"><img src="/img/icon/logo_lightgreen.png"></a></h1>
+        <h1 class="header-logo"><a href="/index.do"><img src="/icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">
             <!-- gnb & sub menu -->
@@ -100,15 +135,15 @@
         <div id="pass-lost">
             <div class="pass-head">
                 <p>Find</p>
-                <img src="/img/icon/footer-icon.png">
+                <img src="/icon/footer-icon.png">
             </div>
             <div class="pass-page">
                 <div class="pass-back-arrow">
-                    <a href="#"><img src="/img/icon/backarrow.png">
+                    <a href="#"><img src="/icon/backarrow.png">
                     <P>뒤로가기</P></a>
                 </div>
                 <h1 class="pass-logo">
-                    <a href="#"><img src="/img/icon/logo_lightgreen.png"></a>
+                    <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                 </h1>
                 <form class="pass-form" method="GET" action="text.php">
                     <div class="email-pass-box">
@@ -141,15 +176,15 @@
         <div id="pass-chk">
             <div class="pass-chk-head">
                 <p>Find</p>
-                <img src="/img/icon/footer-icon.png">
+                <img src="/icon/footer-icon.png">
             </div>
             <div class="pass-chk-page">
                 <div class="pass-chk-back-arrow">
-                    <a href="#"><img src="/img/icon/backarrow.png">
+                    <a href="#"><img src="/icon/backarrow.png">
                     <P>뒤로가기</P></a>
                 </div>
                 <h1 class="pass-chk-logo">
-                    <a href="#"><img src="/img/icon/logo_lightgreen.png"></a>
+                    <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                 </h1>
                 <form class="pass-chk-form" method="GET" action="text.php">
                     <div class="email-pass-chk-box">
