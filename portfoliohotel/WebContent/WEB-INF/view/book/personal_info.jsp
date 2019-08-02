@@ -45,132 +45,7 @@
     <title>정보입력</title>
 </head>
 <body>
-<!--     <div id="header">
-        <div class="header-center">
-            <div class="pc-header">
-                <h1 class="logo"><a href="../index.html"><img src="../img/header-logo.png"></a></h1>
-                <ul class="pc-gnb">
-                    <li>
-                        <a href="#">Book</a>
-                            <div class="pc-sub">
-                                    <div class="pc-sub-center">
-                                        <div class="pc-sub-box">
-                                            <h2><a href="../pkg/special_promotion.html">Promotion</a></h2>
-                                            <ul class="offer">
-                                                <li><a href="../pkg/room_offer.html">Room Package</a></li>
-                                                <li><a href="../pkg/dining_offer.html">Dining Package</a></li>
-                                                <li><a href="../pkg/etc_offer.html">Events & Gift</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="pc-sub-box">
-                                            <h2>Rooms</h2>
-                                            <ul class="Rooms">
-                                                <li><a href="../room/room-detail-subpage.html">Namsan Pool Deluxe Room</a></li>
-                                                <li><a href="../room/room-detail-subpage2.html">Namsan Pool Premier Suite</a></li>
-                                                <li><a href="../room/room-detail-subpage3.html">Namsan Presidential Suite</a></li>
-                                                <li><a href="../room/room-detail-subpage4.html">Spa Sanctuary Suite</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="pc-sub-box">
-                                            <h2>Dining</h2>
-                                            <ul class="Dining">
-                                                <li><a href="#">The Festa</a></li>
-                                                <li><a href="#">Granum Dining Lounge</a></li>
-                                                <li><a href="#">Moon Bar</a></li>
-                                                <li><a href="#">The Oasis Outdoor Kitchen</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="pc-sub-box">
-                                            <h2>Meeting & Wedding</h2>
-                                            <ul class="Meeting & Wedding">
-                                                <li><a href="#">Meeting</li>
-                                                <li><a href="#">Wedding</a></li>
-                                                <li><a href="#">Family Party</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                            </div>
-                    </li>
-                    <li class="facilities">
-                        <a href="#">Facilites</a>
-                            <div class="pc-sub">
-                                    <div class="pc-sub-center center clear">
-                                            <div class="pc-sub-box facil-left">
-                                                <h2 class="no-line">Facilities</h2>
-                                                <ul>
-                                                    <li><a href="../facilites.html#f1">The Oasis</a></li>
-                                                    <li><a href="../facilites.html#f2">Indoor Swimming Pool</a></li>
-                                                    
-                                                </ul>
-                                            </div>
-                                            <div class="pc-sub-box mtop">
-                
-                                                <ul class="Rooms">
-                                                        <li><a href="../facilites.html#f3">Fitness Centre</a></li>
-                                                        <li><a href="../facilites.html#f4">Sauna</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="pc-sub-box mtop facil-right">
-                                                
-                                                <ul class="Dining">
-                                                    <li><a href="#">Troon Golf Academy</a></li>
-                                                    <li><a href="#">Foresta Beauty Salon</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                            </div>
-                        
-                    </li>
-                    <li>
-                        <a href="#">Support</a>
-                            <div class="pc-sub">
-                                    <div class="pc-sub-center center clear">
-                                            <div class="pc-sub-box">
-                                                <h2 class="no-line">Support</h2>
-                                                <a href="../membership/notice.html" class="notice-a">
-                                                <ul>
-                                                    <li>Notice</li>
-                                                    <li class="support-text">
-                                                        반얀트리 공지사항과<br/>
-                                                        놓칠 수 없는 이벤트 정보를 알려드립니다.
-                                                    </li>
-                                                    <li class="support-icon"><img src="../img/notice-icon.png"></li>
-                                                </ul>
-                                                </a>
-                                            </div>
-                                            <div class="pc-sub-box mtop">
-                                                <a href="../membership/faq.html">
-                                                <ul>
-                                                    <li>FAQ</li>
-                                                    <li class="support-text">
-                                                        반얀트리에 대한<br/>
-                                                        자주 묻는 질문입니다.
-                                                    </li>
-                                                    <li class="support-icon"><img src="../img/faq-icon.png"></li>
-                                                </ul>
-                                                </a>
-                                            </div>
-                                            <div class="pc-sub-box mtop">
-                                                <a href="../membership/qna.html">
-                                                <ul>
-                                                    <li>Q&A</li>
-                                                    <li class="support-text">
-                                                        반얀트리에 관한질문 사항이나 궁금한 점을<br/> 
-                                                        남겨 주시면 신속하게 답변을 드리겠습니다.
-                                                    </li>
-                                                    <li class="support-icon"><img src="../img/qna-icon.png"></li>
-                                                </ul>
-                                                </a>
-                                        </div>
-                            </div>
-                    </li>
-                    <li><a href="#">SIGN IN</a></li>
-                </ul>
-                <a href="../membership/sign_in.html">Sign in</a>
-            </div>
-        </div>
-    </div> -->
-    <%@ include file="../header_menu.jsp" %>
+    <jsp:include page="/header_menu" flush="true"/>
     
     <div id="container">
         <div class="option_channel clear">
@@ -181,11 +56,11 @@
                 <li><a href="#">객실검색 <span>></span> </a></li>
                 <li><a href="add_option">객실예약</a></li>
                 <li class="current-page"><a href="#"><span>></span>정보입력</a></li>
-                <li><a href="#"><span>></span> 예약완료</a></li>
+                <li><a href="confirm_room"><span>></span> 예약완료</a></li>
             </ul>
             
             <!-- 폼태그 / summit 입력버튼 311번 -->
-            <form action="#" method="GET">
+            <form action="/book/confirm_room" method="GET">
                 <div class="section-wrap clear">
                     <!-- 왼쪽 정보 입력 박스 구역 -->
                     <div class="left-section">

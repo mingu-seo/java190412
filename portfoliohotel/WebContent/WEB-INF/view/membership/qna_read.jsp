@@ -418,7 +418,7 @@ function goSave() {
                         <ul class="base_info clear">
                             <li>
                         	<div class="btnLeft" id="editBtn1">
-                        		<input type="submit" class="editBtn" href="javascript:;"onclick="goPassword();" ></a>
+                        		<input type="submit" class="editBtn" href="javascript:;"onclick="goPassword();"></a>
                         	</div>
                         	<div class="btnLeft" id="editBtn2" style="display:none; ">
                         		<input type="submit" class="editBtn" href="javascript:$('#frm').submit();"></a>

@@ -36,7 +36,7 @@ ArrayList<HashMap> list_i = (ArrayList<HashMap>)request.getAttribute("list_image
                 $(".book-close > a").click(function(){
                     $(".book-wrap").hide();
                 });
-                $("#book-start").datepicker({
+                $("#checkin").datepicker({
                     monthNames:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
                     dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
                     dateFormat: "yy-mm-dd",
@@ -44,20 +44,19 @@ ArrayList<HashMap> list_i = (ArrayList<HashMap>)request.getAttribute("list_image
                     minDate: "0D"
                     
                 });
-                $("#book-end").datepicker({
+                $("#checkout").datepicker({
                     monthNames:['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
                     dayNamesMin: ['월', '화', '수', '목', '금', '토', '일'],
                     dateFormat: "yy-mm-dd",
                     yearRange: "2019:2019",
                     minDate: "1D"
                 });
-             
         });
     </script>
     <title>객실 상세</title>
 </head>
 <body>
-<%@ include file="../header_menu.jsp" %>
+<jsp:include page="/header_menu" flush="true"/>
     
     <!-- 컨테이너 영역 시작 -->
     <div id="container">
@@ -82,53 +81,52 @@ ArrayList<HashMap> list_i = (ArrayList<HashMap>)request.getAttribute("list_image
                 </div>
             </div>
             <div class="room-btn clear">
-                    <button class="slick-prev"></button>
-                    <button class="slick-next"></button>
+                <button class="slick-prev"></button>
+                <button class="slick-next"></button>
             </div>
 
             <div class="brief">
-                <h5><%=read.getInstruction() %>
-                </h5>
+                <h5><%=read.getInstruction() %></h5>
 
                 <div class="book"><a href="#">객실 예약하기</a></div>
 
-                <div class="book-wrap">
-                    <div class="direct-reservation">
-                        <h2>RESERVATION</h2>
-                        <div class="d-r-input clear">
-                            <form>
-                                <div class="d-r-input1">
-                                    <input type="text" id="checkin">
-                                    <p>~</p>
-                                    <input type="text" id="checkout"> 
-                                    <select name="adult">
-                                        <option>성인</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select> 
-                                    <select name="child">
-                                        <option>어린이</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>     
-                                </div>
-                                <div class="d-r-input2">
-                                    <!-- <input type="submit" value="예약 조회"> -->
-                                    <a href="/book/add_option">객실 예약</a>
-                                </div>
-                            </form>
-                        </div>
-                        <p class="book-close"><a href="#">X</a></p>
-                    </div>    
-                </div>       
-                
-            </div>
+				<div class="book-wrap">
+					<div class="direct-reservation">
+						<h2>RESERVATION</h2>
+						<div class="d-r-input clear">
+							<form action="/book/add_option" method="post">
+								<div class="d-r-input1">
+									<input type="text" id="checkin">
+									<p>~</p>
+									<input type="text" id="checkout"> 
+									<select name="adult">
+										<option>성인</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select> <select name="kid">
+										<option>어린이</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+								</div>
+								<div class="d-r-input2">
+									<input type="submit" value="객실 예약" />
+								</div>
+							</form>
+						</div>
+						<p class="book-close">
+							<a href="#">X</a>
+						</p>
+					</div>
+				</div>
+
+			</div>
             
             <div class="info-box">
                 <ul class="info-detail clear line">
@@ -143,10 +141,10 @@ ArrayList<HashMap> list_i = (ArrayList<HashMap>)request.getAttribute("list_image
                         </ul>
 
                         <ul class="second">
-                            <li><%=read.getCheckin_time() %></li>
-                            <li><%=read.getCheckout_time() %></li>
-                            <li><%=read.getLocation() %></li>
-                            <li><%=read.getLandscape() %></li>
+                            <li><%=read.getCheckin_time()%></li>
+                            <li><%=read.getCheckout_time()%></li>
+                            <li><%=read.getLocation()%></li>
+                            <li><%=read.getLandscape()%></li>
                             <li><%=read.getType() %></li>
                         </ul>
                     </li>

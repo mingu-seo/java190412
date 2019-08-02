@@ -50,19 +50,19 @@ ArrayList<Room_optVO> list_o = (ArrayList<Room_optVO>)request.getAttribute("list
     <title>객실예약</title>
 </head>
 <body>
-<%@ include file="../header_menu.jsp" %>
+<jsp:include page="/header_menu" flush="true"/>
 
     <div id="container">
         <div class="option_channel clear">
             <h1 class="head-title">객실예약</h1>
             <ul class="cha_index clear">
                 <li><a href="/book/check_room">객실검색 <span>></span> </a></li>
-                <li class="current-page"><a href="#">객실예약</a></li>
+                <li class="current-page"><a href="#">객실예약</a>></li>
                 <li><a href="/book/personal_info"><span>></span>정보입력</a></li>
                 <li><a href="/book/confirm_room"><span>></span> 예약완료</a></li>
             </ul>
             <!-- 폼태그 / summit 입력버튼 311번 -->
-            <form action="#" method="GET">
+            <form action="/book/personal_info" method="GET">
                 <div class="section-wrap clear">
                     <div class="left-section">
                         <div class="sec01-title">
@@ -147,7 +147,7 @@ ArrayList<Room_optVO> list_o = (ArrayList<Room_optVO>)request.getAttribute("list
                                     <p>(투숙기간. 객실 수. 옵션 포함, 세금 및 수수료 각 10%포함)</p>
 
                                     <div class="next-but">
-                                        <input id="countsubmit" type="submit" value="다음" href="personal_info">
+                                        <input id="countsubmit" type="submit" value="다음">
                                     </div>
 
                                     <h4><span></span>예약 안내</h4>
