@@ -14,14 +14,14 @@
                     <h1 class="join-logo">
                         <a href="#"><img src="/icon/logo_lightgreen.png"></a>
                     </h1>
-                    <form class="join-form" method="POST" action="/member/join">
+                    <form class="join-form" id="joinFrm" method="POST" action="/member/join" onsubmit="return goJoin();">
                         <div class="email_box">
                             <span><label for="id_input" class="label">이메일</label></span>
-                            <input type="text" maxlength="20" id="id_input" name="email" class="half-size">
-                            <select class="emial-select">
-                                <option>@ naver.com</option>
-                                <option>@ daum.net</option>
-                                <option>@ gmail.com</option>
+                            <input type="text" maxlength="20" id="email1" name="email1" class="half-size">
+                            <select class="emial-select" name="email2" id="email2">
+                                <option value="@naver.com">@naver.com</option>
+                                <option value="@daum.net">@daum.net</option>
+                                <option value="@gmail.com">@gmail.com</option>
                             </select>
                         </div>
                         <div class="pass_box">
@@ -42,18 +42,21 @@
                         </div>
                         <div class="phone_box">
                             <span><label for="id_phone"  class="label">전화번호</label></span>
-                            <select class="phone-select">
-                                <option>010</option>
-                                <option>011</option>
-                                <option>018</option>
+                            <select class="phone-select" id="tel1" name="tel1">
+                                <option value='010'>010</option>
+                                <option value='011'>011</option>
+                                <option value='018'>018</option>
                             </select>
-                            <input type="text" maxlength="4" id="phone_input" name="tel"  class="half-size">
-                            <input type="text" maxlength="4" id="phone_input" name="tel"  class="half-size half">
+                            <input type="text" maxlength="4" id="tel2" name="tel2"  class="half-size">
+                            <input type="text" maxlength="4" id="tel3" name="tel3"  class="half-size half">
                         </div>
                         <div class="join-btn clear">
                             <input type="reset" value="취소" id="btn_reset">
                             <input type="submit" value="회원가입" id="btn_submit">
                         </div>
+                        <input type="hidden" name="email" id="email" value="" />
+                        <input type="hidden" name="tel" id="tel" value="" />
+                        <input type="hidden" name="idcheck" id="idcheck" value="0" />
                     </form>
                     <ul class="join-bot clear">
                         <li><a href="#">개인정보처리방침</a></li>

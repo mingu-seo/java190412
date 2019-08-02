@@ -40,7 +40,7 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 
 	/**
 	 * 회원 수정
-	 * @param vo
+	 * @param i
 	 * @throws SQLException
 	 */
 	public int update(MemberVO vo) throws SQLException {

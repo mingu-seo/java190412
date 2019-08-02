@@ -4,8 +4,10 @@
 MypetVO data = (MypetVO)request.getAttribute("data");
 %>
 	{
+		"no":"<%=data.getNo() %>",
 		"name":"<%=data.getName() %>",
 		"age":"<%=data.getAge() %>",
+		"mypet_image":"<%=data.getMypet_image() %>",
 		"gender":"<%=data.getGender() %>",
 		"breed":"<%=data.getBreed() %>",
 		"vac":"<%=data.getVac() %>"
