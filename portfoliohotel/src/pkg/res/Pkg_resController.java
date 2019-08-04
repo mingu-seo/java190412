@@ -1,5 +1,6 @@
 package pkg.res;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -122,7 +123,25 @@ public class Pkg_resController {
 		model.addAttribute("res_param", rsparam);
 		model.addAttribute("res_data", res_data);
 		return "book/confirm_pkg";
-	}	
+	}
+	
+	@RequestMapping("/manage/pkg/pkg_res/read")
+	public String pkg_res_read(Model model, Pkg_resVO param) throws SQLException {
+		Pkg_resVO res_data = pkg_resService.read(param.getNo());
+		model.addAttribute("res_data", res_data);
+		model.addAttribute("res_param", param);
+		
+		return "manage/pkg/pkg_res/read";
+	}
+	
+	@RequestMapping("/manage/pkg/pkg_res/edit")
+	public String pkg_res_edit(Model model, Pkg_resVO param) throws SQLException {
+		Pkg_resVO res_data = pkg_resService.read(param.getNo());
+		model.addAttribute("res_data", res_data);
+		model.addAttribute("res_param", param);
+		
+		return "manage/pkg/pkg_res/edit";
+	}
 	
 
 }

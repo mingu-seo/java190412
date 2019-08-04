@@ -37,7 +37,6 @@ function goSave() {
 	} 
 	$("#frm").submit();
 	}
-
 </script>
 <body>
     <jsp:include page="/header_menu" flush="true"/>
