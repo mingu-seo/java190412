@@ -30,8 +30,8 @@
 	</select>
 
 	<select id="list" parameterClass="programvo" resultClass="programvo">
-		SELECT program.*
-		FROM program
+		SELECT program.*, member.id, member.name
+		FROM program, member
 		<include refid="searchSql" />
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
 	</select>

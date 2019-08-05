@@ -20,7 +20,8 @@
 	<context:component-scan base-package="pkg" />
 	<context:component-scan base-package="aop" />
 	<context:component-scan base-package="board.qna" />
-	
+	<context:component-scan base-package="support.qna" />
+
 	<mvc:annotation-driven/>
 	
 

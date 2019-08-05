@@ -38,6 +38,13 @@ public class ReservationService {
 		
 		return list;
 	}
+
+	
+	public int update(ReservationVO vo, HttpServletRequest request) throws SQLException, IOException {
+		FileUtil fu = new FileUtil();
+		int cnt = reservationDao.update(vo);
+		return cnt;
+	}
 	
 	public ReservationVO read(int no) throws SQLException {
 		ReservationVO vo = reservationDao.read(no);

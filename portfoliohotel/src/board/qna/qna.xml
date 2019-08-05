@@ -46,10 +46,10 @@
 	<!-- 해당 테이블에 게시글 작성 -->
     <insert id="insert" parameterClass="qna_vo">
         INSERT INTO qna (
-        	category, email, firstName, lastName, tel1, tel2, tel3, password, title, contents,
+        	category, email, name,  tel, password, title, contents,
         	regdate, file_org, file, filesize, open, reply, send_email
         ) VALUES (
-        	#category#, #email#, #fistName#, #lastName#, #tel1#, #tel2#, #tel3#, #password#, #title#, #contents#, 
+        	#category#, #email#, #name#, #tel#, #password#, #title#, #contents#, 
         	now(), #file_org#, #file#, #filesize#, #open#, #reply#, #send_email#
         )
         <selectKey keyProperty="no" resultClass="Integer">
@@ -58,7 +58,7 @@
     </insert>
     
      <select id="read" parameterClass="qna_vo" resultClass="qna_vo">
-        select no, category, email, firstName, lastName, tel1, tel2, tel3, password, title, contents,
+        select no, category, email, name,  tel, password, title, contents,
         	regdate, file_org, file, filesize, open, send_email, reply ,reply_contents FROM qna where no=#no#
    	 </select>
    	 
@@ -68,8 +68,7 @@
     
     <update id="update" parameterClass="qna_vo">
         UPDATE qna SET
-        	category=#category#, email=#email#, firstName=#firstName#, lastName=#lastName#, tel1=#tel1#, tel2=#tel2#, tel3=#tel3#,
-        	password=#password#, title=#title#, contents=#contents#,
+        	category=#category#, email=#email#, name=#name#, tel=#tel#, password=#password#, title=#title#, contents=#contents#,
         	
          <isNotEqual property="regdate" compareValue="">
        	    regdate = #regdate#,

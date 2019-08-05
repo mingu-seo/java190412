@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
 <%@ page import="java.util.*" %>
 <%@ page import="board.member.*" %>
 <%@ page import="util.*" %>
 <%
+MemberVO param = (MemberVO)request.getAttribute("vo");
+ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
 MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
 MemberVO data = (MemberVO)request.getAttribute("data");
 %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -80,9 +84,7 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 
 <body>
 	
-    <jsp:include page="/header_menu" flush="true"/>
-    
-    <%if(sessionMember != null) {%>
+	<%if(sessionMember == null) {%>
           <div id="logined">
             <div class="logined-box">
                 <h2 class="close-btn"><a href="#">x</a></h2>
@@ -106,8 +108,12 @@ MemberVO data = (MemberVO)request.getAttribute("data");
                 </table>
             </div>      
         </div>  
-        <%} %>
+    <%} %>
+        
+    <jsp:include page="/header_menu" flush="true"/>
     
+    
+
     <!-- 컨테이너 영역 시작 -->
     <div id="container">
 

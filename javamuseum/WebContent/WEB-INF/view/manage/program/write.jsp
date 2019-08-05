@@ -16,6 +16,7 @@
 <script>
 jQuery(window).load(function(){
 	oEditors = setEditor("contents"); // 에디터 셋팅
+	initCal({id:"date" ,type:"day",today:"y"});
 });
 
 
@@ -62,6 +63,7 @@ function goSave() {
 $(function(){
     var trIdx = 0;
     $(".addBtn").click(function(){
+    	var trIdx = 1;
     	var trObj ="<tr class='addTr'>";
 		trObj += "<td><input type='text' id='date"+trIdx+"'";
 		trObj += "name='date'"  ;
@@ -172,14 +174,14 @@ $(function(){
 										<tr>
 											<td>프로그램 날짜</td>
 											<td>프로그램 시간</td>
-	<%--									</tr>
-	 									<tr class='addTr'>
+										</tr>
+										<tr class='addTr'>
 											<td><input type='text' id='date'name='date' class='inputDate' value='<%=DateUtil.getToday()%>' title='등록일을 입력해주세요' />
 											<span id='CaldateIcon' name='CaldateIcon'><img src='/manage/img/calendar_icon.png' id='CaldateIconImg' style='cursor:pointer;'/></span></td>
 											<td><select name='time'><%=CodeUtil.getP_timeType(0)%></select></td>
 											<td><input type="button" value="삭제" class="delBtn"/></td>
 										</tr>
- --%>								</table>
+									</table>
 								</td>
 								 <tr>
 								      <th scope="row"><label for="">첨부파일</label></th>

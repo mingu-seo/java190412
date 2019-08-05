@@ -62,8 +62,8 @@ function goEdit(){
         <div class="qna">
             <div class="support-list">
                 <ul class="support-list-center">
-                    <li><a href="/membership/notice">공지사항</a></li>
-                    <li><a href="/membership/faq">FAQ</a></li>
+                    <li><a href="notice.html">공지사항</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                     <li class="on"><a href="qna">Q&A</a></li>
                 </ul>
             </div>
@@ -93,7 +93,7 @@ function goEdit(){
 																
 									for (int i=0; i<list.size(); i++) {
 												data = list.get(i);
-												targetUrl = "style='cursor:pointer;' onclick=open_win()";
+												targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("qna_read", param, data.getNo())+"'\"";
 												bgColor = (data.getReply()==0)?"#ffffff":"#e8e8e8";
 																	
 								%>
@@ -110,16 +110,7 @@ function goEdit(){
                             
                             
                         </tr>
-                       	<tr name="pwCheck" id="PwCheckBtn">
-                       		<td>비밀번호 확인</td>
-                       		<td>
-                       			<input type="password" name="password" id="password"/>
-                       		</td>
-                       		<td>
-                       			<input type="submit" class="editBtn" href="javascript:$('#frm').submit();"></a>
-                       		</td>
-                       		
-                       	</tr>
+                       
                         <%
 									}
 								 }

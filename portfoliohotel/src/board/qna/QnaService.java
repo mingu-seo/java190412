@@ -89,19 +89,17 @@ public class QnaService {
 	/*	관리자  쓰기 , 수정*/
 	public int updateReply(QnaVO vo)throws SQLException, Exception { 
 		 QnaVO read = qnaDao.read(vo);
-		/*
-		 * String[] emailArr = read.getEmail().split(","); String[] nameArr=
-		 * read.getName().split(",");
-		 * 
-		 * String emailAdress = emailArr[0]+ emailArr[1]; String NametoSend =
-		 * nameArr[0]+ nameArr[1];
-		 */
-		 String ReplyContents = vo.getReply_contents();
+		 String[] emailArr = read.getEmail().split(",");
+		 String[] nameArr= read.getName().split(",");
 		 
+		 String emailAdress = emailArr[0]+ emailArr[1];
+		 String NametoSend = nameArr[0]+ nameArr[1];
+		 String ReplyContents = vo.getReply_contents();
+		
 		 int no = qnaDao.updateReply(vo); 
 		 if(vo.getSend_email()==1) {
-			 SendMail.sendEmail("joonoh94@naver.com", vo.getEmail(), 
-					 			"[Portfolio HOTEL]"+read.getFirstName()+read.getLastName()+"님 질문에 답변이 달렸습니다.", 
+			 SendMail.sendEmail("joonoh94@naver.com", emailAdress, 
+					 			"[Portfolio HOTEL]"+NametoSend+"님 질문에 답변이 달렸습니다.", 
 					 			"답변 : " + ReplyContents ); 
 		 }
 		 return no; 

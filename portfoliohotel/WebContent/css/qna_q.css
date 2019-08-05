@@ -13,6 +13,9 @@
          background-size:cover;
          background-repeat: no-repeat;}
 
+/* Q&A 글쓰기 버튼 */
+
+input[type="submit"] {width:140px; height:50px; display:block; margin:0 auto; margin-top:70px; background-color:#0e693f; color:#fff;}
 /* Q&A */
 .qna_q {position: relative; top:-60px;}
 
@@ -45,18 +48,3 @@ input[type="submit"] {width:140px; height:50px; display:block; margin:0 auto; ma
 .base_info li {float:left; }
 .base_info li:nth-child(1) {margin-right:10px;}
 .base_info li input[type="text"] {width:442px;}
-
-
-
-/* 카테고리 & 공개여부 & 연락처 */
-form {width:100%;}
-.qna-write-info label {display:inline-block; margin-right:20px;}
-.qna-write-info label[for=public] {margin-left:30px;}
-.qna-write-info label[for=qna-phone] {margin-left:30px;}
-.qna-write-info select {height:45px; border:none;}
-.qna-write-info input[type=text] {width:250px;}
-.qna-write-info select {width:100px; text-indent:10px;}
-.qna-write-info input#qna-phone {border:none; border-bottom: 2px solid #eee;}
-
-/* 첨부파일 */
-.add-file {width:894px; margin-top:20px; border:2px solid #eee; height:45px; line-height:40px; text-indent:10px;}
