@@ -5,10 +5,10 @@
 <%@ page import="util.*"%>
 <%@ page import="java.util.*"%>
 <%
-ReserveVO param = (ReserveVO) request.getAttribute("vo");
-ArrayList<ReserveVO> list = (ArrayList) request.getAttribute("list");
-int totCount = (Integer) request.getAttribute("totCount");
-int totPage = (Integer) request.getAttribute("totPage");
+	ReserveVO param = (ReserveVO) request.getAttribute("vo");
+	ArrayList<ReserveVO> list = (ArrayList) request.getAttribute("list");
+	int totCount = (Integer) request.getAttribute("totCount");
+	int totPage = (Integer) request.getAttribute("totPage");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
@@ -53,8 +53,7 @@ int totPage = (Integer) request.getAttribute("totPage");
 									</strong> | <%=param.getReqPageNo()%>/<%=totPage%>페이지</span>
 								</p>
 								<form name="frm" id="frm" action="process.do" method="post" >
-									<table width="100%" border="0" cellspacing="0" cellpadding="0"
-										summary="예약 관리목록입니다.">
+									<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="예약 관리목록입니다.">
 										<colgroup>
 											<col class="w5" />
 											<col class="w5" />
@@ -69,9 +68,9 @@ int totPage = (Integer) request.getAttribute("totPage");
 										</colgroup>
 										<thead>
 											<tr>
-												<th scope="col" class="first"><input type="checkbox"
-													name="allChk" id="allChk"
-													onClick="check(this, document.frm.no)" /></th>
+												<th scope="col" class="first">
+												<input type="checkbox" name="allChk" id="allChk" onClick="check(this, document.frm.no)"/>
+												</th>
 												<th scope="col">번호</th>
 												<th scope="col">이름</th>
 												<th scope="col">연락처</th>
@@ -98,20 +97,22 @@ int totPage = (Integer) request.getAttribute("totPage");
 																+ param.getTargetURLParam("read", param, list.get(i).getNo()) + "'\"";
 											%>
 											<tr>
-												<td class="first"><input type="checkbox" name="no"
-													id="no" value="<%=list.get(i).getNo()%>" /></td>
+												<td class="first">
+												<input type="checkbox" name="no" id="no" value="<%=list.get(i).getNo()%>"/>
+												</td>
 													<td><%=list.get(i).getNo()%></td>
-													<td <%=targetUrl%> ><%=list.get(i).getName() %></td>
-													<td><%=list.get(i).getTel() %></td>
-													<td><%=CodeUtil.getDoctorDepartmentName(list.get(i).getDoctor_department())%> </td>
-													<td><%=list.get(i).getDoctor_name()%> </td>
-													<td><%=list.get(i).getRes_date() %></td> 
+													<td <%=targetUrl%>><%=list.get(i).getName()%></td>
+													<td><%=list.get(i).getTel()%></td>
+													<td><%=CodeUtil.getDoctorDepartmentName(list.get(i).getDoctor_department())%></td>
+													<td><%=list.get(i).getDoctor_name()%></td>
+													<td><%=list.get(i).getRes_date()%></td> 
 													<td><%=CodeUtil.getDoctorScheduleName(list.get(i).getRes_hour())%></td>
-													<td ><%=CodeUtil.getReserveRouteName(list.get(i).getRoute())%> </td>
+													<td><%=CodeUtil.getReserveRouteName(list.get(i).getRoute())%></td>
 													<td>
 														<div class="btnRight">
-															<a class="btns"
-																href="<%=param.getTargetURLParam("edit", param, list.get(i).getNo())%>"><strong>예약관리</strong></a>
+															<a class="btns" href="<%=param.getTargetURLParam("edit", param, list.get(i).getNo())%>">
+																<strong>예약관리</strong>
+															</a>
 														</div>
 													</td>
 											</tr>
@@ -121,14 +122,14 @@ int totPage = (Integer) request.getAttribute("totPage");
 											%>
 										</tbody>
 									</table>
-									<input type="hidden" name="cmd" id="cmd" value="groupDelete" />
-									<input type="hidden" name="stype" id="stype"
-										value="<%=param.getStype()%>" /> <input type="hidden"
-										name="sval" id="sval" value="<%=param.getSval()%>" />
+									<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
+									<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/> 
+									<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
 								</form>
 								<div class="btn">
 									<div class="btnLeft">
-										<a class="btns" href="#" onclick="groupDelete();"><strong>삭제</strong>
+										<a class="btns" href="#" onclick="groupDelete();">
+										<strong>삭제</strong>
 										</a>
 									</div>
 									<div class="btnRight">
@@ -172,6 +173,5 @@ int totPage = (Integer) request.getAttribute("totPage");
 		<!--//canvas -->
 	</div>
 	<!--//wrap -->
-
 </body>
 </html>

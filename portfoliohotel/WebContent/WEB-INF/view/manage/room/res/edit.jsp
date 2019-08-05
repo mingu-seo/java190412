@@ -76,9 +76,9 @@ $(function() {
 								<tbody>
 									<tr>
 										<th colspan="2">체크인</th>
-										<td colspan="3"><%=read.getCheckin() %></td>
+										<td colspan="3"><%=Function.toDateKorean(read.getCheckin()) %></td>
 										<th colspan="2">체크아웃</th>
-										<td colspan="3"><%=read.getCheckout() %></td>
+										<td colspan="3"><%=Function.toDateKorean(read.getCheckout()) %></td>
 									</tr>
 									<tr>	
 										<th colspan="2">객실 종류</th>
@@ -117,13 +117,16 @@ $(function() {
 										</td>
 									</tr>
 									<tr>
-										<th colspan="2">숙박 고객 한글명</th>
-										<td colspan="3"><input type="text" id="guest_kname" name="guest_kname" class="w90" value="<%=read.getGuest_kname() %>"/></td>
-										<th colspan="5"></th>
+										<th colspan="2">숙박 고객 성명</th>
+										<td colspan="1"><input type="text" id="guest_lastname" name="guest_lastname" class="w90" value="<%=read.getGuest_lastname() %>"/></td>
+										<td colspan="1"><input type="text" id="guest_firstname" name="guest_firstname" class="w90" value="<%=read.getGuest_firstname() %>"/></td>
+										<th colspan="6"></th>
 									</tr>
 									<tr>	
 										<th colspan="2">숙박 고객 연락처</th>
-										<td colspan="3"><input type="text" id="guest_tel" name="guest_tel" class="w90" value="<%=read.getGuest_tel() %>"/></td>
+										<td colspan="1"><input type="text" id="guest_tel1" name="guest_tel1" class="w90" value="<%=read.getGuest_tel1() %>"/></td>
+										<td colspan="1"><input type="text" id="guest_tel2" name="guest_tel2" class="w90" value="<%=read.getGuest_tel2() %>"/></td>
+										<td colspan="1"><input type="text" id="guest_tel3" name="guest_tel3" class="w90" value="<%=read.getGuest_tel3() %>"/></td>
 										<th colspan="2">숙박 고객 이메일</th>
 										<td colspan="3"><input type="text" id="guest_email" name="guest_email" class="w90" value="<%=read.getGuest_email() %>"/></td>
 									</tr>

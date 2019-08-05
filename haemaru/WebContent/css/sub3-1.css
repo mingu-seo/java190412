@@ -98,5 +98,15 @@ input[type="radio"] + label {margin-right:15px;}
 
 #re-page-ck-input {width:400px; margin-left:100px; height:40px; background-color: #f2f2f2; border:none; border-radius: 10px; margin-top:20px; padding-left:20px; font-size:12px;}
 
-
+/* 예약일 선택박스 */
+#res_date {
+	width: 160px;
+    height: 38px;
+    text-align: center;
+    border: none;
+    border-bottom: 3px solid #83c1aa;
+    left: -3px;
+    position: relative;
+    top: -2px;
+}
 

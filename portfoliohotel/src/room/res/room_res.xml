@@ -30,7 +30,7 @@
 			<isNotNull property="sval">
 				<isNotEqual property="sval" compareValue="">
 					<isEqual property="stype" compareValue="all">
-						AND ((guest_kname like '%$sval$%') or (guest_ename like '%$sval$%')
+						AND ((guest_lastname like '%$sval$%') or (guest_firstname like '%$sval$%')
 						    or (guest_email like '%$sval$%') or (room_name like '%$sval$%'))
 					</isEqual>
 					<isNotEqual property="stype" compareValue="all">
@@ -81,10 +81,12 @@
 		INSERT INTO room_res 
 			(room_pk, room_name, member_pk, checkin, checkout, bookdate, adult, kid,
 			room_price, person_price, option_price, charge_price, total_price, 
-			guest_kname, guest_tel, guest_email, pay_method, pay_state, res_state, paydate)
+			guest_lastname, guest_firstname, guest_tel1, guest_tel2, guest_tel3, guest_email, 
+			pay_method, pay_state, res_state, paydate)
 		VALUES (#room_pk#, #room_name#, #member_pk#, #checkin#, #checkout#, now(), #adult#, #kid#,
 				#room_price#, #person_price#, #option_price#, #charge_price#, #total_price#, 
-				#guest_kname#, #guest_tel#, #guest_email#, #pay_method#, #pay_state#, 1, #paydate#)	
+				#guest_lastname#, #guest_firstname#, #guest_tel1#, #guest_tel2#, #guest_tel3#, #guest_email#, 
+				#pay_method#, #pay_state#, 1, #paydate#)	
 		<selectKey keyProperty="no" resultClass="Integer">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
@@ -92,7 +94,9 @@
 	
 	<update id="edit" parameterClass="room_resVO">
 		UPDATE room_res SET
-			guest_kname=#guest_kname#, guest_tel=#guest_tel#, guest_email=#guest_email#, 
+			guest_lastname=#guest_lastname#, guest_firstname=#guest_firstname#, 
+			guest_tel1=#guest_tel1#, guest_tel2=#guest_tel2#, guest_tel3=#guest_tel3#,
+			guest_email=#guest_email#, 
 			pay_method=#pay_method#, pay_state=#pay_state#, paydate=#paydate#
 		WHERE no=#no#
 	</update>

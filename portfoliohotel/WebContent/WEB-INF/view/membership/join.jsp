@@ -59,7 +59,7 @@ function goSave() {
 		return false;
 	}
 	 
-	  /* if(!validPassword($("#password"))) return false; */ 
+	/* if(!validPassword($("#password"))) return false;   */
 	 
 	if ($("#password").val() == "") {
 		alert("비밀번호를 입력해주세요.");
@@ -115,11 +115,11 @@ function goSave() {
 		return false;		
 	}
 	
-	if($("#password").val()!=$("#passwordCheck").val()){
+	/* if($("#password").val()!=$("#passwordCheck").val()){
 		alert("비밀번호가 다릅니다.");
 		$("#password").focus();
 		return false;
-	}
+	} */
 	
 	$.ajax ({
 		type:'POST',
@@ -308,7 +308,7 @@ function goSave() {
                         <div class="account-form1">
                         <div class="email">
                                 <label for="account-email">이메일</label>
-                                <input type="text" name="email" id="email" placeholder="이메일을 입력하세요.">                                
+                                <input type="text" name="email" id="email" placeholder="이메일을 입력하세요.">                                                                                                   
                                 <input type="button" value="중복체크"  id="emailCheckBtn" style="height:35px; border:none; border-radius: 5px; background-color:#0e693f; color:#fff; width:60px; padding:0;"/>
                             </div>
                             <!-- <label for="account-id">아이디</label>
@@ -323,11 +323,11 @@ function goSave() {
                             <div class="account-name">
                                 <div class="first-name">
                                     <label for="first-name">성</label>
-                                    <input type="text" name="name" id="fname" placeholder="성">
+                                    <input type="text" name="f_name" id="fname" placeholder="성">
                                 </div>
                                 <div class="middle-name">
                                     <label for="middle-name">이름</label>
-                                    <input type="text" name="name" id="lname" placeholder="이름">
+                                    <input type="text" name="l_name" id="lname" placeholder="이름">
                                 </div>
                             </div>
                             <div class="account-sex">
@@ -339,28 +339,39 @@ function goSave() {
                             <div class="account-birthday clear">
                                 <div class="birth-form">
                                     <label for="birth-y">생년월일</label>
-                                    <input type="text" name="birthday" id="year" placeholder="년 (4자)" maxlength="4">
+                                    <input type="text" name="birthday_year" id="year" placeholder="년 (4자)" maxlength="4">
                                 </div>
                                 <div class="birth-form">
-                                    <input type="text" name="birthday" id="month" placeholder="월" maxlength="2">
+                                    <input type="text" name="birthday_month" id="month" placeholder="월" maxlength="2" minlength="2">
                                 </div>
                                 <div class="birth-form">
-                                    <input type="text" name="birthday" id="day" placeholder="일" maxlength="2">
+                                    <input type="text" name="birthday_day" id="day" placeholder="일" maxlength="2" minlength="2">
                                 </div>                                
                             </div>
                         </div>
+                        
+                        
                         <div class="account-form3">
                             
-                            <div class="account-contact">
-                                <label for="account-contact">연락처</label>
-                                <input type="text" name="tel" id="tel" placeholder="연락처를 입력하세요. (-제외)">
+                            <div class="account-contact clear">
+                            <div class="tel-form">
+                                <label for="account-contact">연락처</label>                                
+                                <input type="text" name="f_tel" id="tel1"  maxlength="3">
+                          	</div>
+                          	<div class="tel-form">
+                                <input type="text" name="m_tel" id="tel2"  maxlength="4">
+                            </div>
+                            <div class="tel-form">
+                                <input type="text" name="l_tel" id="tel3"  maxlength="4">
+                            </div>
+                              
                             </div>
 
                             <div class="adress clear">
                                 <label for="adress">주소</label>
-                                <input type="text" id="zipcode" name="zipcode" placeholder="우편번호" disabled>
-                                <input type='button' class="ad-button zipcodeBtn" onclick="sample2_execDaumPostcode()" value="우편번호">                              
-                                <input type="text" id="addr" name="addr" placeholder="기본주소" disabled >
+                                <input type="text" id="zipcode" name="zipcode" placeholder="우편번호" readonly >
+                                <input type='button' class="ad-button zipcodeBtn" onclick="sample2_execDaumPostcode()" value="우편번호" >                              
+                                <input type="text" id="addr" name="addr" placeholder="기본주소" readonly>
                                 <input type="text" id="addr_detail" name="addr_detail" placeholder="상세주소">
                             </div>
                             <input type="submit" href="#" value="가입하기">

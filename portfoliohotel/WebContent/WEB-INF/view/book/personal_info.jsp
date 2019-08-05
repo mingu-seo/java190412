@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%@ page import="util.*"%>
+<%@ page import="board.member.*"%>
+<%
+MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,8 +51,9 @@
                 }
             });
             
-            $("#tel_select, #tel_input").change(function() {
-            	$("#guest_tel").val($("#tel_select option:selected").val() + $("#tel_input").val());
+            $("#guest_tel1_select").change(function() {
+            	$("#guest_tel1").val($("#guest_tel1_select option:selected").val());
+            	console.log($("#guest_tel1").val());
             });
             
             $("#guest_email").change(function() {
@@ -84,7 +89,7 @@
 			</ul>
 
 			<!-- 폼태그 / summit 입력버튼 311번 -->
-			<form action="/room/res/process" method="GET">
+			<form action="/room/res/submit" method="post">
 				<div class="section-wrap clear">
 					<!-- 왼쪽 정보 입력 박스 구역 -->
 					<div class="left-section">
@@ -93,39 +98,27 @@
 							<div class="sec01-title">
 								<p>예약고객 정보 입력</p>
 							</div>
-
-							<div class="name_ko">
-								<label for="guest_kname">성명 (한글)＊</label> 
-									<input type="text" id="guest_kname" placeholder="성명"/> 
+							<%
+							if(sessionMember != null) {
+							%>
+							<div class="guest_kname">
+								<label for="guest_kname">성명＊</label> 
+									<input type="text" name="guest_lastname" id="guest_lastname" value="<%=sessionMember.getF_name()%>"/> 
+									<input type="text" name="guest_firstname" id="guest_firstname" value="<%=sessionMember.getL_name()%>"/> 
 							</div>
-
-							<!--  <div class="name_en clear">
-                                    <div class="name_en_title">
-                                        <label for="name_en">성명 (영문)＊</label>
-                                    </div>
-                                    <div class="name_en_area">
-                                        <select>
-                                            <option>선택안함</option>
-                                            <option>Ms.</option>
-                                            <option>Mr.</option>
-                                        </select>
-                                        <input type="text" id="name_en" placeholder="Family Name">
-                                        <input type="text" id="name_en" placeholder="First Name">
-                                        <p>* 여권에 기재된 영문 성명과 동일하게 기입해 주십시오.</p>
-                                    </div>
-                            </div> -->
-
 							<div class="phoneNumber">
 								<label for="phoneNumber">연락처＊</label> 
-								<select id="tel_select">
-									<option>선택</option>
+								<select id="guest_tel1_select">
+									<option value="<%=sessionMember.getF_tel()%>"><%=sessionMember.getF_tel()%></option>
 									<option value="010">010</option>
 									<option value="011">011</option>
 									<option value="016">016</option>
 									<option value="017">017</option>
 								</select> 
-								<input type="text" id="tel_input" placeholder="숫자만 입력가능">
-								<input type="hidden" name="guest_tel" id="guest_tel" value=""/> 
+								<input type="hidden" name="member_pk" id="member_pk" value="<%=sessionMember.getNo()%>"/>
+								<input type="hidden" name="guest_tel1" id="guest_tel1" value=""/>
+								<input type="text" name="guest_tel2" id="guest_tel2" value="<%=sessionMember.getM_tel()%>">
+								<input type="text" name="guest_tel3" id="guest_tel3" value="<%=sessionMember.getL_tel()%>">
 							</div>
 
 							<div class="email">
@@ -134,7 +127,7 @@
 										<label for="email">이메일＊</label>
 									</li>
 									<li>
-										<input type="text" name="guest_email" id="guest_email" placeholder="이메일" maxlength="40"><br/>
+										<input type="text" name="guest_email" id="guest_email" value="<%=sessionMember.getEmail()%>" maxlength="40"><br/>
 										<span id="email_span" style="color:#ff0000; font-size:10px; padding:0; margin:0;"></span>
 									</li>
 									<!-- <li class="at">@</li>
@@ -152,7 +145,43 @@
 								</ul>
 							</div>
 						</div>
+						<%
+							} else {
+						%>
+						<div class="guest_kname">
+								<label for="guest_kname">성명＊</label> 
+									<input type="text" name="guest_lastname" id="guest_lastname" placeholder="성"/> 
+									<input type="text" name="guest_firstname" id="guest_firstname" placeholder="이름"/> 
+							</div>
+							<div class="phoneNumber">
+								<label for="phoneNumber">연락처＊</label> 
+								<select id="guest_tel1_select">
+									<option>선택</option>
+									<option value="010">010</option>
+									<option value="011">011</option>
+									<option value="016">016</option>
+									<option value="017">017</option>
+								</select> 
+								<input type="hidden" name="guest_tel1" id="guest_tel1" value=""/>
+								<input type="text" name="guest_tel2" id="guest_tel2" placeholder="숫자만 입력가능">
+								<input type="text" name="guest_tel3" id="guest_tel3" placeholder="숫자만 입력가능">
+							</div>
 
+							<div class="email">
+								<ul class="email_adress clear">
+									<li class="email-title">
+										<label for="email">이메일＊</label>
+									</li>
+									<li>
+										<input type="text" name="guest_email" id="guest_email" placeholder="이메일" maxlength="40"><br/>
+										<span id="email_span" style="color:#ff0000; font-size:10px; padding:0; margin:0;"></span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<%		
+							}
+						%>
 						<div class="add01">
 							<div class="sec01-title">
 								<p>상세 가격 정보</p>
@@ -253,42 +282,37 @@
 					</div>
 				</div>
 				
-				<input type="hidden" name="cmd" id="cmd" value="write"/>
 				<input type="hidden" name="room_pk" id="room_pk" value="<%=request.getParameter("room_pk")%>"/> 
                 <input type="hidden" name="room_name" id="room_name" value="<%=request.getParameter("room_name")%>"/> 
-                <input type="hidden" name="room_price" id="room_price" value="<%=request.getParameter("room_price")%>"/> 
                 <input type="hidden" name="checkin" id="checkin" value="<%=request.getParameter("checkin")%>"/> 
                 <input type="hidden" name="checkout" id="checkout" value="<%=request.getParameter("checkout")%>"/> 
                 <input type="hidden" name="day_stay" id="day_stay" value="<%=request.getParameter("day_stay")%>"/> 
                 <input type="hidden" name="adult" id="adult" value="<%=request.getParameter("adult")%>"/> 
                 <input type="hidden" name="kid" id="kid" value="<%=request.getParameter("kid")%>"/> 
+                <input type="hidden" name="room_price" id="room_price" value="<%=request.getParameter("room_price")%>"/> 
                 <input type="hidden" name="person_price" id="person_price" value="<%=request.getParameter("person_price")%>"/> 
                 <input type="hidden" name="option_price" id="option_price" value="<%=request.getParameter("option_price")%>"/> 
                 <input type="hidden" name="charge_price" id="charge_price" value="<%=request.getParameter("charge_price")%>"/> 
                 <input type="hidden" name="total_price" id="total_price" value="<%=request.getParameter("total_price")%>"/>
-                <%-- <input type="hidden" name="option_pk" value="<%=request.getParameterValues("option_pk")%>"/>
-				<input type="hidden" name="name" value="<%=request.getParameterValues("name")%>"/>
-				<input type="hidden" name="price" value="<%=request.getParameterValues("price")%>"/>
-				<input type="hidden" name="count" id="count" value="<%=request.getParameterValues("count")%>"/>  --%>
 				<% 
 				String[] option_pk = request.getParameterValues("option_pk");
 				String[] name = request.getParameterValues("name");
 				String[] price = request.getParameterValues("price");
-				String[] count = request.getParameterValues("count");
-				System.out.println(option_pk.length);
+				String[] count = request.getParameterValues("count"); 
+				
 				for(int i=0; i<option_pk.length; i++) {
-				%>
+				%> 
 				<input type="hidden" name="option_pk" id="option_pk" value="<%=option_pk[i]%>"/>
 				<input type="hidden" name="name" id="name" value="<%=name[i]%>"/>
 				<input type="hidden" name="price" id="price" value="<%=price[i]%>"/>
-				<input type="hidden" name="count" id="count" value="<%=count[i]%>"/>
+				<input type="hidden" name="count" id="count" value="<%=count[i]%>"/>  
 				<%
 				}
 				%>
 				
 				<input type="hidden" name="pay_method" id="pay_method" value="0"/>
 				<input type="hidden" name="pay_state" id="pay_state" value="0"/>
-				<input type="hidden" name="pay_date" id="pay_date" value="2019-00-00"/>
+				<input type="hidden" name="paydate" id="paydate" value="-"/>
 			</form>
 		</div>
 	</div>
