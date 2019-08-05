@@ -301,13 +301,16 @@ function checkDate(checkin, checkout) {
 										</td>
 									</tr>
 									<tr>
-										<th colspan="2">숙박 고객 한글명</th>
-										<td colspan="3"><input type="text" id="guest_kname" name="guest_kname" class="w90"/></td>
-										<td colspan="5"></td>
+										<th colspan="2">숙박 고객 성명</th>
+										<td colspan="1"><input type="text" id="guest_lastname" name="guest_lastname" class="w90"/></td>
+										<td colspan="1"><input type="text" id="guest_firstname" name="guest_firstname" class="w90"/></td>
+										<td colspan="6"></td>
 									</tr>
 									<tr>	
 										<th colspan="2">숙박 고객 연락처</th>
-										<td colspan="3"><input type="text" id="guest_tel" name="guest_tel" class="w90"/></td>
+										<td colspan="1"><input type="text" id="guest_tel1" name="guest_tel1" class="w90"/></td>
+										<td colspan="1"><input type="text" id="guest_tel2" name="guest_tel2" class="w90"/></td>
+										<td colspan="1"><input type="text" id="guest_tel3" name="guest_tel3" class="w90"/></td>
 										<th colspan="2">숙박 고객 이메일</th>
 										<td colspan="3"><input type="text" id="guest_email" name="guest_email" class="w90"/></td>
 									</tr>

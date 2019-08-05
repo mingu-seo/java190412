@@ -204,12 +204,12 @@ public class Room_resController {
 			int r = room_resService.delete(vo);
 			model.addAttribute("code", "alertMessageUrl"); 
 			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패")); 
-			model.addAttribute("url", vo.getTargetURLParam("index", vo, 0));
+			model.addAttribute("url", vo.getTargetURLParam("/manage/room/res/index", vo, 0));
 		} else if("groupDelete".equals(vo.getCmd())) {
 			int r = room_resService.groupDelete(request); 
 			model.addAttribute("code", "alertMessageUrl"); 
 			model.addAttribute("message", Function.message(r, "총 "+r+"건이 삭제되었습니다.", "삭제실패")); 
-			model.addAttribute("url", vo.getTargetURLParam("index", vo, 0)); 
+			model.addAttribute("url", vo.getTargetURLParam("/manage/room/res/index", vo, 0)); 
 		}
 		return "include/alert";
 	}
@@ -247,8 +247,18 @@ public class Room_resController {
 		return "book/price_room";
 	}
 
-	@RequestMapping("/book/confirm")
-	public String confirm_room(Model model, RoomVO vo) throws Exception {
-		return "book/confirm";
+	@RequestMapping("/room/res/submit")
+	public String submit(Model model, Room_resVO vo, Room_opt_resVO orvo, HttpServletRequest req) throws Exception {
+		int day_stay = Integer.parseInt(req.getParameter("day_stay"));
+		int r = room_resService.insert(vo, orvo, req);
+		vo.setNo(r);
+		Room_resVO read = room_resService.read(vo);
+		ArrayList<Room_opt_resVO> list_o = room_resService.list_opt(r);
+		
+		model.addAttribute("day_stay", day_stay);
+		model.addAttribute("read", read);
+		model.addAttribute("list_o", list_o);
+		return "book/confirm_room";
 	}
+	
 }

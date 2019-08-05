@@ -112,10 +112,12 @@ public class Room_resDAO extends SqlMapClientDAOSupport {
 	public static void main(String[] args) throws Exception {
 		Room_resDAO dao = new Room_resDAO();
 		Room_resVO vo = new Room_resVO();
-		HashMap hm = new HashMap();
-		hm.put("checkin", "2019-07-01");
-		hm.put("checkout", "2019-07-04");
-		dao.check(hm);
+//		HashMap hm = new HashMap();
+//		hm.put("checkin", "2019-07-01");
+//		hm.put("checkout", "2019-07-04");
+//		dao.check(hm);
 //		vo.setCategory(1);
+		
+		dao.insert(vo);
 	}
 }
