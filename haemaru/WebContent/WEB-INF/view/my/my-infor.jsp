@@ -50,8 +50,8 @@ function goSave() {
                         <form name="frm" id="frm" class="myinfo-form" method="POST" name="user" action="/my/my-infor-edit.do">
                             <div class="email_box">
                                 <span><label for="user_id" class="label">이메일</label></span>
-                                <input type="text" maxlength="20" id="user_email" name="email" class="half-size">
-                                <select class="emial-select">
+                                <input type="text" maxlength="20" id="user_email1" name="email1" class="half-size">
+                                <select class="emial-select" id="user_email2" name="email2">
                                     <option>@ naver.com</option>
                                     <option>@ daum.net</option>
                                     <option>@ gmail.com</option>
@@ -75,13 +75,13 @@ function goSave() {
                             </div>
                             <div class="phone_box">
                                 <span><label for="user_phone"  class="label">전화번호</label></span>
-                                <select class="phone-select"  name="tel1">
+                                <select class="phone-select" id="user_tel1" name="tel1">
                                     <option>010</option>
                                     <option>011</option>
                                     <option>018</option>
                                 </select>
-                                <input type="text" maxlength="4" id="user_tel" name="tel2"  class="half-size" value="">
-                                <input type="text" maxlength="4"  name="tel3"  class="half-size half" value="">
+                                <input type="text" maxlength="4" id="user_tel2" name="tel2"  class="half-size" value="">
+                                <input type="text" maxlength="4" id="user_tel3" name="tel3"  class="half-size half" value="">
                             </div>
                             <div class="myinfo-btn clear">
                                 <input type="reset" value="취소" id="btn_reset1" name="user_reset">
@@ -89,7 +89,7 @@ function goSave() {
                             </div>
                             <input type="hidden" id="user_no" name="no" value=""/>
                         </form>
-                        <ul class="myinfo-bot clear">
+                        <ul class="myinfo-bot clear">s
                             <li><a href="#">개인정보처리방침</a></li>
                             <li><a href="#">이메일무단수집거부</a></li>
                         </ul>
@@ -125,11 +125,11 @@ function goSave() {
                     <h3>Contact info</h3>
                     <div>
                         <h5>Email</h5>
-                        <p><%=mdata.getEmail()%></p>
+                        <p><%=mdata.getEmail1()%><%=mdata.getEmail2()%></p>
                     </div>
                     <div>
                         <h5>Phone</h5>
-                        <p><%=mdata.getTel()%></p>
+                        <p><%=mdata.getTel1()%> <%=mdata.getTel2()%> <%=mdata.getTel3()%></p>
                     </div>
                     <div>
                         <h5>Birth</h5>
@@ -173,8 +173,11 @@ function getInforEditAjax(no) {
 			console.log(data.name);
 			$("#user_name").val(data.name);
 			$("#user_pw").val(data.pw);
-			$("#user_email").val(data.email);
-			$("#user_tel").val(data.tel);
+			$("#user_email1").val(data.email1);
+			$("#user_email2").val(data.email2);
+			$("#user_tel1").val(data.tel1);
+			$("#user_tel2").val(data.tel2);
+			$("#user_tel3").val(data.tel3);
 			$("#user_birth").val(data.birth);
 			$("#user_no").val(data.no);
 			

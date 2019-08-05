@@ -11,7 +11,7 @@
 			1=1
 			<isNotEqual property="sval" compareValue="" prepend="and">
 				<isEqual property="stype" compareValue="all" prepend="and">
-					( (name like '%$sval$%' ) or (email like '%$sval$%' )  ) 					
+					( (name like '%$sval$%' ) or (email1 like '%$sval$%' )  ) 					
 				</isEqual>
 				<isNotEqual property="stype" compareValue="all" prepend="and">
 					($stype$ like '%$sval$%' )
@@ -32,14 +32,14 @@
     
     <select id="checkMember" parameterClass="membervo" resultClass="membervo">
         select no from member
-        WHERE name=#name# and tel=#tel#
+        WHERE name=#name# and tel2=#tel2# and tel3=#tel3#
     </select>
     
     <insert id="insert" parameterClass="membervo" >
         insert into member
-        	(email, tel, birth, pw, name, memo, registdate)
+        	(email1, email2, tel1, tel2, tel3, birth, pw, name, memo, registdate)
         values
-        	(#email#, #tel#, #birth#, md5(#pw#), #name#, #memo#, now())
+        	(#email1#, #email2#, #tel1#, #tel2#, #tel3#, #birth#, md5(#pw#), #name#, #memo#, now())
         <selectKey keyProperty="no" resultClass="Integer">
 			SELECT  LAST_INSERT_ID()
 		</selectKey>
@@ -59,7 +59,7 @@
     
     <select id="read" parameterClass="Integer" resultClass="membervo">
     	<![CDATA[
-        select no, email, tel, birth, pw, name, memo, registdate,
+        select no, email1, email2, tel1, tel2, tel3, birth, pw, name, memo, registdate,
         	ifnull((select max(no) from member where no>1 and no<#no#), 0) as prev_no,
         	ifnull((select min(no) from member where no>1 and no>#no#), 0) as next_no
          from member where no=#no#
@@ -67,11 +67,11 @@
     </select>
     
 	<select id="idcheck" parameterClass="String" resultClass="Integer">
-    	select count(*) as cnt from member where email=#email#
+    	select count(*) as cnt from member where email1=#email1#
     </select>  
     
     <select id="loginCheck" parameterClass="membervo" resultClass="Integer">
-    	select count(*) as cnt from member where email=#email# and pw=md5(#pw#)
+    	select count(*) as cnt from member where email1=#email1# and pw=md5(#pw#)
     </select>    
     
     <select id="mypetList" parameterClass="Integer" resultClass="member.MypettVO">
@@ -79,7 +79,7 @@
     </select>
     
     <select id="loginSessionInfo" parameterClass="membervo" resultClass="membervo">
-        select * from member where email=#email# and pw=md5(#pw#)
+        select * from member where email1=#email1# and pw=md5(#pw#)
     </select>
     
 </sqlMap>
