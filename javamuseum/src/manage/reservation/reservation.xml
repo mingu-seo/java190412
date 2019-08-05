@@ -48,13 +48,6 @@
 		</selectKey>
 	</insert>
    
-	<update id="update" parameterClass="reservationvo">
-		UPDATE program_res 
-		SET date=#date#,
-		time=#time#
-		WHERE no = #no#
-	</update>
-
 	<delete id="delete" parameterClass="Integer">
 		DELETE FROM program_res 
 		WHERE no=#no#
