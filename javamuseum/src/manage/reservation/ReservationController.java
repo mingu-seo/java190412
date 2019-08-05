@@ -50,14 +50,6 @@ public class ReservationController {
    }
    
 
-   @RequestMapping("/manage/program/reservation/edit")
-   public String edit(Model model, ReservationVO param) throws Exception {
-      ReservationVO data = reservationService.read(param.getNo());
-      model.addAttribute("data", data);
-      model.addAttribute("vo", param);
-      
-      return "manage/program/reservation/edit";
-   }
 
    @RequestMapping("/manage/program/reserve")
    public String write(Model model, ReservationVO param) throws Exception {
@@ -93,11 +85,6 @@ public class ReservationController {
           model.addAttribute("code", "alertMessageUrl");
           model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
           model.addAttribute("url", param.getTargetURLParam("list", param, 0));
- 	} else if ("edit".equals(param.getCmd())) {
-         int r = reservationService.update(param, request);
-         model.addAttribute("code", "alertMessageUrl");
-         model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));
-         model.addAttribute("url", param.getTargetURLParam("list", param, 0));
 	} else if ("groupDelete".equals(param.getCmd())) {
         int r = reservationService.groupDelete(request);
         model.addAttribute("code", "alertMessageUrl");

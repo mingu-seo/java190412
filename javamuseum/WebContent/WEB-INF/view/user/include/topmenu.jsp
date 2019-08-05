@@ -57,6 +57,16 @@ MemberVO umembervo = (MemberVO)session.getAttribute("memberInfo");
                         </div>
                     </li>
                     <li>
+                        <a href="#">PROGRAM</a>
+                        <div class="sub">
+                            <ul class="sub-menu">
+                                <li><a href="/user/program/subprogram1">아동 프로그램</a></li>
+                                <li><a href="/user/program/subprogram2">청소년 프로그램</a></li>
+ 								<li><a href="/user/program/subprogram3">성인 프로그램</a></li>
+                            </ul>
+                        </div>
+                    </li>                    
+                    <li>
                         <a href="#">NEWS</a>
                         <div class="sub">
                             <ul class="sub-menu">
