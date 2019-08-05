@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="dining.*"%>
 <%@ page import="java.util.*"%>
+<%@ page import="util.*"%>
 <%
 DiningVO param = (DiningVO) request.getAttribute("vo");
 DiningVO data = (DiningVO) request.getAttribute("data");
@@ -225,7 +226,18 @@ DiningVO data = (DiningVO) request.getAttribute("data");
                     <h3>예약 및 이용문의</h3>
                     <h4>전화</h4>
                     <h4>02 0000 0000</h4>
+                    <%
+                    String reserStartDate = DateUtil.getDayDateAdd(data.getBook_period()*-1, data.getStartdate());
+                    String today = DateUtil.getToday();
+                    //out.print(DateUtil.getToday());
+                    //out.print(reserStartDate);
+                    //out.print(DateUtil.getDiff(DateUtil.getToday(), reserStartDate));
+                    if (DateUtil.getDiff(today, reserStartDate) >= 0 && DateUtil.getDiff(today, data.getEnddate()) < 0) {
+                    %>
                     <a href="/dining/dining_origin_book.do">온라인 예약</a>
+                    <%
+                    }
+                    %>
                 </div>
             </div>
         </div>

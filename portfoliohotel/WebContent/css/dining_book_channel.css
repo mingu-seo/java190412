@@ -38,8 +38,8 @@ body {color:#1d1d1d; }
 .add01 label {margin-right:20px; font-size:14px;}
 .add01 label span {display:inline-block; font-size:8px; margin-top:-15px;}
 .add01 .phoneNumber label {margin-right:46px;}
-.add01 .phoneNumber input[type="text"] {width:322px;}
-.add01 input[type="text"] {width:160px; height:45px; padding-left:10px; border:1px solid #898989; color:#898989; font-size:14px;}
+.add01 .phoneNumber input[type="text"] {width:160px;}
+.add01 input[type="text"] {width:170px; height:45px; padding-left:10px; border:1px solid #898989; color:#898989; font-size:14px;}
 .add01 select {width:120px; height:45px; border:1px solid #898989; font-size:14px;}
 
 .name_en > div {float:left;}

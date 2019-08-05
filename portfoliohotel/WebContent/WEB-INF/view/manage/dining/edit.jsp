@@ -89,11 +89,13 @@ jQuery(window).load(function(){
 											<tr>
 												<th scope="row"><label for="">이미지명</label></th>
 												<td colspan="3">
-												<input type="file" name="image_tmp" id="image_tmp" title="첨부파일" />
+												<input type="file" name="image_tmp" value="<%=data.getImagename()%>" id="image_tmp" />
 											<tr>
 												<th scope="row"><label for="">운영기간 시작일</label></th>
 												<td>
-												<input type="text" id="startdate" name="startdate" class="inputTitle" value="" />&nbsp;
+												<input type="text" id="startdate" name="startdate" 
+													value="<%=data.getStartdate()%>"
+													class="inputTitle" value="" />&nbsp;
 													<span id="CalstartdateIcon">
 												<img src="/manage/img/calendar_icon.png" id="CalstartdateIconImg" style="cursor:pointer;"/>
 													</span>
@@ -101,7 +103,8 @@ jQuery(window).load(function(){
 												
 												<th scope="row"><label for="">운영기간 종료일</label></th>
 												<td>
-											<input type="text" id="enddate" name="enddate" class="inputTitle" value="" />&nbsp;
+											<input type="text" id="enddate" name="enddate" class="inputTitle" 
+													value="<%=data.getEnddate()%>" />&nbsp;
 													<span id="CalenddateIcon">
 											<img src="/manage/img/calendar_icon.png" id="CalenddateIconImg" style="cursor:pointer;"/>
 													</span>
