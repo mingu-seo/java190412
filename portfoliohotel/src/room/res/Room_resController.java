@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import board.member.MemberService;
+import board.member.MemberVO;
 import manage.admin.AdminVO;
+import property.SiteProperty;
 import room.RoomService;
 import room.RoomVO;
 import room.Room_optVO;
@@ -27,6 +31,9 @@ public class Room_resController {
 	
 	@Autowired
 	RoomService roomService;
+	
+	@Autowired
+	MemberService memberService;
 	
 	/**
 	 * 관리자 객실 예약 목록
@@ -224,8 +231,13 @@ public class Room_resController {
 	}
 	
 	@RequestMapping("/book/personal_info")
-	public String personal_info(Model model, Room_optVO vo) throws Exception {
-
+	public String personal_info(Model model, Room_optVO vo, MemberVO vo, HttpSession session) throws Exception {
+		if (memberService.loginCheck(vo)) {
+			MemberVO memberInfo = memberService.getLoginSessionInfo(vo);
+			memberInfo.setIp(vo.getIp());
+			
+			session.setAttribute("memberInfo", memberInfo);	// 세션 저장
+		}
 		return "book/personal_info";
 	}
 	

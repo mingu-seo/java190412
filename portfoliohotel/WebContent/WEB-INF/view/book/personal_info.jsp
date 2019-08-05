@@ -100,42 +100,25 @@ MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
 							</div>
 							<%
 							if(sessionMember != null) {
-								String [] nameArr = sessionMember.getName()
 							%>
 							<div class="guest_kname">
 								<label for="guest_kname">성명＊</label> 
-									<input type="text" name="guest_lastname" id="guest_lastname" placeholder="성"/> 
-									<input type="text" name="guest_firstname" id="guest_firstname" placeholder="이름"/> 
+									<input type="text" name="guest_lastname" id="guest_lastname" value="<%=sessionMember.getF_name()%>"/> 
+									<input type="text" name="guest_firstname" id="guest_firstname" value="<%=sessionMember.getL_name()%>"/> 
 							</div>
-
-							<!--  <div class="name_en clear">
-                                    <div class="name_en_title">
-                                        <label for="name_en">성명 (영문)＊</label>
-                                    </div>
-                                    <div class="name_en_area">
-                                        <select>
-                                            <option>선택안함</option>
-                                            <option>Ms.</option>
-                                            <option>Mr.</option>
-                                        </select>
-                                        <input type="text" id="name_en" placeholder="Family Name">
-                                        <input type="text" id="name_en" placeholder="First Name">
-                                        <p>* 여권에 기재된 영문 성명과 동일하게 기입해 주십시오.</p>
-                                    </div>
-                            </div> -->
-
 							<div class="phoneNumber">
 								<label for="phoneNumber">연락처＊</label> 
 								<select id="guest_tel1_select">
-									<option>선택</option>
+									<option value="<%=sessionMember.getF_tel()%>"><%=sessionMember.getF_tel()%></option>
 									<option value="010">010</option>
 									<option value="011">011</option>
 									<option value="016">016</option>
 									<option value="017">017</option>
 								</select> 
+								<input type="hidden" name="member_pk" id="member_pk" value="<%=sessionMember.getNo()%>"/>
 								<input type="hidden" name="guest_tel1" id="guest_tel1" value=""/>
-								<input type="text" name="guest_tel2" id="guest_tel2" placeholder="숫자만 입력가능">
-								<input type="text" name="guest_tel3" id="guest_tel3" placeholder="숫자만 입력가능">
+								<input type="text" name="guest_tel2" id="guest_tel2" value="<%=sessionMember.getM_tel()%>">
+								<input type="text" name="guest_tel3" id="guest_tel3" value="<%=sessionMember.getL_tel()%>">
 							</div>
 
 							<div class="email">
@@ -144,7 +127,7 @@ MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
 										<label for="email">이메일＊</label>
 									</li>
 									<li>
-										<input type="text" name="guest_email" id="guest_email" placeholder="이메일" maxlength="40"><br/>
+										<input type="text" name="guest_email" id="guest_email" value="<%=sessionMember.getEmail()%>" maxlength="40"><br/>
 										<span id="email_span" style="color:#ff0000; font-size:10px; padding:0; margin:0;"></span>
 									</li>
 									<!-- <li class="at">@</li>
