@@ -185,7 +185,7 @@ MemberVO param = (MemberVO)request.getAttribute("vo");
                                         <input type="text" id="birth" name="birth" placeholder="●●●●(생년)" maxlength="4">
                                     </li>
     
-                                    <li>
+                                    <!-- <li>
                                         <select>
                                             <option>월</option>
                                             <option>01</option>
@@ -237,7 +237,7 @@ MemberVO param = (MemberVO)request.getAttribute("vo");
                                             <option>30</option>
                                             <option>31</option>
                                         </select>
-                                    </li>
+                                    </li> -->
                                     
                             </ul>
                             <div class="email">

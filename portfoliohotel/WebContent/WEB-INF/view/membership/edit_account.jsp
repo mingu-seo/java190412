@@ -52,18 +52,41 @@ function goSave() {
 		return false;
 	}
 	
-	if ($("#birthday").val() == "") {
+	if ($("#year").val() == "") {
 		alert("생년월일을 입력해주세요.");
-		$("#birthday").focus();
+		$("#year").focus();
+		return false;
+	}
+	if ($("#month").val() == "") {
+		alert("생년월일을 입력해주세요.");
+		$("#month").focus();
+		return false;
+	}
+	if ($("#day").val() == "") {
+		alert("생년월일을 입력해주세요.");
+		$("#day").focus();
 		return false;
 	}
 	
-	if ($("#tel").val() == "") {
+	if ($("#tel1").val() == "") {
 		alert("연락처를 입력해주세요.");
-		$("#tel").focus();
+		$("#tel1").focus();
 		return false;
 		
-	}if ($("#zipcode").val() == "") {
+	}
+	if ($("#tel2").val() == "") {
+		alert("연락처를 입력해주세요.");
+		$("#tel2").focus();
+		return false;
+		
+	}
+	if ($("#tel3").val() == "") {
+		alert("연락처를 입력해주세요.");
+		$("#tel3").focus();
+		return false;
+		
+	}
+	if ($("#zipcode").val() == "") {
 		alert("우편번호를 입력해주세요.");
 		$("#zipcode").focus();
 		return false;		
@@ -256,48 +279,47 @@ function goSave() {
                     <div class="edit-table-right">
                        <!--  <form method="POST"> -->
                         <form name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" method="post">
-                        	<%
-								String[] nameArr = sessionMember.getName().split(",");
-								String[] birthdayArr = sessionMember.getBirthday().split(",");
-								String[] telArr = sessionMember.getTel().split(",");
-								%>
+                        
                             <div class="name clear">
                                 <div class="name1">
                                     <label for="first-name">성</label>
-                                    <input type="text" id="fname" maxlength="2" value="<%=nameArr[0]%>">
+                                    <input type="text" name="f_name" id="fname" maxlength="2" value="<%=sessionMember.getF_name()%>">
                                 </div>
                                 <div class="name2">
                                     <label for="middle-name">이름</label>
-                                    <input type="text" id="lname" maxlenght="10" value="<%=nameArr[1]%>">
+                                    <input type="text" name="l_name" id="lname" maxlenght="10" value="<%=sessionMember.getL_name()%>">
                                 </div>
                             </div>
                         
                             <div class="birth">
                                 <label for="birth-y">생년월일</label>
-                                <input type="text" id="birthday" name="year" placeholder="년(4자)" maxlength="4" >
-                                <input type="text" id="birthday" name="month" placeholder="월" maxlength="2">
-                                <input type="text" id="birthday" name="day" placeholder="일" maxlength="2">
+                                <input type="text" id="year" name="birthday_year" placeholder="년(4자)" maxlength="4" >
+                                <input type="text" id="month" name="birthday_month" placeholder="월" maxlength="2" minlength="2">
+                                <input type="text" id="day" name="birthday_day" placeholder="일" maxlength="2" minlength="2">
                             </div>
                             <!-- <div class="email">
                                 <label for="email">이메일</label>
                                 <input type="text" id="email" name="email" placeholder="이메일을 입력하세요" maxlength="40">
                             </div> -->
-                            <div class="email">
+                            <div class="tel">
                                 <label for="account-contact">연락처</label>
-                                <input type="text" id="tel" name="tel" placeholder="연락처를 입력하세요(-제외)" maxlength="40">
+                                <input type="text" id="tel1" name="f_tel"  maxlength="3">
+                                <input type="text" id="tel2" name="m_tel"  maxlength="4">
+                                <input type="text" id="tel3" name="l_tel"  maxlength="4">
+                                
                             </div>
 
                             <div class="adress clear">
                                 <label for="adress">주소</label>
-                                <input type="text" id="zipcode" name="zipcode" placeholder="우편번호" disabled>
-                                <input type='button' class="ad-button zipcodeBtn" onclick="sample2_execDaumPostcode()" value="우편번호">                              
-                                <input type="text" id="addr" name="addr" placeholder="기본주소" disabled >
-                                <input type="text" id="addr_detail" name="addr_detail" placeholder="상세주소">
+                                <input type="text" id="zipcode" name="zipcode" placeholder="우편번호" readonly >
+                                <input type='button' class="ad-button zipcodeBtn" onclick="sample2_execDaumPostcode()" value="우편번호" >                              
+                                <input type="text" id="addr" name="addr" placeholder="기본주소"  readonly>
+                                <input type="text" id="addr_detail" name="addr_detail" placeholder="상세주소" >
                             </div>
-                            <input type="hidden" name="cmd" value="edit">
+                            <input type="hidden" name="cmd" value="edit_account">
                             <input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
 							<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
-							<input type="hidden" name="no" id="no" value="<%=param.getNo()%>"/>
+							<input type="hidden" name="no" id="no" value="<%=sessionMember.getNo()%>"/>
 
                             <div class="">
                                     <!-- <input type="submit" value="수정하기" class="submit-button" onclick="goSave();"> -->

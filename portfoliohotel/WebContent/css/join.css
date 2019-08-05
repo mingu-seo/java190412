@@ -41,6 +41,9 @@
 .account-name > div {width:155px; float:left; margin-right:10px;}
 .account-name > div:last-child {margin:0;}
 
+
+
+
 /* 성별 */
 .account-sex label {display:inline-block;}
 .account-sex input {position: relative; top:12px;}
@@ -53,6 +56,10 @@
 /* 회원가입 폼 영역 세번째 */
 
 .account-form3 input {width:100%;}
+
+/* 전화번호 */
+.tel-form input[type="text"] {width:100px; float:left; margin-right:6.6px;}
+.account-tel > div:last-child input[type="text"] {margin-right:0;}
 
 .adress input[type="text"] {margin-bottom:5px;}
 .adress input[id="zipcode"] {width:78%;}
