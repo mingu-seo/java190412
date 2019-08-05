@@ -322,9 +322,9 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
 									<%=CodeUtil.getOpenOption(0) %>
 								</select>
                             <label for="qna-phone">연락처</label>
-                            	<input type="text"  id="tel1" name="tel1"  title="연락처를 입력해주세요" value="<%=member_vo.getf_Tel()%>" minlength=3 maxlength=3/>	
-								<input type="text"  id="tel2" name="tel2"  title="연락처를 입력해주세요" value="<%=member_vo.getm_Tel()%>" minlength=4 maxlength=4/>	
-								<input type="text"  id="tel3" name="tel3"  title="연락처를 입력해주세요" value="<%=member_vo.getl_Tel()%>" minlength=4 maxlength=4/>	
+                            	<input type="text"  id="tel1" name="tel1"  title="연락처를 입력해주세요" value="<%=member_vo.getF_tel()%>" minlength=3 maxlength=3/>	
+								<input type="text"  id="tel2" name="tel2"  title="연락처를 입력해주세요" value="<%=member_vo.getM_tel()%>" minlength=4 maxlength=4/>	
+								<input type="text"  id="tel3" name="tel3"  title="연락처를 입력해주세요" value="<%=member_vo.getL_tel()%>" minlength=4 maxlength=4/>	
                         </div>
                         <label for="qna-title">제목</label>
                         <input type="text" id="qna-title" name="qna-title">

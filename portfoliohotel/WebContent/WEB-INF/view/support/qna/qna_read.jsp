@@ -341,11 +341,11 @@ function goSave() {
 						tel3 = telArr[2];
                 	}
                 	%> --%>
-                	<% 
+                	<%-- <% 
 						String[] emailArr= data.getEmail().split(",");
 						String[] nameArr= data.getName().split(",");
 						String[] telArr=data.getTel().split(",");
-					%>
+					%> --%>
 						<form method="POST"name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/processU" enctype="multipart/form-data" onsubmit="return goEdit();" >
                    
                     	<%-- <ul class="base_info clear">
@@ -363,19 +363,19 @@ function goSave() {
                         <ul class="base_info clear">
                             <li>
                                 <label for="qna-title">이름</label>
-                               		<input type="text" style="width:100px;height:45px;" id="familyname" name="name" value="<%=nameArr[0]%>" title="성을 입력해주세요" placeholder="성" readonly></input>	
-									<input type="text" style="width:150px;height:45px;" id="firstname" name="name" value="<%=nameArr[1]%>" title="이름을 입력해주세요" placeholder="이름" readonly></input>
+                               		<input type="text" style="width:100px;height:45px;" id="familyname" name="name" value="<%=data.getLastName()%>" title="성을 입력해주세요" placeholder="성" readonly></input>	
+									<input type="text" style="width:150px;height:45px;" id="firstname" name="name" value="<%=data.getFirstName()%>" title="이름을 입력해주세요" placeholder="이름" readonly></input>
                                  
                             </li>
                             <li>
                                 <label for="qna-title">연락처</label>
-                                <input type="text" style="width:100px;height:45px;" id="tel1" name="tel"  title="연락처를 입력해주세요" value="<%=telArr[0]%>" readonly/>	
-								<input type="text" style="width:100px;height:45px;" id="tel2" name="tel"  title="연락처를 입력해주세요" value="<%=telArr[1]%>" readonly/>	
-								<input type="text" style="width:100px;height:45px;" id="tel3" name="tel"  title="연락처를 입력해주세요" value="<%=telArr[2]%>" readonly/>	
+                                <input type="text" style="width:100px;height:45px;" id="tel1" name="tel"  title="연락처를 입력해주세요" value="<%=data.getTel1()%>" readonly/>	
+								<input type="text" style="width:100px;height:45px;" id="tel2" name="tel"  title="연락처를 입력해주세요" value="<%=data.getTel2()%>" readonly/>	
+								<input type="text" style="width:100px;height:45px;" id="tel3" name="tel"  title="연락처를 입력해주세요" value="<%=data.getTel3()%>" readonly/>	
                             </li>
                         </ul>
                         <label for="">이메일</label>
-                       		<input type="text" name="email" id="email" style="width:200px" value="<%=emailArr[0]%><%=emailArr[1]%>"> 
+                       		<input type="text" name="email" id="email" style="width:200px" value="<%=data.getEmail()%>"> 
 							
 							
 						<label for="">제목</label>

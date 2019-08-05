@@ -83,20 +83,7 @@ public class QnaController {
 	 * list); model.addAttribute("qvo", param); return "membership/mypage"; }
 	 */
 	
-	///
-	@RequestMapping("/support/qna/popup")
-	public String popup(Model model, QnaVO param, HttpSession session) throws Exception {
-		QnaVO data = qnaService.read(param);
-		MemberVO vo = (MemberVO)session.getAttribute("memberInfo");
-		
-		model.addAttribute("data", data);
-		model.addAttribute("param", param);
-		if(data.getNo() == param.getNo() && data.getPassword() == param.getPassword()) {
-		return "support/qna/qna_read";	
-		}
-		return "support/qna/qna_read";
-		/* return "/membership/popup"; */
-	}
+	
 	
 	@RequestMapping("/support/qna/processU")
 	public String processU(Model model, QnaVO param, HttpServletRequest request) throws Exception {

@@ -98,13 +98,13 @@ function goEdit(){
 																	
 								%>
                         <tr>
-                        	<% 
+                        	<%-- <% 
                         	
 							String[] nameArr= data.getName().split(",");		
-							%>
+							%> --%>
                             <td <%=targetUrl%>class="title"><a href="#"><%=data.getTitle() %></a></td>
                             <td <%=targetUrl%> class="table-date"><%=CodeUtil.getReplyExist(data.getReply())%></td>
-                            <td <%=targetUrl%> class="name"><a href="#"><%=nameArr[0]%><%=nameArr[1]%></a></td>
+                            <td <%=targetUrl%> class="name"><a href="#"><%=data.getFirstName()%><%=data.getLastName()%></a></td>
                             <td><a href="#"><%=DateUtil.getDateFormat(data.getRegdate())%></a></td>
                             
                             
