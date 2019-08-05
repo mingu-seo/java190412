@@ -12,6 +12,18 @@ int totPage = (Integer)request.getAttribute("totPage");
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<script>
+function goReply(v) {	
+	if (confirm ('답변을 작성하시겠습니까?')) {
+		document.location.href = "reply.do?no="+v;
+	}
+}
+
+function goSearch() {
+	$("#searchForm").submit();
+}
+
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -102,11 +114,8 @@ int totPage = (Integer)request.getAttribute("totPage");
                         <div class="reply-number-all clear">
                             <p class="reply-number-arrow"><a href="#"></a></p>
                             <ul class="reply-number clear">
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
+                                <li><%=Page.indexList(param.getReqPageNo(), totPage, request)%>
+							</li>
                             </ul>
                             <p class="reply-number-arrow2"><a href="#"></a></p>
                         </div>
