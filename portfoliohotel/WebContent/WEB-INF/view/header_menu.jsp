@@ -15,8 +15,7 @@ int ptotPage = (Integer)request.getAttribute("ptotPage");
 %>
 <div id="header">
 
-
-    <%if(sessionMember != null) {%>
+    <%-- <%if(sessionMember != null) {%>
           <div id="logined">
             <div class="logined-box">
                 <h2 class="close-btn"><a href="#">x</a></h2>
@@ -40,7 +39,7 @@ int ptotPage = (Integer)request.getAttribute("ptotPage");
                 </table>
             </div>      
         </div>  
-        <%} %>
+        <%} %> --%>
 
         <div class="header-center">
             <div class="pc-header">
