@@ -3,12 +3,6 @@
 <%@ page import="java.util.*" %>
 <%@ page import="board.member.*" %>
 <%@ page import="util.*" %>
-<%
-MemberVO param = (MemberVO)request.getAttribute("vo");
-ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
-MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
-MemberVO data = (MemberVO)request.getAttribute("data");
-%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -84,36 +78,9 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 
 <body>
 	
-	<%if(sessionMember == null) {%>
-          <div id="logined">
-            <div class="logined-box">
-                <h2 class="close-btn"><a href="#">x</a></h2>
-                 
-                <h3><%=sessionMember.getF_name()%> <%=sessionMember.getL_name()%><span>님 안녕하세요.</span></h3>
-                <p class="mypage"><a href="/membership/mypage">마이페이지 <img src="img/white-arrow.png" class="white-arrow"></a></p>
-                <table>
-               
-                    <tr>
-                        <td class="left">등급</td>
-                        <td class="right"><%=CodeUtil.getMgrade(sessionMember.getGrade())%></td>
-                    </tr>
-                    <tr>
-                        <td class="left">포인트</td>
-                        <td class="right"><%=sessionMember.getPoint()%> P</td>
-                    </tr>
-                    <tr>
-                        <td class="left">회원번호</td>
-                        <td class="right"><%=sessionMember.getNo()%></td>
-                    </tr>
-                </table>
-            </div>      
-        </div>  
-    <%} %>
-        
     <jsp:include page="/header_menu" flush="true"/>
     
     
-
     <!-- 컨테이너 영역 시작 -->
     <div id="container">
 
