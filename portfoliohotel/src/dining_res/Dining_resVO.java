@@ -16,9 +16,11 @@ public class Dining_resVO extends Parameter {
 	private String d_time; // 예약시간
 	private int adult; // 예약인원
 	private int kid; // 예약인원
-	private String guest_kname; // 투숙객 한글명
-	private String guest_ename; // 투숙객 영문명
-	private int guest_tel; // 투숙객 연락처
+	private String guest_lname; // 투숙객 성
+	private String guest_fname; // 투숙객 이름
+	private int guest_tel1; // 투숙객 연락처 앞자리
+	private int guest_tel2; // 중간자리
+	private int guest_tel3; // 끝자리
 	private String guest_email; // 투숙객 이메일
 	private Timestamp regdate; // 예약신청일
 	private String orderCond; // 정렬조건
@@ -108,28 +110,45 @@ public class Dining_resVO extends Parameter {
 		this.kid = kid;
 	}
 
-	public String getGuest_kname() {
-		return guest_kname;
+
+	public String getGuest_lname() {
+		return guest_lname;
 	}
 
-	public void setGuest_kname(String guest_kname) {
-		this.guest_kname = guest_kname;
+	public void setGuest_lname(String guest_lname) {
+		this.guest_lname = guest_lname;
 	}
 
-	public String getGuest_ename() {
-		return guest_ename;
+	public String getGuest_fname() {
+		return guest_fname;
 	}
 
-	public void setGuest_ename(String guest_ename) {
-		this.guest_ename = guest_ename;
+	public void setGuest_fname(String guest_fname) {
+		this.guest_fname = guest_fname;
 	}
 
-	public int getGuest_tel() {
-		return guest_tel;
+	public int getGuest_tel1() {
+		return guest_tel1;
 	}
 
-	public void setGuest_tel(int guest_tel) {
-		this.guest_tel = guest_tel;
+	public void setGuest_tel1(int guest_tel1) {
+		this.guest_tel1 = guest_tel1;
+	}
+
+	public int getGuest_tel2() {
+		return guest_tel2;
+	}
+
+	public void setGuest_tel2(int guest_tel2) {
+		this.guest_tel2 = guest_tel2;
+	}
+
+	public int getGuest_tel3() {
+		return guest_tel3;
+	}
+
+	public void setGuest_tel3(int guest_tel3) {
+		this.guest_tel3 = guest_tel3;
 	}
 
 	public String getGuest_email() {

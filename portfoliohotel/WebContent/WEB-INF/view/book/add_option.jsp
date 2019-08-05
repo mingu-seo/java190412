@@ -50,7 +50,7 @@ ArrayList<Room_optVO> list = (ArrayList<Room_optVO>)request.getAttribute("list")
     <title>객실예약</title>
 </head>
 <body>
-<%@ include file="../header_menu.jsp" %>
+<jsp:include page="/header_menu" flush="true"/>
 
     <div id="container">
         <div class="option_channel clear">

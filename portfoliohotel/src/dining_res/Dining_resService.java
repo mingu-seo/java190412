@@ -52,7 +52,6 @@ public class Dining_resService {
 		int r = 0;
 		for (int i = 0; i < no.length; i++) {
 			int nos = Integer.parseInt(no[i]);
-			r += dining_resDao.delete(nos);
 		}
 		return r;
 	}

@@ -1,6 +1,7 @@
 package dining;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -93,6 +94,7 @@ public class DiningController {
 
 		return "book/confirm-dining";
 	}
+	
 
 	@RequestMapping("/manage/dining/process.do")
 	public String process(Model model, DiningVO param, HttpServletRequest request) throws Exception {

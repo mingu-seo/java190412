@@ -53,37 +53,67 @@ function goSave() {
 									<tr>
 										<th scope="row"><label for="">회원명</label></th>
 										<td colspan="3">
-											<input type="text" id="dining_pk" name="dining_pk" class="w10" title="예약인원을 입력해주세요" />	
+											<input type="text" id="member_name" name="member_name" class="w10" />	
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">투숙객 성</label></th>
+										<td colspan="3">
+											<input type="text" id="guest_lname" name="guest_lname" class="w10" />	
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">투숙객 이름</label></th>
+										<td colspan="3">
+											<input type="text" id="guest_fname" name="guest_fname" class="w10" />	
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">투숙객 연락처1</label></th>
+										<td colspan="3">
+											<input type="text" id="guest_tel1" name="guest_tel1" class="w10" />	
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">투숙객 연락처2</label></th>
+										<td colspan="3">
+											<input type="text" id="guest_tel2" name="guest_tel2" class="w10" />	
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">투숙객 연락처3</label></th>
+										<td colspan="3">
+											<input type="text" id="guest_tel3" name="guest_tel3" class="w10" />	
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">다이닝명</label></th>
 										<td colspan="3">
-											<input type="text" id="dining_pk" name="dining_pk" class="w10" title="예약인원을 입력해주세요" />	
+											<input type="text" id="dining_name" name="dining_name" class="w10" />	
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">예약인원(성인)</label></th>
 										<td colspan="3">
-											<input type="text" id="adult" name="adult" class="w10" title="예약인원을 입력해주세요" />	
+											<input type="text" id="adult" name="adult" class="w10" />	
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">예약인원(어린이)</label></th>
 										<td colspan="3">
-											<input type="text" id="kid" name="kid" class="w10" title="예약인원을 입력해주세요" />	
+											<input type="text" id="kid" name="kid" class="w10" />	
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">결제 금액</label></th>
 										<td colspan="3">
-											<input type="text" id="price" name="price" class="w10" title="예약인원을 입력해주세요" />	
+											<input type="text" id="price" name="price" class="w10" />	
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">예약날짜</label></th>
 										<td>
-											<input type="text" id="d_day" name="d_day" class="inputTitle" value="" title="예약날짜일을 입력해주세요" />&nbsp;
+											<input type="text" id="d_day" name="d_day" class="inputTitle" value="" />&nbsp;
 											<span id="Cald_dayIcon">
 												<img src="/manage/img/calendar_icon.png" id="Cald_dayIconImg" style="cursor:pointer;"/>
 											</span>
@@ -92,7 +122,7 @@ function goSave() {
 									<tr>
 										<th scope="row"><label for="">예약시간</label></th>
 										<td colspan="3">
-											<input type="text" id="d_time" name="d_time" class="w10" title="예약시간을 입력해주세요" />	
+											<input type="text" id="d_time" name="d_time" class="w10" />	
 										</td>
 									</tr>
 									

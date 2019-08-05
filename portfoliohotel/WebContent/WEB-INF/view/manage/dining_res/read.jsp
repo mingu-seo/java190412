@@ -86,7 +86,15 @@ Dining_resVO data = (Dining_resVO) request.getAttribute("data");
 										<tr>
 										</tr>	
 											<th scope="row"><label for="">회원 연락처</label></th>
-											<td colspan="2"><%=data.getGuest_tel()%></td>
+											<td colspan="2"><%=data.getGuest_tel1()%></td>
+										<tr>
+										</tr>	
+											<th scope="row"><label for="">회원 연락처</label></th>
+											<td colspan="2"><%=data.getGuest_tel2()%></td>
+										<tr>
+										</tr>	
+											<th scope="row"><label for="">회원 연락처</label></th>
+											<td colspan="2"><%=data.getGuest_tel3()%></td>
 										<tr>
 											<th scope="row"><label for="">다이닝명</label></th>
 											<td colspan="6"><%=data.getDining_name()%></td>
