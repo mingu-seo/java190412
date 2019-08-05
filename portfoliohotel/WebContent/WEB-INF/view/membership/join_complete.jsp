@@ -157,12 +157,15 @@ MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
             <div class="account-box clear">
                 <h2>환영합니다 !</h2>
                 <h3>
-                <%
-                 String[] nameArr = sessionMember.getName().split(",");
-                 %>
                 
                 
-               <%=nameArr[0]%> <%=nameArr[1]%>님, 회원가입을 축하합니다.</h3>
+                
+               <%=data.getF_name()%> <%=data.getL_name()%>님, 회원가입을 축하합니다.</h3>
+               
+               <%
+               session.invalidate();
+               %>
+               
             </div><!--acoount-box 끝-->
         </div>
     </div>

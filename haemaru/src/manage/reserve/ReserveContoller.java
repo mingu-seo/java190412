@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import manage.doctor.DoctorVO;
 import manage.doctor.sched.*;
+import member.MemberService;
+import member.MemberVO;
 import util.Function;
 
 @Controller
@@ -19,7 +21,8 @@ public class ReserveContoller {
 
 	@Autowired
 	private ReserveService reserveService;
-	
+	@Autowired
+	private MemberService memberService;
 	
 	@RequestMapping("/manage/reserve/index")
 	public String index(Model model, ReserveVO param) throws Exception {
@@ -44,7 +47,6 @@ public class ReserveContoller {
 		return "manage/reserve/read";
 	}
 	
-
 	@RequestMapping("/manage/reserve/edit")
 	public String edit(Model model, ReserveVO param) throws Exception {
 		ReserveVO data = reserveService.read(param.getNo());
@@ -81,17 +83,38 @@ public class ReserveContoller {
 
 		return "manage/reserve/schedList";
 	}
-
+	
+	@RequestMapping("/reservation/index")
+	public String Reservation(Model model, ReserveVO param) throws Exception {
+		ArrayList list = reserveService.reservation(param);
+		MemberVO mvo = memberService.read(param.getMember_pk());
+		ReserveVO data = reserveService.read(param.getNo());	
+		model.addAttribute("data", data);
+		model.addAttribute("list", list);
+		model.addAttribute("mvo", mvo);
+		return "reservation/index";
+	}
+	
+	@RequestMapping("/reservation/process")
+	public String reser_process(Model model, ReserveVO param) throws Exception {
+		model.addAttribute("reservevo", param);
+		reserveService.reserveInsert(param);
+//		model.addAttribute("code", "alertMessageUrl");
+//		model.addAttribute("message", Function.message(r, "정상적으로 예약되었습니다.", "예약실패"));
+//		model.addAttribute("url", "index");
+		return "include/return";
+	}
+	
 	@RequestMapping("/manage/reserve/process")
 	public String process(Model model, ReserveVO param,  HttpServletRequest request) throws Exception {
-		model.addAttribute("productvo", param);
+		model.addAttribute("reservevo", param);
 		if ("write".equals(param.getCmd())) {
-			int r = reserveService.insert(param, request);
+			int r = reserveService.insert(param);
 			model.addAttribute("code", "alertMessageUrl");
-			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
+			model.addAttribute("message", Function.message(r, "정상적으로 예약되었습니다.", "예약실패"));
 			model.addAttribute("url", "index");
 		} else if ("edit".equals(param.getCmd())) {
-			int r = reserveService.update(param, request);
+			int r = reserveService.update(param);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
@@ -105,9 +128,7 @@ public class ReserveContoller {
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
-		}
-		
+		}	
 		return "include/alert";
 	}
-
 }

@@ -55,7 +55,11 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 	public int update(MemberVO vo) throws SQLException {
 		return getSqlMapClient().update("member.update", vo);
 	}
-
+	
+	public int password(MemberVO vo) throws SQLException {
+		return getSqlMapClient().update("member.password", vo);
+	}
+	
 	/**
 	 * 관리자 삭제
 	 * 
@@ -83,6 +87,8 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 	public MemberVO memberEdit(int no) throws SQLException {
 		return (MemberVO) getSqlMapClient().queryForObject("member.memberEdit", no);
 	}
+	
+	
 
 
 	/**

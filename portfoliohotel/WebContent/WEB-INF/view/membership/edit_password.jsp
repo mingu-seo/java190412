@@ -4,18 +4,31 @@
 <%@ page import="util.*"%>
 <%
 MemberVO param = (MemberVO)request.getAttribute("vo");
-ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
 MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
 MemberVO data = (MemberVO)request.getAttribute("data");
 %>
 
 <script>
+
 function goSave() {
+
+if ($("#password").val() == "") {
+		alert("비밀번호를 입력해주세요.");
+		$("#password").focus();
+		return false;
+	}
+if ($("#passwordCheck").val() == "") {
+	alert("비밀번호확인을  입력해주세요.");
+	$("#passwordCheck").focus();
+	return false;
+}
+	
 if($("#password").val()!=$("#passwordCheck").val()){
 	alert("비밀번호가 다릅니다.");
 	$("#password").focus();
 	return false;
 }
+$("#frm").submit();
 }
 </script>
 <!DOCTYPE html>
@@ -187,19 +200,26 @@ if($("#password").val()!=$("#passwordCheck").val()){
 
                 <div class="edit-table">
                     <div class="edit-table-right">
-                        <form method="POST">
-                            
+                        <!-- <form method="POST"> -->
+                          <form name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" method="post">
                             <div class="password">
-                                <label for="password">비밀번호</label>
-                                <input type="password" id="passowrd" name="passowrd" placeholder="영문 (소문자), 숫자, 특수문자 포함 8~12자리" maxlength="12">
+                                <label for="account-password">비밀번호</label>
+                                <input type="password" id="password" name="password" placeholder="영문 (소문자), 숫자 포함 8~12자리" maxlength="12">
                             </div>
-                            <div class="email">
-                                <label for="password1">비밀번호 확인</label>
+                            <div class="password">
+                                <label for="check-password">비밀번호 확인</label>
                                 <input type="password" id="passwordCheck" name="password2" placeholder="비밀번호를 확인해 주세요." maxlength="12">
                             </div>
+                            <input type="hidden" name="cmd" value="edit_password">
+                            <input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
+							<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
+							<input type="hidden" name="no" id="no" value="<%=sessionMember.getNo()%>"/>
 
-                            <div class="submit">
-                                    <input type="submit" value="수정하기" class="submit-button" onclick="goSave();">
+                            <div class="">
+                                    <!-- <input type="submit" value="수정하기" class="submit-button" onclick="goSave();"> -->
+                                    <input type='button' class="submit-button" href="#" onclick="goSave();" value="수정하기">
+                                    
+                                    
                             </div> 
                             
                             

@@ -230,11 +230,11 @@ public class MemberController {
 		return "membership/sign_in";
 	}
 	
-	@RequestMapping("/membership/find_id")  //이메일 찾기 페이지
-	public String find_id(Model model, MemberVO param) throws Exception {
+	@RequestMapping("/membership/find_email")  //이메일 찾기 페이지
+	public String find_email(Model model, MemberVO param) throws Exception {
 		model.addAttribute("vo", param);
 
-		return "membership/find_id";
+		return "membership/find_email";
 	}
 	
 	@RequestMapping("/membership/find_pw")  //비밀번호 찾기 페이지
@@ -255,7 +255,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/membership/edit_account")
-	public String edit_account(Model model, MemberVO param) throws Exception {
+	public String edit_account(Model model, MemberVO param/* ,HttpSession session */) throws Exception {
+//		MemberVO memberInfo = (MemberVO)session.getAttribute("memberInfo");
+//		MemberVO data = memberService.read(memberInfo.getNo());
 		MemberVO data = memberService.read(param.getNo());
 		model.addAttribute("data", data);
 		model.addAttribute("vo", param);
@@ -377,28 +379,30 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/membership/process")
-	public String membershipProcess(Model model, MemberVO param, HttpServletRequest request) throws Exception {
+	public String membershipProcess(Model model, MemberVO param, HttpServletRequest request, HttpSession session) throws Exception {
 		model.addAttribute("vo", param);
 
-		if ("write".equals(param.getCmd())) {
-			int r = memberService.insert(param);
-			model.addAttribute("code", "alertMessageUrl");
-			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
-			model.addAttribute("url", "index");
-
-		} else if ("edit_account".equals(param.getCmd())) {
+		if ("edit_account".equals(param.getCmd())) {
 			int r = memberService.update(param);
 			model.addAttribute("code", "alertMessageUrl");
-			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));
-			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
-
-		} else if ("groupDelete".equals(param.getCmd())) {
-			int r = memberService.groupDelete(request);
+			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다. 다시 로그인 해주세요.", "수정실패"));
+			session.invalidate();
+			model.addAttribute("url", param.getTargetURLParam("/index", param, 0));
+			
+		} else if ("edit_password".equals(param.getCmd())) {
+			int r = memberService.password(param);
 			model.addAttribute("code", "alertMessageUrl");
-			model.addAttribute("message", Function.message(r, "총 " + r + "건이 삭제되었습니다.", "삭제실패"));
-			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
+			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다. 다시 로그인 해주세요.", "수정실패"));
+			session.invalidate();
+			model.addAttribute("url", param.getTargetURLParam("/index", param, 0));
 
-		} else if ("delete".equals(param.getCmd())) {
+//		}else if ("groupDelete".equals(param.getCmd())) {
+//			int r = memberService.groupDelete(request);
+//			model.addAttribute("code", "alertMessageUrl");
+//			model.addAttribute("message", Function.message(r, "총 " + r + "건이 삭제되었습니다.", "삭제실패"));
+//			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
+
+		} else if ("delete_account".equals(param.getCmd())) {
 			int r = memberService.delete(param.getNo());
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패"));
