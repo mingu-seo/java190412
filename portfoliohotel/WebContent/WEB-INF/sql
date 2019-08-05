@@ -102,6 +102,13 @@ DROP COLUMN `guest_ename`;
 ALTER TABLE `portfoliohotel`.`room_res` 
 CHANGE COLUMN `member_pk` `member_pk` INT(11) NULL DEFAULT 0 ;
 
+ALTER TABLE `portfoliohotel`.`room_res` 
+ADD COLUMN `guest_firstname` VARCHAR(45) NULL DEFAULT NULL AFTER `guest_lastname`,
+ADD COLUMN `guest_tel2` VARCHAR(4) NULL DEFAULT NULL AFTER `guest_tel1`,
+ADD COLUMN `guest_tel3` VARCHAR(4) NULL DEFAULT NULL AFTER `guest_tel2`,
+CHANGE COLUMN `guest_kname` `guest_lastname` VARCHAR(45) NULL DEFAULT NULL ,
+CHANGE COLUMN `guest_tel` `guest_tel1` VARCHAR(3) NULL DEFAULT NULL ;
+
 
 
 CREATE TABLE `room_service` (

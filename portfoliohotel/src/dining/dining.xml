@@ -4,35 +4,35 @@
 
 	<typeAlias alias="diningvo" type="dining.DiningVO" />
 
-	<sql id="searchSql">
-		<!-- WHERE 절 검색 -->
+	<!-- <sql id="searchSql">
+		WHERE 절 검색
 		<dynamic prepend="where">
 			<isNotEqual property="display" compareValue="-1">
 				display = #display#
 			</isNotEqual>
-			<!-- 검색어 검색 -->
+			검색어 검색
 			<isNotEqual property="sval" compareValue="">
-				<!-- 검색 타입이 all일 때 -->
+				검색 타입이 all일 때
 				<isEqual property="stype" compareValue="all" prepend="and">
 					( (name like '%$sval$%' ) or (contents like '%$sval$%' ) or (title like '%$sval$%' ) )
 				</isEqual>
-				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
+				검색 타입이 all이 아닐때 해당 stype으로 검색
 				<isNotEqual property="stype" compareValue="all"
 					prepend="and">
 					($stype$ like '%$sval$%' )
 				</isNotEqual>
 			</isNotEqual>
 		</dynamic>
-	</sql>
+	</sql> -->
 
 	<select id="count" parameterClass="diningvo" resultClass="Integer">
 		select count(*) from dining
-		<include refid="searchSql" />
+		<!-- <include refid="searchSql" /> -->
 	</select>
 
 	<select id="list" parameterClass="diningvo" resultClass="diningvo">
 		select * from dining
-		<include refid="searchSql" />
+		<!-- <include refid="searchSql" /> -->
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
 	</select>
 

@@ -12,25 +12,26 @@ public class DiningVO extends Parameter {
 	private String imagename_org; // 다이닝 이미지 원본 파일명
 	private String startdate; // 운영기간 시작
 	private String enddate; // 운영기간 종료
-	private String book_period; // 예약기간
+	private int book_period; // 예약기간
 	private String inclusion; // 포함내역
 	private String info; // 안내
 
 	// 검색조건
-	private int display; // 노출여부 (-1:전체, 0:미노출, 1:노출)
-
+	/*
+	 * private int display; // 노출여부 (-1:전체, 0:미노출, 1:노출)
+	 */
 	public DiningVO() {
 		super.setPageRows(10);
-		this.setDisplay(-1);
+//		this.setDisplay(-1);
 	}
 
-	public int getDisplay() {
-		return display;
-	}
-
-	public void setDisplay(int display) {
-		this.display = display;
-	}
+//	public int getDisplay() {
+//		return display;
+//	}
+//
+//	public void setDisplay(int display) {
+//		this.display = display;
+//	}
 
 	public int getNo() {
 		return no;
@@ -96,11 +97,11 @@ public class DiningVO extends Parameter {
 		this.enddate = enddate;
 	}
 
-	public String getBook_period() {
+	public int getBook_period() {
 		return book_period;
 	}
 
-	public void setBook_period(String book_period) {
+	public void setBook_period(int book_period) {
 		this.book_period = book_period;
 	}
 

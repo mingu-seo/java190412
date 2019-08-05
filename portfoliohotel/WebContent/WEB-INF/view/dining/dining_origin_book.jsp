@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="dining_res.*"%>
 <%@ page import="java.util.*"%>
+<%@ page import="board.member.*" %>
 <%
 Dining_resVO param = (Dining_resVO) request.getAttribute("vo");
 Dining_resVO data = (Dining_resVO) request.getAttribute("data");
+MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +26,31 @@ Dining_resVO data = (Dining_resVO) request.getAttribute("data");
     <script type="text/javascript" src="../js/datepicker.js"></script>
     <title>정보입력</title>
 </head>
+<script>
+$(function() {
+	
+	if($("#hideEmailOpt").val() == "@") {
+	$("#hideEmailOpt").hide();
+	
+	$("#email2").attr("disabled",false);
+	$("#selectEmail").val("1").prop("selected", true);
+	}
+		
+		
+	$('#selectEmail').change(function(){ 
+		   $("#selectEmail option:selected").each(function () { 
+		      if($(this).val()== '1'){ //직접입력일 경우
+		         $("#email2").val(''); //값 초기화
+		         $("#email2").attr("disabled",false); //활성화
+		         }else{ //직접입력이 아닐경우
+		            $("#email2").val($(this).text()); //선택값 입력
+		            $("#email2").attr("disabled",true); //비활성화
+		         } 
+		    }); 
+	});
+});
+</script>
+
 <body>
     
     <div id="header">
@@ -161,6 +188,29 @@ Dining_resVO data = (Dining_resVO) request.getAttribute("data");
 
         <!-- 내용입력 구역 -->
         <div class="option_channel clear">
+        	
+        	<%
+        	String member_name1 = "";
+        	String member_name2 = "";
+        	String email1 = "";
+        	String email2 = "";
+        	String tel1 = "";
+        	String tel2 = "";
+        	String tel3 = "";
+        	
+        	if(member_vo != null) {
+        		String[] nameArr= member_vo.getName().split(",");
+        		member_name1 = nameArr[0];
+        		member_name2 = nameArr[1];
+        		String[] emailArr= member_vo.getEmail().split("@");
+        		email1 = emailArr[0];
+        		email2 = emailArr[1];
+        		String[] telArr= member_vo.getTel().split(",");
+        		tel1 = telArr[0];
+        		tel2 = telArr[1];
+        		tel3 = telArr[2];
+        	}
+        	%>
             
             <!-- 폼태그 / summit 입력버튼 311번 -->
             <form action="#" method="GET">
@@ -176,11 +226,11 @@ Dining_resVO data = (Dining_resVO) request.getAttribute("data");
 
                             <div class="name_ko">
                                     <label for="name_ko">성명 (한글)＊</label>
-                                    <input type="text" id="name_ko" placeholder="<%=data.getMember_name() %>">
-                                    <input type="text" id="name_ko" placeholder="이름">
+                                    <input type="text" id="name_ko" placeholder="성" value="<%=member_name1%>">
+                                    <input type="text" id="name_ko" placeholder="이름" value="<%=member_name2%>">
                             </div>
 
-                            <div class="name_en clear">
+                           <!-- <div class="name_en clear">
                                     <div class="name_en_title">
                                         <label for="name_en">성명 (영문)＊</label>
                                     </div>
@@ -194,17 +244,19 @@ Dining_resVO data = (Dining_resVO) request.getAttribute("data");
                                         <input type="text" id="name_en" placeholder="First Name">
                                         <p>* 여권에 기재된 영문 성명과 동일하게 기입해 주십시오.</p>
                                     </div>
-                            </div>
+                            </div> -->
 
                             <div class="phoneNumber">
                                     <label for="phoneNumber">연락처＊</label>
                                     <select>
-                                        <option>선택</option>
-                                        <option>010</option>
-                                        <option>011</option>
-                                        <option>017</option>
+                                    	<option value="<%=tel1%>" id="hideEmailOpt"><%=tel1%></option>
+                                        <option value="1">선택</option>
+                                        <option value="010" <%="010".equals(tel1) ? "selected":""%>>010</option>
+                                        <option value="011" <%="011".equals(tel2) ? "selected":""%>>011</option>
+                                        <option value="017" <%="017".equals(tel3) ? "selected":""%>>017</option>
                                     </select>
-                                    <input type="text" id="number" placeholder="숫자만 입력가능">
+                                    <input type="text" id="number" placeholder="숫자만 입력가능" value="<%=tel2%>">
+                                    <input type="text" id="number" placeholder="숫자만 입력가능" value="<%=tel3%>">
                             </div>
 
                             <div class="email">
@@ -214,22 +266,17 @@ Dining_resVO data = (Dining_resVO) request.getAttribute("data");
                                         </li>
                                     
                                         <li>
-                                            <input type="text" id=emailID value title="이메일 아이디 입력" maxlength="40">
+                                            <input type="text" id=email1 maxlength="40" value="<%=email1%>@<%=email2%>">
                                         </li>
-
-                                        <li class="at">@</li>
-
-                                        <li>
-                                            <input type="text" id="emailAdress" value title="이메일 주소 입력" maxlength="40">
-                                        </li>
-                                        <li class="adress">
-                                                <select>
-                                                        <option>직접입력</option>
-                                                        <option>naver.com</option>
-                                                        <option>hanmail.net</option>
-                                                        <option>google.com</option>
+                                       <%--  <li class="adress">
+                                                <select style="width:100px;height:45px;" name="email" id="selectEmail">
+                                                	<option value="@<%=email2%>" id="hideEmailOpt"><%=email2%></option>
+                                                	<option value="1">직접입력</option>
+                                                	<option value="@naver.com" <%="@naver.com".equals(email2) ? "selected":""%>>naver.com</option>
+                                                    <option value="@hanmail.net" <%="@hanmail.net".equals(email2) ? "selected":""%>>hanmail.net</option>
+                                                    <option value="@google.com" <%="@google.com".equals(email2) ? "selected":""%>>google.com</option>
                                                 </select>
-                                        </li>
+                                        </li> --%>
                                     </ul>
                             </div>
                         </div>
@@ -325,10 +372,10 @@ Dining_resVO data = (Dining_resVO) request.getAttribute("data");
                                 
                                 <div class="content-area03 area clear">
                                     
-                                    <div class="next-but">
-                                        <input id="countsubmit" type="submit" value="예약 신청">
-                                    </div>
-
+                                <div class="next-but">
+                                    <input type="button" id="countsubmit" type="url" onClick="location.href='/book/confirm_dining'" value="예약 신청">
+                                </div>
+                                    
                                     <h4><span></span>예약 안내</h4>
                                     <p>· 10인 이상 예약을 원하시는 경우 전화로<br/>
                                         문의 부탁 드립니다.</p>

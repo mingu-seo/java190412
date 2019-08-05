@@ -41,6 +41,7 @@ $(function(){
 })
  
 </script>
+<!-- con2에서 예매하기 버튼 클릭 시 -->
 <div class="con4-bg">
 	<div class="con4-gr">
 		<div class="con4-header">

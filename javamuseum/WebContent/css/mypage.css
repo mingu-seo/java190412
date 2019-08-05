@@ -15,7 +15,7 @@
 .con2-gr::after{float: left;content: ""; width: 1px; height: 200px; background-color: #191919; display: inline-block; position: relative; bottom: 185px;}
 .con2-gr:nth-child(1)::after{content: none;}
 /*회원정보 관련 가운데 정렬*/
-.members-wrap { width:1200px; margin:0 auto; min-height: 676px;}
+.members-wrap { width:1200px; margin:0 auto;}
 /* 텝메뉴-회원정보 */
 .con3{margin-top: 74px; position: relative;}
 .con3-center{width: 1200px; margin: 0 auto; border: 2px solid #191919; height: 680px; background-color: #fff; position: absolute;}
@@ -71,20 +71,19 @@
 .con5-right p{ font-size: 18px; }
 /* con6 예매 내역 */
 .con6{margin-top: 74px; position: relative; display: none; }
-.con6-center{width: 1200px; margin: 0 auto; border: 2px solid #191919; height: auto; background-color: #fff; }
+.con6-center{width: 1200px; margin: 0 auto; border: 2px solid #191919; height: 940px; background-color: #fff; }
 .con6-text{text-align: center;}
 .con6-text h2{font-size: 48px; margin-top: 60px; margin-bottom: 16px;}
 .con6-text h4{font-size: 20px; font-weight: normal;}
 /* 하단 작품 내용 */
-.con6-exhibition{width: 1020px; margin: 0 auto; margin-top: 54px; margin-bottom: 54px; border-top: 3px solid #191919; border-bottom: 3px solid #191919;}
+.con6-exhibition{width: 1020px; margin: 0 auto; margin-top: 54px; border-top: 3px solid #191919; border-bottom: 3px solid #191919;}
 .con6-gr{border-bottom: 1px solid #191919;}
-.con6-gr:last-child{border: none;}
+.con6-gr:nth-child(3){border: none;}
 .con6-left{ float: left; width: 250px; height: 218px;}
 .con6-left img{width: 100%; height: 100%;} 
 .con6-right{ float: left; padding-left: 50px; padding-top: 20px;}
-.con6-left-text{ float: left;}
-.con6-right-text{ float: left; margin-left: 120px;}
-.con6-right-btn{ float: left; padding:5px; background-color: #e7eaed; margin-left: 120px;}
+.con6-left-text{float: left;}
+.con6-right-text{float: left; margin-left: 120px;}
 .con6-right h5{ font-size: 30px; font-weight: normal; margin-top: 20px; margin-bottom: 20px;}
 .con6-right p{ font-size: 18px;line-height: 30px;}
 /* con7 대관내역 */

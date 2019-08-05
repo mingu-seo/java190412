@@ -3,14 +3,30 @@
 <sqlMap namespace="dining_res">
 
 	<typeAlias alias="dining_resvo" type="dining_res.Dining_resVO" />
+	
+	<sql id="searchSql">		
+		<!-- WHERE 절 검색 -->
+		<dynamic prepend="where">
+		    no > 1
+			<isNotEqual property="sval" compareValue="" prepend="and">
+				<isEqual property="stype" compareValue="all" prepend="and">
+					( (member_name like '%$sval$%' ) or (dining_name like '%$sval$%' )					
+				</isEqual>
+				<isNotEqual property="stype" compareValue="all" prepend="and">
+					($stype$ like '%$sval$%' )
+				</isNotEqual>
+			</isNotEqual>
+		</dynamic>
+	</sql>
 
 	<select id="count" parameterClass="dining_resvo" resultClass="Integer">
 		select count(*) from dining_res
 	</select>
 
 	<select id="list" parameterClass="dining_resvo" resultClass="dining_resvo">
-		select no, member_name, dining_name, d_day, d_time, adult, kid, guest_kname, guest_ename
-		, guest_tel, guest_email, regdate from dining_res
+		select no, member_name, dining_name, d_day, d_time, adult, kid, guest_lname, guest_fname
+		, guest_tel1, guest_tel2, guest_tel3 guest_email, regdate from dining_res
+		<include refid="searchSql" />
 		ORDER BY
 		<isEqual property="orderCond" compareValue="">
 			regdate DESC
@@ -28,9 +44,10 @@
 	
 	<insert id="insert" parameterClass="dining_resvo">
 		insert into dining_res (
-		d_day, d_time, adult, kid, guest_kname, guest_ename, guest_tel, guest_email, regdate, price) 
+		d_day, d_time, adult, kid, guest_lname, guest_fname, guest_tel1, guest_tel2, guest_tel3, guest_email, regdate, price) 
 		values (
-		#d_day#, #d_time#, #adult#, #kid#, #guest_kname#, #guest_ename#, #guest_tel#, #guest_email#, now(), #price#)
+		#d_day#, #d_time#, #adult#, #kid#, #guest_lname#, #guest_fname#, #guest_tel1#, #guest_tel2#, #guest_tel3#, #guest_email#, 
+		now(), #price#)
 		<selectKey keyProperty="no" resultClass="Integer">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
@@ -38,13 +55,14 @@
 	
 	<update id="update" parameterClass="dining_resvo">
         update dining_res set
-        	d_day=#d_day#, d_time=#d_time#, adult=#adult#, kid=#kid#, guest_kname=#guest_kname#,
-        	guest_ename=#guest_ename#, guest_tel=#guest_tel#, guest_email=#guest_email#
+        	d_day=#d_day#, d_time=#d_time#, adult=#adult#, kid=#kid#, guest_lname=#guest_lname#,
+        	guest_fname=#guest_fname#, guest_tel1=#guest_tel1#, guest_tel2=#guest_tel2#, 
+        	guest_tel3=#guest_tel3#, guest_email=#guest_email#
         where no=#no#
     </update>
     
     <select id="read" parameterClass="Integer" resultClass="dining_resvo">
-		select no, d_day, member_name, guest_tel, dining_name, adult, kid, regdate, price
+		select no, d_day, member_name, guest_tel1, guest_tel2, guest_tel3, dining_name, adult, kid, regdate, price
 		from dining_res where no=#no#
 	</select>
     

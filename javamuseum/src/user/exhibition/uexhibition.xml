@@ -4,7 +4,7 @@
     
     <typeAlias alias="uexhibitionvo" type="user.exhibition.UExhibitionVO"/>
     
-    <select id="ingList" parameterClass="uexhibitionvo" resultClass="uexhibitionvo">
+    <select id="intList" parameterClass="uexhibitionvo" resultClass="uexhibitionvo">
     	SELECT * FROM display
     	WHERE state=2
     	ORDER BY hallnumber ASC
@@ -23,14 +23,9 @@
 	<select id="edList" parameterClass="uexhibitionvo" resultClass="uexhibitionvo">
 		SELECT * FROM display
 		WHERE state=3
-		<isNotEqual property="startdate" compareValue="all">
+		<isNotEqual property="stype" compareValue="all">
 			AND ( startdate like '$startdate$%' ) 
 		</isNotEqual>
 		ORDER BY startdate DESC
-	</select>
-	
-	<select id="pastReview" parameterClass="Integer" resultClass="uexhibitionvo">
-		SELECT * FROM display
-		WHERE no=#no#
 	</select>
 </sqlMap>

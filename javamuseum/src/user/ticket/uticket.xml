@@ -24,16 +24,12 @@
     	FROM ticket
     	WHERE no=#no#
     </select>
-
-    <update id="cancel" parameterClass="uticketvo">
+    
+    <update id="update" parameterClass="uticketvo">
     	UPDATE ticket SET
-		canceldate=#canceldate#, reservestate=2, refundstate=2
+		canceldate=#canceldate#, displaydate=#displaydate#, paystate=#paystate#, reservestate=#reservestate#,
+		refundstate=#refundstate#,display_pk=#display_pk#
     	WHERE no=#no#
     </update>
     
-    <update id="storepoint" parameterClass="uticketvo">
-    	UPDATE member SET
-    	point=#point#
-    	WHERE no=#member_pk#
-    </update>
 </sqlMap>

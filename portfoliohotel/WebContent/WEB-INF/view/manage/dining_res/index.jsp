@@ -157,8 +157,17 @@ function goSearch() {
 								<!--//btn-->
 								<!-- 페이징 처리 -->
 								<%=Page.indexList(param.getReqPageNo(), totPage, request)%>
-								<!-- //페이징 처리 -->
-
+							<form name="searchForm" id="searchForm" action="index" method="post">
+								<div class="search">
+									<select name="stype" title="검색을 선택해주세요">
+										<option value="all" <%=Function.getSelected(param.getStype(), "all") %>>전체</option>
+										<option value="member_name" <%=Function.getSelected(param.getStype(), "member_name") %>>회원명</option>
+										<option value="dining_name" <%=Function.getSelected(param.getStype(), "dining_name") %>>다이닝명</option>
+									</select>
+									<input type="text" name="sval" value="<%=param.getSval()%>" />
+									<input type="image" src="/manage/img/btn_search.gif" class="sbtn" alt="검색" />
+								</div>
+							</form>
 								<!-- //search -->
 							</div>
 							<!-- //blist -->

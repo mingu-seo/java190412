@@ -47,10 +47,7 @@ public class ReserveService {
 	public int insert(ReserveVO vo) throws Exception { 
 		MemberVO mvo = new MemberVO();
 		mvo.setName(vo.getName());
-		mvo.setTel1(vo.getTel1());
-		mvo.setTel2(vo.getTel2());
-		mvo.setTel3(vo.getTel3());
-		
+		mvo.setTel(vo.getTel());
 
 		MemberVO rvo = memberDao.checkMember(mvo);
 
