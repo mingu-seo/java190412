@@ -24,7 +24,7 @@ function goCancel() {
 		<%-- document.location.href = "/manage/room/res/process?no=<%=read.getNo()%>&cmd=cancel"; --%>
 		$.ajax({
 			type : "GET",
-			url : "/manage/room/res/cancel?no=<%=read.getNo()%>",
+			url : "/room/res/cancel?no=<%=read.getNo()%>",
 			async : false,
 			success : function(data) {
 				if (data.trim() == "1") {
@@ -36,6 +36,24 @@ function goCancel() {
 		return false;
 	}
 }
+
+$(function() {
+	console.log('<%=read.getCheckin()%>');
+	console.log('<%=read.getCheckout()%>');
+	<%
+	String arri[] = read.getCheckin().split("-");
+	String arro[] = read.getCheckout().split("-");
+	%>
+	
+	var time_in = new Date(<%=arri[0]%>, <%=arri[1]%>, <%=arri[2]%>);
+	var time_out = new Date(<%=arro[0]%>, <%=arro[1]%>, <%=arro[2]%>);
+	day_stay = (time_out.getTime() - time_in.getTime())/(1000*60*60*24);
+	console.log(day_stay);
+	console.log(<%=arri[0]%>);
+	console.log(<%=arri[1]%>);
+	console.log(<%=arri[2]%>);
+	console.log(Date());
+});
 
 </script>
 <title>관리자 객실 예약 상세</title>
@@ -60,7 +78,7 @@ function goCancel() {
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="bread">
-							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" onsubmit="return goSave();">
+							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process" onsubmit="return goSave();">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
 									<col width="10%"/>
@@ -120,8 +138,7 @@ function goCancel() {
 									<tr>
 										<th colspan="2">숙박 고객 한글명</th>
 										<td colspan="3"><%=read.getGuest_kname() %></td>
-										<th colspan="2">숙박 고객 영문명</th>
-										<td colspan="3"><%=read.getGuest_ename() %></td>
+										<td colspan="5"></td>
 									</tr>
 									<tr>	
 										<th colspan="2">숙박 고객 연락처</th>

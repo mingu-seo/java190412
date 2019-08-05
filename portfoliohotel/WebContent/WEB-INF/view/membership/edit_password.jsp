@@ -8,6 +8,16 @@ ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
 MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
 MemberVO data = (MemberVO)request.getAttribute("data");
 %>
+
+<script>
+function goSave() {
+if($("#password").val()!=$("#passwordCheck").val()){
+	alert("비밀번호가 다릅니다.");
+	$("#password").focus();
+	return false;
+}
+}
+</script>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -181,17 +191,20 @@ MemberVO data = (MemberVO)request.getAttribute("data");
                             
                             <div class="password">
                                 <label for="password">비밀번호</label>
-                                <input type="text" id="passowrd" name="passowrd" placeholder="영문 (소문자), 숫자, 특수문자 포함 8~12자리" maxlength="12">
+                                <input type="password" id="passowrd" name="passowrd" placeholder="영문 (소문자), 숫자, 특수문자 포함 8~12자리" maxlength="12">
                             </div>
                             <div class="email">
                                 <label for="password1">비밀번호 확인</label>
-                                <input type="text" id="password1" name="password1" placeholder="비밀번호를 확인해 주세요." maxlength="12">
+                                <input type="password" id="passwordCheck" name="password2" placeholder="비밀번호를 확인해 주세요." maxlength="12">
                             </div>
 
                             <div class="submit">
-                                    <input type="submit" value="수정하기" class="submit-button">
-                            </div>
+                                    <input type="submit" value="수정하기" class="submit-button" onclick="goSave();">
+                            </div> 
+                            
+                            
                         </form>
+                        
                     </div>
                     
                 </div>

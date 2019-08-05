@@ -53,7 +53,7 @@
 		<div id="container">
 			<div id="content">
 				<div class="con_tit">
-					<h2>패키지 - [쓰기]</h2>
+					<h2>패키지예약 - [쓰기]</h2>
 				</div>
 				<!-- //con_tit -->
 				<div class="con">
@@ -64,21 +64,25 @@
 							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" enctype="multipart/form-data">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
-									<col width="15%" />
-									<col width="35%" />
-									<col width="15%" />
-									<col width="35%" />
+									<col width="10%" />
+									<col width="10%" />
+									<col width="10%" />
+									<col width="10%" />
+									<col width="10%" />
+									<col width="10%" />
+									<col width="10%" />
+									<col width="10%" />
 								</colgroup>
 								<tbody>
 									<tr>
 										<th scope="row"><label for="">패키지 이름</label></th>
 										<td colspan="3">
-											<input type="text" id="name" name="name" class="w50" title="제목을 입력해주세요" />	
+											<input type="text" id="name" name="name" class="w30" title="제목을 입력해주세요" />	
 										</td>
 									</tr>		
 									<tr>
 										<th scope="row"><label for="">사용일</label></th>
-										<td>
+										<td colspan="3">
 											<input type="text" id="use_date" name="use_date" class="inputTitle" value=""/>&nbsp;
 											<span id="CalstartdateIcon">
 												<img src="/manage/img/calendar_icon.png" id="CalstartdateIconImg" style="cusor:pointer;"/>
@@ -86,36 +90,38 @@
 										</td>
 									<tr>
 										<th scope="row"><label for="">고객 한글명</label></th>
-										<td colspan="3">
-											<input type="text" id="guest_kname" name="guest_kname" class="w20"/>
+										<td>
+											<input type="text" id="guest_kname" name="guest_kname" class="w50"/>
 										</td>
 										<th scope="row"><label for="">고객 영문명</label></th>
-										<td colspan="3">
-											<input type="text" id="guest_ename" name="guest_ename" class="w20"/>
+										<td>
+											<input type="text" id="guest_ename" name="guest_ename" class="w50"/>
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">고객 연락처</lavel></th>
-										<td colspan="3">
-											<input type="text" id="guest_tel" name="guest_tel" class="w20"/>
+										<td>
+											<input type="text" id="guest_tel" name="guest_tel" class="w50"/>
 										</td>
 										<th scope="row"><label for="">고객 이메일</label></th>
-										<td colspan="3">
-											<input type="text" id="guest_email" name="guest_email" class="w20"/>
+										<td>
+											<input type="text" id="guest_email" name="guest_email" class="w50"/>
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="">패키지 금액</label></th>
 										<td>
-											<input type="text" id="pkg_price" name="pkg_price" class="w20"/>
+											<input type="text" id="pkg_price" name="pkg_price" class="w50"/>
 										</td>
 										<th scope="row"><label for="">수량</label></th>
 										<td>
-											<input type="text" id="pkg_count" name="pkg_count" class="w20"/>
+											<input type="text" id="pkg_count" name="pkg_count" class="w50"/>
 										</td>
+									</tr>
+									<tr>
 										<th scope="row"><label for="">총 결제 금액</label></th>
-										<td>
-											<input type="text" id="total_price" name="total_price" class="w20"/>
+										<td colspan="3">
+											<input type="text" id="total_price" name="total_price" class="w30"/>
 										</td>																				
 									</tr>
 									

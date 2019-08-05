@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="dining.*"%>
+<%@ page import="java.util.*"%>
+<%
+DiningVO param = (DiningVO) request.getAttribute("vo");
+DiningVO data = (DiningVO) request.getAttribute("data");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -177,9 +183,7 @@
         <div class="banner oasis">
             <div class="banner-center">
                 <div class="banner-text">
-                    <h2>오아시스 서머 패키지
-                        <span>The Oasis Summer Package</span>
-                    </h2>
+                    <h2><span><%=data.getName() %><span></h2>
                     <h3>남산의 상쾌한 전경이 펼쳐진 이국적인 분위기의 오아시스 야외 수영장에서 도심 속 완벽한 휴식을 즐겨보세요.
                     </h3>
                 </div>
@@ -190,32 +194,30 @@
             <div class="contents-info clear">
                 <div class="contents-left">
                     <table>
+                      	<tr>
+                            <td class="table-list">운영기간 시작일</td>
+                            <td><h2><%=data.getStartdate()%></h2></td>
+                        </tr>
                         <tr>
-                            <td class="table-list">기간</td>
-                            <td>2019. 5. 1 (수) ~ 2019. 9. 1 (일)</td>
+                            <td class="table-list">운영기간 종료일</td>
+                            <td><h2><%=data.getEnddate()%></h2></td>
+                        </tr>
+                        <tr>
+                            <td class="table-list">예약 가능기간</td>
+                            <td><h2><%=data.getBook_period()%></h2></td>
                         </tr>
                         <tr>
                             <td class="table-list">포함내역</td>
-                            <td class="td-lh">· 객실 투숙 1박 <br/>
-                                · 오아시스 야외 수영장 이용 (2인) <br/>
-                                · 그라넘 다이닝 라운지 조식 (2인) <br/>
-                                · 실내 수영장, 피트니스 센터 이용 (2인)
-                            </td>
+                            <td><h2><%=data.getInclusion()%></h2></td>
                         </tr>
                         <tr>
-                            <td class="table-list price">가격</td>
-                            <td>420,000원 부터 (VAT별도)</td>
+                            <td class="table-list">가격</td>
+                            <td><h2><%=data.getPrice() %></h2></td>
                         </tr>
                         <tr>
-                            <td class="table-list info">안내</td>
-                            <td class="td-lh">· 가격은 2인 1실 1박을 기준이며, 세금 별도입니다. <br/>
-                                · 객실 상황에 따라 가격이 변동됩니다.  <br/>
-                                · 투숙 인원 추가 시 별도의 요금이 부과됩니다.  <br/>
-                                · 패키지에 포함된 혜택은 투숙 기간 중에 한해 1회 제공되며,  <br/> 오아시스 야외 수영장은 투숙 기간 중에만 입장 가능합니다.  <br/>
-                                <br/>
-                                * 오아시스 대관 행사 또는 이벤트로 인해 야외 수영장 이용에   <br/>제한이 있을 수 있습니다.  <br/>
-                                  <br/>
-                                · 피트니스, 사우나, 반얀트리 스파의 정기 휴관일은  <br/> 매월 첫째 주 화요일입니다.
+                            <td class="table-list">안내</td>
+                            <td>
+                                <h2><%=data.getInfo()%></h2>
                             </td>
                         </tr>
                     </table>
@@ -223,7 +225,7 @@
                 <div class="contents-right">
                     <h3>예약 및 이용문의</h3>
                     <h4>전화</h4>
-                    <h4>02 2250 8000</h4>
+                    <h4>02 0000 0000</h4>
                     <a href="/dining/dining_origin_book.do">온라인 예약</a>
                 </div>
             </div>

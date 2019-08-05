@@ -51,8 +51,8 @@ table {
 	border-spacing: 0;
 }
 
-input {
-	      border:none;
+input{
+	      border:none; outline:0;
 }
 
 .clear:after { content:""; display:block; clear:both;}

@@ -59,7 +59,7 @@ $(function() {
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="bread">
-							<form method="post" name="frm" id="frm" action="/manage/room/res/process?no=<%=read.getNo() %>" onsubmit="return goSave();">
+							<form method="post" name="frm" id="frm" action="/room/res/process?no=<%=read.getNo() %>" onsubmit="return goSave();">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
 									<col width="10%"/>
@@ -119,8 +119,7 @@ $(function() {
 									<tr>
 										<th colspan="2">숙박 고객 한글명</th>
 										<td colspan="3"><input type="text" id="guest_kname" name="guest_kname" class="w90" value="<%=read.getGuest_kname() %>"/></td>
-										<th colspan="2">숙박 고객 영문명</th>
-										<td colspan="3"><input type="text" id="guest_ename" name="guest_ename" class="w90" value="<%=read.getGuest_ename() %>"/></td>
+										<th colspan="5"></th>
 									</tr>
 									<tr>	
 										<th colspan="2">숙박 고객 연락처</th>

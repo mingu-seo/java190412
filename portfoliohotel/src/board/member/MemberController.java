@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
+import property.SiteProperty;
 import util.Function;
 
 @Controller
@@ -222,11 +222,26 @@ public class MemberController {
 //=======================================================회원=================================================================================
 	
 	
+	
 	@RequestMapping("/membership/sign_in")  //로그인 페이지
 	public String sign_in(Model model, MemberVO param) throws Exception {
 		model.addAttribute("vo", param);
 
 		return "membership/sign_in";
+	}
+	
+	@RequestMapping("/membership/find_id")  //이메일 찾기 페이지
+	public String find_id(Model model, MemberVO param) throws Exception {
+		model.addAttribute("vo", param);
+
+		return "membership/find_id";
+	}
+	
+	@RequestMapping("/membership/find_pw")  //비밀번호 찾기 페이지
+	public String find_pw(Model model, MemberVO param) throws Exception {
+		model.addAttribute("vo", param);
+
+		return "membership/find_pw";
 	}
 
 	
@@ -274,16 +289,49 @@ public class MemberController {
 
 		return "/membership/choice_join";
 	}
+
 	
 	@RequestMapping("/membership/join")
-	public String oin(Model model, MemberVO param) throws Exception {
-		MemberVO data = memberService.read(param.getNo());
-		model.addAttribute("data", data);
+	public String join(Model model, MemberVO param ) throws Exception {
+		
 		model.addAttribute("vo", param);
 
+		
 		return "/membership/join";
 	}
 	
+	@RequestMapping("/membership/emailcheck") //회원 가입 이메일 체크
+	public String membershipEmailcheck(Model model, MemberVO param, HttpServletRequest request) throws Exception {
+		model.addAttribute("vo", param);
+
+		int value = memberService.emailcheck(request.getParameter("email"));
+
+		model.addAttribute("value", value);
+
+		return "include/return";
+	}
+	
+	
+	
+	@RequestMapping("/membership/join_complete")
+	public String join_complete(Model model, MemberVO param, HttpSession session) throws Exception {
+		MemberVO memberInfo = (MemberVO)session.getAttribute("memberInfo");
+		MemberVO data = memberService.read(memberInfo.getNo());
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+	
+		return "membership/join_complete";
+	}
+	
+	@RequestMapping("/membership/join_insert")
+	public String join_insert(Model model, MemberVO param, HttpSession session) throws Exception {
+		int r = memberService.insert(param);
+		MemberVO data = memberService.read(r);
+		session.setAttribute("memberInfo", data);
+	
+		return "redirect:/membership/join_complete";
+	}
+
 	
 	
 	/**
@@ -327,7 +375,43 @@ public class MemberController {
 
 		return "include/alert";
 	}
+	
+	@RequestMapping("/membership/process")
+	public String membershipProcess(Model model, MemberVO param, HttpServletRequest request) throws Exception {
+		model.addAttribute("vo", param);
 
+		if ("write".equals(param.getCmd())) {
+			int r = memberService.insert(param);
+			model.addAttribute("code", "alertMessageUrl");
+			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
+			model.addAttribute("url", "index");
+
+		} else if ("edit_account".equals(param.getCmd())) {
+			int r = memberService.update(param);
+			model.addAttribute("code", "alertMessageUrl");
+			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));
+			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
+
+		} else if ("groupDelete".equals(param.getCmd())) {
+			int r = memberService.groupDelete(request);
+			model.addAttribute("code", "alertMessageUrl");
+			model.addAttribute("message", Function.message(r, "총 " + r + "건이 삭제되었습니다.", "삭제실패"));
+			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
+
+		} else if ("delete".equals(param.getCmd())) {
+			int r = memberService.delete(param.getNo());
+			model.addAttribute("code", "alertMessageUrl");
+			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패"));
+			
+			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
+		}
+
+		return "include/alert";
+	}
+
+	
+	
+	
 //	@RequestMapping("/manage/member/loginHistory")
 //	public String loginHistory(Model model, MemberVO param) throws Exception {
 //		int[] rowPageCount = memberService.countLoginHistory(param);

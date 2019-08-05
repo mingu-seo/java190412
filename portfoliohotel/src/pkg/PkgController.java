@@ -33,6 +33,21 @@ public class PkgController {
 		return "manage/pkg/index";
 	}		
 	
+	/* [사용자] pkg 목록 */
+	
+	/*
+	 * @RequestMapping("/manage/pkg/index") public String Pindex(Model model, PkgVO
+	 * param) throws Exception { param.setTablename("pkg"); int[] rowPageCount =
+	 * pkgService.count(param); ArrayList<PkgVO> plist = pkgService.list(param);
+	 * 
+	 * model.addAttribute("totCount", rowPageCount[0]);
+	 * model.addAttribute("totPage", rowPageCount[1]); model.addAttribute("plist",
+	 * plist); model.addAttribute("vo", param);
+	 * 
+	 * return "manage/pkg/index"; }
+	 */
+	 
+	
 	/* [관리자] pkg 글쓰기 */
 	@RequestMapping("/manage/pkg/write")
 	public String insertReview(Model model, PkgVO param) throws Exception {
@@ -109,15 +124,6 @@ public class PkgController {
 	public String birthday(Model model, PkgVO param) {
 		
 		return "pkg/birthday/birthday2";
-	}
-	
-	@RequestMapping("/pkg/birthday/birthday")
-	public String Senseof(Model model, PkgVO param)  throws Exception {
-		PkgVO data = pkgService.read(param.getNo());
-		model.addAttribute("data", data);
-		model.addAttribute("param", param);
-		
-		return "pkg/birthday/birthday";
 	}
 	
 	@RequestMapping("/pkg/dining/granum")

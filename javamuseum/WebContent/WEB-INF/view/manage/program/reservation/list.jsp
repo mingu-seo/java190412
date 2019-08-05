@@ -73,7 +73,6 @@ function goSearch() {
 									<col class="w10" />
 									<col class="w8" />
 									<col class="w8" />
-									<col class="w8" />
 									<col class="w5" />
 								</colgroup>
 								<thead>
@@ -85,9 +84,7 @@ function goSearch() {
 										<th scope="col">프로그램명</th> 
 										<th scope="col">프로그램 일자</th>
 										<th scope="col">프로그램 시간</th> 
-										<th scope="col">상태</th>
 										<th scope="col">신청일</th>
-										<th scope="col">수정일</th>
 										<th scope="col" class="last">삭제</th>
 									</tr>
 								</thead>
@@ -107,15 +104,13 @@ function goSearch() {
 								%>
 									<tr <%=topClass%>>
 										<td class="first"><input type="checkbox" name="no" id="no" value="<%=data.getNo()%>"/></td>
-										<td <%=targetUrl%>><%=data.getNo()%></td>
-										<td <%=targetUrl%>><%=data.getName()%></td>
-										<td <%=targetUrl%>><%=CodeUtil.getCategory(data.getCategory())%></td>
-										<td <%=targetUrl%>><%=data.getTitle()%></td>
-										<td <%=targetUrl%>><%=data.getDate()%></td>
-										<td <%=targetUrl%>><%=data.getTime()%></td>
-										<td <%=targetUrl%>><%=data.getState()%></td>
-										<td <%=targetUrl%>><%=DateUtil.getDateTimeFormat(data.getRegistdate())%></td>
-										<td <%=targetUrl%>><%=DateUtil.getDateTimeFormat(data.getModifydate())%></td>
+										<td><%=data.getNo()%></td>
+										<td><%=data.getName()%></td>
+										<td><%=CodeUtil.getCategory(data.getCategory())%></td>
+										<td><%=data.getTitle()%></td>
+										<td><%=data.getDate()%></td>
+										<td><%=data.getTime()%></td>
+										<td><%=DateUtil.getDateTimeFormat(data.getRegistdate())%></td>
 										<td class="last"><input type="button" value="삭제" onclick="goDelete(<%=data.getNo()%>);"/></td>
 									</tr>
 								<%

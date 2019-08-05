@@ -320,28 +320,4 @@ public class RoomController {
 		return "room/detail_sub";
 	}
 
-	@RequestMapping("/book/add_option")
-	public String add_option(Model model, Room_optVO vo) throws Exception {
-		ArrayList<Room_optVO> list = roomService.list_opt(vo);
-		model.addAttribute("list", list);
-
-		return "book/add_option";
-	}
-
-	@RequestMapping("/book/check_room")
-	public String check_room(Model model, AdminVO vo) throws Exception {
-
-		return "book/check_room";
-	}
-
-	@RequestMapping("/book/price_room")
-	public String price_room(Model model, AdminVO vo) throws Exception {
-
-		return "book/price_room";
-	}
-
-	@RequestMapping("/book/confirm")
-	public String confirm_room(Model model, RoomVO vo) throws Exception {
-		return "book/confirm";
-	}
 }

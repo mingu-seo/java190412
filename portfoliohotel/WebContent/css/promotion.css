@@ -1,7 +1,7 @@
 /* promotion 배너들 */
 .banner {height:600px; background-size:cover; background-repeat: no-repeat; }
 .banner.propose { background-image:url("../img/promotion/propose-bg.jpg");}
-.banner.senseof {background-image: url("../img/promotion/senseof.jpg");}
+.banner.senseof {background-image: url("../img/promotion/birthday3-수정-.jpg");}
 .banner.oasis {background-image: url("../img/promotion/oasis-bg.jpg");}
 .banner.bbq {background-image: url("../img/promotion/bbq-bg.jpg");}
 .banner.reasonable {background-image: url("../img/promotion/reasonable.jpg");}
@@ -22,7 +22,7 @@
 .contents-info {}
 .contents-info > div {float:left; width:50%;}
 .contents-center .contents-left {padding-left:40px; border-right:1px solid #eee;}
-.contents-info table .table-list {color:#0e693f; width:80px; line-height:30px; font-weight:400;}
+.contents-info table .table-list {color:#0e693f; width:120px; line-height:30px; font-weight:400;}
 .contents-info table .table-list.price { line-height:80px;}
 .contents-info table .table-list.time { line-height:80px;}
 .contents-info table .table-list.event { line-height:80px;}
