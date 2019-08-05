@@ -2,6 +2,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="user.exhibition.*" %>
 <%
+MemberVO member = (MemberVO)session.getAttribute("memberInfo");
 ArrayList<UExhibitionVO> list = (ArrayList)request.getAttribute("ingList");
 UExhibitionVO param = (UExhibitionVO)request.getAttribute("param");
 int totCount = (Integer)request.getAttribute("totCount");
@@ -10,75 +11,81 @@ int totPage = (Integer)request.getAttribute("totPage");
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<%@ include file="/WEB-INF/view/user/include/commonHtml.jsp" %>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	    
-	<link rel="stylesheet" href="/css/sub-exhibition1.css">
-	<title>미술관소개</title>
-	
-	<script src="https://kit.fontawesome.com/3db09483e7.js"></script>
-	<script type="text/javascript" src="/js/slick.js"></script>
-	<script type="text/javascript" src="/js/aos.js"></script>
-	<script>
-		
-		function getTicket(i) {
-			$.ajax({
-				type : "GET",
-				url : "/user/exhibition/ticket?no="+i,
-				async : false,
-				success : function (data) {
-					$(".con3").html(data);
-					$(".con3-bg").show();
-				}
-			});
-		};
-		
-		function getDetail(i) {
-			$.ajax({
-				type : "GET",
-				url : "/user/exhibition/detail?no="+i,
-				async : false,
-				success : function(data) {
-					$(".con3").html(data);
-					$(".con4-bg").show();
-				}
-			});
-		};
-	
-		$(function(){
-			
-			$(".con2-bggroup > li > a").click(function(event){ // a링크 정지
-				event.preventDefault(); // a링크 정지
-				$(this).siblings(".con2-sub01").stop().fadeIn(); 
-			});
-			$(".sub01-close").click(function(event){ // a링크 정지
-				event.preventDefault(); // a링크 정지
-				$(this).parent(".con2-sub01").stop().fadeOut();
-			});
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<%@ include file="/WEB-INF/view/user/include/commonHtml.jsp" %>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+<link rel="stylesheet" href="/css/sub-exhibition1.css">
+<title>미술관소개</title>
 
-			$(".con4 #submit-btn2").click(function(){
-				$(".con4-bg").hide();
-			});
-			$(".con4-epilogue").click(function(event){
-				event.preventDefault();
-				var list=$(this).hasClass("on") //클릭한 자기자신에게 on이 붙어있는지 없는지 확인
-	               
+<script src="https://kit.fontawesome.com/3db09483e7.js"></script>
+<script type="text/javascript" src="/js/slick.js"></script>
+<script type="text/javascript" src="/js/aos.js"></script>
+<script>
+	function isNull(obj){
+		return (obj === undefined || obj === null) ? true : false;
+	}
+
+	function getTicket(i) {
+		if(isNull(member)){
+			alert("로그인을 해주세요.");
+		};
+		$.ajax({
+			type : "GET",
+			url : "/user/exhibition/ticket?no="+i,
+			async : false,
+			success : function (data) {
+				$(".con3").html(data);
+				$(".con3-bg").show();
+			}
+		});
+	};
 	
-				if(list) { //on이 붙어있을때 - true
-					$(this).removeClass("on");
-					$(this).siblings(".con4-ep-cont").stop().slideUp();
-				} else { //on이 없을때 - false
-	
-					$(".con4-epilogue").removeClass("on")
-					$(this).addClass("on");
-					$(".con4-epilogue").siblings(".con4-ep-cont").stop().slideUp();
-					$(this).siblings(".con4-ep-cont").stop().slideDown();
-				}
-			})
+	function getDetail(i) {
+		$.ajax({
+			type : "GET",
+			url : "/user/exhibition/detail?no="+i,
+			async : false,
+			success : function(data) {
+				$(".con3").html(data);
+				$(".con4-bg").show();
+			}
+		});
+	};
+
+	$(function(){
+		
+		$(".con2-bggroup > li > a").click(function(event){ // a링크 정지
+			event.preventDefault(); // a링크 정지
+			$(this).siblings(".con2-sub01").stop().fadeIn(); 
+		});
+		$(".sub01-close").click(function(event){ // a링크 정지
+			event.preventDefault(); // a링크 정지
+			$(this).parent(".con2-sub01").stop().fadeOut();
+		});
+
+		$(".con4 #submit-btn2").click(function(){
+			$(".con4-bg").hide();
+		});
+		$(".con4-epilogue").click(function(event){
+			event.preventDefault();
+			var list=$(this).hasClass("on") //클릭한 자기자신에게 on이 붙어있는지 없는지 확인
+               
+
+			if(list) { //on이 붙어있을때 - true
+				$(this).removeClass("on");
+				$(this).siblings(".con4-ep-cont").stop().slideUp();
+			} else { //on이 없을때 - false
+
+				$(".con4-epilogue").removeClass("on")
+				$(this).addClass("on");
+				$(".con4-epilogue").siblings(".con4-ep-cont").stop().slideUp();
+				$(this).siblings(".con4-ep-cont").stop().slideDown();
+			}
 		})
-	</script>
+	})
+</script>
 </head>
 <body>
 <%@ include file="/WEB-INF/view/user/include/topmenu.jsp" %>
