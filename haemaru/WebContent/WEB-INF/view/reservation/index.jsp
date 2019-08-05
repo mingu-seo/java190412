@@ -207,7 +207,7 @@ $(function() {
 					</div>
 				<input type="hidden" name="res_hour" id="form_res_hour" value=""/>			
 				<input type="hidden" name="doctor_pk" id="form_doctor_pk" value=""/>
-				<input type="hidden" name="tel" id="form_tel" value="<%=loginInfo.getTel()%>"/>
+				<input type="hidden" name="tel" id="form_tel" value1="<%=loginInfo.getTel1()%> value2="<%=loginInfo.getTel2()%> value3="<%=loginInfo.getTel3()%>"/>
 				<input type="hidden" name="name" id="form_name" value="<%=loginInfo.getName()%>"/>				
 				<input type="hidden" name="res_contents" id="form_res_contents" value=""/>			
 				<input type="hidden" name="member_pk" value="<%=loginInfo.getNo()%>"/>			
