@@ -4,43 +4,37 @@
 
 	<typeAlias alias="reservevo" type="manage.reserve.ReserveVO" />
 
-
 	<!-- 공통조건 -->
 	<sql id="searchSql">
 		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where">
-			<isNotEqual property="route" compareValue="0"
-				prepend="and">
+			<isNotEqual property="route" compareValue="0" prepend="and">
 				route = #route#
 			</isNotEqual>
 			<!-- 검색어 검색 -->
 			<isNotEqual property="sval" compareValue="" prepend="and">
 				<!-- 검색 타입이 all일 때 -->
 				<isEqual property="stype" compareValue="all">
-					((name like '%$sval$%' ) or (tel like '%$sval$%' ))
+					((name like '%$sval$%') or (tel like '%$sval$%'))
 				</isEqual>
 				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
 				<isNotEqual property="stype" compareValue="all">
-					($stype$ like '%$sval$%' )
+					($stype$ like '%$sval$%')
 				</isNotEqual>
 			</isNotEqual>
 		</dynamic>
-
 	</sql>
 
-	<select id="count" parameterClass="reservevo"
-		resultClass="Integer">
-		SELECT count(*) FROM reserve
+	<select id="count" parameterClass="reservevo" resultClass="Integer">
+		SELECT count(*) 
+		FROM reserve
 		<include refid="searchSql" />
 	</select>
 
-	<select id="list" parameterClass="reservevo"
-		resultClass="reservevo">
-		SELECT *, ifnull((select department from doctor where
-		no=reserve.doctor_pk),0) as doctor_department,
-		ifnull((select name from doctor where
-		no=reserve.doctor_pk and
-		department=doctor_department),0) as doctor_name
+	<select id="list" parameterClass="reservevo" resultClass="reservevo">
+		SELECT *, 
+			IFNULL((SELECT department FROM doctor WHERE no=reserve.doctor_pk),0) AS doctor_department,
+			IFNULL((SELECT name FROM doctor WHERE no=reserve.doctor_pk AND department=doctor_department),0) AS doctor_name
 		FROM reserve
 		<include refid="searchSql" />
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
@@ -49,15 +43,9 @@
 
 	<insert id="insert" parameterClass="reservevo">
 		INSERT INTO reserve
-		(name, tel, res_hour, res_date, member_pk,
-		doctor_pk, route,
-		res_contents, registdate)
+			(name, tel1, tel2, tel3, res_hour, res_date, member_pk, doctor_pk, route,res_contents)
 		VALUES
-		(#name#, #tel#,
-		#res_hour#, #res_date#,
-		#member_pk#,
-		#doctor_pk#, #route#,
-		#res_contents#, now())
+			(#name#, #tel1#, #tel2#, #tel3#, #res_hour#, #res_date#, #member_pk#, #doctor_pk#, #route#,#res_contents#)
 		<selectKey keyProperty="no" resultClass="Integer">
 			SELECT
 			LAST_INSERT_ID()
@@ -65,87 +53,103 @@
 	</insert>
 
 	<update id="update" parameterClass="reservevo">
-		UPDATE reserve SET
-			name=#name#, tel=#tel#, res_date=#res_date#, member_pk=#member_pk#,
-			doctor_pk=#doctor_pk#, route=#route#, res_contents=#res_contents#, res_hour=#res_hour#
+		UPDATE reserve 
+		SET
+			name=#name#, tel1=#tel1#, tel2=#tel2#, tel3=#tel3#, res_date=#res_date#, member_pk=#member_pk#,
+			doctor_pk=#doctor_pk#, route=#route#, res_contents=#res_contents#,
+			res_hour=#res_hour#
 		WHERE no = #no#
 	</update>
 
 	<delete id="delete" parameterClass="Integer">
 		DELETE FROM reserve
-		WHERE
-		no=#no#
+		WHERE no=#no#
 	</delete>
 
-	<select id="read" parameterClass="Integer"
-		resultClass="reservevo">
-		SELECT *, ifnull((select department from doctor where
-		no=reserve.doctor_pk),0) as doctor_department,
-		ifnull((select name from doctor where
-		no=reserve.doctor_pk and
-		department=doctor_department),0) as doctor_name
-		FROM reserve WHERE no>1 and no=#no#
+	<select id="read" parameterClass="Integer" resultClass="reservevo">
+		SELECT *, 
+			IFNULL((SELECT department FROM doctor WHERE no=reserve.doctor_pk),0) AS doctor_department,
+			IFNULL((SELECT name FROM doctor WHERE no=reserve.doctor_pk AND department=doctor_department),0) AS doctor_name
+		FROM reserve 
+		WHERE no>1 and no=#no#
 	</select>
 
 
-	<select id="doctorList" parameterClass="java.util.HashMap"
-		resultClass="manage.doctor.DoctorVO">
-		SELECT * FROM doctor
+	<select id="doctorList" parameterClass="java.util.HashMap" resultClass="manage.doctor.DoctorVO">
+		SELECT * 
+		FROM doctor
 		WHERE department = #department#
+		<!-- property가 yoil이고 비교값이 1이면 doc_schedule 테이블에서 
+		일요일에 예약할 수 있는 doctor_pk가 doctor 테이블의 no 와 일치하는 컬럼을 가지고 온다.  -->
 		<isEqual property="yoil" compareValue="1">
-			and no IN (select doctor_pk from doc_schedule where sun_res=1)
+			AND no IN (SELECT doctor_pk FROM doc_schedule WHERE sun_res=1)
 		</isEqual>
 		<isEqual property="yoil" compareValue="2">
-			and no IN (select doctor_pk from doc_schedule where mon_res=1)
+			AND no IN (SELECT doctor_pk FROM doc_schedule WHERE mon_res=1)
 		</isEqual>
 		<isEqual property="yoil" compareValue="3">
-			and no IN (select doctor_pk from doc_schedule where tue_res=1)
+			AND no IN (SELECT doctor_pk FROM doc_schedule WHERE tue_res=1)
 		</isEqual>
 		<isEqual property="yoil" compareValue="4">
-			and no IN (select doctor_pk from doc_schedule where wed_res=1)
+			AND no IN (SELECT doctor_pk FROM doc_schedule WHERE wed_res=1)
 		</isEqual>
 		<isEqual property="yoil" compareValue="5">
-			and no IN (select doctor_pk from doc_schedule where thu_res=1)
+			AND no IN (SELECT doctor_pk FROM doc_schedule WHERE thu_res=1)
 		</isEqual>
 		<isEqual property="yoil" compareValue="6">
-			and no IN (select doctor_pk from doc_schedule where fri_res=1)
+			AND no IN (SELECT doctor_pk FROM doc_schedule WHERE fri_res=1)
 		</isEqual>
 		<isEqual property="yoil" compareValue="7">
-			and no IN (select doctor_pk from doc_schedule where sat_res=1)
+			AND no IN (SELECT doctor_pk FROM doc_schedule WHERE sat_res=1)
 		</isEqual>
-	</select>
-	
-	<select id="sched" parameterClass="manage.doctor.sched.SchedVO"
-		resultClass="manage.doctor.sched.SchedVO">
-		SELECT no, 
-		<isEqual property="yoil" compareValue="1">
-			sun_start as start_time, sun_end as end_time,
-		</isEqual>
-		<isEqual property="yoil" compareValue="2">
-			mon_start as start_time, mon_end as end_time,
-		</isEqual>
-		<isEqual property="yoil" compareValue="3">
-			tue_start as start_time, tue_end as end_time,
-		</isEqual>
-		<isEqual property="yoil" compareValue="4">
-			wed_start as start_time, wed_end as end_time,
-		</isEqual>
-		<isEqual property="yoil" compareValue="5">
-			thu_start as start_time, thu_end as end_time,
-		</isEqual>
-		<isEqual property="yoil" compareValue="6">
-			fri_start as start_time, fri_end as end_time,
-		</isEqual>
-		<isEqual property="yoil" compareValue="7">
-			sat_start as start_time, sat_end as end_time,
-		</isEqual>
-		name  FROM doc_schedule
-		WHERE doctor_pk = #doctor_pk# 
-		
-	</select>
-	
-	<select id="reservedTime" parameterClass="manage.reserve.ReserveVO" resultClass="manage.reserve.ReserveVO">
-		select res_hour, res_date from reserve where doctor_pk = #doctor_pk#  and res_date = #res_date# 
 	</select>
 
+	<select id="sched" parameterClass="manage.doctor.sched.SchedVO" resultClass="manage.doctor.sched.SchedVO">
+		SELECT no,
+			<!-- property가 yoil이고 비교값이 1이면 일요일의 시작시간과 종료시간을 가지고 온다. -->
+			<isEqual property="yoil" compareValue="1">
+				sun_start AS start_time, sun_end AS end_time,
+			</isEqual>
+			<isEqual property="yoil" compareValue="2">
+				mon_start AS start_time, mon_end AS end_time,
+			</isEqual>
+			<isEqual property="yoil" compareValue="3">
+				tue_start AS start_time, tue_end AS end_time,
+			</isEqual>
+			<isEqual property="yoil" compareValue="4">
+				wed_start AS start_time, wed_end AS end_time,
+			</isEqual>
+			<isEqual property="yoil" compareValue="5">
+				thu_start AS start_time, thu_end AS end_time,
+			</isEqual>
+			<isEqual property="yoil" compareValue="6">
+				fri_start AS start_time, fri_end AS end_time,
+			</isEqual>
+			<isEqual property="yoil" compareValue="7">
+				sat_start AS start_time, sat_end AS end_time,
+			</isEqual>
+			name 
+		FROM doc_schedule
+		WHERE doctor_pk = #doctor_pk#
+	</select>
+
+	<select id="reservedTime" parameterClass="manage.reserve.ReserveVO" resultClass="manage.reserve.ReserveVO">
+	    SELECT res_hour, res_date 
+		FROM reserve 
+		WHERE doctor_pk = #doctor_pk# AND res_date = #res_date#
+	</select>
+
+	<select id="reservation" parameterClass="reservevo" resultClass="reservevo">
+		SELECT *, 
+			<!-- IFNULL : 해당값이 null로 출력될 때 다른값으로 대체하여 출력한다. -->
+			IFNULL((SELECT department FROM doctor WHERE no=reserve.doctor_pk),0) AS doctor_department
+		FROM reserve 
+	</select>
+
+	<insert id="reserveInsert" parameterClass="reservevo">
+		INSERT INTO reserve
+			(name, tel1, tel2, tel3, res_date, res_hour, member_pk, doctor_pk, res_contents, route)
+		VALUES
+			(#name#, #tel1#, #tel2#, #tel3#, #res_date#, #res_hour#, #member_pk#, #doctor_pk#, #res_contents#, 1)
+	</insert>
 </sqlMap>

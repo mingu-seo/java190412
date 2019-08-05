@@ -13,6 +13,9 @@
          background-size:cover;
          background-repeat: no-repeat;}
 
+/* Q&A 글쓰기 버튼 */
+
+input[type="submit"] {width:140px; height:50px; display:block; margin:0 auto; margin-top:70px; background-color:#0e693f; color:#fff;}
 /* Q&A */
 .qna_q {position: relative; top:-60px;}
 

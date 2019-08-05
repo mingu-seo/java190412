@@ -4,30 +4,42 @@
 <%@ page import="util.*"%>
 <%
 MemberVO param = (MemberVO)request.getAttribute("vo");
-ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
+/* ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list"); */
 MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
 MemberVO data = (MemberVO)request.getAttribute("data");
 %>
 <!DOCTYPE html>
-<script>
+
+
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/default.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/edit_account.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="/js/gnb.js"></script>
+    <title>회원정보수정</title>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <script>
 var oEditors; // 에디터 객체 담을 곳
 $(window).load(function() {
 	oEditors = setEditor("memo"); // 에디터 셋팅
 });
 
- function goSave() {
+/*  function goSave() {
 	// 비밀번호 유효성체크
 	if(!validPassword($("#password"))) return false;
 	
 	oEditors.getById["memo"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
 	$("#frm").submit();
-} 
+}  */
 function goSave() {
-	if ($("#email").val() == "") {
-		alert("이메일 입력해주세요.");
-		$("#email").focus();
-		return false;
-	}
 	
 	if ($("#fname").val() == "") {
 		alert("성을 입력해주세요.");
@@ -39,16 +51,28 @@ function goSave() {
 		$("#lname").focus();
 		return false;
 	}
+	
+	if ($("#birthday").val() == "") {
+		alert("생년월일을 입력해주세요.");
+		$("#birthday").focus();
+		return false;
+	}
+	
 	if ($("#tel").val() == "") {
 		alert("연락처를 입력해주세요.");
 		$("#tel").focus();
 		return false;
+		
+	}if ($("#zipcode").val() == "") {
+		alert("우편번호를 입력해주세요.");
+		$("#zipcode").focus();
+		return false;		
 	}
 	
 	// 비밀번호 유효성체크
 	// if(!validPassword($("#password"))) return false;
 	
-	$.ajax ({
+	/* $.ajax ({
 		type:'POST',
 		url:"/manage/member/emailcheck",
 		data:$("[name=frm]").serialize(), //serialize() 직렬로 정렬
@@ -66,7 +90,7 @@ function goSave() {
 	});
 	if ($("#emailcheck").val() == "0") {
 		return false;
-	}
+	} */
 
 
 	$("#frm").submit();  
@@ -74,21 +98,6 @@ function goSave() {
 
 
 </script>
-
-
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/default.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/edit_account.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="/js/gnb.js"></script>
-    <title>회원정보수정</title>
 </head>
 <body>
 <div id="zipcode_layer" style="display:none;position:fixed;overflow:hidden;z-index:999;-webkit-overflow-scrolling:touch;">
@@ -233,7 +242,7 @@ function goSave() {
                     <h3>Edit Account</h3>
                 </div>
         </div>
-        <div class="member">
+        <div class="notice">
             <div class="support-list">
                 <ul class="support-list-center">
                     <li class="on"><a href="edit_account">회원정보수정</a></li>
@@ -245,7 +254,8 @@ function goSave() {
                 <h2>회원정보</h2>
                 <div class="edit-table">
                     <div class="edit-table-right">
-                        <form method="POST">
+                       <!--  <form method="POST"> -->
+                        <form name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" method="post">
                         	<%
 								String[] nameArr = sessionMember.getName().split(",");
 								String[] birthdayArr = sessionMember.getBirthday().split(",");
@@ -254,19 +264,19 @@ function goSave() {
                             <div class="name clear">
                                 <div class="name1">
                                     <label for="first-name">성</label>
-                                    <input type="text" id="first-name" maxlength="2" value="<%=nameArr[0]%>">
+                                    <input type="text" id="fname" maxlength="2" value="<%=nameArr[0]%>">
                                 </div>
                                 <div class="name2">
                                     <label for="middle-name">이름</label>
-                                    <input type="text" id="middle-name" maxlenght="10" value="<%=nameArr[1]%>">
+                                    <input type="text" id="lname" maxlenght="10" value="<%=nameArr[1]%>">
                                 </div>
                             </div>
                         
                             <div class="birth">
                                 <label for="birth-y">생년월일</label>
-                                <input type="text" id="birth-y" name="birth-y" placeholder="년(4자)" maxlength="4" >
-                                <input type="text" id="birth-m" name="birth-m" placeholder="월" maxlength="2">
-                                <input type="text" id="birth-d" name="birth-d" placeholder="일" maxlength="2">
+                                <input type="text" id="birthday" name="year" placeholder="년(4자)" maxlength="4" >
+                                <input type="text" id="birthday" name="month" placeholder="월" maxlength="2">
+                                <input type="text" id="birthday" name="day" placeholder="일" maxlength="2">
                             </div>
                             <!-- <div class="email">
                                 <label for="email">이메일</label>
@@ -274,22 +284,27 @@ function goSave() {
                             </div> -->
                             <div class="email">
                                 <label for="account-contact">연락처</label>
-                                <input type="text" id="account-contact" name="account-contact" placeholder="연락처를 입력하세요" maxlength="40">
+                                <input type="text" id="tel" name="tel" placeholder="연락처를 입력하세요(-제외)" maxlength="40">
                             </div>
 
                             <div class="adress clear">
                                 <label for="adress">주소</label>
-                                <input type="text" id="zipcode" name="zipcode" placeholder="우편번호">
-                                <!-- <button class="ad-button"  class="ad-button zipcodeBtn" name="layer" onclick="sample2_execDaumPostcode()">우편번호</button> -->
-                                <input type='button' class="ad-button zipcodeBtn" onclick="sample2_execDaumPostcode()" value="우편번호">
-                                
-                                <input type="text" id="addr" name="addr" placeholder="기본주소">
-                                <input type="text" id=addr_detail name="addr_detail" placeholder="상세주소">
+                                <input type="text" id="zipcode" name="zipcode" placeholder="우편번호" disabled>
+                                <input type='button' class="ad-button zipcodeBtn" onclick="sample2_execDaumPostcode()" value="우편번호">                              
+                                <input type="text" id="addr" name="addr" placeholder="기본주소" disabled >
+                                <input type="text" id="addr_detail" name="addr_detail" placeholder="상세주소">
                             </div>
+                            <input type="hidden" name="cmd" value="edit">
+                            <input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
+							<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
+							<input type="hidden" name="no" id="no" value="<%=param.getNo()%>"/>
 
-                            <div class="submit">
-                                    <input type="submit" value="수정하기" class="submit-button" onclick="goSave();">
+                            <div class="">
+                                    <!-- <input type="submit" value="수정하기" class="submit-button" onclick="goSave();"> -->
+                                    <input type='button' class="submit-button" href="#" onclick="goSave();" value="수정하기">
+                                    
                             </div>
+                            
                         </form>
                     </div>
                     
@@ -331,6 +346,8 @@ function goSave() {
             </div>
         </div>
     </div>
+
+</body>
     <script>
     // 우편번호 찾기 화면을 넣을 element
     var element_layer = document.getElementById('zipcode_layer');
@@ -418,5 +435,4 @@ function goSave() {
         element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
     }
 </script>
-</body>
 </html>

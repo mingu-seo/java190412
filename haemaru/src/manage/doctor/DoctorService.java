@@ -23,6 +23,7 @@ public class DoctorService {
 
 	@Autowired
 	private DoctorDAO doctorDao;
+	
 	@Autowired
 	private SchedDAO sDao;
 
@@ -41,7 +42,6 @@ public class DoctorService {
 	}
 
 	public int insert(DoctorVO vo, HttpServletRequest request) throws Exception {
-
 		FileUtil fu = new FileUtil();
 		Map fileMap = fu.getFileMap(request);
 		MultipartFile file = (MultipartFile) fileMap.get("image_tmp");
@@ -74,7 +74,6 @@ public class DoctorService {
 			vo.setDoc_image_org(fu.getSrcName());
 
 		}
-
 		DoctorVO data = doctorDao.read(vo.getNo());
 		int r = (Integer) doctorDao.update(vo);
 		if (r > 0) {
@@ -84,9 +83,7 @@ public class DoctorService {
 				Function.fileDelete(vo.getUploadPath(), data.getDoc_image());
 			}
 		}
-
 		return r;
-
 	}
 
 	public int delete(int no) throws SQLException {
@@ -95,7 +92,6 @@ public class DoctorService {
 			sDao.delete(no);
 		}
 		return cnt;
-
 	}
 
 	public int groupDelete(HttpServletRequest request) throws SQLException {
@@ -114,5 +110,4 @@ public class DoctorService {
 	public ArrayList<DoctorVO> Intro(DoctorVO param) throws Exception {
 		return doctorDao.Intro(param);
 	}
-	
 }

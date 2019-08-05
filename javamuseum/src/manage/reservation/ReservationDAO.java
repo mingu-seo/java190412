@@ -40,12 +40,15 @@ public class ReservationDAO extends SqlMapClientDAOSupport {
    public static void main(String[] args) throws SQLException {
       ReservationDAO pd = new ReservationDAO();
       ReservationVO pv = new ReservationVO();
-      	pd.count(pv);
-      	pd.list(pv);
-//      pv.setDate("d");
+      	
+      	pv.setMember_pk(1);
+      	pv.setProgram_pk(174);
+      	pv.setDate("2017-07-31");
+      	pv.setTime(6);
+        pd.insert(pv);
+      	
 //      pv.setMember_pk(1);
 //      av.setName("dayeong");
-//    int no = pd.insert(pv);
 //      int cnt = ad.idcheck("dayeong1234");
 //      System.out.println(cnt);
       

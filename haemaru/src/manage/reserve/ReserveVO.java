@@ -6,17 +6,18 @@ import util.Parameter;
 public class ReserveVO extends Parameter {
 	
 	private int no;
-	private int res_hour;
-	private String res_date;
 	private int member_pk;
 	private int doctor_pk;
-	private Timestamp registdate;
 	private int route;
-	private String res_contents;
-	private String name;
-	private String tel;
+	private int res_hour;
+	private String res_date;
 	private String doctor_name;
 	private int doctor_department;
+	private String name;
+	private String tel1;
+	private String tel2;
+	private String tel3;
+	private String res_contents;
 	
 	public ReserveVO() {
 		super.setPageRows(10);
@@ -28,22 +29,6 @@ public class ReserveVO extends Parameter {
 
 	public void setNo(int no) {
 		this.no = no;
-	}
-
-	public int getRes_hour() {
-		return res_hour;
-	}
-
-	public void setRes_hour(int res_hour) {
-		this.res_hour = res_hour;
-	}
-
-	public String getRes_date() {
-		return res_date;
-	}
-
-	public void setRes_date(String res_date) {
-		this.res_date = res_date;
 	}
 
 	public int getMember_pk() {
@@ -62,14 +47,6 @@ public class ReserveVO extends Parameter {
 		this.doctor_pk = doctor_pk;
 	}
 
-	public Timestamp getRegistdate() {
-		return registdate;
-	}
-
-	public void setRegistdate(Timestamp registdate) {
-		this.registdate = registdate;
-	}
-
 	public int getRoute() {
 		return route;
 	}
@@ -78,28 +55,22 @@ public class ReserveVO extends Parameter {
 		this.route = route;
 	}
 
-	public String getRes_contents() {
-		return res_contents;
+
+	public int getRes_hour() {
+		return res_hour;
 	}
 
-	public void setRes_contents(String res_contents) {
-		this.res_contents = res_contents;
+	public void setRes_hour(int res_hour) {
+		this.res_hour = res_hour;
 	}
 
-	public String getName() {
-		return name;
+
+	public String getRes_date() {
+		return res_date;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getTel() {
-		return tel;
-	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
+	public void setRes_date(String res_date) {
+		this.res_date = res_date;
 	}
 
 	public String getDoctor_name() {
@@ -110,6 +81,7 @@ public class ReserveVO extends Parameter {
 		this.doctor_name = doctor_name;
 	}
 
+
 	public int getDoctor_department() {
 		return doctor_department;
 	}
@@ -118,7 +90,45 @@ public class ReserveVO extends Parameter {
 		this.doctor_department = doctor_department;
 	}
 
-	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 
+	public String getTel1() {
+		return tel1;
+	}
+
+	public void setTel1(String tel1) {
+		this.tel1 = tel1;
+	}
+
+	public String getTel2() {
+		return tel2;
+	}
+
+	public void setTel2(String tel2) {
+		this.tel2 = tel2;
+	}
+
+	public String getTel3() {
+		return tel3;
+	}
+
+	public void setTel3(String tel3) {
+		this.tel3 = tel3;
+	}
+
+	public String getRes_contents() {
+		return res_contents;
+	}
+
+	public void setRes_contents(String res_contents) {
+		this.res_contents = res_contents;
+	}
+	
 }

@@ -71,11 +71,14 @@
 .membership-benefit h3 {  font-weight:300; color:#454545; font-size:36px; margin-bottom:20px;}
 .membership-benefit span {font-weight:300; color:#0e693f; font-size:16px; margin-left:10px;}
 
+
 .membership-benefit-box-center {width:930px; margin:0 auto;}
 .membership-benefit-box {width:1200px; margin:0 auto; text-align:center; margin-top:50px;}
 .membership-benefit-box > div > div {float:left; margin-right:110px;}
 .membership-benefit-box .benefit-img { width:150px; height:150px; border:5px solid #454545; border-radius: 50%; text-align:center; line-height:150px; font-size:32px; color:#454545; margin:0 auto;}
+.membership-benefit-box .classic.on .benefit-img {border:none; background-color:#0e693f; color:#fff;}
 .membership-benefit-box .vip.on .benefit-img {border:none; background-color:#0e693f; color:#fff;}
+.membership-benefit-box .vvip.on .benefit-img {border:none; background-color:#0e693f; color:#fff;}
 
 .membership-benefit-box .benefit-text {line-height:30px; margin-top:20px;}
 

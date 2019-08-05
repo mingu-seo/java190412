@@ -22,7 +22,6 @@ public class Room_resVO  extends Parameter{
 	private int charge_price; //세금 및 수수료 금액
 	private int total_price; //총 금액
 	private String guest_kname; //숙박 고객 한글명
-	private String guest_ename; //숙박 고객 영문명
 	private String guest_tel; //숙박 고객 연락처
 	private String guest_email; //숙박 고객 이메일
 	private int pay_method; //결제 방법 (0:무통장입금  1:신용카드)
@@ -34,6 +33,8 @@ public class Room_resVO  extends Parameter{
 	private int category; //예약 내역 (1:지난 예약  2:다가오는 예약  3:신청된 예약  4:취소된 예약)
 	private String scheckin; //검색조건 체크인
 	private String scheckout; //검색조건 체크아웃
+	
+	private int month_want;
 	
 	public Room_resVO() {
 		super.setPageRows(10);
@@ -86,9 +87,6 @@ public class Room_resVO  extends Parameter{
 	}
 	public String getGuest_kname() {
 		return guest_kname;
-	}
-	public String getGuest_ename() {
-		return guest_ename;
 	}
 	public String getGuest_tel() {
 		return guest_tel;
@@ -150,9 +148,6 @@ public class Room_resVO  extends Parameter{
 	public void setGuest_kname(String guest_kname) {
 		this.guest_kname = guest_kname;
 	}
-	public void setGuest_ename(String guest_ename) {
-		this.guest_ename = guest_ename;
-	}
 	public void setGuest_tel(String guest_tel) {
 		this.guest_tel = guest_tel;
 	}
@@ -193,5 +188,13 @@ public class Room_resVO  extends Parameter{
 	public void setScheckout(String scheckout) {
 		this.scheckout = scheckout;
 	}
+	public int getMonth_want() {
+		return month_want;
+	}
+	public void setMonth_want(int month_want) {
+		this.month_want = month_want;
+	}
+	
+	
 	
 }

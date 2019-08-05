@@ -13,12 +13,12 @@ public class Pkg_resVO extends Parameter {
 	private Timestamp purchase_date; // 구매일
 	private String use_date; // 사용일
 	private String guest_kname; // 고객 한글명
-	private String guest_ename; // 고객 영문명
 	private int guest_tel; // 고객 연락처
-	private String geust_email; // 고객 이메일
+	private String email; // 고객 이메일
 	private int pkg_price; // 패키지 가격
 	private int pkg_count; // 패키지 수량
 	private int total_price; // 총 가격
+	private String gender; // 고객 성별
 	
 	
 	public Pkg_resVO(int pageRows) {
@@ -69,23 +69,17 @@ public class Pkg_resVO extends Parameter {
 	public void setGuest_kname(String guest_kname) {
 		this.guest_kname = guest_kname;
 	}
-	public String getGuest_ename() {
-		return guest_ename;
-	}
-	public void setGuest_ename(String guest_ename) {
-		this.guest_ename = guest_ename;
-	}
 	public int getGuest_tel() {
 		return guest_tel;
 	}
 	public void setGuest_tel(int guest_tel) {
 		this.guest_tel = guest_tel;
 	}
-	public String getGeust_email() {
-		return geust_email;
+	public String getEmail() {
+		return email;
 	}
-	public void setGeust_email(String geust_email) {
-		this.geust_email = geust_email;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public int getPkg_price() {
 		return pkg_price;
@@ -104,6 +98,12 @@ public class Pkg_resVO extends Parameter {
 	}
 	public void setTotal_price(int total_price) {
 		this.total_price = total_price;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 	
 }

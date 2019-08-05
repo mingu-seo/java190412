@@ -71,11 +71,25 @@
 								</colgroup>
 								<tbody>
 									<tr>
-										<th scope="row"><label for="">패키지 이름</label></th>
-										<td colspan="3">
-											<input type="text" id="name" name="name" class="w50" title="제목을 입력해주세요" />	
+										<th scope="row"><label for="">패키지 한글이름</label></th>
+										<td>
+											<input type="text" id="kname" name="kname" class="w50" title="제목을 입력해주세요" />	
 										</td>
-									</tr>		
+										<th scope="row"><label for="">패키지 영어이름</label></th>
+										<td>
+											<input type="text" id="ename" name="ename" class="w50" />
+										</td>
+									</tr>	
+									<tr>
+										<th scope="row"><label for="">패키지 소개</label></th>
+										<td>
+											<input type="text" id="intro" name="intro" class="w50" />
+										</td>
+										<th scope="row"><label for="">패키지 상세 소개</label></th>
+										<td>
+											<input type="text" id="intro_detail" name="intro_detail" class="w50"/>
+										</td>
+									</tr>	
 									<tr>
 										<th scope="row"><label for="">운영기간 시작일</label></th>
 										<td>

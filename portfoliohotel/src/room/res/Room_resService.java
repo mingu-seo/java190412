@@ -2,6 +2,7 @@ package room.res;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -27,8 +28,18 @@ public class Room_resService {
 	 * @return
 	 * @throws Exception
 	 */
-	public ArrayList list(Room_resVO vo) throws Exception{
-		ArrayList list = room_resDAO.list(vo);
+	public ArrayList index(Room_resVO vo) throws Exception{
+		ArrayList index = room_resDAO.index(vo);
+		return index;
+	}
+	
+	public ArrayList<HashMap> list(String yearMonth) throws Exception {
+		ArrayList<HashMap> map = room_resDAO.list(yearMonth);
+		return map;
+	}
+	
+	public ArrayList<HashMap> check(HashMap map) throws Exception {
+		ArrayList<HashMap> list = room_resDAO.check(map);
 		return list;
 	}
 	

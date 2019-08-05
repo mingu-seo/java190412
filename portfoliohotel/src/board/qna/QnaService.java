@@ -57,13 +57,13 @@ public class QnaService {
 		return no;
 	}
 	
-public int update(QnaVO vo) throws SQLException, IOException {
+	public int update(QnaVO vo) throws SQLException, IOException {
 		
-	QnaVO data = qnaDao.read(vo);
-	int r = (Integer)qnaDao.update(vo);
-	if(r > 0){
-		if("1".equals(vo.getFile_chk()) || !"".equals(Function.checkNull(vo.getFile()))){
-			Function.fileDelete(vo.getUploadPath(), data.getFile());
+		QnaVO data = qnaDao.read(vo);
+		int r = (Integer)qnaDao.update(vo);
+		if(r > 0){
+			if("1".equals(vo.getFile_chk()) || !"".equals(Function.checkNull(vo.getFile()))){
+				Function.fileDelete(vo.getUploadPath(), data.getFile());
 		}
 	}
 	return r;
@@ -82,6 +82,8 @@ public int update(QnaVO vo) throws SQLException, IOException {
 		
 		return r;
 	}
+	
+	
 	
 
 	/*	관리자  쓰기 , 수정*/

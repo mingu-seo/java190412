@@ -44,7 +44,7 @@ public class ReservationController {
       ReservationVO data = reservationService.read(param.getNo());
       
       model.addAttribute("data", data);
-      model.addAttribute("vo", param);
+      model.addAttribute("param", param);
       
       return "manage/program/reservation/read";
    }
@@ -86,13 +86,14 @@ public class ReservationController {
 
    @RequestMapping("/manage/program/reservation/process")
    public String process(Model model, ReservationVO param,  HttpServletRequest request) throws Exception {
-      model.addAttribute("programvo", param);
+      model.addAttribute("vo", param);
+      
       if ("write".equals(param.getCmd())) {
-         int r = reservationService.insert(param, request);
-         model.addAttribute("code", "alertMessageUrl");
-         model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
-         model.addAttribute("url", "list");
-      } else if ("edit".equals(param.getCmd())) {
+          int r = reservationService.insert(param);
+          model.addAttribute("code", "alertMessageUrl");
+          model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
+          model.addAttribute("url", param.getTargetURLParam("list", param, 0));
+ 	} else if ("edit".equals(param.getCmd())) {
          int r = reservationService.update(param, request);
          model.addAttribute("code", "alertMessageUrl");
          model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));

@@ -9,31 +9,31 @@
 	<sql id="searchSql">
 		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where">
-						<!-- 검색어 검색 -->
+			<!-- 검색어 검색 -->
 			<isNotEqual property="sval" compareValue="" prepend="and">
 				<!-- 검색 타입이 all일 때 -->
 				<isEqual property="stype" compareValue="all" >
-					((name like '%$sval$%' ) or (info like '%$sval$%' ))
+					((name LIKE '%$sval$%' ) OR (info LIKE '%$sval$%' ))
 				</isEqual>
 				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
 				<isNotEqual property="stype" compareValue="all">
-					($stype$ like '%$sval$%' )
+					($stype$ LIKE '%$sval$%' )
 				</isNotEqual>
 			</isNotEqual>
 		</dynamic>
 	</sql>
 
 
-	<select id="count" parameterClass="schedvo"
-		resultClass="Integer">
-		SELECT count(*) FROM doc_schedule
+	<select id="count" parameterClass="schedvo" resultClass="Integer">
+		SELECT COUNT(*) 
+		FROM doc_schedule
 		<include refid="searchSql" />
 	</select>
 
-	<select id="list" parameterClass="schedvo"
-		resultClass="schedvo">
-		SELECT *, (SELECT department FROM doctor WHERE doctor.no = doc_schedule.doctor_pk) AS department, 
-				(SELECT position FROM doctor WHERE doctor.no = doc_schedule.doctor_pk) AS position
+	<select id="list" parameterClass="schedvo" resultClass="schedvo">
+		SELECT *, 
+			(SELECT department FROM doctor WHERE doctor.no = doc_schedule.doctor_pk) AS department, 
+			(SELECT position FROM doctor WHERE doctor.no = doc_schedule.doctor_pk) AS position
 		FROM doc_schedule
 		<include refid="searchSql" />
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
@@ -43,11 +43,11 @@
 		INSERT INTO doc_schedule
 			(doctor_pk, name, mon_start, mon_end, tue_start, tue_end, wed_start, wed_end,
 			thu_start, thu_end, fri_start, fri_end, sat_start, sat_end,
-			sun_start, sun_end, hol_start, hol_end)
+			sun_start, sun_end)
 		VALUES
 			(#doctor_pk#, #name#, #mon_start#, #mon_end#, #tue_start#, #tue_end#, #wed_start#, #wed_end#,
 			#thu_start#, #thu_end#, #fri_start#, #fri_end#, #sat_start#, #sat_end#,
-			#sun_start#, #sun_end#, #hol_start#, #hol_end#)
+			#sun_start#, #sun_end#)
 		<selectKey keyProperty="no" resultClass="Integer">
 			SELECT
 			LAST_INSERT_ID()
@@ -59,7 +59,7 @@
 			mon_start=#mon_start#, mon_end=#mon_end#, tue_start=#tue_start#, tue_end=#tue_end#, 
 			wed_start=#wed_start#, wed_end=#wed_end#, thu_start=#thu_start#, thu_end=#thu_end#, 
 			fri_start=#fri_start#, fri_end=#fri_end#, sat_start=#sat_start#, sat_end=#sat_end#,
-			sun_start=#sun_start#, sun_end=#sun_end#, hol_start=#hol_start#, hol_end=#hol_end#,
+			sun_start=#sun_start#, sun_end=#sun_end#,
 			mon_res=#mon_res#, tue_res=#tue_res#, wed_res=#wed_res#, thu_res=#thu_res#, 
 			fri_res=#fri_res#, sat_res=#sat_res#, sun_res=#sun_res#
         WHERE no = #no#
@@ -73,13 +73,15 @@
 	<select id="read" parameterClass="Integer"
 		resultClass="schedvo">
 		SELECT *
-		FROM doc_schedule WHERE no=#no#
+		FROM doc_schedule 
+		WHERE no=#no#
 	</select>
 	
 	<select id="readByDoctor" parameterClass="Integer"
 		resultClass="schedvo">
 		SELECT *
-		FROM doc_schedule WHERE doctor_pk=#doctor_pk#
+		FROM doc_schedule 
+		WHERE doctor_pk=#doctor_pk#
 	</select>
 
 </sqlMap>

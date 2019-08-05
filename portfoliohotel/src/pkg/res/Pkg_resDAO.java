@@ -42,29 +42,27 @@ public class Pkg_resDAO extends SqlMapClientDAOSupport{
 		return (Integer)getSqlMapClient().insert("pkg_res.insert",vo);
 	}
 	
-	/*
-	 * public Pkg_resVO read(int no) throws SQLException { return
-	 * (Pkg_resVO)getSqlMapClient().queryForObject("pkg.read", no); }
-	 */
+	public Pkg_resVO read(int no) throws SQLException {
+		return (Pkg_resVO)getSqlMapClient().queryForObject("pkg_res.read", no);
+	}
+	
 	
 	/**
 	 * 관리자 수정
 	 * @param vo
 	 * @throws SQLException
 	 */
-	/*
-	 * public int update(Pkg_resVO vo) throws SQLException { return
-	 * getSqlMapClient().update("pkg.update", vo); }
-	 */
+	public int update(Pkg_resVO vo) throws SQLException {
+		return getSqlMapClient().update("pkg_res.update", vo);
+	}
 	
 	/**
 	 * 관리자 삭제
 	 * @param no
 	 * @throws SQLException
 	 */
-	/*
-	 * public int delete(int no) throws SQLException { return
-	 * getSqlMapClient().delete("pkg.delete", no); }
-	 */
+	public int delete(int no) throws SQLException {
+		return getSqlMapClient().delete("pkg_res.delete", no);
+	}
 
 }

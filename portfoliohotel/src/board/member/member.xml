@@ -87,6 +87,7 @@
      
     <select id="emailcheck" parameterClass="String" resultClass="Integer">
         select count(*) as cnt from member where email=#email#
+        
     </select>
     
     <select id="loginCheck" parameterClass="membervo" resultClass="Integer">

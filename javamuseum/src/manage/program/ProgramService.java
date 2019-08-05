@@ -23,6 +23,7 @@ public class ProgramService {
 	
 	@Autowired
 	private ProgramDAO programDao;
+	@Autowired
 	private ReservationDAO reservationDao;
 	
 	public int[] count(ProgramVO vo) throws Exception {

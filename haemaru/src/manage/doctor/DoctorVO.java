@@ -1,7 +1,10 @@
 package manage.doctor;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
+import manage.doctor.sched.SchedVO;
+import manage.reserve.ReserveVO;
 import util.Parameter;
 
 public class DoctorVO extends Parameter {
@@ -17,11 +20,16 @@ public class DoctorVO extends Parameter {
 	private String doc_image; //의료진 이미지 이름
 	private String doc_image_org; //의료진 이미지 원본이름
 	private String doc_imagename_chk; //의료진 이미지 이름 체크 : DB에 존재X : VO에만 존재
-	private Timestamp registdate; //의료진 등록일
 	private int gender; //의료진 성별 남, 여
+	
+	private int isDoctor;
+	
+	private SchedVO slist;
+	ArrayList<ReserveVO> tlist;
 
 	public DoctorVO() {
 		super.setPageRows(10);
+		this.isDoctor=0;
 	}
 	/**
 	 * 생성자 페이지로우수 세팅
@@ -56,77 +64,117 @@ public class DoctorVO extends Parameter {
 		}
 		return strList.toString();
 	}
+	
 	public int getNo() {
 		return no;
 	}
+	
 	public void setNo(int no) {
 		this.no = no;
 	}
+	
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public int getDepartment() {
 		return department;
 	}
+	
 	public void setDepartment(int department) {
 		this.department = department;
 	}
+	
 	public int getPosition() {
 		return position;
 	}
+	
 	public void setPosition(int position) {
 		this.position = position;
 	}
+	
 	public String getAddr() {
 		return addr;
 	}
+	
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
+	
 	public String getTel() {
 		return tel;
 	}
+	
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+	
 	public int getCategory() {
 		return category;
 	}
+	
 	public void setCategory(int category) {
 		this.category = category;
 	}
+	
 	public String getDoc_image() {
 		return doc_image;
 	}
+	
 	public void setDoc_image(String doc_image) {
 		this.doc_image = doc_image;
 	}
+	
 	public String getDoc_image_org() {
 		return doc_image_org;
 	}
+	
 	public void setDoc_image_org(String doc_image_org) {
 		this.doc_image_org = doc_image_org;
 	}
+	
 	public String getDoc_imagename_chk() {
 		return doc_imagename_chk;
 	}
+	
 	public void setDoc_imagename_chk(String doc_imagename_chk) {
 		this.doc_imagename_chk = doc_imagename_chk;
 	}
-	public Timestamp getRegistdate() {
-		return registdate;
-	}
-	public void setRegistdate(Timestamp registdate) {
-		this.registdate = registdate;
-	}
+
 	public int getGender() {
 		return gender;
 	}
+	
 	public void setGender(int gender) {
 		this.gender = gender;
+	}
+	
+	public SchedVO getSlist() {
+		return slist;
+	}
+	
+	public void setSlist(SchedVO slist) {
+		this.slist = slist;
+	}
+	
+	public ArrayList<ReserveVO> getTlist() {
+		return tlist;
+	}
+	
+	public void setTlist(ArrayList<ReserveVO> tlist) {
+		this.tlist = tlist;
+	}
+	
+	public int getIsDoctor() {
+		return isDoctor;
+	}
+	
+	public void setIsDoctor(int isDoctor) {
+		this.isDoctor = isDoctor;
 	}	
 
 }

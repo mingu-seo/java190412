@@ -140,7 +140,7 @@
             </div>
         </div>
     </div> -->
-   <%@ include file="../header_menu.jsp" %>
+<jsp:include page="/header_menu" flush="true"/>
     
     <div id="container">
         

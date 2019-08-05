@@ -1,7 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="board.qna.*" %>
+<%@ page import="property.SiteProperty" %>
+<%@ page import="java.util.*" %>
+<%@ page import="util.*" %>
+<%
+QnaVO param = (QnaVO)request.getAttribute("vo");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+<script>
+function goSave() {
+	if ($("#title").val() == "") {
+		alert("제목을 입력해주세요.");
+		$("#title").focus();
+		return false;
+	}
+	
+	if ($("#contents").val() == "") {
+		alert("내용을 입력해주세요.");
+		$("#contents").focus();
+		return false;
+	}
+	
+}
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -44,7 +67,7 @@
                         <h2>해마루 이차진료 동물병원에서 여러분이 자주 궁금해 하시는 사항들을 문의해주세요.</h2>
                     </div>
                     <div class="sub5-4-box">
-                        <form method="GET" action="text.php">
+                        <form  name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" method="post" enctype="multipart/form-data">
                             <div class="sub5-4-email">
                                 <label for="sub_email">e-mail</label>
                                 <input type="text" maxlength="20" id="sub_email">
@@ -66,7 +89,7 @@
                                 <textarea id="sub5-4-textarea" placeholder="문의하실 내용을 적어주세요."></textarea>
                             </div>
                             <div class="sub5-4-btn">
-                            <input type="submit" value="등록하기" id="sub5_btn_submit">
+                            <input type="submit" value="등록하기" id="sub5_btn_submit" onclick="return goSave();">
                             <input type="reset" value="취소하기" id="sub5_btn_reset">
                             </div>
                         </form>
