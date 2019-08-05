@@ -72,6 +72,17 @@ public class QnaController {
 		return "support/qna/qna_edit";
 	}
 	
+
+	/*
+	 * @RequestMapping("/membership/mypage") public String qna_myPage(Model model,
+	 * QnaVO param) throws Exception { int[] rowPageCount = qnaService.count(param);
+	 * ArrayList<QnaVO> list = qnaService.list(param);
+	 * 
+	 * model.addAttribute("totCount", rowPageCount[0]);
+	 * model.addAttribute("totPage", rowPageCount[1]); model.addAttribute("qlist",
+	 * list); model.addAttribute("qvo", param); return "membership/mypage"; }
+	 */
+	
 	///
 	@RequestMapping("/support/qna/popup")
 	public String popup(Model model, QnaVO param, HttpSession session) throws Exception {

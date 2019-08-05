@@ -2,10 +2,14 @@
 <%@ page import="board.member.*" %>
 <%@ page import="util.*" %>
 <%@ page import="java.util.*" %>
+<%@ page import="property.SiteProperty" %>
+<%@ page import="board.qna.*" %>
+
 <%
 MemberVO param = (MemberVO)request.getAttribute("vo");
 MemberVO data = (MemberVO)request.getAttribute("data");
 MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
+
 %>
 
 <!DOCTYPE html>
@@ -246,15 +250,22 @@ MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
             <h3>나의 질문<span class="title-sub">MY QUESTION</span></h3>
             <div class="my-question-box">
                 <table>
+               			
                     <tr>
-                            <td><a href="#"><span class="plus">┌</span>회원탈퇴에 대한 답변입니다.</a></td>
-                            <td>2019-06-29</td>
+                           <td><a href=""></a></td>
                     </tr>
                     <tr>
                         <td><a href="../qna.html">회원탈퇴를 하고싶어요.</a></td>
                         <td>2019-07-01</td>
                     </tr>
+                   
+                     
                 </table>
+                		<input type="hidden" name="cmd" id="cmd" value="groupDelete"/>
+						<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
+						<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
+						<input type="hidden" name="no" id="no" value="<%=param.getNo() %>"/>
+						<input type="hidden" name="email" id="email" value="<%=param.getEmail() %>"/>
             </div>
         </div>
         <div class="membership-benefit">

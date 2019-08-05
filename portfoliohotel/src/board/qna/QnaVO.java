@@ -9,10 +9,12 @@ public class QnaVO extends Parameter {
 	private int 		no;					// 글번호 (pk)
 	private int 		category;			// 문의 분류
 	private String 		email;				// 이메일
-	private String		name;				// 이름 
-	private String 		tel;				// 휴대폰
+	private String		firstName;			// 성 
+	private String		lastName;			// 이름 
+	private int 		tel1;				// 휴대폰
+	private int 		tel2;				// 휴대폰
+	private int 		tel3;				// 휴대폰
 	private String 		password;			// 비밀번호
-	private int			member_pk;			// 회원 pk
 	private String 		title;				// QnA제목
 	private String		contents;			// QnA내용
 	private Timestamp	regdate;			// QnA등록일
@@ -78,13 +80,7 @@ public class QnaVO extends Parameter {
 		this.email = email;
 	}
 
-	public String getTel() {
-		return tel;
-	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
+	
 
 	public String getPassword() {
 		return password;
@@ -95,9 +91,7 @@ public class QnaVO extends Parameter {
 	}
 
 	
-	public int getMember_pk() { return member_pk; }
-	 
-	public void setMember_pk(int member_pk) { this.member_pk = member_pk; }
+	
 	
 
 	public String getTitle() {
@@ -203,17 +197,42 @@ public class QnaVO extends Parameter {
 	public void setFilesize(long filesize) {
 		this.filesize = filesize;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	public String getFile_chk() {
 		return file_chk;
 	}
 	public void setFile_chk(String file_chk) {
 		this.file_chk = file_chk;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public int getTel1() {
+		return tel1;
+	}
+	public void setTel1(int tel1) {
+		this.tel1 = tel1;
+	}
+	public int getTel2() {
+		return tel2;
+	}
+	public void setTel2(int tel2) {
+		this.tel2 = tel2;
+	}
+	public int getTel3() {
+		return tel3;
+	}
+	public void setTel3(int tel3) {
+		this.tel3 = tel3;
 	}
 	
 	
