@@ -84,14 +84,12 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 
 <body>
 	
-	<%if(sessionMember != null) {%>
+	<%if(sessionMember == null) {%>
           <div id="logined">
             <div class="logined-box">
                 <h2 class="close-btn"><a href="#">x</a></h2>
-                 <%
-                 String[] nameArr = sessionMember.getName().split(",");
-                 %>
-                <h3><%=nameArr[0]%> <%=nameArr[1]%><span>님 안녕하세요.</span></h3>
+                 
+                <h3><%=sessionMember.getF_name()%> <%=sessionMember.getL_name()%><span>님 안녕하세요.</span></h3>
                 <p class="mypage"><a href="/membership/mypage">마이페이지 <img src="img/white-arrow.png" class="white-arrow"></a></p>
                 <table>
                
