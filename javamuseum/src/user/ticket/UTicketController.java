@@ -13,7 +13,7 @@ public class UTicketController {
 	@Autowired
 	private UTicketService uticketService;
 	
-	@RequestMapping("/user/ehibition/process")
+	@RequestMapping("/user/exhibition/process")
 	public String process(Model model, UTicketVO param) throws Exception {
 		if("reserve".equals(param.getCmd())) {
 			int r = uticketService.insert(param);

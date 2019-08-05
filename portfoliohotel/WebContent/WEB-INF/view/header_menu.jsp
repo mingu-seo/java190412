@@ -1,14 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="board.member.*" %>
+<%@ page import="pkg.*" %>
 <%@ page import="util.*" %>
 <%
-MemberVO param = (MemberVO)request.getAttribute("vo");
-ArrayList<MemberVO> list = (ArrayList)request.getAttribute("list");
 MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
 MemberVO data = (MemberVO)request.getAttribute("data");
 %>
+<%
+PkgVO pparam = (PkgVO)request.getAttribute("pvo");
+ArrayList<PkgVO> plist = (ArrayList<PkgVO>)request.getAttribute("plist");
+int ptotCount = (Integer)request.getAttribute("ptotCount");
+int ptotPage = (Integer)request.getAttribute("ptotPage");
+%>
 <div id="header">
+
+
+    <%if(sessionMember != null) {%>
+          <div id="logined">
+            <div class="logined-box">
+                <h2 class="close-btn"><a href="#">x</a></h2>
+                 
+                <h3><%=sessionMember.getF_name()%> <%=sessionMember.getL_name()%><span>님 안녕하세요.</span></h3>
+                <p class="mypage"><a href="/membership/mypage">마이페이지 <img src="img/white-arrow.png" class="white-arrow"></a></p>
+                <table>
+               
+                    <tr>
+                        <td class="left">등급</td>
+                        <td class="right"><%=CodeUtil.getMgrade(sessionMember.getGrade())%></td>
+                    </tr>
+                    <tr>
+                        <td class="left">포인트</td>
+                        <td class="right"><%=sessionMember.getPoint()%> P</td>
+                    </tr>
+                    <tr>
+                        <td class="left">회원번호</td>
+                        <td class="right"><%=sessionMember.getNo()%></td>
+                    </tr>
+                </table>
+            </div>      
+        </div>  
+        <%} %>
+
         <div class="header-center">
             <div class="pc-header">
                 <h1 class="logo"><a href="/index"><img src="/img/header-logo.png"></a></h1>
@@ -18,11 +51,25 @@ MemberVO data = (MemberVO)request.getAttribute("data");
                             <div class="pc-sub">
                                     <div class="pc-sub-center">
                                         <div class="pc-sub-box">
-	                                        <h2><a href="/pkg/special_promotion">Promotion</a></h2>
+	                                        <h2>Package</a></h2>
                                             <ul class="offer">
-                                                <li><a href="/pkg/room/room_offer">Room Package</a></li>
-                                                <li><a href="/pkg/dining/dining_offer">Dining Package</a></li>
-                                                <li><a href="/pkg/event_gift/etc_offer">Events & Gift</a></li>
+                                            <%
+                                            	if (ptotCount == 0) {
+                                            %>
+                                            	<ul>
+                                            		<li class="first">등록된 글이 없습니다.</li>
+                                            	</ul>
+                                            <%
+                                            	} else {
+                                            		PkgVO pdata;
+                                            		for (int i=0; i<plist.size(); i++) {
+                                            			pdata = plist.get(i);
+                                            %>
+                                            		<li><a href="/pkg/detail_page/pkg_detail_page?no=<%=pdata.getNo()%>"><%=pdata.getEname()%></li>
+                                            <%
+                                            		}
+                                            	}
+                                            %>
                                             </ul>
                                         </div>
                                         <div class="pc-sub-box">
@@ -62,16 +109,16 @@ MemberVO data = (MemberVO)request.getAttribute("data");
                                             <div class="pc-sub-box facil-left">
                                                 <h2 class="no-line">Facilities</h2>
                                                 <ul>
-                                                    <li><a href="../facilities.html#f1">The Oasis</a></li>
-                                                    <li><a href="../facilities.html#f2">Indoor Swimming Pool</a></li>
+                                                    <li><a href="/facilities.html#f1">The Oasis</a></li>
+                                                    <li><a href="/facilities.html#f2">Indoor Swimming Pool</a></li>
                                                     
                                                 </ul>
                                             </div>
                                             <div class="pc-sub-box mtop">
                 
                                                 <ul class="Rooms">
-                                                	<li><a href="../facilities.html#f3">Fitness Centre</a></li>
-                                                    <li><a href="../facilities.html#f4">Sauna</a></li>
+                                                	<li><a href="/facilities.html#f3">Fitness Centre</a></li>
+                                                    <li><a href="/facilities.html#f4">Sauna</a></li>
                                                 </ul>
                                             </div>
                                             <div class="pc-sub-box mtop facil-right">
@@ -91,7 +138,7 @@ MemberVO data = (MemberVO)request.getAttribute("data");
                                     <div class="pc-sub-center center clear">
                                             <div class="pc-sub-box">
                                                 <h2 class="no-line">Support</h2>
-                                                <a href="/membership/mypage" class="notice-a">
+                                                <a href="/membership/notice" class="notice-a">
                                                 <ul>
                                                     <li>Notice</li>
                                                     <li class="support-text">
@@ -115,7 +162,7 @@ MemberVO data = (MemberVO)request.getAttribute("data");
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="/membership/qna">
+                                                <a href="/support/qna/qna">
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">

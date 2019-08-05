@@ -12,7 +12,7 @@ MemberVO umembervo = (MemberVO)session.getAttribute("memberInfo");
             if(umembervo != null) {
             %>
 	            <li><%= umembervo.getName() %>님</li>
-	            <li><a href="mypage.html">MY PAGE</a></li>
+	            <li><a href="/user/mypage/mypage">MY PAGE</a></li>
 	            <li><a href="/user/logout">LOGOUT</a></li>
             <%
             } else {
@@ -43,7 +43,7 @@ MemberVO umembervo = (MemberVO)session.getAttribute("memberInfo");
                         <div class="sub">
                             <ul class="sub-menu">
                                 <li><a href="/user/exhibition/subExhibition1">현재 전시</a></li>
-                                <li><a href="sub-exhibition2.html">지난 전시</a></li>
+                                <li><a href="/user/exhibition/subExhibition2">지난 전시</a></li>
                             </ul>
                         </div>
                     </li>

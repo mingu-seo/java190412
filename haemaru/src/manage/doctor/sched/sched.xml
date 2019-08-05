@@ -9,31 +9,31 @@
 	<sql id="searchSql">
 		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where">
-						<!-- 검색어 검색 -->
+			<!-- 검색어 검색 -->
 			<isNotEqual property="sval" compareValue="" prepend="and">
 				<!-- 검색 타입이 all일 때 -->
 				<isEqual property="stype" compareValue="all" >
-					((name like '%$sval$%' ) or (info like '%$sval$%' ))
+					((name LIKE '%$sval$%' ) OR (info LIKE '%$sval$%' ))
 				</isEqual>
 				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
 				<isNotEqual property="stype" compareValue="all">
-					($stype$ like '%$sval$%' )
+					($stype$ LIKE '%$sval$%' )
 				</isNotEqual>
 			</isNotEqual>
 		</dynamic>
 	</sql>
 
 
-	<select id="count" parameterClass="schedvo"
-		resultClass="Integer">
-		SELECT count(*) FROM doc_schedule
+	<select id="count" parameterClass="schedvo" resultClass="Integer">
+		SELECT COUNT(*) 
+		FROM doc_schedule
 		<include refid="searchSql" />
 	</select>
 
-	<select id="list" parameterClass="schedvo"
-		resultClass="schedvo">
-		SELECT *, (SELECT department FROM doctor WHERE doctor.no = doc_schedule.doctor_pk) AS department, 
-				(SELECT position FROM doctor WHERE doctor.no = doc_schedule.doctor_pk) AS position
+	<select id="list" parameterClass="schedvo" resultClass="schedvo">
+		SELECT *, 
+			(SELECT department FROM doctor WHERE doctor.no = doc_schedule.doctor_pk) AS department, 
+			(SELECT position FROM doctor WHERE doctor.no = doc_schedule.doctor_pk) AS position
 		FROM doc_schedule
 		<include refid="searchSql" />
 		ORDER BY no DESC LIMIT $startPageNo$, $pageRows$
@@ -73,13 +73,15 @@
 	<select id="read" parameterClass="Integer"
 		resultClass="schedvo">
 		SELECT *
-		FROM doc_schedule WHERE no=#no#
+		FROM doc_schedule 
+		WHERE no=#no#
 	</select>
 	
 	<select id="readByDoctor" parameterClass="Integer"
 		resultClass="schedvo">
 		SELECT *
-		FROM doc_schedule WHERE doctor_pk=#doctor_pk#
+		FROM doc_schedule 
+		WHERE doctor_pk=#doctor_pk#
 	</select>
 
 </sqlMap>

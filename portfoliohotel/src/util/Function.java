@@ -1300,10 +1300,30 @@ public class Function {
 		}
 		return fu;
 	}
+	
+	//금액 000 마다 , 출력
+	public static String toPriceComma(int num) {
+		  DecimalFormat df = new DecimalFormat("#,###");
+		  return df.format(num);
+	}
+	
+	public static String toDateKorean(String yearmonthday) {
+		String[] arr = new String[3];
+		arr[0] = yearmonthday.substring(0,4);
+		arr[1] = yearmonthday.substring(5,7);
+		arr[2] = yearmonthday.substring(8,10);
+		
+		return arr[0]+"년 "+arr[1]+"월 "+arr[2]+"일"; 
+	}
+	
 		
 	public static void main(String[] args)throws Exception{
 //		System.out.println(strCut("MONTBLANCＩTABLE_MONTBLANCBENCH_COCOROCHAIR", "", 30, 0, true, true));
 //		System.out.println(strCut("한글은 어떻게 나올까 이렇게 저렇게", "", 30, 0, true, true));
-		System.out.println(message(1, "참", "거짓"));
+//		System.out.println(message(1, "참", "거짓"));
+		
+		String r = toDateKorean("2019-08-05");
+		System.out.println(r);
 	}
+	
 }

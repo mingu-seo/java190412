@@ -46,32 +46,16 @@ function groupDelete() {
 
 function goDelete(no) {	
 	if (confirm ('삭제하시겠습니까?')) {
-		document.location.href = "/manage/room/res/process?no="+no+"&cmd=delete";
+		document.location.href = "/room/res/process?no="+no+"&cmd=delete";
 	}
 }
 
 function goSearch() {
-	console.log("클릭");
-	//$("#searchForm").submit();
+	$("#searchForm").submit();
 }
 
-$(function(){
-	$(".submenu").hide();
-	$(".menu").mouseover(function(){
-        $(this).find(".submenu").stop().slideDown();
-    });
-    $(".menu").mouseleave(function(){
-        $(this).find(".submenu").stop().slideUp();
-    });
-    
-    $("#scheckin, #scheckout").change(function(){
-    	console.log($("#scheckin").val());
-    	console.log($("#scheckout").val());
-    });
-});
-
 </script>
-<title>관리자 객실 목록</title>
+<title>관리자 객실 예약 관리</title>
 </head>
 <body>
 <%@ include file="/WEB-INF/view/manage/include/common.jsp" %>
@@ -101,11 +85,11 @@ $(function(){
 								<col width="20%"/>
 							</colgroup>
 							<tr>
-								<th><a href="/manage/room/res/index">전체 예약</a></th>
-								<th><a href="/manage/room/res/index?category=1">지난 예약</a></th>
-								<th><a href="/manage/room/res/index?category=2">다가오는 예약</a></th>
-								<th><a href="/manage/room/res/index?category=3">신청된 예약</a></th>
-								<th><a href="/manage/room/res/index?category=4">취소된 예약</a></th>
+								<th <%=vo.getCategory() == 0 ? "style=\"background:#2D2F34;\"" : "" %>><a <%=vo.getCategory() == 0 ? "style=\"color:#ffffff;\"" : "" %> href="/manage/room/res/index">전체 예약</a></th>
+								<th <%=vo.getCategory() == 1 ? "style=\"background:#2D2F34;\"" : "" %>><a <%=vo.getCategory() == 1 ? "style=\"color:#ffffff;\"" : "" %> href="/manage/room/res/index?category=1">지난 예약</a></th>
+								<th <%=vo.getCategory() == 2 ? "style=\"background:#2D2F34;\"" : "" %>><a <%=vo.getCategory() == 2 ? "style=\"color:#ffffff;\"" : "" %> href="/manage/room/res/index?category=2">다가오는 예약</a></th>
+								<th <%=vo.getCategory() == 3 ? "style=\"background:#2D2F34;\"" : "" %>><a <%=vo.getCategory() == 3 ? "style=\"color:#ffffff;\"" : "" %> href="/manage/room/res/index?category=3">신청된 예약</a></th>
+								<th <%=vo.getCategory() == 4 ? "style=\"background:#2D2F34;\"" : "" %>><a <%=vo.getCategory() == 4 ? "style=\"color:#ffffff;\"" : "" %> href="/manage/room/res/index?category=4">취소된 예약</a></th>
 							</tr>
 						</table>
 						<br/>
@@ -134,8 +118,8 @@ $(function(){
 								<td>
 									<select name="stype">
 										<option value="all" <%=vo.getStype().equals("all")? "selected" : "" %>>전체</option>
-										<option value="guest_kname" <%=vo.getStype().equals("guest_kname")? "selected" : "" %>>고객 한글명</option>
-										<option value="guest_ename" <%=vo.getStype().equals("guest_ename")? "selected" : "" %>>고객 영문명</option>
+										<option value="guest_lastname" <%=vo.getStype().equals("guest_lastname")? "selected" : "" %>>고객 한글명</option>
+										<option value="guest_firstname" <%=vo.getStype().equals("guest_firstname")? "selected" : "" %>>고객 영문명</option>
 										<option value="guest_email" <%=vo.getStype().equals("guest_email")? "selected" : "" %>>고객 이메일</option>
 										<option value="room_name" <%=vo.getStype().equals("room_name")? "selected" : "" %>>객실명</option>
 									</select>
@@ -157,8 +141,6 @@ $(function(){
 							</tr>
 						</table>
 						<input type="hidden" name="category" id="category" value="<%=vo.getCategory() %>"/>
-						<input type="hidden" name="stype" id="stype" value="<%=vo.getStype() %>"/>
-						<input type="hidden" name="sval" id="sval" value="<%=vo.getSval() %>"/>
 					</form>
 				</div>
 				<div class="con">
@@ -166,7 +148,7 @@ $(function(){
 					<div id="bbs">
 						<div id="blist">
 							<p><span><strong>총 <%=totCount%>개</strong>  |  <%=vo.getReqPageNo()%>/<%=totPage%>페이지</span></p>
-							<form name="frm" id="frm" action="/manage/room/res/process" method="post">
+							<form name="frm" id="frm" action="/room/res/process" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<colgroup>
 									<col class="w3" />
@@ -211,7 +193,7 @@ $(function(){
 										<td><%=data.getNo()%></td>
 										<td><%=data.getCheckin() %></td>
 										<td><%=data.getCheckout() %></td>
-										<td <%=targetUrl%>><%=data.getGuest_kname() %></td>
+										<td <%=targetUrl%>><%=data.getGuest_lastname() + data.getGuest_firstname() %></td>
 										<td><%=data.getRoom_name() %></td>
 										<td><%=data.getAdult() %></td>
 										<td><%=data.getKid() %></td>

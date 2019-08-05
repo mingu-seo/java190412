@@ -12,16 +12,16 @@
 	<select id="list" parameterClass="pkg_vo" resultClass="pkg_vo">
         select *
         from pkg
-		ORDER BY regdate DESC LIMIT $startPageNo$, $pageRows$
+		ORDER BY regdate ASC LIMIT $startPageNo$, $pageRows$
     </select>
     
 	<!-- 해당 테이블에 게시글 작성 -->
     <insert id="insert" parameterClass="pkg_vo">
         INSERT INTO pkg (
-        	name, startdate, enddate, pkg, price, 
+        	kname, ename, intro, intro_detail, startdate, enddate, pkg, price, 
         	event, guide, regdate
         ) VALUES (
-        	#name#, #startdate#, #enddate#, #pkg#, #price#, 
+        	#kname#, #ename#, #intro#, #intro_detail#, #startdate#, #enddate#, #pkg#, #price#, 
         	#event#, #guide#, now()
         )
         <selectKey keyProperty="no" resultClass="Integer">
@@ -35,8 +35,8 @@
     
     <update id="update" parameterClass="pkg_vo">
         update pkg set
-        	name=#name#, startdate=#startdate#, enddate=#enddate#, pkg=#pkg#,  	
-        price=#price#, event=#event#, guide=#guide#
+        	kname=#kname#, ename=#ename#, intro=#intro#, intro_detail=#intro_detail#, startdate=#startdate#, 
+        	enddate=#enddate#, pkg=#pkg#, price=#price#, event=#event#, guide=#guide#
         where no=#no#
     </update>
     

@@ -20,7 +20,6 @@ import manage.doctor.sched.*;
 @Service
 public class SchedService {
 	
-	
 	@Autowired
 	private SchedDAO schedDao;
 
@@ -38,7 +37,7 @@ public class SchedService {
 		return list;
 	}
 
-	public int insert(SchedVO vo, HttpServletRequest request) throws Exception {
+	public int insert(SchedVO vo) throws Exception {
 		int lastNo = (Integer) schedDao.insert(vo);
 		return lastNo;
 	}
@@ -53,9 +52,8 @@ public class SchedService {
 		return vo;
 	}
 
-	public int update(SchedVO vo, HttpServletRequest request, String date) throws Exception {
+	public int update(SchedVO vo, String date) throws Exception {
 		SchedVO data = schedDao.read(vo.getNo());
-//		int yoil = DateUtil.getYoil(date);
 		int r = (Integer) schedDao.update(vo);
 		return r;
 	}
@@ -74,5 +72,4 @@ public class SchedService {
 		}
 		return r;
 	}
-	
 }

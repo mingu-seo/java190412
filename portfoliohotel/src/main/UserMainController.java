@@ -13,6 +13,7 @@ public class UserMainController {
 	@RequestMapping("/index")
 	public String index(Model model, AdminVO param) throws Exception {
 		
+		
 		return "index";
 	}
 	

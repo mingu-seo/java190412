@@ -57,11 +57,11 @@ public class RentalController {
 			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
 			model.addAttribute("url", "/user/hall2");
 		}
-		if ("sendMail".equals(param.getCmd())) {
-			model.addAttribute("code", "alertMessageUrl");
-			model.addAttribute("message", Function.message(r, "정상적으로 송신되었습니다.", "송신실패"));
-			model.addAttribute("url", "/manage/rental/read?no=" + param.getNo());
-		} 
+//		if ("sendMail".equals(param.getCmd())) {
+//			model.addAttribute("code", "alertMessageUrl");
+//			model.addAttribute("message", Function.message(r, "정상적으로 송신되었습니다.", "송신실패"));
+//			model.addAttribute("url", "/manage/rental/read?no=" + param.getNo());
+//		} 
 		return "include/alert";
 	}
 	

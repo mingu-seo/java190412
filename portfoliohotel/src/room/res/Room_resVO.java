@@ -21,9 +21,11 @@ public class Room_resVO  extends Parameter{
 	private int option_price; //추가옵션 금액
 	private int charge_price; //세금 및 수수료 금액
 	private int total_price; //총 금액
-	private String guest_kname; //숙박 고객 한글명
-	private String guest_ename; //숙박 고객 영문명
-	private String guest_tel; //숙박 고객 연락처
+	private String guest_lastname; //숙박 고객 성
+	private String guest_firstname; //숙박 고객 이름
+	private String guest_tel1; //숙박 고객 연락처
+	private String guest_tel2; //숙박 고객 연락처
+	private String guest_tel3; //숙박 고객 연락처
 	private String guest_email; //숙박 고객 이메일
 	private int pay_method; //결제 방법 (0:무통장입금  1:신용카드)
 	private int pay_state; //결제 상태 (0:미결제  1:결제)
@@ -34,6 +36,8 @@ public class Room_resVO  extends Parameter{
 	private int category; //예약 내역 (1:지난 예약  2:다가오는 예약  3:신청된 예약  4:취소된 예약)
 	private String scheckin; //검색조건 체크인
 	private String scheckout; //검색조건 체크아웃
+	
+	private int month_want;
 	
 	public Room_resVO() {
 		super.setPageRows(10);
@@ -83,15 +87,6 @@ public class Room_resVO  extends Parameter{
 	}
 	public int getTotal_price() {
 		return total_price;
-	}
-	public String getGuest_kname() {
-		return guest_kname;
-	}
-	public String getGuest_ename() {
-		return guest_ename;
-	}
-	public String getGuest_tel() {
-		return guest_tel;
 	}
 	public String getGuest_email() {
 		return guest_email;
@@ -147,15 +142,6 @@ public class Room_resVO  extends Parameter{
 	public void setTotal_price(int total_price) {
 		this.total_price = total_price;
 	}
-	public void setGuest_kname(String guest_kname) {
-		this.guest_kname = guest_kname;
-	}
-	public void setGuest_ename(String guest_ename) {
-		this.guest_ename = guest_ename;
-	}
-	public void setGuest_tel(String guest_tel) {
-		this.guest_tel = guest_tel;
-	}
 	public void setGuest_email(String guest_email) {
 		this.guest_email = guest_email;
 	}
@@ -192,6 +178,42 @@ public class Room_resVO  extends Parameter{
 	}
 	public void setScheckout(String scheckout) {
 		this.scheckout = scheckout;
+	}
+	public int getMonth_want() {
+		return month_want;
+	}
+	public void setMonth_want(int month_want) {
+		this.month_want = month_want;
+	}
+	public String getGuest_lastname() {
+		return guest_lastname;
+	}
+	public String getGuest_firstname() {
+		return guest_firstname;
+	}
+	public String getGuest_tel1() {
+		return guest_tel1;
+	}
+	public String getGuest_tel2() {
+		return guest_tel2;
+	}
+	public String getGuest_tel3() {
+		return guest_tel3;
+	}
+	public void setGuest_lastname(String guest_lastname) {
+		this.guest_lastname = guest_lastname;
+	}
+	public void setGuest_firstname(String guest_firstname) {
+		this.guest_firstname = guest_firstname;
+	}
+	public void setGuest_tel1(String guest_tel1) {
+		this.guest_tel1 = guest_tel1;
+	}
+	public void setGuest_tel2(String guest_tel2) {
+		this.guest_tel2 = guest_tel2;
+	}
+	public void setGuest_tel3(String guest_tel3) {
+		this.guest_tel3 = guest_tel3;
 	}
 	
 }

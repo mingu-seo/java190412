@@ -15,14 +15,19 @@ PkgVO data = (PkgVO)request.getAttribute("data");
 var oEditors; // 에디터 객체 담을 곳
 $(window).load(function() {
 	oEditors = setEditor("pkg"); // 에디터 셋팅
-	initCal<{id:"startdate",type:"day",today:"y"});
+	initCal<({id:"startdate",type:"day",today:"y"});
 	initCal({id:"enddate",type:"dat",today:"y"});
 });
 
 function goSave() {
-	if ($("#name").val() == "") {
-		alert("이름을 입력해 주세요.");
-		$("#name").focus();
+	if ($("#kname").val() == "") {
+		alert("패키지 한글이름을 입력해 주세요.");
+		$("#kname").focus();
+		return false;
+	}
+	if ($("#ename").val() == "") {
+		alert("패키지 영문이름을 입력해 주세요.");
+		$("#ename").focus();
 		return false;
 	}
 	if ($("#pkg").val() == "") {
@@ -104,9 +109,23 @@ function goSave() {
 								</colgroup>
 								<tbody>
 									<tr>
-										<th scope="row"><label for="">패키지 이름</label></th>
-										<td colspan="3">
-											<input type="text" id="name" name="name" value="<%=data.getName()%>"/>
+										<th scope="row"><label for="">패키지 한글이름</label></th>
+										<td>
+											<input type="text" id="kname" name="kname" value="<%=data.getKname()%>"/>
+										</td>
+										<th scope="row"><label for="">패키지 영어이름</label></th>
+										<td>
+											<input type="text" id="ename" name="ename" value="<%=data.getEname()%>"/>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="">패키지 소개</label></th>
+										<td>
+											<input type="text" id="intro" name="intro" value="<%=data.getIntro()%>"/>
+										</td>
+										<th scope="row"><label for="">패키지 상세 소개</label></th>
+										<td>
+											<input type="text" id="intro_detail" name="intro_detail" value="<%=data.getIntro_detail()%>"/>
 										</td>
 									</tr>
 									<tr>
@@ -126,17 +145,15 @@ function goSave() {
 										</td>
 									</tr>
 									<tr>										
-										<th scope="row"><label for="">포함내역</label></th>
-										<td colspan="3">
-											<input type="text" id="pkg" name="pkg" value="<%=data.getPkg() %>" style="width:100%"/>
-										</td>
-									</tr>
-									<tr>										
 										<th scope="row"><label for="">가격</label></th>
 										<td colspan="3">
 											<input type="text" id="price" name="price" value="<%=data.getPrice() %>"/>
 										</td>
 									</tr>
+										<th scope="row"><label for="">포함내역</label></th>
+										<td colspan="3">
+											<textarea id="pkg" name="pkg" style="width:100%"><%=data.getPkg()%></textarea>
+										</td>
 									<tr>										
 										<th scope="row"><label for="">이벤트</label></th>
 										<td colspan="3">

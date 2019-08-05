@@ -228,7 +228,7 @@ function CookieVal(cookieName) {
                         </div>
                         <!-- <h4 class="find_id"><a href="#">· 아이디 / 비밀번호 찾기</a></h4> -->
                         <h4 class="find_id">
-							<a href="find_id">이메일찾기 </a><a>/</a>
+							<a href="find_email">이메일찾기 </a><a>/</a>
 							<a href="find_pw"> 비밀번호 찾기</a>
 						</h4>
                         

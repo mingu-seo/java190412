@@ -195,13 +195,11 @@ MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
             </div>
             <div class="reservation-status-right">
                 <div class="my-info">
-                    <h4>
-                    <%
-                 String[] nameArr = sessionMember.getName().split(",");
-                 %>
+                  <h4>
   
-	<%=nameArr[0]%> <%=nameArr[1]%> 님<br/>
-                        		환영합니다 !
+	<%=sessionMember.getF_name()%> <%=sessionMember.getL_name()%> 님<br/>
+	
+                      환영합니다 !
                     </h4>
                     <table>
                         <tr>

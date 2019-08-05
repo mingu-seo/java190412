@@ -24,7 +24,7 @@ function goCancel() {
 		<%-- document.location.href = "/manage/room/res/process?no=<%=read.getNo()%>&cmd=cancel"; --%>
 		$.ajax({
 			type : "GET",
-			url : "/manage/room/res/cancel?no=<%=read.getNo()%>",
+			url : "/room/res/cancel?no=<%=read.getNo()%>",
 			async : false,
 			success : function(data) {
 				if (data.trim() == "1") {
@@ -36,6 +36,24 @@ function goCancel() {
 		return false;
 	}
 }
+
+$(function() {
+	console.log('<%=read.getCheckin()%>');
+	console.log('<%=read.getCheckout()%>');
+	<%
+	String arri[] = read.getCheckin().split("-");
+	String arro[] = read.getCheckout().split("-");
+	%>
+	
+	var time_in = new Date(<%=arri[0]%>, <%=arri[1]%>, <%=arri[2]%>);
+	var time_out = new Date(<%=arro[0]%>, <%=arro[1]%>, <%=arro[2]%>);
+	day_stay = (time_out.getTime() - time_in.getTime())/(1000*60*60*24);
+	console.log(day_stay);
+	console.log(<%=arri[0]%>);
+	console.log(<%=arri[1]%>);
+	console.log(<%=arri[2]%>);
+	console.log(Date());
+});
 
 </script>
 <title>관리자 객실 예약 상세</title>
@@ -60,7 +78,7 @@ function goCancel() {
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="bread">
-							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" onsubmit="return goSave();">
+							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process" onsubmit="return goSave();">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
 									<col width="10%"/>
@@ -77,9 +95,9 @@ function goCancel() {
 								<tbody>
 									<tr>
 										<th colspan="2">체크인</th>
-										<td colspan="3"><%=read.getCheckin() %></td>
+										<td colspan="3"><%=Function.toDateKorean(read.getCheckin()) %></td>
 										<th colspan="2">체크아웃</th>
-										<td colspan="3"><%=read.getCheckout() %></td>
+										<td colspan="3"><%=Function.toDateKorean(read.getCheckout()) %></td>
 									</tr>
 									<tr>	
 										<th colspan="2">객실 종류</th>
@@ -118,14 +136,13 @@ function goCancel() {
 										</td>
 									</tr>
 									<tr>
-										<th colspan="2">숙박 고객 한글명</th>
-										<td colspan="3"><%=read.getGuest_kname() %></td>
-										<th colspan="2">숙박 고객 영문명</th>
-										<td colspan="3"><%=read.getGuest_ename() %></td>
+										<th colspan="2">숙박 고객 성명</th>
+										<td colspan="3"><%=read.getGuest_lastname() + read.getGuest_firstname() %></td>
+										<td colspan="5"></td>
 									</tr>
 									<tr>	
 										<th colspan="2">숙박 고객 연락처</th>
-										<td colspan="3"><%=read.getGuest_tel() %></td>
+										<td colspan="3"><%=read.getGuest_tel1() %> - <%=read.getGuest_tel2() %> - <%=read.getGuest_tel3() %></td>
 										<th colspan="2">숙박 고객 이메일</th>
 										<td colspan="3"><%=read.getGuest_email() %></td>
 									</tr>
@@ -152,7 +169,7 @@ function goCancel() {
 										<td><%=CodeUtil.getPayState(read.getPay_state()) %></td>
 										<th>결제일</th>
 										<%
-										if(read.getPaydate().equals("")) {
+										if(read.getPaydate().equals("") || read.getPaydate().equals("-")) {
 										%>
 										<td> - </td>
 										<%

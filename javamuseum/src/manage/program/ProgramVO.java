@@ -102,7 +102,7 @@ public class ProgramVO extends Parameter {
 	public void setImagename(String imagename) {
 		this.imagename = imagename;
 	}
-
+	
 	public Timestamp getRegistdate() {
 		return registdate;
 	}

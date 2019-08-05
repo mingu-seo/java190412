@@ -1,10 +1,12 @@
 $(function(){
 
 // 나의정보수정 창
+	/*
 $('.myinfo-btn').click(function(e){
     e.preventDefault();
     $('#join-area').stop().fadeIn(500);
 });
+*/
 $('#btn_reset1, .myinfo-back-arrow, .myinfo-head img').click(function(e){
     e.preventDefault();
     $('#join-area').stop().fadeOut(500);

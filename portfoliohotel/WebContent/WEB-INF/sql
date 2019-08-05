@@ -96,6 +96,20 @@ CHANGE COLUMN `paydate` `paydate` CHAR(10) NULL DEFAULT NULL ;
 ALTER TABLE `portfoliohotel`.`room_res` 
 CHANGE COLUMN `guest_tel` `guest_tel` VARCHAR(11) NULL DEFAULT NULL ;
 
+ALTER TABLE `portfoliohotel`.`room_res` 
+DROP COLUMN `guest_ename`;
+
+ALTER TABLE `portfoliohotel`.`room_res` 
+CHANGE COLUMN `member_pk` `member_pk` INT(11) NULL DEFAULT 0 ;
+
+ALTER TABLE `portfoliohotel`.`room_res` 
+ADD COLUMN `guest_firstname` VARCHAR(45) NULL DEFAULT NULL AFTER `guest_lastname`,
+ADD COLUMN `guest_tel2` VARCHAR(4) NULL DEFAULT NULL AFTER `guest_tel1`,
+ADD COLUMN `guest_tel3` VARCHAR(4) NULL DEFAULT NULL AFTER `guest_tel2`,
+CHANGE COLUMN `guest_kname` `guest_lastname` VARCHAR(45) NULL DEFAULT NULL ,
+CHANGE COLUMN `guest_tel` `guest_tel1` VARCHAR(3) NULL DEFAULT NULL ;
+
+
 
 CREATE TABLE `room_service` (
   `no` int(11) NOT NULL AUTO_INCREMENT,
@@ -208,3 +222,37 @@ CREATE TABLE `qna` (
   `file_chk` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8
+
+
+CREATE TABLE `pkg` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `kname` varchar(45) DEFAULT NULL,
+  `ename` varchar(45) DEFAULT NULL,
+  `startdate` char(10) DEFAULT NULL,
+  `enddate` char(10) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `pkg` varchar(255) DEFAULT NULL,
+  `event` varchar(255) DEFAULT NULL,
+  `guide` varchar(255) DEFAULT NULL,
+  `regdate` varchar(45) DEFAULT NULL,
+  `intro` varchar(100) DEFAULT NULL,
+  `intro_detail` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `pkg_res` (
+  `no` int(11) NOT NULL AUTO_INCREMENT,
+  `pkg_pk` int(11) DEFAULT NULL,
+  `pkg_name` varchar(45) DEFAULT NULL,
+  `purchase_date` timestamp NULL DEFAULT NULL,
+  `use_date` char(10) DEFAULT NULL,
+  `guest_kname` varchar(45) DEFAULT NULL,
+  `guest_tel` int(11) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `pkg_price` int(11) DEFAULT NULL,
+  `pkg_count` int(11) DEFAULT NULL,
+  `total_price` int(11) DEFAULT NULL,
+  `gender` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;

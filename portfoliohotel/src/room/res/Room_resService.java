@@ -2,6 +2,7 @@ package room.res;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -27,8 +28,18 @@ public class Room_resService {
 	 * @return
 	 * @throws Exception
 	 */
-	public ArrayList list(Room_resVO vo) throws Exception{
-		ArrayList list = room_resDAO.list(vo);
+	public ArrayList index(Room_resVO vo) throws Exception{
+		ArrayList index = room_resDAO.index(vo);
+		return index;
+	}
+	
+	public ArrayList<HashMap> list(String yearMonth) throws Exception {
+		ArrayList<HashMap> map = room_resDAO.list(yearMonth);
+		return map;
+	}
+	
+	public ArrayList<HashMap> check(HashMap map) throws Exception {
+		ArrayList<HashMap> list = room_resDAO.check(map);
 		return list;
 	}
 	
@@ -36,14 +47,14 @@ public class Room_resService {
 		int r = (Integer)room_resDAO.insert(vo);
 		
 		String[] option_pk = req.getParameterValues("option_pk");
-		String[] price_opt = req.getParameterValues("price_opt");
+		String[] count = req.getParameterValues("count");
 		String[] price = req.getParameterValues("price");
 		String[] name = req.getParameterValues("name");
 		Room_opt_resVO novo = new Room_opt_resVO();
 		novo.setRoom_res_pk(r);
 		for(int i=0; i<option_pk.length; i++) {
 			novo.setOption_pk(Integer.parseInt(option_pk[i]));
-			novo.setCount(Integer.parseInt(price_opt[i]));
+			novo.setCount(Integer.parseInt(count[i]));
 			novo.setPrice(Integer.parseInt(price[i]));
 			novo.setName(name[i]);
 			novo.setTotal_price(novo.getPrice() * novo.getCount());
