@@ -87,7 +87,7 @@ function goSearch() {
 								<tbody>
 								<% if (totCount == 0) { %>
 									<tr>
-										<td class="first" colspan="8">등록된 질문이 없습니다.</td>
+										<td class="first" colspan="9">등록된 질문이 없습니다.</td>
 									</tr>
 								<%
 									 } else {
