@@ -32,7 +32,6 @@ public class DoctorController {
 	public String index(Model model, DoctorVO param) throws Exception {
 		int[] rowPageCount = doctorService.count(param);
 		ArrayList<DoctorVO> list = doctorService.list(param);
-
 		model.addAttribute("totCount", rowPageCount[0]);
 		model.addAttribute("totPage", rowPageCount[1]);
 		model.addAttribute("list", list);
@@ -62,8 +61,6 @@ public class DoctorController {
 	@RequestMapping("/manage/doctor/read")
 	public String read(Model model, DoctorVO param) throws Exception {
 		DoctorVO data = doctorService.read(param.getNo());
-
-		
 		model.addAttribute("data", data);
 		model.addAttribute("vo", param);
 		
@@ -82,19 +79,17 @@ public class DoctorController {
 		DoctorVO data = doctorService.read(param.getNo());
 		model.addAttribute("data", data);
 		model.addAttribute("vo", param);
+		
 		return "manage/doctor/edit";
 	}
 	
 	@RequestMapping("/intro/intro-staff.do")
 	public String Intro(Model model, DoctorVO param) throws Exception {
-		//DoctorVO data = doctorService.read(param.getNo());
-		
 		ArrayList list = doctorService.Intro(param);
 		model.addAttribute("list", list);
 		
 		return "intro/intro-staff";
 	}
-
 
 	@RequestMapping("/manage/doctor/process")
 	public String process(Model model, DoctorVO param, HttpServletRequest request) throws Exception {
@@ -120,7 +115,6 @@ public class DoctorController {
 			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		}
-
 		return "include/alert";
 	}
 

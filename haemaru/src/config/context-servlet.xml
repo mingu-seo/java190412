@@ -52,6 +52,7 @@
 	<mvc:interceptors>
 	   <mvc:interceptor>
 			<mvc:mapping path="/my/**" />
+			<mvc:mapping path="/reservation/**" />
 			<mvc:exclude-mapping path="/my" />
 			<mvc:exclude-mapping path="/my/" />
 			<mvc:exclude-mapping path="/my/css/*" />

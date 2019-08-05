@@ -15,6 +15,7 @@ import property.SiteProperty;
 import util.DateUtil;
 import util.Function;
 import util.Page;
+import manage.doctor.DoctorDAO;
 import manage.doctor.DoctorVO;
 import manage.doctor.sched.*;
 import member.MemberDAO;
@@ -25,7 +26,7 @@ public class ReserveService {
 
 	@Autowired
 	private ReserveDao reserveDao;
-	
+
 	@Autowired
 	private MemberDAO memberDao;
 
@@ -43,24 +44,20 @@ public class ReserveService {
 		return list;
 	}
 
-	public int insert(ReserveVO vo, HttpServletRequest request) throws Exception {
-		
+	public int insert(ReserveVO vo) throws Exception { 
 		MemberVO mvo = new MemberVO();
 		mvo.setName(vo.getName());
 		mvo.setTel(vo.getTel());
-		
+
 		MemberVO rvo = memberDao.checkMember(mvo);
-		
-		if(rvo != null) {
+
+		if (rvo != null) {
 			vo.setMember_pk(rvo.getNo());
 		} else {
 			int mno = memberDao.insert(mvo);
 			vo.setMember_pk(mno);
-			/*
-			 * mvo.setName(vo.getName()); mvo.setTel(vo.getTel());
-			 */
 		}
-		
+
 		int lastNo = (Integer) reserveDao.insert(vo);
 		return lastNo;
 	}
@@ -70,7 +67,7 @@ public class ReserveService {
 		return vo;
 	}
 
-	public int update(ReserveVO vo, HttpServletRequest request) throws Exception {
+	public int update(ReserveVO vo) throws Exception {
 		ReserveVO data = reserveDao.read(vo.getNo());
 		int r = (Integer) reserveDao.update(vo);
 		return r;
@@ -90,38 +87,33 @@ public class ReserveService {
 		}
 		return r;
 	}
-	
+
 	public ArrayList doctorList(String date, int department) throws Exception {
 		HashMap hm = new HashMap();
 		hm.put("department", department);
 		hm.put("yoil", DateUtil.getYoil(date));
 		return reserveDao.doctorList(hm);
 	}
-	
+
 	public SchedVO schedList(SchedVO param) throws Exception {
-//		return reserveDao.schedList(param);
 		int yoil = DateUtil.getYoil(param.getDate());
 		param.setYoil(yoil);
 		SchedVO slist = reserveDao.schedList(param);
-		ReserveVO vo = new ReserveVO();
 		return slist;
 	}
-	
+
 	public ArrayList reservedTime(String date, int doctor_pk) throws Exception {
 		ReserveVO vo = new ReserveVO();
 		vo.setDoctor_pk(doctor_pk);
 		vo.setRes_date(date);
 		return reserveDao.reservedTime(vo);
 	}
-	
-	public ArrayList<ReserveVO> Reservation(ReserveVO param) throws Exception {
-		return reserveDao.Reservation(param);
-	}
-	
-	public int reserveInsert(ReserveVO vo) throws SQLException {
-		int no = reserveDao.reserveInsert(vo);
-		return no;
+
+	public ArrayList<ReserveVO> reservation(ReserveVO param) throws Exception {
+		return reserveDao.reservation(param);
 	}
 
-	
+	public void reserveInsert(ReserveVO vo) throws SQLException {
+		reserveDao.reserveInsert(vo);
+	}
 }
