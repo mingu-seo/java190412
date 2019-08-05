@@ -43,11 +43,11 @@
 		INSERT INTO doc_schedule
 			(doctor_pk, name, mon_start, mon_end, tue_start, tue_end, wed_start, wed_end,
 			thu_start, thu_end, fri_start, fri_end, sat_start, sat_end,
-			sun_start, sun_end)
+			sun_start, sun_end, hol_start, hol_end)
 		VALUES
 			(#doctor_pk#, #name#, #mon_start#, #mon_end#, #tue_start#, #tue_end#, #wed_start#, #wed_end#,
 			#thu_start#, #thu_end#, #fri_start#, #fri_end#, #sat_start#, #sat_end#,
-			#sun_start#, #sun_end#)
+			#sun_start#, #sun_end#, #hol_start#, #hol_end#)
 		<selectKey keyProperty="no" resultClass="Integer">
 			SELECT
 			LAST_INSERT_ID()
@@ -59,7 +59,7 @@
 			mon_start=#mon_start#, mon_end=#mon_end#, tue_start=#tue_start#, tue_end=#tue_end#, 
 			wed_start=#wed_start#, wed_end=#wed_end#, thu_start=#thu_start#, thu_end=#thu_end#, 
 			fri_start=#fri_start#, fri_end=#fri_end#, sat_start=#sat_start#, sat_end=#sat_end#,
-			sun_start=#sun_start#, sun_end=#sun_end#,
+			sun_start=#sun_start#, sun_end=#sun_end#, hol_start=#hol_start#, hol_end=#hol_end#,
 			mon_res=#mon_res#, tue_res=#tue_res#, wed_res=#wed_res#, thu_res=#thu_res#, 
 			fri_res=#fri_res#, sat_res=#sat_res#, sun_res=#sun_res#
         WHERE no = #no#

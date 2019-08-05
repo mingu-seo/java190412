@@ -25,7 +25,8 @@ public class UTicketVO extends Parameter {
 	
 	//전시 정보
 	private String title;				//전기 작품 제목
-	private int state;				//작품 전기관 번호
+	private int state;					//작품 전시관 번호
+	private String imagename;
 	
 	private int usepoint;				//사용포인트
 	private int storepoint;				//적립포인트
@@ -41,6 +42,15 @@ public class UTicketVO extends Parameter {
 	private int refundstate;			//환불 상태
 	
 	private String method;				//결제 방법
+	
+	public UTicketVO() {
+		super.setPageRows(10);
+	}
+	
+	//mypage 예매 내역 페이지 로우수
+	public UTicketVO(int pageRows) {
+		super.setPageRows(pageRows);
+	}
 	
 	public int getPoint() {
 		return point;
@@ -218,6 +228,14 @@ public class UTicketVO extends Parameter {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getImagename() {
+		return imagename;
+	}
+
+	public void setImagename(String imagename) {
+		this.imagename = imagename;
 	}
 
 }

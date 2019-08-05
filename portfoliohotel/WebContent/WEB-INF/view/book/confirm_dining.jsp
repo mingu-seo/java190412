@@ -1,4 +1,12 @@
-<%@ page contentType="text/html; charset=utf-8" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="dining_res.*"%>
+<%@ page import="java.util.*"%>
+<%@ page import="board.member.*" %>
+<%
+Dining_resVO param = (Dining_resVO) request.getAttribute("vo");
+Dining_resVO data = (Dining_resVO) request.getAttribute("data");
+MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -12,7 +20,7 @@
     <link rel="stylesheet" href="/css/footer.css">
     <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
     <script type="text/javascript" src="/js/gnb.js"></script>
-    <title>객실 예약 완료</title>
+    <title>다이닝 예약 완료</title>
 </head>
 <body>
   	<!-- <div id="header">
@@ -140,7 +148,7 @@
             </div>
         </div>
     </div> -->
-   <%@ include file="../header_menu.jsp" %>
+   	<jsp:include page="/header_menu" flush="true"/>
     
     <div id="container">
         

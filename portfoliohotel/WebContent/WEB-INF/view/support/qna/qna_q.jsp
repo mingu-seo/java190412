@@ -286,7 +286,7 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
             </div>
             <div class="qna_q-table">
                 <div class="qna_q-box">
-                	<% 
+<%--                 	<% 
                 	String name1 = "";
                 	String name2 = "";
                 	String email1 = "";
@@ -307,10 +307,53 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
 						tel2 = telArr[1];
 						tel3 = telArr[2];
                 	}
-                	%>
+                	%> --%>
 						<form method="POST"name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/processU" enctype="multipart/form-data" onsubmit="return goSave();" >
+
+                   		
+                   		 <div class="qna-write-info">
+                            <label for="category">카테고리</label>
+                            	<select name="category" style="height:30px;">
+									<option value="1"> 예약 </option>
+									<option value="2"> 멤버쉽 </option>
+									<option value="3"> 기타 </option>
+								</select>
+                            <label for="public">공개여부</label>
+                            	<select name="open" style="height:30px;">
+									<%=CodeUtil.getOpenOption(0) %>
+								</select>
+                            <label for="qna-phone">연락처</label>
+                            	<input type="text"  id="tel1" name="tel1"  title="연락처를 입력해주세요" value="<%=member_vo.getF_tel()%>" minlength=3 maxlength=3/>	
+								<input type="text"  id="tel2" name="tel2"  title="연락처를 입력해주세요" value="<%=member_vo.getM_tel()%>" minlength=4 maxlength=4/>	
+								<input type="text"  id="tel3" name="tel3"  title="연락처를 입력해주세요" value="<%=member_vo.getL_tel()%>" minlength=4 maxlength=4/>	
+                        </div>
+                        <label for="qna-title">제목</label>
+                        <input type="text" id="qna-title" name="qna-title">
+                        <label for="qna-cont">내용</label>
+                        <textarea name="qna-cont" id="qna-cont"></textarea>
+                        <div class="add-file">
+                            <button>첨부파일</button>
+                        </div>
+                        <ul class="base_info clear">
+                            <li>
+                                <label for="qna-title">작성자 이름</label>
+                                <input type="text" id="qna-title" name="qna-title">
+                            </li>
+                            <li>
+                                <label for="qna-title">비밀번호</label>
+                                <input type="text" id="qna-title" name="qna-title" maxlength="12">
+                            </li>
+                        </ul>
+                        <label for="qna-title">이메일</label>
+                        <input type="text" id="email" name="email" placeholder="회원님의 질문을 이메일로 발송해드립니다.">
+                        <input type="submit" value="질문하기">
+                   		
+                   		
+                    	<%-- <ul class="base_info clear">	
+
                    
                     	<ul class="base_info clear">
+
                             <li>
                                 <label for="">카테고리</label>
                                	<select name="category" style="height:30px;">
@@ -389,7 +432,7 @@ MemberVO member_vo = (MemberVO)session.getAttribute("memberInfo");
                        		<div>
 								<input type="submit" class="btns" href="javascript:$('#frm').submit();"></a> 
 								<!-- <a class="btns" href="#" onclick="goSave();"><strong>저장</strong></a> -->
-							</div>
+							</div> --%>
 						
                         <!--======== 필요값 히든처리================ -->
                         <input type="hidden" name="cmd" value="write" />

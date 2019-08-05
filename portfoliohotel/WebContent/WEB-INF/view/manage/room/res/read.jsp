@@ -95,9 +95,9 @@ $(function() {
 								<tbody>
 									<tr>
 										<th colspan="2">체크인</th>
-										<td colspan="3"><%=read.getCheckin() %></td>
+										<td colspan="3"><%=Function.toDateKorean(read.getCheckin()) %></td>
 										<th colspan="2">체크아웃</th>
-										<td colspan="3"><%=read.getCheckout() %></td>
+										<td colspan="3"><%=Function.toDateKorean(read.getCheckout()) %></td>
 									</tr>
 									<tr>	
 										<th colspan="2">객실 종류</th>
@@ -136,13 +136,13 @@ $(function() {
 										</td>
 									</tr>
 									<tr>
-										<th colspan="2">숙박 고객 한글명</th>
-										<td colspan="3"><%=read.getGuest_kname() %></td>
+										<th colspan="2">숙박 고객 성명</th>
+										<td colspan="3"><%=read.getGuest_lastname() + read.getGuest_firstname() %></td>
 										<td colspan="5"></td>
 									</tr>
 									<tr>	
 										<th colspan="2">숙박 고객 연락처</th>
-										<td colspan="3"><%=read.getGuest_tel() %></td>
+										<td colspan="3"><%=read.getGuest_tel1() %> - <%=read.getGuest_tel2() %> - <%=read.getGuest_tel3() %></td>
 										<th colspan="2">숙박 고객 이메일</th>
 										<td colspan="3"><%=read.getGuest_email() %></td>
 									</tr>
@@ -169,7 +169,7 @@ $(function() {
 										<td><%=CodeUtil.getPayState(read.getPay_state()) %></td>
 										<th>결제일</th>
 										<%
-										if(read.getPaydate().equals("")) {
+										if(read.getPaydate().equals("") || read.getPaydate().equals("-")) {
 										%>
 										<td> - </td>
 										<%

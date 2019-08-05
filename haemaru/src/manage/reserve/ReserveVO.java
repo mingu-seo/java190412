@@ -14,9 +14,7 @@ public class ReserveVO extends Parameter {
 	private String doctor_name;
 	private int doctor_department;
 	private String name;
-	private String tel1;
-	private String tel2;
-	private String tel3;
+	private String tel;
 	private String res_contents;
 	
 	public ReserveVO() {
@@ -97,31 +95,15 @@ public class ReserveVO extends Parameter {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 
-	public String getTel1() {
-		return tel1;
+	public String getTel() {
+		return tel;
 	}
 
-	public void setTel1(String tel1) {
-		this.tel1 = tel1;
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 
-	public String getTel2() {
-		return tel2;
-	}
-
-	public void setTel2(String tel2) {
-		this.tel2 = tel2;
-	}
-
-	public String getTel3() {
-		return tel3;
-	}
-
-	public void setTel3(String tel3) {
-		this.tel3 = tel3;
-	}
 
 	public String getRes_contents() {
 		return res_contents;

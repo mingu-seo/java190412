@@ -72,7 +72,7 @@ public class QnaController {
 		return "support/qna/qna_edit";
 	}
 	
-	///
+
 	@RequestMapping("/support/qna/popup")
 	public String popup(Model model, QnaVO param, HttpSession session) throws Exception {
 		QnaVO data = qnaService.read(param);
@@ -86,6 +86,7 @@ public class QnaController {
 		return "support/qna/qna_read";
 		/* return "/membership/popup"; */
 	}
+
 	
 	@RequestMapping("/support/qna/processU")
 	public String processU(Model model, QnaVO param, HttpServletRequest request) throws Exception {

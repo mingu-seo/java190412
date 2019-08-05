@@ -1,16 +1,17 @@
 package dining_res;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import board.member.MemberVO;
+import board.qna.QnaVO;
 import dining.DiningVO;
 import util.Function;
 
@@ -59,15 +60,27 @@ public class Dining_resController {
 		return "manage/dining_res/write";
 	}
 	
+	// 사용자
+	
 	@RequestMapping("/dining/dining_origin_book")
-	public String dining_origin_book(Model model, Dining_resVO param) throws Exception {
-		Dining_resVO data = dining_resService.read(6);
-		model.addAttribute("data", data);
+	public String dining_origin_book(Model model, Dining_resVO param, HttpSession session) throws Exception {
+		MemberVO vo = (MemberVO)session.getAttribute("memberInfo");
+		
 		model.addAttribute("vo", param);
+		
 		return "dining/dining_origin_book";
 	}
 	
-
+	@RequestMapping("/book/confirm_dining")
+	public String confirm_dining(Model model, Dining_resVO param, HttpSession session) throws Exception {
+		MemberVO vo = (MemberVO)session.getAttribute("memberInfo");
+		
+		model.addAttribute("vo", param);
+		
+		return "book/confirm_dining";
+	}
+		
+	
 	@RequestMapping("/manage/dining_res/process.do")
 	public String process(Model model, Dining_resVO param, HttpServletRequest request) throws Exception {
 		model.addAttribute("vo", param);
