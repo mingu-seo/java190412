@@ -307,10 +307,10 @@
 					<li><a href="#">개인정보처리방침</a></li>
 				</ul>
 				<ul class="sns clear">
-					<li><a href="#"><img src="../img/sns1.png"></a></li>
-					<li><a href="#"><img src="../img/sns2.png"></a></li>
-					<li><a href="#"><img src="../img/sns3.png"></a></li>
-					<li><a href="#"><img src="../img/sns4.png"></a></li>
+					<li><a href="#"><img src="/img/sns1.png"></a></li>
+					<li><a href="#"><img src="/img/sns2.png"></a></li>
+					<li><a href="#"><img src="/img/sns3.png"></a></li>
+					<li><a href="#"><img src="/img/sns4.png"></a></li>
 				</ul>
 			</div>
 			<div class="footer-bottom">
@@ -321,10 +321,10 @@
 				</h5>
 				<h6>Copyright 2018 Banyan Tree Club & Spa. All Rights Reserved</h6>
 				<ul class="support-logo clear">
-					<li><img src="../img/footericon1.png"></li>
-					<li><img src="../img/footericon2.png"></li>
-					<li><img src="../img/footericon3.png"></li>
-					<li><img src="../img/footericon4.png"></li>
+					<li><img src="/img/footericon1.png"></li>
+					<li><img src="/img/footericon2.png"></li>
+					<li><img src="/img/footericon3.png"></li>
+					<li><img src="/img/footericon4.png"></li>
 				</ul>
 			</div>
 		</div>

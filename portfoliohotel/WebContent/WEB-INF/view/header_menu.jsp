@@ -9,7 +9,7 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 %>
 <%
 PkgVO pparam = (PkgVO)request.getAttribute("pvo");
-ArrayList<PkgVO> plist = (ArrayList)request.getAttribute("plist");
+ArrayList<PkgVO> plist = (ArrayList<PkgVO>)request.getAttribute("plist");
 int ptotCount = (Integer)request.getAttribute("ptotCount");
 int ptotPage = (Integer)request.getAttribute("ptotPage");
 %>
