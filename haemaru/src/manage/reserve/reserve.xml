@@ -43,9 +43,9 @@
 
 	<insert id="insert" parameterClass="reservevo">
 		INSERT INTO reserve
-			(name, tel, res_hour, res_date, member_pk, doctor_pk, route,res_contents)
+			(name, tel1, tel2, tel3, res_hour, res_date, member_pk, doctor_pk, route,res_contents)
 		VALUES
-			(#name#, #tel#, #res_hour#, #res_date#, #member_pk#, #doctor_pk#, #route#,#res_contents#)
+			(#name#, #tel1#, #tel2#, #tel3#, #res_hour#, #res_date#, #member_pk#, #doctor_pk#, #route#,#res_contents#)
 		<selectKey keyProperty="no" resultClass="Integer">
 			SELECT
 			LAST_INSERT_ID()
@@ -55,7 +55,7 @@
 	<update id="update" parameterClass="reservevo">
 		UPDATE reserve 
 		SET
-			name=#name#, tel=#tel#, res_date=#res_date#, member_pk=#member_pk#,
+			name=#name#, tel1=#tel1#, tel2=#tel2#, tel3=#tel3#, res_date=#res_date#, member_pk=#member_pk#,
 			doctor_pk=#doctor_pk#, route=#route#, res_contents=#res_contents#,
 			res_hour=#res_hour#
 		WHERE no = #no#
@@ -148,8 +148,8 @@
 
 	<insert id="reserveInsert" parameterClass="reservevo">
 		INSERT INTO reserve
-			(name, tel, res_date, res_hour, member_pk, doctor_pk, res_contents, route)
+			(name, tel1, tel2, tel3, res_date, res_hour, member_pk, doctor_pk, res_contents, route)
 		VALUES
-			(#name#, #tel#, #res_date#, #res_hour#, #member_pk#, #doctor_pk#, #res_contents#, 1)
+			(#name#, #tel1#, #tel2#, #tel3#, #res_date#, #res_hour#, #member_pk#, #doctor_pk#, #res_contents#, 1)
 	</insert>
 </sqlMap>
