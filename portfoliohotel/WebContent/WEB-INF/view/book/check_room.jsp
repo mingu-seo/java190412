@@ -25,10 +25,10 @@
             <div class="chk-section">
                 <h2>객실검색</h2>
                 <ul class="cha_index clear">
-                    <li><a href="/book/check_room">객실검색 <span>></span> </a></li>
-                    <li class="/book/detail_sub"><a href="#">객실예약</a></li>
-                    <li><a href="/book/personal_info"><span>></span>정보입력</a></li>
-                    <li><a href="/book/confirm_room"><span>></span> 예약완료</a></li>
+                    <li><a href="check_room.do">객실검색 <span>></span> </a></li>
+                    <li class="current-page"><a href="#">객실예약</a></li>
+                    <li><a href="#"><span>></span>정보입력</a></li>
+                    <li><a href="#"><span>></span> 예약완료</a></li>
                 </ul>
                 <!-- 객실 검색 박스 -->
                 <div class="select-info-box">

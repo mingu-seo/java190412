@@ -71,11 +71,6 @@
 .birth input[type="text"] {width:31.2%; height:46px; margin-right:2%; display:inline-block;}
 .birth input[type="text"]:last-child {margin-right:0;}
 
-/* 전화번호 */
-.tel {margin-top:20px;}
-.tel label {display:block;}
-.tel input[type="text"] {width:31.2%; height:46px; margin-right:2%; display:inline-block;}
-.tel input[type="text"]:last-child {margin-right:0;}
 /* 이메일 */
 .email {margin-top:20px;}
 

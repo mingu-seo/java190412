@@ -52,14 +52,12 @@ ArrayList<Room_optVO> list_o = (ArrayList<Room_optVO>)request.getAttribute("list
     		$(".option_num").each(function(idx) {
     			if ($(".option_num").eq(idx).find("option:selected").val() != "") {
     				price_opt += $(".option_num").eq(idx).find("option:selected").data("option_price");
+    				$("#count").val($(".option_num").eq(idx).find("option:selected").val()); //추가옵션 수량
     			}
-    			//$("#count").val($(".option_num").eq(idx).find("option:selected").val()); //추가옵션 수량
-    			$("input[name='count']").eq(idx).val($(".option_num").eq(idx).val()); //추가옵션 수량
     		});
     		$("#option_price").val(Number(price_opt));
     		$("#option_price_span").text(numberWithCommas(price_opt));
     		calculate();
-    		
     	});
     });   
     
@@ -150,7 +148,7 @@ ArrayList<Room_optVO> list_o = (ArrayList<Room_optVO>)request.getAttribute("list
 							<input type="hidden" name="option_pk" value="<%=list_o.get(i).getNo()%>"/>
 							<input type="hidden" name="name" value="<%=list_o.get(i).getName()%>"/>
 							<input type="hidden" name="price" value="<%=list_o.get(i).getPrice() %>"/>
-							<input type="hidden" name="count" id="count" value=""/> 
+							<input type="hidden" name="count" id="count" value=""/>
 						<%
 							}
 						}
