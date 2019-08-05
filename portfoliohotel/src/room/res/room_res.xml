@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap namespace="room_res">
-
+	<!-- 공통 검색 조건 -->
 	<sql id="searchSql">
 		<dynamic prepend="WHERE">
 		1=1
@@ -9,7 +9,7 @@
 				<![CDATA[AND checkout < NOW()]]>
 			</isEqual>
 			<isEqual property="category" compareValue="2">
-				<![CDATA[AND checkin >= NOW()]]>
+				<![CDATA[AND checkin >= DATE_ADD(NOW(), INTERVAL - 1 DAY)]]>
 			</isEqual>
 			<isEqual property="category" compareValue="3">
 				AND res_state=1
@@ -40,7 +40,7 @@
 			</isNotNull>
 		</dynamic>
 	</sql>
-	
+	<!-- 공통 검색 조건 END -->
 	
 	
 	
@@ -64,17 +64,27 @@
 		FROM calendar AS c
 		WHERE today LIKE '$yearMonth$%'
 	</select>
+	
+	<select id="check" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		select no, name, 
+			(
+				select count(*) from room_res 
+		        where room_res.room_pk=room.no 
+		        and (
+					<![CDATA[(checkin  < '$checkout$') AND (checkout  >  '$checkin$')]]>
+				)
+			) as res_count 
+		from room
+	</select>
 		
 	<insert id="insert" parameterClass="room_resVO">
 		INSERT INTO room_res 
 			(room_pk, room_name, member_pk, checkin, checkout, bookdate, adult, kid,
 			room_price, person_price, option_price, charge_price, total_price, 
-			guest_kname, guest_ename, guest_tel, guest_email, 
-			pay_method, pay_state, res_state, paydate)
+			guest_kname, guest_tel, guest_email, pay_method, pay_state, res_state, paydate)
 		VALUES (#room_pk#, #room_name#, #member_pk#, #checkin#, #checkout#, now(), #adult#, #kid#,
 				#room_price#, #person_price#, #option_price#, #charge_price#, #total_price#, 
-				#guest_kname#, #guest_ename#, #guest_tel#, #guest_email#, 
-				#pay_method#, #pay_state#, 1, #paydate#)	
+				#guest_kname#, #guest_tel#, #guest_email#, #pay_method#, #pay_state#, 1, #paydate#)	
 		<selectKey keyProperty="no" resultClass="Integer">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
@@ -82,9 +92,8 @@
 	
 	<update id="edit" parameterClass="room_resVO">
 		UPDATE room_res SET
-			guest_kname=#guest_kname#, guest_ename=#guest_ename#, guest_tel=#guest_tel#, 
-			guest_email=#guest_email#, pay_method=#pay_method#, pay_state=#pay_state#, 
-			paydate=#paydate#
+			guest_kname=#guest_kname#, guest_tel=#guest_tel#, guest_email=#guest_email#, 
+			pay_method=#pay_method#, pay_state=#pay_state#, paydate=#paydate#
 		WHERE no=#no#
 	</update>
 	

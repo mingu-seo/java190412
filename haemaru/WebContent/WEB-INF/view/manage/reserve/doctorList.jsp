@@ -5,7 +5,6 @@
 <%@ page import="java.util.*"%>
 <%
 	ArrayList<DoctorVO> list = (ArrayList<DoctorVO>) request.getAttribute("list");
-
 %>
 <select name="doctor_pk" id="doctor_pk">
 <% for (int i=0; i<list.size(); i++) { %>

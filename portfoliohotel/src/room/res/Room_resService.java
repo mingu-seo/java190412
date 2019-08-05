@@ -38,6 +38,11 @@ public class Room_resService {
 		return map;
 	}
 	
+	public ArrayList<HashMap> check(HashMap map) throws Exception {
+		ArrayList<HashMap> list = room_resDAO.check(map);
+		return list;
+	}
+	
 	public int insert(Room_resVO vo, Room_opt_resVO ovo, HttpServletRequest req) throws Exception {
 		int r = (Integer)room_resDAO.insert(vo);
 		

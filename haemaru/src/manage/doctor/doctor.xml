@@ -4,49 +4,48 @@
 
 	<typeAlias alias="doctorvo" type="manage.doctor.DoctorVO" />
 
-
 	<!-- 공통조건 -->
 	<sql id="searchSql">
 		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where">
-			<isNotEqual property="department" compareValue="0"
-				prepend="and">
+			<isEqual property="isDoctor" compareValue="1" prepend="and">
+				(position = 1 OR position = 2) 
+			</isEqual>
+			<isNotEqual property="department" compareValue="0" prepend="and">
 				department = #department#
 			</isNotEqual>
 			<!-- 검색어 검색 -->
 			<isNotEqual property="sval" compareValue="" prepend="and">
 				<!-- 검색 타입이 all일 때 -->
 				<isEqual property="stype" compareValue="all">
-					((name like '%$sval$%' ) or (tel like '%$sval$%' ))
+					((name LIKE '%$sval$%' ) OR (tel LIKE '%$sval$%' ))
 				</isEqual>
 				<!-- 검색 타입이 all이 아닐때 해당 stype으로 검색 -->
 				<isNotEqual property="stype" compareValue="all">
-					($stype$ like '%$sval$%' )
+					($stype$ LIKE '%$sval$%' )
 				</isNotEqual>
 			</isNotEqual>
 		</dynamic>
 	</sql>
 	
-		<!-- 공통조건 -->
+	<!-- 공통조건 -->
 	<sql id="searchDoctor">
 		<!-- WHERE 절 검색 -->
 		<dynamic prepend="where">
-			<isNotEqual property="department" compareValue="0"
-				prepend="and">
+			<isNotEqual property="department" compareValue="0" prepend="and">
 				department = #department#
 			</isNotEqual>
 		</dynamic>
 	</sql>
 
 
-	<select id="count" parameterClass="doctorvo"
-		resultClass="Integer">
-		select count(*) from doctor
+	<select id="count" parameterClass="doctorvo" resultClass="Integer">
+		SELECT COUNT(*) 
+		FROM doctor
 		<include refid="searchSql" />
 	</select>
 
-	<select id="list" parameterClass="doctorvo"
-		resultClass="doctorvo">
+	<select id="list" parameterClass="doctorvo" resultClass="doctorvo">
 		SELECT *
 		FROM doctor
 		<include refid="searchSql" />
@@ -58,9 +57,9 @@
 
 	<insert id="insert" parameterClass="doctorvo">
 		INSERT INTO doctor
-		(name, department, position, addr, tel, category, doc_image, doc_image_org, registdate, gender)
+		(name, department, position, addr, tel, category, doc_image, doc_image_org, gender)
 		VALUES
-		(#name#, #department#, #position#, #addr#, #tel#, #category#, #doc_image#, #doc_image_org#, now(), #gender#)
+		(#name#, #department#, #position#, #addr#, #tel#, #category#, #doc_image#, #doc_image_org#, #gender#)
 		<selectKey keyProperty="no" resultClass="Integer">
 			SELECT
 			LAST_INSERT_ID()
@@ -69,7 +68,7 @@
 
 	<update id="update" parameterClass="doctorvo">
 		UPDATE doctor SET
-		name=#name#,department=#department#,
+		name=#name#, department=#department#,
 		position=#position#, addr=#addr#, gender=#gender#,
 		<isEqual property="doc_imagename_chk" compareValue="1">
 			doc_image='', doc_image_org='',
@@ -80,19 +79,23 @@
 			</isNotNull>
 		</isNotEqual>
 		 tel=#tel#
-		WHERE no = #no#
+		WHERE no=#no#
 	</update>
 
 	<delete id="delete" parameterClass="Integer">
-		DELETE FROM doctor WHERE no=#no#
+		DELETE FROM doctor 
+		WHERE no=#no#
 	</delete>
 
-	<select id="read" parameterClass="Integer"
-		resultClass="doctorvo">
-		SELECT * FROM doctor WHERE no>1 and no=#no#
+	<select id="read" parameterClass="Integer" resultClass="doctorvo">
+		SELECT * 
+		FROM doctor 
+		WHERE no>1 AND no=#no#
 	</select>
 	
 	<select id="Intro" parameterClass="doctorvo" resultClass="doctorvo">
-        select * from doctor ORDER BY position 
+        SELECT * 
+        FROM doctor 
+        ORDER BY position 
     </select>
 </sqlMap>

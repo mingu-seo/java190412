@@ -10,14 +10,12 @@ import db.SqlMapClientDAOSupport;
 import manage.doctor.DoctorVO;
 import mypet.MypetVO;
 
-
 @Repository
 public class DoctorDAO extends SqlMapClientDAOSupport {
 
 	public int count(DoctorVO param) throws SQLException {
 		return (Integer)getSqlMapClient().queryForObject("doctor.count", param);
 	}
-	
 
 	/**
 	 * 회원 목록 조회
@@ -25,7 +23,6 @@ public class DoctorDAO extends SqlMapClientDAOSupport {
 	 * @return ArrayList<AdminVO>
 	 * @throws SQLException
 	 */
-	
 	public ArrayList list(DoctorVO param) throws SQLException {
 		return (ArrayList)getSqlMapClient().queryForList("doctor.list", param);
 	}
@@ -38,7 +35,6 @@ public class DoctorDAO extends SqlMapClientDAOSupport {
 	 */
 	public int insert(DoctorVO vo) throws SQLException {
 		return (Integer) getSqlMapClient().insert("doctor.insert", vo);
-		
 	}
 
 	/**
@@ -67,43 +63,14 @@ public class DoctorDAO extends SqlMapClientDAOSupport {
 	 */
 	public DoctorVO read(int i) throws SQLException {
 		return (DoctorVO)getSqlMapClient().queryForObject("doctor.read", i);
-		 		
 	}
 	
 	public ArrayList<DoctorVO> Intro(DoctorVO param) throws SQLException {
 		return (ArrayList<DoctorVO>)getSqlMapClient().queryForList("doctor.Intro", param);
 	}
 	
-	
 	public static void main(String[] args) throws SQLException {
 		DoctorDAO dd = new DoctorDAO();
 		DoctorVO dv = new DoctorVO();
-		
-		dd.count(dv);
-		
-//		ad.list(av);
-//		av.setId("dayeong");
-//		av.setPassword("1234");
-//		av.setName("dayeong");
-//		int no = ad.insert(av);
-//		int cnt = ad.idcheck("dayeong1234");
-//		System.out.println(cnt);
-		
-//		HashMap m = new HashMap();
-//		m.put("product_pk",1);
-//		m.put("title", "테스트옵션");
-//		m.put("price", 99119);
-//		pd.insertOption(m);
-		
-//		ArrayList<HashMap> list = pd.listOption(268);
-//		
-//		for(int i=0; i<list.size(); i++) {
-//			System.out.println("상품명 : " + list.get(i).get("title")+"상품명 : " + list.get(i).get("price"));
-//		}
-		
-//		pd.reviewList(1);
-		
 	}
-
-
 }

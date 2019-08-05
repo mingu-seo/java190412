@@ -18,11 +18,11 @@
 	<!-- 해당 테이블에 게시글 작성 -->
     <insert id="insert" parameterClass="pkg_res_vo">
         INSERT INTO pkg_res (
-        	pkg_name, use_date, guest_kname, guest_ename, 
-        	guest_tel, email_id, email_adress, pkg_price, pkg_count, total_price
+        	pkg_name, use_date, guest_kname, purchase_date, pkg_pk,
+        	guest_tel, email, pkg_price, pkg_count, total_price
         ) VALUES (
-        	#pkg_name#, #use_date#, #guest_kname#, #guest_ename#, 
-        	#guest_tel#, #email_id#, #email_adress#, #pkg_price#, #pkg_count#, #total_price#
+        	#pkg_name#, #use_date#, #guest_kname#, now(), #pkg_pk#,
+        	#guest_tel#, #email#, #pkg_price#, #pkg_count#, #total_price#
         )
         <selectKey keyProperty="no" resultClass="Integer">
         	SELECT LAST_INSERT_ID()
@@ -35,8 +35,8 @@
     
     <update id="update" parameterClass="pkg_res_vo">
         update pkg_res set
-        	pkg_name=#pkg_name#, use_date=#use_date#, guest_kname=#guest_kname#, guest_ename=#guest_ename#, guest_tel=#guest_tel#, 
-        	email_id=#email_id#, email_adress=#email_adress#, pkg_price=#pkg_price#, pkg_count=#pkg_count#, total_price=#total_price#
+        	pkg_name=#pkg_name#, use_date=#use_date#, guest_kname=#guest_kname#, guest_tel=#guest_tel#, 
+        	email=#email#, pkg_price=#pkg_price#, pkg_count=#pkg_count#, total_price=#total_price#
         where no=#no#
     </update>
     

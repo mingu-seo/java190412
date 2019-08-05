@@ -21,7 +21,7 @@
         	kname, ename, intro, intro_detail, startdate, enddate, pkg, price, 
         	event, guide, regdate
         ) VALUES (
-        	#kname#, #ename#, #intro#, #intro_detail##startdate#, #enddate#, #pkg#, #price#, 
+        	#kname#, #ename#, #intro#, #intro_detail#, #startdate#, #enddate#, #pkg#, #price#, 
         	#event#, #guide#, now()
         )
         <selectKey keyProperty="no" resultClass="Integer">

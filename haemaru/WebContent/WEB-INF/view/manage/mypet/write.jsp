@@ -82,8 +82,7 @@ function goSave() {
 												<td><input type="text" id="vac" name="vac" value="" />
 												</td>
 												<th scope="row"><label for="">이미지</label></th>
-												<td colspan="3"><input type="file" id="image_tmp"
-													name="image_tmp" class="w50" title="첨부파일을 업로드 해주세요." /></td>
+												<td colspan="3"><input type="file" id="image_tmp" name="image_tmp" class="w50" title="첨부파일을 업로드 해주세요." /></td>
 											</tr>
 											<tr>
 												<td colspan="4">
