@@ -40,4 +40,10 @@ public class UExhibitionService {
 		
 		return ticket;
 	}
+	
+	public UExhibitionVO pastReview(int no) throws Exception {
+		UExhibitionVO pastreview = uexhibitionDao.pastReview(no);
+		
+		return pastreview;
+	}
 }

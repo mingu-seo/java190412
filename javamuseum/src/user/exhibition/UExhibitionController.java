@@ -50,6 +50,19 @@ public class UExhibitionController {
 		
 		model.addAttribute("param", param);
 		model.addAttribute("edList", edList);
-		return "user/exhibition/subExhibition2";
+		
+		if(param.getStartdate() != null) {
+			return "user/exhibition/pastExhibition2";
+		} else {
+			return "user/exhibition/subExhibition2";
+		}
+	}
+	
+	@RequestMapping("/user/exhibition/pastDetail")
+	public String pastDetail(Model model, UExhibitionVO param) throws Exception {
+		UExhibitionVO detail = uexhibitionService.pastReview(param.getNo());
+					
+		model.addAttribute("detail", detail);
+		return "user/exhibition/pastDetail";
 	}
 }

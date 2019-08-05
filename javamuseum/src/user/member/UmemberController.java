@@ -10,9 +10,4 @@ import manage.member.MemberVO;
 @Controller
 public class UmemberController {
 	
-	@RequestMapping("/user/mypage/mypage")
-	public String mypage(Model model) throws Exception{
-		
-		return "user/mypage/mypage";
-	}
 }

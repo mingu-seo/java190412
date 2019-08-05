@@ -1,50 +1,72 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-
+<%@ page import="java.util.*" %>
+<%@ page import="util.*" %>
+<%@ page import="user.ticket.*" %>
+<%@ page import="manage.member.*" %>
+<%
+MemberVO member = (MemberVO)session.getAttribute("memberInfo");
+%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<%@ include file="/WEB-INF/view/user/include/commonHtml.jsp" %>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>마이페이지</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<%@ include file="/WEB-INF/view/user/include/commonHtml.jsp" %>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>마이페이지</title>
     
-	<link rel="stylesheet" href="/css/mypage.css">
-	<style>
+<link rel="stylesheet" href="/css/mypage.css">
+<style>
     
-	</style>
-	<script type="text/javascript" src="/js/slick.js"></script>
-	<script type="text/javascript" src="/js/aos.js"></script>
-	<script type="text/javascript">
-		$(function(){
-			// 회원정보(1)
-            
-			$(".con3-gr-btn").click(function(event){
-				event.preventDefault();
-				$(".con4-center").show();
-			});
+</style>
+<script type="text/javascript" src="/js/slick.js"></script>
+<script type="text/javascript" src="/js/aos.js"></script>
+<script>
 
-			$(".con4-closebtn").click(function(event){
-				event.preventDefault();
-				$(".con4-center").hide();
-			});
-
-			//Q&A 접었다가 펼치는 기능 
-        
-			//첫화면 높이값 안잡히는 부분 스크립트로 처리
-
-			var hei = $(".con3-center").height();
-			$(".members-wrap").height(hei);
-
-
-			// 텝메뉴(버튼)
-			$(".con2-center li").click(function(){
-				var btnnember = $(this).index();
-				$(".members-wrap > div").hide();
-				$(".members-wrap > div").eq(btnnember).show();
-			});
-
+	$(function(){
+		
+		// 회원정보(1)
+		$(".con3-gr-btn").click(function(event){
+			event.preventDefault();
+			$(".con4-center").show();
 		});
+
+		$(".con4-closebtn").click(function(event){
+			event.preventDefault();
+			$(".con4-center").hide();
+		});
+
+		//Q&A 접었다가 펼치는 기능 
+        
+		//첫화면 높이값 안잡히는 부분 스크립트로 처리
+
+		/* var hei = $(".con3-center").height();
+		$(".members-wrap").height(hei); */
+
+
+		// 텝메뉴(버튼)
+		$(".con2-center li").click(function(){
+			var btnnember = $(this).index();
+			$(".members-wrap > div").hide();
+			$(".members-wrap > div").eq(btnnember).show();
+		});
+		
+
+	});
+	function ticketShow(member_pk){
+		$(".members-wrap > div").hide();
+		$.ajax({
+			type: "GET",
+			url: "/user/mypage/ticket",
+			data: { "member_pk" : member_pk},
+			async: false,
+			success: function(data){
+				$(".con6").html(data);
+				$(".con6-center").show();
+			}
+		});
+	}
+	
 	</script>
 </head>
 <body>
@@ -70,7 +92,7 @@
 					<h3>내가 본 작품</h3>
 					<p>관람한 작품들을 한번에<br>모아 보고 싶다면?</p>
 				</li>
-				<li class="con2-gr">
+				<li class="con2-gr" onclick="ticketShow(<%=member.getNo()%>)">
 					<img src="/img/mypage-con1-3.png">
 					<h3>예매내역</h3>
 					<p>최근 예매한 작품이<br>궁금하다면?</p>
@@ -181,71 +203,9 @@
             </div>
             <!-- 예매 내역 -->
             <div class="con6">
-                <div class="con6-center">
-                    <div class="con6-text">
-                        <h2>예매내역</h2>
-                        <h4>예매한 작품내역을 날짜별로 확인할 수 있습니다.</h4>
-                    </div>
-                    <!-- 예매 내역 내용 -->
-                    <div class="con6-exhibition">
-                        <div class="con6-gr clear">
-                            <div class="con6-left">
-                                <img src="img/mypage-con4-1.jpg">
-                            </div>
-                            <div class="con6-right clear">
-                                <h5>Coco Capitan: Is It Tomorrow Yet?</h5>
-                                <div class="con6-left-text">
-                                    <p>예매번호 : 2173717491389393</p>
-                                    <p>예매날짜 : 2019.05.25</p>
-                                    <p>매수 : 1매</p>
-                                </div>
-                                <div class="con6-right-text">
-                                    <p>관람일시 : 2019.06.01</p>
-                                    <p>결제금액 : 30,000원</p>
-                                    <p>결제상태 : 예매완료</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="con6-gr clear">
-                            <div class="con6-left">
-                                <img src="img/mypage-con4-2.jpg">
-                            </div>
-                            <div class="con6-right">
-                                <h5>PAPER, PRESENT:너를 위한 선물</h5>
-                                <div class="con6-left-text">
-                                    <p>예매번호 : 2173717491173749</p>
-                                    <p>예매날짜 : 2018.11.25</p>
-                                    <p>매수 : 1매</p>
-                                </div>
-                                <div class="con6-right-text">
-                                    <p>관람일시 : 2018.12.01</p>
-                                    <p>결제금액 : 25,000원</p>
-                                    <p>결제상태 : 예매완료</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="con6-gr clear">
-                            <div class="con6-left">
-                                <img src="img/mypage-con4-3.jpg">
-                            </div>
-                            <div class="con6-right">
-                                <h5>The Selby House : 즐거운_나의_집</h5>
-                                <div class="con6-left-text">
-                                    <p>예매번호 : 2173717493739295</p>
-                                    <p>예매날짜 : 2017.07.05</p>
-                                    <p>매수 : 1매</p>
-                                </div>
-                                <div class="con6-right-text">
-                                    <p>관람일시 : 2019.07.25</p>
-                                    <p>결제금액 : 30,000원</p>
-                                    <p>결제상태 : 예매완료</p>
-                                </div>
-                            </div>
-                        </div>
-                </div>
+                
             </div>
-        
-            </div>
+            <!-- //예매 내역 -->
             <!-- 대관내역 -->
             <div class="con7">
 				<div class="con7-center">

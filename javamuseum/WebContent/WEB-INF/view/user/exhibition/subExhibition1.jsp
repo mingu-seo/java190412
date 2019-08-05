@@ -58,16 +58,6 @@ int totPage = (Integer)request.getAttribute("totPage");
 				$(this).parent(".con2-sub01").stop().fadeOut();
 			});
 
-			/* $(".sub01-btn .li1").click(function(event){
-				event.preventDefault();
-				getTicket(i);
-				$(".con3-bg").show();
-			}); */
-			
-			/* $(".sub01-btn .li2").click(function(event){
-				event.preventDefault();
-				$(".con4-bg").show();
-			}) */
 			$(".con4 #submit-btn2").click(function(){
 				$(".con4-bg").hide();
 			});

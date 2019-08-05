@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="mypage">
+    
+    <typeAlias alias="uexhibitionvo" type="user.exhibition.UExhibitionVO"/>
+    
+    <select id="myResList" parameterClass="Integer" resultClass="user.ticket.UTicketVO">
+		SELECT *, 
+ 		(SELECT title FROM display WHERE ticket.display_pk=display.no) AS title,
+		(SELECT imagename FROM display WHERE ticket.display_pk=display.no) AS imagename FROM ticket
+		WHERE member_pk=#member_pk#
+		ORDER BY no DESC
+    </select>
+    
+    <select id="resCount" parameterClass="user.ticket.UTicketVO" resultClass="Integer">
+    	SELECT COUNT(*) FROM ticket
+    	WHERE member_pk=#member_pk#
+    </select>
+</sqlMap>

@@ -1,50 +1,47 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.util.*" %>
-<%@ page import="user.exhibition.*" %>
-<%@ page import="manage.member.*" %>
 <%@ page import="util.*" %>
+<%@ page import="user.exhibition.*" %>
 <%
 UExhibitionVO detail = (UExhibitionVO)request.getAttribute("detail");
-MemberVO member = (MemberVO)session.getAttribute("memberInfo");
+UExhibitionVO param = (UExhibitionVO)request.getAttribute("param");
 %>
-<link rel="stylesheet" href="/css/jquery-ui.css">
-<script src="/js/jquery-ui.js"></script>
 <script>
-
-$(function(){
-	$(".con5-reviews").hide();
-	$("#moreReview").hide();
-	$(".detail").addClass("on");
-	$(".review").removeClass("on");
-	
-	$("#submit-btn2").click(function(event){
-		event.preventDefault();
-		$(".con4-bg").hide();
-	});
-	
-	$(".detail").click(function(event){
-		event.preventDefault();
-		$(this).addClass("on");
-		$(".review").removeClass("on");
-		$("#moreReview").hide();
+	$(function(){
+		$(".con4 #submit-btn2").click(function() {
+			$(".con4-bg").hide();
+		});
+		
 		$(".con5-reviews").hide();
-		$(".con5-contents").show();
-	});
-	
-	$(".review").click(function(event){
-		event.preventDefault();
-		$(this).addClass("on");
-		$(".detail").removeClass("on");
-		$(".con5-contents").hide();
-		$("#moreReview").show();
-	});
-})
- 
+		$(".detail").addClass("on");
+		$(".review").removeClass("on");
+		
+		$("#submit-btn2").click(function(event){
+			event.preventDefault();
+			$(".con4-bg").hide();
+		});
+		
+		$(".detail").click(function(event){
+			event.preventDefault();
+			$(this).addClass("on");
+			$(".review").removeClass("on");
+			$(".con5-reviews").hide();
+			$(".con5-contents").show();
+		});
+		
+		$(".review").click(function(event){
+			event.preventDefault();
+			$(this).addClass("on");
+			$(".detail").removeClass("on");
+			$(".con5-contents").hide();
+			$("#moreReview").show();
+		});
+	})
 </script>
 <div class="con4-bg">
 	<div class="con4-gr">
 		<div class="con4-header">
-			<h3>작품 상세</h3>
+			<h3>전시후기</h3>
 		</div>
 		<div class="con4-center">
 			<ul class="con4-top clear">
@@ -56,7 +53,6 @@ $(function(){
 					<p><%=detail.getPreview()%></p>
 					<ul class="sub01-btn clear">
 						<li class="like" id="like" onclick="getDetail(<%=detail.getLike_cnt()%>)"><a href="javascript:;">♥<%=detail.getLike_cnt()%></a></li>
-						<li class="li1" onclick="getTicket(<%=detail.getNo()%>)"><a href="javascript:;">예매하기</a></li>
 					</ul>
 				</li>
 			</ul>
