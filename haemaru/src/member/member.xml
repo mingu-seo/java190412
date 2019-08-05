@@ -67,18 +67,19 @@
     </select>
     
 	<select id="idcheck" parameterClass="String" resultClass="Integer">
-    	select count(*) as cnt from member where email1=#email1#
+    	select count(*) as cnt from member where concat(email1, email2) = #email1#
     </select>  
     
     <select id="loginCheck" parameterClass="membervo" resultClass="Integer">
-    	select count(*) as cnt from member where email1=#email1# and pw=md5(#pw#)
+    	SELECT count(*) FROM haemaru.member where concat(email1, email2) = #email1# and pw=md5(#pw#)
     </select>    
+    
     
     <select id="mypetList" parameterClass="Integer" resultClass="member.MypettVO">
         select * from mypet where member_pk=#no# ORDER BY registdate DESC 
     </select>
     
     <select id="loginSessionInfo" parameterClass="membervo" resultClass="membervo">
-        select * from member where email1=#email1# and pw=md5(#pw#)
+        select * from member where concat(email1, email2) = #email1# and pw=md5(#pw#)
     </select>
 </sqlMap>

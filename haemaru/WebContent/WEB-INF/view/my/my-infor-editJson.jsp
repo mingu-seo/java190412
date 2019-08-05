@@ -5,9 +5,9 @@
 %>
 	{
 		"no":"<%=mdata.getNo() %>",
-		"email":"<%=mdata.getEmail2() %>",
+		"email":"<%=mdata.getEmail1() %>","<%=mdata.getEmail2() %>"
 		"pw":"<%=mdata.getPw() %>",
 		"name":"<%=mdata.getName() %>",
 		"birth":"<%=mdata.getBirth() %>",
-		"tel":"<%=mdata.getTel2() %>"+"<%=mdata.getTel3() %>"
+		"tel":"<%=mdata.getTel1() %>"+"<%=mdata.getTel2() %>"+"<%=mdata.getTel3() %>"
 	}

@@ -34,6 +34,7 @@
 .sub6-text > a {display:block; position: absolute; bottom:-50px; left:50%; transform: translateX(-50%);  float:right; width:140px; height:40px; text-align: center; line-height:40px; color:#4d6877; font-size:14px; font-weight: 700;
                 background-image: url("../icon/icon_plus.png"); background-position:right 2px center; background-size:20px; background-repeat: no-repeat;}
 
+
 /* 반려동물 박스 */
 .pet-box-center {margin-top:80px;}
 .pet-box {margin-bottom:70px; position: relative;}
