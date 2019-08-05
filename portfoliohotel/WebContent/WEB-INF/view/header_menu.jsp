@@ -14,7 +14,7 @@ int ptotCount = (Integer)request.getAttribute("ptotCount");
 int ptotPage = (Integer)request.getAttribute("ptotPage");
 %>
 <div id="header">
-<<<<<<< HEAD
+
 
     <%if(sessionMember != null) {%>
           <div id="logined">
@@ -41,8 +41,7 @@ int ptotPage = (Integer)request.getAttribute("ptotPage");
             </div>      
         </div>  
         <%} %>
-=======
->>>>>>> branch 'master' of https://github.com/mingu-seo/java190412.git
+
         <div class="header-center">
             <div class="pc-header">
                 <h1 class="logo"><a href="/index"><img src="/img/header-logo.png"></a></h1>
