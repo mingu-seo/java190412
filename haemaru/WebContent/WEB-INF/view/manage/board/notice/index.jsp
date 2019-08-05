@@ -73,7 +73,7 @@ function groupDelete() {
 								<tbody>
 								<% if (list.size() == 0) { %>
 									<tr>
-										<td class="first" colspan="8">등록된 자료가 없습니다.</td>
+										<td class="first" colspan="7">등록된 자료가 없습니다.</td>
 									</tr>
 								<%
 									 } else {

@@ -1,3 +1,4 @@
+<%@page import="com.sun.beans.decoder.ValueObject"%>
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="manage.reservation.*" %>
 <%@ page import="manage.program.*" %>

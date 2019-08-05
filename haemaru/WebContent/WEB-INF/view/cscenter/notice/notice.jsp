@@ -72,7 +72,7 @@ int totPage = (Integer)request.getAttribute("totPage");
                             </tr>
                         <% if (totCount == 0) { %>
                         	<tr>
-								<td class="first" colspan="8">등록된 질문이 없습니다.</td>
+								<td class="first" colspan="7">등록된 공지가 없습니다.</td>
 							</tr>
 							<%
                         	} else {
@@ -95,14 +95,12 @@ int totPage = (Integer)request.getAttribute("totPage");
 							}
                             %>
                         </table>
-                        <div class="notice-number-all clear">
+                        <!-- 페이징 처리 -->
+						
+                       <div class="notice-number-all clear">
                             <p class="notice-number-arrow"><a href="#"></a></p>
                             <ul class="notice-number clear">
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
+                               <li><%=Page.indexList(param.getReqPageNo(), totPage, request)%></li>
                             </ul>
                             <p class="notice-number-arrow2"><a href="#"></a></p>
                         </div>

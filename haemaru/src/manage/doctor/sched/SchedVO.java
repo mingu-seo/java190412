@@ -22,10 +22,7 @@ public class SchedVO extends Parameter {
 	private int sat_end;
 	private int sun_start;
 	private int sun_end;
-	private int hol_start;
-	private int hol_end;
 	private int time; // 시간 선택
-	private Timestamp registdate;
 	private int mon_res;
 	private int tue_res;
 	private int wed_res;
@@ -182,22 +179,6 @@ public class SchedVO extends Parameter {
 	public void setSun_end(int sun_end) {
 		this.sun_end = sun_end;
 	}
-
-	public int getHol_start() {
-		return hol_start;
-	}
-
-	public void setHol_start(int hol_start) {
-		this.hol_start = hol_start;
-	}
-
-	public int getHol_end() {
-		return hol_end;
-	}
-
-	public void setHol_end(int hol_end) {
-		this.hol_end = hol_end;
-	}	
 	
 	public int getTime() {
 		return time;
@@ -205,14 +186,6 @@ public class SchedVO extends Parameter {
 
 	public void setTime(int time) {
 		this.time = time;
-	}
-
-	public Timestamp getRegistdate() {
-		return registdate;
-	}
-
-	public void setRegistdate(Timestamp registdate) {
-		this.registdate = registdate;
 	}
 
 	public int getMon_res() {
@@ -318,7 +291,5 @@ public class SchedVO extends Parameter {
 	public void setPosition(int position) {
 		this.position = position;
 	}
-	
-	
 
 }

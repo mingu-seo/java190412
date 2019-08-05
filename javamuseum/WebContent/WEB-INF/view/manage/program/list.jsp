@@ -112,6 +112,8 @@ function goSearch() {
 										ProgramVO data;
 										for (int i=0; i<list.size(); i++) {
 											data = list.get(i);
+											
+									     
 											targetUrl = "style='cursor:pointer;' onclick=\"location.href='"+param.getTargetURLParam("read", param, list.get(i).getNo())+"'\"";
 								%>
 								

@@ -9,11 +9,38 @@ MemberVO data = (MemberVO)request.getAttribute("data");
 %>
 <%
 PkgVO pparam = (PkgVO)request.getAttribute("pvo");
-ArrayList<PkgVO> plist = (ArrayList)request.getAttribute("plist");
+ArrayList<PkgVO> plist = (ArrayList<PkgVO>)request.getAttribute("plist");
 int ptotCount = (Integer)request.getAttribute("ptotCount");
 int ptotPage = (Integer)request.getAttribute("ptotPage");
 %>
 <div id="header">
+
+    <%-- <%if(sessionMember != null) {%>
+          <div id="logined">
+            <div class="logined-box">
+                <h2 class="close-btn"><a href="#">x</a></h2>
+                 
+                <h3><%=sessionMember.getF_name()%> <%=sessionMember.getL_name()%><span>님 안녕하세요.</span></h3>
+                <p class="mypage"><a href="/membership/mypage">마이페이지 <img src="img/white-arrow.png" class="white-arrow"></a></p>
+                <table>
+               
+                    <tr>
+                        <td class="left">등급</td>
+                        <td class="right"><%=CodeUtil.getMgrade(sessionMember.getGrade())%></td>
+                    </tr>
+                    <tr>
+                        <td class="left">포인트</td>
+                        <td class="right"><%=sessionMember.getPoint()%> P</td>
+                    </tr>
+                    <tr>
+                        <td class="left">회원번호</td>
+                        <td class="right"><%=sessionMember.getNo()%></td>
+                    </tr>
+                </table>
+            </div>      
+        </div>  
+        <%} %> --%>
+
         <div class="header-center">
             <div class="pc-header">
                 <h1 class="logo"><a href="/index"><img src="/img/header-logo.png"></a></h1>

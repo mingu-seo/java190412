@@ -18,10 +18,10 @@
 	<!-- 해당 테이블에 게시글 작성 -->
     <insert id="insert" parameterClass="pkg_res_vo">
         INSERT INTO pkg_res (
-        	pkg_name, use_date, guest_kname, 
+        	pkg_name, use_date, guest_kname, purchase_date, pkg_pk,
         	guest_tel, email, pkg_price, pkg_count, total_price
         ) VALUES (
-        	#pkg_name#, #use_date#, #guest_kname#,
+        	#pkg_name#, #use_date#, #guest_kname#, now(), #pkg_pk#,
         	#guest_tel#, #email#, #pkg_price#, #pkg_count#, #total_price#
         )
         <selectKey keyProperty="no" resultClass="Integer">

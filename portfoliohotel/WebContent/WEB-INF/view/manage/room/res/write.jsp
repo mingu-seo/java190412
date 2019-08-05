@@ -70,7 +70,7 @@ function goSave() {
 	return true;
 }
 
-var day_stay = 0;
+var day_stay = 0; //숙박일수
 var price_stay = 0; //숙박일수 금액
 var price_opt = 0; //추가옵션 금액
 var price_person = 0; //추가인원 금액
@@ -84,7 +84,6 @@ function calculate() {
 	$("#charge_price").val(Number(price_charge));
 	$("#total_price_span").text(price_total);
 	$("#total_price").val(Number(price_total));
-	
 }
 
 $(function(){	
@@ -194,7 +193,7 @@ function checkDate(checkin, checkout) {
 					<!-- 내용 : s -->
 					<div id="bbs">
 						<div id="bread">
-							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process.do" onsubmit="return goSave();">
+							<form method="post" name="frm" id="frm" action="<%=Function.getSslCheckUrl(request.getRequestURL())%>/process" onsubmit="return goSave();">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="관리자 관리 기본내용입니다.">
 								<colgroup>
 									<col width="10%"/>
@@ -302,13 +301,16 @@ function checkDate(checkin, checkout) {
 										</td>
 									</tr>
 									<tr>
-										<th colspan="2">숙박 고객 한글명</th>
-										<td colspan="3"><input type="text" id="guest_kname" name="guest_kname" class="w90"/></td>
-										<td colspan="5"></td>
+										<th colspan="2">숙박 고객 성명</th>
+										<td colspan="1"><input type="text" id="guest_lastname" name="guest_lastname" class="w90"/></td>
+										<td colspan="1"><input type="text" id="guest_firstname" name="guest_firstname" class="w90"/></td>
+										<td colspan="6"></td>
 									</tr>
 									<tr>	
 										<th colspan="2">숙박 고객 연락처</th>
-										<td colspan="3"><input type="text" id="guest_tel" name="guest_tel" class="w90"/></td>
+										<td colspan="1"><input type="text" id="guest_tel1" name="guest_tel1" class="w90"/></td>
+										<td colspan="1"><input type="text" id="guest_tel2" name="guest_tel2" class="w90"/></td>
+										<td colspan="1"><input type="text" id="guest_tel3" name="guest_tel3" class="w90"/></td>
 										<th colspan="2">숙박 고객 이메일</th>
 										<td colspan="3"><input type="text" id="guest_email" name="guest_email" class="w90"/></td>
 									</tr>

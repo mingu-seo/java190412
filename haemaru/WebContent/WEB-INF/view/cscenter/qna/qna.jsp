@@ -58,7 +58,7 @@ int totPage = (Integer)request.getAttribute("totPage");
                             <option>응급의료센터</option>
                             <option>예약</option>
                         </select>
-                        <input type="text" id="search_input" placeholder="검색어를 입력하세요.">
+                        <input type="text" id="search_input" name="search" placeholder="검색어를 입력하세요.">
                         <input type="submit" value="검색"  id="btn_submit_search">
                     </form>
                     <div class="reply-table">
@@ -96,7 +96,7 @@ int totPage = (Integer)request.getAttribute("totPage");
                            %>
                         </table>
                         <ul class="reply-btn clear">
-                            <li><a href="/qna/qna.do">문의하기</a></li>
+                            <li><a href="/cscenter/qna/addqna.do">문의하기</a></li>
                             <li><a href="sub5-5.html">내 질문 보기</a></li>
                         </ul>
                         <div class="reply-number-all clear">

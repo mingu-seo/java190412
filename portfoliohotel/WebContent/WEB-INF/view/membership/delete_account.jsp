@@ -23,7 +23,43 @@ MemberVO data = (MemberVO)request.getAttribute("data");
     <script type="text/javascript" src="/js/jquery-3.4.1.js"></script>
     <script type="text/javascript" src="/js/gnb.js"></script>
     <title>탈퇴사유</title>
+    
+    <script>
+    function goDelete(){
+    	if ($("#password").val() == "") {
+    		alert("비밀번호를 입력해주세요.");
+    		$("#password").focus();
+    		return false;
+    	}
+    	if($("#password").val()=="password"){
+    		alert("비밀번호가 다릅니다.");
+    		return false;
+    	}
+    	$("#frm").submit(); 
+    }
+    
+    </script>
 </head>
+
+<%-- <script>
+	
+	function goDelete() {
+		 if(!validPassword($("#password")))
+			
+		 getObject("password").focus();
+			 return false; 
+		
+		
+		
+		var del = confirm ('탈퇴하시겠습니까?');
+		if (del){
+			document.location.href = "process?no=<%=data.getNo()%>&cmd=delete";
+		} else {
+			return false;
+		}
+		
+	}
+</script> --%>
 <body>
     <div id="header">
         <div class="header-center">
@@ -167,9 +203,9 @@ MemberVO data = (MemberVO)request.getAttribute("data");
         <div class="notice">
             <div class="support-list">
                 <ul class="support-list-center">
-                    <li><a href="edit_account.do">회원정보 수정</a></li>
-                    <li><a href="edit_password.do">비밀번호 설정 및 변경</a></li>
-                    <li class="on"><a href="delete_account.do">탈퇴요청</a></li>
+                    <li><a href="edit_account">회원정보 수정</a></li>
+                    <li><a href="edit_password">비밀번호 설정 및 변경</a></li>
+                    <li class="on"><a href="delete_account">탈퇴요청</a></li>
                 </ul>
             </div>
             <div class="section-edit">
@@ -180,21 +216,28 @@ MemberVO data = (MemberVO)request.getAttribute("data");
                         <form method="POST">
                        
                             <div class="section01_del">
-                                <input type="text" id="section01_del" name="section01_del" placeholder="사용자 비밀번호 입력">
+                                <input type="password" id="password" name="password" placeholder="사용자 비밀번호 입력">
                             </div>
                             <div class="section02_del">
                                 <select>
                                     <option>탈퇴사유</option>
-                                    <option>더 이상 서비스를 사용하지 않음</option>
-                                    <option>서비스가 불편함</option>
-                                    <option>시스템 장애(속도 저조, 에러등)</option>
-                                    <option>장기간 부재(군 입대, 유학등)</option>
-                                    <option>기타사유</option>
+                                    <option value="1">더 이상 서비스를 사용하지 않음</option>
+                                    <option value="2">서비스가 불편함</option>
+                                    <option value="3">시스템 장애(속도 저조, 에러등)</option>
+                                    <option value="4">장기간 부재(군 입대, 유학등)</option>
+                                    <option value="5">기타사유</option>
                                 </select>
                             </div>
+                            
+                            <input type="hidden" name="cmd" value="delete_account">
+							<input type="hidden" name="stype" id="stype" value="<%=param.getStype()%>"/>
+							<input type="hidden" name="sval" id="sval" value="<%=param.getSval()%>"/>
+							<input type="hidden" name="no" id="no" value="<%=sessionMember.getNo()%>"/>
 
                             <div class="submit">
-                                    <input type="submit" value="탈퇴확인" class="submit-button">
+                                    <!-- <input type="submit" value="탈퇴확인" class="submit-button" onclick="goDelete();"> -->
+                                    <input type='button' class="submit-button" href="#" onclick="goDelete();" value="탈퇴확인">
+                                    
                             </div>
                         </form>
                     </div>

@@ -8,26 +8,26 @@
     <title>해마루(2조)</title>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700|Poppins&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700|Roboto:400,500,700&display=swap&subset=korean" rel="stylesheet">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/main-layout.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/main-layout.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
     <!-- 전체 마우스 휠 슬라이드 플러그인 -->
-    <script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="/js/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
     <!-- 다섯번째 슬라이드 화면 플러그인 -->
-    <script type="text/javascript" src="js/modernizr.custom.97074.js"></script> 
-    <script type="text/javascript" src="js/jquery.hoverdir.js"></script>
-    <script type="text/javascript" src="js/hoverdir.js"></script>
+    <script type="text/javascript" src="/js/modernizr.custom.97074.js"></script> 
+    <script type="text/javascript" src="/js/jquery.hoverdir.js"></script>
+    <script type="text/javascript" src="/js/hoverdir.js"></script>
     <!-- banner2 화면 텍스트 플러그인 -->
-    <script type="text/javascript" src="js/textyle.min.js"></script>
+    <script type="text/javascript" src="/js/textyle.min.js"></script>
     <!-- 첫번째  화면 슬라이드  -->
-    <script type="text/javascript" src='js/mainSlider.js'></script>
+    <script type="text/javascript" src='/js/mainSlider.js'></script>
     <!-- 전체 화면 마우스 휠 -->
-    <script type="text/javascript" src='js/mainMousewheel.js'></script>
+    <script type="text/javascript" src='/js/mainMousewheel.js'></script>
     <!-- 그 외 적용 자바스크립트 -->
-    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="/js/custom.js"></script>
 </head>
 <body>
 <%@ include file="/WEB-INF/view/include/headHtmlMain.jsp" %>
@@ -76,7 +76,7 @@
                                 <li>
                                     <!-- 이미지 사이즈 900px -->
                                     <div class="section-img">
-                                        <img src="img/banner_right_01.jpg">
+                                        <img src="/img/banner_right_01.jpg">
                                         <div class="section-text">
                                             <div class="hours">
                                             <h3>24시간 응급의료센터</h3>
@@ -89,7 +89,7 @@
                                  <li>
                                      <!-- 이미지 사이즈 1800px -->
                                     <div class="section-img">
-                                        <img src="img/banner-main-test.jpg">
+                                        <img src="/img/banner-main-test.jpg">
                                         <div class="section-text2">
                                             <h4>H A E M A R U&nbsp;&nbsp;&nbsp;&nbsp;M E D I C A L</h4>
                                             <h5>Medical Information</h5>
@@ -101,7 +101,7 @@
                                     <div class="section-img">
                                         <img class="view3-img-3" src="img/con4-1.jpg">
                                         <div class="section-text">
-                                            <img src="img/heamaru_clinic.png">
+                                            <img src="/img/heamaru_clinic.png">
                                             <p class="medical-text"><a href="sub2-1.html">외과</a>&nbsp;&nbsp;&nbsp;<a href="sub2-2.html">내과</a>&nbsp;&nbsp;&nbsp;<a href="sub2-3.html">영상의학과</a></a></p>
                                         </div>
                                     </div>
@@ -116,8 +116,8 @@
                         <li><a href="#">3</a></li>
                     </ul>
                     <!-- 베너 좌 우 버튼 -->
-                    <div class="prev"><img src="img/bannerarrow.png"></div>
-                    <div class="next"><img src="img/bannerarrownext.png"></div>
+                    <div class="prev"><img src="/img/bannerarrow.png"></div>
+                    <div class="next"><img src="/img/bannerarrownext.png"></div>
                 </div>
                 <!-- 베너 끝 -->
                 <!-- 끝 -->
@@ -137,7 +137,7 @@
                     <a href="sub1-3.html">
                         <h3>찿아 오시는 길</h3>
                         <h4>How to Find</h4>
-                        <img src="img/mapbg.png">
+                        <img src="/img/mapbg.png">
                     </a>
                 </div>
                 <div class="con2-info3">
@@ -194,7 +194,7 @@
                         <div class="con2-tab-box-group">
                             <div class="con2-tab-box clear">
                                 <div class="con2-tab-box-area clear">
-                                    <div class="con2-tab-img"><img src="img/kimhyunone.png"></div>
+                                    <div class="con2-tab-img"><img src="/img/kimhyunone.png"></div>
                                     <div class="con2-tab-img">
                                         <h4>김현욱</h4>
                                         <h5>Director of Hospital</h5>
@@ -202,7 +202,7 @@
                                         <h6>Profile</h6>
                                         <a href="sub1-2.html"><p>View All</p></a>
                                     </div>
-                                    <div class="con2-tab-img"><img src="img/kimjinone.png"></div>
+                                    <div class="con2-tab-img"><img src="/img/kimjinone.png"></div>
                                     <div class="con2-tab-img">
                                         <h4>김진경</h4>
                                         <h5>Director of Hospital</h5>
@@ -213,7 +213,7 @@
                                 </div>
                                 <div class="con2-tab-box-area clear">
                                         <div class="con2-tab-img2 clear">
-                                            <img src="img/cho.png">
+                                            <img src="/img/cho.png">
                                             <div class="con2-tab-img-text">
                                                 <h4>최새롬</h4>
                                                 <h5>Veterinarian</h5>
@@ -233,7 +233,7 @@
                                             </div>
                                         </div>
                                         <div class="con2-tab-img2 clear">
-                                            <img src="img/lee.png">
+                                            <img src="/img/lee.png">
                                             <div class="con2-tab-img-text">
                                                 <h4>이승현</h4>
                                                 <h5>Veterinarian</h5>
@@ -245,7 +245,7 @@
                                 </div>
                                 <div class="con2-tab-box-area clear">
                                         <div class="con2-tab-img2 clear">
-                                            <img src="img/tec_01.png">
+                                            <img src="/img/tec_01.png">
                                             <div class="con2-tab-img-text">
                                                 <h4>박혜란</h4>
                                                 <h5>Technician</h5>
@@ -265,7 +265,7 @@
                                             </div>
                                         </div>
                                         <div class="con2-tab-img2 clear">
-                                            <img src="img/tec_03.png">
+                                            <img src="/img/tec_03.png">
                                             <div class="con2-tab-img-text">
                                                 <h4>이승현</h4>
                                                 <h5>Technician</h5>
@@ -277,7 +277,7 @@
                                 </div>
                                 <div class="con2-tab-box-area clear">
                                         <div class="con2-tab-img2 clear">
-                                            <img src="img/rec_01.png">
+                                            <img src="/img/rec_01.png">
                                             <div class="con2-tab-img-text">
                                                 <h4>국선영</h4>
                                                 <h5>Receptionist</h5>

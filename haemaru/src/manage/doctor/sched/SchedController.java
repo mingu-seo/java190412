@@ -21,7 +21,6 @@ public class SchedController {
 	@Autowired
 	private SchedService schedService;
 	
-	
 	@RequestMapping("/manage/sched/index")
 	public String index(Model model, SchedVO param) throws Exception {
 		int[] rowPageCount = schedService.count(param);
@@ -45,12 +44,13 @@ public class SchedController {
 		return "manage/sched/read";
 	}
 	
-
 	@RequestMapping("/manage/sched/edit")
 	public String edit(Model model, SchedVO param, @RequestParam(value="noType", required = false) String noType) throws Exception {
 		SchedVO data = schedService.read(param.getNo(), noType);
+		
 		model.addAttribute("data", data);
 		model.addAttribute("vo", param);
+		
 		return "manage/sched/edit";
 	}
 
@@ -61,18 +61,16 @@ public class SchedController {
 		return "manage/sched/write";
 	}
 
-	
-
 	@RequestMapping("/manage/sched/process")
 	public String process(Model model, SchedVO param,  HttpServletRequest request) throws Exception {
 		model.addAttribute("productvo", param);
 		if ("write".equals(param.getCmd())) {
-			int r = schedService.insert(param, request);
+			int r = schedService.insert(param);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 등록되었습니다.", "등록실패"));
 			model.addAttribute("url", "index");
 		} else if ("edit".equals(param.getCmd())) {
-			int r = schedService.update(param, request, null);
+			int r = schedService.update(param, null);
 			model.addAttribute("code", "alertMessageUrl");
 			model.addAttribute("message", Function.message(r, "정상적으로 수정되었습니다.", "수정실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
@@ -87,7 +85,6 @@ public class SchedController {
 			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		}
-		
 		return "include/alert";
 	}
 

@@ -46,7 +46,7 @@ function groupDelete() {
 
 function goDelete(no) {	
 	if (confirm ('삭제하시겠습니까?')) {
-		document.location.href = "/manage/room/res/process?no="+no+"&cmd=delete";
+		document.location.href = "/room/res/process?no="+no+"&cmd=delete";
 	}
 }
 
@@ -118,8 +118,8 @@ function goSearch() {
 								<td>
 									<select name="stype">
 										<option value="all" <%=vo.getStype().equals("all")? "selected" : "" %>>전체</option>
-										<option value="guest_kname" <%=vo.getStype().equals("guest_kname")? "selected" : "" %>>고객 한글명</option>
-										<option value="guest_ename" <%=vo.getStype().equals("guest_ename")? "selected" : "" %>>고객 영문명</option>
+										<option value="guest_lastname" <%=vo.getStype().equals("guest_lastname")? "selected" : "" %>>고객 한글명</option>
+										<option value="guest_firstname" <%=vo.getStype().equals("guest_firstname")? "selected" : "" %>>고객 영문명</option>
 										<option value="guest_email" <%=vo.getStype().equals("guest_email")? "selected" : "" %>>고객 이메일</option>
 										<option value="room_name" <%=vo.getStype().equals("room_name")? "selected" : "" %>>객실명</option>
 									</select>
@@ -148,7 +148,7 @@ function goSearch() {
 					<div id="bbs">
 						<div id="blist">
 							<p><span><strong>총 <%=totCount%>개</strong>  |  <%=vo.getReqPageNo()%>/<%=totPage%>페이지</span></p>
-							<form name="frm" id="frm" action="/manage/room/res/process" method="post">
+							<form name="frm" id="frm" action="/room/res/process" method="post">
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
 								<colgroup>
 									<col class="w3" />
@@ -193,7 +193,7 @@ function goSearch() {
 										<td><%=data.getNo()%></td>
 										<td><%=data.getCheckin() %></td>
 										<td><%=data.getCheckout() %></td>
-										<td <%=targetUrl%>><%=data.getGuest_kname() %></td>
+										<td <%=targetUrl%>><%=data.getGuest_lastname() + data.getGuest_firstname() %></td>
 										<td><%=data.getRoom_name() %></td>
 										<td><%=data.getAdult() %></td>
 										<td><%=data.getKid() %></td>

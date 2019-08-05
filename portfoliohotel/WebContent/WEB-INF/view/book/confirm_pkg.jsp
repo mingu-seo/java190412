@@ -1,4 +1,15 @@
 <%@ page contentType="text/html; charset=utf-8" %>
+<%@ page import="java.util.*" %>
+<%@ page import="pkg.*" %>
+<%@ page import="pkg.res.*" %>
+<%@ page import="util.*" %>
+<%
+PkgVO pkg_data = (PkgVO) request.getAttribute("pkg_data");
+%>
+<%
+Pkg_resVO res_param = (Pkg_resVO) request.getAttribute("res_param");
+Pkg_resVO res_data = (Pkg_resVO) request.getAttribute("res_data");
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -14,6 +25,10 @@
     <script type="text/javascript" src="/js/gnb.js"></script>
     <title>객실 예약 완료</title>
 </head>
+<script>
+<% res_data.setTotal_price(res_data.getPkg_count() *res_data.getPkg_price()); %>
+</script>
+
 <body>
   	
    <jsp:include page="/header_menu" flush="true"/>
@@ -35,37 +50,37 @@
 
                     <ul class="guest clear">
                             <li>투숙객 이름</li>
-                            <li class="second">END BACK</li>
+                            <li class="second"><%=res_data.getGuest_kname() %></li>
                     </ul>
                     <ul class="reservation_number clear">
                             <li>예약변호</li>
                             <li class="second">000000000000</li>
                     </ul>
-                    <ul class="room_number clear">
+                    <!-- <ul class="room_number clear">
                         <li>객실수 및 숙박일수</li>
                         <li class="second">객실 0개 0박</li>
-                    </ul>
+                    </ul> -->
                     <ul class="room_name clear">
-                            <li>객실이름</li>
-                            <li class="second">Namsan Pool Deluxe Room</li>
+                            <li>패키지 이름</li>
+                            <li class="second"><%=res_data.getPkg_name() %></li>
                     </ul>
                     <ul class="check_in clear">
-                            <li>체크인 날짜</li>
-                            <li class="second">0000년 0월 0일 요일</li>
+                            <li>패키지 수령 날짜</li>
+                            <li class="second"><%=res_data.getUse_date() %></li>
                     </ul>
-                    <ul class="check_out clear">
+                    <!-- <ul class="check_out clear">
                             <li>체크아웃 날짜</li>
                             <li class="second">0000년 0월 0일 요일</li>
-                    </ul>
+                    </ul> -->
                     <ul class="check_out clear">
-                            <li>인원수</li>
-                            <li class="second">성인 0명 어린이 0명 [총 0명]</li>
+                            <li>패키지 수량</li>
+                            <li class="second"><%=res_data.getPkg_count() %></li>
                     </ul>
 
                     <div class="option">
                         <h3>* 추가옵션</h3>
                         <ul class="option-form clear">
-                                <li>스파추가</li>
+                                <li>패키지 수량</li>
                                 <li class="second">[0]</li>
                         </ul>
                         <ul class="option-form clear">
@@ -80,7 +95,7 @@
 
                     <ul class="payment clear">
                         <h3>* 총 결재금액</h3>
-                        <li>KRW 0,000,000원</li>
+                        <li>KRW <%=res_data.getTotal_price() %>원</li>
                         <li class="second">세금 및 봉사료 KRW 000,000원 포함</li>
                     </ul>
                 </div>

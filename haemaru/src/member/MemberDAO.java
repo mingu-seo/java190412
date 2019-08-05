@@ -40,7 +40,7 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 
 	/**
 	 * 회원 수정
-	 * @param vo
+	 * @param i
 	 * @throws SQLException
 	 */
 	public int update(MemberVO vo) throws SQLException {
@@ -89,8 +89,8 @@ public class MemberDAO extends SqlMapClientDAOSupport {
 	 * @return
 	 * @throws SQLException
 	 */
-	public int idcheck(String email) throws SQLException {
-		return (Integer) getSqlMapClient().queryForObject("member.idcheck", email);
+	public int idcheck(String email1) throws SQLException {
+		return (Integer) getSqlMapClient().queryForObject("member.idcheck", email1);
 	}
 
 	

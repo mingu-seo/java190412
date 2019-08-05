@@ -3,6 +3,9 @@ package test;
 public class Test {
 
 	public static void main(String[] args) {
-		System.out.println("Portfolio Hotel");
+		String a = "abcdefg";
+		String b = "z";
+		
+		System.out.println(a.indexOf(b));
 	}
 }

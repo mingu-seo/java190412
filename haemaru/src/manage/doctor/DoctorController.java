@@ -12,6 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import manage.doctor.DoctorVO;
+import manage.doctor.sched.SchedVO;
+import manage.reserve.ReserveService;
+import manage.reserve.ReserveVO;
 import member.MemberVO;
 import mypet.MypetVO;
 import util.Function;
@@ -21,12 +24,14 @@ public class DoctorController {
 
 	@Autowired
 	private DoctorService doctorService;
+	
+	@Autowired
+	private ReserveService reserveService;
 
 	@RequestMapping("/manage/doctor/index")
 	public String index(Model model, DoctorVO param) throws Exception {
 		int[] rowPageCount = doctorService.count(param);
 		ArrayList<DoctorVO> list = doctorService.list(param);
-
 		model.addAttribute("totCount", rowPageCount[0]);
 		model.addAttribute("totPage", rowPageCount[1]);
 		model.addAttribute("list", list);
@@ -34,12 +39,28 @@ public class DoctorController {
 
 		return "manage/doctor/index";
 	}
+	
+	@RequestMapping("/reservation/reservationDoctorList.do")
+	public String doctorList(Model model, DoctorVO param, SchedVO svo) throws Exception {
+		param.setPageRows(99999);
+		param.setIsDoctor(1);
+		ArrayList<DoctorVO> list = doctorService.list(param);
+		model.addAttribute("list", list);
+		
+		// 예약시간
+		for (int i=0; i<list.size(); i++) {
+			svo.setDoctor_pk(list.get(i).getNo());
+			SchedVO slist = reserveService.schedList(svo);
+			ArrayList<ReserveVO> tlist = reserveService.reservedTime(svo.getDate(), svo.getDoctor_pk());
+			list.get(i).setSlist(slist);
+			list.get(i).setTlist(tlist);
+		}
+		return "reservation/reservationDoctorList";
+	}
 
 	@RequestMapping("/manage/doctor/read")
 	public String read(Model model, DoctorVO param) throws Exception {
 		DoctorVO data = doctorService.read(param.getNo());
-
-		
 		model.addAttribute("data", data);
 		model.addAttribute("vo", param);
 		
@@ -58,19 +79,17 @@ public class DoctorController {
 		DoctorVO data = doctorService.read(param.getNo());
 		model.addAttribute("data", data);
 		model.addAttribute("vo", param);
+		
 		return "manage/doctor/edit";
 	}
 	
 	@RequestMapping("/intro/intro-staff.do")
 	public String Intro(Model model, DoctorVO param) throws Exception {
-		//DoctorVO data = doctorService.read(param.getNo());
-		
 		ArrayList list = doctorService.Intro(param);
 		model.addAttribute("list", list);
 		
 		return "intro/intro-staff";
 	}
-
 
 	@RequestMapping("/manage/doctor/process")
 	public String process(Model model, DoctorVO param, HttpServletRequest request) throws Exception {
@@ -96,7 +115,6 @@ public class DoctorController {
 			model.addAttribute("message", Function.message(r, "정상적으로 삭제되었습니다.", "삭제실패"));
 			model.addAttribute("url", param.getTargetURLParam("index", param, 0));
 		}
-
 		return "include/alert";
 	}
 
