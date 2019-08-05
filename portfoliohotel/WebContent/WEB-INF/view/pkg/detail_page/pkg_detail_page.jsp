@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="pkg.*" %>
+<%@ page import="pkg.res.*" %>
 <%@ page import="java.util.*" %>
 <%
 PkgVO pkg_param = (PkgVO) request.getAttribute("pkg_param");
 PkgVO pkg_data = (PkgVO) request.getAttribute("pkg_data");
 %>
+<%-- <%
+Pkg_resVO prparams = (Pkg_resVO) request.getAttribute("prparam");
+%> --%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -61,13 +65,13 @@ PkgVO pkg_data = (PkgVO) request.getAttribute("pkg_data");
         <div class="banner senseof">
             <div class="banner-center">
                 <div class="banner-text">
-                    <h2>생일 패키지
-                        <span>Birthday Package</span>
+                    <h2><%=pkg_data.getKname()%>
+                        <span><%=pkg_data.getEname()%></span>
                     </h2>
-                    <h3>portfollio 호텔의 생일 패키지를 소개합니다.
+                    <h3><%=pkg_data.getIntro()%>
                     </h3>
                     <p>
-반얀트리 스파의 섬세한 테라피와 서울의 야경이 펼쳐진<br/> 문 바에서 ‘THE 달달한 밤'을 즐기며 로맨틱한 하루를 보내세요.
+						<%=pkg_data.getIntro_detail()%>
                     </p>
                 </div>
             </div>
@@ -79,13 +83,8 @@ PkgVO pkg_data = (PkgVO) request.getAttribute("pkg_data");
                     <table>
                         <tr>
                             <td class="table-list">기간</td>
-                            <td>2019. 1. 2 (수) ~ 2019. 7. 19 (금)</td>
+                            <td><%=pkg_data.getStartdate()%> ~ <%=pkg_data.getEnddate()%></td>
                         </tr>
-                        <tr>
-                            <td class="table-list">시간</td>
-                            <td>오후7시~오후9시</td>
-                        </tr>
-                        
                         <tr>
                             <td class="table-list price">가격</td>
                             <td><%=pkg_data.getPrice() %>원</td>
@@ -97,18 +96,12 @@ PkgVO pkg_data = (PkgVO) request.getAttribute("pkg_data");
                         </tr>
                         <tr>
                             <td class="table-list event">이벤트</td>
-                            <td class="td-lh">객실 예약과를 통해 예약하시는 분들께 선착순으로<br/> 설화수의 오색향연 여온 오일 세트 (7ml x 5종)를 증정합니다.<br/>
-                                <br/> 
-                                (투숙 당 1회 증정 / 예약 상황에 따라 조기 마감될 수 있음)
+                            <td class="td-lh"><%=pkg_data.getEvent()%>
                             </td>
                         </tr>
                         <tr>
                             <td class="table-list info">안내</td>
-                            <td class="td-lh">· 가격은 2인 1실 1박을 기준이며, 세금 별도입니다. <br/>
-                                · 객실 상황에 따라 가격이 변동됩니다.  <br/>
-                                · 투숙 인원 추가 시 별도의 요금이 부과 됩니다.  <br/>
-                                · 패키지에 포함된 혜택은 투숙 기간 중에 한해 1회 제공됩니다.  <br/>
-                                · 피트니스, 사우나, 반얀트리 스파의 정기 휴관일은 매월 첫째 주 화요일 입니다.
+                            <td class="td-lh"><%=pkg_data.getGuide()%>
                             </td>
                         </tr>
                     </table>
@@ -117,7 +110,7 @@ PkgVO pkg_data = (PkgVO) request.getAttribute("pkg_data");
                     <h3>예약 및 이용문의</h3>
                     <h4>전화</h4>
                     <h4>02 2250 8000</h4>
-                    <a href="/book/pkg_book_channel">온라인 예약</a>
+                    <a href="/book/pkg_pkg_book?no=<%=pkg_data.getNo()%>">온라인 예약</a>
                 </div>
             </div>
         </div>

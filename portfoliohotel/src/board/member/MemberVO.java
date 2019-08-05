@@ -9,10 +9,15 @@ public class MemberVO extends Parameter {
 	private int no; // 번호
 	private String email; // 이메일
 	private String password; // 패스워드
-	private String name; // 이름
+	private String f_name; // 성
+	private String l_name; // 이름
 	private int gender; // 성별
-	private String tel; // 전화번호
-	private String birthday; // 생년월일
+	private String f_tel; // 전화번호 앞자리
+	private String m_tel; // 전화번호 중간
+	private String l_tel; // 전화번호 끝자리
+	private String birthday_year; // 생년월일 (년)
+	private String birthday_month; // 생년월일 (월)
+	private String birthday_day; // 생년월일 (일)
 	private Timestamp regdate; // 가입일
 	private String zipcode; // 우편번호
 	private String addr; // 주소
@@ -65,12 +70,20 @@ public class MemberVO extends Parameter {
 		this.password = password;
 	}
 
-	public String getName() {
-		return name;
+	public String getF_name() {
+		return f_name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setF_name(String f_name) {
+		this.f_name = f_name;
+	}
+
+	public String getL_name() {
+		return l_name;
+	}
+
+	public void setL_name(String l_name) {
+		this.l_name = l_name;
 	}
 
 	public int getGender() {
@@ -81,20 +94,52 @@ public class MemberVO extends Parameter {
 		this.gender = gender;
 	}
 
-	public String getTel() {
-		return tel;
+	public String getF_tel() {
+		return f_tel;
 	}
 
-	public void setTel(String tel) {
-		this.tel = tel;
+	public void setF_tel(String f_tel) {
+		this.f_tel = f_tel;
 	}
 
-	public String getBirthday() {
-		return birthday;
+	public String getM_tel() {
+		return m_tel;
 	}
 
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
+	public void setM_tel(String m_tel) {
+		this.m_tel = m_tel;
+	}
+
+	public String getL_tel() {
+		return l_tel;
+	}
+
+	public void setL_tel(String l_tel) {
+		this.l_tel = l_tel;
+	}
+
+	public String getBirthday_year() {
+		return birthday_year;
+	}
+
+	public void setBirthday_year(String birthday_year) {
+		this.birthday_year = birthday_year;
+	}
+
+	public String getBirthday_month() {
+		return birthday_month;
+	}
+
+	public void setBirthday_month(String birthday_month) {
+		this.birthday_month = birthday_month;
+	}
+
+	public String getBirthday_day() {
+		return birthday_day;
+	}
+
+	public void setBirthday_day(String birthday_day) {
+		this.birthday_day = birthday_day;
 	}
 
 	public Timestamp getRegdate() {
@@ -184,6 +229,8 @@ public class MemberVO extends Parameter {
 	public void setSecession_reason(int secession_reason) {
 		this.secession_reason = secession_reason;
 	}
+
+	
 	
 	
 

@@ -9,9 +9,12 @@ public class MemberVO extends Parameter{
 	
 	private int no;
 	private String name;
-	private String email;
+	private String email1;
+	private String email2;
 	private String pw;
-	private String tel;
+	private String tel1;
+	private String tel2;
+	private String tel3;
 	private String birth;
 	private String memo;
 	private Timestamp registdate;
@@ -48,23 +51,11 @@ public class MemberVO extends Parameter{
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
 	public String getPw() {
 		return pw;
 	}
 	public void setPw(String pw) {
 		this.pw = pw;
-	}
-	public String getTel() {
-		return tel;
-	}
-	public void setTel(String tel) {
-		this.tel = tel;
 	}
 	public String getBirth() {
 		return birth;
@@ -85,5 +76,44 @@ public class MemberVO extends Parameter{
 		this.registdate = registdate;
 	}
 
-	
+	public String getEmail1() {
+		return email1;
+	}
+
+	public void setEmail1(String email1) {
+		this.email1 = email1;
+	}
+
+	public String getEmail2() {
+		return email2;
+	}
+
+	public void setEmail2(String email2) {
+		this.email2 = email2;
+	}
+
+	public String getTel1() {
+		return tel1;
+	}
+
+	public void setTel1(String tel1) {
+		this.tel1 = tel1;
+	}
+
+	public String getTel2() {
+		return tel2;
+	}
+
+	public void setTel2(String tel2) {
+		this.tel2 = tel2;
+	}
+
+	public String getTel3() {
+		return tel3;
+	}
+
+	public void setTel3(String tel3) {
+		this.tel3 = tel3;
+	}
+		
 }

@@ -41,7 +41,13 @@ public class MemberService {
 		int cnt = memberDao.update(vo);
 		return cnt;
 	}
-
+	
+	public int password(MemberVO vo) throws SQLException {
+		int cnt = memberDao.password(vo);
+		return cnt;
+	}
+	
+	
 	public int delete(int no) throws SQLException {
 		int cnt = memberDao.delete(no);
 		return cnt;
@@ -79,6 +85,10 @@ public class MemberService {
 	public int idcheck(MemberVO param) throws SQLException {
 		return memberDao.idcheck(param);
 	}
+	
+//	public int join(MemberVO param) throws SQLException {
+//		return memberDao.insert(param);
+//	}
 
 	public MemberVO getLoginSessionInfo(MemberVO param) throws SQLException {
 		MemberVO vo = memberDao.getLoginSessionInfo(param);

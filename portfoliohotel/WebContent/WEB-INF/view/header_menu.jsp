@@ -4,27 +4,24 @@
 <%@ page import="pkg.*" %>
 <%@ page import="util.*" %>
 <%
-MemberVO param = (MemberVO)request.getAttribute("vo");
-ArrayList<MemberVO> list = (ArrayList<MemberVO>)request.getAttribute("list");
 MemberVO sessionMember = (MemberVO)session.getAttribute("memberInfo");
 MemberVO data = (MemberVO)request.getAttribute("data");
 %>
 <%
 PkgVO pparam = (PkgVO)request.getAttribute("pvo");
-ArrayList<PkgVO> plist = (ArrayList)request.getAttribute("plist");
+ArrayList<PkgVO> plist = (ArrayList<PkgVO>)request.getAttribute("plist");
 int ptotCount = (Integer)request.getAttribute("ptotCount");
 int ptotPage = (Integer)request.getAttribute("ptotPage");
 %>
 <div id="header">
+<<<<<<< HEAD
 
     <%if(sessionMember != null) {%>
           <div id="logined">
             <div class="logined-box">
                 <h2 class="close-btn"><a href="#">x</a></h2>
-                 <%
-                 String[] nameArr = sessionMember.getName().split(",");
-                 %>
-                <h3><%=nameArr[0]%> <%=nameArr[1]%><span>님 안녕하세요.</span></h3>
+                 
+                <h3><%=sessionMember.getF_name()%> <%=sessionMember.getL_name()%><span>님 안녕하세요.</span></h3>
                 <p class="mypage"><a href="/membership/mypage">마이페이지 <img src="img/white-arrow.png" class="white-arrow"></a></p>
                 <table>
                
@@ -44,6 +41,8 @@ int ptotPage = (Integer)request.getAttribute("ptotPage");
             </div>      
         </div>  
         <%} %>
+=======
+>>>>>>> branch 'master' of https://github.com/mingu-seo/java190412.git
         <div class="header-center">
             <div class="pc-header">
                 <h1 class="logo"><a href="/index"><img src="/img/header-logo.png"></a></h1>
@@ -111,16 +110,16 @@ int ptotPage = (Integer)request.getAttribute("ptotPage");
                                             <div class="pc-sub-box facil-left">
                                                 <h2 class="no-line">Facilities</h2>
                                                 <ul>
-                                                    <li><a href="../facilities.html#f1">The Oasis</a></li>
-                                                    <li><a href="../facilities.html#f2">Indoor Swimming Pool</a></li>
+                                                    <li><a href="/facilities.html#f1">The Oasis</a></li>
+                                                    <li><a href="/facilities.html#f2">Indoor Swimming Pool</a></li>
                                                     
                                                 </ul>
                                             </div>
                                             <div class="pc-sub-box mtop">
                 
                                                 <ul class="Rooms">
-                                                	<li><a href="../facilities.html#f3">Fitness Centre</a></li>
-                                                    <li><a href="../facilities.html#f4">Sauna</a></li>
+                                                	<li><a href="/facilities.html#f3">Fitness Centre</a></li>
+                                                    <li><a href="/facilities.html#f4">Sauna</a></li>
                                                 </ul>
                                             </div>
                                             <div class="pc-sub-box mtop facil-right">
@@ -164,7 +163,7 @@ int ptotPage = (Integer)request.getAttribute("ptotPage");
                                                 </a>
                                             </div>
                                             <div class="pc-sub-box mtop">
-                                                <a href="/membership/qna">
+                                                <a href="/support/qna/qna">
                                                 <ul>
                                                     <li>Q&A</li>
                                                     <li class="support-text">

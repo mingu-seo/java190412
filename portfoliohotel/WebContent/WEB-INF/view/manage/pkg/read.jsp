@@ -84,6 +84,12 @@ PkgVO data = (PkgVO) request.getAttribute("data");
 											<td><%=data.getEname()%></td>
 										</tr>
 										<tr>
+											<th scope="row"><label for="">패키지 소개</label></th>
+											<td><%=data.getIntro()%></td>
+											<th scope="row"><label for="">패키지 상세 소개</label></th>
+											<td><%=data.getIntro_detail()%></td>
+										</tr>
+										<tr>
 											<th scope="row"><label for="">운영기간 시작일</label></th>
 											<td><%=data.getStartdate() %></td>
 											<th scope="row"><label for="">운영기간 종료일</label></th>

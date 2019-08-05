@@ -24,7 +24,6 @@ public class SchedDAO extends SqlMapClientDAOSupport {
 	 * @return ArrayList<AdminVO>
 	 * @throws SQLException
 	 */
-	
 	public ArrayList list(SchedVO param) throws SQLException {
 		return (ArrayList)getSqlMapClient().queryForList("sched.list", param);
 	}
@@ -66,40 +65,15 @@ public class SchedDAO extends SqlMapClientDAOSupport {
 	 */
 	public SchedVO read(int i) throws SQLException {
 		return (SchedVO)getSqlMapClient().queryForObject("sched.read", i);
-		 		
-		
 	}
+	
 	// 의료진관리에서 의료진pk로 넘어오는 경우
 	public SchedVO readByDoctor(int i) throws SQLException {
 		return (SchedVO)getSqlMapClient().queryForObject("sched.readByDoctor", i);
 	}
 	
-	
 	public static void main(String[] args) throws SQLException {
 		SchedDAO dao = new SchedDAO();
 		SchedVO vo = new SchedVO();
-//		ad.count(av);
-//		ad.list(av);
-//		av.setId("dayeong");
-//		av.setPassword("1234");
-//		av.setName("dayeong");
-//		int no = ad.insert(av);
-//		int cnt = ad.idcheck("dayeong1234");
-//		System.out.println(cnt);
-		
-//		HashMap m = new HashMap();
-//		m.put("product_pk",1);
-//		m.put("title", "테스트옵션");
-//		m.put("price", 99119);
-//		pd.insertOption(m);
-		
-//		ArrayList<HashMap> list = pd.listOption(268);
-//		
-//		for(int i=0; i<list.size(); i++) {
-//			System.out.println("상품명 : " + list.get(i).get("title")+"상품명 : " + list.get(i).get("price"));
-//		}
-		
-		/* pd.reviewList(1); */
-		
 	}
 }

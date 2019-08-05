@@ -35,11 +35,11 @@
     
     <insert id="insert" parameterClass="membervo" >
         insert into member
-        	(email, password, name, gender,tel,birthday,regdate,zipcode,addr,
+        	(email, password, f_name, l_name, gender,f_tel, m_tel, l_tel, birthday_year,birthday_month,birthday_day,regdate,zipcode,addr,
         	 addr_detail,logindate,point,grade,sns_type,sns_key,secession,secession_reason) 
         	 
         values
-        	(#email#, md5(#password#), #name#, #gender#,#tel#, #birthday#,now(),#zipcode#,#addr#,
+        	(#email#, md5(#password#), #f_name#, #l_name#, #gender#, #f_tel#, #m_tel#, #l_tel#, #birthday_year#, #birthday_month#, #birthday_day#,now(),#zipcode#,#addr#,
         	 #addr_detail#,now(),#point#,#grade#,#sns_type#,#sns_key#,#secession#,#secession_reason#)
         	 
         <selectKey keyProperty="no" resultClass="Integer">
@@ -51,12 +51,23 @@
    
     <update id="update" parameterClass="membervo">
         update member set
-        	<isNotEqual property="password" compareValue="">
+        	<!-- <isNotEqual property="password" compareValue="">
         	    password = md5(#password#),
-        	</isNotEqual>
-        	 name=#name#, birthday=#birthday#,tel=#tel#, addr=#addr#, zipcode=#zipcode#, addr_detail=#addr_detail#
+        	</isNotEqual> -->
+        	 f_name=#f_name#,l_name=#l_name#, birthday_year=#birthday_year#,birthday_month=#birthday_month#,
+        	 birthday_day=#birthday_day#,f_tel=#f_tel#,l_tel=#l_tel#, addr=#addr#, zipcode=#zipcode#, addr_detail=#addr_detail#
         where no=#no#
+        
     </update>
+    
+    
+   <update id="password" parameterClass="membervo">
+        update member set
+        	password=md5(#password#) where no=#no#
+    </update> 
+    
+    
+   
     
       <!-- <update id="memberEdit" parameterClass="membervo">
         update member set
@@ -87,6 +98,7 @@
      
     <select id="emailcheck" parameterClass="String" resultClass="Integer">
         select count(*) as cnt from member where email=#email#
+        
     </select>
     
     <select id="loginCheck" parameterClass="membervo" resultClass="Integer">
@@ -100,6 +112,7 @@
      <select id="emailSrc" parameterClass="membervo" resultClass="Integer">
         select count(*) as cnt from member where email=#email# and password=md5(#password#)
     </select>
+    
     <!-- 
         관리자 로그인 접속 기록
     <sql id="historySearchSql">

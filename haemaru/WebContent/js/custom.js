@@ -85,10 +85,10 @@ $(function(){
         e.preventDefault();
         $('.reservation-ck-page').stop().fadeOut(500);
     });
-    $('.re-check-ck-in').click(function(e){
-        e.preventDefault();
-        $('.reservation-page').stop().fadeIn(500);
-    });
+//    $('.re-check-ck-in').click(function(e){
+//        e.preventDefault();
+//        $('.reservation-page').stop().fadeIn(500);
+//    });
     $('.re-check-ck-out').click(function(e){
         e.preventDefault();
         $('.reservation-ck-page').stop().fadeOut(500);

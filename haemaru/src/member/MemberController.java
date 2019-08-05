@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import member.MemberVO;
 import member.MypettVO;
+import mypet.MypetVO;
 import util.Function;
 
 @Controller
@@ -77,7 +78,7 @@ public class MemberController {
 	@RequestMapping("/manage/member/idcheck")
 	public String idcheck(Model model, MemberVO param, HttpServletRequest request) throws Exception {
 		model.addAttribute("vo", param);
-		int value = memberService.idcheck(request.getParameter("email"));
+		int value = memberService.idcheck(request.getParameter("email1"));
 
 		model.addAttribute("value", value);
 		
@@ -121,6 +122,24 @@ public class MemberController {
 		model.addAttribute("vo", param);
 		
 		return "my/my-infor";
+	}
+	
+	@RequestMapping("/my/my-infor-editJson.do")
+	public String myInforEditJson(Model model, MemberVO param, HttpSession session) throws Exception {
+		MemberVO m = (MemberVO)session.getAttribute("memberInfo");
+		MemberVO data = memberService.read(m.getNo());
+		model.addAttribute("data", data);
+		model.addAttribute("vo", param);
+		
+		return "my/my-infor-editJson";
+	}
+	
+	@RequestMapping("/my/my-infor-edit.do")
+	public String myInforEdit(Model model, MemberVO param) throws Exception {
+		memberService.update(param);
+		model.addAttribute("vo", param);
+		
+		return "redirect:my-infor.do";
 	}
 	
 }

@@ -6,10 +6,10 @@
 <%@ page import="util.*"%>
 <%@ page import="java.util.*"%>
 <%
-SchedVO sched = (SchedVO) request.getAttribute("slist");
-ArrayList<ReserveVO> tlist = (ArrayList) request.getAttribute("tlist");
-String arg = (String) request.getAttribute("arg");
-int argInt = Function.getIntParameter(arg);
+	SchedVO sched = (SchedVO) request.getAttribute("slist");
+	ArrayList<ReserveVO> tlist = (ArrayList) request.getAttribute("tlist");
+	String arg = (String) request.getAttribute("arg");
+	int argInt = Function.getIntParameter(arg);
 %>
 <select name="res_hour" >
 	<%=CodeUtil.getDoctorScheduleOptionForReserve(argInt, sched.getStart_time(), sched.getEnd_time(), tlist) %>

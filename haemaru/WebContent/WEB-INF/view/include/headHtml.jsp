@@ -10,7 +10,7 @@
         <%@ include file="/WEB-INF/view/include/join.jsp" %>
         <!-- Right Fix -->
 
-        <h1 class="header-logo"><a href="/index.do"><img src="/img/icon/logo_lightgreen.png"></a></h1>
+        <h1 class="header-logo"><a href="/index.do"><img src="/icon/logo_lightgreen.png"></a></h1>
         <!-- GNB MENU -->
         <div class="header-center clear">
             <!-- gnb & sub menu -->
